@@ -1,1 +1,0 @@
-# secuconnect-php-sdk
