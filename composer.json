@@ -9,7 +9,7 @@
         "api"
     ],
     "homepage": "http://secuconnect.com",
-    "license": "apache 2 license",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "secuconnect KG",
