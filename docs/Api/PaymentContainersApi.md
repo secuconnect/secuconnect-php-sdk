@@ -1,22 +1,22 @@
 # Secuconnect\Client\PaymentContainersApi
 
-All URIs are relative to *https://connect-testing.secupay-ag.de/api/v2/*
+All URIs are relative to *https://connect-testing.secupay-ag.de/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**paymentContainersGet**](PaymentContainersApi.md#paymentContainersGet) | **GET** Payment/Containers | 
-[**paymentContainersGetById**](PaymentContainersApi.md#paymentContainersGetById) | **GET** Payment/Containers/{id} | 
-[**paymentContainersIdAssignSecondaryIdDelete**](PaymentContainersApi.md#paymentContainersIdAssignSecondaryIdDelete) | **DELETE** Payment/Containers/{id}/assign/{secondary-id} | 
-[**paymentContainersIdAssignSecondaryIdPost**](PaymentContainersApi.md#paymentContainersIdAssignSecondaryIdPost) | **POST** Payment/Containers/{id}/assign/{secondary-id} | 
-[**paymentContainersIdDelete**](PaymentContainersApi.md#paymentContainersIdDelete) | **DELETE** Payment/Containers/{id} | 
-[**paymentContainersIdPut**](PaymentContainersApi.md#paymentContainersIdPut) | **PUT** Payment/Containers/{id} | 
-[**paymentContainersPost**](PaymentContainersApi.md#paymentContainersPost) | **POST** Payment/Containers | 
+[**paymentContainersGet**](PaymentContainersApi.md#paymentContainersGet) | **GET** /Payment/Containers | GET Payment/Containers
+[**paymentContainersGetById**](PaymentContainersApi.md#paymentContainersGetById) | **GET** /Payment/Containers/{paymentContainerId} | GET Payment/Containers/{paymentContainerId}
+[**paymentContainersIdAssignSecondaryIdDelete**](PaymentContainersApi.md#paymentContainersIdAssignSecondaryIdDelete) | **DELETE** /Payment/Containers/{paymentContainerId}/assign/{secondaryPaymentContainerId} | DELETE Payment/Containers/{paymentContainerId}/assign/{secondaryPaymentContainerId}
+[**paymentContainersIdAssignSecondaryIdPost**](PaymentContainersApi.md#paymentContainersIdAssignSecondaryIdPost) | **POST** /Payment/Containers/{paymentContainerId}/assign/{secondaryPaymentContainerId} | POST Payment/Containers/{paymentContainerId}/assign/{secondaryPaymentContainerId}
+[**paymentContainersIdDelete**](PaymentContainersApi.md#paymentContainersIdDelete) | **DELETE** /Payment/Containers/{paymentContainerId} | DELETE Payment/Containers/{paymentContainerId}
+[**paymentContainersIdPut**](PaymentContainersApi.md#paymentContainersIdPut) | **PUT** /Payment/Containers/{paymentContainerId} | PUT Payment/Containers/{paymentContainerId}
+[**paymentContainersPost**](PaymentContainersApi.md#paymentContainersPost) | **POST** /Payment/Containers | POST Payment/Containers
 
 
 # **paymentContainersGet**
-> \Secuconnect\Client\Model\InlineResponse200 paymentContainersGet($count, $offset, $fields, $q, $sort)
+> \Secuconnect\Client\Model\PaymentContainersList paymentContainersGet($count, $offset, $fields, $q, $sort)
 
-
+GET Payment/Containers
 
 Get a list of payment containers
 
@@ -32,7 +32,7 @@ $api_instance = new Secuconnect\Client\Api\PaymentContainersApi();
 $count = 56; // int | The number of items to return.
 $offset = 56; // int | The position within the whole result set to start returning items (First element is at 0).
 $fields = "fields_example"; // string | List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2
-$q = "q_example"; // string | A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                      A condition may contain:  *                          - wildcard \"*\" for any number of characters  *                          - wildcard \"?\" for one character  *                          - ranges in the form [value TO value]  *  *                     Single expressions may combined by 'AND', 'OR', 'NOT' operators and parenthesis '(', ')' for grouping.  *                     Property names can be nested like \"prop1.prop2\".  *                     Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])                           *
+$q = "q_example"; // string | A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                  A condition may contain:  *                      - wildcard \"*\" for any number of characters  *                      - wildcard \"?\" for one character  *                      - ranges in the form [value TO value]  *  *                  Single expressions may combined by 'AND', 'OR', 'NOT' operators and parenthesis '(', ')' for grouping.  *                  Property names can be nested like \"prop1.prop2\".  *                  Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  *
 $sort = "sort_example"; // string | String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending 'asc', or descending 'dsc' order.
 
 try {
@@ -51,12 +51,12 @@ Name | Type | Description  | Notes
  **count** | **int**| The number of items to return. | [optional]
  **offset** | **int**| The position within the whole result set to start returning items (First element is at 0). | [optional]
  **fields** | **string**| List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 | [optional]
- **q** | **string**| A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                      A condition may contain:  *                          - wildcard \&quot;*\&quot; for any number of characters  *                          - wildcard \&quot;?\&quot; for one character  *                          - ranges in the form [value TO value]  *  *                     Single expressions may combined by &#39;AND&#39;, &#39;OR&#39;, &#39;NOT&#39; operators and parenthesis &#39;(&#39;, &#39;)&#39; for grouping.  *                     Property names can be nested like \&quot;prop1.prop2\&quot;.  *                     Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])                           * | [optional]
+ **q** | **string**| A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                  A condition may contain:  *                      - wildcard \&quot;*\&quot; for any number of characters  *                      - wildcard \&quot;?\&quot; for one character  *                      - ranges in the form [value TO value]  *  *                  Single expressions may combined by &#39;AND&#39;, &#39;OR&#39;, &#39;NOT&#39; operators and parenthesis &#39;(&#39;, &#39;)&#39; for grouping.  *                  Property names can be nested like \&quot;prop1.prop2\&quot;.  *                  Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * | [optional]
  **sort** | **string**| String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#39;asc&#39;, or descending &#39;dsc&#39; order. | [optional]
 
 ### Return type
 
-[**\Secuconnect\Client\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\Secuconnect\Client\Model\PaymentContainersList**](../Model/PaymentContainersList.md)
 
 ### Authorization
 
@@ -70,9 +70,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **paymentContainersGetById**
-> \Secuconnect\Client\Model\PaymentContainersProductModel paymentContainersGetById($id)
+> \Secuconnect\Client\Model\PaymentContainersProductModel paymentContainersGetById($payment_container_id)
 
-
+GET Payment/Containers/{paymentContainerId}
 
 Get all payment containers
 
@@ -85,10 +85,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 Secuconnect\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Secuconnect\Client\Api\PaymentContainersApi();
-$id = "id_example"; // string | Search one by provided id
+$payment_container_id = "payment_container_id_example"; // string | Search one by provided id
 
 try {
-    $result = $api_instance->paymentContainersGetById($id);
+    $result = $api_instance->paymentContainersGetById($payment_container_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentContainersApi->paymentContainersGetById: ', $e->getMessage(), PHP_EOL;
@@ -100,7 +100,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Search one by provided id |
+ **payment_container_id** | **string**| Search one by provided id |
 
 ### Return type
 
@@ -118,9 +118,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **paymentContainersIdAssignSecondaryIdDelete**
-> \Secuconnect\Client\Model\PaymentContainersProductModel[] paymentContainersIdAssignSecondaryIdDelete($id, $secondary_id)
+> \Secuconnect\Client\Model\PaymentContainersProductModel[] paymentContainersIdAssignSecondaryIdDelete($payment_container_id, $secondary_payment_container_id)
 
-
+DELETE Payment/Containers/{paymentContainerId}/assign/{secondaryPaymentContainerId}
 
 Removes an existing payment container assignment
 
@@ -133,11 +133,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 Secuconnect\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Secuconnect\Client\Api\PaymentContainersApi();
-$id = "id_example"; // string | Payment container id
-$secondary_id = "secondary_id_example"; // string | Id for which container is currently assigned to
+$payment_container_id = "payment_container_id_example"; // string | Payment container id
+$secondary_payment_container_id = "secondary_payment_container_id_example"; // string | Id for which container is currently assigned to
 
 try {
-    $result = $api_instance->paymentContainersIdAssignSecondaryIdDelete($id, $secondary_id);
+    $result = $api_instance->paymentContainersIdAssignSecondaryIdDelete($payment_container_id, $secondary_payment_container_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentContainersApi->paymentContainersIdAssignSecondaryIdDelete: ', $e->getMessage(), PHP_EOL;
@@ -149,8 +149,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Payment container id |
- **secondary_id** | **string**| Id for which container is currently assigned to |
+ **payment_container_id** | **string**| Payment container id |
+ **secondary_payment_container_id** | **string**| Id for which container is currently assigned to |
 
 ### Return type
 
@@ -168,9 +168,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **paymentContainersIdAssignSecondaryIdPost**
-> \Secuconnect\Client\Model\PaymentContainersProductModel paymentContainersIdAssignSecondaryIdPost($id, $secondary_id)
+> \Secuconnect\Client\Model\PaymentContainersProductModel paymentContainersIdAssignSecondaryIdPost($payment_container_id, $secondary_payment_container_id)
 
-
+POST Payment/Containers/{paymentContainerId}/assign/{secondaryPaymentContainerId}
 
 Assign an existing payment container to ...
 
@@ -183,11 +183,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 Secuconnect\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Secuconnect\Client\Api\PaymentContainersApi();
-$id = "id_example"; // string | Payment container id
-$secondary_id = "secondary_id_example"; // string | Id to which container will be assigned
+$payment_container_id = "payment_container_id_example"; // string | Payment container id
+$secondary_payment_container_id = "secondary_payment_container_id_example"; // string | Id to which container will be assigned
 
 try {
-    $result = $api_instance->paymentContainersIdAssignSecondaryIdPost($id, $secondary_id);
+    $result = $api_instance->paymentContainersIdAssignSecondaryIdPost($payment_container_id, $secondary_payment_container_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentContainersApi->paymentContainersIdAssignSecondaryIdPost: ', $e->getMessage(), PHP_EOL;
@@ -199,8 +199,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Payment container id |
- **secondary_id** | **string**| Id to which container will be assigned |
+ **payment_container_id** | **string**| Payment container id |
+ **secondary_payment_container_id** | **string**| Id to which container will be assigned |
 
 ### Return type
 
@@ -218,9 +218,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **paymentContainersIdDelete**
-> \Secuconnect\Client\Model\PaymentContainersProductModel[] paymentContainersIdDelete($id)
+> \Secuconnect\Client\Model\PaymentContainersProductModel[] paymentContainersIdDelete($payment_container_id)
 
-
+DELETE Payment/Containers/{paymentContainerId}
 
 Delete payment container
 
@@ -233,10 +233,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 Secuconnect\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Secuconnect\Client\Api\PaymentContainersApi();
-$id = "id_example"; // string | Payment container id
+$payment_container_id = "payment_container_id_example"; // string | Payment container id
 
 try {
-    $result = $api_instance->paymentContainersIdDelete($id);
+    $result = $api_instance->paymentContainersIdDelete($payment_container_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentContainersApi->paymentContainersIdDelete: ', $e->getMessage(), PHP_EOL;
@@ -248,7 +248,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Payment container id |
+ **payment_container_id** | **string**| Payment container id |
 
 ### Return type
 
@@ -266,9 +266,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **paymentContainersIdPut**
-> \Secuconnect\Client\Model\PaymentContainersProductModel paymentContainersIdPut($id, $body)
+> \Secuconnect\Client\Model\PaymentContainersProductModel paymentContainersIdPut($payment_container_id, $body)
 
-
+PUT Payment/Containers/{paymentContainerId}
 
 Update payment container
 
@@ -281,11 +281,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 Secuconnect\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Secuconnect\Client\Api\PaymentContainersApi();
-$id = "id_example"; // string | Payment container id
+$payment_container_id = "payment_container_id_example"; // string | Payment container id
 $body = new \Secuconnect\Client\Model\PaymentContainersDTO(); // \Secuconnect\Client\Model\PaymentContainersDTO | Payment container properties
 
 try {
-    $result = $api_instance->paymentContainersIdPut($id, $body);
+    $result = $api_instance->paymentContainersIdPut($payment_container_id, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentContainersApi->paymentContainersIdPut: ', $e->getMessage(), PHP_EOL;
@@ -297,7 +297,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Payment container id |
+ **payment_container_id** | **string**| Payment container id |
  **body** | [**\Secuconnect\Client\Model\PaymentContainersDTO**](../Model/PaymentContainersDTO.md)| Payment container properties |
 
 ### Return type
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 # **paymentContainersPost**
 > \Secuconnect\Client\Model\PaymentContainersProductModel paymentContainersPost($body)
 
-
+POST Payment/Containers
 
 Add new containers
 

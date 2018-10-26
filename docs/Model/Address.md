@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**type** | **string** | Type | [optional] 
 **street** | **string** | Street | [optional] 
 **street_number** | **string** | Street number | [optional] 
 **city** | **string** | City | [optional] 

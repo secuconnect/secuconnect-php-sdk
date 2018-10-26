@@ -19,6 +19,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [0.2.0] - 2018-10-26
+
+**Release candidate**
+First release candidate of the swagger generated PHP-SDK for the secuconnect API.
+
+
 ## [0.1.0] - 2018-04-23
 
 **1st Developer Preview**

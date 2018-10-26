@@ -1,12 +1,19 @@
 <?php
 
+namespace Secuconnect\Client\Cache;
+
+use DateTime;
 use Secuconnect\Client\Authentication\Authenticator;
 use Secuconnect\Client\Authentication\OAuthClientCredentials;
-use \Secuconnect\Client\Cache\CacheItem;
-use \Secuconnect\Client\Cache\FileCache;
 
-class FileCacheTest extends \PHPUnit_Framework_TestCase
+/**
+ * Class FileCacheTest
+ */
+class FileCacheTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @var FileCache
+     */
     private static $fileCache;
 
     public static function setUpBeforeClass()
@@ -16,12 +23,10 @@ class FileCacheTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-
     }
 
     public function tearDown()
     {
-
     }
 
     public static function tearDownAfterClass()

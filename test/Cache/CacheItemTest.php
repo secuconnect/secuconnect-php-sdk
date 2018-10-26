@@ -1,9 +1,17 @@
 <?php
 
-use \Secuconnect\Client\Cache\CacheItem;
+namespace Secuconnect\Client\Cache;
 
-class CacheItemTest extends \PHPUnit_Framework_TestCase
+use DateTime;
+
+/**
+ * Class CacheItemTest
+ */
+class CacheItemTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @var CacheItem
+     */
     private static $cacheItem;
 
     public static function setUpBeforeClass()
@@ -14,12 +22,10 @@ class CacheItemTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-
     }
 
     public function tearDown()
     {
-
     }
 
     public static function tearDownAfterClass()

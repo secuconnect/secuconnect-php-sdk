@@ -2,25 +2,29 @@
 
 namespace Secuconnect\Client\Authentication;
 
-
+/**
+ * Class OAuthApplicationUserCredentials
+ */
 class OAuthApplicationUserCredentials extends AuthenticationCredentials
 {
     /**
-     * OAuthApplicationUserCredentials constructor.
-     * @param $clientId
-     * @param $username
-     * @param $password
-     * @param $device
-     * @param $deviceName
-     * @return static
+     * Function to get credentials data.
+     *
+     * @param string $clientId
+     * @param string $clientCredentials
+     * @param string $username
+     * @param string $password
+     * @param string $device
+     * @param string $deviceName
+     * @return OAuthApplicationUserCredentials $credentials
      */
-    public static function from($client_id, $client_credentials, $username, $password, $device, $deviceName)
+    public static function from($clientId, $clientCredentials, $username, $password, $device, $deviceName)
     {
         $credentials = new static();
         $credentials->credentials = [
             'grant_type' => 'appuser',
-            'client_id' => $client_id,
-            'client_secret' => $client_credentials,
+            'client_id' => $clientId,
+            'client_secret' => $clientCredentials,
             'username' => $username,
             'password' => $password,
             'device' => $device,
@@ -31,7 +35,7 @@ class OAuthApplicationUserCredentials extends AuthenticationCredentials
     }
 
     /**
-     * @return string
+     * @inheritdoc
      */
     public function getUniqueKey()
     {

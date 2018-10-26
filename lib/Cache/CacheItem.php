@@ -6,7 +6,6 @@ use DateInterval;
 use DateTime;
 use \Psr\Cache\CacheItemInterface;
 
-
 class CacheItem implements CacheItemInterface
 {
     private $key;
@@ -47,7 +46,7 @@ class CacheItem implements CacheItemInterface
      */
     public function get()
     {
-        if ($this->isHit()) {
+        if ($this->isHit() || isset($this->value->refresh_token)) {
             return $this->value;
         }
 

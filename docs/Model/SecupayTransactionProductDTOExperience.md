@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**positive** | **string** | Score of positive experience | [optional] 
-**negative** | **string** | Score of negative experience | [optional] 
+**positive** | **int** | Score of positive experience (paid orders) | [optional] 
+**negative** | **int** | Score of negative experience (open/unpaid orders) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

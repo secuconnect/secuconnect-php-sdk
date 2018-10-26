@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**object** | **string** | Object of payment container | [optional] 
-**id** | **string** | Id of payment container | [optional] 
-**contract** | [**\Secuconnect\Client\Model\ProductInstanceUID**](ProductInstanceUID.md) | Payment container contract | [optional] 
-**contact** | [**\Secuconnect\Client\Model\PaymentCustomersDTOContact**](PaymentCustomersDTOContact.md) | Customer contact info | [optional] 
+**object** | **string** | Object of payment customer | [optional] 
+**id** | **string** | Id of payment customer | [optional] 
+**contract** | [**\Secuconnect\Client\Model\ProductInstanceUID**](ProductInstanceUID.md) | Payment contract | [optional] 
+**contact** | [**\Secuconnect\Client\Model\Contact**](Contact.md) | Customer contact info | [optional] 
 **created** | [**\DateTime**](\DateTime.md) | Created at date | [optional] 
 **updated** | [**\DateTime**](\DateTime.md) | Updated at date | [optional] 
 

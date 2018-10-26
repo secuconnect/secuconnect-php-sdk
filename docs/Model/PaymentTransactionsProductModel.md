@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**object** | **string** | Object of payment container | [optional] 
-**id** | **string** | Id of payment container | [optional] 
+**object** | **string** | Object of payment transaction | [optional] 
+**id** | **string** | Id of payment transaction | [optional] 
 **merchant** | [**\Secuconnect\Client\Model\PaymentTransactionsProductModelMerchant**](PaymentTransactionsProductModelMerchant.md) |  | [optional] 
 **trans_id** | **int** | Transaction identifier | [optional] 
 **product_id** | **int** | Product identifier | [optional] 
@@ -12,12 +12,12 @@ Name | Type | Description | Notes
 **product_raw** | **string** | the name of the payment product | [optional] 
 **zahlungsmittel_id** | **int** | The internal id of the stored payment instrument. | [optional] 
 **contract_id** | **int** | Contract identifier | [optional] 
-**amount** | **int** | WTF? | [optional] 
-**currency** | **string** | WTF?? | [optional] 
+**amount** | **int** | Total amount of payment in cents (or the smallest cash unit of the relevant currency) | [optional] 
+**currency** | **string** | ISO 4217 code of currency, eg EUR for Euro. | [optional] 
 **created** | [**\DateTime**](\DateTime.md) | Created at date | [optional] 
 **updated** | [**\DateTime**](\DateTime.md) | Updated at date | [optional] 
 **status** | **int** | WTF?? | [optional] 
-**status_text** | **string** | WTF?? | [optional] 
+**status_text** | **string** | Transaction status | [optional] 
 **details** | [**\Secuconnect\Client\Model\PaymentTransactionsProductModelDetails**](PaymentTransactionsProductModelDetails.md) |  | [optional] 
 **customer** | [**\Secuconnect\Client\Model\PaymentTransactionsProductModelCustomer**](PaymentTransactionsProductModelCustomer.md) |  | [optional] 
 

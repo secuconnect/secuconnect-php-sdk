@@ -2,37 +2,77 @@
 
 namespace Secuconnect\Client\Authentication;
 
-
+/**
+ * Class OAuthDeviceCredentials
+ */
 class OAuthDeviceCredentials extends AuthenticationCredentials
 {
     /**
-     * OAuthDeviceCredentials constructor.
-     * @param $clientId
-     * @param $clientSecret
-     * @param $deviceUuid
-     * @return static
+     * Function to get credentials data. Second step for a device.
+     *
+     * @param string $clientId
+     * @param string $clientSecret
+     * @param object $codeToken
+     * @return OAuthDeviceCredentials
      */
-    public static function from($clientId, $clientSecret, $deviceUuid)
+    public static function from($clientId, $clientSecret, $codeToken)
     {
-        $credentials = new static();
-        $credentials->credentials = [
-            'grant_type' => 'device',
-            'client_id' => $clientId,
-            'client_secret' => $clientSecret,
-            'uuid' => $deviceUuid,
-        ];
+        $credentials = self::createBasicCredentials($clientId, $clientSecret);
+        $credentials->credentials['code'] = $codeToken->device_code;
+        $credentials->credentials['codeToken'] = $codeToken;
 
         return $credentials;
     }
 
     /**
-     * @return string
+     * Function to get credentials data. First step for a device.
+     *
+     * @param string $clientId
+     * @param string $clientSecret
+     * @param string $uuid
+     * @return OAuthDeviceCredentials
+     */
+    public static function fromUuid($clientId, $clientSecret, $uuid)
+    {
+        $credentials = self::createBasicCredentials($clientId, $clientSecret);
+        $credentials->credentials['uuid'] = $uuid;
+
+        return $credentials;
+    }
+
+    /**
+     * @inheritdoc
      */
     public function getUniqueKey()
     {
         $textualKey = $this->credentials['grant_type']
-            . $this->credentials['client_id']
-            . $this->credentials['uuid'];
+            . $this->credentials['client_id'];
+
+        if (isset($this->credentials['uuid'])) {
+            $textualKey . $this->credentials['uuid'];
+        } elseif (isset($this->credentials['code'])) {
+            $textualKey . $this->credentials['code'];
+        }
+
         return \md5($textualKey);
+    }
+
+    /**
+     * Function to create basic credentials data.
+     *
+     * @param string $clientId
+     * @param string $clientSecret
+     * @return OAuthDeviceCredentials
+     */
+    private static function createBasicCredentials($clientId, $clientSecret)
+    {
+        $credentials = new static();
+        $credentials->credentials = [
+            'grant_type' => 'device',
+            'client_id' => $clientId,
+            'client_secret' => $clientSecret
+        ];
+
+        return $credentials;
     }
 }

@@ -1,3 +1,5 @@
 vendor
 .idea
 tmp
+composer.lock
+/.php_cs

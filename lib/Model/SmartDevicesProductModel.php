@@ -1,0 +1,674 @@
+<?php
+
+namespace Secuconnect\Client\Model;
+
+use \ArrayAccess;
+
+/**
+ * SmartDevicesProductModel
+ *
+ * @category    Class
+ * @package     Secuconnect\Client
+ * @author      Swagger Codegen team
+ * @link        https://github.com/swagger-api/swagger-codegen
+ */
+class SmartDevicesProductModel implements ArrayAccess
+{
+    const DISCRIMINATOR = null;
+
+    /**
+      * The original name of the model.
+      * @var string
+      */
+    protected static $swaggerModelName = 'SmartDevicesProductModel';
+
+    /**
+      * Array of property to type mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerTypes = [
+        'object' => 'string',
+        'id' => 'string',
+        'merchant' => '\Secuconnect\Client\Model\ProductInstanceUID',
+        'store' => '\Secuconnect\Client\Model\Store',
+        'vendor' => 'string',
+        'vendor_uid' => 'string',
+        'type' => 'string',
+        'device' => '\Secuconnect\Client\Model\SmartDevicesDevice',
+        'routing' => '\Secuconnect\Client\Model\ProductInstanceUID',
+        'user_pin' => 'string',
+        'products' => '\Secuconnect\Client\Model\SmartDevicesProducts',
+        'description' => 'string',
+        'idle_screen_register' => 'string',
+        'idle_screen_terminal' => 'string',
+        'created' => '\DateTime',
+        'online' => 'bool',
+        'terminal_type' => 'string',
+        'base_version' => 'string'
+    ];
+
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'object' => null,
+        'id' => 'id',
+        'merchant' => null,
+        'store' => null,
+        'vendor' => null,
+        'vendor_uid' => null,
+        'type' => null,
+        'device' => null,
+        'routing' => null,
+        'user_pin' => null,
+        'products' => null,
+        'description' => null,
+        'idle_screen_register' => null,
+        'idle_screen_terminal' => null,
+        'created' => 'date-time',
+        'online' => null,
+        'terminal_type' => null,
+        'base_version' => null
+    ];
+
+    public static function swaggerTypes()
+    {
+        return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
+    }
+
+    /**
+     * Array of attributes where the key is the local name, and the value is the original name
+     * @var string[]
+     */
+    protected static $attributeMap = [
+        'object' => 'object',
+        'id' => 'id',
+        'merchant' => 'merchant',
+        'store' => 'store',
+        'vendor' => 'vendor',
+        'vendor_uid' => 'vendor_uid',
+        'type' => 'type',
+        'device' => 'device',
+        'routing' => 'routing',
+        'user_pin' => 'user_pin',
+        'products' => 'products',
+        'description' => 'description',
+        'idle_screen_register' => 'idle_screen_register',
+        'idle_screen_terminal' => 'idle_screen_terminal',
+        'created' => 'created',
+        'online' => 'online',
+        'terminal_type' => 'terminal_type',
+        'base_version' => 'base_version'
+    ];
+
+
+    /**
+     * Array of attributes to setter functions (for deserialization of responses)
+     * @var string[]
+     */
+    protected static $setters = [
+        'object' => 'setObject',
+        'id' => 'setId',
+        'merchant' => 'setMerchant',
+        'store' => 'setStore',
+        'vendor' => 'setVendor',
+        'vendor_uid' => 'setVendorUid',
+        'type' => 'setType',
+        'device' => 'setDevice',
+        'routing' => 'setRouting',
+        'user_pin' => 'setUserPin',
+        'products' => 'setProducts',
+        'description' => 'setDescription',
+        'idle_screen_register' => 'setIdleScreenRegister',
+        'idle_screen_terminal' => 'setIdleScreenTerminal',
+        'created' => 'setCreated',
+        'online' => 'setOnline',
+        'terminal_type' => 'setTerminalType',
+        'base_version' => 'setBaseVersion'
+    ];
+
+
+    /**
+     * Array of attributes to getter functions (for serialization of requests)
+     * @var string[]
+     */
+    protected static $getters = [
+        'object' => 'getObject',
+        'id' => 'getId',
+        'merchant' => 'getMerchant',
+        'store' => 'getStore',
+        'vendor' => 'getVendor',
+        'vendor_uid' => 'getVendorUid',
+        'type' => 'getType',
+        'device' => 'getDevice',
+        'routing' => 'getRouting',
+        'user_pin' => 'getUserPin',
+        'products' => 'getProducts',
+        'description' => 'getDescription',
+        'idle_screen_register' => 'getIdleScreenRegister',
+        'idle_screen_terminal' => 'getIdleScreenTerminal',
+        'created' => 'getCreated',
+        'online' => 'getOnline',
+        'terminal_type' => 'getTerminalType',
+        'base_version' => 'getBaseVersion'
+    ];
+
+    public static function attributeMap()
+    {
+        return self::$attributeMap;
+    }
+
+    public static function setters()
+    {
+        return self::$setters;
+    }
+
+    public static function getters()
+    {
+        return self::$getters;
+    }
+
+    
+
+    
+
+    /**
+     * Associative array for storing property values
+     * @var mixed[]
+     */
+    protected $container = [];
+
+    /**
+     * Constructor
+     * @param mixed[] $data Associated array of property values initializing the model
+     */
+    public function __construct(array $data = null)
+    {
+        $this->container['object'] = isset($data['object']) ? $data['object'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
+        $this->container['store'] = isset($data['store']) ? $data['store'] : null;
+        $this->container['vendor'] = isset($data['vendor']) ? $data['vendor'] : null;
+        $this->container['vendor_uid'] = isset($data['vendor_uid']) ? $data['vendor_uid'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['device'] = isset($data['device']) ? $data['device'] : null;
+        $this->container['routing'] = isset($data['routing']) ? $data['routing'] : null;
+        $this->container['user_pin'] = isset($data['user_pin']) ? $data['user_pin'] : null;
+        $this->container['products'] = isset($data['products']) ? $data['products'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['idle_screen_register'] = isset($data['idle_screen_register']) ? $data['idle_screen_register'] : null;
+        $this->container['idle_screen_terminal'] = isset($data['idle_screen_terminal']) ? $data['idle_screen_terminal'] : null;
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['online'] = isset($data['online']) ? $data['online'] : null;
+        $this->container['terminal_type'] = isset($data['terminal_type']) ? $data['terminal_type'] : null;
+        $this->container['base_version'] = isset($data['base_version']) ? $data['base_version'] : null;
+    }
+
+    /**
+     * show all the invalid properties with reasons.
+     *
+     * @return array invalid properties with reasons
+     */
+    public function listInvalidProperties()
+    {
+        $invalid_properties = [];
+
+        return $invalid_properties;
+    }
+
+    /**
+     * validate all the properties in the model
+     * return true if all passed
+     *
+     * @return bool True if all properties are valid
+     */
+    public function valid()
+    {
+
+        return true;
+    }
+
+
+    /**
+     * Gets object
+     * @return string
+     */
+    public function getObject()
+    {
+        return $this->container['object'];
+    }
+
+    /**
+     * Sets object
+     * @param string $object Object of smart device
+     * @return $this
+     */
+    public function setObject($object)
+    {
+        $this->container['object'] = $object;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     * @param string $id Id of smart device
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant
+     * @return \Secuconnect\Client\Model\ProductInstanceUID
+     */
+    public function getMerchant()
+    {
+        return $this->container['merchant'];
+    }
+
+    /**
+     * Sets merchant
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $merchant Merchant
+     * @return $this
+     */
+    public function setMerchant($merchant)
+    {
+        $this->container['merchant'] = $merchant;
+
+        return $this;
+    }
+
+    /**
+     * Gets store
+     * @return \Secuconnect\Client\Model\Store
+     */
+    public function getStore()
+    {
+        return $this->container['store'];
+    }
+
+    /**
+     * Sets store
+     * @param \Secuconnect\Client\Model\Store $store Store
+     * @return $this
+     */
+    public function setStore($store)
+    {
+        $this->container['store'] = $store;
+
+        return $this;
+    }
+
+    /**
+     * Gets vendor
+     * @return string
+     */
+    public function getVendor()
+    {
+        return $this->container['vendor'];
+    }
+
+    /**
+     * Sets vendor
+     * @param string $vendor Vendor
+     * @return $this
+     */
+    public function setVendor($vendor)
+    {
+        $this->container['vendor'] = $vendor;
+
+        return $this;
+    }
+
+    /**
+     * Gets vendor_uid
+     * @return string
+     */
+    public function getVendorUid()
+    {
+        return $this->container['vendor_uid'];
+    }
+
+    /**
+     * Sets vendor_uid
+     * @param string $vendor_uid Vendor uid
+     * @return $this
+     */
+    public function setVendorUid($vendor_uid)
+    {
+        $this->container['vendor_uid'] = $vendor_uid;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     * @param string $type Type
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets device
+     * @return \Secuconnect\Client\Model\SmartDevicesDevice
+     */
+    public function getDevice()
+    {
+        return $this->container['device'];
+    }
+
+    /**
+     * Sets device
+     * @param \Secuconnect\Client\Model\SmartDevicesDevice $device Device
+     * @return $this
+     */
+    public function setDevice($device)
+    {
+        $this->container['device'] = $device;
+
+        return $this;
+    }
+
+    /**
+     * Gets routing
+     * @return \Secuconnect\Client\Model\ProductInstanceUID
+     */
+    public function getRouting()
+    {
+        return $this->container['routing'];
+    }
+
+    /**
+     * Sets routing
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $routing Routing
+     * @return $this
+     */
+    public function setRouting($routing)
+    {
+        $this->container['routing'] = $routing;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_pin
+     * @return string
+     */
+    public function getUserPin()
+    {
+        return $this->container['user_pin'];
+    }
+
+    /**
+     * Sets user_pin
+     * @param string $user_pin User pin
+     * @return $this
+     */
+    public function setUserPin($user_pin)
+    {
+        $this->container['user_pin'] = $user_pin;
+
+        return $this;
+    }
+
+    /**
+     * Gets products
+     * @return \Secuconnect\Client\Model\SmartDevicesProducts
+     */
+    public function getProducts()
+    {
+        return $this->container['products'];
+    }
+
+    /**
+     * Sets products
+     * @param \Secuconnect\Client\Model\SmartDevicesProducts $products Products
+     * @return $this
+     */
+    public function setProducts($products)
+    {
+        $this->container['products'] = $products;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     * @param string $description Description
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets idle_screen_register
+     * @return string
+     */
+    public function getIdleScreenRegister()
+    {
+        return $this->container['idle_screen_register'];
+    }
+
+    /**
+     * Sets idle_screen_register
+     * @param string $idle_screen_register Idle screen register
+     * @return $this
+     */
+    public function setIdleScreenRegister($idle_screen_register)
+    {
+        $this->container['idle_screen_register'] = $idle_screen_register;
+
+        return $this;
+    }
+
+    /**
+     * Gets idle_screen_terminal
+     * @return string
+     */
+    public function getIdleScreenTerminal()
+    {
+        return $this->container['idle_screen_terminal'];
+    }
+
+    /**
+     * Sets idle_screen_terminal
+     * @param string $idle_screen_terminal Idle screen terminal
+     * @return $this
+     */
+    public function setIdleScreenTerminal($idle_screen_terminal)
+    {
+        $this->container['idle_screen_terminal'] = $idle_screen_terminal;
+
+        return $this;
+    }
+
+    /**
+     * Gets created
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->container['created'];
+    }
+
+    /**
+     * Sets created
+     * @param \DateTime $created Created at date
+     * @return $this
+     */
+    public function setCreated($created)
+    {
+        $this->container['created'] = $created;
+
+        return $this;
+    }
+
+    /**
+     * Gets online
+     * @return bool
+     */
+    public function getOnline()
+    {
+        return $this->container['online'];
+    }
+
+    /**
+     * Sets online
+     * @param bool $online Online
+     * @return $this
+     */
+    public function setOnline($online)
+    {
+        $this->container['online'] = $online;
+
+        return $this;
+    }
+
+    /**
+     * Gets terminal_type
+     * @return string
+     */
+    public function getTerminalType()
+    {
+        return $this->container['terminal_type'];
+    }
+
+    /**
+     * Sets terminal_type
+     * @param string $terminal_type Terminal type
+     * @return $this
+     */
+    public function setTerminalType($terminal_type)
+    {
+        $this->container['terminal_type'] = $terminal_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets base_version
+     * @return string
+     */
+    public function getBaseVersion()
+    {
+        return $this->container['base_version'];
+    }
+
+    /**
+     * Sets base_version
+     * @param string $base_version Base version
+     * @return $this
+     */
+    public function setBaseVersion($base_version)
+    {
+        $this->container['base_version'] = $base_version;
+
+        return $this;
+    }
+    /**
+     * Returns true if offset exists. False otherwise.
+     * @param  integer $offset Offset
+     * @return boolean
+     */
+    public function offsetExists($offset)
+    {
+        return isset($this->container[$offset]);
+    }
+
+    /**
+     * Gets offset.
+     * @param  integer $offset Offset
+     * @return mixed
+     */
+    public function offsetGet($offset)
+    {
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+    }
+
+    /**
+     * Sets value based on offset.
+     * @param  integer $offset Offset
+     * @param  mixed   $value  Value to be set
+     * @return void
+     */
+    public function offsetSet($offset, $value)
+    {
+        if (is_null($offset)) {
+            $this->container[] = $value;
+        } else {
+            $this->container[$offset] = $value;
+        }
+    }
+
+    /**
+     * Unsets offset.
+     * @param  integer $offset Offset
+     * @return void
+     */
+    public function offsetUnset($offset)
+    {
+        unset($this->container[$offset]);
+    }
+
+    /**
+     * Gets the string presentation of the object
+     * @return string
+     */
+    public function __toString()
+    {
+        if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
+            return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+        }
+
+        return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
+    }
+}
+
+

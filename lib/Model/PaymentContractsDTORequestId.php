@@ -1,0 +1,323 @@
+<?php
+
+namespace Secuconnect\Client\Model;
+
+use \ArrayAccess;
+
+/**
+ * PaymentContractsDTORequestId
+ *
+ * @category    Class
+ * @package     Secuconnect\Client
+ * @author      Swagger Codegen team
+ * @link        https://github.com/swagger-api/swagger-codegen
+ */
+class PaymentContractsDTORequestId implements ArrayAccess
+{
+    const DISCRIMINATOR = null;
+
+    /**
+      * The original name of the model.
+      * @var string
+      */
+    protected static $swaggerModelName = 'PaymentContractsDTORequestId';
+
+    /**
+      * Array of property to type mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerTypes = [
+        'contact' => '\Secuconnect\Client\Model\Contact',
+        'project' => 'string',
+        'payout_account' => '\Secuconnect\Client\Model\PaymentInformation',
+        'iframe_opts' => '\Secuconnect\Client\Model\PaymentContractsDTOIFrameOpts',
+        'payin_account' => 'bool'
+    ];
+
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'contact' => null,
+        'project' => null,
+        'payout_account' => null,
+        'iframe_opts' => null,
+        'payin_account' => null
+    ];
+
+    public static function swaggerTypes()
+    {
+        return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
+    }
+
+    /**
+     * Array of attributes where the key is the local name, and the value is the original name
+     * @var string[]
+     */
+    protected static $attributeMap = [
+        'contact' => 'contact',
+        'project' => 'project',
+        'payout_account' => 'payout_account',
+        'iframe_opts' => 'iframe_opts',
+        'payin_account' => 'payin_account'
+    ];
+
+
+    /**
+     * Array of attributes to setter functions (for deserialization of responses)
+     * @var string[]
+     */
+    protected static $setters = [
+        'contact' => 'setContact',
+        'project' => 'setProject',
+        'payout_account' => 'setPayoutAccount',
+        'iframe_opts' => 'setIframeOpts',
+        'payin_account' => 'setPayinAccount'
+    ];
+
+
+    /**
+     * Array of attributes to getter functions (for serialization of requests)
+     * @var string[]
+     */
+    protected static $getters = [
+        'contact' => 'getContact',
+        'project' => 'getProject',
+        'payout_account' => 'getPayoutAccount',
+        'iframe_opts' => 'getIframeOpts',
+        'payin_account' => 'getPayinAccount'
+    ];
+
+    public static function attributeMap()
+    {
+        return self::$attributeMap;
+    }
+
+    public static function setters()
+    {
+        return self::$setters;
+    }
+
+    public static function getters()
+    {
+        return self::$getters;
+    }
+
+    
+
+    
+
+    /**
+     * Associative array for storing property values
+     * @var mixed[]
+     */
+    protected $container = [];
+
+    /**
+     * Constructor
+     * @param mixed[] $data Associated array of property values initializing the model
+     */
+    public function __construct(array $data = null)
+    {
+        $this->container['contact'] = isset($data['contact']) ? $data['contact'] : null;
+        $this->container['project'] = isset($data['project']) ? $data['project'] : null;
+        $this->container['payout_account'] = isset($data['payout_account']) ? $data['payout_account'] : null;
+        $this->container['iframe_opts'] = isset($data['iframe_opts']) ? $data['iframe_opts'] : null;
+        $this->container['payin_account'] = isset($data['payin_account']) ? $data['payin_account'] : false;
+    }
+
+    /**
+     * show all the invalid properties with reasons.
+     *
+     * @return array invalid properties with reasons
+     */
+    public function listInvalidProperties()
+    {
+        $invalid_properties = [];
+
+        return $invalid_properties;
+    }
+
+    /**
+     * validate all the properties in the model
+     * return true if all passed
+     *
+     * @return bool True if all properties are valid
+     */
+    public function valid()
+    {
+
+        return true;
+    }
+
+
+    /**
+     * Gets contact
+     * @return \Secuconnect\Client\Model\Contact
+     */
+    public function getContact()
+    {
+        return $this->container['contact'];
+    }
+
+    /**
+     * Sets contact
+     * @param \Secuconnect\Client\Model\Contact $contact Contact
+     * @return $this
+     */
+    public function setContact($contact)
+    {
+        $this->container['contact'] = $contact;
+
+        return $this;
+    }
+
+    /**
+     * Gets project
+     * @return string
+     */
+    public function getProject()
+    {
+        return $this->container['project'];
+    }
+
+    /**
+     * Sets project
+     * @param string $project Name of the project (must be unique)
+     * @return $this
+     */
+    public function setProject($project)
+    {
+        $this->container['project'] = $project;
+
+        return $this;
+    }
+
+    /**
+     * Gets payout_account
+     * @return \Secuconnect\Client\Model\PaymentInformation
+     */
+    public function getPayoutAccount()
+    {
+        return $this->container['payout_account'];
+    }
+
+    /**
+     * Sets payout_account
+     * @param \Secuconnect\Client\Model\PaymentInformation $payout_account Merchants bank account for the payout
+     * @return $this
+     */
+    public function setPayoutAccount($payout_account)
+    {
+        $this->container['payout_account'] = $payout_account;
+
+        return $this;
+    }
+
+    /**
+     * Gets iframe_opts
+     * @return \Secuconnect\Client\Model\PaymentContractsDTOIFrameOpts
+     */
+    public function getIframeOpts()
+    {
+        return $this->container['iframe_opts'];
+    }
+
+    /**
+     * Sets iframe_opts
+     * @param \Secuconnect\Client\Model\PaymentContractsDTOIFrameOpts $iframe_opts IFrame opts
+     * @return $this
+     */
+    public function setIframeOpts($iframe_opts)
+    {
+        $this->container['iframe_opts'] = $iframe_opts;
+
+        return $this;
+    }
+
+    /**
+     * Gets payin_account
+     * @return bool
+     */
+    public function getPayinAccount()
+    {
+        return $this->container['payin_account'];
+    }
+
+    /**
+     * Sets payin_account
+     * @param bool $payin_account Pay in account
+     * @return $this
+     */
+    public function setPayinAccount($payin_account)
+    {
+        $this->container['payin_account'] = $payin_account;
+
+        return $this;
+    }
+    /**
+     * Returns true if offset exists. False otherwise.
+     * @param  integer $offset Offset
+     * @return boolean
+     */
+    public function offsetExists($offset)
+    {
+        return isset($this->container[$offset]);
+    }
+
+    /**
+     * Gets offset.
+     * @param  integer $offset Offset
+     * @return mixed
+     */
+    public function offsetGet($offset)
+    {
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+    }
+
+    /**
+     * Sets value based on offset.
+     * @param  integer $offset Offset
+     * @param  mixed   $value  Value to be set
+     * @return void
+     */
+    public function offsetSet($offset, $value)
+    {
+        if (is_null($offset)) {
+            $this->container[] = $value;
+        } else {
+            $this->container[$offset] = $value;
+        }
+    }
+
+    /**
+     * Unsets offset.
+     * @param  integer $offset Offset
+     * @return void
+     */
+    public function offsetUnset($offset)
+    {
+        unset($this->container[$offset]);
+    }
+
+    /**
+     * Gets the string presentation of the object
+     * @return string
+     */
+    public function __toString()
+    {
+        if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
+            return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+        }
+
+        return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
+    }
+}
+
+

@@ -2,13 +2,17 @@
 
 namespace Secuconnect\Client\Authentication;
 
-
+/**
+ * Class OAuthClientCredentials
+ */
 class OAuthClientCredentials extends AuthenticationCredentials
 {
     /**
-     * @param $clientId
-     * @param $clientSecret
-     * @return static
+     * Function to get credentials data.
+     *
+     * @param string $clientId
+     * @param string $clientSecret
+     * @return OAuthClientCredentials
      */
     public static function from($clientId, $clientSecret)
     {
@@ -24,7 +28,7 @@ class OAuthClientCredentials extends AuthenticationCredentials
     }
 
     /**
-     * @return string
+     * @inheritdoc
      */
     public function getUniqueKey()
     {

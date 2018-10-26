@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**object** | **string** | Object of payment container | [optional] 
-**id** | **string** | Id of payment container | [optional] 
-**parent** | [**\Secuconnect\Client\Model\ProductInstanceUID**](ProductInstanceUID.md) | Payment container contract | [optional] 
+**object** | **string** | Object of payment contract | [optional] 
+**id** | **string** | Id of payment contract | [optional] 
+**parent** | [**\Secuconnect\Client\Model\ProductInstanceUID**](ProductInstanceUID.md) | Payment contract | [optional] 
 **demo** | **bool** | Is this a demo contract | [optional] 
 **allow_cloning** | **bool** | Allow to create sub-contracts | [optional] 
 **sepa_mandate_inform** | **string** | Inform the customer about the created sepa mandate | [optional] [default to 'never']
