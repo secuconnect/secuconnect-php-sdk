@@ -18,6 +18,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [0.3.0] - 2018-11-08
+
+**Release candidate**
+Second release candidate of the swagger generated PHP-SDK for the secuconnect API.
+- Stomp client added.
+
 
 ## [0.2.0] - 2018-10-26
 
