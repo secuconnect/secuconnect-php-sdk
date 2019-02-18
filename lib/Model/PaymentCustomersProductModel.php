@@ -31,8 +31,8 @@ class PaymentCustomersProductModel implements ArrayAccess
         'id' => 'string',
         'contract' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'contact' => '\Secuconnect\Client\Model\Contact',
-        'created' => '\DateTime',
-        'updated' => '\DateTime'
+        'created' => 'string',
+        'updated' => 'string'
     ];
 
     /**
@@ -44,8 +44,8 @@ class PaymentCustomersProductModel implements ArrayAccess
         'id' => 'id',
         'contract' => null,
         'contact' => null,
-        'created' => 'date-time',
-        'updated' => 'date-time'
+        'created' => null,
+        'updated' => null
     ];
 
     public static function swaggerTypes()
@@ -249,7 +249,7 @@ class PaymentCustomersProductModel implements ArrayAccess
 
     /**
      * Gets created
-     * @return \DateTime
+     * @return string
      */
     public function getCreated()
     {
@@ -258,7 +258,7 @@ class PaymentCustomersProductModel implements ArrayAccess
 
     /**
      * Sets created
-     * @param \DateTime $created Created at date
+     * @param string $created Created at date
      * @return $this
      */
     public function setCreated($created)
@@ -270,7 +270,7 @@ class PaymentCustomersProductModel implements ArrayAccess
 
     /**
      * Gets updated
-     * @return \DateTime
+     * @return string
      */
     public function getUpdated()
     {
@@ -279,7 +279,7 @@ class PaymentCustomersProductModel implements ArrayAccess
 
     /**
      * Sets updated
-     * @param \DateTime $updated Updated at date
+     * @param string $updated Updated at date
      * @return $this
      */
     public function setUpdated($updated)

@@ -261,9 +261,7 @@ class PaymentSecupayPrepaysApiTest extends TestCase
             print_r($e->getResponseBody());
             throw $e;
         }
-
         $this->assertNotEmpty($response);
-        $this->assertTrue($response['result']);
-        $this->assertTrue($response['demo']);
+        $this->assertNotEmpty($response['result']);
     }
 }

@@ -35,7 +35,7 @@ class SecupayTransactionProductDTO implements ArrayAccess
         'accrual' => 'bool',
         'payment_action' => 'string',
         'customer' => '\Secuconnect\Client\Model\PaymentCustomersProductModel',
-        'redirect_url' => '\Secuconnect\Client\Model\SecupayTransactionProductDTORedirectUrl',
+        'redirect_url' => '\Secuconnect\Client\Model\SecupayRedirectUrl',
         'contract' => 'string',
         'container' => 'string',
         'opt_data' => '\Secuconnect\Client\Model\SecupayTransactionProductDTOOptData',
@@ -387,7 +387,7 @@ class SecupayTransactionProductDTO implements ArrayAccess
 
     /**
      * Gets redirect_url
-     * @return \Secuconnect\Client\Model\SecupayTransactionProductDTORedirectUrl
+     * @return \Secuconnect\Client\Model\SecupayRedirectUrl
      */
     public function getRedirectUrl()
     {
@@ -396,7 +396,7 @@ class SecupayTransactionProductDTO implements ArrayAccess
 
     /**
      * Sets redirect_url
-     * @param \Secuconnect\Client\Model\SecupayTransactionProductDTORedirectUrl $redirect_url
+     * @param \Secuconnect\Client\Model\SecupayRedirectUrl $redirect_url A list of redirect urls used for the payment checkout page
      * @return $this
      */
     public function setRedirectUrl($redirect_url)

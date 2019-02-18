@@ -31,7 +31,7 @@ class LoyaltyCardsProductModel implements ArrayAccess
         'id' => 'string',
         'account' => '\Secuconnect\Client\Model\LoyaltyCardsDTOAccount',
         'cardnumber' => 'string',
-        'created' => '\DateTime'
+        'created' => 'string'
     ];
 
     /**
@@ -43,7 +43,7 @@ class LoyaltyCardsProductModel implements ArrayAccess
         'id' => null,
         'account' => null,
         'cardnumber' => null,
-        'created' => 'date-time'
+        'created' => null
     ];
 
     public static function swaggerTypes()
@@ -243,7 +243,7 @@ class LoyaltyCardsProductModel implements ArrayAccess
 
     /**
      * Gets created
-     * @return \DateTime
+     * @return string
      */
     public function getCreated()
     {
@@ -252,7 +252,7 @@ class LoyaltyCardsProductModel implements ArrayAccess
 
     /**
      * Sets created
-     * @param \DateTime $created Creation date
+     * @param string $created Creation date
      * @return $this
      */
     public function setCreated($created)

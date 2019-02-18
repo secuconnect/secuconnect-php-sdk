@@ -28,10 +28,11 @@ class BankAccountDescriptor implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'owner' => 'string',
         'iban' => 'string',
         'bic' => 'string',
-        'bankname' => 'string'
+        'owner' => 'string',
+        'bankname' => 'string',
+        'purpose' => 'string'
     ];
 
     /**
@@ -39,10 +40,11 @@ class BankAccountDescriptor implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'owner' => null,
         'iban' => null,
         'bic' => null,
-        'bankname' => null
+        'owner' => null,
+        'bankname' => null,
+        'purpose' => null
     ];
 
     public static function swaggerTypes()
@@ -60,10 +62,11 @@ class BankAccountDescriptor implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'owner' => 'owner',
         'iban' => 'iban',
         'bic' => 'bic',
-        'bankname' => 'bankname'
+        'owner' => 'owner',
+        'bankname' => 'bankname',
+        'purpose' => 'purpose'
     ];
 
 
@@ -72,10 +75,11 @@ class BankAccountDescriptor implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'owner' => 'setOwner',
         'iban' => 'setIban',
         'bic' => 'setBic',
-        'bankname' => 'setBankname'
+        'owner' => 'setOwner',
+        'bankname' => 'setBankname',
+        'purpose' => 'setPurpose'
     ];
 
 
@@ -84,10 +88,11 @@ class BankAccountDescriptor implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'owner' => 'getOwner',
         'iban' => 'getIban',
         'bic' => 'getBic',
-        'bankname' => 'getBankname'
+        'owner' => 'getOwner',
+        'bankname' => 'getBankname',
+        'purpose' => 'getPurpose'
     ];
 
     public static function attributeMap()
@@ -121,10 +126,11 @@ class BankAccountDescriptor implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
         $this->container['iban'] = isset($data['iban']) ? $data['iban'] : null;
         $this->container['bic'] = isset($data['bic']) ? $data['bic'] : null;
+        $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
         $this->container['bankname'] = isset($data['bankname']) ? $data['bankname'] : null;
+        $this->container['purpose'] = isset($data['purpose']) ? $data['purpose'] : null;
     }
 
     /**
@@ -151,27 +157,6 @@ class BankAccountDescriptor implements ArrayAccess
         return true;
     }
 
-
-    /**
-     * Gets owner
-     * @return string
-     */
-    public function getOwner()
-    {
-        return $this->container['owner'];
-    }
-
-    /**
-     * Sets owner
-     * @param string $owner Owner
-     * @return $this
-     */
-    public function setOwner($owner)
-    {
-        $this->container['owner'] = $owner;
-
-        return $this;
-    }
 
     /**
      * Gets iban
@@ -216,6 +201,27 @@ class BankAccountDescriptor implements ArrayAccess
     }
 
     /**
+     * Gets owner
+     * @return string
+     */
+    public function getOwner()
+    {
+        return $this->container['owner'];
+    }
+
+    /**
+     * Sets owner
+     * @param string $owner Owner
+     * @return $this
+     */
+    public function setOwner($owner)
+    {
+        $this->container['owner'] = $owner;
+
+        return $this;
+    }
+
+    /**
      * Gets bankname
      * @return string
      */
@@ -232,6 +238,27 @@ class BankAccountDescriptor implements ArrayAccess
     public function setBankname($bankname)
     {
         $this->container['bankname'] = $bankname;
+
+        return $this;
+    }
+
+    /**
+     * Gets purpose
+     * @return string
+     */
+    public function getPurpose()
+    {
+        return $this->container['purpose'];
+    }
+
+    /**
+     * Sets purpose
+     * @param string $purpose Purpose
+     * @return $this
+     */
+    public function setPurpose($purpose)
+    {
+        $this->container['purpose'] = $purpose;
 
         return $this;
     }

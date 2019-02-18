@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**getRouting**](SmartDevicesApi.md#getRouting) | **GET** /Smart/Devices/{smartDeviceId}/routing/type/{type} | GET Smart/Devices/{smartDeviceId}/routing/type/{type}
 [**getSecubaseConfig**](SmartDevicesApi.md#getSecubaseConfig) | **POST** /Smart/Devices/{smartDeviceId}/GetSecubaseConfig | POST Smart/Devices/{smartDeviceId}/GetSecubaseConfig
 [**updateDevice**](SmartDevicesApi.md#updateDevice) | **PUT** /Smart/Devices/{smartDeviceId} | PUT Smart/Devices/{smartDeviceId}
+[**updatePin**](SmartDevicesApi.md#updatePin) | **PUT** /Smart/Devices/smartDeviceId/pin | PUT /Smart/Devices/smartDeviceId/pin/
 
 
 # **addDevice**
@@ -398,6 +399,56 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **smart_device_id** | **string**| Smart device id |
  **smart_device_properties** | [**\Secuconnect\Client\Model\SmartDevicesDTO**](../Model/SmartDevicesDTO.md)| Smart device properties |
+
+### Return type
+
+[**\Secuconnect\Client\Model\SmartDevicesProductModel**](../Model/SmartDevicesProductModel.md)
+
+### Authorization
+
+[oauth_token](../../README.md#oauth_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updatePin**
+> \Secuconnect\Client\Model\SmartDevicesProductModel updatePin($smart_device_id, $smart_device_properties)
+
+PUT /Smart/Devices/smartDeviceId/pin/
+
+Create new smart device
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: oauth_token
+Secuconnect\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$api_instance = new Secuconnect\Client\Api\SmartDevicesApi();
+$smart_device_id = "smart_device_id_example"; // string | Smart device id
+$smart_device_properties = new \Secuconnect\Client\Model\SmartDeviceUserPin(); // \Secuconnect\Client\Model\SmartDeviceUserPin | Smart device properties
+
+try {
+    $result = $api_instance->updatePin($smart_device_id, $smart_device_properties);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SmartDevicesApi->updatePin: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **smart_device_id** | **string**| Smart device id |
+ **smart_device_properties** | [**\Secuconnect\Client\Model\SmartDeviceUserPin**](../Model/SmartDeviceUserPin.md)| Smart device properties |
 
 ### Return type
 

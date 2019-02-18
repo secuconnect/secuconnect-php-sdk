@@ -30,12 +30,7 @@ class PaymentContractsDTOClone implements ArrayAccess
         'project' => 'string',
         'payment_data' => '\Secuconnect\Client\Model\PaymentInformation',
         'payin_account' => 'bool',
-        'allow_transactions' => 'bool',
-        'url_push' => 'string',
-        'debit_product_id' => 'string',
-        'prepay_product_id' => 'string',
-        'invoice_product_id' => 'string',
-        'creditcard_product_id' => 'string'
+        'url_push' => 'string'
     ];
 
     /**
@@ -46,12 +41,7 @@ class PaymentContractsDTOClone implements ArrayAccess
         'project' => null,
         'payment_data' => null,
         'payin_account' => null,
-        'allow_transactions' => null,
-        'url_push' => null,
-        'debit_product_id' => null,
-        'prepay_product_id' => null,
-        'invoice_product_id' => null,
-        'creditcard_product_id' => null
+        'url_push' => null
     ];
 
     public static function swaggerTypes()
@@ -72,12 +62,7 @@ class PaymentContractsDTOClone implements ArrayAccess
         'project' => 'project',
         'payment_data' => 'payment_data',
         'payin_account' => 'payin_account',
-        'allow_transactions' => 'allow_transactions',
-        'url_push' => 'url_push',
-        'debit_product_id' => 'debit_product_id',
-        'prepay_product_id' => 'prepay_product_id',
-        'invoice_product_id' => 'invoice_product_id',
-        'creditcard_product_id' => 'creditcard_product_id'
+        'url_push' => 'url_push'
     ];
 
 
@@ -89,12 +74,7 @@ class PaymentContractsDTOClone implements ArrayAccess
         'project' => 'setProject',
         'payment_data' => 'setPaymentData',
         'payin_account' => 'setPayinAccount',
-        'allow_transactions' => 'setAllowTransactions',
-        'url_push' => 'setUrlPush',
-        'debit_product_id' => 'setDebitProductId',
-        'prepay_product_id' => 'setPrepayProductId',
-        'invoice_product_id' => 'setInvoiceProductId',
-        'creditcard_product_id' => 'setCreditcardProductId'
+        'url_push' => 'setUrlPush'
     ];
 
 
@@ -106,12 +86,7 @@ class PaymentContractsDTOClone implements ArrayAccess
         'project' => 'getProject',
         'payment_data' => 'getPaymentData',
         'payin_account' => 'getPayinAccount',
-        'allow_transactions' => 'getAllowTransactions',
-        'url_push' => 'getUrlPush',
-        'debit_product_id' => 'getDebitProductId',
-        'prepay_product_id' => 'getPrepayProductId',
-        'invoice_product_id' => 'getInvoiceProductId',
-        'creditcard_product_id' => 'getCreditcardProductId'
+        'url_push' => 'getUrlPush'
     ];
 
     public static function attributeMap()
@@ -148,12 +123,7 @@ class PaymentContractsDTOClone implements ArrayAccess
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
         $this->container['payment_data'] = isset($data['payment_data']) ? $data['payment_data'] : null;
         $this->container['payin_account'] = isset($data['payin_account']) ? $data['payin_account'] : false;
-        $this->container['allow_transactions'] = isset($data['allow_transactions']) ? $data['allow_transactions'] : null;
         $this->container['url_push'] = isset($data['url_push']) ? $data['url_push'] : null;
-        $this->container['debit_product_id'] = isset($data['debit_product_id']) ? $data['debit_product_id'] : null;
-        $this->container['prepay_product_id'] = isset($data['prepay_product_id']) ? $data['prepay_product_id'] : null;
-        $this->container['invoice_product_id'] = isset($data['invoice_product_id']) ? $data['invoice_product_id'] : null;
-        $this->container['creditcard_product_id'] = isset($data['creditcard_product_id']) ? $data['creditcard_product_id'] : null;
     }
 
     /**
@@ -245,27 +215,6 @@ class PaymentContractsDTOClone implements ArrayAccess
     }
 
     /**
-     * Gets allow_transactions
-     * @return bool
-     */
-    public function getAllowTransactions()
-    {
-        return $this->container['allow_transactions'];
-    }
-
-    /**
-     * Sets allow_transactions
-     * @param bool $allow_transactions DEPRECATED: Should allow transactions for this sub-contract?
-     * @return $this
-     */
-    public function setAllowTransactions($allow_transactions)
-    {
-        $this->container['allow_transactions'] = $allow_transactions;
-
-        return $this;
-    }
-
-    /**
      * Gets url_push
      * @return string
      */
@@ -282,90 +231,6 @@ class PaymentContractsDTOClone implements ArrayAccess
     public function setUrlPush($url_push)
     {
         $this->container['url_push'] = $url_push;
-
-        return $this;
-    }
-
-    /**
-     * Gets debit_product_id
-     * @return string
-     */
-    public function getDebitProductId()
-    {
-        return $this->container['debit_product_id'];
-    }
-
-    /**
-     * Sets debit_product_id
-     * @param string $debit_product_id DEPRECATED: Contract debit product id
-     * @return $this
-     */
-    public function setDebitProductId($debit_product_id)
-    {
-        $this->container['debit_product_id'] = $debit_product_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets prepay_product_id
-     * @return string
-     */
-    public function getPrepayProductId()
-    {
-        return $this->container['prepay_product_id'];
-    }
-
-    /**
-     * Sets prepay_product_id
-     * @param string $prepay_product_id DEPRECATED: Contracts prepay product id
-     * @return $this
-     */
-    public function setPrepayProductId($prepay_product_id)
-    {
-        $this->container['prepay_product_id'] = $prepay_product_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets invoice_product_id
-     * @return string
-     */
-    public function getInvoiceProductId()
-    {
-        return $this->container['invoice_product_id'];
-    }
-
-    /**
-     * Sets invoice_product_id
-     * @param string $invoice_product_id DEPRECATED: Contracts invoice product id
-     * @return $this
-     */
-    public function setInvoiceProductId($invoice_product_id)
-    {
-        $this->container['invoice_product_id'] = $invoice_product_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets creditcard_product_id
-     * @return string
-     */
-    public function getCreditcardProductId()
-    {
-        return $this->container['creditcard_product_id'];
-    }
-
-    /**
-     * Sets creditcard_product_id
-     * @param string $creditcard_product_id DEPRECATED: Contracts credit card product id
-     * @return $this
-     */
-    public function setCreditcardProductId($creditcard_product_id)
-    {
-        $this->container['creditcard_product_id'] = $creditcard_product_id;
 
         return $this;
     }

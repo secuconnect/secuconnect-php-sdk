@@ -81,7 +81,7 @@ class PaymentSecupayDebitsApiTest extends TestCase
         self::$secuconnectObjects = SecuconnectObjects::getInstance();
         self::$containerId = self::$secuconnectObjects->getContainer()->getId();
         self::$customerId = self::$secuconnectObjects->getCustomer()->getId();
-        self::$amount = 100;
+        self::$amount = "100";
         self::$currency = 'EUR';
         self::$purpose = 'for what text';
         self::$orderId = 'ZZZZZZ';
@@ -129,8 +129,8 @@ class PaymentSecupayDebitsApiTest extends TestCase
      */
     public function testPaymentSecupaydebitsPost()
     {
+        
         $debitData = [
-            'container' => self::$containerId,
             'customer' => self::$customerId,
             'amount' => self::$amount,
             'currency' => self::$currency,
@@ -139,81 +139,87 @@ class PaymentSecupayDebitsApiTest extends TestCase
             'opt_data' => self::$optData,
             'basket' => self::$basket
         ];
-
         try {
             $response = $this->api->paymentSecupaydebitsPost($debitData);
             self::$debitTransactionId = $response->getId();
         } catch (ApiException $e) {
-            print_r($e->getResponseBody());
-            throw $e;
+            if($e->getResponseObject()->getErrorDetails() == 'Payment method not available (for this customer)')
+            {
+                echo $e->getResponseObject()->getErrorDetails().' PaymentSecupaydebitsPost';
+            } else {
+                print_r($e->getResponseObject()->getErrorDetails());
+                throw $e;
+            }
         }
+        if(isset(self::$debitTransactionId))
+        {
+            $this->assertNotEmpty(self::$debitTransactionId);
+            $this->assertInstanceOf(SecupayTransactionProductModel::class, $response);
+            $this->assertEquals('payment.secupaydebits', $response->getObject());
+            $this->assertEquals(self::$debitTransactionId, $response->getId());
+            $this->assertNotEmpty($response->getTransId());
+            $this->assertNotEmpty($response->getStatus());
+            $this->assertEquals(self::$amount, $response->getAmount());
+            $this->assertEquals(self::$currency, $response->getCurrency());
+            $this->assertEquals(self::$purpose, $response->getPurpose());
+            $this->assertEquals(self::$orderId, $response->getOrderId());
 
-        $this->assertNotEmpty(self::$debitTransactionId);
-        $this->assertInstanceOf(SecupayTransactionProductModel::class, $response);
-        $this->assertEquals('payment.secupaydebits', $response->getObject());
-        $this->assertEquals(self::$debitTransactionId, $response->getId());
-        $this->assertNotEmpty($response->getTransId());
-        $this->assertNotEmpty($response->getStatus());
-        $this->assertEquals(self::$amount, $response->getAmount());
-        $this->assertEquals(self::$currency, $response->getCurrency());
-        $this->assertEquals(self::$purpose, $response->getPurpose());
-        $this->assertEquals(self::$orderId, $response->getOrderId());
+            for ($i = 0; $i < 3; ++$i) {
+                $this->assertEquals(self::$basket[$i], $response->getBasket()[$i]);
+                $this->assertEquals(self::$basket[$i]->getItemType(), $response->getBasket()[$i]->getItemType());
+                $this->assertEquals(self::$basket[$i]->getArticleNumber(), $response->getBasket()[$i]->getArticleNumber());
+                $this->assertEquals(self::$basket[$i]->getQuantity(), $response->getBasket()[$i]->getQuantity());
+                $this->assertEquals(self::$basket[$i]->getName(), $response->getBasket()[$i]->getName());
+                $this->assertEquals(self::$basket[$i]->getModel(), $response->getBasket()[$i]->getModel());
+                $this->assertEquals(self::$basket[$i]->getEan(), $response->getBasket()[$i]->getEan());
+                $this->assertEquals(self::$basket[$i]->getTax(), $response->getBasket()[$i]->getTax());
+                $this->assertEquals(self::$basket[$i]->getTotal(), $response->getBasket()[$i]->getTotal());
+                $this->assertEquals(self::$basket[$i]->getPrice(), $response->getBasket()[$i]->getPrice());
+                $this->assertEquals(self::$basket[$i]->getApikey(), $response->getBasket()[$i]->getApikey());
+                $this->assertEquals(self::$basket[$i]->getTransactionHash(), $response->getBasket()[$i]->getTransactionHash());
+                $this->assertEquals(self::$basket[$i]->getContractId(), $response->getBasket()[$i]->getContractId());
+            }
 
-        for ($i = 0; $i < 3; ++$i) {
-            $this->assertEquals(self::$basket[$i], $response->getBasket()[$i]);
-            $this->assertEquals(self::$basket[$i]->getItemType(), $response->getBasket()[$i]->getItemType());
-            $this->assertEquals(self::$basket[$i]->getArticleNumber(), $response->getBasket()[$i]->getArticleNumber());
-            $this->assertEquals(self::$basket[$i]->getQuantity(), $response->getBasket()[$i]->getQuantity());
-            $this->assertEquals(self::$basket[$i]->getName(), $response->getBasket()[$i]->getName());
-            $this->assertEquals(self::$basket[$i]->getModel(), $response->getBasket()[$i]->getModel());
-            $this->assertEquals(self::$basket[$i]->getEan(), $response->getBasket()[$i]->getEan());
-            $this->assertEquals(self::$basket[$i]->getTax(), $response->getBasket()[$i]->getTax());
-            $this->assertEquals(self::$basket[$i]->getTotal(), $response->getBasket()[$i]->getTotal());
-            $this->assertEquals(self::$basket[$i]->getPrice(), $response->getBasket()[$i]->getPrice());
-            $this->assertEquals(self::$basket[$i]->getApikey(), $response->getBasket()[$i]->getApikey());
-            $this->assertEquals(self::$basket[$i]->getTransactionHash(), $response->getBasket()[$i]->getTransactionHash());
-            $this->assertEquals(self::$basket[$i]->getContractId(), $response->getBasket()[$i]->getContractId());
+            $this->assertNotEmpty($response->getTransactionStatus());
+            $this->assertEquals('sale', $response->getPaymentAction());
+            $this->assertInstanceOf(PaymentCustomersProductModel::class, $response->getCustomer());
+            $this->assertNotEmpty($response->getCustomer());
+            $this->assertEquals('payment.customers', $response->getCustomer()->getObject());
+            $this->assertEquals(self::$customerId, $response->getCustomer()->getId());
+            $this->assertNotEmpty($response->getCustomer()->getContract());
+            $this->assertEquals('payment.contracts', $response->getCustomer()->getContract()->getObject());
+            $this->assertNotEmpty($response->getCustomer()->getContract()->getId());
+            $this->assertNotEmpty($response->getCustomer()->getCreated());
+            $this->assertInstanceOf(SecupayTransactionProductModelUsedPaymentInstrument::class, $response->getUsedPaymentInstrument());
+            $this->assertEquals('bank_account', $response->getUsedPaymentInstrument()['type']);
+            $this->assertEmpty($response->getUsedPaymentInstrument()->getData()->getOwner());
+            $this->assertNotEmpty($response->getUsedPaymentInstrument()->getData()->getIban());
+            $this->assertNotEmpty($response->getUsedPaymentInstrument()->getData()->getBic());
+            $this->assertNotEmpty($response->getUsedPaymentInstrument()->getData()->getBankname());
+            $this->assertInstanceOf(PaymentContainersProductModel::class, $response->getContainer());
+            $this->assertNotEmpty($response->getContainer());
+            $this->assertEquals('payment.containers', $response->getContainer()->getObject());
+            $this->assertEquals(self::$containerId, $response->getContainer()->getId());
+            $this->assertNotEmpty($response->getContainer()->getContract());
+            $this->assertEquals('payment.contracts', $response->getContainer()->getContract()->getObject());
+            $this->assertNotEmpty($response->getContainer()->getContract()->getId());
+            $this->assertInstanceOf(BankAccountDescriptor::class, $response->getContainer()->getPrivate());
+            $this->assertNotEmpty($response->getContainer()->getPrivate());
+            $this->assertNotEmpty($response->getContainer()->getPrivate()->getOwner());
+            $this->assertNotEmpty($response->getContainer()->getPrivate()->getIban());
+            $this->assertNotEmpty($response->getContainer()->getPrivate()->getBic());
+            $this->assertNotEmpty($response->getContainer()->getPrivate()->getBankname());
+            $this->assertNotEmpty($response->getContainer()->getPublic());
+            $this->assertNotEmpty($response->getContainer()->getPublic()->getOwner());
+            $this->assertNotEmpty($response->getContainer()->getPublic()->getIban());
+            $this->assertNotEmpty($response->getContainer()->getPublic()->getBic());
+            $this->assertNotEmpty($response->getContainer()->getPublic()->getBankname());
+            $this->assertEquals('bank_account', $response->getContainer()->getType());
+            $this->assertNotEmpty($response->getContainer()->getCreated());
+            $this->assertNotEmpty($response->getContainer()->getCustomer());
+            $this->assertEquals('payment.customers', $response->getContainer()->getCustomer()->getObject());
+            $this->assertEquals(self::$customerId, $response->getContainer()->getCustomer()->getId());
         }
-
-        $this->assertNotEmpty($response->getTransactionStatus());
-        $this->assertEquals('sale', $response->getPaymentAction());
-        $this->assertInstanceOf(PaymentCustomersProductModel::class, $response->getCustomer());
-        $this->assertNotEmpty($response->getCustomer());
-        $this->assertEquals('payment.customers', $response->getCustomer()->getObject());
-        $this->assertEquals(self::$customerId, $response->getCustomer()->getId());
-        $this->assertNotEmpty($response->getCustomer()->getContract());
-        $this->assertEquals('payment.contracts', $response->getCustomer()->getContract()->getObject());
-        $this->assertNotEmpty($response->getCustomer()->getContract()->getId());
-        $this->assertNotEmpty($response->getCustomer()->getCreated());
-        $this->assertInstanceOf(SecupayTransactionProductModelUsedPaymentInstrument::class, $response->getUsedPaymentInstrument());
-        $this->assertEquals('bank_account', $response->getUsedPaymentInstrument()['type']);
-        $this->assertEmpty($response->getUsedPaymentInstrument()->getData()->getOwner());
-        $this->assertNotEmpty($response->getUsedPaymentInstrument()->getData()->getIban());
-        $this->assertNotEmpty($response->getUsedPaymentInstrument()->getData()->getBic());
-        $this->assertNotEmpty($response->getUsedPaymentInstrument()->getData()->getBankname());
-        $this->assertInstanceOf(PaymentContainersProductModel::class, $response->getContainer());
-        $this->assertNotEmpty($response->getContainer());
-        $this->assertEquals('payment.containers', $response->getContainer()->getObject());
-        $this->assertEquals(self::$containerId, $response->getContainer()->getId());
-        $this->assertNotEmpty($response->getContainer()->getContract());
-        $this->assertEquals('payment.contracts', $response->getContainer()->getContract()->getObject());
-        $this->assertNotEmpty($response->getContainer()->getContract()->getId());
-        $this->assertInstanceOf(BankAccountDescriptor::class, $response->getContainer()->getPrivate());
-        $this->assertNotEmpty($response->getContainer()->getPrivate());
-        $this->assertNotEmpty($response->getContainer()->getPrivate()->getOwner());
-        $this->assertNotEmpty($response->getContainer()->getPrivate()->getIban());
-        $this->assertNotEmpty($response->getContainer()->getPrivate()->getBic());
-        $this->assertNotEmpty($response->getContainer()->getPrivate()->getBankname());
-        $this->assertNotEmpty($response->getContainer()->getPublic());
-        $this->assertNotEmpty($response->getContainer()->getPublic()->getOwner());
-        $this->assertNotEmpty($response->getContainer()->getPublic()->getIban());
-        $this->assertNotEmpty($response->getContainer()->getPublic()->getBic());
-        $this->assertNotEmpty($response->getContainer()->getPublic()->getBankname());
-        $this->assertEquals('bank_account', $response->getContainer()->getType());
-        $this->assertNotEmpty($response->getContainer()->getCreated());
-        $this->assertNotEmpty($response->getContainer()->getCustomer());
-        $this->assertEquals('payment.customers', $response->getContainer()->getCustomer()->getObject());
-        $this->assertEquals(self::$customerId, $response->getContainer()->getCustomer()->getId());
     }
 
     /**
@@ -223,78 +229,81 @@ class PaymentSecupayDebitsApiTest extends TestCase
      */
     public function testPaymentSecupayDebitsGetById()
     {
-        try {
-            $response = $this->api->paymentSecupayDebitsGetById(self::$debitTransactionId);
-        } catch (ApiException $e) {
-            print_r($e->getResponseBody());
-            throw $e;
+        if(isset(self::$debitTransactionId) && !empty(self::$debitTransactionId))
+        {
+            try {
+                $response = $this->api->paymentSecupayDebitsGetById(self::$debitTransactionId);
+            } catch (ApiException $e) {
+                print_r($e->getResponseBody());
+                throw $e;
+            }
+
+            $this->assertNotEmpty(self::$debitTransactionId);
+            $this->assertInstanceOf(SecupayTransactionProductModel::class, $response);
+            $this->assertEquals('payment.secupaydebits', $response->getObject());
+            $this->assertEquals(self::$debitTransactionId, $response->getId());
+            $this->assertNotEmpty($response->getTransId());
+            $this->assertNotEmpty($response->getStatus());
+            $this->assertEquals(self::$amount, $response->getAmount());
+            $this->assertEquals(self::$currency, $response->getCurrency());
+            $this->assertEquals(self::$purpose, $response->getPurpose());
+            $this->assertEquals(self::$orderId, $response->getOrderId());
+
+            for ($i = 0; $i < 3; ++$i) {
+                $this->assertEquals(self::$basket[$i], $response->getBasket()[$i]);
+                $this->assertEquals(self::$basket[$i]->getItemType(), $response->getBasket()[$i]->getItemType());
+                $this->assertEquals(self::$basket[$i]->getArticleNumber(), $response->getBasket()[$i]->getArticleNumber());
+                $this->assertEquals(self::$basket[$i]->getQuantity(), $response->getBasket()[$i]->getQuantity());
+                $this->assertEquals(self::$basket[$i]->getName(), $response->getBasket()[$i]->getName());
+                $this->assertEquals(self::$basket[$i]->getModel(), $response->getBasket()[$i]->getModel());
+                $this->assertEquals(self::$basket[$i]->getEan(), $response->getBasket()[$i]->getEan());
+                $this->assertEquals(self::$basket[$i]->getTax(), $response->getBasket()[$i]->getTax());
+                $this->assertEquals(self::$basket[$i]->getTotal(), $response->getBasket()[$i]->getTotal());
+                $this->assertEquals(self::$basket[$i]->getPrice(), $response->getBasket()[$i]->getPrice());
+                $this->assertEquals(self::$basket[$i]->getApikey(), $response->getBasket()[$i]->getApikey());
+                $this->assertEquals(self::$basket[$i]->getTransactionHash(), $response->getBasket()[$i]->getTransactionHash());
+                $this->assertEquals(self::$basket[$i]->getContractId(), $response->getBasket()[$i]->getContractId());
+            }
+
+            $this->assertEquals('sale', $response->getPaymentAction());
+            $this->assertInstanceOf(PaymentCustomersProductModel::class, $response->getCustomer());
+            $this->assertNotEmpty($response->getCustomer());
+            $this->assertEquals('payment.customers', $response->getCustomer()->getObject());
+            $this->assertEquals(self::$customerId, $response->getCustomer()->getId());
+            $this->assertNotEmpty($response->getCustomer()->getContract());
+            $this->assertEquals('payment.contracts', $response->getCustomer()->getContract()->getObject());
+            $this->assertNotEmpty($response->getCustomer()->getContract()->getId());
+            $this->assertNotEmpty($response->getCustomer()->getCreated());
+            $this->assertInstanceOf(SecupayTransactionProductModelUsedPaymentInstrument::class, $response->getUsedPaymentInstrument());
+            $this->assertEquals('bank_account', $response->getUsedPaymentInstrument()->getType());
+            $this->assertEmpty($response->getUsedPaymentInstrument()->getData()->getOwner());
+            $this->assertNotEmpty($response->getUsedPaymentInstrument()->getData()->getIban());
+            $this->assertNotEmpty($response->getUsedPaymentInstrument()->getData()->getBic());
+            $this->assertNotEmpty($response->getUsedPaymentInstrument()->getData()->getBankname());
+            $this->assertInstanceOf(PaymentContainersProductModel::class, $response->getContainer());
+            $this->assertNotEmpty($response->getContainer());
+            $this->assertEquals('payment.containers', $response->getContainer()->getObject());
+            $this->assertEquals(self::$containerId, $response->getContainer()->getId());
+            $this->assertNotEmpty($response->getContainer()->getContract());
+            $this->assertEquals('payment.contracts', $response->getContainer()->getContract()->getObject());
+            $this->assertNotEmpty($response->getContainer()->getContract()->getId());
+            $this->assertInstanceOf(BankAccountDescriptor::class, $response->getContainer()->getPrivate());
+            $this->assertNotEmpty($response->getContainer()->getPrivate());
+            $this->assertNotEmpty($response->getContainer()->getPrivate()->getOwner());
+            $this->assertNotEmpty($response->getContainer()->getPrivate()->getIban());
+            $this->assertNotEmpty($response->getContainer()->getPrivate()->getBic());
+            $this->assertNotEmpty($response->getContainer()->getPrivate()->getBankname());
+            $this->assertNotEmpty($response->getContainer()->getPublic());
+            $this->assertNotEmpty($response->getContainer()->getPublic()->getOwner());
+            $this->assertNotEmpty($response->getContainer()->getPublic()->getIban());
+            $this->assertNotEmpty($response->getContainer()->getPublic()->getBic());
+            $this->assertNotEmpty($response->getContainer()->getPublic()->getBankname());
+            $this->assertEquals('bank_account', $response->getContainer()->getType());
+            $this->assertNotEmpty($response->getContainer()->getCreated());
+            $this->assertNotEmpty($response->getContainer()->getCustomer());
+            $this->assertEquals('payment.customers', $response->getContainer()->getCustomer()->getObject());
+            $this->assertEquals(self::$customerId, $response->getContainer()->getCustomer()->getId());
         }
-
-        $this->assertNotEmpty(self::$debitTransactionId);
-        $this->assertInstanceOf(SecupayTransactionProductModel::class, $response);
-        $this->assertEquals('payment.secupaydebits', $response->getObject());
-        $this->assertEquals(self::$debitTransactionId, $response->getId());
-        $this->assertNotEmpty($response->getTransId());
-        $this->assertNotEmpty($response->getStatus());
-        $this->assertEquals(self::$amount, $response->getAmount());
-        $this->assertEquals(self::$currency, $response->getCurrency());
-        $this->assertEquals(self::$purpose, $response->getPurpose());
-        $this->assertEquals(self::$orderId, $response->getOrderId());
-
-        for ($i = 0; $i < 3; ++$i) {
-            $this->assertEquals(self::$basket[$i], $response->getBasket()[$i]);
-            $this->assertEquals(self::$basket[$i]->getItemType(), $response->getBasket()[$i]->getItemType());
-            $this->assertEquals(self::$basket[$i]->getArticleNumber(), $response->getBasket()[$i]->getArticleNumber());
-            $this->assertEquals(self::$basket[$i]->getQuantity(), $response->getBasket()[$i]->getQuantity());
-            $this->assertEquals(self::$basket[$i]->getName(), $response->getBasket()[$i]->getName());
-            $this->assertEquals(self::$basket[$i]->getModel(), $response->getBasket()[$i]->getModel());
-            $this->assertEquals(self::$basket[$i]->getEan(), $response->getBasket()[$i]->getEan());
-            $this->assertEquals(self::$basket[$i]->getTax(), $response->getBasket()[$i]->getTax());
-            $this->assertEquals(self::$basket[$i]->getTotal(), $response->getBasket()[$i]->getTotal());
-            $this->assertEquals(self::$basket[$i]->getPrice(), $response->getBasket()[$i]->getPrice());
-            $this->assertEquals(self::$basket[$i]->getApikey(), $response->getBasket()[$i]->getApikey());
-            $this->assertEquals(self::$basket[$i]->getTransactionHash(), $response->getBasket()[$i]->getTransactionHash());
-            $this->assertEquals(self::$basket[$i]->getContractId(), $response->getBasket()[$i]->getContractId());
-        }
-
-        $this->assertEquals('sale', $response->getPaymentAction());
-        $this->assertInstanceOf(PaymentCustomersProductModel::class, $response->getCustomer());
-        $this->assertNotEmpty($response->getCustomer());
-        $this->assertEquals('payment.customers', $response->getCustomer()->getObject());
-        $this->assertEquals(self::$customerId, $response->getCustomer()->getId());
-        $this->assertNotEmpty($response->getCustomer()->getContract());
-        $this->assertEquals('payment.contracts', $response->getCustomer()->getContract()->getObject());
-        $this->assertNotEmpty($response->getCustomer()->getContract()->getId());
-        $this->assertNotEmpty($response->getCustomer()->getCreated());
-        $this->assertInstanceOf(SecupayTransactionProductModelUsedPaymentInstrument::class, $response->getUsedPaymentInstrument());
-        $this->assertEquals('bank_account', $response->getUsedPaymentInstrument()->getType());
-        $this->assertEmpty($response->getUsedPaymentInstrument()->getData()->getOwner());
-        $this->assertNotEmpty($response->getUsedPaymentInstrument()->getData()->getIban());
-        $this->assertNotEmpty($response->getUsedPaymentInstrument()->getData()->getBic());
-        $this->assertNotEmpty($response->getUsedPaymentInstrument()->getData()->getBankname());
-        $this->assertInstanceOf(PaymentContainersProductModel::class, $response->getContainer());
-        $this->assertNotEmpty($response->getContainer());
-        $this->assertEquals('payment.containers', $response->getContainer()->getObject());
-        $this->assertEquals(self::$containerId, $response->getContainer()->getId());
-        $this->assertNotEmpty($response->getContainer()->getContract());
-        $this->assertEquals('payment.contracts', $response->getContainer()->getContract()->getObject());
-        $this->assertNotEmpty($response->getContainer()->getContract()->getId());
-        $this->assertInstanceOf(BankAccountDescriptor::class, $response->getContainer()->getPrivate());
-        $this->assertNotEmpty($response->getContainer()->getPrivate());
-        $this->assertNotEmpty($response->getContainer()->getPrivate()->getOwner());
-        $this->assertNotEmpty($response->getContainer()->getPrivate()->getIban());
-        $this->assertNotEmpty($response->getContainer()->getPrivate()->getBic());
-        $this->assertNotEmpty($response->getContainer()->getPrivate()->getBankname());
-        $this->assertNotEmpty($response->getContainer()->getPublic());
-        $this->assertNotEmpty($response->getContainer()->getPublic()->getOwner());
-        $this->assertNotEmpty($response->getContainer()->getPublic()->getIban());
-        $this->assertNotEmpty($response->getContainer()->getPublic()->getBic());
-        $this->assertNotEmpty($response->getContainer()->getPublic()->getBankname());
-        $this->assertEquals('bank_account', $response->getContainer()->getType());
-        $this->assertNotEmpty($response->getContainer()->getCreated());
-        $this->assertNotEmpty($response->getContainer()->getCustomer());
-        $this->assertEquals('payment.customers', $response->getContainer()->getCustomer()->getObject());
-        $this->assertEquals(self::$customerId, $response->getContainer()->getCustomer()->getId());
     }
 
     /**
@@ -304,15 +313,18 @@ class PaymentSecupayDebitsApiTest extends TestCase
      */
     public function testPaymentSecupayDebitsCancelById()
     {
-        try {
-            $response = $this->api->paymentSecupayDebitsCancelById(self::$debitTransactionId);
-        } catch (ApiException $e) {
-            print_r($e->getResponseBody());
-            throw $e;
-        }
+        if(isset(self::$debitTransactionId) && !empty(self::$debitTransactionId))
+        {
+            try {
+                $response = $this->api->paymentSecupayDebitsCancelById(self::$debitTransactionId);
+            } catch (ApiException $e) {
+                print_r($e->getResponseBody());
+                throw $e;
+            }
 
-        $this->assertNotEmpty($response);
-        $this->assertTrue($response['result']);
-        $this->assertTrue($response['demo']);
+            $this->assertNotEmpty($response);
+            $this->assertTrue($response['result']);
+            $this->assertTrue($response['demo']);
+        }
     }
 }

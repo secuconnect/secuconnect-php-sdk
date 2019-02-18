@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **id** | **string** | Id of payment customer | [optional] 
 **contract** | [**\Secuconnect\Client\Model\ProductInstanceUID**](ProductInstanceUID.md) | Payment contract | [optional] 
 **contact** | [**\Secuconnect\Client\Model\Contact**](Contact.md) | Customer contact info | [optional] 
-**created** | [**\DateTime**](\DateTime.md) | Created at date | [optional] 
-**updated** | [**\DateTime**](\DateTime.md) | Updated at date | [optional] 
+**created** | **string** | Created at date | [optional] 
+**updated** | **string** | Updated at date | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

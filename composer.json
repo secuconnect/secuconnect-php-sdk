@@ -1,6 +1,6 @@
 {
     "name": "secuconnect/secuconnect-php-sdk",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "description": "",
     "keywords": [
         "swagger",
@@ -22,7 +22,8 @@
         "ext-json": "*",
         "ext-mbstring": "*",
         "psr/cache": "^1.0",
-        "psr/log": "^1.0"
+        "psr/log": "^1.0",
+		"react/stomp": "0.1.*"
     },
     "require-dev": {
         "phpunit/phpunit": "~7.1",

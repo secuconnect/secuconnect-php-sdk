@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **description** | **string** | Description | [optional] 
 **idle_screen_register** | **string** | Idle screen register | [optional] 
 **idle_screen_terminal** | **string** | Idle screen terminal | [optional] 
-**created** | [**\DateTime**](\DateTime.md) | Created at date | [optional] 
+**created** | **string** | Created at date | [optional] 
 **online** | **bool** | Online | [optional] 
 **terminal_type** | **string** | Terminal type | [optional] 
 **base_version** | **string** | Base version | [optional] 

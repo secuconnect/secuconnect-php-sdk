@@ -4,7 +4,7 @@ namespace Secuconnect\Client\Api;
 
 use PHPUnit\Framework\TestCase;
 use Secuconnect\Client\STOMP\Destination;
-use Secuconnect\Client\STOMP\StompClient;
+use Secuconnect\Client\STOMP\Client;
 use \StompFrame;
 
 /**
@@ -25,11 +25,13 @@ class StompTest extends TestCase
 
     /*
      * it's only checkong if the Stomp connection id done
+     * 
+     * @group ignore
      */
     public function testStomp()
     {
         try{
-            $StompClient = new StompClient();
+            $StompClient = new Client\StompClient();
         } catch (Exception $ex) {
             $responseError = $ex->getResponseBody();
         }

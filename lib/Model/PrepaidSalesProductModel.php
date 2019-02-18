@@ -37,7 +37,7 @@ class PrepaidSalesProductModel implements ArrayAccess
         'merchant' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'store' => '\Secuconnect\Client\Model\Store',
         'contract' => '\Secuconnect\Client\Model\ProductInstanceUID',
-        'created' => '\DateTime',
+        'created' => 'string',
         'demo' => 'bool',
         'description' => 'string',
         'amount' => 'int',
@@ -47,7 +47,7 @@ class PrepaidSalesProductModel implements ArrayAccess
         'code' => 'string',
         'serial' => 'string',
         'cardnumber' => 'string',
-        'expire_date' => '\DateTime',
+        'expire_date' => 'string',
         'provider_delivery_number' => 'string',
         'receipt_header' => 'string',
         'receipt_customer' => 'string',
@@ -71,7 +71,7 @@ class PrepaidSalesProductModel implements ArrayAccess
         'merchant' => null,
         'store' => null,
         'contract' => null,
-        'created' => 'date-time',
+        'created' => null,
         'demo' => null,
         'description' => null,
         'amount' => null,
@@ -81,7 +81,7 @@ class PrepaidSalesProductModel implements ArrayAccess
         'code' => null,
         'serial' => null,
         'cardnumber' => null,
-        'expire_date' => 'date-time',
+        'expire_date' => null,
         'provider_delivery_number' => null,
         'receipt_header' => null,
         'receipt_customer' => null,
@@ -501,7 +501,7 @@ class PrepaidSalesProductModel implements ArrayAccess
 
     /**
      * Gets created
-     * @return \DateTime
+     * @return string
      */
     public function getCreated()
     {
@@ -510,7 +510,7 @@ class PrepaidSalesProductModel implements ArrayAccess
 
     /**
      * Sets created
-     * @param \DateTime $created Prepaid sale creation date
+     * @param string $created Prepaid sale creation date
      * @return $this
      */
     public function setCreated($created)
@@ -711,7 +711,7 @@ class PrepaidSalesProductModel implements ArrayAccess
 
     /**
      * Gets expire_date
-     * @return \DateTime
+     * @return string
      */
     public function getExpireDate()
     {
@@ -720,7 +720,7 @@ class PrepaidSalesProductModel implements ArrayAccess
 
     /**
      * Sets expire_date
-     * @param \DateTime $expire_date Expire date
+     * @param string $expire_date Expire date
      * @return $this
      */
     public function setExpireDate($expire_date)

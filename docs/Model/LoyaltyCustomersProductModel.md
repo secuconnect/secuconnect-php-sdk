@@ -10,11 +10,9 @@ Name | Type | Description | Notes
 **merchant_contact** | [**\Secuconnect\Client\Model\Contact**](Contact.md) | merchant contact | [optional] 
 **account_contact** | [**\Secuconnect\Client\Model\Contact**](Contact.md) | merchant contact | [optional] 
 **payment_container** | [**\Secuconnect\Client\Model\LoyaltyCustomersPaymentContainerModel[]**](LoyaltyCustomersPaymentContainerModel.md) | payment container | [optional] 
-**age** | **int** | Age | [optional] 
-**days_until_birthday** | **int** | Number of days until birthday | [optional] 
 **customernumber** | **string** | Customer number | [optional] 
 **note** | **string** | Customer number | [optional] 
-**created** | [**\DateTime**](\DateTime.md) | Creation date | [optional] 
+**created** | **string** | Creation date | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

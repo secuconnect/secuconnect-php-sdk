@@ -30,7 +30,6 @@ class StompResponse
     public function setErrorStatus()
     {
         $this->status = self::RESPONSE_STATUS_ERROR;
-
         return $this;
     }
     
@@ -43,7 +42,6 @@ class StompResponse
     public function setOkStatus()
     {
         $this->status = self::RESPONSE_STATUS_OK;
-
         return $this;
     }
     
@@ -66,7 +64,6 @@ class StompResponse
     public function setMessage($message)
     {
         $this->message = $message;
-
         return $this;
     }
 }

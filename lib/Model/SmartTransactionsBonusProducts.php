@@ -32,6 +32,7 @@ class SmartTransactionsBonusProducts implements ArrayAccess
         'price_one' => 'int',
         'quantity' => 'int',
         'desc' => 'string',
+        'serial_number' => 'string',
         'article_number' => 'string',
         'ean' => 'string'
     ];
@@ -46,6 +47,7 @@ class SmartTransactionsBonusProducts implements ArrayAccess
         'price_one' => null,
         'quantity' => null,
         'desc' => null,
+        'serial_number' => null,
         'article_number' => null,
         'ean' => null
     ];
@@ -70,6 +72,7 @@ class SmartTransactionsBonusProducts implements ArrayAccess
         'price_one' => 'priceOne',
         'quantity' => 'quantity',
         'desc' => 'desc',
+        'serial_number' => 'serialNumber',
         'article_number' => 'articleNumber',
         'ean' => 'ean'
     ];
@@ -85,6 +88,7 @@ class SmartTransactionsBonusProducts implements ArrayAccess
         'price_one' => 'setPriceOne',
         'quantity' => 'setQuantity',
         'desc' => 'setDesc',
+        'serial_number' => 'setSerialNumber',
         'article_number' => 'setArticleNumber',
         'ean' => 'setEan'
     ];
@@ -100,6 +104,7 @@ class SmartTransactionsBonusProducts implements ArrayAccess
         'price_one' => 'getPriceOne',
         'quantity' => 'getQuantity',
         'desc' => 'getDesc',
+        'serial_number' => 'getSerialNumber',
         'article_number' => 'getArticleNumber',
         'ean' => 'getEan'
     ];
@@ -140,6 +145,7 @@ class SmartTransactionsBonusProducts implements ArrayAccess
         $this->container['price_one'] = isset($data['price_one']) ? $data['price_one'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
         $this->container['desc'] = isset($data['desc']) ? $data['desc'] : null;
+        $this->container['serial_number'] = isset($data['serial_number']) ? $data['serial_number'] : null;
         $this->container['article_number'] = isset($data['article_number']) ? $data['article_number'] : null;
         $this->container['ean'] = isset($data['ean']) ? $data['ean'] : null;
     }
@@ -270,6 +276,27 @@ class SmartTransactionsBonusProducts implements ArrayAccess
     public function setDesc($desc)
     {
         $this->container['desc'] = $desc;
+
+        return $this;
+    }
+
+    /**
+     * Gets serial_number
+     * @return string
+     */
+    public function getSerialNumber()
+    {
+        return $this->container['serial_number'];
+    }
+
+    /**
+     * Sets serial_number
+     * @param string $serial_number The serialnumber of the scanned posa card
+     * @return $this
+     */
+    public function setSerialNumber($serial_number)
+    {
+        $this->container['serial_number'] = $serial_number;
 
         return $this;
     }

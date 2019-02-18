@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **transfer_account** | [**\Secuconnect\Client\Model\PaymentInformation**](PaymentInformation.md) | The bank account the payer needs to use for his transfer | [optional] 
 **customer** | [**\Secuconnect\Client\Model\PaymentCustomersProductModel**](PaymentCustomersProductModel.md) | The customer object | [optional] 
 **used_payment_instrument** | [**\Secuconnect\Client\Model\SecupayTransactionProductModelUsedPaymentInstrument**](SecupayTransactionProductModelUsedPaymentInstrument.md) |  | [optional] 
-**redirect_url** | [**\Secuconnect\Client\Model\SecupayTransactionProductModelRedirectUrl**](SecupayTransactionProductModelRedirectUrl.md) |  | [optional] 
+**redirect_url** | [**\Secuconnect\Client\Model\SecupayRedirectUrl**](SecupayRedirectUrl.md) | A list of redirect urls used for the payment checkout page | [optional] 
 **iframe_url** | **string** | The url of the payment checkout iframe | [optional] 
 **container** | [**\Secuconnect\Client\Model\PaymentContainersProductModel**](PaymentContainersProductModel.md) | The container object | [optional] 
 

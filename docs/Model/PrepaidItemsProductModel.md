@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **logo** | **string** | Logo | [optional] 
 **commission** | **int** | Commission | [optional] 
 **vtc_id** | **string** | Vtc id | [optional] 
-**ean_intern** | **string** | Ean intern | [optional] 
 **itemgroup** | [**\Secuconnect\Client\Model\ItemGroup**](ItemGroup.md) | Item group | [optional] 
 **stock_limit_max** | **int** | Stock limit max | [optional] 
 **stock_limit_min** | **int** | Stock limit min | [optional] 

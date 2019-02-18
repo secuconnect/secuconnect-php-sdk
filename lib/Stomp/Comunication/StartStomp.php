@@ -1,4 +1,5 @@
 <?php 
+
 namespace Secuconnect\Client\STOMP\Comunication;
 require_once __DIR__.'/../../../vendor/autoload.php';
 

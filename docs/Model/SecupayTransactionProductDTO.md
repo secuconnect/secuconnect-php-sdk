@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **accrual** | **bool** | Indicates whether the payment is locked for pay-out (TRUE) or not (FALSE). Standard value here is FALSE. | [optional] 
 **payment_action** | **string** | Specifies whether a pre-authorization (\&quot;authorization\&quot;) or instant payment (\&quot;sale\&quot;) is to be performed. Standard value here is \&quot;sale\&quot;. The collection of the pre-authorized payment is made with the \&quot;capture\&quot; command. | [optional] 
 **customer** | [**\Secuconnect\Client\Model\PaymentCustomersProductModel**](PaymentCustomersProductModel.md) | The customer object | [optional] 
-**redirect_url** | [**\Secuconnect\Client\Model\SecupayTransactionProductDTORedirectUrl**](SecupayTransactionProductDTORedirectUrl.md) |  | [optional] 
+**redirect_url** | [**\Secuconnect\Client\Model\SecupayRedirectUrl**](SecupayRedirectUrl.md) | A list of redirect urls used for the payment checkout page | [optional] 
 **contract** | **string** | Contract id | [optional] 
 **container** | **string** | Container id | [optional] 
 **opt_data** | [**\Secuconnect\Client\Model\SecupayTransactionProductDTOOptData**](SecupayTransactionProductDTOOptData.md) |  | [optional] 

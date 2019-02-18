@@ -4,11 +4,62 @@ All URIs are relative to *https://connect-testing.secupay-ag.de/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**getPaymentInstructions**](PaymentTransactionsApi.md#getPaymentInstructions) | **GET** /Payment/Transactions/{paymentTransactionId}/getPaymentInstructions/{smartTransactionId} | GET Payment/Transactions/{paymentTransactionId}/getPaymentInstructions/{smartTransactionId}
 [**paymentTransactionsGet**](PaymentTransactionsApi.md#paymentTransactionsGet) | **GET** /Payment/Transactions | GET Payment/Transactions
 [**paymentTransactionsGetById**](PaymentTransactionsApi.md#paymentTransactionsGetById) | **GET** /Payment/Transactions/{paymentTransactionId} | GET Payment/Transactions/{paymentTransactionId}
 [**paymentTransactionsIdCancelPost**](PaymentTransactionsApi.md#paymentTransactionsIdCancelPost) | **POST** /Payment/Transactions/{paymentTransactionId}/cancel | POST Payment/Transactions/{paymentTransactionId}/cancel
 [**paymentTransactionsIdShippingUrlGet**](PaymentTransactionsApi.md#paymentTransactionsIdShippingUrlGet) | **GET** /Payment/Transactions/{paymentTransactionId}/ShippingUrl | GET Payment/Transactions/{paymentTransactionId}/ShippingUrl
 
+
+# **getPaymentInstructions**
+> \Secuconnect\Client\Model\PaymentTransactionsInstructions getPaymentInstructions($payment_transaction_id, $smart_transaction_id)
+
+GET Payment/Transactions/{paymentTransactionId}/getPaymentInstructions/{smartTransactionId}
+
+Get the payment instructions for an invoice transaction
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: oauth_token
+Secuconnect\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$api_instance = new Secuconnect\Client\Api\PaymentTransactionsApi();
+$payment_transaction_id = "payment_transaction_id_example"; // string | Payment transaction id
+$smart_transaction_id = "smart_transaction_id_example"; // string | Smart transaction id
+
+try {
+    $result = $api_instance->getPaymentInstructions($payment_transaction_id, $smart_transaction_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PaymentTransactionsApi->getPaymentInstructions: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **payment_transaction_id** | **string**| Payment transaction id |
+ **smart_transaction_id** | **string**| Smart transaction id |
+
+### Return type
+
+[**\Secuconnect\Client\Model\PaymentTransactionsInstructions**](../Model/PaymentTransactionsInstructions.md)
+
+### Authorization
+
+[oauth_token](../../README.md#oauth_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **paymentTransactionsGet**
 > \Secuconnect\Client\Model\PaymentTransactionsList paymentTransactionsGet($count, $offset, $fields, $q, $sort)

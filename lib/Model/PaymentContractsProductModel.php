@@ -31,10 +31,8 @@ class PaymentContractsProductModel implements ArrayAccess
         'id' => 'string',
         'parent' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'demo' => 'bool',
-        'allow_cloning' => 'bool',
-        'sepa_mandate_inform' => 'string',
-        'created' => '\DateTime',
-        'updated' => '\DateTime'
+        'created' => 'string',
+        'updated' => 'string'
     ];
 
     /**
@@ -46,10 +44,8 @@ class PaymentContractsProductModel implements ArrayAccess
         'id' => 'id',
         'parent' => null,
         'demo' => null,
-        'allow_cloning' => null,
-        'sepa_mandate_inform' => null,
-        'created' => 'date-time',
-        'updated' => 'date-time'
+        'created' => null,
+        'updated' => null
     ];
 
     public static function swaggerTypes()
@@ -71,8 +67,6 @@ class PaymentContractsProductModel implements ArrayAccess
         'id' => 'id',
         'parent' => 'parent',
         'demo' => 'demo',
-        'allow_cloning' => 'allow_cloning',
-        'sepa_mandate_inform' => 'sepa_mandate_inform',
         'created' => 'created',
         'updated' => 'updated'
     ];
@@ -87,8 +81,6 @@ class PaymentContractsProductModel implements ArrayAccess
         'id' => 'setId',
         'parent' => 'setParent',
         'demo' => 'setDemo',
-        'allow_cloning' => 'setAllowCloning',
-        'sepa_mandate_inform' => 'setSepaMandateInform',
         'created' => 'setCreated',
         'updated' => 'setUpdated'
     ];
@@ -103,8 +95,6 @@ class PaymentContractsProductModel implements ArrayAccess
         'id' => 'getId',
         'parent' => 'getParent',
         'demo' => 'getDemo',
-        'allow_cloning' => 'getAllowCloning',
-        'sepa_mandate_inform' => 'getSepaMandateInform',
         'created' => 'getCreated',
         'updated' => 'getUpdated'
     ];
@@ -144,8 +134,6 @@ class PaymentContractsProductModel implements ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['parent'] = isset($data['parent']) ? $data['parent'] : null;
         $this->container['demo'] = isset($data['demo']) ? $data['demo'] : null;
-        $this->container['allow_cloning'] = isset($data['allow_cloning']) ? $data['allow_cloning'] : null;
-        $this->container['sepa_mandate_inform'] = isset($data['sepa_mandate_inform']) ? $data['sepa_mandate_inform'] : 'never';
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
     }
@@ -260,50 +248,8 @@ class PaymentContractsProductModel implements ArrayAccess
     }
 
     /**
-     * Gets allow_cloning
-     * @return bool
-     */
-    public function getAllowCloning()
-    {
-        return $this->container['allow_cloning'];
-    }
-
-    /**
-     * Sets allow_cloning
-     * @param bool $allow_cloning Allow to create sub-contracts
-     * @return $this
-     */
-    public function setAllowCloning($allow_cloning)
-    {
-        $this->container['allow_cloning'] = $allow_cloning;
-
-        return $this;
-    }
-
-    /**
-     * Gets sepa_mandate_inform
-     * @return string
-     */
-    public function getSepaMandateInform()
-    {
-        return $this->container['sepa_mandate_inform'];
-    }
-
-    /**
-     * Sets sepa_mandate_inform
-     * @param string $sepa_mandate_inform Inform the customer about the created sepa mandate
-     * @return $this
-     */
-    public function setSepaMandateInform($sepa_mandate_inform)
-    {
-        $this->container['sepa_mandate_inform'] = $sepa_mandate_inform;
-
-        return $this;
-    }
-
-    /**
      * Gets created
-     * @return \DateTime
+     * @return string
      */
     public function getCreated()
     {
@@ -312,7 +258,7 @@ class PaymentContractsProductModel implements ArrayAccess
 
     /**
      * Sets created
-     * @param \DateTime $created Created at date
+     * @param string $created Created at date
      * @return $this
      */
     public function setCreated($created)
@@ -324,7 +270,7 @@ class PaymentContractsProductModel implements ArrayAccess
 
     /**
      * Gets updated
-     * @return \DateTime
+     * @return string
      */
     public function getUpdated()
     {
@@ -333,7 +279,7 @@ class PaymentContractsProductModel implements ArrayAccess
 
     /**
      * Sets updated
-     * @param \DateTime $updated Updated at date
+     * @param string $updated Updated at date
      * @return $this
      */
     public function setUpdated($updated)

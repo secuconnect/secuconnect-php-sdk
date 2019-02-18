@@ -1,11 +1,12 @@
 <?php
+
 namespace Secuconnect\Client\STOMP\Comunication;
 
 use Secuconnect\Client\STOMP\Client;
 
-
 class LocalFileComunicationController implements LocalComunicationInterface
 {
+    /** @const string MSG_FILES_DIR directory of messages waiting to be send by STOMP */
     const MSG_FILES_DIR = __DIR__.'/msg_to_send';
 
     /**
@@ -13,10 +14,10 @@ class LocalFileComunicationController implements LocalComunicationInterface
      *
      * @return json $msg
      */
-    public function getMsgToSendForStompController() {
+    public function getMsgToSendForStompController() 
+    {
         $msg = '';
-        if(count(scandir(self::MSG_FILES_DIR.'/'.date("Ymd"))) > 2)
-        {
+        if (file_exists(self::MSG_FILES_DIR.'/'.date("Ymd")) && count(scandir(self::MSG_FILES_DIR.'/'.date("Ymd"))) > 2){
             $files = scandir (self::MSG_FILES_DIR.'/'.date("Ymd"));
             $firstFile = self::MSG_FILES_DIR.'/'.date("Ymd") .'/'. $files[2];// because [0] = "." [1] = ".." 
             $msg = json_decode(file_get_contents($firstFile));
@@ -30,10 +31,10 @@ class LocalFileComunicationController implements LocalComunicationInterface
      *
      * @param json $msg
      */
-    public function sendMsgToStompController($msg) {
-        
-        $this->checkAndCreateDir(self::MSG_FILES_DIR);
-        $this->checkAndCreateDir(self::MSG_FILES_DIR.'/'.date("Ymd"));
+    public function sendMsgToStompController($msg) 
+    {
+        $this->CreateDirIfNeeded(self::MSG_FILES_DIR);
+        $this->CreateDirIfNeeded(self::MSG_FILES_DIR.'/'.date("Ymd"));
         $dir = self::MSG_FILES_DIR.'/'.date("Ymd");
         
         $fileName = $this->createFileName();
@@ -53,7 +54,8 @@ class LocalFileComunicationController implements LocalComunicationInterface
      *
      * @return string $fileName
      */
-    private function createFileName() {
+    private function createFileName() 
+    {
         $fileName = time().uniqid();
         return $fileName;
     }
@@ -62,18 +64,15 @@ class LocalFileComunicationController implements LocalComunicationInterface
      * checks if dir exist if not creates this dir
      *
      * @param string $dir
-     * @return boolean
      */
-    private function checkAndCreateDir($dir){
+    private function CreateDirIfNeeded($dir)
+    {
         try {
-            if(!file_exists($dir))
-            {
+            if (!file_exists($dir)) {
                 mkdir($dir);
             }
-            return true;
         } catch (Exception $exc) {
-            throw new Exception($exc);
-            return false;
+            throw new Exception("can't create a directory for $dir");
         }  
     }
     

@@ -38,6 +38,7 @@ class SmartTransactionsBasketProduct implements ArrayAccess
         'sum' => 'int',
         'tax' => 'int',
         'reference_id' => 'string',
+        'contract_id' => 'string',
         'group' => '\Secuconnect\Client\Model\SmartTransactionsBasketProductGroup[]',
         'sub_basket' => '\Secuconnect\Client\Model\SmartTransactionsSubBasketProduct[]'
     ];
@@ -58,6 +59,7 @@ class SmartTransactionsBasketProduct implements ArrayAccess
         'sum' => null,
         'tax' => null,
         'reference_id' => null,
+        'contract_id' => null,
         'group' => null,
         'sub_basket' => null
     ];
@@ -88,6 +90,7 @@ class SmartTransactionsBasketProduct implements ArrayAccess
         'sum' => 'sum',
         'tax' => 'tax',
         'reference_id' => 'reference_id',
+        'contract_id' => 'contract_id',
         'group' => 'group',
         'sub_basket' => 'sub_basket'
     ];
@@ -109,6 +112,7 @@ class SmartTransactionsBasketProduct implements ArrayAccess
         'sum' => 'setSum',
         'tax' => 'setTax',
         'reference_id' => 'setReferenceId',
+        'contract_id' => 'setContractId',
         'group' => 'setGroup',
         'sub_basket' => 'setSubBasket'
     ];
@@ -130,6 +134,7 @@ class SmartTransactionsBasketProduct implements ArrayAccess
         'sum' => 'getSum',
         'tax' => 'getTax',
         'reference_id' => 'getReferenceId',
+        'contract_id' => 'getContractId',
         'group' => 'getGroup',
         'sub_basket' => 'getSubBasket'
     ];
@@ -176,6 +181,7 @@ class SmartTransactionsBasketProduct implements ArrayAccess
         $this->container['sum'] = isset($data['sum']) ? $data['sum'] : null;
         $this->container['tax'] = isset($data['tax']) ? $data['tax'] : null;
         $this->container['reference_id'] = isset($data['reference_id']) ? $data['reference_id'] : null;
+        $this->container['contract_id'] = isset($data['contract_id']) ? $data['contract_id'] : null;
         $this->container['group'] = isset($data['group']) ? $data['group'] : null;
         $this->container['sub_basket'] = isset($data['sub_basket']) ? $data['sub_basket'] : null;
     }
@@ -432,6 +438,27 @@ class SmartTransactionsBasketProduct implements ArrayAccess
     public function setReferenceId($reference_id)
     {
         $this->container['reference_id'] = $reference_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets contract_id
+     * @return string
+     */
+    public function getContractId()
+    {
+        return $this->container['contract_id'];
+    }
+
+    /**
+     * Sets contract_id
+     * @param string $contract_id contract id
+     * @return $this
+     */
+    public function setContractId($contract_id)
+    {
+        $this->container['contract_id'] = $contract_id;
 
         return $this;
     }

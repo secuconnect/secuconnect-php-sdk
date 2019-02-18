@@ -38,8 +38,8 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'contract_id' => 'int',
         'amount' => 'int',
         'currency' => 'string',
-        'created' => '\DateTime',
-        'updated' => '\DateTime',
+        'created' => 'string',
+        'updated' => 'string',
         'status' => 'int',
         'status_text' => 'string',
         'details' => '\Secuconnect\Client\Model\PaymentTransactionsProductModelDetails',
@@ -62,8 +62,8 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'contract_id' => null,
         'amount' => null,
         'currency' => null,
-        'created' => 'date-time',
-        'updated' => 'date-time',
+        'created' => null,
+        'updated' => null,
         'status' => null,
         'status_text' => null,
         'details' => null,
@@ -462,7 +462,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
 
     /**
      * Gets created
-     * @return \DateTime
+     * @return string
      */
     public function getCreated()
     {
@@ -471,7 +471,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets created
-     * @param \DateTime $created Created at date
+     * @param string $created Created at date
      * @return $this
      */
     public function setCreated($created)
@@ -483,7 +483,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
 
     /**
      * Gets updated
-     * @return \DateTime
+     * @return string
      */
     public function getUpdated()
     {
@@ -492,7 +492,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets updated
-     * @param \DateTime $updated Updated at date
+     * @param string $updated Updated at date
      * @return $this
      */
     public function setUpdated($updated)

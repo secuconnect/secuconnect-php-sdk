@@ -28,7 +28,7 @@ class SmartTransactionsPickupOptions implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'code' => 'string',
-        'date' => '\DateTime',
+        'date' => 'string',
         'store' => '\Secuconnect\Client\Model\ProductInstanceUID'
     ];
 
@@ -38,7 +38,7 @@ class SmartTransactionsPickupOptions implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'code' => null,
-        'date' => 'date-time',
+        'date' => null,
         'store' => null
     ];
 
@@ -168,7 +168,7 @@ class SmartTransactionsPickupOptions implements ArrayAccess
 
     /**
      * Gets date
-     * @return \DateTime
+     * @return string
      */
     public function getDate()
     {
@@ -177,7 +177,7 @@ class SmartTransactionsPickupOptions implements ArrayAccess
 
     /**
      * Sets date
-     * @param \DateTime $date Date
+     * @param string $date Date
      * @return $this
      */
     public function setDate($date)

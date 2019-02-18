@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **object** | **string** | Object of document upload | [optional] 
 **id** | **string** | Id of document upload | [optional] 
-**created** | [**\DateTime**](\DateTime.md) | Created at date | [optional] 
+**created** | **string** | Created at date | [optional] 
 **type** | **string** | Type | [optional] 
 **name** | **string** | Name | [optional] 
 **size** | **int** | Size | [optional] 

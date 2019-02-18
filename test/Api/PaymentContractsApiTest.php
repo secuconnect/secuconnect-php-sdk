@@ -59,21 +59,15 @@ class PaymentContractsApiTest extends TestCase
      */
     public static function setUpBeforeClass()
     {
+        //TO DO remove this merchantID get it from API based on curent credentials
         self::$contract = new PaymentContractsDTO();
         self::$contract->setMerchant('MRC_WVHJQFQ4JNVYNG5B55TYK748ZCHQP8')
             ->setInternalReference('181365')
             ->setContractId(49760)
             ->setDemo(true)
-            ->setDebitProductId(20)
-            ->setPrepayProductId(37)
-            ->setInvoiceProductId(329)
-            ->setCreditcardProductId(21)
             ->setUrlPush('http://requestb.in/xcrbzxxc')
-            ->setAllowTransactions(true)
-            ->setAllowCloning(true)
             ->setUniqueOrderId(false)
-            ->setScoring(true)
-            ->setSepaMandateInform('never');
+            ->setScoring(true);
     }
 
     /**
@@ -129,8 +123,6 @@ class PaymentContractsApiTest extends TestCase
         $this->assertNotEmpty($response->getId());
         $this->assertNull($response->getParent());
         $this->assertTrue($response->getDemo());
-        $this->assertTrue($response->getAllowCloning());
-        $this->assertEquals('never', $response->getSepaMandateInform());
         $this->assertNotNull($response->getCreated());
         $this->assertNotEmpty($response->getCreated());
         $this->assertNull($response->getUpdated());
@@ -168,8 +160,6 @@ class PaymentContractsApiTest extends TestCase
         $this->assertEquals(self::$contractId, $response->getId());
         $this->assertNull($response->getParent());
         $this->assertTrue($response->getDemo());
-        $this->assertTrue($response->getAllowCloning());
-        $this->assertEquals('never', $response->getSepaMandateInform());
         $this->assertEquals(self::$created, $response->getCreated());
         $this->assertNotNull($response->getUpdated());
         $this->assertNotEmpty($response->getUpdated());
@@ -196,8 +186,6 @@ class PaymentContractsApiTest extends TestCase
         $this->assertEquals(self::$contractId, $response->getId());
         $this->assertNull($response->getParent());
         $this->assertTrue($response->getDemo());
-        $this->assertTrue($response->getAllowCloning());
-        $this->assertEquals('never', $response->getSepaMandateInform());
         $this->assertEquals(self::$created, $response->getCreated());
         $this->assertEquals(self::$updated, $response->getUpdated());
     }
@@ -225,7 +213,6 @@ class PaymentContractsApiTest extends TestCase
             $this->assertNotNull($contract->getId());
             $this->assertNotEmpty($contract->getId());
             $this->assertNotNull($contract->getDemo());
-            $this->assertNotNull($contract->getSepaMandateInform());
             $this->assertNotNull($contract->getCreated());
             $this->assertNotEmpty($contract->getCreated());
         }
@@ -307,30 +294,34 @@ class PaymentContractsApiTest extends TestCase
 
     /**
      * Test case for paymentContractsIdPaymentMethodsGet
+     *
+     * @group ignore
      */
     public function testPaymentContractsIdPaymentMethodsGet()
     {
         try {
             $response = $this->api->paymentContractsIdPaymentMethodsGet('me');
-            echo var_dump($response);
         } catch (\Secuconnect\Client\ApiException $e) {
             print_r($e->getResponseBody());
             throw $e;
         }
+        $this->assertNotEmpty($response);
     }
 
     /**
      * Test case for paymentContractsIdRequestIdPost
+     *
+     * @group ignore
      */
     public function testPaymentContractsIdRequestIdPost()
     {
         try {
-            $response = $this->api->paymentContractsIdRequestIdPost('me');
-            echo var_dump($response);
+            $response = $this->api->requestId('me', null);
         } catch (\Secuconnect\Client\ApiException $e) {
             print_r($e->getResponseBody());
             throw $e;
         }
+        $this->assertNotEmpty($response);
     }
 
     /**
@@ -357,8 +348,6 @@ class PaymentContractsApiTest extends TestCase
         $this->assertEquals(self::$contractId, $response[0]->getId());
         $this->assertNull($response[0]->getParent());
         $this->assertTrue($response[0]->getDemo());
-        $this->assertTrue($response[0]->getAllowCloning());
-        $this->assertEquals('never', $response[0]->getSepaMandateInform());
         $this->assertEquals(self::$created, $response[0]->getCreated());
         $this->assertEquals(self::$updated, $response[0]->getUpdated());
     }

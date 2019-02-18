@@ -806,7 +806,7 @@ class LoyaltyMerchantcardsApiTest extends TestCase
     }
 
     /**
-     * Test case for checking CSC code.
+     * Test case for checking CSC code.  it's nead to be manual launched
      *
      * @group ignore
      * @depends testCheckNewPasscodeForTheLoyaltyCard
@@ -815,12 +815,12 @@ class LoyaltyMerchantcardsApiTest extends TestCase
     {
         $csc = 4471;
         $cscObj = new LoyaltyMerchantcardsDTOCsc();
-        $cscObj->setCardnumber("9276004429942845");
+        $cscObj->setCardnumber("");
         $cscObj->setCsc($csc);
 
         try {
             $response = self::$api->checkCsc(
-                "CRG_2BESGJNETJJRZVVYS8R7JWGVWK4PRZ",
+                "CRG_XXXX",
                 $cscObj
             );
 
@@ -835,6 +835,7 @@ class LoyaltyMerchantcardsApiTest extends TestCase
      */
     public function testCreateMerchantCard()
     {
+        // TODO reamove this merchantId and cardgroupId from code dynamicly get them from API basd on curent credentials
         $merchantIdToCreateMerchantcard = 'MRC_3TQMPV55JQG9CPKNXUEMSF094ZM4ON';
         $cardgroupIdToCreateMerchantcard = 'CRG_PAPHHDPXFNJDYBDUMKGC8U4CTU5AR8';
         $cardsAmount = new LoyaltyMerchantcardsDTOCardsAmount();

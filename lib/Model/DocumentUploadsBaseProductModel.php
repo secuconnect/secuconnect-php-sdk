@@ -29,7 +29,7 @@ class DocumentUploadsBaseProductModel implements ArrayAccess
     protected static $swaggerTypes = [
         'object' => 'string',
         'id' => 'string',
-        'created' => '\DateTime'
+        'created' => 'string'
     ];
 
     /**
@@ -39,7 +39,7 @@ class DocumentUploadsBaseProductModel implements ArrayAccess
     protected static $swaggerFormats = [
         'object' => null,
         'id' => 'id',
-        'created' => 'date-time'
+        'created' => null
     ];
 
     public static function swaggerTypes()
@@ -189,7 +189,7 @@ class DocumentUploadsBaseProductModel implements ArrayAccess
 
     /**
      * Gets created
-     * @return \DateTime
+     * @return string
      */
     public function getCreated()
     {
@@ -198,7 +198,7 @@ class DocumentUploadsBaseProductModel implements ArrayAccess
 
     /**
      * Sets created
-     * @param \DateTime $created Created at date
+     * @param string $created Created at date
      * @return $this
      */
     public function setCreated($created)

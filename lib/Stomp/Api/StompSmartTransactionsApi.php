@@ -1,4 +1,13 @@
 <?php
+
+namespace Secuconnect\Client\STOMP\Api;
+
+use \Secuconnect\Client\STOMP\Comunication;
+use \Secuconnect\Client\STOMP\Client;
+use \Secuconnect\Client\STOMP;
+use stdClass;
+use StompFrame;
+
 /**
  * StompSmartTransactionsApi
  *
@@ -12,17 +21,22 @@
  * NOTE: This class is auto generated (included from mustache files) by the swagger code generator program.
  * If you need to change or add something add it also in swagger code generator
  */
-
-namespace Secuconnect\Client\STOMP\Api;
-
-use \Secuconnect\Client\STOMP\Comunication;
-use \Secuconnect\Client\STOMP\Client;
-use \Secuconnect\Client\STOMP;
-use stdClass;
-use StompFrame;
-
 class StompSmartTransactionsApi
 {
+    /** @const string SMART_TRANSACTIONS_PRETRANSACTION_ACTION */
+    const SMART_TRANSACTIONS_ACTION = 'Smart.Transactions';
+    
+    /** @const string SMART_TRANSACTIONS_PRETRANSACTION_ACTION */
+    const SMART_TRANSACTIONS_PRETRANSACTION_ACTION = 'Smart.Transactions.PreTransaction';
+    
+    /** @const string SMART_TRANSACTIONS_CANCEL_ACTION */
+    const SMART_TRANSACTIONS_CANCEL_ACTION = 'Smart.Transactions.cancel';
+    
+    /** @const string SMART_TRANSACTIONS_CANCELTRX_ACTION */
+    const SMART_TRANSACTIONS_CANCELTRX_ACTION = 'Smart.Transactions.canceltrx';
+    
+    /** @const string SMART_TRANSACTIONS_START_ACTION */
+    const SMART_TRANSACTIONS_START_ACTION = 'Smart.Transactions.Start';
     
     /**
      * Operation addTransaction
@@ -34,10 +48,9 @@ class StompSmartTransactionsApi
      */
     public function addTransaction($SmartTransactionsDTO)
     {
-        
         $destinationObj = new stdClass();
-        $destinationObj->action = 'Smart.Transactions';
-        $destinationObj->method ='CREATE';
+        $destinationObj->action = self::SMART_TRANSACTIONS_ACTION;
+        $destinationObj->method = Client\Destination::CREATE;
 
         $message = new stdClass();
         $message->pid = '';
@@ -67,8 +80,8 @@ class StompSmartTransactionsApi
      */
     public function preTransaction($SmartTransactionId)
     {        
-        $destinationObj->action = 'Smart.Transactions.PreTransaction';
-        $destinationObj->method ='EXECUTE';
+        $destinationObj->action = self::SMART_TRANSACTIONS_PRETRANSACTION_ACTION;
+        $destinationObj->method = Client\Destination::EXECUTE;
 
         $message = new stdClass();
         $message->pid = $SmartTransactionId;
@@ -98,10 +111,9 @@ class StompSmartTransactionsApi
      */
     public function cancelTransaction($SmartTransactionId)
     {
-
         $destinationObj = new stdClass();
-        $destinationObj->action = 'Smart.Transactions.cancel';
-        $destinationObj->method ='EXECUTE';
+        $destinationObj->action = self::SMART_TRANSACTIONS_CANCEL_ACTION;
+        $destinationObj->method = Client\Destination::EXECUTE;
 
         $message = new stdClass();
         $message->pid = $SmartTransactionId;
@@ -124,20 +136,19 @@ class StompSmartTransactionsApi
     /**
      * Operation cancelTrx
      *
-     * POST Smart/Transactions/{smartTransactionId}/canceltrx
+     * POST Smart/Transactions/{receiptNumber}/canceltrx
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
+     * @param string $receiptNumber (required)
      * @return StompResponse $response
      */
-    public function cancelTrx($SmartTransactionId)
-    {       
-        
+    public function cancelTrx($receiptNumber)
+    {        
         $destinationObj = new stdClass();
-        $destinationObj->action = 'Smart.Transactions.canceltrx';
-        $destinationObj->method ='EXECUTE';
+        $destinationObj->action = self::SMART_TRANSACTIONS_CANCELTRX_ACTION;
+        $destinationObj->method = Client\Destination::EXECUTE;
 
         $message = new stdClass();
-        $message->pid = $SmartTransactionId;
+        $message->pid = $receiptNumber;
         $message->sid = '';
         $message->data = '';
         
@@ -163,10 +174,9 @@ class StompSmartTransactionsApi
      */
     public function getAll()
     {
-        
         $destinationObj = new stdClass();
-        $destinationObj->action = 'Smart.Transactions';
-        $destinationObj->method ='GET';
+        $destinationObj->action = self::SMART_TRANSACTIONS_ACTION;
+        $destinationObj->method = Client\Destination::GET;
 
         $message = new stdClass();
         $message->pid = '';
@@ -198,10 +208,9 @@ class StompSmartTransactionsApi
      */
     public function getOne($SmartTransactionId)
     {        
-        
         $destinationObj = new stdClass();
-        $destinationObj->action = 'Smart.Transactions';
-        $destinationObj->method ='GET';
+        $destinationObj->action = self::SMART_TRANSACTIONS_ACTION;
+        $destinationObj->method = Client\Destination::GET;
 
         $message = new stdClass();
         $message->pid = $SmartTransactionId;
@@ -232,10 +241,9 @@ class StompSmartTransactionsApi
      */
     public function startTransaction($SmartTransactionId , $method)
     {
-        
         $destinationObj = new stdClass();
-        $destinationObj->action = 'Smart.Transactions.Start';
-        $destinationObj->method ='CREATE';
+        $destinationObj->action = self::SMART_TRANSACTIONS_START_ACTION;
+        $destinationObj->method = Client\Destination::CREATE;
 
         $message = new stdClass();
         $message->pid = $SmartTransactionId;
@@ -266,16 +274,14 @@ class StompSmartTransactionsApi
      */
     public function updateTransaction($SmartTransactionId, $SmartTransactionsDTO)
     {    
-        
         $destinationObj = new stdClass();
-        $destinationObj->action = 'Smart.Transactions';
-        $destinationObj->method ='UPDATE';
+        $destinationObj->action = self::SMART_TRANSACTIONS_ACTION;
+        $destinationObj->method = Client\Destination::UPDATE;
 
         $message = new stdClass();
         $message->pid = $SmartTransactionId;
         $message->sid = '';
         $message->data = json_encode($SmartTransactionsDTO);
-
 
         $response = new Client\StompResponse();
         try {
@@ -298,7 +304,8 @@ class StompSmartTransactionsApi
      * @param string $message (required)
      * @return StompResponse $response
      */
-    private function SendMsgToStompController($message, $destination) {
+    private function SendMsgToStompController($message, $destination) 
+    {
         $ConfigController = new STOMP\StompConfigController();
         $localComunicationController = $ConfigController->getLocalComunicationController();
         $response = $localComunicationController->SendMsgToStompController(['MsgFrame'=>$message,'Destination'=>$destination]);

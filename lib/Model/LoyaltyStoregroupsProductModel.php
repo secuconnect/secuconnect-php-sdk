@@ -31,8 +31,8 @@ class LoyaltyStoregroupsProductModel implements ArrayAccess
         'id' => 'string',
         'merchant' => '\Secuconnect\Client\Model\LoyaltyDTOMerchant',
         'stores' => '\Secuconnect\Client\Model\LoyaltyDTOStore[]',
-        'created' => '\DateTime',
-        'updated' => '\DateTime'
+        'created' => 'string',
+        'updated' => 'string'
     ];
 
     /**
@@ -44,8 +44,8 @@ class LoyaltyStoregroupsProductModel implements ArrayAccess
         'id' => 'id',
         'merchant' => null,
         'stores' => null,
-        'created' => 'date-time',
-        'updated' => 'date-time'
+        'created' => null,
+        'updated' => null
     ];
 
     public static function swaggerTypes()
@@ -249,7 +249,7 @@ class LoyaltyStoregroupsProductModel implements ArrayAccess
 
     /**
      * Gets created
-     * @return \DateTime
+     * @return string
      */
     public function getCreated()
     {
@@ -258,7 +258,7 @@ class LoyaltyStoregroupsProductModel implements ArrayAccess
 
     /**
      * Sets created
-     * @param \DateTime $created Creation date
+     * @param string $created Creation date
      * @return $this
      */
     public function setCreated($created)
@@ -270,7 +270,7 @@ class LoyaltyStoregroupsProductModel implements ArrayAccess
 
     /**
      * Gets updated
-     * @return \DateTime
+     * @return string
      */
     public function getUpdated()
     {
@@ -279,7 +279,7 @@ class LoyaltyStoregroupsProductModel implements ArrayAccess
 
     /**
      * Sets updated
-     * @param \DateTime $updated Update date
+     * @param string $updated Update date
      * @return $this
      */
     public function setUpdated($updated)

@@ -28,9 +28,10 @@ class PaymentInformation implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'owner' => 'string',
         'iban' => 'string',
-        'bic' => 'string'
+        'bic' => 'string',
+        'owner' => 'string',
+        'bankname' => 'string'
     ];
 
     /**
@@ -38,9 +39,10 @@ class PaymentInformation implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'owner' => null,
         'iban' => null,
-        'bic' => null
+        'bic' => null,
+        'owner' => null,
+        'bankname' => null
     ];
 
     public static function swaggerTypes()
@@ -58,9 +60,10 @@ class PaymentInformation implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'owner' => 'owner',
         'iban' => 'iban',
-        'bic' => 'bic'
+        'bic' => 'bic',
+        'owner' => 'owner',
+        'bankname' => 'bankname'
     ];
 
 
@@ -69,9 +72,10 @@ class PaymentInformation implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'owner' => 'setOwner',
         'iban' => 'setIban',
-        'bic' => 'setBic'
+        'bic' => 'setBic',
+        'owner' => 'setOwner',
+        'bankname' => 'setBankname'
     ];
 
 
@@ -80,9 +84,10 @@ class PaymentInformation implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'owner' => 'getOwner',
         'iban' => 'getIban',
-        'bic' => 'getBic'
+        'bic' => 'getBic',
+        'owner' => 'getOwner',
+        'bankname' => 'getBankname'
     ];
 
     public static function attributeMap()
@@ -116,9 +121,10 @@ class PaymentInformation implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
         $this->container['iban'] = isset($data['iban']) ? $data['iban'] : null;
         $this->container['bic'] = isset($data['bic']) ? $data['bic'] : null;
+        $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
+        $this->container['bankname'] = isset($data['bankname']) ? $data['bankname'] : null;
     }
 
     /**
@@ -145,27 +151,6 @@ class PaymentInformation implements ArrayAccess
         return true;
     }
 
-
-    /**
-     * Gets owner
-     * @return string
-     */
-    public function getOwner()
-    {
-        return $this->container['owner'];
-    }
-
-    /**
-     * Sets owner
-     * @param string $owner Owner
-     * @return $this
-     */
-    public function setOwner($owner)
-    {
-        $this->container['owner'] = $owner;
-
-        return $this;
-    }
 
     /**
      * Gets iban
@@ -205,6 +190,48 @@ class PaymentInformation implements ArrayAccess
     public function setBic($bic)
     {
         $this->container['bic'] = $bic;
+
+        return $this;
+    }
+
+    /**
+     * Gets owner
+     * @return string
+     */
+    public function getOwner()
+    {
+        return $this->container['owner'];
+    }
+
+    /**
+     * Sets owner
+     * @param string $owner Owner
+     * @return $this
+     */
+    public function setOwner($owner)
+    {
+        $this->container['owner'] = $owner;
+
+        return $this;
+    }
+
+    /**
+     * Gets bankname
+     * @return string
+     */
+    public function getBankname()
+    {
+        return $this->container['bankname'];
+    }
+
+    /**
+     * Sets bankname
+     * @param string $bankname Bank name
+     * @return $this
+     */
+    public function setBankname($bankname)
+    {
+        $this->container['bankname'] = $bankname;
 
         return $this;
     }

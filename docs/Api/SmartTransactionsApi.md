@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**getAll**](SmartTransactionsApi.md#getAll) | **GET** /Smart/Transactions | GET Smart/Transactions
 [**getOne**](SmartTransactionsApi.md#getOne) | **GET** /Smart/Transactions/{smartTransactionId} | GET Smart/Transactions/{smartTransactionId}
 [**preTransaction**](SmartTransactionsApi.md#preTransaction) | **POST** /Smart/Transactions/{smartTransactionId}/PreTransaction | POST Smart/Transactions/{smartTransactionId}/PreTransaction
+[**prepare**](SmartTransactionsApi.md#prepare) | **POST** /Smart/Transactions/{smartTransactionId}/prepare | POST Smart/Transactions/stx_xxx/prepare
 [**startEndOfDayReport**](SmartTransactionsApi.md#startEndOfDayReport) | **POST** /Smart/Transactions/{smartDeviceId}/endOfDay | POST Smart/Transactions/{smartDeviceId}/endOfDay
 [**startTransaction**](SmartTransactionsApi.md#startTransaction) | **POST** /Smart/Transactions/{smartTransactionId}/start/{paymentMethod} | POST Smart/Transactions/{smartTransactionId}/start/{paymentMethod}
 [**updateTransaction**](SmartTransactionsApi.md#updateTransaction) | **PUT** /Smart/Transactions/{smartTransactionId} | PUT Smart/Transactions/{smartTransactionId}
@@ -348,6 +349,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Secuconnect\Client\Model\SmartTransactionsPreTransactionModel**](../Model/SmartTransactionsPreTransactionModel.md)
+
+### Authorization
+
+[oauth_token](../../README.md#oauth_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **prepare**
+> \Secuconnect\Client\Model\SmartTransactionsProductModel prepare($smart_transaction_id, $body)
+
+POST Smart/Transactions/stx_xxx/prepare
+
+Create and score payment transaction assigned to given smart transaction
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: oauth_token
+Secuconnect\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$api_instance = new Secuconnect\Client\Api\SmartTransactionsApi();
+$smart_transaction_id = "smart_transaction_id_example"; // string | Smart transaction id
+$body = new \Secuconnect\Client\Model\SmartTransactionsPrepare(); // \Secuconnect\Client\Model\SmartTransactionsPrepare | Information which customer and container will be used to this operation
+
+try {
+    $result = $api_instance->prepare($smart_transaction_id, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SmartTransactionsApi->prepare: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **smart_transaction_id** | **string**| Smart transaction id |
+ **body** | [**\Secuconnect\Client\Model\SmartTransactionsPrepare**](../Model/SmartTransactionsPrepare.md)| Information which customer and container will be used to this operation |
+
+### Return type
+
+[**\Secuconnect\Client\Model\SmartTransactionsProductModel**](../Model/SmartTransactionsProductModel.md)
 
 ### Authorization
 

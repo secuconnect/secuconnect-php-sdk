@@ -1,5 +1,7 @@
 <?php
+
 namespace Secuconnect\Client\STOMP\Comunication;
+
 use \Secuconnect\Client\STOMP\Client;
 interface LocalComunicationInterface
 {

@@ -121,7 +121,7 @@ class LoyaltyStoregroupsApiTest extends TestCase
      */
     public function testLoyaltyStoregroupsGetById()
     {
-        if (isset(self::$storegroupsList)) {
+        if (isset(self::$storegroupsList) && !empty(self::$storegroupsList->getData())) {
             try {
                 $response = self::$api->getOne(self::$storegroupsList->getData()[0]->getId());
             } catch (ApiException $e) {
@@ -147,7 +147,7 @@ class LoyaltyStoregroupsApiTest extends TestCase
      */
     public function testLoyaltyStoregroupsPost()
     {
-        if (isset(self::$storegroupsList)) {
+        if (isset(self::$storegroupsList) && !empty(self::$storegroupsList->getData())) {
             self::$storegroupDTO = new LoyaltyStoregroupsDTO();
             self::$storegroupDTO->setMerchant(self::$storegroupsList->getData()[0]->getMerchant()->getId());
             self::$storegroupDTO->setName("very dummy Storegroup");

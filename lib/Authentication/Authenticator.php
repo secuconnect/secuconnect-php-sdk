@@ -74,6 +74,8 @@ class Authenticator
 
                 if (isset($response->error) && $response->error === 'authorization_pending') {
                     $token = $this->tryObtainTokenForDevice($api, $expiresIn, $interval);
+                } else {
+                    $this->returnProductExceptionPayloadError($e);
                 }
             }
 
@@ -84,7 +86,14 @@ class Authenticator
             }
         }
 
-        return isset($token->access_token) ? $token->access_token : null;
+        if (isset($token->access_token) && strlen($token->access_token) !== 0) {
+            return $token->access_token;
+        } else {
+            $errorBody = (object) ['error' => 'invalid_token', 'error_description' => 'The access token is invalid'];
+            $e = new ApiException('Access token value error', 400, [], $errorBody);
+
+            $this->returnProductExceptionPayloadError($e);
+        }
     }
 
     /**
@@ -182,6 +191,7 @@ class Authenticator
         } catch (ApiException $e) {
             throw $e;
         }
+
         return $token;
     }
 
@@ -345,5 +355,21 @@ class Authenticator
         $newToken = $refreshAuth->getToken();
 
         return !is_null($newToken) ? $newToken : null;
+    }
+
+    /**
+     * Function to return ProductExceptionPayloadError exception.
+     *
+     * @param $e
+     */
+    private function returnProductExceptionPayloadError($e) {
+        $data = $this->getAuthenticationApiClient()->getSerializer()->deserialize(
+            $e->getResponseBody(),
+            '\Secuconnect\Client\Model\ProductExceptionPayload',
+            $e->getResponseHeaders()
+        );
+        $e->setResponseObject($data);
+
+        throw $e;
     }
 }

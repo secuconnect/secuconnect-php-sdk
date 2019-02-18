@@ -31,7 +31,7 @@ class LoyaltyCustomersPaymentContainerModel implements ArrayAccess
         'id' => 'string',
         'type' => 'string',
         'payment_information' => '\Secuconnect\Client\Model\BankAccountDescriptor',
-        'last_usage' => '\DateTime'
+        'last_usage' => 'string'
     ];
 
     /**
@@ -43,7 +43,7 @@ class LoyaltyCustomersPaymentContainerModel implements ArrayAccess
         'id' => null,
         'type' => null,
         'payment_information' => null,
-        'last_usage' => 'date-time'
+        'last_usage' => null
     ];
 
     public static function swaggerTypes()
@@ -243,7 +243,7 @@ class LoyaltyCustomersPaymentContainerModel implements ArrayAccess
 
     /**
      * Gets last_usage
-     * @return \DateTime
+     * @return string
      */
     public function getLastUsage()
     {
@@ -252,7 +252,7 @@ class LoyaltyCustomersPaymentContainerModel implements ArrayAccess
 
     /**
      * Sets last_usage
-     * @param \DateTime $last_usage Last Usage date
+     * @param string $last_usage Last Usage date
      * @return $this
      */
     public function setLastUsage($last_usage)

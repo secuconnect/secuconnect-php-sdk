@@ -252,6 +252,7 @@ class PaymentSecupayInvoicesApiTest extends TestCase
     /**
      * Test case for paymentSecupayinvoicesHashCancelPost
      *
+     * @group ignore
      * @throws ApiException
      */
     public function testPaymentSecupayinvoicesCancelById()

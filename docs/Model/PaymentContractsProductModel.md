@@ -7,10 +7,8 @@ Name | Type | Description | Notes
 **id** | **string** | Id of payment contract | [optional] 
 **parent** | [**\Secuconnect\Client\Model\ProductInstanceUID**](ProductInstanceUID.md) | Payment contract | [optional] 
 **demo** | **bool** | Is this a demo contract | [optional] 
-**allow_cloning** | **bool** | Allow to create sub-contracts | [optional] 
-**sepa_mandate_inform** | **string** | Inform the customer about the created sepa mandate | [optional] [default to 'never']
-**created** | [**\DateTime**](\DateTime.md) | Created at date | [optional] 
-**updated** | [**\DateTime**](\DateTime.md) | Updated at date | [optional] 
+**created** | **string** | Created at date | [optional] 
+**updated** | **string** | Updated at date | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

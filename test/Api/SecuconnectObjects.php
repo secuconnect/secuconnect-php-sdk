@@ -26,6 +26,8 @@ class SecuconnectObjects
     public const BANK_ACCOUNT_IBAN = 'DE37503240001000000524';
     public const BANK_ACCOUNT_BIC = 'FTSBDEFAXXX';
     public const LOYALTY_CARD = [
+        'number' => "92760...",
+        'pin' => ...
     ];
 
     /**

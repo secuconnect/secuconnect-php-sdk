@@ -35,8 +35,8 @@ class PaymentContainersProductModel implements ArrayAccess
         'type' => 'string',
         'public' => '\Secuconnect\Client\Model\BankAccountDescriptor',
         'private' => '\Secuconnect\Client\Model\BankAccountDescriptor',
-        'created' => '\DateTime',
-        'updated' => '\DateTime',
+        'created' => 'string',
+        'updated' => 'string',
         'mandate' => '\Secuconnect\Client\Model\PaymentContainerMandate'
     ];
 
@@ -53,8 +53,8 @@ class PaymentContainersProductModel implements ArrayAccess
         'type' => null,
         'public' => null,
         'private' => null,
-        'created' => 'date-time',
-        'updated' => 'date-time',
+        'created' => null,
+        'updated' => null,
         'mandate' => null
     ];
 
@@ -363,7 +363,7 @@ class PaymentContainersProductModel implements ArrayAccess
 
     /**
      * Gets created
-     * @return \DateTime
+     * @return string
      */
     public function getCreated()
     {
@@ -372,7 +372,7 @@ class PaymentContainersProductModel implements ArrayAccess
 
     /**
      * Sets created
-     * @param \DateTime $created Creation date
+     * @param string $created Creation date
      * @return $this
      */
     public function setCreated($created)
@@ -384,7 +384,7 @@ class PaymentContainersProductModel implements ArrayAccess
 
     /**
      * Gets updated
-     * @return \DateTime
+     * @return string
      */
     public function getUpdated()
     {
@@ -393,7 +393,7 @@ class PaymentContainersProductModel implements ArrayAccess
 
     /**
      * Sets updated
-     * @param \DateTime $updated Last update date
+     * @param string $updated Last update date
      * @return $this
      */
     public function setUpdated($updated)

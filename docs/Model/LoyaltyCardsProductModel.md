@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **string** | Id of loyalty card | [optional] 
 **account** | [**\Secuconnect\Client\Model\LoyaltyCardsDTOAccount**](LoyaltyCardsDTOAccount.md) | Loyalty card account | [optional] 
 **cardnumber** | **string** | Loyalty card number | [optional] 
-**created** | [**\DateTime**](\DateTime.md) | Creation date | [optional] 
+**created** | **string** | Creation date | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

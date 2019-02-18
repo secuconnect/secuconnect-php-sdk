@@ -18,8 +18,8 @@ Name | Type | Description | Notes
 **cash_balance** | **int** | Loyalty merchant card cash balance | [optional] 
 **stock_status** | **string** | Loyalty merchant card stock status | [optional] 
 **lock_status** | **string** | Loyalty merchant card lock status | [optional] 
-**last_usage** | [**\DateTime**](\DateTime.md) | Loyalty merchant card last usage | [optional] 
-**last_charge** | [**\DateTime**](\DateTime.md) | Loyalty merchant card last charge | [optional] 
+**last_usage** | **string** | Loyalty merchant card last usage | [optional] 
+**last_charge** | **string** | Loyalty merchant card last charge | [optional] 
 **is_base_card** | **bool** | Information whether loyalty merchant card is base card | [optional] 
 **passcode** | **int** | Loyalty merchant card passcode | [optional] 
 

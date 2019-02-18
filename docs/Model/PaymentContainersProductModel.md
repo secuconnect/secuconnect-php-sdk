@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **type** | **string** | Type of payment container | [optional] 
 **public** | [**\Secuconnect\Client\Model\BankAccountDescriptor**](BankAccountDescriptor.md) | Public payment instrument data | [optional] 
 **private** | [**\Secuconnect\Client\Model\BankAccountDescriptor**](BankAccountDescriptor.md) | Private payment instrument data | [optional] 
-**created** | [**\DateTime**](\DateTime.md) | Creation date | [optional] 
-**updated** | [**\DateTime**](\DateTime.md) | Last update date | [optional] 
+**created** | **string** | Creation date | [optional] 
+**updated** | **string** | Last update date | [optional] 
 **mandate** | [**\Secuconnect\Client\Model\PaymentContainerMandate**](PaymentContainerMandate.md) | Payment container mandate | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

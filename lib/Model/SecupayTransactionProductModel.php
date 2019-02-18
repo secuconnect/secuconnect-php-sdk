@@ -43,7 +43,7 @@ class SecupayTransactionProductModel implements ArrayAccess
         'transfer_account' => '\Secuconnect\Client\Model\PaymentInformation',
         'customer' => '\Secuconnect\Client\Model\PaymentCustomersProductModel',
         'used_payment_instrument' => '\Secuconnect\Client\Model\SecupayTransactionProductModelUsedPaymentInstrument',
-        'redirect_url' => '\Secuconnect\Client\Model\SecupayTransactionProductModelRedirectUrl',
+        'redirect_url' => '\Secuconnect\Client\Model\SecupayRedirectUrl',
         'iframe_url' => 'string',
         'container' => '\Secuconnect\Client\Model\PaymentContainersProductModel'
     ];
@@ -579,7 +579,7 @@ class SecupayTransactionProductModel implements ArrayAccess
 
     /**
      * Gets redirect_url
-     * @return \Secuconnect\Client\Model\SecupayTransactionProductModelRedirectUrl
+     * @return \Secuconnect\Client\Model\SecupayRedirectUrl
      */
     public function getRedirectUrl()
     {
@@ -588,7 +588,7 @@ class SecupayTransactionProductModel implements ArrayAccess
 
     /**
      * Sets redirect_url
-     * @param \Secuconnect\Client\Model\SecupayTransactionProductModelRedirectUrl $redirect_url
+     * @param \Secuconnect\Client\Model\SecupayRedirectUrl $redirect_url A list of redirect urls used for the payment checkout page
      * @return $this
      */
     public function setRedirectUrl($redirect_url)

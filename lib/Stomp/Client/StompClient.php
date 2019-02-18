@@ -28,9 +28,8 @@ class StompClient
      * @param Destination $destinationObj
      * @return StompResponse $response
      */
-    public function sendMsg($msgObj, $destinationObj) {
-      //    public function sendMsg() {
-        
+    public function sendMsg($msgObj, $destinationObj) 
+    {
         $destination = $destinationObj->prepareDestination();
         $header = $this->prepareHeder();
 
@@ -53,7 +52,7 @@ class StompClient
         $response->setOkStatus();
         return $response;
     
-          }
+    }
     
     /**
      * reads the STOMP queue
@@ -120,7 +119,7 @@ class StompClient
      *
      * @return string correlationId
      */
-    private function makeCorrelationId()
+    public function makeCorrelationId()
     {
         return uniqid() . '-' . rand() . '-' . time();
     }

@@ -41,7 +41,7 @@ class SmartDevicesProductModel implements ArrayAccess
         'description' => 'string',
         'idle_screen_register' => 'string',
         'idle_screen_terminal' => 'string',
-        'created' => '\DateTime',
+        'created' => 'string',
         'online' => 'bool',
         'terminal_type' => 'string',
         'base_version' => 'string'
@@ -66,7 +66,7 @@ class SmartDevicesProductModel implements ArrayAccess
         'description' => null,
         'idle_screen_register' => null,
         'idle_screen_terminal' => null,
-        'created' => 'date-time',
+        'created' => null,
         'online' => null,
         'terminal_type' => null,
         'base_version' => null
@@ -531,7 +531,7 @@ class SmartDevicesProductModel implements ArrayAccess
 
     /**
      * Gets created
-     * @return \DateTime
+     * @return string
      */
     public function getCreated()
     {
@@ -540,7 +540,7 @@ class SmartDevicesProductModel implements ArrayAccess
 
     /**
      * Sets created
-     * @param \DateTime $created Created at date
+     * @param string $created Created at date
      * @return $this
      */
     public function setCreated($created)

@@ -35,7 +35,6 @@ class PrepaidItemsProductModel implements ArrayAccess
         'logo' => 'string',
         'commission' => 'int',
         'vtc_id' => 'string',
-        'ean_intern' => 'string',
         'itemgroup' => '\Secuconnect\Client\Model\ItemGroup',
         'stock_limit_max' => 'int',
         'stock_limit_min' => 'int',
@@ -56,7 +55,6 @@ class PrepaidItemsProductModel implements ArrayAccess
         'logo' => null,
         'commission' => null,
         'vtc_id' => null,
-        'ean_intern' => null,
         'itemgroup' => null,
         'stock_limit_max' => null,
         'stock_limit_min' => null,
@@ -87,7 +85,6 @@ class PrepaidItemsProductModel implements ArrayAccess
         'logo' => 'logo',
         'commission' => 'commission',
         'vtc_id' => 'vtc_id',
-        'ean_intern' => 'ean_intern',
         'itemgroup' => 'itemgroup',
         'stock_limit_max' => 'stock_limit_max',
         'stock_limit_min' => 'stock_limit_min',
@@ -109,7 +106,6 @@ class PrepaidItemsProductModel implements ArrayAccess
         'logo' => 'setLogo',
         'commission' => 'setCommission',
         'vtc_id' => 'setVtcId',
-        'ean_intern' => 'setEanIntern',
         'itemgroup' => 'setItemgroup',
         'stock_limit_max' => 'setStockLimitMax',
         'stock_limit_min' => 'setStockLimitMin',
@@ -131,7 +127,6 @@ class PrepaidItemsProductModel implements ArrayAccess
         'logo' => 'getLogo',
         'commission' => 'getCommission',
         'vtc_id' => 'getVtcId',
-        'ean_intern' => 'getEanIntern',
         'itemgroup' => 'getItemgroup',
         'stock_limit_max' => 'getStockLimitMax',
         'stock_limit_min' => 'getStockLimitMin',
@@ -178,7 +173,6 @@ class PrepaidItemsProductModel implements ArrayAccess
         $this->container['logo'] = isset($data['logo']) ? $data['logo'] : null;
         $this->container['commission'] = isset($data['commission']) ? $data['commission'] : null;
         $this->container['vtc_id'] = isset($data['vtc_id']) ? $data['vtc_id'] : null;
-        $this->container['ean_intern'] = isset($data['ean_intern']) ? $data['ean_intern'] : null;
         $this->container['itemgroup'] = isset($data['itemgroup']) ? $data['itemgroup'] : null;
         $this->container['stock_limit_max'] = isset($data['stock_limit_max']) ? $data['stock_limit_max'] : null;
         $this->container['stock_limit_min'] = isset($data['stock_limit_min']) ? $data['stock_limit_min'] : null;
@@ -375,27 +369,6 @@ class PrepaidItemsProductModel implements ArrayAccess
     public function setVtcId($vtc_id)
     {
         $this->container['vtc_id'] = $vtc_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets ean_intern
-     * @return string
-     */
-    public function getEanIntern()
-    {
-        return $this->container['ean_intern'];
-    }
-
-    /**
-     * Sets ean_intern
-     * @param string $ean_intern Ean intern
-     * @return $this
-     */
-    public function setEanIntern($ean_intern)
-    {
-        $this->container['ean_intern'] = $ean_intern;
 
         return $this;
     }

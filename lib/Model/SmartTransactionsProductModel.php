@@ -40,8 +40,8 @@ class SmartTransactionsProductModel implements ArrayAccess
         'store' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'device_source' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'device_destination' => '\Secuconnect\Client\Model\ProductInstanceUID',
-        'created' => '\DateTime',
-        'updated' => '\DateTime',
+        'created' => 'string',
+        'updated' => 'string',
         'receipt_number' => 'int',
         'receipt' => '\Secuconnect\Client\Model\SmartTransactionsReceipt[]',
         'receipt_merchant' => 'string',
@@ -80,8 +80,8 @@ class SmartTransactionsProductModel implements ArrayAccess
         'store' => null,
         'device_source' => null,
         'device_destination' => null,
-        'created' => 'date-time',
-        'updated' => 'date-time',
+        'created' => null,
+        'updated' => null,
         'receipt_number' => null,
         'receipt' => null,
         'receipt_merchant' => null,
@@ -600,7 +600,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Gets created
-     * @return \DateTime
+     * @return string
      */
     public function getCreated()
     {
@@ -609,7 +609,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets created
-     * @param \DateTime $created Created at date
+     * @param string $created Created at date
      * @return $this
      */
     public function setCreated($created)
@@ -621,7 +621,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Gets updated
-     * @return \DateTime
+     * @return string
      */
     public function getUpdated()
     {
@@ -630,7 +630,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets updated
-     * @param \DateTime $updated Updated at date
+     * @param string $updated Updated at date
      * @return $this
      */
     public function setUpdated($updated)

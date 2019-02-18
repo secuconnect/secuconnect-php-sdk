@@ -34,11 +34,9 @@ class LoyaltyCustomersProductModel implements ArrayAccess
         'merchant_contact' => '\Secuconnect\Client\Model\Contact',
         'account_contact' => '\Secuconnect\Client\Model\Contact',
         'payment_container' => '\Secuconnect\Client\Model\LoyaltyCustomersPaymentContainerModel[]',
-        'age' => 'int',
-        'days_until_birthday' => 'int',
         'customernumber' => 'string',
         'note' => 'string',
-        'created' => '\DateTime'
+        'created' => 'string'
     ];
 
     /**
@@ -53,11 +51,9 @@ class LoyaltyCustomersProductModel implements ArrayAccess
         'merchant_contact' => null,
         'account_contact' => null,
         'payment_container' => null,
-        'age' => null,
-        'days_until_birthday' => null,
         'customernumber' => null,
         'note' => null,
-        'created' => 'date-time'
+        'created' => null
     ];
 
     public static function swaggerTypes()
@@ -82,8 +78,6 @@ class LoyaltyCustomersProductModel implements ArrayAccess
         'merchant_contact' => 'merchant_contact',
         'account_contact' => 'account_contact',
         'payment_container' => 'payment_container',
-        'age' => 'age',
-        'days_until_birthday' => 'days_until_birthday',
         'customernumber' => 'customernumber',
         'note' => 'note',
         'created' => 'created'
@@ -102,8 +96,6 @@ class LoyaltyCustomersProductModel implements ArrayAccess
         'merchant_contact' => 'setMerchantContact',
         'account_contact' => 'setAccountContact',
         'payment_container' => 'setPaymentContainer',
-        'age' => 'setAge',
-        'days_until_birthday' => 'setDaysUntilBirthday',
         'customernumber' => 'setCustomernumber',
         'note' => 'setNote',
         'created' => 'setCreated'
@@ -122,8 +114,6 @@ class LoyaltyCustomersProductModel implements ArrayAccess
         'merchant_contact' => 'getMerchantContact',
         'account_contact' => 'getAccountContact',
         'payment_container' => 'getPaymentContainer',
-        'age' => 'getAge',
-        'days_until_birthday' => 'getDaysUntilBirthday',
         'customernumber' => 'getCustomernumber',
         'note' => 'getNote',
         'created' => 'getCreated'
@@ -167,8 +157,6 @@ class LoyaltyCustomersProductModel implements ArrayAccess
         $this->container['merchant_contact'] = isset($data['merchant_contact']) ? $data['merchant_contact'] : null;
         $this->container['account_contact'] = isset($data['account_contact']) ? $data['account_contact'] : null;
         $this->container['payment_container'] = isset($data['payment_container']) ? $data['payment_container'] : null;
-        $this->container['age'] = isset($data['age']) ? $data['age'] : null;
-        $this->container['days_until_birthday'] = isset($data['days_until_birthday']) ? $data['days_until_birthday'] : null;
         $this->container['customernumber'] = isset($data['customernumber']) ? $data['customernumber'] : null;
         $this->container['note'] = isset($data['note']) ? $data['note'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
@@ -347,48 +335,6 @@ class LoyaltyCustomersProductModel implements ArrayAccess
     }
 
     /**
-     * Gets age
-     * @return int
-     */
-    public function getAge()
-    {
-        return $this->container['age'];
-    }
-
-    /**
-     * Sets age
-     * @param int $age Age
-     * @return $this
-     */
-    public function setAge($age)
-    {
-        $this->container['age'] = $age;
-
-        return $this;
-    }
-
-    /**
-     * Gets days_until_birthday
-     * @return int
-     */
-    public function getDaysUntilBirthday()
-    {
-        return $this->container['days_until_birthday'];
-    }
-
-    /**
-     * Sets days_until_birthday
-     * @param int $days_until_birthday Number of days until birthday
-     * @return $this
-     */
-    public function setDaysUntilBirthday($days_until_birthday)
-    {
-        $this->container['days_until_birthday'] = $days_until_birthday;
-
-        return $this;
-    }
-
-    /**
      * Gets customernumber
      * @return string
      */
@@ -432,7 +378,7 @@ class LoyaltyCustomersProductModel implements ArrayAccess
 
     /**
      * Gets created
-     * @return \DateTime
+     * @return string
      */
     public function getCreated()
     {
@@ -441,7 +387,7 @@ class LoyaltyCustomersProductModel implements ArrayAccess
 
     /**
      * Sets created
-     * @param \DateTime $created Creation date
+     * @param string $created Creation date
      * @return $this
      */
     public function setCreated($created)

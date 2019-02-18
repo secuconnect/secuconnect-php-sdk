@@ -42,8 +42,8 @@ class LoyaltyMerchantcardsProductWithReceiptModel implements ArrayAccess
         'cash_balance' => 'int',
         'stock_status' => 'string',
         'lock_status' => 'string',
-        'last_usage' => '\DateTime',
-        'last_charge' => '\DateTime',
+        'last_usage' => 'string',
+        'last_charge' => 'string',
         'is_base_card' => 'bool',
         'passcode' => 'int',
         'receipt_header' => '\Secuconnect\Client\Model\ReceiptType[]',
@@ -70,8 +70,8 @@ class LoyaltyMerchantcardsProductWithReceiptModel implements ArrayAccess
         'cash_balance' => null,
         'stock_status' => null,
         'lock_status' => null,
-        'last_usage' => 'date-time',
-        'last_charge' => 'date-time',
+        'last_usage' => null,
+        'last_charge' => null,
         'is_base_card' => null,
         'passcode' => null,
         'receipt_header' => null,
@@ -570,7 +570,7 @@ class LoyaltyMerchantcardsProductWithReceiptModel implements ArrayAccess
 
     /**
      * Gets last_usage
-     * @return \DateTime
+     * @return string
      */
     public function getLastUsage()
     {
@@ -579,7 +579,7 @@ class LoyaltyMerchantcardsProductWithReceiptModel implements ArrayAccess
 
     /**
      * Sets last_usage
-     * @param \DateTime $last_usage Loyalty merchant card last usage
+     * @param string $last_usage Loyalty merchant card last usage
      * @return $this
      */
     public function setLastUsage($last_usage)
@@ -591,7 +591,7 @@ class LoyaltyMerchantcardsProductWithReceiptModel implements ArrayAccess
 
     /**
      * Gets last_charge
-     * @return \DateTime
+     * @return string
      */
     public function getLastCharge()
     {
@@ -600,7 +600,7 @@ class LoyaltyMerchantcardsProductWithReceiptModel implements ArrayAccess
 
     /**
      * Sets last_charge
-     * @param \DateTime $last_charge Loyalty merchant card last charge
+     * @param string $last_charge Loyalty merchant card last charge
      * @return $this
      */
     public function setLastCharge($last_charge)
