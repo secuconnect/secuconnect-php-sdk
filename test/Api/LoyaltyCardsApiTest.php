@@ -89,6 +89,7 @@ class LoyaltyCardsApiTest extends TestCase
      * Test case for getting one Loyalty Card by provided id.
      *
      * @depends testGetListOfLoyaltyCards
+     * @param LoyaltyCardsProductModel $card
      * @throws ApiException
      */
     public function testGetOneLoyaltyCardByProvidedId(LoyaltyCardsProductModel $card)

@@ -8,30 +8,20 @@ use Secuconnect\Client\Printer\ImitationDevicePrinter;
 use Secuconnect\Client\Printer\Printer;
 
 /**
- * Configuration
- *
- * @category Class
- * @package  Secuconnect\Client
- * @author   Swagger Codegen team
- * @link     https://github.com/swagger-api/swagger-codegen
+ * Class Configuration
  */
 class Configuration
 {
+    const SDK_VERSION = '0.5.0';
+    const DEFAULT_HOST = 'connect-testing.secupay-ag.de'; // For live use: connect.secucard.com
+
+    const BASE_URL = 'https://' . self::DEFAULT_HOST . '/';
+    const API_URL = self::BASE_URL . 'api/v2';
+
+    /**
+     * @var self|null
+     */
     private static $defaultConfiguration;
-
-    /**
-     * Associate array to store API key(s)
-     *
-     * @var string[]
-     */
-    protected $apiKeys = [];
-
-    /**
-     * Associate array to store API prefix (e.g. Bearer)
-     *
-     * @var string[]
-     */
-    protected $apiKeyPrefixes = [];
 
     /**
      * basic stomp destination
@@ -55,20 +45,6 @@ class Configuration
     protected $accessToken = '';
 
     /**
-     * Username for HTTP basic authentication
-     *
-     * @var string
-     */
-    protected $username = '';
-
-    /**
-     * Password for HTTP basic authentication
-     *
-     * @var string
-     */
-    protected $password = '';
-
-    /**
      * The default header(s)
      *
      * @var array
@@ -80,21 +56,21 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'https://connect-testing.secupay-ag.de/api/v2';
+    protected $host = self::API_URL;
 
     /**
      * The authentication host
      *
      * @var string
      */
-    protected $authHost = 'https://connect-testing.secupay-ag.de/';
+    protected $authHost = self::BASE_URL;
 
     /**
      * The stomp host
      *
      * @var string
      */
-    protected $stompHost = 'ssl://connect-testing.secupay-ag.de';
+    protected $stompHost = 'ssl://' . self::DEFAULT_HOST;
 
     /**
      * The stomp port
@@ -122,7 +98,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'Swagger-Codegen/0.2.0/php';
+    protected $userAgent = 'Secuconnect-PHP-Client/' . self::SDK_VERSION;
 
     /**
      * Debug switch (default set to false)
@@ -212,13 +188,15 @@ class Configuration
     protected $printer;
 
     /**
-     * Constructor
+     * Configuration constructor.
+     * @param CacheItemPoolInterface $cache
+     * @param Printer $printer
      */
-    public function __construct()
+    public function __construct($cache = null, $printer = null)
     {
         $this->tempFolderPath = sys_get_temp_dir();
-        $this->cache = new FileCache();
-        $this->printer = new ImitationDevicePrinter();
+        $this->cache = $cache ?: new FileCache();
+        $this->printer = $printer ?: new ImitationDevicePrinter();
     }
 
     /**
@@ -238,7 +216,7 @@ class Configuration
     }
 
     /**
-     * @return mixed
+     * @return CacheItemPoolInterface
      */
     public function getCache()
     {
@@ -246,63 +224,11 @@ class Configuration
     }
 
     /**
-     * @param mixed $cache
+     * @param CacheItemPoolInterface $cache
      */
     public function setCache(CacheItemPoolInterface $cache)
     {
         $this->cache = $cache;
-    }
-
-    /**
-     * Sets API key
-     *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
-     * @param string $key              API key or token
-     *
-     * @return $this
-     */
-    public function setApiKey($apiKeyIdentifier, $key)
-    {
-        $this->apiKeys[$apiKeyIdentifier] = $key;
-        return $this;
-    }
-
-    /**
-     * Gets API key
-     *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
-     *
-     * @return string API key or token
-     */
-    public function getApiKey($apiKeyIdentifier)
-    {
-        return isset($this->apiKeys[$apiKeyIdentifier]) ? $this->apiKeys[$apiKeyIdentifier] : null;
-    }
-
-    /**
-     * Sets the prefix for API key (e.g. Bearer)
-     *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
-     * @param string $prefix           API key prefix, e.g. Bearer
-     *
-     * @return $this
-     */
-    public function setApiKeyPrefix($apiKeyIdentifier, $prefix)
-    {
-        $this->apiKeyPrefixes[$apiKeyIdentifier] = $prefix;
-        return $this;
-    }
-
-    /**
-     * Gets API key prefix
-     *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
-     *
-     * @return string
-     */
-    public function getApiKeyPrefix($apiKeyIdentifier)
-    {
-        return isset($this->apiKeyPrefixes[$apiKeyIdentifier]) ? $this->apiKeyPrefixes[$apiKeyIdentifier] : null;
     }
 
     /**
@@ -375,52 +301,6 @@ class Configuration
     }
 
     /**
-     * Sets the username for HTTP basic authentication
-     *
-     * @param string $username Username for HTTP basic authentication
-     *
-     * @return $this
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-        return $this;
-    }
-
-    /**
-     * Gets the username for HTTP basic authentication
-     *
-     * @return string Username for HTTP basic authentication
-     */
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
-     * Sets the password for HTTP basic authentication
-     *
-     * @param string $password Password for HTTP basic authentication
-     *
-     * @return $this
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-        return $this;
-    }
-
-    /**
-     * Gets the password for HTTP basic authentication
-     *
-     * @return string Password for HTTP basic authentication
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
      * Adds a default header
      *
      * @param string $headerName  header name (e.g. Token)
@@ -488,8 +368,7 @@ class Configuration
     /**
      * Sets the authentication host
      *
-     * @param string $authHost authHost
-     *
+     * @param $host
      * @return $this
      */
     public function setAuthHost($host)
@@ -903,7 +782,7 @@ class Configuration
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    OpenAPI Spec Version: 2.0.0' . PHP_EOL;
-        $report .= '    SDK Package Version: 0.2.0' . PHP_EOL;
+        $report .= '    SDK Package Version: ' . self::SDK_VERSION . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;

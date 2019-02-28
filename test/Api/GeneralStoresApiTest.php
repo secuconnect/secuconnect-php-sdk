@@ -107,6 +107,8 @@ class GeneralStoresApiTest extends TestCase
      * Test case for getting one General Store by provided id.
      *
      * @depends testGetListOfGeneralStores
+     * @param GeneralStoresProductModel $store
+     * @return string
      * @throws ApiException
      */
     public function testGetOneGeneralStoreByProvidedId(GeneralStoresProductModel $store)
@@ -183,6 +185,7 @@ class GeneralStoresApiTest extends TestCase
      * Test case for setting default.
      *
      * @depends testGetOneGeneralStoreByProvidedId
+     * @param string $storeId
      * @throws ApiException
      */
     public function testSetDefault(string $storeId)

@@ -139,9 +139,7 @@ class PaymentContractsApiTest extends TestCase
     {
         self::$contract
             ->setInternalReference('264748')
-            ->setInvoiceProductId(267)
             ->setUrlPush('http://example.com/push_url')
-            ->setAllowCloning(false)
             ->setScoring(true);
 
         try {
@@ -271,6 +269,7 @@ class PaymentContractsApiTest extends TestCase
 
     /**
      * Test case for paymentContractsIdClonePost
+     * @throws ApiException
      */
     public function testPaymentContractsIdClonePost()
     {
@@ -286,7 +285,7 @@ class PaymentContractsApiTest extends TestCase
 
             $response = $this->api->callClone('me', $body);
             echo var_dump($response);
-        } catch (\Secuconnect\Client\ApiException $e) {
+        } catch (ApiException $e) {
             print_r($e->getResponseBody());
             throw $e;
         }
@@ -296,12 +295,13 @@ class PaymentContractsApiTest extends TestCase
      * Test case for paymentContractsIdPaymentMethodsGet
      *
      * @group ignore
+     * @throws ApiException
      */
     public function testPaymentContractsIdPaymentMethodsGet()
     {
         try {
             $response = $this->api->paymentContractsIdPaymentMethodsGet('me');
-        } catch (\Secuconnect\Client\ApiException $e) {
+        } catch (ApiException $e) {
             print_r($e->getResponseBody());
             throw $e;
         }
@@ -312,12 +312,13 @@ class PaymentContractsApiTest extends TestCase
      * Test case for paymentContractsIdRequestIdPost
      *
      * @group ignore
+     * @throws ApiException
      */
     public function testPaymentContractsIdRequestIdPost()
     {
         try {
             $response = $this->api->requestId('me', null);
-        } catch (\Secuconnect\Client\ApiException $e) {
+        } catch (ApiException $e) {
             print_r($e->getResponseBody());
             throw $e;
         }

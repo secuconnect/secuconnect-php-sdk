@@ -198,6 +198,7 @@ class LoyaltyCustomersApiTest extends TestCase
      *
      * GET Loyalty/Customers.
      *
+     * @throws ApiException
      */
     public function testLoyaltyCustomersGet()
     {
@@ -218,12 +219,13 @@ class LoyaltyCustomersApiTest extends TestCase
             }
         }
     }
-    
-     /**
+
+    /**
      * Test case for loyaltyCustomersGet
      *
      * GET Loyalty/Customers.
      *
+     * @throws ApiException
      */
     public function testLoyaltyCustomersGetById()
     {
@@ -238,15 +240,14 @@ class LoyaltyCustomersApiTest extends TestCase
         $this->assertInstanceOf(LoyaltyCustomersProductModel::class, $response);
         $this->assertEquals(self::$receivedCustomer, $response);
     }
-    
 
- 
 
     /**
      * Test case for loyaltyCustomersLoyaltyCustomerIdAssignPaymentcontainerLoyaltyPaymentcontainerIdDelete
      *
      * DELETE Loyalty/Customers/{loyaltyCustomerId}/assignPaymentcontainer/{loyaltyPaymentcontainerId}.
      *
+     * @throws ApiException
      */
     public function testRemoveAssignPaymentcontainer()
     {
@@ -278,6 +279,7 @@ class LoyaltyCustomersApiTest extends TestCase
      *
      * POST Loyalty/Customers/{loyaltyCustomerId}/assignPaymentcontainer/{loyaltyPaymentcontainerId}.
      *
+     * @throws ApiException
      */
     public function testAddAssignPaymentcontainer()
     {
@@ -307,6 +309,7 @@ class LoyaltyCustomersApiTest extends TestCase
      *
      * POST Loyalty/Customers/{loyaltyCustomerId}/checkDuplicated/.
      *
+     * @throws ApiException
      */
     public function testcheckDuplicated()
     {
@@ -320,11 +323,13 @@ class LoyaltyCustomersApiTest extends TestCase
         $this->assertArrayHasKey('customers_without_merchantcard', $array);
         $this->assertArrayHasKey('duplicated_customers', $array);
     }
+
     /**
      * Test case for loyaltyCustomersLoyaltyCustomerIdPost
      *
      * POST Loyalty/Customers/{loyaltyCustomerId}.
      *
+     * @throws ApiException
      */
     public function testaddCustomer()
     {
@@ -338,11 +343,13 @@ class LoyaltyCustomersApiTest extends TestCase
        $this->chceckLoyaltyCustomersProductModel($response);
         
     }
+
     /**
-     * Test case for 
+     * Test case for
      *
      * PUT Loyalty/Customers/{loyaltyCustomerId}.
      *
+     * @throws ApiException
      */
     public function testupdateCustomer()
     {
@@ -359,11 +366,13 @@ class LoyaltyCustomersApiTest extends TestCase
         $this->assertEquals(self::$dumyCustomer->getMerchantContact()->getSurname(), $response->getMerchantContact()->getSurname());
         $this->assertEquals(self::$dumyCustomer->getNote(), $response->getNote());
     }
+
     /**
      * Test case for loyaltyCustomersLoyaltyCustomerIdDelete
      *
      * DELETE Loyalty/Customers/{loyaltyCustomerId}.
      *
+     * @throws ApiException
      */
     public function testremoveCustomer()
     {

@@ -26,4 +26,10 @@ class Globals
         'clientSecret' => '...',
         'uuid' => '...'
     ];
+
+    public const OAuthRefreshCredentials = [
+        'clientId' => '...',
+        'clientSecret' => '...',
+        'refreshToken' => '...'
+    ];
 }

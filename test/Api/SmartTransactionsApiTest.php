@@ -5,10 +5,14 @@ namespace Secuconnect\Client;
 use PHPUnit\Framework\TestCase;
 use Secuconnect\Client\Api\SmartTransactionsApi;
 use Secuconnect\Client\Authentication\Authenticator;
+use Secuconnect\Client\Model\SmartTransactionsBasket;
+use Secuconnect\Client\Model\SmartTransactionsBasketInfo;
+use Secuconnect\Client\Model\SmartTransactionsBasketProduct;
 use Secuconnect\Client\Model\SmartTransactionsDTO;
 use Secuconnect\Client\Model\SmartTransactionsList;
 use Secuconnect\Client\Model\SmartTransactionsPreTransactionModel;
 use Secuconnect\Client\Model\SmartTransactionsProductModel;
+use Secuconnect\Client\Model\SmartTransactionsSubBasketProduct;
 
 /**
  * Class SmartTransactionsApiTest
@@ -29,14 +33,7 @@ class SmartTransactionsApiTest extends TestCase
      */
     public static function setUpBeforeClass()
     {
-        Authenticator::authenticateByApplicationUser(
-            Globals::OAuthApplicationUserCredentials['clientId'],
-            Globals::OAuthApplicationUserCredentials['clientSecret'],
-            Globals::OAuthApplicationUserCredentials['username'],
-            Globals::OAuthApplicationUserCredentials['password'],
-            Globals::OAuthApplicationUserCredentials['device'],
-            Globals::OAuthApplicationUserCredentials['deviceName']
-        );
+        Authenticator::authenticateByApplicationUser(...array_values(Globals::OAuthApplicationUserCredentials));
 
         self::$api = new SmartTransactionsApi();
     }
@@ -51,6 +48,7 @@ class SmartTransactionsApiTest extends TestCase
 
     /**
      * Test case for getting all smart transactions.
+     * @throws ApiException
      */
     public function testGetAllSmartTransactions()
     {
@@ -78,6 +76,8 @@ class SmartTransactionsApiTest extends TestCase
      * Test case for getting exactly one smart transaction by provided id.
      *
      * @depends testGetAllSmartTransactions
+     * @param $smartTransactionsList
+     * @throws ApiException
      */
     public function testGetOneSmartTransaction($smartTransactionsList)
     {
@@ -98,6 +98,9 @@ class SmartTransactionsApiTest extends TestCase
      * Test case for adding new smart transaction.
      *
      * @depends testGetAllSmartTransactions
+     * @param $smartTransactionsList
+     * @return SmartTransactionsProductModel
+     * @throws ApiException
      */
     public function testAddNewSmartTransaction($smartTransactionsList)
     {
@@ -130,6 +133,9 @@ class SmartTransactionsApiTest extends TestCase
      *
      * @depends testAddNewSmartTransaction
      * @depends testGetAllSmartTransactions
+     * @param $createdTransaction
+     * @param $smartTransactionsList
+     * @throws ApiException
      */
     public function testUpdateSmartTransaction($createdTransaction, $smartTransactionsList)
     {
@@ -160,6 +166,7 @@ class SmartTransactionsApiTest extends TestCase
 
     /**
      * Test case for preTransaction.
+     * @throws ApiException
      */
     public function testPreTransaction()
     {
@@ -197,6 +204,7 @@ class SmartTransactionsApiTest extends TestCase
 
     /**
      * Test case for starting smart transaction.
+     * @throws ApiException
      */
     public function testStartSmartTransaction()
     {
@@ -231,6 +239,94 @@ class SmartTransactionsApiTest extends TestCase
             } catch (ApiException $e) {
                 continue;
             }
+        }
+    }
+
+    /**
+     * Test case for adding smart transaction with mixed basket.
+     * This test needs to be prepared manually by giving a valid access token in $dev6AccessToken
+     * and configuring the data below.
+     *
+     * @group ignore
+     * @throws ApiException
+     */
+    public function testSmartTransactionsAddMixedBasket() {
+        $dev6AccessToken = '';
+        $defaultAccessToken = Configuration::getDefaultConfiguration()->getAccessToken();
+
+        $dev6Host = 'https://connect-dev6.secupay-ag.de/api/v2';
+        $defaultHost = Configuration::getDefaultConfiguration()->getHost();
+
+        $SmartTransactionsDTO = new SmartTransactionsDTO();
+
+        $subBasket1 = new SmartTransactionsSubBasketProduct();
+        $subBasket1->setId(1);
+        $subBasket1->setItemType('article');
+        $subBasket1->setQuantity(1);
+        $subBasket1->setDesc("Cola");
+        $subBasket1->setPriceOne(50);
+        $subBasket1->setTax(19);
+        $subBasket1->setReferenceId("1001.1");
+
+        $subBasket2 = new SmartTransactionsSubBasketProduct();
+        $subBasket2->setId(2);
+        $subBasket2->setItemType('article');
+        $subBasket2->setQuantity(1);
+        $subBasket2->setDesc("Bier");
+        $subBasket2->setPriceOne(80);
+        $subBasket2->setTax(19);
+        $subBasket2->setReferenceId("1001.2");
+
+        $subBasket3 = new SmartTransactionsSubBasketProduct();
+        $subBasket3->setItemType('stakeholder_payment');
+        $subBasket3->setDesc("stakeholder_1");
+        $subBasket3->setSum(10);
+        $subBasket3->setContractId("GCR_372E9PEKJAD5VEHGBGSPTUVSKBWBPP");
+        $subBasket3->setReferenceId("1001.3");
+
+        $prod1 = new SmartTransactionsBasketProduct();
+        $prod1->setId(1);
+        $prod1->setItemType("sub_transaction");
+        $prod1->setDesc("Position 1 Order something");
+        $prod1->setSum(130);
+        $prod1->setQuantity(1);
+        $prod1->setContractId("GCR_KYG4WA80H0P236QUNUMWWXKQKBWCP0");
+        $prod1->setReferenceId("1001");
+        $prod1->setSubBasket(array($subBasket1, $subBasket2, $subBasket3));
+
+        $SmartTransactionsBasket = new SmartTransactionsBasket();
+        $SmartTransactionsBasket->setProducts(array($prod1));
+        $SmartTransactionsDTO->setBasket($SmartTransactionsBasket);
+
+        $SmartTransactionsBasketInfo = new SmartTransactionsBasketInfo();
+        $SmartTransactionsBasketInfo->setSum(130);
+
+        if ($dev6AccessToken == null or $dev6AccessToken == '') {
+            print_r('access token not set, aborting test');
+        } else {
+            Configuration::getDefaultConfiguration()->setAccessToken($dev6AccessToken);
+            Configuration::getDefaultConfiguration()->setHost($dev6Host);
+
+            $SmartTransactionsDTO->setBasketInfo($SmartTransactionsBasketInfo);
+
+            try {
+                $api = new SmartTransactionsApi();
+                $createdTransaction = $api->addTransaction($SmartTransactionsDTO);
+
+                self::assertTrue(true);
+            } catch (ApiException $e) {
+                if ($e->getResponseBody()->code == 4028) {
+                    print_r('Can not complete this action, do you have mixed basket enabled ?');
+                } else {
+                    Configuration::getDefaultConfiguration()->setAccessToken($defaultAccessToken);
+                    Configuration::getDefaultConfiguration()->setHost($defaultHost);
+                    print_r($e->getResponseBody());
+                    throw $e;
+                }
+            }
+
+            Configuration::getDefaultConfiguration()->setAccessToken($defaultAccessToken);
+            Configuration::getDefaultConfiguration()->setHost($defaultHost);
         }
     }
 }

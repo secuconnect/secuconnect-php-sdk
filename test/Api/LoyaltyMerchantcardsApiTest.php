@@ -548,6 +548,8 @@ class LoyaltyMerchantcardsApiTest extends TestCase
      * Test case for registering new Loyalty Customer for a specific Loyalty Merchant Card id.
      *
      * @depends testGetLoyaltyMerchantCardWithoutLoyaltyCustomer
+     * @param $loyaltyMerchantCard
+     * @throws ApiException
      */
     public function testRegisterLoyaltyCustomerForASpecificLoyaltyMerchantCard($loyaltyMerchantCard)
     {
@@ -698,6 +700,9 @@ class LoyaltyMerchantcardsApiTest extends TestCase
      * Test case for saving newly given passcode for Loyalty Card.
      *
      * @depends testGetLoyaltyMerchantCardWithPasscode2
+     * @param $merchantCard
+     * @return LoyaltyMerchantcardsDTONewPasscode
+     * @throws ApiException
      */
     public function testSaveNewPasscodeForTheLoyaltyCard($merchantCard)
     {
@@ -727,6 +732,10 @@ class LoyaltyMerchantcardsApiTest extends TestCase
      *
      * @depends testGetLoyaltyMerchantCardWithPasscode2
      * @depends testSaveNewPasscodeForTheLoyaltyCard
+     * @param $merchantCard
+     * @param $newPasscode
+     * @return array
+     * @throws ApiException
      */
     public function testCheckNewPasscodeForTheLoyaltyCard($merchantCard, $newPasscode)
     {
@@ -761,6 +770,8 @@ class LoyaltyMerchantcardsApiTest extends TestCase
      * Test case for validating General Merchant id with Loyalty Card number.
      *
      * @depends testCheckNewPasscodeForTheLoyaltyCard
+     * @param $neededData
+     * @throws ApiException
      */
     public function testValidateGeneralMerchantForLoyaltyCardNumber($neededData)
     {
@@ -786,6 +797,8 @@ class LoyaltyMerchantcardsApiTest extends TestCase
      * Test case for resetting Loyalty Card passcode.
      *
      * @depends testCheckNewPasscodeForTheLoyaltyCard
+     * @param $neededData
+     * @throws ApiException
      */
     public function testResetPasscodeForSpecificLoyaltyCard($neededData)
     {
@@ -820,7 +833,7 @@ class LoyaltyMerchantcardsApiTest extends TestCase
 
         try {
             $response = self::$api->checkCsc(
-                "CRG_XXXX",
+                "MCD_XXXX",
                 $cscObj
             );
 

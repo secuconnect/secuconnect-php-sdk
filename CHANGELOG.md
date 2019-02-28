@@ -19,11 +19,29 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
-## [0.4.0] - 2019-02-18
+## [0.5.0] - 2019-02-28
 
 **Release candidate**
-Third release candidate of the swagger generated PHP-SDK for the secuconnect API.
-- Stomp client changed.
+
+Release candidate of the swagger generated PHP-SDK for the secuconnect API.
+
+- Authenticator was refactored: Please use on of the following methods to authenticate:
+    - Authenticator::authenticateByApplicationUser()
+    - Authenticator::authenticateByClientCredentials()
+    - Authenticator::authenticateByDevice()
+    - Authenticator::authenticateByRefreshToken()
+- ImitationDevicePrinter will now also print a phone number to validate the user code.
+- API function update
+- Bug fixes
+
+
+## [0.4.0] - 2019-02-18
+
+**Developer Preview**
+
+Beta version of the swagger generated PHP-SDK for the secuconnect API.
+
+- Stomp client changed
 - Date format changed to string
 - API function update
 - Bug fixes
@@ -31,21 +49,25 @@ Third release candidate of the swagger generated PHP-SDK for the secuconnect API
 
 ## [0.3.0] - 2018-11-08
 
-**Release candidate**
-Second release candidate of the swagger generated PHP-SDK for the secuconnect API.
-- Stomp client added.
+**Developer Preview**
+
+Beta version of the swagger generated PHP-SDK for the secuconnect API.
+
+- Stomp client added
 
 
 ## [0.2.0] - 2018-10-26
 
-**Release candidate**
-First release candidate of the swagger generated PHP-SDK for the secuconnect API.
+**Developer Preview**
+
+Beta version of the swagger generated PHP-SDK for the secuconnect API.
 
 
 ## [0.1.0] - 2018-04-23
 
-**1st Developer Preview**
-First release of the swagger generated PHP-SDK for the secuconnect API.
+**Developer Preview**
+
+Beta version of the swagger generated PHP-SDK for the secuconnect API.
 
 
 
@@ -54,3 +76,4 @@ First release of the swagger generated PHP-SDK for the secuconnect API.
 [0.2.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.1.0...0.2.0
 [0.3.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.2.0...0.3.0
 [0.4.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.3.0...0.4.0
+[0.5.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.4.0...0.5.0

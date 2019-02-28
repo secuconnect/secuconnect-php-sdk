@@ -74,6 +74,7 @@ class LoyaltySalesApiTest extends TestCase
 
     /**
      * Setup before running any test cases
+     * @throws ApiException
      */
     public static function setUpBeforeClass()
     {

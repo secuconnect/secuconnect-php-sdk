@@ -2,24 +2,32 @@
 
 namespace Secuconnect\Client\Authentication;
 
+use Secuconnect\Client\ApiException;
+
 /**
  * Class OAuthDeviceCredentials
  */
 class OAuthDeviceCredentials extends AuthenticationCredentials
 {
+    const GRANT_TYPE = 'device';
+
     /**
      * Function to get credentials data. Second step for a device.
      *
      * @param string $clientId
      * @param string $clientSecret
-     * @param object $codeToken
+     * @param string $codeToken
      * @return OAuthDeviceCredentials
+     * @throws ApiException
      */
     public static function from($clientId, $clientSecret, $codeToken)
     {
+        if (empty($clientId) || empty($clientSecret) || empty($codeToken)) {
+            throw new ApiException('Incomplete credentials data', 401);
+        }
+
         $credentials = self::createBasicCredentials($clientId, $clientSecret);
-        $credentials->credentials['code'] = $codeToken->device_code;
-        $credentials->credentials['codeToken'] = $codeToken;
+        $credentials->credentials['code'] = $codeToken;
 
         return $credentials;
     }
@@ -31,9 +39,14 @@ class OAuthDeviceCredentials extends AuthenticationCredentials
      * @param string $clientSecret
      * @param string $uuid
      * @return OAuthDeviceCredentials
+     * @throws ApiException
      */
     public static function fromUuid($clientId, $clientSecret, $uuid)
     {
+        if (empty($clientId) || empty($clientSecret) || empty($uuid)) {
+            throw new ApiException('Incomplete credentials data', 401);
+        }
+
         $credentials = self::createBasicCredentials($clientId, $clientSecret);
         $credentials->credentials['uuid'] = $uuid;
 
@@ -49,9 +62,9 @@ class OAuthDeviceCredentials extends AuthenticationCredentials
             . $this->credentials['client_id'];
 
         if (isset($this->credentials['uuid'])) {
-            $textualKey . $this->credentials['uuid'];
+            $textualKey .= $this->credentials['uuid'];
         } elseif (isset($this->credentials['code'])) {
-            $textualKey . $this->credentials['code'];
+            $textualKey .= $this->credentials['code'];
         }
 
         return \md5($textualKey);
@@ -68,7 +81,7 @@ class OAuthDeviceCredentials extends AuthenticationCredentials
     {
         $credentials = new static();
         $credentials->credentials = [
-            'grant_type' => 'device',
+            'grant_type' => self::GRANT_TYPE,
             'client_id' => $clientId,
             'client_secret' => $clientSecret
         ];

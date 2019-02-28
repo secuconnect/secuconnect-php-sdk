@@ -86,6 +86,7 @@ class PrepaidItemsApiTest extends TestCase
      *
      * GET Prepaid/Items.
      *
+     * @throws ApiException
      */
     public function testGetAll()
     {
@@ -116,6 +117,7 @@ class PrepaidItemsApiTest extends TestCase
      *
      * GET Prepaid/Items/{prepaidItemId}.
      *
+     * @throws ApiException
      */
     public function testGetOne()
     {

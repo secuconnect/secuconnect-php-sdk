@@ -2,33 +2,43 @@
 
 namespace Secuconnect\Client\Cache;
 
-use \Psr\Cache\CacheItemPoolInterface;
-use \Psr\Cache\CacheItemInterface;
+use Psr\Cache\CacheItemInterface;
+use Psr\Cache\CacheItemPoolInterface;
 
+/**
+ * Class FileCache
+ */
 class FileCache implements CacheItemPoolInterface
 {
-    private $cacheItems;
+    const DEFAULT_FOLDER = 'tmp';
+    /**
+     * @var array
+     */
+    private $cacheItems = [];
 
-    public function __construct()
+    private $dir = '';
+
+    /**
+     * FileCache constructor.
+     * @param string $dir
+     */
+    public function __construct($dir = null)
     {
-        $this->cacheItems = [];
+        if (is_dir($dir)) {
+            $this->dir = $dir;
+        } else {
+            $this->dir = self::DEFAULT_FOLDER;
+
+            if (!file_exists($this->dir)) {
+                if (!mkdir($this->dir)) {
+                    return null;
+                }
+            }
+        }
     }
 
     /**
-     * Returns a Cache Item representing the specified key.
-     *
-     * This method must always return a CacheItemInterface object, even in case of
-     * a cache miss. It MUST NOT return null.
-     *
-     * @param string $key
-     *   The key for which to return the corresponding Cache Item.
-     *
-     * @throws InvalidArgumentException
-     *   If the $key string is not a legal value a \Psr\Cache\InvalidArgumentException
-     *   MUST be thrown.
-     *
-     * @return CacheItemInterface
-     *   The corresponding Cache Item.
+     * @inheritdoc
      */
     public function getItem($key)
     {
@@ -48,22 +58,9 @@ class FileCache implements CacheItemPoolInterface
     }
 
     /**
-     * Returns a traversable set of cache items.
-     *
-     * @param string[] $keys
-     *   An indexed array of keys of items to retrieve.
-     *
-     * @throws InvalidArgumentException
-     *   If any of the keys in $keys are not a legal value a \Psr\Cache\InvalidArgumentException
-     *   MUST be thrown.
-     *
-     * @return array|\Traversable
-     *   A traversable collection of Cache Items keyed by the cache keys of
-     *   each item. A Cache item will be returned for each key, even if that
-     *   key is not found. However, if no keys are specified then an empty
-     *   traversable MUST be returned instead.
+     * @inheritdoc
      */
-    public function getItems(array $keys = array())
+    public function getItems(array $keys = [])
     {
         $items = [];
 
@@ -75,21 +72,7 @@ class FileCache implements CacheItemPoolInterface
     }
 
     /**
-     * Confirms if the cache contains specified cache item.
-     *
-     * Note: This method MAY avoid retrieving the cached value for performance reasons.
-     * This could result in a race condition with CacheItemInterface::get(). To avoid
-     * such situation use CacheItemInterface::isHit() instead.
-     *
-     * @param string $key
-     *   The key for which to check existence.
-     *
-     * @throws InvalidArgumentException
-     *   If the $key string is not a legal value a \Psr\Cache\InvalidArgumentException
-     *   MUST be thrown.
-     *
-     * @return bool
-     *   True if item exists in the cache, false otherwise.
+     * @inheritdoc
      */
     public function hasItem($key)
     {
@@ -99,10 +82,7 @@ class FileCache implements CacheItemPoolInterface
     }
 
     /**
-     * Deletes all items in the pool.
-     *
-     * @return bool
-     *   True if the pool was successfully cleared. False if there was an error.
+     * @inheritdoc
      */
     public function clear()
     {
@@ -112,17 +92,7 @@ class FileCache implements CacheItemPoolInterface
     }
 
     /**
-     * Removes the item from the pool.
-     *
-     * @param string $key
-     *   The key to delete.
-     *
-     * @throws InvalidArgumentException
-     *   If the $key string is not a legal value a \Psr\Cache\InvalidArgumentException
-     *   MUST be thrown.
-     *
-     * @return bool
-     *   True if the item was successfully removed. False if there was an error.
+     * @inheritdoc
      */
     public function deleteItem($key)
     {
@@ -138,17 +108,7 @@ class FileCache implements CacheItemPoolInterface
     }
 
     /**
-     * Removes multiple items from the pool.
-     *
-     * @param string[] $keys
-     *   An array of keys that should be removed from the pool.
-
-     * @throws InvalidArgumentException
-     *   If any of the keys in $keys are not a legal value a \Psr\Cache\InvalidArgumentException
-     *   MUST be thrown.
-     *
-     * @return bool
-     *   True if the items were successfully removed. False if there was an error.
+     * @inheritdoc
      */
     public function deleteItems(array $keys)
     {
@@ -162,26 +122,12 @@ class FileCache implements CacheItemPoolInterface
     }
 
     /**
-     * Persists a cache item immediately.
-     *
-     * @param CacheItemInterface $item
-     *   The cache item to save.
-     *
-     * @return bool
-     *   True if the item was successfully persisted. False if there was an error.
+     * @inheritdoc
      */
     public function save(CacheItemInterface $item)
     {
         if (!$item->isHit()) {
             return false;
-        }
-
-        $dirName = 'tmp/';
-
-        if (!file_exists($dirName)) {
-            if (!mkdir($dirName)) {
-                return false;
-            }
         }
 
         $bytes = file_put_contents($this->filenameFor($item->getKey()), serialize($item));
@@ -190,13 +136,7 @@ class FileCache implements CacheItemPoolInterface
     }
 
     /**
-     * Sets a cache item to be persisted later.
-     *
-     * @param CacheItemInterface $item
-     *   The cache item to save.
-     *
-     * @return bool
-     *   False if the item could not be queued or if a commit was attempted and failed. True otherwise.
+     * @inheritdoc
      */
     public function saveDeferred(CacheItemInterface $item)
     {
@@ -206,10 +146,7 @@ class FileCache implements CacheItemPoolInterface
     }
 
     /**
-     * Persists any deferred cache items.
-     *
-     * @return bool
-     *   True if all not-yet-saved items were successfully saved or there were none. False otherwise.
+     * @inheritdoc
      */
     public function commit()
     {
@@ -221,8 +158,12 @@ class FileCache implements CacheItemPoolInterface
         return true;
     }
 
+    /**
+     * @param string $key
+     * @return string
+     */
     private function filenameFor($key)
     {
-        return 'tmp/' . $key;
+        return rtrim($this->dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $key;
     }
 }

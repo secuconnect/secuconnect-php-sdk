@@ -104,6 +104,7 @@ class PaymentContainersApiTest extends TestCase
 
     /**
      * Setup before running each test case
+     * @throws ApiException
      */
     public function setUp()
     {

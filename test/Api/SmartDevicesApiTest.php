@@ -82,6 +82,7 @@ class SmartDevicesApiTest extends TestCase
 
     /**
      * Setup before running any test cases
+     * @throws ApiException
      */
     public static function setUpBeforeClass()
     {
@@ -116,6 +117,7 @@ class SmartDevicesApiTest extends TestCase
      *
      * GET Smart/Devices.
      *
+     * @throws ApiException
      */
     public function testGetAll()
     {
@@ -151,6 +153,7 @@ class SmartDevicesApiTest extends TestCase
      * Test case for getOne
      *
      * GET Smart/Devices/{id}.
+     * @throws ApiException
      */
     public function testGetOne()
     {
@@ -181,6 +184,7 @@ class SmartDevicesApiTest extends TestCase
      *
      * GET Smart/Devices/{smartDeviceId}/routing/type/{type}.
      *
+     * @throws ApiException
      */
     public
     function testGetRouting()
@@ -217,6 +221,7 @@ class SmartDevicesApiTest extends TestCase
      *
      * POST Smart/Devices.
      *
+     * @throws ApiException
      */
     public function testAddDevice()
     {
@@ -254,6 +259,7 @@ class SmartDevicesApiTest extends TestCase
      *
      * PUT Smart/Devices/{id}.
      *
+     * @throws ApiException
      */
     public
     function testUpdateDevice()
@@ -287,6 +293,7 @@ class SmartDevicesApiTest extends TestCase
      *
      * POST Smart/Devices/{id}/GetSecubaseConfig.
      *
+     * @throws ApiException
      */
     public function testGetSecubaseConfig()
     {
@@ -322,6 +329,7 @@ class SmartDevicesApiTest extends TestCase
      *
      * POST Smart/Devices/{id}/CreatePrepaidTid.
      *
+     * @throws ApiException
      */
     public function testCreatePrepaidTid()
     {
@@ -360,6 +368,7 @@ class SmartDevicesApiTest extends TestCase
      * POST Smart/Devices/{id}/CreateVirtualDevice.
      *
      * @group ignore
+     * @throws ApiException
      */
     public function testCreateVirtualDevice()
     {

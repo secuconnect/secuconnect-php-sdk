@@ -68,6 +68,7 @@ class LoyaltyStoregroupsApiTest extends TestCase
 
     /**
      * Setup before running any test cases
+     * @throws ApiException
      */
     public static function setUpBeforeClass()
     {
@@ -88,6 +89,7 @@ class LoyaltyStoregroupsApiTest extends TestCase
      *
      * GET Loyalty/StoreGroups.
      *
+     * @throws ApiException
      */
     public function testLoyaltyStoreGroupsGet()
     {
@@ -118,6 +120,7 @@ class LoyaltyStoregroupsApiTest extends TestCase
      *
      * GET Loyalty/StoreGroups/{id}.
      *
+     * @throws ApiException
      */
     public function testLoyaltyStoregroupsGetById()
     {
@@ -144,6 +147,7 @@ class LoyaltyStoregroupsApiTest extends TestCase
      *
      * POST Loyalty/Storegroups.
      *
+     * @throws ApiException
      */
     public function testLoyaltyStoregroupsPost()
     {
@@ -177,6 +181,7 @@ class LoyaltyStoregroupsApiTest extends TestCase
      * PUT Loyalty/StoreGroups/{id}.
      *
      * @depends testLoyaltyStoregroupsPost
+     * @throws ApiException
      */
     public function testLoyaltyStoreGroupsIdPut()
     {
@@ -209,6 +214,7 @@ class LoyaltyStoregroupsApiTest extends TestCase
      * DELETE Loyalty/StoreGroups/{id}.
      *
      * @depends testLoyaltyStoregroupsPost
+     * @throws ApiException
      */
     public function testLoyaltyStoreGroupsIdDelete()
     {

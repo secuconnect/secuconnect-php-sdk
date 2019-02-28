@@ -5,6 +5,7 @@ namespace Secuconnect\Client\Cache;
 use DateTime;
 use Secuconnect\Client\Authentication\Authenticator;
 use Secuconnect\Client\Authentication\OAuthClientCredentials;
+use Secuconnect\Client\Globals;
 
 /**
  * Class FileCacheTest
@@ -87,14 +88,8 @@ class FileCacheTest extends \PHPUnit\Framework\TestCase
 
     public function testSaveTokenToCache()
     {
-        $credentials = OAuthClientCredentials::from(
-            '09ae83af7c37121b2de929b211bad944',
-            '9c5f250b69f6436cb38fd780349bc00810d8d5051d3dcf821e428f65a32724bd'
-        );
-        $auth = new Authenticator($credentials);
-
-        $accessToken = $auth->getToken();
-        $accessToken2 = $auth->getToken();
+        $accessToken = Authenticator::authenticateByClientCredentials(...array_values(Globals::OAuthClientCredentials));
+        $accessToken2 = Authenticator::authenticateByClientCredentials(...array_values(Globals::OAuthClientCredentials));
 
         $this->assertEquals($accessToken, $accessToken2);
     }

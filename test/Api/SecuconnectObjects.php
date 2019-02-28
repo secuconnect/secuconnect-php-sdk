@@ -55,11 +55,6 @@ class SecuconnectObjects
      */
     private $basket;
 
-    /**
-     * @var string
-     */
-    private $accessToken;
-
     private function __construct()
     {
     }
@@ -88,42 +83,21 @@ class SecuconnectObjects
 
     /**
      * @return $this
+     * @throws ApiException
      */
     public function authenticateByClientCredentials()
     {
-        $auth = new Authenticator(
-            OAuthClientCredentials::from(
-                Globals::OAuthClientCredentials['clientId'],
-                Globals::OAuthClientCredentials['clientSecret']
-            )
-        );
-        $this->accessToken = $auth->getToken();
-        Configuration::getDefaultConfiguration()
-            ->setAccessToken($this->accessToken);
-
+        Authenticator::authenticateByClientCredentials(...array_values(Globals::OAuthClientCredentials));
         return $this;
     }
 
     /**
      * @return $this
+     * @throws ApiException
      */
     public function authenticateByApplicationUser()
     {
-        $auth = new Authenticator(
-            OAuthApplicationUserCredentials::from(
-                Globals::OAuthApplicationUserCredentials['clientId'],
-                Globals::OAuthApplicationUserCredentials['clientSecret'],
-                Globals::OAuthApplicationUserCredentials['username'],
-                Globals::OAuthApplicationUserCredentials['password'],
-                Globals::OAuthApplicationUserCredentials['device'],
-                Globals::OAuthApplicationUserCredentials['deviceName']
-            )
-        );
-        $this->accessToken = $auth->getToken();
-
-        Configuration::getDefaultConfiguration()
-            ->setAccessToken($this->accessToken);
-
+        Authenticator::authenticateByApplicationUser(...array_values(Globals::OAuthApplicationUserCredentials));
         return $this;
     }
 

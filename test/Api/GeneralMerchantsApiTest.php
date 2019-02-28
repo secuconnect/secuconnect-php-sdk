@@ -49,6 +49,7 @@ class GeneralMerchantsApiTest extends TestCase
 
     /**
      * Test case for getting list of General Merchants.
+     * @throws ApiException
      */
     public function testGetListOfGeneralMerchants()
     {
@@ -110,6 +111,7 @@ class GeneralMerchantsApiTest extends TestCase
      * Test case for getting one General Merchant by provided id.
      *
      * @depends testGetListOfGeneralMerchants
+     * @param GeneralMerchantsProductModel $merchant
      * @throws ApiException
      */
     public function testGetOneGeneralMerchantByProvidedId(GeneralMerchantsProductModel $merchant)

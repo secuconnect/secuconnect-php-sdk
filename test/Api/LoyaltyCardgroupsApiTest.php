@@ -59,6 +59,7 @@ class LoyaltyCardgroupsApiTest extends TestCase
 
     /**
      * Setup before running any test cases
+     * @throws ApiException
      */
     public static function setUpBeforeClass() {
         self::$instance = SecuconnectObjects::getInstance();
@@ -92,6 +93,7 @@ class LoyaltyCardgroupsApiTest extends TestCase
      *
      * GET Loyalty/Cardgroups.
      *
+     * @throws ApiException
      */
     public function testLoyaltyCardgroupsGet()
     {   
@@ -125,6 +127,7 @@ class LoyaltyCardgroupsApiTest extends TestCase
      *
      * GET Loyalty/Cardgroups/{id}.
      *
+     * @throws ApiException
      */
     public function testLoyaltyCardgroupsGetById()
     {
@@ -146,6 +149,7 @@ class LoyaltyCardgroupsApiTest extends TestCase
      *
      * POST Loyalty/Cardgroups/{id}/checkPasscodeEnabled.
      *
+     * @throws ApiException
      */
     public function testLoyaltyCardgroupsIdCheckPasscodeEnabledPost()
     {
