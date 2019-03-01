@@ -12,7 +12,7 @@ use Secuconnect\Client\Printer\Printer;
  */
 class Configuration
 {
-    const SDK_VERSION = '0.5.0';
+    const SDK_VERSION = '0.5.1';
     const DEFAULT_HOST = 'connect-testing.secupay-ag.de'; // For live use: connect.secucard.com
 
     const BASE_URL = 'https://' . self::DEFAULT_HOST . '/';

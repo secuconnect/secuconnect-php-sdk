@@ -19,6 +19,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [0.5.1] - 2019-03-01
+
+**Release candidate**
+
+Release candidate of the swagger generated PHP-SDK for the secuconnect API.
+
+- Cosmetics
+- Bug fix for Authenticator::authenticateByDevice()
+
+
 ## [0.5.0] - 2019-02-28
 
 **Release candidate**
@@ -77,3 +87,4 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 [0.3.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.2.0...0.3.0
 [0.4.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.3.0...0.4.0
 [0.5.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.4.0...0.5.0
+[0.5.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.0...0.5.1

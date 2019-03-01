@@ -145,15 +145,16 @@ class Authenticator
     protected static function startAuthenticationProcess(AuthenticationCredentials $authenticationCredentials)
     {
         self::init();
+        $authId = $authenticationCredentials->getUniqueKey();
 
-        $accessToken = self::tryToGetAccessTokenFromCache($authenticationCredentials);
+        $accessToken = self::tryToGetAccessTokenFromCache($authId);
 
         if (!$accessToken) {
-            $accessToken = self::tryToGetAccessTokenViaCachedRefreshToken($authenticationCredentials);
+            $accessToken = self::tryToGetAccessTokenViaCachedRefreshToken($authenticationCredentials, $authId);
         }
 
         if (!$accessToken) {
-            $accessToken = self::tryToGetAccessTokenViaAPI($authenticationCredentials);
+            $accessToken = self::tryToGetAccessTokenViaAPI($authenticationCredentials, $authId);
         }
 
         if (!$accessToken) {
@@ -185,13 +186,13 @@ class Authenticator
     /**
      * Check if the access token is stored into cache
      *
-     * @param AuthenticationCredentials $authenticationCredentials
+     * @param string $authId
      * @return mixed|null
      */
-    private static function tryToGetAccessTokenFromCache(AuthenticationCredentials $authenticationCredentials)
+    private static function tryToGetAccessTokenFromCache($authId)
     {
         $cacheItem = self::getCacheItem(
-            self::ACCESS_TOKEN . $authenticationCredentials->getUniqueKey()
+            self::ACCESS_TOKEN . $authId
         );
 
         if (!$cacheItem->isHit()) {
@@ -205,9 +206,10 @@ class Authenticator
      * Check if a refresh token is stored into cache. If so then get a new access token via API
      *
      * @param AuthenticationCredentials $authenticationCredentials
+     * @param string $authId
      * @return string|null
      */
-    private static function tryToGetAccessTokenViaCachedRefreshToken(AuthenticationCredentials $authenticationCredentials)
+    private static function tryToGetAccessTokenViaCachedRefreshToken(AuthenticationCredentials $authenticationCredentials, $authId)
     {
         // Avoid loops
         if ($authenticationCredentials instanceof OAuthRefreshCredentials) {
@@ -216,7 +218,7 @@ class Authenticator
 
         try {
             $cacheItem = self::getCacheItem(
-                self::REFRESH_TOKEN . $authenticationCredentials->getUniqueKey()
+                self::REFRESH_TOKEN . $authId
             );
 
             if (!$cacheItem->isHit()) {
@@ -226,11 +228,10 @@ class Authenticator
             $refreshToken = (string)$cacheItem->get();
             $credentials = $authenticationCredentials->getCredentials();
 
-            return (string)self::tryToGetAccessTokenViaAPI(OAuthRefreshCredentials::from(
-                $credentials['client_id'],
-                $credentials['client_secret'],
-                $refreshToken
-            ));
+            return (string)self::tryToGetAccessTokenViaAPI(
+                OAuthRefreshCredentials::from($credentials['client_id'], $credentials['client_secret'], $refreshToken),
+                $authId
+            );
         } catch (ApiException $e) {
             return null;
         }
@@ -240,10 +241,11 @@ class Authenticator
      * Function to get access token from API.
      *
      * @param AuthenticationCredentials $authenticationCredentials
+     * @param string $authId
      * @return string|null
      * @throws ApiException
      */
-    private static function tryToGetAccessTokenViaAPI(AuthenticationCredentials $authenticationCredentials)
+    private static function tryToGetAccessTokenViaAPI(AuthenticationCredentials $authenticationCredentials, $authId)
     {
         // Get new token via API
         $newToken = self::getTokenFromApi($authenticationCredentials);
@@ -260,6 +262,8 @@ class Authenticator
         if (empty($newToken->access_token)) {
             return null;
         }
+
+        self::storeNewTokenInCache($newToken, $authId);
 
         // Store new access token in config
         $accessToken = (string)$newToken->access_token;
@@ -291,27 +295,32 @@ class Authenticator
             return null;
         }
 
-        $newToken = (object)$response[0];
+        return (object)$response[0];
+    }
 
-        // Store new access token in cache
+    /**
+     * Store new access token (and refresh token) in cache
+     *
+     * @param object $newToken
+     * @param string $authId
+     */
+    private static function storeNewTokenInCache($newToken, $authId)
+    {
         if (!empty($newToken->access_token)) {
             $cacheItem = self::getCacheItem(
-                self::ACCESS_TOKEN . $authenticationCredentials->getUniqueKey()
+                self::ACCESS_TOKEN . $authId
             );
 
             self::saveTokenToCache($cacheItem, (string)$newToken->access_token, (int)$newToken->expires_in);
         }
 
-        // Store new refresh token in cache
         if (!empty($newToken->refresh_token)) {
             $cacheItem = self::getCacheItem(
-                self::REFRESH_TOKEN . $authenticationCredentials->getUniqueKey()
+                self::REFRESH_TOKEN . $authId
             );
 
             self::saveTokenToCache($cacheItem, (string)$newToken->refresh_token, self::REFRESH_TOKEN_EXPIRE_TIME);
         }
-
-        return $newToken;
     }
 
     /**
