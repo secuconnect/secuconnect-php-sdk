@@ -2,25 +2,26 @@
 
 namespace Secuconnect\Client\STOMP\Client;
 
-use \Secuconnect\Client;
-use \Stomp;
-use \StompFrame;
+use Secuconnect\Client;
+use Stomp;
+use StompFrame;
+
 class StompClient
-{  
-    
+{
+
     private $token;
     private $msg;
-    private $replyTo;  
+    private $replyTo;
     private $stompHost;
     private $port;
     private $stomp;
-    
+
     public function __construct()
     {
         $this->initalize();
         $this->stomp = new Stomp($this->stompHost . ':' . $this->port, $this->token, $this->token);
     }
-    
+
     /**
      * sends a message using STOMP
      *
@@ -28,7 +29,7 @@ class StompClient
      * @param Destination $destinationObj
      * @return StompResponse $response
      */
-    public function sendMsg($msgObj, $destinationObj) 
+    public function sendMsg($msgObj, $destinationObj)
     {
         $destination = $destinationObj->prepareDestination();
         $header = $this->prepareHeder();
@@ -38,7 +39,7 @@ class StompClient
 
 
         }
-        
+
         $response = new StompResponse();
 
         try {
@@ -47,13 +48,13 @@ class StompClient
             $response->setMessage($e->getMessage());
             $response->setErrorStatus();
         }
-           
+
         $response->setMessage('Message send');
         $response->setOkStatus();
         return $response;
-    
+
     }
-    
+
     /**
      * reads the STOMP queue
      *
@@ -68,7 +69,7 @@ class StompClient
     /**
      * sets internal variables used by stompClient
      */
-    private function initalize() 
+    private function initalize()
     {
         $this->token = Client\Configuration::getDefaultConfiguration()->getAccessToken();
 
@@ -94,7 +95,7 @@ class StompClient
             throw new Exception("port for Stomp connection can't be empty please see Configuration.php");
         }
     }
-    
+
     /**
      * sets headers needed for STOMP call to secucore
      *
@@ -107,13 +108,13 @@ class StompClient
         $header = [
             'reply-to' => $this->replyTo,
             'content-type' => 'application/json',
-            'user-id' => $this->token ,
+            'user-id' => $this->token,
             'correlation-id' => $correlationId
         ];
 
         return $header;
     }
-    
+
     /**
      * create unique CorrelationId
      *

@@ -3,24 +3,27 @@
 namespace Secuconnect\Client\STOMP\Client;
 
 class StompResponse
-{  
+{
     const RESPONSE_STATUS_ERROR = 'ERROR';
     const RESPONSE_STATUS_OK = 'OK';
-    
+
     private $status;
     private $message;
-    
-    public function __construct() {}
+
+    public function __construct()
+    {
+    }
 
     /**
      * Gets the status
      *
      * @return string status
      */
-    public function getStatus() {
+    public function getStatus()
+    {
         return $this->statust;
     }
-    
+
     /**
      * Sets the Status
      *
@@ -32,7 +35,7 @@ class StompResponse
         $this->status = self::RESPONSE_STATUS_ERROR;
         return $this;
     }
-    
+
     /**
      * Sets the Status
      *
@@ -44,7 +47,7 @@ class StompResponse
         $this->status = self::RESPONSE_STATUS_OK;
         return $this;
     }
-    
+
     /**
      * Gets the message
      *

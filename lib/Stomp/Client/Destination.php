@@ -12,17 +12,17 @@ class Destination
     const EXECUTE = 'EXECUTE';
     const UPDATE = 'UPDATE';
     const DELETE = 'DELETE';
-    
+
     private $basicDestination;
     private $method;
     private $action;
     private $appId;
-    
+
     public function __construct()
     {
         $this->basicDestination = Configuration::getDefaultConfiguration()->getBasicStompDestination();
     }
-  
+
     /**
      * Gets the appId
      *
@@ -32,7 +32,7 @@ class Destination
     {
         return $this->appId;
     }
-    
+
     /**
      * Sets the appId
      *
@@ -44,7 +44,7 @@ class Destination
         $this->appId = $appId;
         return $this;
     }
-    
+
     /**
      * Gets the method
      *
@@ -54,7 +54,7 @@ class Destination
     {
         return $this->method;
     }
-    
+
     /**
      * Sets the method
      *
@@ -67,7 +67,7 @@ class Destination
 
         return $this;
     }
-    
+
     /**
      * Gets the Action
      *
@@ -77,7 +77,7 @@ class Destination
     {
         return $this->action;
     }
-    
+
     /**
      * Sets the action
      *
@@ -88,7 +88,7 @@ class Destination
     {
         $this->action = $action;
     }
-    
+
     /**
      * prepare Destination for stomp call
      *
@@ -99,7 +99,7 @@ class Destination
         if (!empty($this->appId)) {
             $this->basicDestination = $this->basicDestination . 'app:';
         } else {
-           $this->basicDestination = $this->basicDestination . 'api:';
+            $this->basicDestination = $this->basicDestination . 'api:';
         }
 
         switch ($this->method) {
@@ -130,7 +130,7 @@ class Destination
         if (!empty($action)) {
             $command = $command . $action;
         }
-        
+
         return $this->basicDestination . $command;
     }
 }

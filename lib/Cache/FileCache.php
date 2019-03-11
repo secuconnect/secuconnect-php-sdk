@@ -49,7 +49,10 @@ class FileCache implements CacheItemPoolInterface
         $file = @file_get_contents($this->filenameFor($key));
 
         if ($file !== false) {
-            return unserialize($file);
+            $cacheItem = unserialize($file);
+            if ($cacheItem instanceof CacheItem) {
+                return $cacheItem;
+            }
         }
 
         $newCacheItem = new CacheItem($key);

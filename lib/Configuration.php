@@ -12,7 +12,7 @@ use Secuconnect\Client\Printer\Printer;
  */
 class Configuration
 {
-    const SDK_VERSION = '0.5.1';
+    const SDK_VERSION = '0.5.2';
     const DEFAULT_HOST = 'connect-testing.secupay-ag.de'; // For live use: connect.secucard.com
 
     const BASE_URL = 'https://' . self::DEFAULT_HOST . '/';
@@ -70,14 +70,14 @@ class Configuration
      *
      * @var string
      */
-    protected $stompHost = 'ssl://' . self::DEFAULT_HOST;
+    protected $stompHost = 'tcp://' . self::DEFAULT_HOST;
 
     /**
      * The stomp port
      *
      * @var string
      */
-    protected $stompPort = '61614';
+    protected $stompPort = '61613';
 
     /**
      * Timeout (second) of the HTTP request, by default set to 0, no timeout
