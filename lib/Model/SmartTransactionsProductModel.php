@@ -44,7 +44,7 @@ class SmartTransactionsProductModel implements ArrayAccess
         'updated' => 'string',
         'receipt_number' => 'int',
         'receipt' => '\Secuconnect\Client\Model\SmartTransactionsReceipt[]',
-        'receipt_merchant' => 'string',
+        'receipt_merchant' => '\Secuconnect\Client\Model\SmartTransactionsReceipt[]',
         'receipt_merchant_print' => 'bool',
         'basket_info' => '\Secuconnect\Client\Model\SmartTransactionsBasketInfo',
         'basket' => '\Secuconnect\Client\Model\SmartTransactionsBasket',
@@ -684,7 +684,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Gets receipt_merchant
-     * @return string
+     * @return \Secuconnect\Client\Model\SmartTransactionsReceipt[]
      */
     public function getReceiptMerchant()
     {
@@ -693,7 +693,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets receipt_merchant
-     * @param string $receipt_merchant Receipt merchant
+     * @param \Secuconnect\Client\Model\SmartTransactionsReceipt[] $receipt_merchant Receipt merchant
      * @return $this
      */
     public function setReceiptMerchant($receipt_merchant)
