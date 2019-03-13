@@ -70,14 +70,14 @@ class Configuration
      *
      * @var string
      */
-    protected $stompHost = 'tcp://' . self::DEFAULT_HOST;
+    protected $stompHost = 'ssl://' . self::DEFAULT_HOST;
 
     /**
      * The stomp port
      *
      * @var string
      */
-    protected $stompPort = '61613';
+    protected $stompPort = '61614';
 
     /**
      * Timeout (second) of the HTTP request, by default set to 0, no timeout

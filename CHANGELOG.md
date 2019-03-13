@@ -19,6 +19,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [0.5.3] - 2019-03-12
+
+**Release candidate**
+
+Release candidate of the swagger generated PHP-SDK for the secuconnect API.
+
+- Fix STOMP (autoload, connection, ...)
+- Fix links in "docs/README.md"
+
+
 ## [0.5.2] - 2019-03-11
 
 **Release candidate**
@@ -98,3 +108,4 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 [0.5.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.4.0...0.5.0
 [0.5.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.0...0.5.1
 [0.5.2]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.1...0.5.2
+[0.5.3]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.2...0.5.3

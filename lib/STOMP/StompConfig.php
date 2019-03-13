@@ -2,10 +2,10 @@
 
 namespace Secuconnect\Client\STOMP;
 
-// name of Local_Comunication_Controller class is resposible for storng messages to be send by STOMP it hase to implament LocalComunicationInterface 
-// if empty SDK will use LocalFileComunicationController
-if (!defined('LOCAL_COMUNICATION_CONTROLLER')) {
-    define('LOCAL_COMUNICATION_CONTROLLER', '');
+// name of Local_Communication_Controller class is resposible for storng messages to be send by STOMP it hase to implament LocalCommunicationInterface
+// if empty SDK will use LocalFileCommunicationController
+if (!defined('LOCAL_COMMUNICATION_CONTROLLER')) {
+    define('LOCAL_COMMUNICATION_CONTROLLER', '');
 }
 
 // name of Received_Frame_Controller class is resposible for handling recieved messages from STOMP

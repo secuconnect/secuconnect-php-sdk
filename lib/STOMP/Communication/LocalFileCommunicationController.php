@@ -1,10 +1,11 @@
 <?php
 
-namespace Secuconnect\Client\STOMP\Comunication;
+namespace Secuconnect\Client\STOMP\Communication;
 
-use Secuconnect\Client\STOMP\Client;
-
-class LocalFileComunicationController implements LocalComunicationInterface
+/**
+ * Class LocalFileCommunicationController
+ */
+class LocalFileCommunicationController implements LocalCommunicationInterface
 {
     /** @const string MSG_FILES_DIR directory of messages waiting to be send by STOMP */
     const MSG_FILES_DIR = __DIR__ . '/msg_to_send';
@@ -12,11 +13,11 @@ class LocalFileComunicationController implements LocalComunicationInterface
     /**
      * gets stored messages that need to be sent by STOMP.
      *
-     * @return json $msg
+     * @return object $msg
      */
     public function getMsgToSendForStompController()
     {
-        $msg = '';
+        $msg = null;
         if (file_exists(self::MSG_FILES_DIR . '/' . date("Ymd")) && count(scandir(self::MSG_FILES_DIR . '/' . date("Ymd"))) > 2) {
             $files = scandir(self::MSG_FILES_DIR . '/' . date("Ymd"));
             $firstFile = self::MSG_FILES_DIR . '/' . date("Ymd") . '/' . $files[2];// because [0] = "." [1] = ".."
@@ -29,24 +30,16 @@ class LocalFileComunicationController implements LocalComunicationInterface
     /**
      * stores messages that need to be send by STOMP
      *
-     * @param json $msg
+     * @param object|array $msg
      */
     public function sendMsgToStompController($msg)
     {
-        $this->CreateDirIfNeeded(self::MSG_FILES_DIR);
-        $this->CreateDirIfNeeded(self::MSG_FILES_DIR . '/' . date("Ymd"));
-        $dir = self::MSG_FILES_DIR . '/' . date("Ymd");
+        $dir = self::MSG_FILES_DIR . DIRECTORY_SEPARATOR . date("Ymd");
+        $this->createDirIfNeeded($dir);
 
         $fileName = $this->createFileName();
 
-        $response = new Client\StompResponse();
-        try {
-            file_put_contents($dir . '/' . $fileName, json_encode($msg), FILE_APPEND);
-            $response = new Client\StompResponse();
-        } catch (Exception $exc) {
-            throw new Exception($exc->getMessage());
-        }
-
+        file_put_contents($dir . DIRECTORY_SEPARATOR . $fileName, json_encode($msg), FILE_APPEND);
     }
 
     /**
@@ -65,15 +58,10 @@ class LocalFileComunicationController implements LocalComunicationInterface
      *
      * @param string $dir
      */
-    private function CreateDirIfNeeded($dir)
+    private function createDirIfNeeded($dir)
     {
-        try {
-            if (!file_exists($dir)) {
-                mkdir($dir);
-            }
-        } catch (Exception $exc) {
-            throw new Exception("can't create a directory for $dir");
+        if (!file_exists($dir)) {
+            mkdir($dir, 0777, true);
         }
     }
-
 }

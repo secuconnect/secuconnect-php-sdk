@@ -4,76 +4,103 @@ namespace Secuconnect\Client\STOMP;
 
 include 'StompConfig.php';
 
-use Secuconnect\Client\STOMP\Comunication;
+use Exception;
+use Secuconnect\Client\STOMP\Communication;
+use Secuconnect\Client\STOMP\Communication\LocalCommunicationInterface;
+use Secuconnect\Client\STOMP\Communication\ReceivedFrameControllerInterface;
+use Secuconnect\Client\STOMP\Communication\ReceivedFrameFileController;
 
+/**
+ * Class StompConfigController
+ */
 class StompConfigController
 {
+    /**
+     * object responsible communication between rest of the SDK
+     * @var Communication\LocalCommunicationInterface
+     */
+    private $localCommunicationController;
 
-    /** @var LocalComunicationInterface $localComunicationController object responsible communication between rest of the SDK */
-    private $localComunicationController;
-
-    /** @var ReceivedFrameControllerInterface $receivedFrameController object responsible for handling Received Stomp Frames */
+    /**
+     * object responsible for handling Received Stomp Frames
+     * @var ReceivedFrameControllerInterface
+     */
     private $receivedFrameController;
 
-    /** @var string $howOftenReadMsgConstantName name of Constant responsible for the frequency of requests for answers from STOMP */
+    /**
+     * name of Constant responsible for the frequency of requests for answers from STOMP
+     * @var string
+     */
     public $howOftenReadMsgConstantName = 'HOW_OFTEN_READ_MSG';
 
-    /** @var string $howOftenSendMsgConstantName name of Constant responsible for the frequency of attempts to send a message through STOMP */
+    /**
+     * name of Constant responsible for the frequency of attempts to send a message through STOMP
+     * @var string
+     */
     public $howOftenSendMsgConstantName = 'HOW_OFTEN_SEND_MSG';
 
-    /** @const float DEFAULT_STOMP_SLEEP_VALUE  milliseconds deafening the default sleep time */
+    /**
+     * milliseconds deafening the default sleep time
+     * @const float
+     */
     const DEFAULT_STOMP_SLEEP_VALUE = 0.1;
 
 
-    /** @const float MAX_STOMP_SLEEP_VALUE secounds deafening the max sleep time */
+    /**
+     * seconds deafening the max sleep time
+     * @const float
+     */
     const MAX_STOMP_SLEEP_VALUE = 120;
 
     /**
-     * it's creating LocalComunicationController based on Local_Comunication_Controller from StompConfig.php';
+     * it's creating LocalCommunicationController based on Local_Communication_Controller from StompConfig.php
      *
-     * @return  $LocalComunicationController
+     * @return LocalCommunicationInterface|Communication\LocalFileCommunicationController
+     * @throws Exception
      */
-    public function getLocalComunicationController()
+    public function getLocalCommunicationController()
     {
-        $this->localComunicationController = new Comunication\LocalFileComunicationController();
+        $this->localCommunicationController = new Communication\LocalFileCommunicationController();
 
-        if (defined("LOCAL_COMUNICATION_CONTROLLER") && !empty(LOCAL_COMUNICATION_CONTROLLER)) {
-            $LocalComunication = LOCAL_COMUNICATION_CONTROLLER;
-            $LocalComunicationController = new $LocalComunication();
-            if ($LocalComunicationController instanceof LocalComunicationInterface) {
-                $this->localComunicationController = $LocalComunicationController;
+        if (defined("LOCAL_Communication_CONTROLLER") && !empty(LOCAL_Communication_CONTROLLER)) {
+            $LocalCommunication = LOCAL_Communication_CONTROLLER;
+            $LocalCommunicationController = new $LocalCommunication();
+            if ($LocalCommunicationController instanceof LocalCommunicationInterface) {
+                $this->localCommunicationController = $LocalCommunicationController;
             } else {
-                throw new Exception('Invalid LocalComunicationClass from StompConfig. LocalComunicationClass hase to implament LocalComunicationInterface');
+                throw new Exception('Invalid LocalCommunicationClass from StompConfig. LocalCommunicationClass has to implement LocalCommunicationInterface');
             }
         }
-        return $this->localComunicationController;
+        return $this->localCommunicationController;
     }
 
     /**
-     * it's creating ReceivedFrameController based on Received_Frame_Controller from StompConfig.php';
+     * it's creating ReceivedFrameController based on Received_Frame_Controller from StompConfig.php
      *
-     * @return  ReceivedFrameController
+     * @return ReceivedFrameControllerInterface
+     * @throws Exception
      */
     public function getReceivedFrameController()
     {
-        $this->receivedFrameController = new Comunication\ReceivedFrameFileController();
+        $this->receivedFrameController = new ReceivedFrameFileController();
 
         if (defined("RECEIVED_FRAME_CONTROLLER") && !empty(RECEIVED_FRAME_CONTROLLER)) {
             $ReceivedFrameControllerString = RECEIVED_FRAME_CONTROLLER;
             $ReceivedFrameController = new $ReceivedFrameControllerString();
-            if ($ReceivedFrameController instanceof Comunication\ReceivedFrameControllerInterface) {
+            if ($ReceivedFrameController instanceof ReceivedFrameControllerInterface) {
                 $this->receivedFrameController = $ReceivedFrameController;
             } else {
-                throw new Exception('Invalid ReceivedFrameController from StompConfig. ReceivedFrameController hase to implament ReceivedFrameControllerInterface');
+                throw new Exception('Invalid ReceivedFrameController from StompConfig. ReceivedFrameController has to implement ReceivedFrameControllerInterface');
             }
         }
         return $this->receivedFrameController;
     }
 
     /**
-     * it's creating ReceivedFrameController based on Received_Frame_Controller from StompConfig.php';
+     * it's creating ReceivedFrameController based on Received_Frame_Controller from StompConfig.php
      *
-     * @return  ReceivedFrameController
+     * @param string $constantName
+     * @return float
      */
     public function getSleepValue($constantName)
     {
@@ -81,6 +108,7 @@ class StompConfigController
         if (defined($constantName) && !empty(constant($constantName)) && constant($constantName) <= self::MAX_STOMP_SLEEP_VALUE) {
             $value = (float)constant($constantName);
         }
+
         return $value;
     }
 }

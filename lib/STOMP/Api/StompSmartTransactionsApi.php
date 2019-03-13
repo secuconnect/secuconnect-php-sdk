@@ -2,7 +2,8 @@
 
 namespace Secuconnect\Client\STOMP\Api;
 
-use \Secuconnect\Client\STOMP\Comunication;
+use Secuconnect\Client\STOMP\Client\StompResponse;
+use \Secuconnect\Client\STOMP\Communication;
 use \Secuconnect\Client\STOMP\Client;
 use \Secuconnect\Client\STOMP;
 use stdClass;
@@ -57,7 +58,7 @@ class StompSmartTransactionsApi
         $message->sid = '';
         $message->data = json_encode($SmartTransactionsDTO);
         
-        $response = new Client\StompResponse();
+        $response = new StompResponse();
         try {
             $this->SendMsgToStompController(json_encode($message),json_encode($destinationObj));
             $response->setMessage('Message sent to StompController');
@@ -88,7 +89,7 @@ class StompSmartTransactionsApi
         $message->sid = '';
         $message->data = '';
         
-        $response = new Client\StompResponse();
+        $response = new StompResponse();
         try {
             $this->SendMsgToStompController(json_encode($message),json_encode($destinationObj));
             $response->setMessage('Message sent to StompController');
@@ -120,7 +121,7 @@ class StompSmartTransactionsApi
         $message->sid = '';
         $message->data = '';
         
-        $response = new Client\StompResponse();
+        $response = new StompResponse();
         try {
             $this->SendMsgToStompController(json_encode($message),json_encode($destinationObj));
             $response->setMessage('Message sent to StompController');
@@ -152,7 +153,7 @@ class StompSmartTransactionsApi
         $message->sid = '';
         $message->data = '';
         
-        $response = new Client\StompResponse();
+        $response = new StompResponse();
         try {
             $this->SendMsgToStompController(json_encode($message),json_encode($destinationObj));
             $response->setMessage('Message sent to StompController');
@@ -183,7 +184,7 @@ class StompSmartTransactionsApi
         $message->sid = '';
         $message->data = '';
         
-        $response = new Client\StompResponse();
+        $response = new StompResponse();
         try {
             $this->SendMsgToStompController(json_encode($message),json_encode($destinationObj));
             $response->setMessage('Message sent to StompController');
@@ -217,7 +218,7 @@ class StompSmartTransactionsApi
         $message->sid = '';
         $message->data = '';
         
-        $response = new Client\StompResponse();
+        $response = new StompResponse();
         try {
             $this->SendMsgToStompController(json_encode($message),json_encode($destinationObj));
             $response->setMessage('Message sent to StompController');
@@ -250,7 +251,7 @@ class StompSmartTransactionsApi
         $message->sid = $method;
         $message->data = '';
 
-        $response = new Client\StompResponse();
+        $response = new StompResponse();
         try {
             $this->SendMsgToStompController(json_encode($message),json_encode($destinationObj));
             $response->setMessage('Message sent to StompController');
@@ -283,7 +284,7 @@ class StompSmartTransactionsApi
         $message->sid = '';
         $message->data = json_encode($SmartTransactionsDTO);
 
-        $response = new Client\StompResponse();
+        $response = new StompResponse();
         try {
             $this->SendMsgToStompController(json_encode($message),json_encode($destinationObj));
             $response->setMessage('Message sent to StompController');
@@ -307,8 +308,8 @@ class StompSmartTransactionsApi
     private function SendMsgToStompController($message, $destination) 
     {
         $ConfigController = new STOMP\StompConfigController();
-        $localComunicationController = $ConfigController->getLocalComunicationController();
-        $response = $localComunicationController->SendMsgToStompController(['MsgFrame'=>$message,'Destination'=>$destination]);
+        $localCommunicationController = $ConfigController->getLocalCommunicationController();
+        $response = $localCommunicationController->SendMsgToStompController(['MsgFrame'=>$message,'Destination'=>$destination]);
         return $response;
     }
 }

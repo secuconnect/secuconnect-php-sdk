@@ -2,17 +2,23 @@
 
 namespace Secuconnect\Client\STOMP\Client;
 
+/**
+ * Class StompResponse
+ */
 class StompResponse
 {
     const RESPONSE_STATUS_ERROR = 'ERROR';
     const RESPONSE_STATUS_OK = 'OK';
 
+    /**
+     * @var string
+     */
     private $status;
-    private $message;
 
-    public function __construct()
-    {
-    }
+    /**
+     * @var string
+     */
+    private $message;
 
     /**
      * Gets the status
@@ -27,7 +33,6 @@ class StompResponse
     /**
      * Sets the Status
      *
-     * @param string $status
      * @return $this
      */
     public function setErrorStatus()
@@ -39,7 +44,6 @@ class StompResponse
     /**
      * Sets the Status
      *
-     * @param string $status
      * @return $this
      */
     public function setOkStatus()

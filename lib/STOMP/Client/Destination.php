@@ -5,6 +5,9 @@ namespace Secuconnect\Client\STOMP\Client;
 use Exception;
 use Secuconnect\Client\Configuration;
 
+/**
+ * Class Destination
+ */
 class Destination
 {
     const GET = 'GET';
@@ -18,6 +21,9 @@ class Destination
     private $action;
     private $appId;
 
+    /**
+     * Destination constructor.
+     */
     public function __construct()
     {
         $this->basicDestination = Configuration::getDefaultConfiguration()->getBasicStompDestination();
@@ -87,12 +93,15 @@ class Destination
     public function setAction($action)
     {
         $this->action = $action;
+
+        return $this;
     }
 
     /**
      * prepare Destination for stomp call
      *
      * @return string destination
+     * @throws Exception
      */
     public function prepareDestination()
     {
