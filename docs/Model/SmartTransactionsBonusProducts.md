@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **price_one** | **int** | price of one bonus product | [optional] 
 **quantity** | **int** | amount of bonus products | [optional] 
 **desc** | **string** | description | [optional] 
-**serial_number** | **string** | The serialnumber of the scanned posa card | [optional] 
 **article_number** | **string** | article Number | [optional] 
 **ean** | **string** | ean | [optional] 
 

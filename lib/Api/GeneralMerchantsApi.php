@@ -62,6 +62,89 @@ class GeneralMerchantsApi
     }
 
     /**
+     * Operation addMerchants
+     *
+     * POST General/Merchants
+     *
+     * @param \Secuconnect\Client\Model\GeneralMerchantsDTO $body general Merchant container properties (required)
+     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @return \Secuconnect\Client\Model\GeneralMerchantsProductModel
+     */
+    public function addMerchants($body)
+    {
+        list($response) = $this->addMerchantsWithHttpInfo($body);
+        return $response;
+    }
+
+    /**
+     * Operation addMerchantsWithHttpInfo
+     *
+     * POST General/Merchants
+     *
+     * @param \Secuconnect\Client\Model\GeneralMerchantsDTO $body general Merchant container properties (required)
+     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @return array of \Secuconnect\Client\Model\GeneralMerchantsProductModel, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function addMerchantsWithHttpInfo($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling addMerchants');
+        }
+        // parse inputs
+        $resourcePath = "/General/Merchants";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Secuconnect\Client\Model\GeneralMerchantsProductModel',
+                '/General/Merchants'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\GeneralMerchantsProductModel', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\GeneralMerchantsProductModel', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation getAll
      *
      * GET General/Merchants

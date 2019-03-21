@@ -4,10 +4,59 @@ All URIs are relative to *https://connect-testing.secupay-ag.de/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addMerchants**](GeneralMerchantsApi.md#addMerchants) | **POST** /General/Merchants | POST General/Merchants
 [**getAll**](GeneralMerchantsApi.md#getAll) | **GET** /General/Merchants | GET General/Merchants
 [**getOne**](GeneralMerchantsApi.md#getOne) | **GET** /General/Merchants/{generalMerchantId} | GET General/Merchants/{generalMerchantId}
 [**updateMerchant**](GeneralMerchantsApi.md#updateMerchant) | **PUT** /General/Merchants/{generalMerchantId} | PUT General/Merchants/{generalMerchantId}
 
+
+# **addMerchants**
+> \Secuconnect\Client\Model\GeneralMerchantsProductModel addMerchants($body)
+
+POST General/Merchants
+
+Add a new merchant
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: oauth_token
+Secuconnect\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$api_instance = new Secuconnect\Client\Api\GeneralMerchantsApi();
+$body = new \Secuconnect\Client\Model\GeneralMerchantsDTO(); // \Secuconnect\Client\Model\GeneralMerchantsDTO | general Merchant container properties
+
+try {
+    $result = $api_instance->addMerchants($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GeneralMerchantsApi->addMerchants: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Secuconnect\Client\Model\GeneralMerchantsDTO**](../Model/GeneralMerchantsDTO.md)| general Merchant container properties |
+
+### Return type
+
+[**\Secuconnect\Client\Model\GeneralMerchantsProductModel**](../Model/GeneralMerchantsProductModel.md)
+
+### Authorization
+
+[oauth_token](../../README.md#oauth_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAll**
 > \Secuconnect\Client\Model\GeneralMerchantsList getAll($count, $offset, $fields, $q, $sort)

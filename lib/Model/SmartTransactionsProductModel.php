@@ -32,8 +32,10 @@ class SmartTransactionsProductModel implements ArrayAccess
         'status' => 'string',
         'merchant' => '\Secuconnect\Client\Model\SmartTransactionsMerchant',
         'contract' => '\Secuconnect\Client\Model\ProductInstanceUID',
-        'marketplace_contract' => '\Secuconnect\Client\Model\ProductInstanceUID',
-        'customer' => '\Secuconnect\Client\Model\LoyaltyCustomersProductModel',
+        'provider_contract' => '\Secuconnect\Client\Model\ProductInstanceUID',
+        'customer' => '\Secuconnect\Client\Model\PaymentCustomersProductModel',
+        'shipping_address' => '\Secuconnect\Client\Model\PaymentCustomersProductModel',
+        'container' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'checkin' => '\Secuconnect\Client\Model\SmartTransactionsCheckin',
         'merchant_ref' => 'string',
         'transaction_ref' => 'string',
@@ -55,11 +57,14 @@ class SmartTransactionsProductModel implements ArrayAccess
         'market' => 'string',
         'order_option' => 'string',
         'pickup_options' => '\Secuconnect\Client\Model\SmartTransactionsPickupOptions',
+        'shipment_details' => '\Secuconnect\Client\Model\SmartTransactionsShipmentDetails',
         'product' => 'string',
         'trans_id' => 'int',
         'payment_method' => 'string',
-        'transactions' => '\Secuconnect\Client\Model\ProductInstanceUID',
-        'last_visited_page' => 'string'
+        'transactions' => '\Secuconnect\Client\Model\PaymentTransactionsProductModel[]',
+        'last_visited_page' => 'string',
+        'is_demo' => 'bool',
+        'checkout_links' => '\Secuconnect\Client\Model\SmartTransactionsCheckoutLinks'
     ];
 
     /**
@@ -68,12 +73,14 @@ class SmartTransactionsProductModel implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'object' => null,
-        'id' => 'id',
+        'id' => null,
         'status' => null,
         'merchant' => null,
         'contract' => null,
-        'marketplace_contract' => null,
+        'provider_contract' => null,
         'customer' => null,
+        'shipping_address' => null,
+        'container' => null,
         'checkin' => null,
         'merchant_ref' => null,
         'transaction_ref' => null,
@@ -95,11 +102,14 @@ class SmartTransactionsProductModel implements ArrayAccess
         'market' => null,
         'order_option' => null,
         'pickup_options' => null,
+        'shipment_details' => null,
         'product' => null,
         'trans_id' => null,
         'payment_method' => null,
         'transactions' => null,
-        'last_visited_page' => null
+        'last_visited_page' => null,
+        'is_demo' => null,
+        'checkout_links' => null
     ];
 
     public static function swaggerTypes()
@@ -122,8 +132,10 @@ class SmartTransactionsProductModel implements ArrayAccess
         'status' => 'status',
         'merchant' => 'merchant',
         'contract' => 'contract',
-        'marketplace_contract' => 'marketplace_contract',
+        'provider_contract' => 'provider_contract',
         'customer' => 'customer',
+        'shipping_address' => 'shipping_address',
+        'container' => 'container',
         'checkin' => 'checkin',
         'merchant_ref' => 'merchantRef',
         'transaction_ref' => 'transactionRef',
@@ -145,11 +157,14 @@ class SmartTransactionsProductModel implements ArrayAccess
         'market' => 'market',
         'order_option' => 'order_option',
         'pickup_options' => 'pickup_options',
+        'shipment_details' => 'shipment_details',
         'product' => 'product',
         'trans_id' => 'trans_id',
         'payment_method' => 'payment_method',
         'transactions' => 'transactions',
-        'last_visited_page' => 'last_visited_page'
+        'last_visited_page' => 'last_visited_page',
+        'is_demo' => 'is_demo',
+        'checkout_links' => 'checkout_links'
     ];
 
 
@@ -163,8 +178,10 @@ class SmartTransactionsProductModel implements ArrayAccess
         'status' => 'setStatus',
         'merchant' => 'setMerchant',
         'contract' => 'setContract',
-        'marketplace_contract' => 'setMarketplaceContract',
+        'provider_contract' => 'setProviderContract',
         'customer' => 'setCustomer',
+        'shipping_address' => 'setShippingAddress',
+        'container' => 'setContainer',
         'checkin' => 'setCheckin',
         'merchant_ref' => 'setMerchantRef',
         'transaction_ref' => 'setTransactionRef',
@@ -186,11 +203,14 @@ class SmartTransactionsProductModel implements ArrayAccess
         'market' => 'setMarket',
         'order_option' => 'setOrderOption',
         'pickup_options' => 'setPickupOptions',
+        'shipment_details' => 'setShipmentDetails',
         'product' => 'setProduct',
         'trans_id' => 'setTransId',
         'payment_method' => 'setPaymentMethod',
         'transactions' => 'setTransactions',
-        'last_visited_page' => 'setLastVisitedPage'
+        'last_visited_page' => 'setLastVisitedPage',
+        'is_demo' => 'setIsDemo',
+        'checkout_links' => 'setCheckoutLinks'
     ];
 
 
@@ -204,8 +224,10 @@ class SmartTransactionsProductModel implements ArrayAccess
         'status' => 'getStatus',
         'merchant' => 'getMerchant',
         'contract' => 'getContract',
-        'marketplace_contract' => 'getMarketplaceContract',
+        'provider_contract' => 'getProviderContract',
         'customer' => 'getCustomer',
+        'shipping_address' => 'getShippingAddress',
+        'container' => 'getContainer',
         'checkin' => 'getCheckin',
         'merchant_ref' => 'getMerchantRef',
         'transaction_ref' => 'getTransactionRef',
@@ -227,11 +249,14 @@ class SmartTransactionsProductModel implements ArrayAccess
         'market' => 'getMarket',
         'order_option' => 'getOrderOption',
         'pickup_options' => 'getPickupOptions',
+        'shipment_details' => 'getShipmentDetails',
         'product' => 'getProduct',
         'trans_id' => 'getTransId',
         'payment_method' => 'getPaymentMethod',
         'transactions' => 'getTransactions',
-        'last_visited_page' => 'getLastVisitedPage'
+        'last_visited_page' => 'getLastVisitedPage',
+        'is_demo' => 'getIsDemo',
+        'checkout_links' => 'getCheckoutLinks'
     ];
 
     public static function attributeMap()
@@ -270,8 +295,10 @@ class SmartTransactionsProductModel implements ArrayAccess
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
-        $this->container['marketplace_contract'] = isset($data['marketplace_contract']) ? $data['marketplace_contract'] : null;
+        $this->container['provider_contract'] = isset($data['provider_contract']) ? $data['provider_contract'] : null;
         $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
+        $this->container['shipping_address'] = isset($data['shipping_address']) ? $data['shipping_address'] : null;
+        $this->container['container'] = isset($data['container']) ? $data['container'] : null;
         $this->container['checkin'] = isset($data['checkin']) ? $data['checkin'] : null;
         $this->container['merchant_ref'] = isset($data['merchant_ref']) ? $data['merchant_ref'] : null;
         $this->container['transaction_ref'] = isset($data['transaction_ref']) ? $data['transaction_ref'] : null;
@@ -293,11 +320,14 @@ class SmartTransactionsProductModel implements ArrayAccess
         $this->container['market'] = isset($data['market']) ? $data['market'] : null;
         $this->container['order_option'] = isset($data['order_option']) ? $data['order_option'] : null;
         $this->container['pickup_options'] = isset($data['pickup_options']) ? $data['pickup_options'] : null;
+        $this->container['shipment_details'] = isset($data['shipment_details']) ? $data['shipment_details'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
         $this->container['trans_id'] = isset($data['trans_id']) ? $data['trans_id'] : null;
         $this->container['payment_method'] = isset($data['payment_method']) ? $data['payment_method'] : null;
         $this->container['transactions'] = isset($data['transactions']) ? $data['transactions'] : null;
         $this->container['last_visited_page'] = isset($data['last_visited_page']) ? $data['last_visited_page'] : null;
+        $this->container['is_demo'] = isset($data['is_demo']) ? $data['is_demo'] : null;
+        $this->container['checkout_links'] = isset($data['checkout_links']) ? $data['checkout_links'] : null;
     }
 
     /**
@@ -431,29 +461,29 @@ class SmartTransactionsProductModel implements ArrayAccess
     }
 
     /**
-     * Gets marketplace_contract
+     * Gets provider_contract
      * @return \Secuconnect\Client\Model\ProductInstanceUID
      */
-    public function getMarketplaceContract()
+    public function getProviderContract()
     {
-        return $this->container['marketplace_contract'];
+        return $this->container['provider_contract'];
     }
 
     /**
-     * Sets marketplace_contract
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $marketplace_contract Marketplace contract
+     * Sets provider_contract
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $provider_contract Provider contract
      * @return $this
      */
-    public function setMarketplaceContract($marketplace_contract)
+    public function setProviderContract($provider_contract)
     {
-        $this->container['marketplace_contract'] = $marketplace_contract;
+        $this->container['provider_contract'] = $provider_contract;
 
         return $this;
     }
 
     /**
      * Gets customer
-     * @return \Secuconnect\Client\Model\LoyaltyCustomersProductModel
+     * @return \Secuconnect\Client\Model\PaymentCustomersProductModel
      */
     public function getCustomer()
     {
@@ -462,12 +492,54 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets customer
-     * @param \Secuconnect\Client\Model\LoyaltyCustomersProductModel $customer Customer
+     * @param \Secuconnect\Client\Model\PaymentCustomersProductModel $customer Customer
      * @return $this
      */
     public function setCustomer($customer)
     {
         $this->container['customer'] = $customer;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_address
+     * @return \Secuconnect\Client\Model\PaymentCustomersProductModel
+     */
+    public function getShippingAddress()
+    {
+        return $this->container['shipping_address'];
+    }
+
+    /**
+     * Sets shipping_address
+     * @param \Secuconnect\Client\Model\PaymentCustomersProductModel $shipping_address Customers delivery address
+     * @return $this
+     */
+    public function setShippingAddress($shipping_address)
+    {
+        $this->container['shipping_address'] = $shipping_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets container
+     * @return \Secuconnect\Client\Model\ProductInstanceUID
+     */
+    public function getContainer()
+    {
+        return $this->container['container'];
+    }
+
+    /**
+     * Sets container
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $container Payment Container
+     * @return $this
+     */
+    public function setContainer($container)
+    {
+        $this->container['container'] = $container;
 
         return $this;
     }
@@ -504,7 +576,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets merchant_ref
-     * @param string $merchant_ref Merchant ref
+     * @param string $merchant_ref Merchant reference
      * @return $this
      */
     public function setMerchantRef($merchant_ref)
@@ -525,7 +597,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets transaction_ref
-     * @param string $transaction_ref Transaction ref
+     * @param string $transaction_ref Transaction reference
      * @return $this
      */
     public function setTransactionRef($transaction_ref)
@@ -914,6 +986,27 @@ class SmartTransactionsProductModel implements ArrayAccess
     }
 
     /**
+     * Gets shipment_details
+     * @return \Secuconnect\Client\Model\SmartTransactionsShipmentDetails
+     */
+    public function getShipmentDetails()
+    {
+        return $this->container['shipment_details'];
+    }
+
+    /**
+     * Sets shipment_details
+     * @param \Secuconnect\Client\Model\SmartTransactionsShipmentDetails $shipment_details Shipment details
+     * @return $this
+     */
+    public function setShipmentDetails($shipment_details)
+    {
+        $this->container['shipment_details'] = $shipment_details;
+
+        return $this;
+    }
+
+    /**
      * Gets product
      * @return string
      */
@@ -978,7 +1071,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Gets transactions
-     * @return \Secuconnect\Client\Model\ProductInstanceUID
+     * @return \Secuconnect\Client\Model\PaymentTransactionsProductModel[]
      */
     public function getTransactions()
     {
@@ -987,7 +1080,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets transactions
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $transactions Transactions
+     * @param \Secuconnect\Client\Model\PaymentTransactionsProductModel[] $transactions Payment Transactions
      * @return $this
      */
     public function setTransactions($transactions)
@@ -1014,6 +1107,48 @@ class SmartTransactionsProductModel implements ArrayAccess
     public function setLastVisitedPage($last_visited_page)
     {
         $this->container['last_visited_page'] = $last_visited_page;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_demo
+     * @return bool
+     */
+    public function getIsDemo()
+    {
+        return $this->container['is_demo'];
+    }
+
+    /**
+     * Sets is_demo
+     * @param bool $is_demo Demo payment
+     * @return $this
+     */
+    public function setIsDemo($is_demo)
+    {
+        $this->container['is_demo'] = $is_demo;
+
+        return $this;
+    }
+
+    /**
+     * Gets checkout_links
+     * @return \Secuconnect\Client\Model\SmartTransactionsCheckoutLinks
+     */
+    public function getCheckoutLinks()
+    {
+        return $this->container['checkout_links'];
+    }
+
+    /**
+     * Sets checkout_links
+     * @param \Secuconnect\Client\Model\SmartTransactionsCheckoutLinks $checkout_links Checkout Links
+     * @return $this
+     */
+    public function setCheckoutLinks($checkout_links)
+    {
+        $this->container['checkout_links'] = $checkout_links;
 
         return $this;
     }

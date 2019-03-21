@@ -37,7 +37,8 @@ class GeneralMerchantsProductModel implements ArrayAccess
         'invited_by' => '\Secuconnect\Client\Model\InvitedBy[]',
         'legal_details' => '\Secuconnect\Client\Model\GeneralMerchantsLegalDetails',
         'checkout_options' => '\Secuconnect\Client\Model\GeneralMerchantsCheckoutOptions',
-        'urls' => '\Secuconnect\Client\Model\GeneralMerchantsUrls'
+        'urls' => '\Secuconnect\Client\Model\GeneralMerchantsUrls',
+        'store_name' => 'string'
     ];
 
     /**
@@ -55,7 +56,8 @@ class GeneralMerchantsProductModel implements ArrayAccess
         'invited_by' => null,
         'legal_details' => null,
         'checkout_options' => null,
-        'urls' => null
+        'urls' => null,
+        'store_name' => null
     ];
 
     public static function swaggerTypes()
@@ -83,7 +85,8 @@ class GeneralMerchantsProductModel implements ArrayAccess
         'invited_by' => 'invited_by',
         'legal_details' => 'legal_details',
         'checkout_options' => 'checkout_options',
-        'urls' => 'urls'
+        'urls' => 'urls',
+        'store_name' => 'store_name'
     ];
 
 
@@ -102,7 +105,8 @@ class GeneralMerchantsProductModel implements ArrayAccess
         'invited_by' => 'setInvitedBy',
         'legal_details' => 'setLegalDetails',
         'checkout_options' => 'setCheckoutOptions',
-        'urls' => 'setUrls'
+        'urls' => 'setUrls',
+        'store_name' => 'setStoreName'
     ];
 
 
@@ -121,7 +125,8 @@ class GeneralMerchantsProductModel implements ArrayAccess
         'invited_by' => 'getInvitedBy',
         'legal_details' => 'getLegalDetails',
         'checkout_options' => 'getCheckoutOptions',
-        'urls' => 'getUrls'
+        'urls' => 'getUrls',
+        'store_name' => 'getStoreName'
     ];
 
     public static function attributeMap()
@@ -166,6 +171,7 @@ class GeneralMerchantsProductModel implements ArrayAccess
         $this->container['legal_details'] = isset($data['legal_details']) ? $data['legal_details'] : null;
         $this->container['checkout_options'] = isset($data['checkout_options']) ? $data['checkout_options'] : null;
         $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
+        $this->container['store_name'] = isset($data['store_name']) ? $data['store_name'] : null;
     }
 
     /**
@@ -420,6 +426,27 @@ class GeneralMerchantsProductModel implements ArrayAccess
     public function setUrls($urls)
     {
         $this->container['urls'] = $urls;
+
+        return $this;
+    }
+
+    /**
+     * Gets store_name
+     * @return string
+     */
+    public function getStoreName()
+    {
+        return $this->container['store_name'];
+    }
+
+    /**
+     * Sets store_name
+     * @param string $store_name store name
+     * @return $this
+     */
+    public function setStoreName($store_name)
+    {
+        $this->container['store_name'] = $store_name;
 
         return $this;
     }

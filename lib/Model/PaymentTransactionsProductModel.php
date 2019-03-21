@@ -42,6 +42,8 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'updated' => 'string',
         'status' => 'int',
         'status_text' => 'string',
+        'transaction_hash' => 'string',
+        'reference_id' => 'string',
         'details' => '\Secuconnect\Client\Model\PaymentTransactionsProductModelDetails',
         'customer' => '\Secuconnect\Client\Model\PaymentTransactionsProductModelCustomer'
     ];
@@ -66,6 +68,8 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'updated' => null,
         'status' => null,
         'status_text' => null,
+        'transaction_hash' => null,
+        'reference_id' => null,
         'details' => null,
         'customer' => null
     ];
@@ -100,6 +104,8 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'updated' => 'updated',
         'status' => 'status',
         'status_text' => 'status_text',
+        'transaction_hash' => 'transaction_hash',
+        'reference_id' => 'reference_id',
         'details' => 'details',
         'customer' => 'customer'
     ];
@@ -125,6 +131,8 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'updated' => 'setUpdated',
         'status' => 'setStatus',
         'status_text' => 'setStatusText',
+        'transaction_hash' => 'setTransactionHash',
+        'reference_id' => 'setReferenceId',
         'details' => 'setDetails',
         'customer' => 'setCustomer'
     ];
@@ -150,6 +158,8 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'updated' => 'getUpdated',
         'status' => 'getStatus',
         'status_text' => 'getStatusText',
+        'transaction_hash' => 'getTransactionHash',
+        'reference_id' => 'getReferenceId',
         'details' => 'getDetails',
         'customer' => 'getCustomer'
     ];
@@ -200,6 +210,8 @@ class PaymentTransactionsProductModel implements ArrayAccess
         $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['status_text'] = isset($data['status_text']) ? $data['status_text'] : null;
+        $this->container['transaction_hash'] = isset($data['transaction_hash']) ? $data['transaction_hash'] : null;
+        $this->container['reference_id'] = isset($data['reference_id']) ? $data['reference_id'] : null;
         $this->container['details'] = isset($data['details']) ? $data['details'] : null;
         $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
     }
@@ -513,7 +525,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets status
-     * @param int $status WTF??
+     * @param int $status Transaction status
      * @return $this
      */
     public function setStatus($status)
@@ -540,6 +552,48 @@ class PaymentTransactionsProductModel implements ArrayAccess
     public function setStatusText($status_text)
     {
         $this->container['status_text'] = $status_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets transaction_hash
+     * @return string
+     */
+    public function getTransactionHash()
+    {
+        return $this->container['transaction_hash'];
+    }
+
+    /**
+     * Sets transaction_hash
+     * @param string $transaction_hash Transaction Hash (Old Payment ID)
+     * @return $this
+     */
+    public function setTransactionHash($transaction_hash)
+    {
+        $this->container['transaction_hash'] = $transaction_hash;
+
+        return $this;
+    }
+
+    /**
+     * Gets reference_id
+     * @return string
+     */
+    public function getReferenceId()
+    {
+        return $this->container['reference_id'];
+    }
+
+    /**
+     * Sets reference_id
+     * @param string $reference_id Reference ID
+     * @return $this
+     */
+    public function setReferenceId($reference_id)
+    {
+        $this->container['reference_id'] = $reference_id;
 
         return $this;
     }

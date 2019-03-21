@@ -19,6 +19,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [0.5.5] - 2019-03-21
+
+**Release candidate**
+
+Release candidate of the swagger generated PHP-SDK for the secuconnect API.
+
+- Fix SmartTransactionsProductModel and there relations
+
+
 ## [0.5.4] - 2019-03-13
 
 **Release candidate**
@@ -119,3 +128,4 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 [0.5.2]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.1...0.5.2
 [0.5.3]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.2...0.5.3
 [0.5.4]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.3...0.5.4
+[0.5.5]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.4...0.5.5

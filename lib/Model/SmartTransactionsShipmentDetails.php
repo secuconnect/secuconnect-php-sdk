@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SmartTransactionsBasket
+ * SmartTransactionsShipmentDetails
  *
  * @category    Class
  * @package     Secuconnect\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsBasket implements ArrayAccess
+class SmartTransactionsShipmentDetails implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,16 +20,17 @@ class SmartTransactionsBasket implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTransactionsBasket';
+    protected static $swaggerModelName = 'SmartTransactionsShipmentDetails';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'products' => '\Secuconnect\Client\Model\SmartTransactionsBasketProduct[]',
-        'texts' => '\Secuconnect\Client\Model\SmartTransactionsBasketText[]',
-        'type' => 'string'
+        'shipped_at' => 'string',
+        'shipped_by' => 'string',
+        'tracking_code' => 'string',
+        'invoice_number' => 'string'
     ];
 
     /**
@@ -37,9 +38,10 @@ class SmartTransactionsBasket implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'products' => null,
-        'texts' => null,
-        'type' => null
+        'shipped_at' => null,
+        'shipped_by' => null,
+        'tracking_code' => null,
+        'invoice_number' => null
     ];
 
     public static function swaggerTypes()
@@ -57,9 +59,10 @@ class SmartTransactionsBasket implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'products' => 'products',
-        'texts' => 'texts',
-        'type' => 'type'
+        'shipped_at' => 'shipped_at',
+        'shipped_by' => 'shipped_by',
+        'tracking_code' => 'tracking_code',
+        'invoice_number' => 'invoice_number'
     ];
 
 
@@ -68,9 +71,10 @@ class SmartTransactionsBasket implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'products' => 'setProducts',
-        'texts' => 'setTexts',
-        'type' => 'setType'
+        'shipped_at' => 'setShippedAt',
+        'shipped_by' => 'setShippedBy',
+        'tracking_code' => 'setTrackingCode',
+        'invoice_number' => 'setInvoiceNumber'
     ];
 
 
@@ -79,9 +83,10 @@ class SmartTransactionsBasket implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'products' => 'getProducts',
-        'texts' => 'getTexts',
-        'type' => 'getType'
+        'shipped_at' => 'getShippedAt',
+        'shipped_by' => 'getShippedBy',
+        'tracking_code' => 'getTrackingCode',
+        'invoice_number' => 'getInvoiceNumber'
     ];
 
     public static function attributeMap()
@@ -115,9 +120,10 @@ class SmartTransactionsBasket implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['products'] = isset($data['products']) ? $data['products'] : null;
-        $this->container['texts'] = isset($data['texts']) ? $data['texts'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['shipped_at'] = isset($data['shipped_at']) ? $data['shipped_at'] : null;
+        $this->container['shipped_by'] = isset($data['shipped_by']) ? $data['shipped_by'] : null;
+        $this->container['tracking_code'] = isset($data['tracking_code']) ? $data['tracking_code'] : null;
+        $this->container['invoice_number'] = isset($data['invoice_number']) ? $data['invoice_number'] : null;
     }
 
     /**
@@ -146,64 +152,85 @@ class SmartTransactionsBasket implements ArrayAccess
 
 
     /**
-     * Gets products
-     * @return \Secuconnect\Client\Model\SmartTransactionsBasketProduct[]
-     */
-    public function getProducts()
-    {
-        return $this->container['products'];
-    }
-
-    /**
-     * Sets products
-     * @param \Secuconnect\Client\Model\SmartTransactionsBasketProduct[] $products Products
-     * @return $this
-     */
-    public function setProducts($products)
-    {
-        $this->container['products'] = $products;
-
-        return $this;
-    }
-
-    /**
-     * Gets texts
-     * @return \Secuconnect\Client\Model\SmartTransactionsBasketText[]
-     */
-    public function getTexts()
-    {
-        return $this->container['texts'];
-    }
-
-    /**
-     * Sets texts
-     * @param \Secuconnect\Client\Model\SmartTransactionsBasketText[] $texts Texts
-     * @return $this
-     */
-    public function setTexts($texts)
-    {
-        $this->container['texts'] = $texts;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
+     * Gets shipped_at
      * @return string
      */
-    public function getType()
+    public function getShippedAt()
     {
-        return $this->container['type'];
+        return $this->container['shipped_at'];
     }
 
     /**
-     * Sets type
-     * @param string $type Basket Type
+     * Sets shipped_at
+     * @param string $shipped_at Shipment Date
      * @return $this
      */
-    public function setType($type)
+    public function setShippedAt($shipped_at)
     {
-        $this->container['type'] = $type;
+        $this->container['shipped_at'] = $shipped_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipped_by
+     * @return string
+     */
+    public function getShippedBy()
+    {
+        return $this->container['shipped_by'];
+    }
+
+    /**
+     * Sets shipped_by
+     * @param string $shipped_by Parcel Provider
+     * @return $this
+     */
+    public function setShippedBy($shipped_by)
+    {
+        $this->container['shipped_by'] = $shipped_by;
+
+        return $this;
+    }
+
+    /**
+     * Gets tracking_code
+     * @return string
+     */
+    public function getTrackingCode()
+    {
+        return $this->container['tracking_code'];
+    }
+
+    /**
+     * Sets tracking_code
+     * @param string $tracking_code Tracking Code
+     * @return $this
+     */
+    public function setTrackingCode($tracking_code)
+    {
+        $this->container['tracking_code'] = $tracking_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets invoice_number
+     * @return string
+     */
+    public function getInvoiceNumber()
+    {
+        return $this->container['invoice_number'];
+    }
+
+    /**
+     * Sets invoice_number
+     * @param string $invoice_number Invoice Number
+     * @return $this
+     */
+    public function setInvoiceNumber($invoice_number)
+    {
+        $this->container['invoice_number'] = $invoice_number;
 
         return $this;
     }

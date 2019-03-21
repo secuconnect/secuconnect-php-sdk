@@ -27,6 +27,16 @@ class GeneralMerchantsDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'salutation' => 'string',
+        'companyname' => 'string',
+        'forename' => 'string',
+        'surname' => 'string',
+        'dob' => 'string',
+        'homepage' => 'string',
+        'email' => 'string',
+        'phone' => 'string',
+        'address' => '\Secuconnect\Client\Model\Address',
+        'payment_data' => '\Secuconnect\Client\Model\PaymentInformation',
         'legal_details' => '\Secuconnect\Client\Model\GeneralMerchantsLegalDetails[]',
         'checkout_options' => '\Secuconnect\Client\Model\GeneralMerchantsCheckoutOptions',
         'urls' => '\Secuconnect\Client\Model\GeneralMerchantsUrls[]'
@@ -37,6 +47,16 @@ class GeneralMerchantsDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'salutation' => null,
+        'companyname' => null,
+        'forename' => null,
+        'surname' => null,
+        'dob' => null,
+        'homepage' => null,
+        'email' => null,
+        'phone' => null,
+        'address' => null,
+        'payment_data' => null,
         'legal_details' => null,
         'checkout_options' => null,
         'urls' => null
@@ -57,6 +77,16 @@ class GeneralMerchantsDTO implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'salutation' => 'salutation',
+        'companyname' => 'companyname',
+        'forename' => 'forename',
+        'surname' => 'surname',
+        'dob' => 'dob',
+        'homepage' => 'homepage',
+        'email' => 'email',
+        'phone' => 'phone',
+        'address' => 'address',
+        'payment_data' => 'payment_data',
         'legal_details' => 'legal_details',
         'checkout_options' => 'checkout_options',
         'urls' => 'urls'
@@ -68,6 +98,16 @@ class GeneralMerchantsDTO implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'salutation' => 'setSalutation',
+        'companyname' => 'setCompanyname',
+        'forename' => 'setForename',
+        'surname' => 'setSurname',
+        'dob' => 'setDob',
+        'homepage' => 'setHomepage',
+        'email' => 'setEmail',
+        'phone' => 'setPhone',
+        'address' => 'setAddress',
+        'payment_data' => 'setPaymentData',
         'legal_details' => 'setLegalDetails',
         'checkout_options' => 'setCheckoutOptions',
         'urls' => 'setUrls'
@@ -79,6 +119,16 @@ class GeneralMerchantsDTO implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'salutation' => 'getSalutation',
+        'companyname' => 'getCompanyname',
+        'forename' => 'getForename',
+        'surname' => 'getSurname',
+        'dob' => 'getDob',
+        'homepage' => 'getHomepage',
+        'email' => 'getEmail',
+        'phone' => 'getPhone',
+        'address' => 'getAddress',
+        'payment_data' => 'getPaymentData',
         'legal_details' => 'getLegalDetails',
         'checkout_options' => 'getCheckoutOptions',
         'urls' => 'getUrls'
@@ -115,6 +165,16 @@ class GeneralMerchantsDTO implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['salutation'] = isset($data['salutation']) ? $data['salutation'] : null;
+        $this->container['companyname'] = isset($data['companyname']) ? $data['companyname'] : null;
+        $this->container['forename'] = isset($data['forename']) ? $data['forename'] : null;
+        $this->container['surname'] = isset($data['surname']) ? $data['surname'] : null;
+        $this->container['dob'] = isset($data['dob']) ? $data['dob'] : null;
+        $this->container['homepage'] = isset($data['homepage']) ? $data['homepage'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
+        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
+        $this->container['payment_data'] = isset($data['payment_data']) ? $data['payment_data'] : null;
         $this->container['legal_details'] = isset($data['legal_details']) ? $data['legal_details'] : null;
         $this->container['checkout_options'] = isset($data['checkout_options']) ? $data['checkout_options'] : null;
         $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
@@ -144,6 +204,216 @@ class GeneralMerchantsDTO implements ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets salutation
+     * @return string
+     */
+    public function getSalutation()
+    {
+        return $this->container['salutation'];
+    }
+
+    /**
+     * Sets salutation
+     * @param string $salutation Salutation
+     * @return $this
+     */
+    public function setSalutation($salutation)
+    {
+        $this->container['salutation'] = $salutation;
+
+        return $this;
+    }
+
+    /**
+     * Gets companyname
+     * @return string
+     */
+    public function getCompanyname()
+    {
+        return $this->container['companyname'];
+    }
+
+    /**
+     * Sets companyname
+     * @param string $companyname companyname
+     * @return $this
+     */
+    public function setCompanyname($companyname)
+    {
+        $this->container['companyname'] = $companyname;
+
+        return $this;
+    }
+
+    /**
+     * Gets forename
+     * @return string
+     */
+    public function getForename()
+    {
+        return $this->container['forename'];
+    }
+
+    /**
+     * Sets forename
+     * @param string $forename forename
+     * @return $this
+     */
+    public function setForename($forename)
+    {
+        $this->container['forename'] = $forename;
+
+        return $this;
+    }
+
+    /**
+     * Gets surname
+     * @return string
+     */
+    public function getSurname()
+    {
+        return $this->container['surname'];
+    }
+
+    /**
+     * Sets surname
+     * @param string $surname surname
+     * @return $this
+     */
+    public function setSurname($surname)
+    {
+        $this->container['surname'] = $surname;
+
+        return $this;
+    }
+
+    /**
+     * Gets dob
+     * @return string
+     */
+    public function getDob()
+    {
+        return $this->container['dob'];
+    }
+
+    /**
+     * Sets dob
+     * @param string $dob Date of birth
+     * @return $this
+     */
+    public function setDob($dob)
+    {
+        $this->container['dob'] = $dob;
+
+        return $this;
+    }
+
+    /**
+     * Gets homepage
+     * @return string
+     */
+    public function getHomepage()
+    {
+        return $this->container['homepage'];
+    }
+
+    /**
+     * Sets homepage
+     * @param string $homepage Merchant homepage url or shop url
+     * @return $this
+     */
+    public function setHomepage($homepage)
+    {
+        $this->container['homepage'] = $homepage;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     * @param string $email Merchant email address
+     * @return $this
+     */
+    public function setEmail($email)
+    {
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets phone
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->container['phone'];
+    }
+
+    /**
+     * Sets phone
+     * @param string $phone Merchant phone number
+     * @return $this
+     */
+    public function setPhone($phone)
+    {
+        $this->container['phone'] = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Gets address
+     * @return \Secuconnect\Client\Model\Address
+     */
+    public function getAddress()
+    {
+        return $this->container['address'];
+    }
+
+    /**
+     * Sets address
+     * @param \Secuconnect\Client\Model\Address $address Address
+     * @return $this
+     */
+    public function setAddress($address)
+    {
+        $this->container['address'] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_data
+     * @return \Secuconnect\Client\Model\PaymentInformation
+     */
+    public function getPaymentData()
+    {
+        return $this->container['payment_data'];
+    }
+
+    /**
+     * Sets payment_data
+     * @param \Secuconnect\Client\Model\PaymentInformation $payment_data Merchants bank account for the payout
+     * @return $this
+     */
+    public function setPaymentData($payment_data)
+    {
+        $this->container['payment_data'] = $payment_data;
+
+        return $this;
+    }
 
     /**
      * Gets legal_details

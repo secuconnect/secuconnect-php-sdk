@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SmartTransactionsBasket
+ * SmartTransactionsCheckoutLinks
  *
  * @category    Class
  * @package     Secuconnect\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsBasket implements ArrayAccess
+class SmartTransactionsCheckoutLinks implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,16 +20,18 @@ class SmartTransactionsBasket implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTransactionsBasket';
+    protected static $swaggerModelName = 'SmartTransactionsCheckoutLinks';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'products' => '\Secuconnect\Client\Model\SmartTransactionsBasketProduct[]',
-        'texts' => '\Secuconnect\Client\Model\SmartTransactionsBasketText[]',
-        'type' => 'string'
+        'url_success' => 'string',
+        'url_failure' => 'string',
+        'url_abort' => 'string',
+        'url_error' => 'string',
+        'url_checkout' => 'string'
     ];
 
     /**
@@ -37,9 +39,11 @@ class SmartTransactionsBasket implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'products' => null,
-        'texts' => null,
-        'type' => null
+        'url_success' => null,
+        'url_failure' => null,
+        'url_abort' => null,
+        'url_error' => null,
+        'url_checkout' => null
     ];
 
     public static function swaggerTypes()
@@ -57,9 +61,11 @@ class SmartTransactionsBasket implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'products' => 'products',
-        'texts' => 'texts',
-        'type' => 'type'
+        'url_success' => 'url_success',
+        'url_failure' => 'url_failure',
+        'url_abort' => 'url_abort',
+        'url_error' => 'url_error',
+        'url_checkout' => 'url_checkout'
     ];
 
 
@@ -68,9 +74,11 @@ class SmartTransactionsBasket implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'products' => 'setProducts',
-        'texts' => 'setTexts',
-        'type' => 'setType'
+        'url_success' => 'setUrlSuccess',
+        'url_failure' => 'setUrlFailure',
+        'url_abort' => 'setUrlAbort',
+        'url_error' => 'setUrlError',
+        'url_checkout' => 'setUrlCheckout'
     ];
 
 
@@ -79,9 +87,11 @@ class SmartTransactionsBasket implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'products' => 'getProducts',
-        'texts' => 'getTexts',
-        'type' => 'getType'
+        'url_success' => 'getUrlSuccess',
+        'url_failure' => 'getUrlFailure',
+        'url_abort' => 'getUrlAbort',
+        'url_error' => 'getUrlError',
+        'url_checkout' => 'getUrlCheckout'
     ];
 
     public static function attributeMap()
@@ -115,9 +125,11 @@ class SmartTransactionsBasket implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['products'] = isset($data['products']) ? $data['products'] : null;
-        $this->container['texts'] = isset($data['texts']) ? $data['texts'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['url_success'] = isset($data['url_success']) ? $data['url_success'] : null;
+        $this->container['url_failure'] = isset($data['url_failure']) ? $data['url_failure'] : null;
+        $this->container['url_abort'] = isset($data['url_abort']) ? $data['url_abort'] : null;
+        $this->container['url_error'] = isset($data['url_error']) ? $data['url_error'] : null;
+        $this->container['url_checkout'] = isset($data['url_checkout']) ? $data['url_checkout'] : null;
     }
 
     /**
@@ -146,64 +158,106 @@ class SmartTransactionsBasket implements ArrayAccess
 
 
     /**
-     * Gets products
-     * @return \Secuconnect\Client\Model\SmartTransactionsBasketProduct[]
-     */
-    public function getProducts()
-    {
-        return $this->container['products'];
-    }
-
-    /**
-     * Sets products
-     * @param \Secuconnect\Client\Model\SmartTransactionsBasketProduct[] $products Products
-     * @return $this
-     */
-    public function setProducts($products)
-    {
-        $this->container['products'] = $products;
-
-        return $this;
-    }
-
-    /**
-     * Gets texts
-     * @return \Secuconnect\Client\Model\SmartTransactionsBasketText[]
-     */
-    public function getTexts()
-    {
-        return $this->container['texts'];
-    }
-
-    /**
-     * Sets texts
-     * @param \Secuconnect\Client\Model\SmartTransactionsBasketText[] $texts Texts
-     * @return $this
-     */
-    public function setTexts($texts)
-    {
-        $this->container['texts'] = $texts;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
+     * Gets url_success
      * @return string
      */
-    public function getType()
+    public function getUrlSuccess()
     {
-        return $this->container['type'];
+        return $this->container['url_success'];
     }
 
     /**
-     * Sets type
-     * @param string $type Basket Type
+     * Sets url_success
+     * @param string $url_success Success URL
      * @return $this
      */
-    public function setType($type)
+    public function setUrlSuccess($url_success)
     {
-        $this->container['type'] = $type;
+        $this->container['url_success'] = $url_success;
+
+        return $this;
+    }
+
+    /**
+     * Gets url_failure
+     * @return string
+     */
+    public function getUrlFailure()
+    {
+        return $this->container['url_failure'];
+    }
+
+    /**
+     * Sets url_failure
+     * @param string $url_failure Failure URL
+     * @return $this
+     */
+    public function setUrlFailure($url_failure)
+    {
+        $this->container['url_failure'] = $url_failure;
+
+        return $this;
+    }
+
+    /**
+     * Gets url_abort
+     * @return string
+     */
+    public function getUrlAbort()
+    {
+        return $this->container['url_abort'];
+    }
+
+    /**
+     * Sets url_abort
+     * @param string $url_abort Abort URL
+     * @return $this
+     */
+    public function setUrlAbort($url_abort)
+    {
+        $this->container['url_abort'] = $url_abort;
+
+        return $this;
+    }
+
+    /**
+     * Gets url_error
+     * @return string
+     */
+    public function getUrlError()
+    {
+        return $this->container['url_error'];
+    }
+
+    /**
+     * Sets url_error
+     * @param string $url_error Error URL
+     * @return $this
+     */
+    public function setUrlError($url_error)
+    {
+        $this->container['url_error'] = $url_error;
+
+        return $this;
+    }
+
+    /**
+     * Gets url_checkout
+     * @return string
+     */
+    public function getUrlCheckout()
+    {
+        return $this->container['url_checkout'];
+    }
+
+    /**
+     * Sets url_checkout
+     * @param string $url_checkout Smart Checkout URL
+     * @return $this
+     */
+    public function setUrlCheckout($url_checkout)
+    {
+        $this->container['url_checkout'] = $url_checkout;
 
         return $this;
     }

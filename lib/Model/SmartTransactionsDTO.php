@@ -28,7 +28,7 @@ class SmartTransactionsDTO implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'merchant' => 'string',
-        'marketplace_contract' => '\Secuconnect\Client\Model\ProductInstanceID',
+        'provider_contract' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'order_option' => 'string',
         'status' => 'string',
         'transaction_ref' => 'string',
@@ -41,13 +41,20 @@ class SmartTransactionsDTO implements ArrayAccess
         'market' => 'string',
         'cashier' => 'string',
         'product' => 'string',
-        'receipt' => 'string',
+        'receipt' => '\Secuconnect\Client\Model\SmartTransactionsReceipt[]',
         'receipt_number' => 'int',
         'device_source' => 'string',
         'trans_id' => 'int',
         'contract' => '\Secuconnect\Client\Model\ProductInstanceID',
         'pickup_options' => '\Secuconnect\Client\Model\SmartTransactionsPickupOptions',
-        'last_visited_page' => 'string'
+        'last_visited_page' => 'string',
+        'customer' => '\Secuconnect\Client\Model\PaymentCustomersProductModel',
+        'shipping_address' => '\Secuconnect\Client\Model\PaymentCustomersProductModel',
+        'container' => '\Secuconnect\Client\Model\ProductInstanceUID',
+        'checkin' => '\Secuconnect\Client\Model\SmartTransactionsCheckin',
+        'payment_method' => 'string',
+        'is_demo' => 'bool',
+        'checkout_links' => '\Secuconnect\Client\Model\SmartTransactionsCheckoutLinks'
     ];
 
     /**
@@ -56,7 +63,7 @@ class SmartTransactionsDTO implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'merchant' => null,
-        'marketplace_contract' => null,
+        'provider_contract' => null,
         'order_option' => null,
         'status' => null,
         'transaction_ref' => null,
@@ -75,7 +82,14 @@ class SmartTransactionsDTO implements ArrayAccess
         'trans_id' => null,
         'contract' => null,
         'pickup_options' => null,
-        'last_visited_page' => null
+        'last_visited_page' => null,
+        'customer' => null,
+        'shipping_address' => null,
+        'container' => null,
+        'checkin' => null,
+        'payment_method' => null,
+        'is_demo' => null,
+        'checkout_links' => null
     ];
 
     public static function swaggerTypes()
@@ -94,7 +108,7 @@ class SmartTransactionsDTO implements ArrayAccess
      */
     protected static $attributeMap = [
         'merchant' => 'merchant',
-        'marketplace_contract' => 'marketplace_contract',
+        'provider_contract' => 'provider_contract',
         'order_option' => 'order_option',
         'status' => 'status',
         'transaction_ref' => 'transactionRef',
@@ -113,7 +127,14 @@ class SmartTransactionsDTO implements ArrayAccess
         'trans_id' => 'trans_id',
         'contract' => 'contract',
         'pickup_options' => 'pickup_options',
-        'last_visited_page' => 'last_visited_page'
+        'last_visited_page' => 'last_visited_page',
+        'customer' => 'customer',
+        'shipping_address' => 'shipping_address',
+        'container' => 'container',
+        'checkin' => 'checkin',
+        'payment_method' => 'payment_method',
+        'is_demo' => 'is_demo',
+        'checkout_links' => 'checkout_links'
     ];
 
 
@@ -123,7 +144,7 @@ class SmartTransactionsDTO implements ArrayAccess
      */
     protected static $setters = [
         'merchant' => 'setMerchant',
-        'marketplace_contract' => 'setMarketplaceContract',
+        'provider_contract' => 'setProviderContract',
         'order_option' => 'setOrderOption',
         'status' => 'setStatus',
         'transaction_ref' => 'setTransactionRef',
@@ -142,7 +163,14 @@ class SmartTransactionsDTO implements ArrayAccess
         'trans_id' => 'setTransId',
         'contract' => 'setContract',
         'pickup_options' => 'setPickupOptions',
-        'last_visited_page' => 'setLastVisitedPage'
+        'last_visited_page' => 'setLastVisitedPage',
+        'customer' => 'setCustomer',
+        'shipping_address' => 'setShippingAddress',
+        'container' => 'setContainer',
+        'checkin' => 'setCheckin',
+        'payment_method' => 'setPaymentMethod',
+        'is_demo' => 'setIsDemo',
+        'checkout_links' => 'setCheckoutLinks'
     ];
 
 
@@ -152,7 +180,7 @@ class SmartTransactionsDTO implements ArrayAccess
      */
     protected static $getters = [
         'merchant' => 'getMerchant',
-        'marketplace_contract' => 'getMarketplaceContract',
+        'provider_contract' => 'getProviderContract',
         'order_option' => 'getOrderOption',
         'status' => 'getStatus',
         'transaction_ref' => 'getTransactionRef',
@@ -171,7 +199,14 @@ class SmartTransactionsDTO implements ArrayAccess
         'trans_id' => 'getTransId',
         'contract' => 'getContract',
         'pickup_options' => 'getPickupOptions',
-        'last_visited_page' => 'getLastVisitedPage'
+        'last_visited_page' => 'getLastVisitedPage',
+        'customer' => 'getCustomer',
+        'shipping_address' => 'getShippingAddress',
+        'container' => 'getContainer',
+        'checkin' => 'getCheckin',
+        'payment_method' => 'getPaymentMethod',
+        'is_demo' => 'getIsDemo',
+        'checkout_links' => 'getCheckoutLinks'
     ];
 
     public static function attributeMap()
@@ -206,7 +241,7 @@ class SmartTransactionsDTO implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
-        $this->container['marketplace_contract'] = isset($data['marketplace_contract']) ? $data['marketplace_contract'] : null;
+        $this->container['provider_contract'] = isset($data['provider_contract']) ? $data['provider_contract'] : null;
         $this->container['order_option'] = isset($data['order_option']) ? $data['order_option'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['transaction_ref'] = isset($data['transaction_ref']) ? $data['transaction_ref'] : null;
@@ -226,6 +261,13 @@ class SmartTransactionsDTO implements ArrayAccess
         $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
         $this->container['pickup_options'] = isset($data['pickup_options']) ? $data['pickup_options'] : null;
         $this->container['last_visited_page'] = isset($data['last_visited_page']) ? $data['last_visited_page'] : null;
+        $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
+        $this->container['shipping_address'] = isset($data['shipping_address']) ? $data['shipping_address'] : null;
+        $this->container['container'] = isset($data['container']) ? $data['container'] : null;
+        $this->container['checkin'] = isset($data['checkin']) ? $data['checkin'] : null;
+        $this->container['payment_method'] = isset($data['payment_method']) ? $data['payment_method'] : null;
+        $this->container['is_demo'] = isset($data['is_demo']) ? $data['is_demo'] : null;
+        $this->container['checkout_links'] = isset($data['checkout_links']) ? $data['checkout_links'] : null;
     }
 
     /**
@@ -275,22 +317,22 @@ class SmartTransactionsDTO implements ArrayAccess
     }
 
     /**
-     * Gets marketplace_contract
-     * @return \Secuconnect\Client\Model\ProductInstanceID
+     * Gets provider_contract
+     * @return \Secuconnect\Client\Model\ProductInstanceUID
      */
-    public function getMarketplaceContract()
+    public function getProviderContract()
     {
-        return $this->container['marketplace_contract'];
+        return $this->container['provider_contract'];
     }
 
     /**
-     * Sets marketplace_contract
-     * @param \Secuconnect\Client\Model\ProductInstanceID $marketplace_contract Marketplace contract
+     * Sets provider_contract
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $provider_contract Provider contract
      * @return $this
      */
-    public function setMarketplaceContract($marketplace_contract)
+    public function setProviderContract($provider_contract)
     {
-        $this->container['marketplace_contract'] = $marketplace_contract;
+        $this->container['provider_contract'] = $provider_contract;
 
         return $this;
     }
@@ -549,7 +591,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Gets receipt
-     * @return string
+     * @return \Secuconnect\Client\Model\SmartTransactionsReceipt[]
      */
     public function getReceipt()
     {
@@ -558,7 +600,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets receipt
-     * @param string $receipt Receipt
+     * @param \Secuconnect\Client\Model\SmartTransactionsReceipt[] $receipt Receipt
      * @return $this
      */
     public function setReceipt($receipt)
@@ -690,6 +732,153 @@ class SmartTransactionsDTO implements ArrayAccess
     public function setLastVisitedPage($last_visited_page)
     {
         $this->container['last_visited_page'] = $last_visited_page;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer
+     * @return \Secuconnect\Client\Model\PaymentCustomersProductModel
+     */
+    public function getCustomer()
+    {
+        return $this->container['customer'];
+    }
+
+    /**
+     * Sets customer
+     * @param \Secuconnect\Client\Model\PaymentCustomersProductModel $customer Customer
+     * @return $this
+     */
+    public function setCustomer($customer)
+    {
+        $this->container['customer'] = $customer;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_address
+     * @return \Secuconnect\Client\Model\PaymentCustomersProductModel
+     */
+    public function getShippingAddress()
+    {
+        return $this->container['shipping_address'];
+    }
+
+    /**
+     * Sets shipping_address
+     * @param \Secuconnect\Client\Model\PaymentCustomersProductModel $shipping_address Customers delivery address
+     * @return $this
+     */
+    public function setShippingAddress($shipping_address)
+    {
+        $this->container['shipping_address'] = $shipping_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets container
+     * @return \Secuconnect\Client\Model\ProductInstanceUID
+     */
+    public function getContainer()
+    {
+        return $this->container['container'];
+    }
+
+    /**
+     * Sets container
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $container Payment Container
+     * @return $this
+     */
+    public function setContainer($container)
+    {
+        $this->container['container'] = $container;
+
+        return $this;
+    }
+
+    /**
+     * Gets checkin
+     * @return \Secuconnect\Client\Model\SmartTransactionsCheckin
+     */
+    public function getCheckin()
+    {
+        return $this->container['checkin'];
+    }
+
+    /**
+     * Sets checkin
+     * @param \Secuconnect\Client\Model\SmartTransactionsCheckin $checkin Check in
+     * @return $this
+     */
+    public function setCheckin($checkin)
+    {
+        $this->container['checkin'] = $checkin;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_method
+     * @return string
+     */
+    public function getPaymentMethod()
+    {
+        return $this->container['payment_method'];
+    }
+
+    /**
+     * Sets payment_method
+     * @param string $payment_method Payment method
+     * @return $this
+     */
+    public function setPaymentMethod($payment_method)
+    {
+        $this->container['payment_method'] = $payment_method;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_demo
+     * @return bool
+     */
+    public function getIsDemo()
+    {
+        return $this->container['is_demo'];
+    }
+
+    /**
+     * Sets is_demo
+     * @param bool $is_demo Demo payment
+     * @return $this
+     */
+    public function setIsDemo($is_demo)
+    {
+        $this->container['is_demo'] = $is_demo;
+
+        return $this;
+    }
+
+    /**
+     * Gets checkout_links
+     * @return \Secuconnect\Client\Model\SmartTransactionsCheckoutLinks
+     */
+    public function getCheckoutLinks()
+    {
+        return $this->container['checkout_links'];
+    }
+
+    /**
+     * Sets checkout_links
+     * @param \Secuconnect\Client\Model\SmartTransactionsCheckoutLinks $checkout_links Checkout Links
+     * @return $this
+     */
+    public function setCheckoutLinks($checkout_links)
+    {
+        $this->container['checkout_links'] = $checkout_links;
 
         return $this;
     }

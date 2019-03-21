@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **item_type** | **string** | Category of item | [optional] 
 **desc** | **string** | Description of the sub-basket product | [optional] 
 **article_number** | **string** | Article number | [optional] 
+**serial_number** | **string** | The serialnumber of the scanned posa card | [optional] 
 **ean** | **string** | international article number | [optional] 
 **quantity** | **int** | Quantity | [optional] 
 **price_one** | **int** | Price one | [optional] 

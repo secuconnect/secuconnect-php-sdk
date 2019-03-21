@@ -32,6 +32,7 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
         'item_type' => 'string',
         'desc' => 'string',
         'article_number' => 'string',
+        'serial_number' => 'string',
         'ean' => 'string',
         'quantity' => 'int',
         'price_one' => 'int',
@@ -52,6 +53,7 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
         'item_type' => null,
         'desc' => null,
         'article_number' => null,
+        'serial_number' => null,
         'ean' => null,
         'quantity' => null,
         'price_one' => null,
@@ -82,6 +84,7 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
         'item_type' => 'item_type',
         'desc' => 'desc',
         'article_number' => 'articleNumber',
+        'serial_number' => 'serialNumber',
         'ean' => 'ean',
         'quantity' => 'quantity',
         'price_one' => 'priceOne',
@@ -103,6 +106,7 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
         'item_type' => 'setItemType',
         'desc' => 'setDesc',
         'article_number' => 'setArticleNumber',
+        'serial_number' => 'setSerialNumber',
         'ean' => 'setEan',
         'quantity' => 'setQuantity',
         'price_one' => 'setPriceOne',
@@ -124,6 +128,7 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
         'item_type' => 'getItemType',
         'desc' => 'getDesc',
         'article_number' => 'getArticleNumber',
+        'serial_number' => 'getSerialNumber',
         'ean' => 'getEan',
         'quantity' => 'getQuantity',
         'price_one' => 'getPriceOne',
@@ -170,6 +175,7 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
         $this->container['item_type'] = isset($data['item_type']) ? $data['item_type'] : null;
         $this->container['desc'] = isset($data['desc']) ? $data['desc'] : null;
         $this->container['article_number'] = isset($data['article_number']) ? $data['article_number'] : null;
+        $this->container['serial_number'] = isset($data['serial_number']) ? $data['serial_number'] : null;
         $this->container['ean'] = isset($data['ean']) ? $data['ean'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
         $this->container['price_one'] = isset($data['price_one']) ? $data['price_one'] : null;
@@ -306,6 +312,27 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
     public function setArticleNumber($article_number)
     {
         $this->container['article_number'] = $article_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets serial_number
+     * @return string
+     */
+    public function getSerialNumber()
+    {
+        return $this->container['serial_number'];
+    }
+
+    /**
+     * Sets serial_number
+     * @param string $serial_number The serialnumber of the scanned posa card
+     * @return $this
+     */
+    public function setSerialNumber($serial_number)
+    {
+        $this->container['serial_number'] = $serial_number;
 
         return $this;
     }

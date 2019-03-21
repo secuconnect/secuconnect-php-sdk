@@ -16,8 +16,10 @@ Name | Type | Description | Notes
 **currency** | **string** | ISO 4217 code of currency, eg EUR for Euro. | [optional] 
 **created** | **string** | Created at date | [optional] 
 **updated** | **string** | Updated at date | [optional] 
-**status** | **int** | WTF?? | [optional] 
+**status** | **int** | Transaction status | [optional] 
 **status_text** | **string** | Transaction status | [optional] 
+**transaction_hash** | **string** | Transaction Hash (Old Payment ID) | [optional] 
+**reference_id** | **string** | Reference ID | [optional] 
 **details** | [**\Secuconnect\Client\Model\PaymentTransactionsProductModelDetails**](PaymentTransactionsProductModelDetails.md) |  | [optional] 
 **customer** | [**\Secuconnect\Client\Model\PaymentTransactionsProductModelCustomer**](PaymentTransactionsProductModelCustomer.md) |  | [optional] 
 
