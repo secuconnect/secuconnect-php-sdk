@@ -35,6 +35,11 @@ class Authenticator
     private static $apiClient;
 
     /**
+     * @var AuthenticationCredentials
+     */
+    private static $credentials;
+
+    /**
      * Authenticator constructor.
      * @throws Exception
      */
@@ -136,6 +141,23 @@ class Authenticator
     }
 
     /**
+     * Function to run the authenticate process a second time
+     *
+     * @return string|null
+     */
+    public static function reauthenticate() {
+        if (self::$credentials) {
+            try {
+                return self::startAuthenticationProcess(self::$credentials);
+            } catch (ApiException $e) {
+                // ignore
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Starts the authentication process and returns the access token if it was successful.
      *
      * @param AuthenticationCredentials $authenticationCredentials
@@ -144,7 +166,7 @@ class Authenticator
      */
     protected static function startAuthenticationProcess(AuthenticationCredentials $authenticationCredentials)
     {
-        self::init();
+        self::init($authenticationCredentials);
         $authId = $authenticationCredentials->getUniqueKey();
 
         $accessToken = self::tryToGetAccessTokenFromCache($authId);
@@ -168,9 +190,13 @@ class Authenticator
 
     /**
      * Init static values (with default values if needed)
+     *
+     * @param AuthenticationCredentials $authenticationCredentials
      */
-    private static function init()
+    private static function init(AuthenticationCredentials $authenticationCredentials)
     {
+        self::$credentials = $authenticationCredentials;
+
         if (!self::$cache) {
             self::setCache(Configuration::getDefaultConfiguration()->getCache());
         }

@@ -2,10 +2,8 @@
 
 namespace Secuconnect\Client\Api;
 
-use \Secuconnect\Client\ApiClient;
-use \Secuconnect\Client\ApiException;
-use \Secuconnect\Client\Configuration;
-use \Secuconnect\Client\ObjectSerializer;
+use Secuconnect\Client\ApiClient;
+use Secuconnect\Client\ApiException;
 
 /**
  * LoyaltyCustomersApi
@@ -20,16 +18,16 @@ class LoyaltyCustomersApi
     /**
      * API Client
      *
-     * @var \Secuconnect\Client\ApiClient instance of the ApiClient
+     * @var ApiClient instance of the ApiClient
      */
     protected $apiClient;
 
     /**
      * Constructor
      *
-     * @param \Secuconnect\Client\ApiClient|null $apiClient The api client to use
+     * @param ApiClient|null $apiClient The api client to use
      */
-    public function __construct(\Secuconnect\Client\ApiClient $apiClient = null)
+    public function __construct(ApiClient $apiClient = null)
     {
         if ($apiClient === null) {
             $apiClient = new ApiClient();
@@ -41,7 +39,7 @@ class LoyaltyCustomersApi
     /**
      * Get API client
      *
-     * @return \Secuconnect\Client\ApiClient get the API client
+     * @return ApiClient get the API client
      */
     public function getApiClient()
     {
@@ -51,11 +49,11 @@ class LoyaltyCustomersApi
     /**
      * Set the API client
      *
-     * @param \Secuconnect\Client\ApiClient $apiClient set the API client
+     * @param ApiClient $apiClient set the API client
      *
      * @return LoyaltyCustomersApi
      */
-    public function setApiClient(\Secuconnect\Client\ApiClient $apiClient)
+    public function setApiClient(ApiClient $apiClient)
     {
         $this->apiClient = $apiClient;
         return $this;
@@ -67,7 +65,7 @@ class LoyaltyCustomersApi
      * POST Loyalty/Customers
      *
      * @param \Secuconnect\Client\Model\LoyaltyCustomersDTO $body loyalty Customer container properties (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyCustomersProductModel
      */
     public function addCustomer($body)
@@ -82,7 +80,7 @@ class LoyaltyCustomersApi
      * POST Loyalty/Customers
      *
      * @param \Secuconnect\Client\Model\LoyaltyCustomersDTO $body loyalty Customer container properties (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyCustomersProductModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function addCustomerWithHttpInfo($body)
@@ -115,36 +113,45 @@ class LoyaltyCustomersApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Secuconnect\Client\Model\LoyaltyCustomersProductModel',
-                '/Loyalty/Customers'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\LoyaltyCustomersProductModel', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\LoyaltyCustomersProductModel', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
+        for ($retries = 0; ; $retries++) {
+            
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
+            
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'POST',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\LoyaltyCustomersProductModel',
+                    '/Loyalty/Customers'
+                );
 
-            throw $e;
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\LoyaltyCustomersProductModel', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\LoyaltyCustomersProductModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
         }
     }
 
@@ -155,7 +162,7 @@ class LoyaltyCustomersApi
      *
      * @param string $loyalty_customer_id Loyalty customer id (required)
      * @param string $loyalty_payment_container_id LoyaltyPaymentContainer id (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyCustomersProductModel
      */
     public function assignPaymentContainer($loyalty_customer_id, $loyalty_payment_container_id)
@@ -171,7 +178,7 @@ class LoyaltyCustomersApi
      *
      * @param string $loyalty_customer_id Loyalty customer id (required)
      * @param string $loyalty_payment_container_id LoyaltyPaymentContainer id (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyCustomersProductModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function assignPaymentContainerWithHttpInfo($loyalty_customer_id, $loyalty_payment_container_id)
@@ -219,36 +226,45 @@ class LoyaltyCustomersApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Secuconnect\Client\Model\LoyaltyCustomersProductModel',
-                '/Loyalty/Customers/{loyaltyCustomerId}/assignPaymentContainer/{loyaltyPaymentContainerId}'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\LoyaltyCustomersProductModel', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\LoyaltyCustomersProductModel', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
+        for ($retries = 0; ; $retries++) {
+            
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
+            
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'POST',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\LoyaltyCustomersProductModel',
+                    '/Loyalty/Customers/{loyaltyCustomerId}/assignPaymentContainer/{loyaltyPaymentContainerId}'
+                );
 
-            throw $e;
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\LoyaltyCustomersProductModel', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\LoyaltyCustomersProductModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
         }
     }
 
@@ -258,7 +274,7 @@ class LoyaltyCustomersApi
      * POST Loyalty/Customers/{loyaltyCustomerId}/checkDuplicated/
      *
      * @param string $loyalty_customer_id Loyalty customer id (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return object
      */
     public function checkForDuplicates($loyalty_customer_id)
@@ -273,7 +289,7 @@ class LoyaltyCustomersApi
      * POST Loyalty/Customers/{loyaltyCustomerId}/checkDuplicated/
      *
      * @param string $loyalty_customer_id Loyalty customer id (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
     public function checkForDuplicatesWithHttpInfo($loyalty_customer_id)
@@ -309,36 +325,45 @@ class LoyaltyCustomersApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                'object',
-                '/Loyalty/Customers/{loyaltyCustomerId}/checkDuplicated/'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, 'object', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
+        for ($retries = 0; ; $retries++) {
+            
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
+            
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'POST',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    'object',
+                    '/Loyalty/Customers/{loyaltyCustomerId}/checkDuplicated/'
+                );
 
-            throw $e;
+                return [$this->apiClient->getSerializer()->deserialize($response, 'object', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
         }
     }
 
@@ -352,7 +377,7 @@ class LoyaltyCustomersApi
      * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 (optional)
      * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                  A condition may contain:  *                      - wildcard \&quot;*\&quot; for any number of characters  *                      - wildcard \&quot;?\&quot; for one character  *                      - ranges in the form [value TO value]  *  *                  Single expressions may combined by &#39;AND&#39;, &#39;OR&#39;, &#39;NOT&#39; operators and parenthesis &#39;(&#39;, &#39;)&#39; for grouping.  *                  Property names can be nested like \&quot;prop1.prop2\&quot;.  *                  Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * (optional)
      * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#39;asc&#39;, or descending &#39;dsc&#39; order. (optional)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyCustomersList
      */
     public function getAll($count = null, $offset = null, $fields = null, $q = null, $sort = null)
@@ -371,7 +396,7 @@ class LoyaltyCustomersApi
      * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 (optional)
      * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                  A condition may contain:  *                      - wildcard \&quot;*\&quot; for any number of characters  *                      - wildcard \&quot;?\&quot; for one character  *                      - ranges in the form [value TO value]  *  *                  Single expressions may combined by &#39;AND&#39;, &#39;OR&#39;, &#39;NOT&#39; operators and parenthesis &#39;(&#39;, &#39;)&#39; for grouping.  *                  Property names can be nested like \&quot;prop1.prop2\&quot;.  *                  Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * (optional)
      * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#39;asc&#39;, or descending &#39;dsc&#39; order. (optional)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyCustomersList, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAllWithHttpInfo($count = null, $offset = null, $fields = null, $q = null, $sort = null)
@@ -415,32 +440,36 @@ class LoyaltyCustomersApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Secuconnect\Client\Model\LoyaltyCustomersList',
-                '/Loyalty/Customers'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\LoyaltyCustomersList', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\LoyaltyCustomersList', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
+        for ($retries = 0; ; $retries++) {
+            
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
+            
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'GET',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\LoyaltyCustomersList',
+                    '/Loyalty/Customers'
+                );
 
-            throw $e;
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\LoyaltyCustomersList', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\LoyaltyCustomersList', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
         }
     }
 
@@ -450,7 +479,7 @@ class LoyaltyCustomersApi
      * GET Loyalty/Customers/{loyaltyCustomerId}
      *
      * @param string $loyalty_customer_id Search one loyalty customer by provided id (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyCustomersProductModel
      */
     public function getOne($loyalty_customer_id)
@@ -465,7 +494,7 @@ class LoyaltyCustomersApi
      * GET Loyalty/Customers/{loyaltyCustomerId}
      *
      * @param string $loyalty_customer_id Search one loyalty customer by provided id (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyCustomersProductModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOneWithHttpInfo($loyalty_customer_id)
@@ -501,32 +530,36 @@ class LoyaltyCustomersApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Secuconnect\Client\Model\LoyaltyCustomersProductModel',
-                '/Loyalty/Customers/{loyaltyCustomerId}'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\LoyaltyCustomersProductModel', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\LoyaltyCustomersProductModel', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
+        for ($retries = 0; ; $retries++) {
+            
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
+            
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'GET',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\LoyaltyCustomersProductModel',
+                    '/Loyalty/Customers/{loyaltyCustomerId}'
+                );
 
-            throw $e;
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\LoyaltyCustomersProductModel', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\LoyaltyCustomersProductModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
         }
     }
 
@@ -537,7 +570,7 @@ class LoyaltyCustomersApi
      *
      * @param string $loyalty_customer_id Loyalty customer id (required)
      * @param string $loyalty_payment_container_id LoyaltyPaymentContainer id (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyCustomersProductModel
      */
     public function removeAssignedPaymentContainer($loyalty_customer_id, $loyalty_payment_container_id)
@@ -553,7 +586,7 @@ class LoyaltyCustomersApi
      *
      * @param string $loyalty_customer_id Loyalty customer id (required)
      * @param string $loyalty_payment_container_id LoyaltyPaymentContainer id (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyCustomersProductModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function removeAssignedPaymentContainerWithHttpInfo($loyalty_customer_id, $loyalty_payment_container_id)
@@ -601,36 +634,45 @@ class LoyaltyCustomersApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'DELETE',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Secuconnect\Client\Model\LoyaltyCustomersProductModel',
-                '/Loyalty/Customers/{loyaltyCustomerId}/assignPaymentContainer/{loyaltyPaymentContainerId}'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\LoyaltyCustomersProductModel', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\LoyaltyCustomersProductModel', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
+        for ($retries = 0; ; $retries++) {
+            
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
+            
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'DELETE',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\LoyaltyCustomersProductModel',
+                    '/Loyalty/Customers/{loyaltyCustomerId}/assignPaymentContainer/{loyaltyPaymentContainerId}'
+                );
 
-            throw $e;
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\LoyaltyCustomersProductModel', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\LoyaltyCustomersProductModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
         }
     }
 
@@ -640,7 +682,7 @@ class LoyaltyCustomersApi
      * DELETE Loyalty/Customers/{loyaltyCustomerId}
      *
      * @param string $loyalty_customer_id Loyalty customer id (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyCustomersRemoved
      */
     public function removeCustomer($loyalty_customer_id)
@@ -655,7 +697,7 @@ class LoyaltyCustomersApi
      * DELETE Loyalty/Customers/{loyaltyCustomerId}
      *
      * @param string $loyalty_customer_id Loyalty customer id (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyCustomersRemoved, HTTP status code, HTTP response headers (array of strings)
      */
     public function removeCustomerWithHttpInfo($loyalty_customer_id)
@@ -691,36 +733,45 @@ class LoyaltyCustomersApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'DELETE',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Secuconnect\Client\Model\LoyaltyCustomersRemoved',
-                '/Loyalty/Customers/{loyaltyCustomerId}'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\LoyaltyCustomersRemoved', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\LoyaltyCustomersRemoved', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
+        for ($retries = 0; ; $retries++) {
+            
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
+            
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'DELETE',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\LoyaltyCustomersRemoved',
+                    '/Loyalty/Customers/{loyaltyCustomerId}'
+                );
 
-            throw $e;
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\LoyaltyCustomersRemoved', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\LoyaltyCustomersRemoved', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
         }
     }
 
@@ -731,7 +782,7 @@ class LoyaltyCustomersApi
      *
      * @param string $loyalty_customer_id loyalty Customer Id CUS_XXX (required)
      * @param \Secuconnect\Client\Model\LoyaltyCustomersDTO $body loyalty Customer container properties (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyCustomersProductModel
      */
     public function updateCustomer($loyalty_customer_id, $body)
@@ -747,7 +798,7 @@ class LoyaltyCustomersApi
      *
      * @param string $loyalty_customer_id loyalty Customer Id CUS_XXX (required)
      * @param \Secuconnect\Client\Model\LoyaltyCustomersDTO $body loyalty Customer container properties (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyCustomersProductModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateCustomerWithHttpInfo($loyalty_customer_id, $body)
@@ -792,36 +843,45 @@ class LoyaltyCustomersApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'PUT',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Secuconnect\Client\Model\LoyaltyCustomersProductModel',
-                '/Loyalty/Customers/{loyaltyCustomerId}'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\LoyaltyCustomersProductModel', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\LoyaltyCustomersProductModel', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
+        for ($retries = 0; ; $retries++) {
+            
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
+            
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'PUT',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\LoyaltyCustomersProductModel',
+                    '/Loyalty/Customers/{loyaltyCustomerId}'
+                );
 
-            throw $e;
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\LoyaltyCustomersProductModel', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\LoyaltyCustomersProductModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
         }
     }
 }

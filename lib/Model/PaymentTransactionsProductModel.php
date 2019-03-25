@@ -29,7 +29,8 @@ class PaymentTransactionsProductModel implements ArrayAccess
     protected static $swaggerTypes = [
         'object' => 'string',
         'id' => 'string',
-        'merchant' => '\Secuconnect\Client\Model\PaymentTransactionsProductModelMerchant',
+        'merchant' => '\Secuconnect\Client\Model\GeneralMerchantsProductModel',
+        'store' => '\Secuconnect\Client\Model\GeneralStoresProductModel',
         'trans_id' => 'int',
         'product_id' => 'int',
         'product' => 'string',
@@ -42,10 +43,16 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'updated' => 'string',
         'status' => 'int',
         'status_text' => 'string',
-        'transaction_hash' => 'string',
-        'reference_id' => 'string',
+        'incoming_payment_date' => 'string',
         'details' => '\Secuconnect\Client\Model\PaymentTransactionsProductModelDetails',
-        'customer' => '\Secuconnect\Client\Model\PaymentTransactionsProductModelCustomer'
+        'customer' => '\Secuconnect\Client\Model\PaymentTransactionsProductModelCustomer',
+        'tid' => 'string',
+        'payment_data' => 'string',
+        'store_name' => 'string',
+        'payout_date' => 'string',
+        'invoice_number' => 'string',
+        'transaction_hash' => 'string',
+        'reference_id' => 'string'
     ];
 
     /**
@@ -56,6 +63,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'object' => null,
         'id' => 'id',
         'merchant' => null,
+        'store' => null,
         'trans_id' => null,
         'product_id' => null,
         'product' => null,
@@ -68,10 +76,16 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'updated' => null,
         'status' => null,
         'status_text' => null,
-        'transaction_hash' => null,
-        'reference_id' => null,
+        'incoming_payment_date' => null,
         'details' => null,
-        'customer' => null
+        'customer' => null,
+        'tid' => null,
+        'payment_data' => null,
+        'store_name' => null,
+        'payout_date' => null,
+        'invoice_number' => null,
+        'transaction_hash' => null,
+        'reference_id' => null
     ];
 
     public static function swaggerTypes()
@@ -92,6 +106,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'object' => 'object',
         'id' => 'id',
         'merchant' => 'merchant',
+        'store' => 'store',
         'trans_id' => 'trans_id',
         'product_id' => 'product_id',
         'product' => 'product',
@@ -104,10 +119,16 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'updated' => 'updated',
         'status' => 'status',
         'status_text' => 'status_text',
-        'transaction_hash' => 'transaction_hash',
-        'reference_id' => 'reference_id',
+        'incoming_payment_date' => 'incoming_payment_date',
         'details' => 'details',
-        'customer' => 'customer'
+        'customer' => 'customer',
+        'tid' => 'tid',
+        'payment_data' => 'payment_data',
+        'store_name' => 'store_name',
+        'payout_date' => 'payout_date',
+        'invoice_number' => 'invoice_number',
+        'transaction_hash' => 'transaction_hash',
+        'reference_id' => 'reference_id'
     ];
 
 
@@ -119,6 +140,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'object' => 'setObject',
         'id' => 'setId',
         'merchant' => 'setMerchant',
+        'store' => 'setStore',
         'trans_id' => 'setTransId',
         'product_id' => 'setProductId',
         'product' => 'setProduct',
@@ -131,10 +153,16 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'updated' => 'setUpdated',
         'status' => 'setStatus',
         'status_text' => 'setStatusText',
-        'transaction_hash' => 'setTransactionHash',
-        'reference_id' => 'setReferenceId',
+        'incoming_payment_date' => 'setIncomingPaymentDate',
         'details' => 'setDetails',
-        'customer' => 'setCustomer'
+        'customer' => 'setCustomer',
+        'tid' => 'setTid',
+        'payment_data' => 'setPaymentData',
+        'store_name' => 'setStoreName',
+        'payout_date' => 'setPayoutDate',
+        'invoice_number' => 'setInvoiceNumber',
+        'transaction_hash' => 'setTransactionHash',
+        'reference_id' => 'setReferenceId'
     ];
 
 
@@ -146,6 +174,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'object' => 'getObject',
         'id' => 'getId',
         'merchant' => 'getMerchant',
+        'store' => 'getStore',
         'trans_id' => 'getTransId',
         'product_id' => 'getProductId',
         'product' => 'getProduct',
@@ -158,10 +187,16 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'updated' => 'getUpdated',
         'status' => 'getStatus',
         'status_text' => 'getStatusText',
-        'transaction_hash' => 'getTransactionHash',
-        'reference_id' => 'getReferenceId',
+        'incoming_payment_date' => 'getIncomingPaymentDate',
         'details' => 'getDetails',
-        'customer' => 'getCustomer'
+        'customer' => 'getCustomer',
+        'tid' => 'getTid',
+        'payment_data' => 'getPaymentData',
+        'store_name' => 'getStoreName',
+        'payout_date' => 'getPayoutDate',
+        'invoice_number' => 'getInvoiceNumber',
+        'transaction_hash' => 'getTransactionHash',
+        'reference_id' => 'getReferenceId'
     ];
 
     public static function attributeMap()
@@ -198,6 +233,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
         $this->container['object'] = isset($data['object']) ? $data['object'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
+        $this->container['store'] = isset($data['store']) ? $data['store'] : null;
         $this->container['trans_id'] = isset($data['trans_id']) ? $data['trans_id'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
@@ -210,10 +246,16 @@ class PaymentTransactionsProductModel implements ArrayAccess
         $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['status_text'] = isset($data['status_text']) ? $data['status_text'] : null;
-        $this->container['transaction_hash'] = isset($data['transaction_hash']) ? $data['transaction_hash'] : null;
-        $this->container['reference_id'] = isset($data['reference_id']) ? $data['reference_id'] : null;
+        $this->container['incoming_payment_date'] = isset($data['incoming_payment_date']) ? $data['incoming_payment_date'] : null;
         $this->container['details'] = isset($data['details']) ? $data['details'] : null;
         $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
+        $this->container['tid'] = isset($data['tid']) ? $data['tid'] : null;
+        $this->container['payment_data'] = isset($data['payment_data']) ? $data['payment_data'] : null;
+        $this->container['store_name'] = isset($data['store_name']) ? $data['store_name'] : null;
+        $this->container['payout_date'] = isset($data['payout_date']) ? $data['payout_date'] : null;
+        $this->container['invoice_number'] = isset($data['invoice_number']) ? $data['invoice_number'] : null;
+        $this->container['transaction_hash'] = isset($data['transaction_hash']) ? $data['transaction_hash'] : null;
+        $this->container['reference_id'] = isset($data['reference_id']) ? $data['reference_id'] : null;
     }
 
     /**
@@ -285,7 +327,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
 
     /**
      * Gets merchant
-     * @return \Secuconnect\Client\Model\PaymentTransactionsProductModelMerchant
+     * @return \Secuconnect\Client\Model\GeneralMerchantsProductModel
      */
     public function getMerchant()
     {
@@ -294,12 +336,33 @@ class PaymentTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets merchant
-     * @param \Secuconnect\Client\Model\PaymentTransactionsProductModelMerchant $merchant
+     * @param \Secuconnect\Client\Model\GeneralMerchantsProductModel $merchant Merchant information
      * @return $this
      */
     public function setMerchant($merchant)
     {
         $this->container['merchant'] = $merchant;
+
+        return $this;
+    }
+
+    /**
+     * Gets store
+     * @return \Secuconnect\Client\Model\GeneralStoresProductModel
+     */
+    public function getStore()
+    {
+        return $this->container['store'];
+    }
+
+    /**
+     * Sets store
+     * @param \Secuconnect\Client\Model\GeneralStoresProductModel $store Merchants store information
+     * @return $this
+     */
+    public function setStore($store)
+    {
+        $this->container['store'] = $store;
 
         return $this;
     }
@@ -525,7 +588,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets status
-     * @param int $status Transaction status
+     * @param int $status Transaction status ID
      * @return $this
      */
     public function setStatus($status)
@@ -546,7 +609,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets status_text
-     * @param string $status_text Transaction status
+     * @param string $status_text Transaction status description
      * @return $this
      */
     public function setStatusText($status_text)
@@ -557,43 +620,22 @@ class PaymentTransactionsProductModel implements ArrayAccess
     }
 
     /**
-     * Gets transaction_hash
+     * Gets incoming_payment_date
      * @return string
      */
-    public function getTransactionHash()
+    public function getIncomingPaymentDate()
     {
-        return $this->container['transaction_hash'];
+        return $this->container['incoming_payment_date'];
     }
 
     /**
-     * Sets transaction_hash
-     * @param string $transaction_hash Transaction Hash (Old Payment ID)
+     * Sets incoming_payment_date
+     * @param string $incoming_payment_date Date when the payment was received
      * @return $this
      */
-    public function setTransactionHash($transaction_hash)
+    public function setIncomingPaymentDate($incoming_payment_date)
     {
-        $this->container['transaction_hash'] = $transaction_hash;
-
-        return $this;
-    }
-
-    /**
-     * Gets reference_id
-     * @return string
-     */
-    public function getReferenceId()
-    {
-        return $this->container['reference_id'];
-    }
-
-    /**
-     * Sets reference_id
-     * @param string $reference_id Reference ID
-     * @return $this
-     */
-    public function setReferenceId($reference_id)
-    {
-        $this->container['reference_id'] = $reference_id;
+        $this->container['incoming_payment_date'] = $incoming_payment_date;
 
         return $this;
     }
@@ -636,6 +678,153 @@ class PaymentTransactionsProductModel implements ArrayAccess
     public function setCustomer($customer)
     {
         $this->container['customer'] = $customer;
+
+        return $this;
+    }
+
+    /**
+     * Gets tid
+     * @return string
+     */
+    public function getTid()
+    {
+        return $this->container['tid'];
+    }
+
+    /**
+     * Sets tid
+     * @param string $tid Terminal-ID
+     * @return $this
+     */
+    public function setTid($tid)
+    {
+        $this->container['tid'] = $tid;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_data
+     * @return string
+     */
+    public function getPaymentData()
+    {
+        return $this->container['payment_data'];
+    }
+
+    /**
+     * Sets payment_data
+     * @param string $payment_data Data of the used payment instrument
+     * @return $this
+     */
+    public function setPaymentData($payment_data)
+    {
+        $this->container['payment_data'] = $payment_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets store_name
+     * @return string
+     */
+    public function getStoreName()
+    {
+        return $this->container['store_name'];
+    }
+
+    /**
+     * Sets store_name
+     * @param string $store_name Store name
+     * @return $this
+     */
+    public function setStoreName($store_name)
+    {
+        $this->container['store_name'] = $store_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets payout_date
+     * @return string
+     */
+    public function getPayoutDate()
+    {
+        return $this->container['payout_date'];
+    }
+
+    /**
+     * Sets payout_date
+     * @param string $payout_date Date when the payout was created
+     * @return $this
+     */
+    public function setPayoutDate($payout_date)
+    {
+        $this->container['payout_date'] = $payout_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets invoice_number
+     * @return string
+     */
+    public function getInvoiceNumber()
+    {
+        return $this->container['invoice_number'];
+    }
+
+    /**
+     * Sets invoice_number
+     * @param string $invoice_number Invoice number (from merchant)
+     * @return $this
+     */
+    public function setInvoiceNumber($invoice_number)
+    {
+        $this->container['invoice_number'] = $invoice_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets transaction_hash
+     * @return string
+     */
+    public function getTransactionHash()
+    {
+        return $this->container['transaction_hash'];
+    }
+
+    /**
+     * Sets transaction_hash
+     * @param string $transaction_hash Payment-ID
+     * @return $this
+     */
+    public function setTransactionHash($transaction_hash)
+    {
+        $this->container['transaction_hash'] = $transaction_hash;
+
+        return $this;
+    }
+
+    /**
+     * Gets reference_id
+     * @return string
+     */
+    public function getReferenceId()
+    {
+        return $this->container['reference_id'];
+    }
+
+    /**
+     * Sets reference_id
+     * @param string $reference_id Reference ID
+     * @return $this
+     */
+    public function setReferenceId($reference_id)
+    {
+        $this->container['reference_id'] = $reference_id;
 
         return $this;
     }

@@ -2,10 +2,8 @@
 
 namespace Secuconnect\Client\Api;
 
-use \Secuconnect\Client\ApiClient;
-use \Secuconnect\Client\ApiException;
-use \Secuconnect\Client\Configuration;
-use \Secuconnect\Client\ObjectSerializer;
+use Secuconnect\Client\ApiClient;
+use Secuconnect\Client\ApiException;
 
 /**
  * PaymentContainersApi
@@ -20,16 +18,16 @@ class PaymentContainersApi
     /**
      * API Client
      *
-     * @var \Secuconnect\Client\ApiClient instance of the ApiClient
+     * @var ApiClient instance of the ApiClient
      */
     protected $apiClient;
 
     /**
      * Constructor
      *
-     * @param \Secuconnect\Client\ApiClient|null $apiClient The api client to use
+     * @param ApiClient|null $apiClient The api client to use
      */
-    public function __construct(\Secuconnect\Client\ApiClient $apiClient = null)
+    public function __construct(ApiClient $apiClient = null)
     {
         if ($apiClient === null) {
             $apiClient = new ApiClient();
@@ -41,7 +39,7 @@ class PaymentContainersApi
     /**
      * Get API client
      *
-     * @return \Secuconnect\Client\ApiClient get the API client
+     * @return ApiClient get the API client
      */
     public function getApiClient()
     {
@@ -51,11 +49,11 @@ class PaymentContainersApi
     /**
      * Set the API client
      *
-     * @param \Secuconnect\Client\ApiClient $apiClient set the API client
+     * @param ApiClient $apiClient set the API client
      *
      * @return PaymentContainersApi
      */
-    public function setApiClient(\Secuconnect\Client\ApiClient $apiClient)
+    public function setApiClient(ApiClient $apiClient)
     {
         $this->apiClient = $apiClient;
         return $this;
@@ -71,7 +69,7 @@ class PaymentContainersApi
      * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 (optional)
      * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                  A condition may contain:  *                      - wildcard \&quot;*\&quot; for any number of characters  *                      - wildcard \&quot;?\&quot; for one character  *                      - ranges in the form [value TO value]  *  *                  Single expressions may combined by &#39;AND&#39;, &#39;OR&#39;, &#39;NOT&#39; operators and parenthesis &#39;(&#39;, &#39;)&#39; for grouping.  *                  Property names can be nested like \&quot;prop1.prop2\&quot;.  *                  Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * (optional)
      * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#39;asc&#39;, or descending &#39;dsc&#39; order. (optional)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentContainersList
      */
     public function paymentContainersGet($count = null, $offset = null, $fields = null, $q = null, $sort = null)
@@ -90,7 +88,7 @@ class PaymentContainersApi
      * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 (optional)
      * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                  A condition may contain:  *                      - wildcard \&quot;*\&quot; for any number of characters  *                      - wildcard \&quot;?\&quot; for one character  *                      - ranges in the form [value TO value]  *  *                  Single expressions may combined by &#39;AND&#39;, &#39;OR&#39;, &#39;NOT&#39; operators and parenthesis &#39;(&#39;, &#39;)&#39; for grouping.  *                  Property names can be nested like \&quot;prop1.prop2\&quot;.  *                  Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * (optional)
      * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#39;asc&#39;, or descending &#39;dsc&#39; order. (optional)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentContainersList, HTTP status code, HTTP response headers (array of strings)
      */
     public function paymentContainersGetWithHttpInfo($count = null, $offset = null, $fields = null, $q = null, $sort = null)
@@ -134,32 +132,36 @@ class PaymentContainersApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Secuconnect\Client\Model\PaymentContainersList',
-                '/Payment/Containers'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentContainersList', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentContainersList', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
+        for ($retries = 0; ; $retries++) {
+            
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
+            
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'GET',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\PaymentContainersList',
+                    '/Payment/Containers'
+                );
 
-            throw $e;
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentContainersList', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentContainersList', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
         }
     }
 
@@ -169,7 +171,7 @@ class PaymentContainersApi
      * GET Payment/Containers/{paymentContainerId}
      *
      * @param string $payment_container_id Search one by provided id (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentContainersProductModel
      */
     public function paymentContainersGetById($payment_container_id)
@@ -184,7 +186,7 @@ class PaymentContainersApi
      * GET Payment/Containers/{paymentContainerId}
      *
      * @param string $payment_container_id Search one by provided id (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentContainersProductModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function paymentContainersGetByIdWithHttpInfo($payment_container_id)
@@ -220,32 +222,36 @@ class PaymentContainersApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Secuconnect\Client\Model\PaymentContainersProductModel',
-                '/Payment/Containers/{paymentContainerId}'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentContainersProductModel', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentContainersProductModel', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
+        for ($retries = 0; ; $retries++) {
+            
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
+            
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'GET',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\PaymentContainersProductModel',
+                    '/Payment/Containers/{paymentContainerId}'
+                );
 
-            throw $e;
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentContainersProductModel', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentContainersProductModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
         }
     }
 
@@ -256,7 +262,7 @@ class PaymentContainersApi
      *
      * @param string $payment_container_id Payment container id (required)
      * @param string $secondary_payment_container_id Id for which container is currently assigned to (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentContainersProductModel[]
      */
     public function paymentContainersIdAssignSecondaryIdDelete($payment_container_id, $secondary_payment_container_id)
@@ -272,7 +278,7 @@ class PaymentContainersApi
      *
      * @param string $payment_container_id Payment container id (required)
      * @param string $secondary_payment_container_id Id for which container is currently assigned to (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentContainersProductModel[], HTTP status code, HTTP response headers (array of strings)
      */
     public function paymentContainersIdAssignSecondaryIdDeleteWithHttpInfo($payment_container_id, $secondary_payment_container_id)
@@ -320,36 +326,45 @@ class PaymentContainersApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'DELETE',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Secuconnect\Client\Model\PaymentContainersProductModel[]',
-                '/Payment/Containers/{paymentContainerId}/assign/{secondaryPaymentContainerId}'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentContainersProductModel[]', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentContainersProductModel[]', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
+        for ($retries = 0; ; $retries++) {
+            
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
+            
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'DELETE',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\PaymentContainersProductModel[]',
+                    '/Payment/Containers/{paymentContainerId}/assign/{secondaryPaymentContainerId}'
+                );
 
-            throw $e;
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentContainersProductModel[]', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentContainersProductModel[]', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
         }
     }
 
@@ -360,7 +375,7 @@ class PaymentContainersApi
      *
      * @param string $payment_container_id Payment container id (required)
      * @param string $secondary_payment_container_id Id to which container will be assigned (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentContainersProductModel
      */
     public function paymentContainersIdAssignSecondaryIdPost($payment_container_id, $secondary_payment_container_id)
@@ -376,7 +391,7 @@ class PaymentContainersApi
      *
      * @param string $payment_container_id Payment container id (required)
      * @param string $secondary_payment_container_id Id to which container will be assigned (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentContainersProductModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function paymentContainersIdAssignSecondaryIdPostWithHttpInfo($payment_container_id, $secondary_payment_container_id)
@@ -424,36 +439,45 @@ class PaymentContainersApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Secuconnect\Client\Model\PaymentContainersProductModel',
-                '/Payment/Containers/{paymentContainerId}/assign/{secondaryPaymentContainerId}'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentContainersProductModel', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentContainersProductModel', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
+        for ($retries = 0; ; $retries++) {
+            
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
+            
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'POST',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\PaymentContainersProductModel',
+                    '/Payment/Containers/{paymentContainerId}/assign/{secondaryPaymentContainerId}'
+                );
 
-            throw $e;
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentContainersProductModel', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentContainersProductModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
         }
     }
 
@@ -463,7 +487,7 @@ class PaymentContainersApi
      * DELETE Payment/Containers/{paymentContainerId}
      *
      * @param string $payment_container_id Payment container id (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentContainersProductModel[]
      */
     public function paymentContainersIdDelete($payment_container_id)
@@ -478,7 +502,7 @@ class PaymentContainersApi
      * DELETE Payment/Containers/{paymentContainerId}
      *
      * @param string $payment_container_id Payment container id (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentContainersProductModel[], HTTP status code, HTTP response headers (array of strings)
      */
     public function paymentContainersIdDeleteWithHttpInfo($payment_container_id)
@@ -514,36 +538,45 @@ class PaymentContainersApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'DELETE',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Secuconnect\Client\Model\PaymentContainersProductModel[]',
-                '/Payment/Containers/{paymentContainerId}'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentContainersProductModel[]', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentContainersProductModel[]', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
+        for ($retries = 0; ; $retries++) {
+            
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
+            
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'DELETE',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\PaymentContainersProductModel[]',
+                    '/Payment/Containers/{paymentContainerId}'
+                );
 
-            throw $e;
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentContainersProductModel[]', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentContainersProductModel[]', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
         }
     }
 
@@ -554,7 +587,7 @@ class PaymentContainersApi
      *
      * @param string $payment_container_id Payment container id (required)
      * @param \Secuconnect\Client\Model\PaymentContainersDTO $body Payment container properties (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentContainersProductModel
      */
     public function paymentContainersIdPut($payment_container_id, $body)
@@ -570,7 +603,7 @@ class PaymentContainersApi
      *
      * @param string $payment_container_id Payment container id (required)
      * @param \Secuconnect\Client\Model\PaymentContainersDTO $body Payment container properties (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentContainersProductModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function paymentContainersIdPutWithHttpInfo($payment_container_id, $body)
@@ -615,36 +648,45 @@ class PaymentContainersApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'PUT',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Secuconnect\Client\Model\PaymentContainersProductModel',
-                '/Payment/Containers/{paymentContainerId}'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentContainersProductModel', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentContainersProductModel', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
+        for ($retries = 0; ; $retries++) {
+            
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
+            
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'PUT',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\PaymentContainersProductModel',
+                    '/Payment/Containers/{paymentContainerId}'
+                );
 
-            throw $e;
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentContainersProductModel', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentContainersProductModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
         }
     }
 
@@ -654,7 +696,7 @@ class PaymentContainersApi
      * POST Payment/Containers
      *
      * @param \Secuconnect\Client\Model\PaymentContainersDTO $body Payment container properties (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentContainersProductModel
      */
     public function paymentContainersPost($body)
@@ -669,7 +711,7 @@ class PaymentContainersApi
      * POST Payment/Containers
      *
      * @param \Secuconnect\Client\Model\PaymentContainersDTO $body Payment container properties (required)
-     * @throws \Secuconnect\Client\ApiException on non-2xx response
+     * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentContainersProductModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function paymentContainersPostWithHttpInfo($body)
@@ -702,36 +744,45 @@ class PaymentContainersApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Secuconnect\Client\Model\PaymentContainersProductModel',
-                '/Payment/Containers'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentContainersProductModel', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentContainersProductModel', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
+        for ($retries = 0; ; $retries++) {
+            
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
+            
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'POST',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\PaymentContainersProductModel',
+                    '/Payment/Containers'
+                );
 
-            throw $e;
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentContainersProductModel', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentContainersProductModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
         }
     }
 }
