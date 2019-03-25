@@ -4,6 +4,7 @@ namespace Secuconnect\Client\Api;
 
 use Secuconnect\Client\ApiClient;
 use Secuconnect\Client\ApiException;
+use Secuconnect\Client\Authentication\Authenticator;
 
 /**
  * GeneralStoresApi
