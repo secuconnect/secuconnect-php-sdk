@@ -143,7 +143,7 @@ class SmartDevicesApi
                     case 401:
                         if ($retries < 1) {
                             Authenticator::reauthenticate();
-                            continue;
+                            continue 2;
                         }
                     default:
                         $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
@@ -253,7 +253,7 @@ class SmartDevicesApi
                     case 401:
                         if ($retries < 1) {
                             Authenticator::reauthenticate();
-                            continue;
+                            continue 2;
                         }
                     default:
                         $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
@@ -352,7 +352,7 @@ class SmartDevicesApi
                     case 401:
                         if ($retries < 1) {
                             Authenticator::reauthenticate();
-                            continue;
+                            continue 2;
                         }
                     default:
                         $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
@@ -467,7 +467,7 @@ class SmartDevicesApi
                     case 401:
                         if ($retries < 1) {
                             Authenticator::reauthenticate();
-                            continue;
+                            continue 2;
                         }
                     default:
                         $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
@@ -566,7 +566,7 @@ class SmartDevicesApi
                     case 401:
                         if ($retries < 1) {
                             Authenticator::reauthenticate();
-                            continue;
+                            continue 2;
                         }
                     default:
                         $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
@@ -679,7 +679,7 @@ class SmartDevicesApi
                     case 401:
                         if ($retries < 1) {
                             Authenticator::reauthenticate();
-                            continue;
+                            continue 2;
                         }
                     default:
                         $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
@@ -789,7 +789,7 @@ class SmartDevicesApi
                     case 401:
                         if ($retries < 1) {
                             Authenticator::reauthenticate();
-                            continue;
+                            continue 2;
                         }
                     default:
                         $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
@@ -899,7 +899,7 @@ class SmartDevicesApi
                     case 401:
                         if ($retries < 1) {
                             Authenticator::reauthenticate();
-                            continue;
+                            continue 2;
                         }
                     default:
                         $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
@@ -1009,7 +1009,7 @@ class SmartDevicesApi
                     case 401:
                         if ($retries < 1) {
                             Authenticator::reauthenticate();
-                            continue;
+                            continue 2;
                         }
                     default:
                         $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());

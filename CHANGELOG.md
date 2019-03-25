@@ -27,7 +27,8 @@ Release candidate of the swagger generated PHP-SDK for the secuconnect API.
 
 - Fix missing accrual call
 - Fix handling of Access-Token if the cached token is invalid
-- Fix error handling: Wvery API method should now return a ProductExceptionPayload in case of an API error from the seuconnect API
+- Fix delete cache item
+- Fix error handling: Every API method should now return a ProductExceptionPayload in case of an API error from the seuconnect API
 - Remove unused models: SecupayTransactionProductModelRedirectUrl, SecupayTransactionProductDTORedirectUrl and PaymentTransactionsProductModelMerchant
 
 

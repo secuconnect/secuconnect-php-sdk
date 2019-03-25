@@ -148,8 +148,13 @@ class Authenticator
     public static function reauthenticate() {
         if (self::$credentials) {
             try {
+                $key = self::ACCESS_TOKEN . self::$credentials->getUniqueKey();
+                if (self::$cache->getItem($key)) {
+                    self::$cache->deleteItem($key);
+                }
+                
                 return self::startAuthenticationProcess(self::$credentials);
-            } catch (ApiException $e) {
+            } catch (ApiException|InvalidArgumentException $e) {
                 // ignore
             }
         }
