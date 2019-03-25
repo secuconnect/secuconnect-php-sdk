@@ -51,13 +51,13 @@ class FileCache implements CacheItemPoolInterface
         if ($file !== false) {
             $cacheItem = unserialize($file);
             if ($cacheItem instanceof CacheItem) {
-                return $cacheItem;
+                return $this->cacheItems[$key] = $cacheItem;
             }
         }
 
-        $newCacheItem = new CacheItem($key);
+        $this->cacheItems[$key] = new CacheItem($key);
 
-        return $newCacheItem;
+        return $this->cacheItems[$key];
     }
 
     /**

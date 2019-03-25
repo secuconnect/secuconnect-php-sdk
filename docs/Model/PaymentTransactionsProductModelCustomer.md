@@ -3,8 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**object** | **string** | Customer type name | [optional] 
-**id** | **string** | Id of customer | [optional] 
 **companyname** | **string** | Customer company name | [optional] 
 **salutation** | **string** | Customer salutation | [optional] 
 **title** | **string** | Customer title | [optional] 

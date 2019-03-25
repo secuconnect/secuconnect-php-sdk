@@ -19,6 +19,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [0.5.6] - 2019-03-25
+
+**Release candidate**
+
+Release candidate of the swagger generated PHP-SDK for the secuconnect API.
+
+- Fix missing accrual call
+- Fix handling of Access-Token if the cached token is invalid
+- Fix delete cache item
+- Fix error handling: Every API method should now return a ProductExceptionPayload in case of an API error from the seuconnect API
+- Remove unused models: SecupayTransactionProductModelRedirectUrl, SecupayTransactionProductDTORedirectUrl and PaymentTransactionsProductModelMerchant
+
+
 ## [0.5.5] - 2019-03-21
 
 **Release candidate**

@@ -28,8 +28,6 @@ class PaymentTransactionsProductModelCustomer implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'object' => 'string',
-        'id' => 'string',
         'companyname' => 'string',
         'salutation' => 'string',
         'title' => 'string',
@@ -42,8 +40,6 @@ class PaymentTransactionsProductModelCustomer implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'object' => null,
-        'id' => 'id',
         'companyname' => null,
         'salutation' => null,
         'title' => null,
@@ -66,8 +62,6 @@ class PaymentTransactionsProductModelCustomer implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'object' => 'object',
-        'id' => 'id',
         'companyname' => 'companyname',
         'salutation' => 'salutation',
         'title' => 'title',
@@ -81,8 +75,6 @@ class PaymentTransactionsProductModelCustomer implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'object' => 'setObject',
-        'id' => 'setId',
         'companyname' => 'setCompanyname',
         'salutation' => 'setSalutation',
         'title' => 'setTitle',
@@ -96,8 +88,6 @@ class PaymentTransactionsProductModelCustomer implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'object' => 'getObject',
-        'id' => 'getId',
         'companyname' => 'getCompanyname',
         'salutation' => 'getSalutation',
         'title' => 'getTitle',
@@ -136,8 +126,6 @@ class PaymentTransactionsProductModelCustomer implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['object'] = isset($data['object']) ? $data['object'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['companyname'] = isset($data['companyname']) ? $data['companyname'] : null;
         $this->container['salutation'] = isset($data['salutation']) ? $data['salutation'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
@@ -169,48 +157,6 @@ class PaymentTransactionsProductModelCustomer implements ArrayAccess
         return true;
     }
 
-
-    /**
-     * Gets object
-     * @return string
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     * @param string $object Customer type name
-     * @return $this
-     */
-    public function setObject($object)
-    {
-        $this->container['object'] = $object;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     * @param string $id Id of customer
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets companyname
