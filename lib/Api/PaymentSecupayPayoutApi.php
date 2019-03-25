@@ -234,6 +234,15 @@ class PaymentSecupayPayoutApi
                         $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\SecupayPayoutProductModel', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
                 }
 
                 throw $e;

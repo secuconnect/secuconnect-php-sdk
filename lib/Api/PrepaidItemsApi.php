@@ -158,6 +158,15 @@ class PrepaidItemsApi
                         $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PrepaidItemsList', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
                 }
 
                 throw $e;
@@ -246,6 +255,15 @@ class PrepaidItemsApi
                 switch ($e->getCode()) {
                     case 200:
                         $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PrepaidItemsProductModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                 }
