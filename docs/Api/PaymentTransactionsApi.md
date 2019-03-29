@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**paymentTransactionsGetById**](PaymentTransactionsApi.md#paymentTransactionsGetById) | **GET** /Payment/Transactions/{paymentTransactionId} | GET Payment/Transactions/{paymentTransactionId}
 [**paymentTransactionsIdCancelPost**](PaymentTransactionsApi.md#paymentTransactionsIdCancelPost) | **POST** /Payment/Transactions/{paymentTransactionId}/cancel | POST Payment/Transactions/{paymentTransactionId}/cancel
 [**paymentTransactionsIdShippingUrlGet**](PaymentTransactionsApi.md#paymentTransactionsIdShippingUrlGet) | **GET** /Payment/Transactions/{paymentTransactionId}/ShippingUrl | GET Payment/Transactions/{paymentTransactionId}/ShippingUrl
-[**revokeAccrual**](PaymentTransactionsApi.md#revokeAccrual) | **PUT** /Payment/Transactions/{paymentTransactionId}/revokeAccrual | PUT Payment/Transactions/{paymentTransactionId}/revokeAccrual
+[**revokeAccrual**](PaymentTransactionsApi.md#revokeAccrual) | **POST** /Payment/Transactions/{paymentTransactionId}/revokeAccrual | POST Payment/Transactions/{paymentTransactionId}/revokeAccrual
 
 
 # **paymentTransactionsGet**
@@ -212,9 +212,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **revokeAccrual**
-> \Secuconnect\Client\Model\SecupayTransactionProductModel revokeAccrual($payment_transaction_id, $payment_id, $body)
+> \Secuconnect\Client\Model\SecupayTransactionProductModel revokeAccrual($payment_transaction_id, $body)
 
-PUT Payment/Transactions/{paymentTransactionId}/revokeAccrual
+POST Payment/Transactions/{paymentTransactionId}/revokeAccrual
 
 Revoke the accrual flag of a payment transaction
 
@@ -228,11 +228,10 @@ Secuconnect\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOU
 
 $api_instance = new Secuconnect\Client\Api\PaymentTransactionsApi();
 $payment_transaction_id = "payment_transaction_id_example"; // string | Payment transaction id
-$payment_id = "payment_id_example"; // string | Payment id
 $body = NULL; // object | Reverse accrual input properties
 
 try {
-    $result = $api_instance->revokeAccrual($payment_transaction_id, $payment_id, $body);
+    $result = $api_instance->revokeAccrual($payment_transaction_id, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentTransactionsApi->revokeAccrual: ', $e->getMessage(), PHP_EOL;
@@ -245,7 +244,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **payment_transaction_id** | **string**| Payment transaction id |
- **payment_id** | **string**| Payment id |
  **body** | **object**| Reverse accrual input properties | [optional]
 
 ### Return type

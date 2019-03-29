@@ -475,40 +475,34 @@ class PaymentTransactionsApi
     /**
      * Operation revokeAccrual
      *
-     * PUT Payment/Transactions/{paymentTransactionId}/revokeAccrual
+     * POST Payment/Transactions/{paymentTransactionId}/revokeAccrual
      *
      * @param string $payment_transaction_id Payment transaction id (required)
-     * @param string $payment_id Payment id (required)
      * @param object $body Reverse accrual input properties (optional)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SecupayTransactionProductModel
      */
-    public function revokeAccrual($payment_transaction_id, $payment_id, $body = null)
+    public function revokeAccrual($payment_transaction_id, $body = null)
     {
-        list($response) = $this->revokeAccrualWithHttpInfo($payment_transaction_id, $payment_id, $body);
+        list($response) = $this->revokeAccrualWithHttpInfo($payment_transaction_id, $body);
         return $response;
     }
 
     /**
      * Operation revokeAccrualWithHttpInfo
      *
-     * PUT Payment/Transactions/{paymentTransactionId}/revokeAccrual
+     * POST Payment/Transactions/{paymentTransactionId}/revokeAccrual
      *
      * @param string $payment_transaction_id Payment transaction id (required)
-     * @param string $payment_id Payment id (required)
      * @param object $body Reverse accrual input properties (optional)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SecupayTransactionProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function revokeAccrualWithHttpInfo($payment_transaction_id, $payment_id, $body = null)
+    public function revokeAccrualWithHttpInfo($payment_transaction_id, $body = null)
     {
         // verify the required parameter 'payment_transaction_id' is set
         if ($payment_transaction_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $payment_transaction_id when calling revokeAccrual');
-        }
-        // verify the required parameter 'payment_id' is set
-        if ($payment_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payment_id when calling revokeAccrual');
         }
         // parse inputs
         $resourcePath = "/Payment/Transactions/{paymentTransactionId}/revokeAccrual";
@@ -527,14 +521,6 @@ class PaymentTransactionsApi
             $resourcePath = str_replace(
                 "{" . "paymentTransactionId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($payment_transaction_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($payment_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "paymentId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($payment_id),
                 $resourcePath
             );
         }
@@ -561,7 +547,7 @@ class PaymentTransactionsApi
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                     $resourcePath,
-                    'PUT',
+                    'POST',
                     $queryParams,
                     $httpBody,
                     $headerParams,
