@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **revokeAccrual**
-> \Secuconnect\Client\Model\SecupayTransactionProductModel revokeAccrual($payment_transaction_id, $body)
+> \Secuconnect\Client\Model\PaymentTransactionsProductModel revokeAccrual($payment_transaction_id, $body)
 
 POST Payment/Transactions/{paymentTransactionId}/revokeAccrual
 
@@ -248,7 +248,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Secuconnect\Client\Model\SecupayTransactionProductModel**](../Model/SecupayTransactionProductModel.md)
+[**\Secuconnect\Client\Model\PaymentTransactionsProductModel**](../Model/PaymentTransactionsProductModel.md)
 
 ### Authorization
 

@@ -480,7 +480,7 @@ class PaymentTransactionsApi
      * @param string $payment_transaction_id Payment transaction id (required)
      * @param object $body Reverse accrual input properties (optional)
      * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\SecupayTransactionProductModel
+     * @return \Secuconnect\Client\Model\PaymentTransactionsProductModel
      */
     public function revokeAccrual($payment_transaction_id, $body = null)
     {
@@ -496,7 +496,7 @@ class PaymentTransactionsApi
      * @param string $payment_transaction_id Payment transaction id (required)
      * @param object $body Reverse accrual input properties (optional)
      * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\SecupayTransactionProductModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Secuconnect\Client\Model\PaymentTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function revokeAccrualWithHttpInfo($payment_transaction_id, $body = null)
     {
@@ -551,15 +551,15 @@ class PaymentTransactionsApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    '\Secuconnect\Client\Model\SecupayTransactionProductModel',
+                    '\Secuconnect\Client\Model\PaymentTransactionsProductModel',
                     '/Payment/Transactions/{paymentTransactionId}/revokeAccrual'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\SecupayTransactionProductModel', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentTransactionsProductModel', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\SecupayTransactionProductModel', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentTransactionsProductModel', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:
