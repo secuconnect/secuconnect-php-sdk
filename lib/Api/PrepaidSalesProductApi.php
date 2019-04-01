@@ -151,4 +151,20 @@ class PrepaidSalesProductApi
             }
         }
     }
+
+    /**
+     * @deprecated use addSale(); this method will be removed with version 1.0.0
+     */
+    public function prepaidSalesPost($body = null)
+    {
+        return $this->addSale($body);
+    }
+
+    /**
+     * @deprecated use addSaleWithHttpInfo(); this method will be removed with version 1.0.0
+     */
+    public function prepaidSalesPostWithHttpInfo($body = null)
+    {
+        return $this->addSaleWithHttpInfo($body);
+    }
 }
