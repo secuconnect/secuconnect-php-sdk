@@ -12,7 +12,6 @@ Method | HTTP request | Description
 [**getAll**](LoyaltyMerchantcardsApi.md#getAll) | **GET** /Loyalty/MerchantCards | GET Loyalty/MerchantCards
 [**getLock**](LoyaltyMerchantcardsApi.md#getLock) | **GET** /Loyalty/MerchantCards/{loyaltyMerchantCardId}/lock | GET Loyalty/MerchantCards/{loyaltyMerchantCardId}/lock
 [**getOne**](LoyaltyMerchantcardsApi.md#getOne) | **GET** /Loyalty/MerchantCards/{loyaltyMerchantCardId} | GET Loyalty/MerchantCards/{loyaltyMerchantCardId}
-[**getRawMerchantCardId**](LoyaltyMerchantcardsApi.md#getRawMerchantCardId) | **GET** /Loyalty/MerchantCards/{generalMerchantId}/merchantcard/{loyaltyCardId} | GET Loyalty/MerchantCards/{generalMerchantId}/merchantcard/{loyaltyCardId}
 [**getVirtualTerminalData**](LoyaltyMerchantcardsApi.md#getVirtualTerminalData) | **GET** /Loyalty/MerchantCards/{loyaltyMerchantCardId}/virtualTerminalData/{loyaltyMerchantId} | GET Loyalty/MerchantCards/{loyaltyMerchantCardId}/virtualTerminalData/{loyaltyMerchantId}
 [**lock**](LoyaltyMerchantcardsApi.md#lock) | **POST** /Loyalty/MerchantCards/{loyaltyMerchantCardId}/lock | POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/lock
 [**newPassCode**](LoyaltyMerchantcardsApi.md#newPassCode) | **POST** /Loyalty/MerchantCards/{loyaltyMerchantCardId}/newPasscode | POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/newPasscode
@@ -416,56 +415,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel**](../Model/LoyaltyMerchantcardsProductModel.md)
-
-### Authorization
-
-[oauth_token](../../README.md#oauth_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **getRawMerchantCardId**
-> object getRawMerchantCardId($general_merchant_id, $loyalty_card_id)
-
-GET Loyalty/MerchantCards/{generalMerchantId}/merchantcard/{loyaltyCardId}
-
-Get raw merchant card id for merchant id and card id
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure OAuth2 access token for authorization: oauth_token
-Secuconnect\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-$api_instance = new Secuconnect\Client\Api\LoyaltyMerchantcardsApi();
-$general_merchant_id = "general_merchant_id_example"; // string | Merchant id
-$loyalty_card_id = "loyalty_card_id_example"; // string | Card id
-
-try {
-    $result = $api_instance->getRawMerchantCardId($general_merchant_id, $loyalty_card_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling LoyaltyMerchantcardsApi->getRawMerchantCardId: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **general_merchant_id** | **string**| Merchant id |
- **loyalty_card_id** | **string**| Card id |
-
-### Return type
-
-**object**
 
 ### Authorization
 

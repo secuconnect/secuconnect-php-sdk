@@ -5,14 +5,14 @@ All URIs are relative to *https://connect-testing.secupay-ag.de/api/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addDevice**](SmartDevicesApi.md#addDevice) | **POST** /Smart/Devices | POST Smart/Devices
-[**createPrepaidTid**](SmartDevicesApi.md#createPrepaidTid) | **POST** /Smart/Devices/{smartDeviceId}/CreatePrepaidTid | POST Smart/Devices/{smartDeviceId}/CreatePrepaidTid
-[**createVirtualDevice**](SmartDevicesApi.md#createVirtualDevice) | **POST** /Smart/Devices/{smartDeviceId}/CreateVirtualDevice | POST Smart/Devices/{smartDeviceId}/CreateVirtualDevice
+[**createPrepaidTid**](SmartDevicesApi.md#createPrepaidTid) | **POST** /Smart/Devices/{smartDeviceId}/createPrepaidTid | POST Smart/Devices/{smartDeviceId}/createPrepaidTid
+[**createVirtualDevice**](SmartDevicesApi.md#createVirtualDevice) | **POST** /Smart/Devices/{smartDeviceId}/createVirtualDevice | POST Smart/Devices/{smartDeviceId}/createVirtualDevice
 [**getAll**](SmartDevicesApi.md#getAll) | **GET** /Smart/Devices | GET Smart/Devices
 [**getOne**](SmartDevicesApi.md#getOne) | **GET** /Smart/Devices/{smartDeviceId} | GET Smart/Devices/{smartDeviceId}
 [**getRouting**](SmartDevicesApi.md#getRouting) | **GET** /Smart/Devices/{smartDeviceId}/routing/type/{type} | GET Smart/Devices/{smartDeviceId}/routing/type/{type}
-[**getSecubaseConfig**](SmartDevicesApi.md#getSecubaseConfig) | **POST** /Smart/Devices/{smartDeviceId}/GetSecubaseConfig | POST Smart/Devices/{smartDeviceId}/GetSecubaseConfig
+[**getSecubaseConfig**](SmartDevicesApi.md#getSecubaseConfig) | **POST** /Smart/Devices/{smartDeviceId}/getSecubaseConfig | POST Smart/Devices/{smartDeviceId}/getSecubaseConfig
 [**updateDevice**](SmartDevicesApi.md#updateDevice) | **PUT** /Smart/Devices/{smartDeviceId} | PUT Smart/Devices/{smartDeviceId}
-[**updatePin**](SmartDevicesApi.md#updatePin) | **PUT** /Smart/Devices/smartDeviceId/pin | PUT /Smart/Devices/smartDeviceId/pin/
+[**updatePin**](SmartDevicesApi.md#updatePin) | **PUT** /Smart/Devices/{smartDeviceId}/pin | PUT /Smart/Devices/{smartDeviceId}/pin
 
 
 # **addDevice**
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 # **createPrepaidTid**
 > \Secuconnect\Client\Model\SmartDevicesProductModel createPrepaidTid($smart_device_id, $prepaid_tid_properties)
 
-POST Smart/Devices/{smartDeviceId}/CreatePrepaidTid
+POST Smart/Devices/{smartDeviceId}/createPrepaidTid
 
 Create prepaid tid
 
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 # **createVirtualDevice**
 > \Secuconnect\Client\Model\SmartDevicesProductModel createVirtualDevice($smart_device_id)
 
-POST Smart/Devices/{smartDeviceId}/CreateVirtualDevice
+POST Smart/Devices/{smartDeviceId}/createVirtualDevice
 
 Create virtual device
 
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 # **getSecubaseConfig**
 > \Secuconnect\Client\Model\SmartDevicesSecubaseConfig getSecubaseConfig($smart_device_id, $secubase_config_properties)
 
-POST Smart/Devices/{smartDeviceId}/GetSecubaseConfig
+POST Smart/Devices/{smartDeviceId}/getSecubaseConfig
 
 Get secubase config
 
@@ -418,7 +418,7 @@ Name | Type | Description  | Notes
 # **updatePin**
 > \Secuconnect\Client\Model\SmartDevicesProductModel updatePin($smart_device_id, $smart_device_properties)
 
-PUT /Smart/Devices/smartDeviceId/pin/
+PUT /Smart/Devices/{smartDeviceId}/pin
 
 Create new smart device
 

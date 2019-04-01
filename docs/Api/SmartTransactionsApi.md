@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**diagnose**](SmartTransactionsApi.md#diagnose) | **POST** /Smart/Transactions/{smartDeviceId}/diagnosis | POST Smart/Transactions/{smartDeviceId}/diagnosis
 [**getAll**](SmartTransactionsApi.md#getAll) | **GET** /Smart/Transactions | GET Smart/Transactions
 [**getOne**](SmartTransactionsApi.md#getOne) | **GET** /Smart/Transactions/{smartTransactionId} | GET Smart/Transactions/{smartTransactionId}
-[**preTransaction**](SmartTransactionsApi.md#preTransaction) | **POST** /Smart/Transactions/{smartTransactionId}/PreTransaction | POST Smart/Transactions/{smartTransactionId}/PreTransaction
+[**preTransaction**](SmartTransactionsApi.md#preTransaction) | **POST** /Smart/Transactions/{smartTransactionId}/preTransaction | POST Smart/Transactions/{smartTransactionId}/preTransaction
 [**prepare**](SmartTransactionsApi.md#prepare) | **POST** /Smart/Transactions/{smartTransactionId}/prepare | POST Smart/Transactions/stx_xxx/prepare
 [**startEndOfDayReport**](SmartTransactionsApi.md#startEndOfDayReport) | **POST** /Smart/Transactions/{smartDeviceId}/endOfDay | POST Smart/Transactions/{smartDeviceId}/endOfDay
 [**startTransaction**](SmartTransactionsApi.md#startTransaction) | **POST** /Smart/Transactions/{smartTransactionId}/start/{paymentMethod} | POST Smart/Transactions/{smartTransactionId}/start/{paymentMethod}
@@ -316,7 +316,7 @@ Name | Type | Description  | Notes
 # **preTransaction**
 > \Secuconnect\Client\Model\SmartTransactionsPreTransactionModel preTransaction($smart_transaction_id)
 
-POST Smart/Transactions/{smartTransactionId}/PreTransaction
+POST Smart/Transactions/{smartTransactionId}/preTransaction
 
 Function that checks balance of merchantcard from ident and if possible creates bonus product items for basket
 

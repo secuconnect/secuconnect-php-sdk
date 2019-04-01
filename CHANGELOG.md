@@ -19,6 +19,36 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [0.6.0] - 2019-04-01
+
+**Release candidate**
+
+Last steps to the final release of the swagger generated PHP-SDK for the secuconnect API.
+
+#### LoyaltyMerchantcardsApi
+
+- Removed an unused Endpoint
+
+#### PaymentTransactionsApi
+
+- Renamed Operation "paymentTransactionsIdCancelPost" to "cancel"
+- Renamed Operation "paymentTransactionsGet" to "getAll"
+- Renamed Operation "paymentTransactionsGetById" to "getOne"
+- Renamed Operation "paymentTransactionsIdShippingUrlGet" to "getShippingUrl"
+
+#### PrepaidSalesProductApi
+
+- Renamed Operation "prepaidSalesPost" to "addSale"
+
+#### SmartDevicesApi
+
+- Fixed endpoint description for "updatePin"
+
+#### SmartRoutingsApi
+
+- Added Smart.Routings endpoints
+
+
 ## [0.5.7.1] - 2019-03-29
 
 **Release candidate**
@@ -153,3 +183,4 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 [0.5.5]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.4...0.5.5
 [0.5.6]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.5...0.5.6
 [0.5.7.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.6...0.5.7.1
+[0.6.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.7.1...0.6.0

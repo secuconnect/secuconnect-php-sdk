@@ -4,15 +4,65 @@ All URIs are relative to *https://connect-testing.secupay-ag.de/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**paymentTransactionsGet**](PaymentTransactionsApi.md#paymentTransactionsGet) | **GET** /Payment/Transactions | GET Payment/Transactions
-[**paymentTransactionsGetById**](PaymentTransactionsApi.md#paymentTransactionsGetById) | **GET** /Payment/Transactions/{paymentTransactionId} | GET Payment/Transactions/{paymentTransactionId}
-[**paymentTransactionsIdCancelPost**](PaymentTransactionsApi.md#paymentTransactionsIdCancelPost) | **POST** /Payment/Transactions/{paymentTransactionId}/cancel | POST Payment/Transactions/{paymentTransactionId}/cancel
-[**paymentTransactionsIdShippingUrlGet**](PaymentTransactionsApi.md#paymentTransactionsIdShippingUrlGet) | **GET** /Payment/Transactions/{paymentTransactionId}/ShippingUrl | GET Payment/Transactions/{paymentTransactionId}/ShippingUrl
+[**cancel**](PaymentTransactionsApi.md#cancel) | **POST** /Payment/Transactions/{paymentTransactionId}/cancel | POST Payment/Transactions/{paymentTransactionId}/cancel
+[**getAll**](PaymentTransactionsApi.md#getAll) | **GET** /Payment/Transactions | GET Payment/Transactions
+[**getOne**](PaymentTransactionsApi.md#getOne) | **GET** /Payment/Transactions/{paymentTransactionId} | GET Payment/Transactions/{paymentTransactionId}
+[**getShippingUrl**](PaymentTransactionsApi.md#getShippingUrl) | **GET** /Payment/Transactions/{paymentTransactionId}/shippingUrl | GET Payment/Transactions/{paymentTransactionId}/shippingUrl
 [**revokeAccrual**](PaymentTransactionsApi.md#revokeAccrual) | **POST** /Payment/Transactions/{paymentTransactionId}/revokeAccrual | POST Payment/Transactions/{paymentTransactionId}/revokeAccrual
 
 
-# **paymentTransactionsGet**
-> \Secuconnect\Client\Model\PaymentTransactionsList paymentTransactionsGet($count, $offset, $fields, $q, $sort)
+# **cancel**
+> \Secuconnect\Client\Model\PaymentTransactionsCancelList[] cancel($payment_transaction_id, $body)
+
+POST Payment/Transactions/{paymentTransactionId}/cancel
+
+Cancel a payment transaction
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: oauth_token
+Secuconnect\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$api_instance = new Secuconnect\Client\Api\PaymentTransactionsApi();
+$payment_transaction_id = "payment_transaction_id_example"; // string | Payment transaction id
+$body = new \Secuconnect\Client\Model\PaymentTransactionCancelDTO(); // \Secuconnect\Client\Model\PaymentTransactionCancelDTO | Cancel payment transaction input properties
+
+try {
+    $result = $api_instance->cancel($payment_transaction_id, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PaymentTransactionsApi->cancel: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **payment_transaction_id** | **string**| Payment transaction id |
+ **body** | [**\Secuconnect\Client\Model\PaymentTransactionCancelDTO**](../Model/PaymentTransactionCancelDTO.md)| Cancel payment transaction input properties | [optional]
+
+### Return type
+
+[**\Secuconnect\Client\Model\PaymentTransactionsCancelList[]**](../Model/PaymentTransactionsCancelList.md)
+
+### Authorization
+
+[oauth_token](../../README.md#oauth_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getAll**
+> \Secuconnect\Client\Model\PaymentTransactionsList getAll($count, $offset, $fields, $q, $sort)
 
 GET Payment/Transactions
 
@@ -34,10 +84,10 @@ $q = "q_example"; // string | A query string to restrict the returned items to g
 $sort = "sort_example"; // string | String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending 'asc', or descending 'dsc' order.
 
 try {
-    $result = $api_instance->paymentTransactionsGet($count, $offset, $fields, $q, $sort);
+    $result = $api_instance->getAll($count, $offset, $fields, $q, $sort);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PaymentTransactionsApi->paymentTransactionsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PaymentTransactionsApi->getAll: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -67,8 +117,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **paymentTransactionsGetById**
-> \Secuconnect\Client\Model\PaymentTransactionsProductModel paymentTransactionsGetById($payment_transaction_id)
+# **getOne**
+> \Secuconnect\Client\Model\PaymentTransactionsProductModel getOne($payment_transaction_id)
 
 GET Payment/Transactions/{paymentTransactionId}
 
@@ -86,10 +136,10 @@ $api_instance = new Secuconnect\Client\Api\PaymentTransactionsApi();
 $payment_transaction_id = "payment_transaction_id_example"; // string | Payment transaction id
 
 try {
-    $result = $api_instance->paymentTransactionsGetById($payment_transaction_id);
+    $result = $api_instance->getOne($payment_transaction_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PaymentTransactionsApi->paymentTransactionsGetById: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PaymentTransactionsApi->getOne: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -115,58 +165,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **paymentTransactionsIdCancelPost**
-> \Secuconnect\Client\Model\PaymentTransactionsCancelList[] paymentTransactionsIdCancelPost($payment_transaction_id)
+# **getShippingUrl**
+> \Secuconnect\Client\Model\PaymentTransactionsShippingUrl getShippingUrl($payment_transaction_id)
 
-POST Payment/Transactions/{paymentTransactionId}/cancel
-
-Cancel a payment transaction
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure OAuth2 access token for authorization: oauth_token
-Secuconnect\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-$api_instance = new Secuconnect\Client\Api\PaymentTransactionsApi();
-$payment_transaction_id = "payment_transaction_id_example"; // string | Payment transaction id
-
-try {
-    $result = $api_instance->paymentTransactionsIdCancelPost($payment_transaction_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PaymentTransactionsApi->paymentTransactionsIdCancelPost: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **payment_transaction_id** | **string**| Payment transaction id |
-
-### Return type
-
-[**\Secuconnect\Client\Model\PaymentTransactionsCancelList[]**](../Model/PaymentTransactionsCancelList.md)
-
-### Authorization
-
-[oauth_token](../../README.md#oauth_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **paymentTransactionsIdShippingUrlGet**
-> \Secuconnect\Client\Model\PaymentTransactionsShippingUrl paymentTransactionsIdShippingUrlGet($payment_transaction_id)
-
-GET Payment/Transactions/{paymentTransactionId}/ShippingUrl
+GET Payment/Transactions/{paymentTransactionId}/shippingUrl
 
 Get the url where you can fill the shipping information
 
@@ -182,10 +184,10 @@ $api_instance = new Secuconnect\Client\Api\PaymentTransactionsApi();
 $payment_transaction_id = "payment_transaction_id_example"; // string | Payment transaction id
 
 try {
-    $result = $api_instance->paymentTransactionsIdShippingUrlGet($payment_transaction_id);
+    $result = $api_instance->getShippingUrl($payment_transaction_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PaymentTransactionsApi->paymentTransactionsIdShippingUrlGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PaymentTransactionsApi->getShippingUrl: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

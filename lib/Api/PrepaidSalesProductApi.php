@@ -61,7 +61,7 @@ class PrepaidSalesProductApi
     }
 
     /**
-     * Operation prepaidSalesPost
+     * Operation addSale
      *
      * POST Prepaid/Sales
      *
@@ -69,14 +69,14 @@ class PrepaidSalesProductApi
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PrepaidSalesProductModel
      */
-    public function prepaidSalesPost($body = null)
+    public function addSale($body = null)
     {
-        list($response) = $this->prepaidSalesPostWithHttpInfo($body);
+        list($response) = $this->addSaleWithHttpInfo($body);
         return $response;
     }
 
     /**
-     * Operation prepaidSalesPostWithHttpInfo
+     * Operation addSaleWithHttpInfo
      *
      * POST Prepaid/Sales
      *
@@ -84,7 +84,7 @@ class PrepaidSalesProductApi
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PrepaidSalesProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function prepaidSalesPostWithHttpInfo($body = null)
+    public function addSaleWithHttpInfo($body = null)
     {
         // parse inputs
         $resourcePath = "/Prepaid/Sales";

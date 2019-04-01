@@ -44,7 +44,6 @@ Class | Method | HTTP request | Description
 *LoyaltyMerchantcardsApi* | [**getAll**](Api/LoyaltyMerchantcardsApi.md#getall) | **GET** /Loyalty/MerchantCards | GET Loyalty/MerchantCards
 *LoyaltyMerchantcardsApi* | [**getLock**](Api/LoyaltyMerchantcardsApi.md#getlock) | **GET** /Loyalty/MerchantCards/{loyaltyMerchantCardId}/lock | GET Loyalty/MerchantCards/{loyaltyMerchantCardId}/lock
 *LoyaltyMerchantcardsApi* | [**getOne**](Api/LoyaltyMerchantcardsApi.md#getone) | **GET** /Loyalty/MerchantCards/{loyaltyMerchantCardId} | GET Loyalty/MerchantCards/{loyaltyMerchantCardId}
-*LoyaltyMerchantcardsApi* | [**getRawMerchantCardId**](Api/LoyaltyMerchantcardsApi.md#getrawmerchantcardid) | **GET** /Loyalty/MerchantCards/{generalMerchantId}/merchantcard/{loyaltyCardId} | GET Loyalty/MerchantCards/{generalMerchantId}/merchantcard/{loyaltyCardId}
 *LoyaltyMerchantcardsApi* | [**getVirtualTerminalData**](Api/LoyaltyMerchantcardsApi.md#getvirtualterminaldata) | **GET** /Loyalty/MerchantCards/{loyaltyMerchantCardId}/virtualTerminalData/{loyaltyMerchantId} | GET Loyalty/MerchantCards/{loyaltyMerchantCardId}/virtualTerminalData/{loyaltyMerchantId}
 *LoyaltyMerchantcardsApi* | [**lock**](Api/LoyaltyMerchantcardsApi.md#lock) | **POST** /Loyalty/MerchantCards/{loyaltyMerchantCardId}/lock | POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/lock
 *LoyaltyMerchantcardsApi* | [**newPassCode**](Api/LoyaltyMerchantcardsApi.md#newpasscode) | **POST** /Loyalty/MerchantCards/{loyaltyMerchantCardId}/newPasscode | POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/newPasscode
@@ -121,31 +120,38 @@ Class | Method | HTTP request | Description
 *PaymentSecupayPrepaysApi* | [**reverseAccrualByPaymentId**](Api/PaymentSecupayPrepaysApi.md#reverseaccrualbypaymentid) | **PUT** /Payment/{paymentMethod}/{paymentId}/accrual | PUT Payment/{paymentMethod}/{paymentId}/accrual
 *PaymentSecupayPrepaysApi* | [**setShippingInformationByPaymentId**](Api/PaymentSecupayPrepaysApi.md#setshippinginformationbypaymentid) | **PUT** /Payment/{paymentMethod}/{paymentId}/shippingInformation | PUT Payment/{paymentMethod}/{paymentId}/shippingInformation
 *PaymentSecupayPrepaysApi* | [**updateBasketByPaymentId**](Api/PaymentSecupayPrepaysApi.md#updatebasketbypaymentid) | **PUT** /Payment/{paymentMethod}/{paymentId}/basket | PUT Payment/{paymentMethod}/{paymentId}/basket
-*PaymentTransactionsApi* | [**paymentTransactionsGet**](Api/PaymentTransactionsApi.md#paymenttransactionsget) | **GET** /Payment/Transactions | GET Payment/Transactions
-*PaymentTransactionsApi* | [**paymentTransactionsGetById**](Api/PaymentTransactionsApi.md#paymenttransactionsgetbyid) | **GET** /Payment/Transactions/{paymentTransactionId} | GET Payment/Transactions/{paymentTransactionId}
-*PaymentTransactionsApi* | [**paymentTransactionsIdCancelPost**](Api/PaymentTransactionsApi.md#paymenttransactionsidcancelpost) | **POST** /Payment/Transactions/{paymentTransactionId}/cancel | POST Payment/Transactions/{paymentTransactionId}/cancel
-*PaymentTransactionsApi* | [**paymentTransactionsIdShippingUrlGet**](Api/PaymentTransactionsApi.md#paymenttransactionsidshippingurlget) | **GET** /Payment/Transactions/{paymentTransactionId}/ShippingUrl | GET Payment/Transactions/{paymentTransactionId}/ShippingUrl
-*PaymentTransactionsApi* | [**revokeAccrual**](Api/PaymentTransactionsApi.md#revokeaccrual) | **PUT** /Payment/Transactions/{paymentTransactionId}/revokeAccrual | PUT Payment/Transactions/{paymentTransactionId}/revokeAccrual
-*PrepaidContractsProductApi* | [**prepaidContractsMeMappingZvtPost**](Api/PrepaidContractsProductApi.md#prepaidcontractsmemappingzvtpost) | **POST** /Prepaid/Contracts/me/mappingZvt | POST Prepaid/Contracts/null/mappingZvt
+*PaymentTransactionsApi* | [**cancel**](Api/PaymentTransactionsApi.md#cancel) | **POST** /Payment/Transactions/{paymentTransactionId}/cancel | POST Payment/Transactions/{paymentTransactionId}/cancel
+*PaymentTransactionsApi* | [**getAll**](Api/PaymentTransactionsApi.md#getall) | **GET** /Payment/Transactions | GET Payment/Transactions
+*PaymentTransactionsApi* | [**getOne**](Api/PaymentTransactionsApi.md#getone) | **GET** /Payment/Transactions/{paymentTransactionId} | GET Payment/Transactions/{paymentTransactionId}
+*PaymentTransactionsApi* | [**getShippingUrl**](Api/PaymentTransactionsApi.md#getshippingurl) | **GET** /Payment/Transactions/{paymentTransactionId}/shippingUrl | GET Payment/Transactions/{paymentTransactionId}/shippingUrl
+*PaymentTransactionsApi* | [**revokeAccrual**](Api/PaymentTransactionsApi.md#revokeaccrual) | **POST** /Payment/Transactions/{paymentTransactionId}/revokeAccrual | POST Payment/Transactions/{paymentTransactionId}/revokeAccrual
+*PrepaidContractsProductApi* | [**mappingZvt**](Api/PrepaidContractsProductApi.md#mappingzvt) | **POST** /Prepaid/Contracts/{prepaidContractId}/mappingZvt | POST Prepaid/Contracts/null/mappingZvt
 *PrepaidItemsApi* | [**getAll**](Api/PrepaidItemsApi.md#getall) | **GET** /Prepaid/Items | GET Prepaid/Items
 *PrepaidItemsApi* | [**getOne**](Api/PrepaidItemsApi.md#getone) | **GET** /Prepaid/Items/{prepaidItemId} | GET Prepaid/Items/{prepaidItemId}
-*PrepaidSalesProductApi* | [**prepaidSalesPost**](Api/PrepaidSalesProductApi.md#prepaidsalespost) | **POST** /Prepaid/Sales | POST Prepaid/Sales
+*PrepaidSalesProductApi* | [**addSale**](Api/PrepaidSalesProductApi.md#addsale) | **POST** /Prepaid/Sales | POST Prepaid/Sales
 *SmartDevicesApi* | [**addDevice**](Api/SmartDevicesApi.md#adddevice) | **POST** /Smart/Devices | POST Smart/Devices
-*SmartDevicesApi* | [**createPrepaidTid**](Api/SmartDevicesApi.md#createprepaidtid) | **POST** /Smart/Devices/{smartDeviceId}/CreatePrepaidTid | POST Smart/Devices/{smartDeviceId}/CreatePrepaidTid
-*SmartDevicesApi* | [**createVirtualDevice**](Api/SmartDevicesApi.md#createvirtualdevice) | **POST** /Smart/Devices/{smartDeviceId}/CreateVirtualDevice | POST Smart/Devices/{smartDeviceId}/CreateVirtualDevice
+*SmartDevicesApi* | [**createPrepaidTid**](Api/SmartDevicesApi.md#createprepaidtid) | **POST** /Smart/Devices/{smartDeviceId}/createPrepaidTid | POST Smart/Devices/{smartDeviceId}/createPrepaidTid
+*SmartDevicesApi* | [**createVirtualDevice**](Api/SmartDevicesApi.md#createvirtualdevice) | **POST** /Smart/Devices/{smartDeviceId}/createVirtualDevice | POST Smart/Devices/{smartDeviceId}/createVirtualDevice
 *SmartDevicesApi* | [**getAll**](Api/SmartDevicesApi.md#getall) | **GET** /Smart/Devices | GET Smart/Devices
 *SmartDevicesApi* | [**getOne**](Api/SmartDevicesApi.md#getone) | **GET** /Smart/Devices/{smartDeviceId} | GET Smart/Devices/{smartDeviceId}
 *SmartDevicesApi* | [**getRouting**](Api/SmartDevicesApi.md#getrouting) | **GET** /Smart/Devices/{smartDeviceId}/routing/type/{type} | GET Smart/Devices/{smartDeviceId}/routing/type/{type}
-*SmartDevicesApi* | [**getSecubaseConfig**](Api/SmartDevicesApi.md#getsecubaseconfig) | **POST** /Smart/Devices/{smartDeviceId}/GetSecubaseConfig | POST Smart/Devices/{smartDeviceId}/GetSecubaseConfig
+*SmartDevicesApi* | [**getSecubaseConfig**](Api/SmartDevicesApi.md#getsecubaseconfig) | **POST** /Smart/Devices/{smartDeviceId}/getSecubaseConfig | POST Smart/Devices/{smartDeviceId}/getSecubaseConfig
 *SmartDevicesApi* | [**updateDevice**](Api/SmartDevicesApi.md#updatedevice) | **PUT** /Smart/Devices/{smartDeviceId} | PUT Smart/Devices/{smartDeviceId}
-*SmartDevicesApi* | [**updatePin**](Api/SmartDevicesApi.md#updatepin) | **PUT** /Smart/Devices/smartDeviceId/pin | PUT /Smart/Devices/smartDeviceId/pin/
+*SmartDevicesApi* | [**updatePin**](Api/SmartDevicesApi.md#updatepin) | **PUT** /Smart/Devices/{smartDeviceId}/pin | PUT /Smart/Devices/{smartDeviceId}/pin
+*SmartRoutingsApi* | [**addRouting**](Api/SmartRoutingsApi.md#addrouting) | **POST** /Smart/Routings | POST Smart/Routings
+*SmartRoutingsApi* | [**assignDeviceToRouting**](Api/SmartRoutingsApi.md#assigndevicetorouting) | **POST** /Smart/Routings/{smartRoutingId}/assign/{smartDeviceId} | POST Smart/Routings/{smartRoutingId}/assign/{smartDeviceId}
+*SmartRoutingsApi* | [**getAll**](Api/SmartRoutingsApi.md#getall) | **GET** /Smart/Routings | GET Smart/Routings
+*SmartRoutingsApi* | [**getOne**](Api/SmartRoutingsApi.md#getone) | **GET** /Smart/Routings/{smartRoutingId} | GET Smart/Routings/{smartRoutingId}
+*SmartRoutingsApi* | [**removeRouting**](Api/SmartRoutingsApi.md#removerouting) | **DELETE** /Smart/Routings/{smartRoutingId} | DELETE Smart/Routings/{smartRoutingId}
+*SmartRoutingsApi* | [**removeSmartRoutingAssignment**](Api/SmartRoutingsApi.md#removesmartroutingassignment) | **DELETE** /Smart/Routings/{smartRoutingId}/assign/{smartDeviceId} | DELETE Smart/Routings/{smartRoutingId}/assign/{smartDeviceId}
+*SmartRoutingsApi* | [**updateRouting**](Api/SmartRoutingsApi.md#updaterouting) | **PUT** /Smart/Routings/{smartRoutingId} | PUT Smart/Routings/{smartRoutingId}
 *SmartTransactionsApi* | [**addTransaction**](Api/SmartTransactionsApi.md#addtransaction) | **POST** /Smart/Transactions | POST Smart/Transactions
 *SmartTransactionsApi* | [**cancelTransaction**](Api/SmartTransactionsApi.md#canceltransaction) | **POST** /Smart/Transactions/{smartTransactionId}/cancel | POST Smart/Transactions/{smartTransactionId}/cancel
 *SmartTransactionsApi* | [**cancelTrx**](Api/SmartTransactionsApi.md#canceltrx) | **POST** /Smart/Transactions/{smartTransactionId}/canceltrx | POST Smart/Transactions/{smartTransactionId}/canceltrx
 *SmartTransactionsApi* | [**diagnose**](Api/SmartTransactionsApi.md#diagnose) | **POST** /Smart/Transactions/{smartDeviceId}/diagnosis | POST Smart/Transactions/{smartDeviceId}/diagnosis
 *SmartTransactionsApi* | [**getAll**](Api/SmartTransactionsApi.md#getall) | **GET** /Smart/Transactions | GET Smart/Transactions
 *SmartTransactionsApi* | [**getOne**](Api/SmartTransactionsApi.md#getone) | **GET** /Smart/Transactions/{smartTransactionId} | GET Smart/Transactions/{smartTransactionId}
-*SmartTransactionsApi* | [**preTransaction**](Api/SmartTransactionsApi.md#pretransaction) | **POST** /Smart/Transactions/{smartTransactionId}/PreTransaction | POST Smart/Transactions/{smartTransactionId}/PreTransaction
+*SmartTransactionsApi* | [**preTransaction**](Api/SmartTransactionsApi.md#pretransaction) | **POST** /Smart/Transactions/{smartTransactionId}/preTransaction | POST Smart/Transactions/{smartTransactionId}/preTransaction
 *SmartTransactionsApi* | [**prepare**](Api/SmartTransactionsApi.md#prepare) | **POST** /Smart/Transactions/{smartTransactionId}/prepare | POST Smart/Transactions/stx_xxx/prepare
 *SmartTransactionsApi* | [**startEndOfDayReport**](Api/SmartTransactionsApi.md#startendofdayreport) | **POST** /Smart/Transactions/{smartDeviceId}/endOfDay | POST Smart/Transactions/{smartDeviceId}/endOfDay
 *SmartTransactionsApi* | [**startTransaction**](Api/SmartTransactionsApi.md#starttransaction) | **POST** /Smart/Transactions/{smartTransactionId}/start/{paymentMethod} | POST Smart/Transactions/{smartTransactionId}/start/{paymentMethod}
@@ -232,6 +238,7 @@ Class | Method | HTTP request | Description
  - [PaymentCustomersList](Model/PaymentCustomersList.md)
  - [PaymentCustomersProductModel](Model/PaymentCustomersProductModel.md)
  - [PaymentInformation](Model/PaymentInformation.md)
+ - [PaymentTransactionCancelDTO](Model/PaymentTransactionCancelDTO.md)
  - [PaymentTransactionsCancelList](Model/PaymentTransactionsCancelList.md)
  - [PaymentTransactionsInstructions](Model/PaymentTransactionsInstructions.md)
  - [PaymentTransactionsList](Model/PaymentTransactionsList.md)
@@ -287,6 +294,11 @@ Class | Method | HTTP request | Description
  - [SmartDevicesSecubaseConfig](Model/SmartDevicesSecubaseConfig.md)
  - [SmartDevicesSecubaseConfigLogging](Model/SmartDevicesSecubaseConfigLogging.md)
  - [SmartDevicesSecubaseConfigLoggingFileNet](Model/SmartDevicesSecubaseConfigLoggingFileNet.md)
+ - [SmartRoutingPriority](Model/SmartRoutingPriority.md)
+ - [SmartRoutingsAssign](Model/SmartRoutingsAssign.md)
+ - [SmartRoutingsDTO](Model/SmartRoutingsDTO.md)
+ - [SmartRoutingsList](Model/SmartRoutingsList.md)
+ - [SmartRoutingsProductModel](Model/SmartRoutingsProductModel.md)
  - [SmartTransactionsBasket](Model/SmartTransactionsBasket.md)
  - [SmartTransactionsBasketInfo](Model/SmartTransactionsBasketInfo.md)
  - [SmartTransactionsBasketProduct](Model/SmartTransactionsBasketProduct.md)

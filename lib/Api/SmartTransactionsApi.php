@@ -670,7 +670,7 @@ class SmartTransactionsApi
     /**
      * Operation preTransaction
      *
-     * POST Smart/Transactions/{smartTransactionId}/PreTransaction
+     * POST Smart/Transactions/{smartTransactionId}/preTransaction
      *
      * @param string $smart_transaction_id Smart transaction id (required)
      * @throws ApiException on non-2xx response
@@ -685,7 +685,7 @@ class SmartTransactionsApi
     /**
      * Operation preTransactionWithHttpInfo
      *
-     * POST Smart/Transactions/{smartTransactionId}/PreTransaction
+     * POST Smart/Transactions/{smartTransactionId}/preTransaction
      *
      * @param string $smart_transaction_id Smart transaction id (required)
      * @throws ApiException on non-2xx response
@@ -698,7 +698,7 @@ class SmartTransactionsApi
             throw new \InvalidArgumentException('Missing the required parameter $smart_transaction_id when calling preTransaction');
         }
         // parse inputs
-        $resourcePath = "/Smart/Transactions/{smartTransactionId}/PreTransaction";
+        $resourcePath = "/Smart/Transactions/{smartTransactionId}/preTransaction";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -740,7 +740,7 @@ class SmartTransactionsApi
                     $httpBody,
                     $headerParams,
                     '\Secuconnect\Client\Model\SmartTransactionsPreTransactionModel',
-                    '/Smart/Transactions/{smartTransactionId}/PreTransaction'
+                    '/Smart/Transactions/{smartTransactionId}/preTransaction'
                 );
 
                 return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\SmartTransactionsPreTransactionModel', $httpHeader), $statusCode, $httpHeader];

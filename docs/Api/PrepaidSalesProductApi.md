@@ -4,11 +4,11 @@ All URIs are relative to *https://connect-testing.secupay-ag.de/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**prepaidSalesPost**](PrepaidSalesProductApi.md#prepaidSalesPost) | **POST** /Prepaid/Sales | POST Prepaid/Sales
+[**addSale**](PrepaidSalesProductApi.md#addSale) | **POST** /Prepaid/Sales | POST Prepaid/Sales
 
 
-# **prepaidSalesPost**
-> \Secuconnect\Client\Model\PrepaidSalesProductModel prepaidSalesPost($body)
+# **addSale**
+> \Secuconnect\Client\Model\PrepaidSalesProductModel addSale($body)
 
 POST Prepaid/Sales
 
@@ -26,10 +26,10 @@ $api_instance = new Secuconnect\Client\Api\PrepaidSalesProductApi();
 $body = new \Secuconnect\Client\Model\PrepaidSalesProductDTO(); // \Secuconnect\Client\Model\PrepaidSalesProductDTO | Prepaid transaction input properties
 
 try {
-    $result = $api_instance->prepaidSalesPost($body);
+    $result = $api_instance->addSale($body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PrepaidSalesProductApi->prepaidSalesPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PrepaidSalesProductApi->addSale: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

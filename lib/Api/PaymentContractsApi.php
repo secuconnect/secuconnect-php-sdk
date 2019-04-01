@@ -486,7 +486,7 @@ class PaymentContractsApi
     /**
      * Operation paymentContractsIdPaymentMethodsGet
      *
-     * GET Payment/Contracts/{paymentContractId}/PaymentMethods
+     * GET Payment/Contracts/{paymentContractId}/paymentMethods
      *
      * @param string $payment_contract_id Contract identifier (required)
      * @throws ApiException on non-2xx response
@@ -501,7 +501,7 @@ class PaymentContractsApi
     /**
      * Operation paymentContractsIdPaymentMethodsGetWithHttpInfo
      *
-     * GET Payment/Contracts/{paymentContractId}/PaymentMethods
+     * GET Payment/Contracts/{paymentContractId}/paymentMethods
      *
      * @param string $payment_contract_id Contract identifier (required)
      * @throws ApiException on non-2xx response
@@ -514,7 +514,7 @@ class PaymentContractsApi
             throw new \InvalidArgumentException('Missing the required parameter $payment_contract_id when calling paymentContractsIdPaymentMethodsGet');
         }
         // parse inputs
-        $resourcePath = "/Payment/Contracts/{paymentContractId}/PaymentMethods";
+        $resourcePath = "/Payment/Contracts/{paymentContractId}/paymentMethods";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -556,7 +556,7 @@ class PaymentContractsApi
                     $httpBody,
                     $headerParams,
                     'string[]',
-                    '/Payment/Contracts/{paymentContractId}/PaymentMethods'
+                    '/Payment/Contracts/{paymentContractId}/paymentMethods'
                 );
 
                 return [$this->apiClient->getSerializer()->deserialize($response, 'string[]', $httpHeader), $statusCode, $httpHeader];
