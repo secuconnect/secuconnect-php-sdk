@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **cancel**
-> \Secuconnect\Client\Model\PaymentTransactionsCancelList[] cancel($payment_transaction_id, $body)
+> \Secuconnect\Client\Model\PaymentTransactionsProductModel[] cancel($payment_transaction_id, $body)
 
 POST Payment/Transactions/{paymentTransactionId}/cancel
 
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Secuconnect\Client\Model\PaymentTransactionsCancelList[]**](../Model/PaymentTransactionsCancelList.md)
+[**\Secuconnect\Client\Model\PaymentTransactionsProductModel[]**](../Model/PaymentTransactionsProductModel.md)
 
 ### Authorization
 

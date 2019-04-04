@@ -73,7 +73,7 @@ Class | Method | HTTP request | Description
 *PaymentContractsApi* | [**paymentContractsGet**](Api/PaymentContractsApi.md#paymentcontractsget) | **GET** /Payment/Contracts | GET Payment/Contracts
 *PaymentContractsApi* | [**paymentContractsGetById**](Api/PaymentContractsApi.md#paymentcontractsgetbyid) | **GET** /Payment/Contracts/{paymentContractId} | GET Payment/Contracts/{paymentContractId}
 *PaymentContractsApi* | [**paymentContractsIdDelete**](Api/PaymentContractsApi.md#paymentcontractsiddelete) | **DELETE** /Payment/Contracts/{paymentContractId} | DELETE Payment/Contracts/{paymentContractId}
-*PaymentContractsApi* | [**paymentContractsIdPaymentMethodsGet**](Api/PaymentContractsApi.md#paymentcontractsidpaymentmethodsget) | **GET** /Payment/Contracts/{paymentContractId}/PaymentMethods | GET Payment/Contracts/{paymentContractId}/PaymentMethods
+*PaymentContractsApi* | [**paymentContractsIdPaymentMethodsGet**](Api/PaymentContractsApi.md#paymentcontractsidpaymentmethodsget) | **GET** /Payment/Contracts/{paymentContractId}/paymentMethods | GET Payment/Contracts/{paymentContractId}/paymentMethods
 *PaymentContractsApi* | [**paymentContractsIdPut**](Api/PaymentContractsApi.md#paymentcontractsidput) | **PUT** /Payment/Contracts/{paymentContractId} | PUT Payment/Contracts/{paymentContractId}
 *PaymentContractsApi* | [**paymentContractsPost**](Api/PaymentContractsApi.md#paymentcontractspost) | **POST** /Payment/Contracts | POST Payment/Contracts
 *PaymentContractsApi* | [**requestId**](Api/PaymentContractsApi.md#requestid) | **POST** /Payment/Contracts/{paymentContractId}/requestId | POST Payment/Contracts/{paymentContractId}/requestId
@@ -239,7 +239,6 @@ Class | Method | HTTP request | Description
  - [PaymentCustomersProductModel](Model/PaymentCustomersProductModel.md)
  - [PaymentInformation](Model/PaymentInformation.md)
  - [PaymentTransactionCancelDTO](Model/PaymentTransactionCancelDTO.md)
- - [PaymentTransactionsCancelList](Model/PaymentTransactionsCancelList.md)
  - [PaymentTransactionsInstructions](Model/PaymentTransactionsInstructions.md)
  - [PaymentTransactionsList](Model/PaymentTransactionsList.md)
  - [PaymentTransactionsProductModel](Model/PaymentTransactionsProductModel.md)
