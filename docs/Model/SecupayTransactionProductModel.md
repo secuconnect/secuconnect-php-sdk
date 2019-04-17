@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **redirect_url** | [**\Secuconnect\Client\Model\SecupayRedirectUrl**](SecupayRedirectUrl.md) | A list of redirect urls used for the payment checkout page | [optional] 
 **iframe_url** | **string** | The url of the payment checkout iframe | [optional] 
 **container** | [**\Secuconnect\Client\Model\PaymentContainersProductModel**](PaymentContainersProductModel.md) | The container object | [optional] 
+**sub_transactions** | [**\Secuconnect\Client\Model\SecupaySubTransactionProductModel[]**](SecupaySubTransactionProductModel.md) | A list of sub-transactions (for mixed basket) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

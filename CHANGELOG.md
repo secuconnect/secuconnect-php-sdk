@@ -19,6 +19,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [0.6.2] - 2019-04-17
+
+**Release candidate**
+
+Last steps to the final release of the swagger generated PHP-SDK for the secuconnect API.
+
+- Added "accrual" to "PaymentTransactionsProductModel"
+- Added "sub_transactions" to "SecupayTransactionProductModel"
+
+
 ## [0.6.1] - 2019-04-04
 
 **Release candidate**
@@ -194,3 +204,4 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 [0.5.7.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.6...0.5.7.1
 [0.6.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.7.1...0.6.0
 [0.6.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.6.0...0.6.1
+[0.6.2]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.6.1...0.6.2

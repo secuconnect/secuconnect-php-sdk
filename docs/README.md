@@ -264,6 +264,7 @@ Class | Method | HTTP request | Description
  - [SecupayPayoutDTOOptData](Model/SecupayPayoutDTOOptData.md)
  - [SecupayPayoutProductModel](Model/SecupayPayoutProductModel.md)
  - [SecupayRedirectUrl](Model/SecupayRedirectUrl.md)
+ - [SecupaySubTransactionProductModel](Model/SecupaySubTransactionProductModel.md)
  - [SecupayTransactionCancelDTO](Model/SecupayTransactionCancelDTO.md)
  - [SecupayTransactionCaptureDTO](Model/SecupayTransactionCaptureDTO.md)
  - [SecupayTransactionDTOExternalInvoicePdf](Model/SecupayTransactionDTOExternalInvoicePdf.md)

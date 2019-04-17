@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **invoice_number** | **string** | Invoice number (from merchant) | [optional] 
 **transaction_hash** | **string** | Payment-ID | [optional] 
 **reference_id** | **string** | Reference ID | [optional] 
+**accrual** | **bool** | Accrual Flag | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

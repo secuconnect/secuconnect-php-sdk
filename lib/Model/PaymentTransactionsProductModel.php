@@ -52,7 +52,8 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'payout_date' => 'string',
         'invoice_number' => 'string',
         'transaction_hash' => 'string',
-        'reference_id' => 'string'
+        'reference_id' => 'string',
+        'accrual' => 'bool'
     ];
 
     /**
@@ -85,7 +86,8 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'payout_date' => null,
         'invoice_number' => null,
         'transaction_hash' => null,
-        'reference_id' => null
+        'reference_id' => null,
+        'accrual' => null
     ];
 
     public static function swaggerTypes()
@@ -128,7 +130,8 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'payout_date' => 'payout_date',
         'invoice_number' => 'invoice_number',
         'transaction_hash' => 'transaction_hash',
-        'reference_id' => 'reference_id'
+        'reference_id' => 'reference_id',
+        'accrual' => 'accrual'
     ];
 
 
@@ -162,7 +165,8 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'payout_date' => 'setPayoutDate',
         'invoice_number' => 'setInvoiceNumber',
         'transaction_hash' => 'setTransactionHash',
-        'reference_id' => 'setReferenceId'
+        'reference_id' => 'setReferenceId',
+        'accrual' => 'setAccrual'
     ];
 
 
@@ -196,7 +200,8 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'payout_date' => 'getPayoutDate',
         'invoice_number' => 'getInvoiceNumber',
         'transaction_hash' => 'getTransactionHash',
-        'reference_id' => 'getReferenceId'
+        'reference_id' => 'getReferenceId',
+        'accrual' => 'getAccrual'
     ];
 
     public static function attributeMap()
@@ -256,6 +261,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
         $this->container['invoice_number'] = isset($data['invoice_number']) ? $data['invoice_number'] : null;
         $this->container['transaction_hash'] = isset($data['transaction_hash']) ? $data['transaction_hash'] : null;
         $this->container['reference_id'] = isset($data['reference_id']) ? $data['reference_id'] : null;
+        $this->container['accrual'] = isset($data['accrual']) ? $data['accrual'] : null;
     }
 
     /**
@@ -825,6 +831,27 @@ class PaymentTransactionsProductModel implements ArrayAccess
     public function setReferenceId($reference_id)
     {
         $this->container['reference_id'] = $reference_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets accrual
+     * @return bool
+     */
+    public function getAccrual()
+    {
+        return $this->container['accrual'];
+    }
+
+    /**
+     * Sets accrual
+     * @param bool $accrual Accrual Flag
+     * @return $this
+     */
+    public function setAccrual($accrual)
+    {
+        $this->container['accrual'] = $accrual;
 
         return $this;
     }
