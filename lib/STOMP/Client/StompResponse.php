@@ -27,7 +27,7 @@ class StompResponse
      */
     public function getStatus()
     {
-        return $this->statust;
+        return $this->status;
     }
 
     /**

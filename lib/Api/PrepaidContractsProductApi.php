@@ -61,33 +61,39 @@ class PrepaidContractsProductApi
     }
 
     /**
-     * Operation prepaidContractsMeMappingZvtPost
+     * Operation mappingZvt
      *
      * POST Prepaid/Contracts/null/mappingZvt
      *
+     * @param string $prepaid_contract_id Prepaid contract id (required)
      * @param \Secuconnect\Client\Model\PrepaidZvtDTO $body Prepaid transaction input properties (optional)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PrepaidMappingZvt
      */
-    public function prepaidContractsMeMappingZvtPost($body = null)
+    public function mappingZvt($prepaid_contract_id, $body = null)
     {
-        list($response) = $this->prepaidContractsMeMappingZvtPostWithHttpInfo($body);
+        list($response) = $this->mappingZvtWithHttpInfo($prepaid_contract_id, $body);
         return $response;
     }
 
     /**
-     * Operation prepaidContractsMeMappingZvtPostWithHttpInfo
+     * Operation mappingZvtWithHttpInfo
      *
      * POST Prepaid/Contracts/null/mappingZvt
      *
+     * @param string $prepaid_contract_id Prepaid contract id (required)
      * @param \Secuconnect\Client\Model\PrepaidZvtDTO $body Prepaid transaction input properties (optional)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PrepaidMappingZvt, HTTP status code, HTTP response headers (array of strings)
      */
-    public function prepaidContractsMeMappingZvtPostWithHttpInfo($body = null)
+    public function mappingZvtWithHttpInfo($prepaid_contract_id, $body = null)
     {
+        // verify the required parameter 'prepaid_contract_id' is set
+        if ($prepaid_contract_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $prepaid_contract_id when calling mappingZvt');
+        }
         // parse inputs
-        $resourcePath = "/Prepaid/Contracts/me/mappingZvt";
+        $resourcePath = "/Prepaid/Contracts/{prepaidContractId}/mappingZvt";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -98,6 +104,14 @@ class PrepaidContractsProductApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
+        // path params
+        if ($prepaid_contract_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "prepaidContractId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($prepaid_contract_id),
+                $resourcePath
+            );
+        }
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -126,7 +140,7 @@ class PrepaidContractsProductApi
                     $httpBody,
                     $headerParams,
                     '\Secuconnect\Client\Model\PrepaidMappingZvt',
-                    '/Prepaid/Contracts/me/mappingZvt'
+                    '/Prepaid/Contracts/{prepaidContractId}/mappingZvt'
                 );
 
                 return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PrepaidMappingZvt', $httpHeader), $statusCode, $httpHeader];

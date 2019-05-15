@@ -2,6 +2,7 @@
 
 namespace Secuconnect\Client\STOMP\Communication;
 
+use Exception;
 use React\EventLoop\Factory;
 use Secuconnect\Client\STOMP\Client\Destination;
 use Secuconnect\Client\STOMP\Client\StompClient;
@@ -83,9 +84,9 @@ class StompCommunicationController
         try {
             $this->StompClient->sendMsg($message, $oDestination);
             $response = new StompResponse();
-            $response->setOKStatus();
+            $response->setOkStatus();
             $response->setMessage('message sent to secucore');
-        } catch (\Exception $exc) {
+        } catch (Exception $exc) {
             return $this->logError(null, 'Unexpected Error when sending STOMP message to secucore ' . $exc->getMessage(), debug_backtrace());
         }
     }
@@ -93,13 +94,11 @@ class StompCommunicationController
     /**
      * it's sending a single message secucore using STOMP protocol - StompClient
      *
-     * @param json $sendMsg
-     * @param Destination $destinationObj
+     * @param $aSendMsg
      * @return StompResponse $response
      */
     private function sendMsgToSecucore($aSendMsg)
     {
-        $response = new StompResponse();
         if (!isset($aSendMsg->Destination)) {
             // not exception log to some log file (script has to work even if one massage will be not send)
             return $this->handleError(null, 'invalid Send Stomp message missing Destination', debug_backtrace());
@@ -113,16 +112,16 @@ class StompCommunicationController
             return $this->handleError(null, 'invalid Send Stomp message missing MsgFrame', debug_backtrace());
         }
         $MsgFrame = json_decode($aSendMsg->MsgFrame);
-        $messageBody = array('pid' => $MsgFrame->pid, 'sid' => $MsgFrame->sid, 'data' => $MsgFrame->data);
+        $messageBody = ['pid' => $MsgFrame->pid, 'sid' => $MsgFrame->sid, 'data' => $MsgFrame->data];
         $message = new StompFrame();
         $message->body = json_encode($messageBody);
 
         try {
             $this->StompClient->sendMsg($message, $oDestination);
             $response = new StompResponse();
-            $response->setOKStatus();
+            $response->setOkStatus();
             $response->setMessage('message sent to secucore');
-        } catch (\Exception $exc) {
+        } catch (Exception $exc) {
             return $this->logError(null, 'unecepetd Error when sending STOMP message to secucore ' . $exc->getMessage(), debug_backtrace());
         }
     }
@@ -131,7 +130,7 @@ class StompCommunicationController
      * it's geting a single message to be sent by STOMP
      *
      * @return object [ "MsgFrame", "Destination" ]
-     * @throws \Exception
+     * @throws Exception
      */
     private function getMsgToSendForStompController()
     {
@@ -153,6 +152,7 @@ class StompCommunicationController
     /**
      * it's calling an action that needs to be done whit the received message from STOMP
      * @param mixed $receivedFrame
+     * @throws Exception
      */
     private function actionAfteReceivedFrame($receivedFrame)
     {
@@ -164,6 +164,9 @@ class StompCommunicationController
      * TO DO!!!! LOGER
      * this function handle error when attempting to send a message using stomp protocol and creates error log for this
      * @param mixed $sendMsg
+     * @param $errorMsg
+     * @param $debug_backtrace
+     * @return StompResponse
      */
     private function handleError($sendMsg, $errorMsg, $debug_backtrace)
     {

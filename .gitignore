@@ -1,5 +1,6 @@
 vendor
 .idea
-tmp
+/tmp/*
+!/tmp/.gitkeep
 composer.lock
 /.php_cs

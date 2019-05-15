@@ -3,7 +3,6 @@
 namespace Secuconnect\Client\STOMP\Client;
 
 use Exception;
-use Secuconnect\Client;
 use Secuconnect\Client\Configuration;
 use Stomp;
 use StompFrame;
@@ -60,10 +59,6 @@ class StompClient
     {
         $destination = $destinationObj->prepareDestination();
         $header = $this->prepareHeder();
-
-        if (!empty($msgObj->body)) {
-            $body = json_decode($msgObj->body);
-        }
 
         $response = new StompResponse();
 

@@ -27,7 +27,7 @@ class FileCache implements CacheItemPoolInterface
         if (is_dir($dir)) {
             $this->dir = $dir;
         } else {
-            $this->dir = self::DEFAULT_FOLDER;
+            $this->dir = __DIR__ . DIRECTORY_SEPARATOR  . '..' . DIRECTORY_SEPARATOR  . '..' . DIRECTORY_SEPARATOR  . self::DEFAULT_FOLDER;
 
             if (!file_exists($this->dir)) {
                 if (!mkdir($this->dir)) {

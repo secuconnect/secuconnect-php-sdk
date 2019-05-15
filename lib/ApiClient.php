@@ -39,7 +39,7 @@ class ApiClient
      *
      * @param Configuration $config config for this ApiClient
      */
-    public function __construct(\Secuconnect\Client\Configuration $config = null)
+    public function __construct(Configuration $config = null)
     {
         if ($config === null) {
             $config = Configuration::getDefaultConfiguration();
@@ -70,43 +70,18 @@ class ApiClient
     }
 
     /**
-     * Get API key (with prefix if set)
-     *
-     * @param  string $apiKeyIdentifier name of apikey
-     *
-     * @return string API key with the prefix
-     */
-    public function getApiKeyWithPrefix($apiKeyIdentifier)
-    {
-        $prefix = $this->config->getApiKeyPrefix($apiKeyIdentifier);
-        $apiKey = $this->config->getApiKey($apiKeyIdentifier);
-
-        if (!isset($apiKey)) {
-            return null;
-        }
-
-        if (isset($prefix)) {
-            $keyWithPrefix = $prefix." ".$apiKey;
-        } else {
-            $keyWithPrefix = $apiKey;
-        }
-
-        return $keyWithPrefix;
-    }
-
-    /**
      * Make the HTTP call (Sync)
      *
      * @param string $resourcePath path to method endpoint
-     * @param string $method       method to call
-     * @param array  $queryParams  parameters to be place in query URL
-     * @param array  $postData     parameters to be placed in POST body
-     * @param array  $headerParams parameters to be place in request header
+     * @param string $method method to call
+     * @param array $queryParams parameters to be place in query URL
+     * @param array $postData parameters to be placed in POST body
+     * @param array $headerParams parameters to be place in request header
      * @param string $responseType expected response type of the endpoint
      * @param string $endpointPath path to method endpoint before expanding parameters
      *
-     * @throws \Secuconnect\Client\ApiException on a non 2xx response
      * @return mixed
+     * @throws ApiException on a non 2xx response
      */
     public function callApi($resourcePath, $method, $queryParams, $postData, $headerParams, $responseType = null, $endpointPath = null)
     {
@@ -126,7 +101,7 @@ class ApiClient
         if ($postData and in_array('Content-Type: application/x-www-form-urlencoded', $headers, true)) {
             $postData = http_build_query($postData);
         } elseif ((is_object($postData) or is_array($postData)) and !in_array('Content-Type: multipart/form-data', $headers, true)) { // json model
-            $postData = json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($postData));
+            $postData = json_encode(ObjectSerializer::sanitizeForSerialization($postData));
         }
 
         $url = $this->config->getHost() . $resourcePath;
@@ -165,7 +140,7 @@ class ApiClient
         }
 
         if ($this->config->getCurlProxyUser()) {
-            curl_setopt($curl, CURLOPT_PROXYUSERPWD, $this->config->getCurlProxyUser() . ':' .$this->config->getCurlProxyPassword());
+            curl_setopt($curl, CURLOPT_PROXYUSERPWD, $this->config->getCurlProxyUser() . ':' . $this->config->getCurlProxyPassword());
         }
 
         if (!empty($queryParams)) {
@@ -203,7 +178,7 @@ class ApiClient
 
         // debugging for curl
         if ($this->config->getDebug()) {
-            error_log("[DEBUG] HTTP Request body  ~BEGIN~".PHP_EOL.print_r($postData, true).PHP_EOL."~END~".PHP_EOL, 3, $this->config->getDebugFile());
+            error_log("[DEBUG] HTTP Request body  ~BEGIN~" . PHP_EOL . print_r($postData, true) . PHP_EOL . "~END~" . PHP_EOL, 3, $this->config->getDebugFile());
 
             curl_setopt($curl, CURLOPT_VERBOSE, 1);
             curl_setopt($curl, CURLOPT_STDERR, fopen($this->config->getDebugFile(), 'a'));
@@ -223,7 +198,7 @@ class ApiClient
 
         // debug HTTP response body
         if ($this->config->getDebug()) {
-            error_log("[DEBUG] HTTP Response body ~BEGIN~".PHP_EOL.print_r($http_body, true).PHP_EOL."~END~".PHP_EOL, 3, $this->config->getDebugFile());
+            error_log("[DEBUG] HTTP Response body ~BEGIN~" . PHP_EOL . print_r($http_body, true) . PHP_EOL . "~END~" . PHP_EOL, 3, $this->config->getDebugFile());
         }
 
         // Handle the response
@@ -258,7 +233,7 @@ class ApiClient
             }
 
             throw new ApiException(
-                "[".$response_info['http_code']."] Error connecting to the API ($url)",
+                "[" . $response_info['http_code'] . "] Error connecting to the API ($url)",
                 $response_info['http_code'],
                 $http_header,
                 $data
@@ -303,13 +278,13 @@ class ApiClient
         }
     }
 
-   /**
-    * Return an array of HTTP response headers
-    *
-    * @param string $raw_headers A string of raw HTTP response headers
-    *
-    * @return string[] Array of HTTP response heaers
-    */
+    /**
+     * Return an array of HTTP response headers
+     *
+     * @param string $raw_headers A string of raw HTTP response headers
+     *
+     * @return string[] Array of HTTP response heaers
+     */
     protected function httpParseHeaders($raw_headers)
     {
         // ref/credit: http://php.net/manual/en/function.http-parse-headers.php#112986
@@ -331,7 +306,7 @@ class ApiClient
                 $key = $h[0];
             } else {
                 if (substr($h[0], 0, 1) === "\t") {
-                    $headers[$key] .= "\r\n\t".trim($h[0]);
+                    $headers[$key] .= "\r\n\t" . trim($h[0]);
                 } elseif (!$key) {
                     $headers[0] = trim($h[0]);
                 }

@@ -2,10 +2,11 @@
 
 namespace Secuconnect\Client\STOMP\Api;
 
+use Exception;
+use Secuconnect\Client\Model\SmartTransactionsDTO;
+use Secuconnect\Client\STOMP;
+use Secuconnect\Client\STOMP\Client;
 use Secuconnect\Client\STOMP\Client\StompResponse;
-use \Secuconnect\Client\STOMP\Communication;
-use \Secuconnect\Client\STOMP\Client;
-use \Secuconnect\Client\STOMP;
 use stdClass;
 use StompFrame;
 
@@ -26,25 +27,25 @@ class StompSmartTransactionsApi
 {
     /** @const string SMART_TRANSACTIONS_PRETRANSACTION_ACTION */
     const SMART_TRANSACTIONS_ACTION = 'Smart.Transactions';
-    
+
     /** @const string SMART_TRANSACTIONS_PRETRANSACTION_ACTION */
     const SMART_TRANSACTIONS_PRETRANSACTION_ACTION = 'Smart.Transactions.PreTransaction';
-    
+
     /** @const string SMART_TRANSACTIONS_CANCEL_ACTION */
     const SMART_TRANSACTIONS_CANCEL_ACTION = 'Smart.Transactions.cancel';
-    
+
     /** @const string SMART_TRANSACTIONS_CANCELTRX_ACTION */
     const SMART_TRANSACTIONS_CANCELTRX_ACTION = 'Smart.Transactions.canceltrx';
-    
+
     /** @const string SMART_TRANSACTIONS_START_ACTION */
     const SMART_TRANSACTIONS_START_ACTION = 'Smart.Transactions.Start';
-    
+
     /**
      * Operation addTransaction
      *
      * STOMP Smart/Transactions
      *
-     * @param \Secuconnect\Client\Model\SmartTransactionsDTO $SmartTransactionsDTO Smart transaction properties (required)
+     * @param SmartTransactionsDTO $SmartTransactionsDTO Smart transaction properties (required)
      * @return StompResponse $response
      */
     public function addTransaction($SmartTransactionsDTO)
@@ -57,10 +58,10 @@ class StompSmartTransactionsApi
         $message->pid = '';
         $message->sid = '';
         $message->data = json_encode($SmartTransactionsDTO);
-        
+
         $response = new StompResponse();
         try {
-            $this->SendMsgToStompController(json_encode($message),json_encode($destinationObj));
+            $this->SendMsgToStompController(json_encode($message), json_encode($destinationObj));
             $response->setMessage('Message sent to StompController');
             $response->setOkStatus();
         } catch (Exception $exc) {
@@ -70,17 +71,19 @@ class StompSmartTransactionsApi
 
         return $response;
     }
-    
+
     /**
      * Operation preTransaction
      *
      * POST Smart/Transactions/{smartTransactionId}/PreTransaction
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
+     * @param $SmartTransactionId
      * @return StompResponse $response
+     * @throws Exception
      */
     public function preTransaction($SmartTransactionId)
-    {        
+    {
+        $destinationObj = new stdClass();
         $destinationObj->action = self::SMART_TRANSACTIONS_PRETRANSACTION_ACTION;
         $destinationObj->method = Client\Destination::EXECUTE;
 
@@ -88,10 +91,10 @@ class StompSmartTransactionsApi
         $message->pid = $SmartTransactionId;
         $message->sid = '';
         $message->data = '';
-        
+
         $response = new StompResponse();
         try {
-            $this->SendMsgToStompController(json_encode($message),json_encode($destinationObj));
+            $this->SendMsgToStompController(json_encode($message), json_encode($destinationObj));
             $response->setMessage('Message sent to StompController');
             $response->setOkStatus();
         } catch (Exception $exc) {
@@ -101,14 +104,15 @@ class StompSmartTransactionsApi
 
         return $response;
     }
-    
+
     /**
      * Operation cancelTransaction
      *
      * POST Smart/Transactions/{smartTransactionId}/cancel
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
+     * @param $SmartTransactionId
      * @return StompResponse $response
+     * @throws Exception
      */
     public function cancelTransaction($SmartTransactionId)
     {
@@ -120,10 +124,10 @@ class StompSmartTransactionsApi
         $message->pid = $SmartTransactionId;
         $message->sid = '';
         $message->data = '';
-        
+
         $response = new StompResponse();
         try {
-            $this->SendMsgToStompController(json_encode($message),json_encode($destinationObj));
+            $this->SendMsgToStompController(json_encode($message), json_encode($destinationObj));
             $response->setMessage('Message sent to StompController');
             $response->setOkStatus();
         } catch (Exception $exc) {
@@ -133,7 +137,7 @@ class StompSmartTransactionsApi
 
         return $response;
     }
-    
+
     /**
      * Operation cancelTrx
      *
@@ -143,7 +147,7 @@ class StompSmartTransactionsApi
      * @return StompResponse $response
      */
     public function cancelTrx($receiptNumber)
-    {        
+    {
         $destinationObj = new stdClass();
         $destinationObj->action = self::SMART_TRANSACTIONS_CANCELTRX_ACTION;
         $destinationObj->method = Client\Destination::EXECUTE;
@@ -152,10 +156,10 @@ class StompSmartTransactionsApi
         $message->pid = $receiptNumber;
         $message->sid = '';
         $message->data = '';
-        
+
         $response = new StompResponse();
         try {
-            $this->SendMsgToStompController(json_encode($message),json_encode($destinationObj));
+            $this->SendMsgToStompController(json_encode($message), json_encode($destinationObj));
             $response->setMessage('Message sent to StompController');
             $response->setOkStatus();
         } catch (Exception $exc) {
@@ -165,7 +169,7 @@ class StompSmartTransactionsApi
 
         return $response;
     }
-    
+
     /**
      * Operation getAll
      *
@@ -183,10 +187,10 @@ class StompSmartTransactionsApi
         $message->pid = '';
         $message->sid = '';
         $message->data = '';
-        
+
         $response = new StompResponse();
         try {
-            $this->SendMsgToStompController(json_encode($message),json_encode($destinationObj));
+            $this->SendMsgToStompController(json_encode($message), json_encode($destinationObj));
             $response->setMessage('Message sent to StompController');
             $response->setOkStatus();
         } catch (Exception $exc) {
@@ -196,7 +200,7 @@ class StompSmartTransactionsApi
 
         return $response;
     }
-    
+
     /**
      * Operation getOne
      *
@@ -204,11 +208,9 @@ class StompSmartTransactionsApi
      *
      * @param string $SmartTransactionId Smart transaction id (required)
      * @return StompResponse $response/
-     * 
-
      */
     public function getOne($SmartTransactionId)
-    {        
+    {
         $destinationObj = new stdClass();
         $destinationObj->action = self::SMART_TRANSACTIONS_ACTION;
         $destinationObj->method = Client\Destination::GET;
@@ -217,10 +219,10 @@ class StompSmartTransactionsApi
         $message->pid = $SmartTransactionId;
         $message->sid = '';
         $message->data = '';
-        
+
         $response = new StompResponse();
         try {
-            $this->SendMsgToStompController(json_encode($message),json_encode($destinationObj));
+            $this->SendMsgToStompController(json_encode($message), json_encode($destinationObj));
             $response->setMessage('Message sent to StompController');
             $response->setOkStatus();
         } catch (Exception $exc) {
@@ -230,17 +232,18 @@ class StompSmartTransactionsApi
 
         return $response;
     }
-    
+
     /**
      * Operation startTransaction
      *
      * POST Smart/Transactions/{smartTransactionId}/start/{paymentMethod}
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
-     * @param string $payment_method Payment method (required)
+     * @param $SmartTransactionId
+     * @param $method
      * @return StompResponse $response
+     * @throws Exception
      */
-    public function startTransaction($SmartTransactionId , $method)
+    public function startTransaction($SmartTransactionId, $method)
     {
         $destinationObj = new stdClass();
         $destinationObj->action = self::SMART_TRANSACTIONS_START_ACTION;
@@ -253,7 +256,7 @@ class StompSmartTransactionsApi
 
         $response = new StompResponse();
         try {
-            $this->SendMsgToStompController(json_encode($message),json_encode($destinationObj));
+            $this->SendMsgToStompController(json_encode($message), json_encode($destinationObj));
             $response->setMessage('Message sent to StompController');
             $response->setOkStatus();
         } catch (Exception $exc) {
@@ -263,18 +266,19 @@ class StompSmartTransactionsApi
 
         return $response;
     }
-    
+
     /**
      * Operation updateTransaction
      *
      * PUT Smart/Transactions/{smartTransactionId}
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
-     * @param \Secuconnect\Client\Model\SmartTransactionsDTO $SmartTransactionsDTO Smart transaction properties (required)
+     * @param $SmartTransactionId
+     * @param SmartTransactionsDTO $SmartTransactionsDTO Smart transaction properties (required)
      * @return StompResponse $response
+     * @throws Exception
      */
     public function updateTransaction($SmartTransactionId, $SmartTransactionsDTO)
-    {    
+    {
         $destinationObj = new stdClass();
         $destinationObj->action = self::SMART_TRANSACTIONS_ACTION;
         $destinationObj->method = Client\Destination::UPDATE;
@@ -286,7 +290,7 @@ class StompSmartTransactionsApi
 
         $response = new StompResponse();
         try {
-            $this->SendMsgToStompController(json_encode($message),json_encode($destinationObj));
+            $this->SendMsgToStompController(json_encode($message), json_encode($destinationObj));
             $response->setMessage('Message sent to StompController');
             $response->setOkStatus();
         } catch (Exception $exc) {
@@ -302,14 +306,15 @@ class StompSmartTransactionsApi
      *
      *
      * @param string $message (required)
-     * @param string $message (required)
+     * @param $destination
      * @return StompResponse $response
+     * @throws Exception
      */
-    private function SendMsgToStompController($message, $destination) 
+    private function SendMsgToStompController($message, $destination)
     {
         $ConfigController = new STOMP\StompConfigController();
         $localCommunicationController = $ConfigController->getLocalCommunicationController();
-        $response = $localCommunicationController->SendMsgToStompController(['MsgFrame'=>$message,'Destination'=>$destination]);
+        $response = $localCommunicationController->SendMsgToStompController(['MsgFrame' => $message, 'Destination' => $destination]);
         return $response;
     }
 }
