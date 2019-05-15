@@ -27,6 +27,7 @@ Last steps to the final release of the swagger generated PHP-SDK for the secucon
 
 - Added PaymentSecupaySofortApi
 - Renamed operation "prepaidContractsMeMappingZvtPost" to "mappingZvt" and corrected the input parameters
+- The default cache directory is now defined as an absolute path
 
 
 ## [0.6.2] - 2019-04-17
