@@ -6,8 +6,8 @@ All URIs are relative to `https://connect.secucard.com/api/v2`
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DocumentUploadsApi* | [**documentUploadsMultipartPost**](Api/DocumentUploadsApi.md#documentuploadsmultipartpost) | **POST** /Document/Uploads?multipart | POST Document/Uploads
 *DocumentUploadsApi* | [**documentUploadsPost**](Api/DocumentUploadsApi.md#documentuploadspost) | **POST** /Document/Uploads | POST Document/Uploads
-*DocumentUploadsApi* | [**documentUploadsmultipartPost**](Api/DocumentUploadsApi.md#documentuploadsmultipartpost) | **POST** /Document/Uploads?multipart | POST Document/Uploads
 *GeneralMerchantsApi* | [**addMerchants**](Api/GeneralMerchantsApi.md#addmerchants) | **POST** /General/Merchants | POST General/Merchants
 *GeneralMerchantsApi* | [**getAll**](Api/GeneralMerchantsApi.md#getall) | **GET** /General/Merchants | GET General/Merchants
 *GeneralMerchantsApi* | [**getOne**](Api/GeneralMerchantsApi.md#getone) | **GET** /General/Merchants/{generalMerchantId} | GET General/Merchants/{generalMerchantId}

@@ -19,6 +19,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [0.7.1] - 2019-05-21
+
+**Release candidate**
+
+Last steps to the final release of the swagger generated PHP-SDK for the secuconnect API.
+
+- Fixed SecucpayPayoutApi models
+
+
 ## [0.7.0] - 2019-05-15
 
 **Release candidate**
@@ -217,3 +226,4 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 [0.6.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.6.0...0.6.1
 [0.6.2]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.6.1...0.6.2
 [0.7.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.6.2...0.7.0
+[0.7.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.7.0...0.7.1

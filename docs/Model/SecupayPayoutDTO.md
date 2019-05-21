@@ -3,9 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**demo** | **int** | demo env value | [optional] 
+**demo** | **bool** | demo env value | [optional] 
 **redirect_url** | [**\Secuconnect\Client\Model\SecupayRedirectUrl**](SecupayRedirectUrl.md) | A list of redirect urls used for the payment checkout page | [optional] 
-**customer** | [**\Secuconnect\Client\Model\PaymentCustomersProductModel**](PaymentCustomersProductModel.md) | The customer object | [optional] 
+**contract** | **string** | Contract ID | [optional] 
+**customer** | **string** | Payment customer ID | [optional] 
 **opt_data** | [**\Secuconnect\Client\Model\SecupayPayoutDTOOptData**](SecupayPayoutDTOOptData.md) |  | [optional] 
 **amount** | **int** | Total amount of transaction lit&#39;s items | [optional] 
 **currency** | **string** | ISO 4217 code of currency, eg EUR for Euro. | [optional] 

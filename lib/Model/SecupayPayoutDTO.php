@@ -27,9 +27,10 @@ class SecupayPayoutDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'demo' => 'int',
+        'demo' => 'bool',
         'redirect_url' => '\Secuconnect\Client\Model\SecupayRedirectUrl',
-        'customer' => '\Secuconnect\Client\Model\PaymentCustomersProductModel',
+        'contract' => 'string',
+        'customer' => 'string',
         'opt_data' => '\Secuconnect\Client\Model\SecupayPayoutDTOOptData',
         'amount' => 'int',
         'currency' => 'string',
@@ -45,6 +46,7 @@ class SecupayPayoutDTO implements ArrayAccess
     protected static $swaggerFormats = [
         'demo' => null,
         'redirect_url' => null,
+        'contract' => null,
         'customer' => null,
         'opt_data' => null,
         'amount' => null,
@@ -71,6 +73,7 @@ class SecupayPayoutDTO implements ArrayAccess
     protected static $attributeMap = [
         'demo' => 'demo',
         'redirect_url' => 'redirect_url',
+        'contract' => 'contract',
         'customer' => 'customer',
         'opt_data' => 'opt_data',
         'amount' => 'amount',
@@ -88,6 +91,7 @@ class SecupayPayoutDTO implements ArrayAccess
     protected static $setters = [
         'demo' => 'setDemo',
         'redirect_url' => 'setRedirectUrl',
+        'contract' => 'setContract',
         'customer' => 'setCustomer',
         'opt_data' => 'setOptData',
         'amount' => 'setAmount',
@@ -105,6 +109,7 @@ class SecupayPayoutDTO implements ArrayAccess
     protected static $getters = [
         'demo' => 'getDemo',
         'redirect_url' => 'getRedirectUrl',
+        'contract' => 'getContract',
         'customer' => 'getCustomer',
         'opt_data' => 'getOptData',
         'amount' => 'getAmount',
@@ -147,6 +152,7 @@ class SecupayPayoutDTO implements ArrayAccess
     {
         $this->container['demo'] = isset($data['demo']) ? $data['demo'] : null;
         $this->container['redirect_url'] = isset($data['redirect_url']) ? $data['redirect_url'] : null;
+        $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
         $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
         $this->container['opt_data'] = isset($data['opt_data']) ? $data['opt_data'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
@@ -183,7 +189,7 @@ class SecupayPayoutDTO implements ArrayAccess
 
     /**
      * Gets demo
-     * @return int
+     * @return bool
      */
     public function getDemo()
     {
@@ -192,7 +198,7 @@ class SecupayPayoutDTO implements ArrayAccess
 
     /**
      * Sets demo
-     * @param int $demo demo env value
+     * @param bool $demo demo env value
      * @return $this
      */
     public function setDemo($demo)
@@ -224,8 +230,29 @@ class SecupayPayoutDTO implements ArrayAccess
     }
 
     /**
+     * Gets contract
+     * @return string
+     */
+    public function getContract()
+    {
+        return $this->container['contract'];
+    }
+
+    /**
+     * Sets contract
+     * @param string $contract Contract ID
+     * @return $this
+     */
+    public function setContract($contract)
+    {
+        $this->container['contract'] = $contract;
+
+        return $this;
+    }
+
+    /**
      * Gets customer
-     * @return \Secuconnect\Client\Model\PaymentCustomersProductModel
+     * @return string
      */
     public function getCustomer()
     {
@@ -234,7 +261,7 @@ class SecupayPayoutDTO implements ArrayAccess
 
     /**
      * Sets customer
-     * @param \Secuconnect\Client\Model\PaymentCustomersProductModel $customer The customer object
+     * @param string $customer Payment customer ID
      * @return $this
      */
     public function setCustomer($customer)

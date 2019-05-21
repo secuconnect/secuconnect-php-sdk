@@ -32,7 +32,7 @@ class SecupayTransactionListItem implements ArrayAccess
         'name' => 'string',
         'transaction_hash' => 'string',
         'transaction_id' => 'string',
-        'container' => 'string',
+        'container_id' => 'string',
         'total' => 'int'
     ];
 
@@ -46,7 +46,7 @@ class SecupayTransactionListItem implements ArrayAccess
         'name' => null,
         'transaction_hash' => null,
         'transaction_id' => null,
-        'container' => null,
+        'container_id' => null,
         'total' => null
     ];
 
@@ -70,7 +70,7 @@ class SecupayTransactionListItem implements ArrayAccess
         'name' => 'name',
         'transaction_hash' => 'transaction_hash',
         'transaction_id' => 'transaction_id',
-        'container' => 'container',
+        'container_id' => 'container_id',
         'total' => 'total'
     ];
 
@@ -85,7 +85,7 @@ class SecupayTransactionListItem implements ArrayAccess
         'name' => 'setName',
         'transaction_hash' => 'setTransactionHash',
         'transaction_id' => 'setTransactionId',
-        'container' => 'setContainer',
+        'container_id' => 'setContainerId',
         'total' => 'setTotal'
     ];
 
@@ -100,7 +100,7 @@ class SecupayTransactionListItem implements ArrayAccess
         'name' => 'getName',
         'transaction_hash' => 'getTransactionHash',
         'transaction_id' => 'getTransactionId',
-        'container' => 'getContainer',
+        'container_id' => 'getContainerId',
         'total' => 'getTotal'
     ];
 
@@ -140,7 +140,7 @@ class SecupayTransactionListItem implements ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['transaction_hash'] = isset($data['transaction_hash']) ? $data['transaction_hash'] : null;
         $this->container['transaction_id'] = isset($data['transaction_id']) ? $data['transaction_id'] : null;
-        $this->container['container'] = isset($data['container']) ? $data['container'] : null;
+        $this->container['container_id'] = isset($data['container_id']) ? $data['container_id'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
@@ -275,22 +275,22 @@ class SecupayTransactionListItem implements ArrayAccess
     }
 
     /**
-     * Gets container
+     * Gets container_id
      * @return string
      */
-    public function getContainer()
+    public function getContainerId()
     {
-        return $this->container['container'];
+        return $this->container['container_id'];
     }
 
     /**
-     * Sets container
-     * @param string $container Payment Container ID
+     * Sets container_id
+     * @param string $container_id Payment Container ID
      * @return $this
      */
-    public function setContainer($container)
+    public function setContainerId($container_id)
     {
-        $this->container['container'] = $container;
+        $this->container['container_id'] = $container_id;
 
         return $this;
     }
