@@ -32,7 +32,8 @@ class BankAccountDescriptor implements ArrayAccess
         'bic' => 'string',
         'owner' => 'string',
         'bankname' => 'string',
-        'purpose' => 'string'
+        'purpose' => 'string',
+        'pan' => 'string'
     ];
 
     /**
@@ -44,7 +45,8 @@ class BankAccountDescriptor implements ArrayAccess
         'bic' => null,
         'owner' => null,
         'bankname' => null,
-        'purpose' => null
+        'purpose' => null,
+        'pan' => null
     ];
 
     public static function swaggerTypes()
@@ -66,7 +68,8 @@ class BankAccountDescriptor implements ArrayAccess
         'bic' => 'bic',
         'owner' => 'owner',
         'bankname' => 'bankname',
-        'purpose' => 'purpose'
+        'purpose' => 'purpose',
+        'pan' => 'pan'
     ];
 
 
@@ -79,7 +82,8 @@ class BankAccountDescriptor implements ArrayAccess
         'bic' => 'setBic',
         'owner' => 'setOwner',
         'bankname' => 'setBankname',
-        'purpose' => 'setPurpose'
+        'purpose' => 'setPurpose',
+        'pan' => 'setPan'
     ];
 
 
@@ -92,7 +96,8 @@ class BankAccountDescriptor implements ArrayAccess
         'bic' => 'getBic',
         'owner' => 'getOwner',
         'bankname' => 'getBankname',
-        'purpose' => 'getPurpose'
+        'purpose' => 'getPurpose',
+        'pan' => 'getPan'
     ];
 
     public static function attributeMap()
@@ -131,6 +136,7 @@ class BankAccountDescriptor implements ArrayAccess
         $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
         $this->container['bankname'] = isset($data['bankname']) ? $data['bankname'] : null;
         $this->container['purpose'] = isset($data['purpose']) ? $data['purpose'] : null;
+        $this->container['pan'] = isset($data['pan']) ? $data['pan'] : null;
     }
 
     /**
@@ -262,6 +268,28 @@ class BankAccountDescriptor implements ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Gets pan
+     * @return string
+     */
+    public function getPan()
+    {
+        return $this->container['pan'];
+    }
+
+    /**
+     * Sets pan
+     * @param string $pan Pan
+     * @return $this
+     */
+    public function setPan($pan)
+    {
+        $this->container['pan'] = $pan;
+
+        return $this;
+    }
+
     /**
      * Returns true if offset exists. False otherwise.
      * @param  integer $offset Offset

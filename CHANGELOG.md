@@ -19,20 +19,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [0.7.2] - 2019-06-28
+
+- Added "pan" field to BankAccountDescriptor which is used in SecupayTransactionProductModelUsedPaymentInstrument (as a temporary solution to get the truncated pan of a used credit card)
+
+
 ## [0.7.1] - 2019-05-21
 
-**Release candidate**
-
-Last steps to the final release of the swagger generated PHP-SDK for the secuconnect API.
-
-- Fixed SecucpayPayoutApi models
+- Fixed SecupayPayoutApi models
 
 
 ## [0.7.0] - 2019-05-15
-
-**Release candidate**
-
-Last steps to the final release of the swagger generated PHP-SDK for the secuconnect API.
 
 - Added PaymentSecupaySofortApi
 - Renamed operation "prepaidContractsMeMappingZvtPost" to "mappingZvt" and corrected the input parameters
@@ -41,28 +38,16 @@ Last steps to the final release of the swagger generated PHP-SDK for the secucon
 
 ## [0.6.2] - 2019-04-17
 
-**Release candidate**
-
-Last steps to the final release of the swagger generated PHP-SDK for the secuconnect API.
-
 - Added "accrual" to "PaymentTransactionsProductModel"
 - Added "sub_transactions" to "SecupayTransactionProductModel"
 
 
 ## [0.6.1] - 2019-04-04
 
-**Release candidate**
-
-Last steps to the final release of the swagger generated PHP-SDK for the secuconnect API.
-
 - Fix payment transaction cancel call
 
 
 ## [0.6.0] - 2019-04-01
-
-**Release candidate**
-
-Last steps to the final release of the swagger generated PHP-SDK for the secuconnect API.
 
 #### LoyaltyMerchantcardsApi
 
@@ -90,18 +75,10 @@ Last steps to the final release of the swagger generated PHP-SDK for the secucon
 
 ## [0.5.7.1] - 2019-03-29
 
-**Release candidate**
-
-Release candidate of the swagger generated PHP-SDK for the secuconnect API.
-
 - Fix revoke accrual call
 
 
 ## [0.5.6] - 2019-03-25
-
-**Release candidate**
-
-Release candidate of the swagger generated PHP-SDK for the secuconnect API.
 
 - Fix missing accrual call
 - Fix handling of Access-Token if the cached token is invalid
@@ -112,27 +89,15 @@ Release candidate of the swagger generated PHP-SDK for the secuconnect API.
 
 ## [0.5.5] - 2019-03-21
 
-**Release candidate**
-
-Release candidate of the swagger generated PHP-SDK for the secuconnect API.
-
 - Fix SmartTransactionsProductModel and there relations
 
 
 ## [0.5.4] - 2019-03-13
 
-**Release candidate**
-
-Release candidate of the swagger generated PHP-SDK for the secuconnect API.
-
 - Fix SmartTransactionsProductModel
 
 
 ## [0.5.3] - 2019-03-12
-
-**Release candidate**
-
-Release candidate of the swagger generated PHP-SDK for the secuconnect API.
 
 - Fix STOMP (autoload, connection, ...)
 - Fix links in "docs/README.md"
@@ -140,28 +105,16 @@ Release candidate of the swagger generated PHP-SDK for the secuconnect API.
 
 ## [0.5.2] - 2019-03-11
 
-**Release candidate**
-
-Release candidate of the swagger generated PHP-SDK for the secuconnect API.
-
 - Fix STOMP
 
 
 ## [0.5.1] - 2019-03-01
-
-**Release candidate**
-
-Release candidate of the swagger generated PHP-SDK for the secuconnect API.
 
 - Cosmetics
 - Bug fix for Authenticator::authenticateByDevice()
 
 
 ## [0.5.0] - 2019-02-28
-
-**Release candidate**
-
-Release candidate of the swagger generated PHP-SDK for the secuconnect API.
 
 - Authenticator was refactored: Please use on of the following methods to authenticate:
     - Authenticator::authenticateByApplicationUser()
