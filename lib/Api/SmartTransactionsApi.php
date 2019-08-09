@@ -769,41 +769,47 @@ class SmartTransactionsApi
     /**
      * Operation prepare
      *
-     * POST Smart/Transactions/stx_xxx/prepare
+     * POST Smart/Transactions/stx_xxx/prepare/{paymentMethod}
      *
      * @param string $smart_transaction_id Smart transaction id (required)
+     * @param string $payment_method Payment method (required)
      * @param \Secuconnect\Client\Model\SmartTransactionsPrepare $body Information which customer and container will be used to this operation (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartTransactionsProductModel
      */
-    public function prepare($smart_transaction_id, $body)
+    public function prepare($smart_transaction_id, $payment_method, $body)
     {
-        list($response) = $this->prepareWithHttpInfo($smart_transaction_id, $body);
+        list($response) = $this->prepareWithHttpInfo($smart_transaction_id, $payment_method, $body);
         return $response;
     }
 
     /**
      * Operation prepareWithHttpInfo
      *
-     * POST Smart/Transactions/stx_xxx/prepare
+     * POST Smart/Transactions/stx_xxx/prepare/{paymentMethod}
      *
      * @param string $smart_transaction_id Smart transaction id (required)
+     * @param string $payment_method Payment method (required)
      * @param \Secuconnect\Client\Model\SmartTransactionsPrepare $body Information which customer and container will be used to this operation (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function prepareWithHttpInfo($smart_transaction_id, $body)
+    public function prepareWithHttpInfo($smart_transaction_id, $payment_method, $body)
     {
         // verify the required parameter 'smart_transaction_id' is set
         if ($smart_transaction_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $smart_transaction_id when calling prepare');
+        }
+        // verify the required parameter 'payment_method' is set
+        if ($payment_method === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $payment_method when calling prepare');
         }
         // verify the required parameter 'body' is set
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling prepare');
         }
         // parse inputs
-        $resourcePath = "/Smart/Transactions/{smartTransactionId}/prepare";
+        $resourcePath = "/Smart/Transactions/{smartTransactionId}/prepare/{paymentMethod}";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -819,6 +825,14 @@ class SmartTransactionsApi
             $resourcePath = str_replace(
                 "{" . "smartTransactionId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($smart_transaction_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($payment_method !== null) {
+            $resourcePath = str_replace(
+                "{" . "paymentMethod" . "}",
+                $this->apiClient->getSerializer()->toPathValue($payment_method),
                 $resourcePath
             );
         }
@@ -850,7 +864,7 @@ class SmartTransactionsApi
                     $httpBody,
                     $headerParams,
                     '\Secuconnect\Client\Model\SmartTransactionsProductModel',
-                    '/Smart/Transactions/{smartTransactionId}/prepare'
+                    '/Smart/Transactions/{smartTransactionId}/prepare/{paymentMethod}'
                 );
 
                 return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\SmartTransactionsProductModel', $httpHeader), $statusCode, $httpHeader];

@@ -19,24 +19,46 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [0.8.0] - 2019-08-09
+
+### Added
+
+- Added "mandate" field to SecupayTransactionProductModel
+
+### Changed
+
+- \Secuconnect\Client\Api\SmartTransactionsApi::prepare has now 3 parameter ($smart_transaction_id, $payment_method, $body)
+
+
 ## [0.7.2] - 2019-06-28
+
+### Added
 
 - Added "pan" field to BankAccountDescriptor which is used in SecupayTransactionProductModelUsedPaymentInstrument (as a temporary solution to get the truncated pan of a used credit card)
 
 
 ## [0.7.1] - 2019-05-21
 
+### Fixed
+
 - Fixed SecupayPayoutApi models
 
 
 ## [0.7.0] - 2019-05-15
 
+### Added
+
 - Added PaymentSecupaySofortApi
+
+### Changed
+
 - Renamed operation "prepaidContractsMeMappingZvtPost" to "mappingZvt" and corrected the input parameters
 - The default cache directory is now defined as an absolute path
 
 
 ## [0.6.2] - 2019-04-17
+
+### Added
 
 - Added "accrual" to "PaymentTransactionsProductModel"
 - Added "sub_transactions" to "SecupayTransactionProductModel"
@@ -44,10 +66,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.6.1] - 2019-04-04
 
+### Fixed
+
 - Fix payment transaction cancel call
 
 
 ## [0.6.0] - 2019-04-01
+
+### Changed
 
 #### LoyaltyMerchantcardsApi
 
@@ -75,15 +101,23 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.5.7.1] - 2019-03-29
 
+### Fixed
+
 - Fix revoke accrual call
 
 
 ## [0.5.6] - 2019-03-25
 
+### Fixed
+
 - Fix missing accrual call
 - Fix handling of Access-Token if the cached token is invalid
 - Fix delete cache item
 - Fix error handling: Every API method should now return a ProductExceptionPayload in case of an API error from the seuconnect API
+
+
+### Removed
+
 - Remove unused models: SecupayTransactionProductModelRedirectUrl, SecupayTransactionProductDTORedirectUrl and PaymentTransactionsProductModelMerchant
 
 
@@ -180,3 +214,5 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 [0.6.2]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.6.1...0.6.2
 [0.7.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.6.2...0.7.0
 [0.7.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.7.0...0.7.1
+[0.7.2]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.7.1...0.7.2
+[0.8.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.7.2...0.8.0

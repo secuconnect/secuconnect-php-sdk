@@ -32,7 +32,8 @@ class PaymentContainerMandate implements ArrayAccess
         'bic' => 'string',
         'type' => 'string',
         'status' => 'string',
-        'identification' => 'string'
+        'identification' => 'string',
+        'creditor_id' => 'string'
     ];
 
     /**
@@ -45,7 +46,8 @@ class PaymentContainerMandate implements ArrayAccess
         'bic' => null,
         'type' => null,
         'status' => null,
-        'identification' => null
+        'identification' => null,
+        'creditor_id' => null
     ];
 
     public static function swaggerTypes()
@@ -68,7 +70,8 @@ class PaymentContainerMandate implements ArrayAccess
         'bic' => 'bic',
         'type' => 'type',
         'status' => 'status',
-        'identification' => 'identification'
+        'identification' => 'identification',
+        'creditor_id' => 'creditor_id'
     ];
 
 
@@ -82,7 +85,8 @@ class PaymentContainerMandate implements ArrayAccess
         'bic' => 'setBic',
         'type' => 'setType',
         'status' => 'setStatus',
-        'identification' => 'setIdentification'
+        'identification' => 'setIdentification',
+        'creditor_id' => 'setCreditorId'
     ];
 
 
@@ -96,7 +100,8 @@ class PaymentContainerMandate implements ArrayAccess
         'bic' => 'getBic',
         'type' => 'getType',
         'status' => 'getStatus',
-        'identification' => 'getIdentification'
+        'identification' => 'getIdentification',
+        'creditor_id' => 'getCreditorId'
     ];
 
     public static function attributeMap()
@@ -136,6 +141,7 @@ class PaymentContainerMandate implements ArrayAccess
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['identification'] = isset($data['identification']) ? $data['identification'] : null;
+        $this->container['creditor_id'] = isset($data['creditor_id']) ? $data['creditor_id'] : null;
     }
 
     /**
@@ -285,6 +291,27 @@ class PaymentContainerMandate implements ArrayAccess
     public function setIdentification($identification)
     {
         $this->container['identification'] = $identification;
+
+        return $this;
+    }
+
+    /**
+     * Gets creditor_id
+     * @return string
+     */
+    public function getCreditorId()
+    {
+        return $this->container['creditor_id'];
+    }
+
+    /**
+     * Sets creditor_id
+     * @param string $creditor_id Creditor id
+     * @return $this
+     */
+    public function setCreditorId($creditor_id)
+    {
+        $this->container['creditor_id'] = $creditor_id;
 
         return $this;
     }

@@ -46,7 +46,8 @@ class SecupayTransactionProductModel implements ArrayAccess
         'redirect_url' => '\Secuconnect\Client\Model\SecupayRedirectUrl',
         'iframe_url' => 'string',
         'container' => '\Secuconnect\Client\Model\PaymentContainersProductModel',
-        'sub_transactions' => '\Secuconnect\Client\Model\SecupaySubTransactionProductModel[]'
+        'sub_transactions' => '\Secuconnect\Client\Model\SecupaySubTransactionProductModel[]',
+        'mandate' => '\Secuconnect\Client\Model\PaymentContainerMandate'
     ];
 
     /**
@@ -73,7 +74,8 @@ class SecupayTransactionProductModel implements ArrayAccess
         'redirect_url' => null,
         'iframe_url' => null,
         'container' => null,
-        'sub_transactions' => null
+        'sub_transactions' => null,
+        'mandate' => null
     ];
 
     public static function swaggerTypes()
@@ -110,7 +112,8 @@ class SecupayTransactionProductModel implements ArrayAccess
         'redirect_url' => 'redirect_url',
         'iframe_url' => 'iframe_url',
         'container' => 'container',
-        'sub_transactions' => 'sub_transactions'
+        'sub_transactions' => 'sub_transactions',
+        'mandate' => 'mandate'
     ];
 
 
@@ -138,7 +141,8 @@ class SecupayTransactionProductModel implements ArrayAccess
         'redirect_url' => 'setRedirectUrl',
         'iframe_url' => 'setIframeUrl',
         'container' => 'setContainer',
-        'sub_transactions' => 'setSubTransactions'
+        'sub_transactions' => 'setSubTransactions',
+        'mandate' => 'setMandate'
     ];
 
 
@@ -166,7 +170,8 @@ class SecupayTransactionProductModel implements ArrayAccess
         'redirect_url' => 'getRedirectUrl',
         'iframe_url' => 'getIframeUrl',
         'container' => 'getContainer',
-        'sub_transactions' => 'getSubTransactions'
+        'sub_transactions' => 'getSubTransactions',
+        'mandate' => 'getMandate'
     ];
 
     public static function attributeMap()
@@ -220,6 +225,7 @@ class SecupayTransactionProductModel implements ArrayAccess
         $this->container['iframe_url'] = isset($data['iframe_url']) ? $data['iframe_url'] : null;
         $this->container['container'] = isset($data['container']) ? $data['container'] : null;
         $this->container['sub_transactions'] = isset($data['sub_transactions']) ? $data['sub_transactions'] : null;
+        $this->container['mandate'] = isset($data['mandate']) ? $data['mandate'] : null;
     }
 
     /**
@@ -663,6 +669,27 @@ class SecupayTransactionProductModel implements ArrayAccess
     public function setSubTransactions($sub_transactions)
     {
         $this->container['sub_transactions'] = $sub_transactions;
+
+        return $this;
+    }
+
+    /**
+     * Gets mandate
+     * @return \Secuconnect\Client\Model\PaymentContainerMandate
+     */
+    public function getMandate()
+    {
+        return $this->container['mandate'];
+    }
+
+    /**
+     * Sets mandate
+     * @param \Secuconnect\Client\Model\PaymentContainerMandate $mandate Payment container mandate
+     * @return $this
+     */
+    public function setMandate($mandate)
+    {
+        $this->container['mandate'] = $mandate;
 
         return $this;
     }
