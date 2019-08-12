@@ -7,7 +7,6 @@ Method | HTTP request | Description
 [**getSecupaypayout**](PaymentSecupayPayoutApi.md#getSecupaypayout) | **GET** /Payment/Secupaypayout/{paymentPayoutId} | GET Payment/Secupaypayout/{paymentPayoutId}
 [**paymentSecupaypayoutPost**](PaymentSecupayPayoutApi.md#paymentSecupaypayoutPost) | **POST** /Payment/Secupaypayout | POST Payment/Secupaypayout
 
-
 # **getSecupaypayout**
 > \Secuconnect\Client\Model\SecupayPayoutProductModel getSecupaypayout($payment_payout_id)
 
@@ -39,7 +38,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_payout_id** | **string**| Payment payout id |
+ **payment_payout_id** | **string**| Payment payout id | [required]
 
 ### Return type
 
@@ -51,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -87,7 +86,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Secuconnect\Client\Model\SecupayPayoutDTO**](../Model/SecupayPayoutDTO.md)| Payout payment transaction input properties | [optional]
+ **body** | [**\Secuconnect\Client\Model\SecupayPayoutDTO**](../Model/SecupayPayoutDTO.md)| Payout payment transaction input properties |
 
 ### Return type
 

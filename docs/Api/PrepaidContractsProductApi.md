@@ -4,13 +4,12 @@ All URIs are relative to *https://connect-testing.secupay-ag.de/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**mappingZvt**](PrepaidContractsProductApi.md#mappingZvt) | **POST** /Prepaid/Contracts/{prepaidContractId}/mappingZvt | POST Prepaid/Contracts/null/mappingZvt
-
+[**mappingZvt**](PrepaidContractsProductApi.md#mappingZvt) | **POST** /Prepaid/Contracts/{prepaidContractId}/mappingZvt | POST Prepaid/Contracts/me/mappingZvt
 
 # **mappingZvt**
 > \Secuconnect\Client\Model\PrepaidMappingZvt mappingZvt($prepaid_contract_id, $body)
 
-POST Prepaid/Contracts/null/mappingZvt
+POST Prepaid/Contracts/me/mappingZvt
 
 Gets prepaid item id from product id which is configured in prepaid contracts
 
@@ -39,8 +38,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **prepaid_contract_id** | **string**| Prepaid contract id |
- **body** | [**\Secuconnect\Client\Model\PrepaidZvtDTO**](../Model/PrepaidZvtDTO.md)| Prepaid transaction input properties | [optional]
+ **prepaid_contract_id** | **string**| Prepaid contract id | [required]
+ **body** | [**\Secuconnect\Client\Model\PrepaidZvtDTO**](../Model/PrepaidZvtDTO.md)| Prepaid transaction input properties |
 
 ### Return type
 
