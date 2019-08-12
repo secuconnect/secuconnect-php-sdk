@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **type** | **string** | Type of payment container | 
 **payment_information** | [**\Secuconnect\Client\Model\PaymentInformation**](PaymentInformation.md) | Payment information | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

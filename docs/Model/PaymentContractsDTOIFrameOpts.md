@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **logo_base64** | **string** | Logo base64-enconded | 
 **cession** | **string** | Cession (&#39;formal&#39;, &#39;personal&#39;) | [default to 'personal']
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

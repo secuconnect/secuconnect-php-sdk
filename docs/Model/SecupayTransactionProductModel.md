@@ -24,6 +24,6 @@ Name | Type | Description | Notes
 **container** | [**\Secuconnect\Client\Model\PaymentContainersProductModel**](PaymentContainersProductModel.md) | The container object | 
 **sub_transactions** | [**\Secuconnect\Client\Model\SecupaySubTransactionProductModel[]**](SecupaySubTransactionProductModel.md) | A list of sub-transactions (for mixed basket) | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

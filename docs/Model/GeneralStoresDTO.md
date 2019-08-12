@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **photo** | **string[]** | New photos | 
 **open_hours** | [**\Secuconnect\Client\Model\OpenHours[]**](OpenHours.md) | Open hours in every day | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

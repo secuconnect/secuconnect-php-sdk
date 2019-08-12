@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **size** | **int** | The size of the file in bytes | 
 **url** | **string** | The download-url to this file | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

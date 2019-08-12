@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **stock_warn_limit** | **string** | Loyalty card group stock warn limit | 
 **picture** | **string** | Loyalty card group picture | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

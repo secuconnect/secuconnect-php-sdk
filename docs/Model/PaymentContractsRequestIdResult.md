@@ -7,6 +7,6 @@ Name | Type | Description | Notes
 **apikey** | **string** | Returns the apikey of the created merchant | 
 **payin_account** | [**\Secuconnect\Client\Model\PaymentInformation**](PaymentInformation.md) | The bank account you can use for pay in. | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

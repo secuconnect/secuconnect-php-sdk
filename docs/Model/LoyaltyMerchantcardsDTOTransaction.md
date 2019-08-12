@@ -13,6 +13,6 @@ Name | Type | Description | Notes
 **amount_split_allowed** | **string** | Amount split allowed | 
 **merchant_id** | **string** | Merchant id | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

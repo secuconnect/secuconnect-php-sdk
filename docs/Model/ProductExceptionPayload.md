@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **code** | **string** | HTTP code corresponding to error | 
 **support_id** | **string** | ID by which support team can relate error with action(s) that caused it | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

@@ -18,6 +18,6 @@ Name | Type | Description | Notes
 **reference_id** | **string** | Reference id - must be unique for the entire basket | 
 **sub_basket** | [**\Secuconnect\Client\Model\SecupayBasketItem[]**](SecupayBasketItem.md) | Mixed-Basket: All basket items for one merchant. | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

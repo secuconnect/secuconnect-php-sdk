@@ -23,6 +23,6 @@ Name | Type | Description | Notes
 **is_base_card** | **bool** | Information whether loyalty merchant card is base card | 
 **passcode** | **int** | Loyalty merchant card passcode | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

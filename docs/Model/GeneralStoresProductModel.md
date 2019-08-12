@@ -31,6 +31,6 @@ Name | Type | Description | Notes
 **invited_by** | [**\Secuconnect\Client\Model\InvitedBy[]**](InvitedBy.md) | Invited by | 
 **has_beacon** | **bool** | Has beacon | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

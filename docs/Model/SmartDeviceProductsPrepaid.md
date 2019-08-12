@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **demo_force** | **bool** | Demo force | 
 **vtc_tid** | **string** | Vtc tid | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

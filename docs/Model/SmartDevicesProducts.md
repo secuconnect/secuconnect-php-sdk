@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **vtm** | [**\Secuconnect\Client\Model\SmartDeviceProductsEnabled**](SmartDeviceProductsEnabled.md) | Vtm | 
 **prepaid** | [**\Secuconnect\Client\Model\SmartDeviceProductsPrepaid**](SmartDeviceProductsPrepaid.md) | Prepaid | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

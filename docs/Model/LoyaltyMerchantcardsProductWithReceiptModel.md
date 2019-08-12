@@ -25,6 +25,6 @@ Name | Type | Description | Notes
 **receipt_header** | [**\Secuconnect\Client\Model\ReceiptType[]**](ReceiptType.md) | Receipt header | 
 **receipt** | [**\Secuconnect\Client\Model\ReceiptTypeValue[]**](ReceiptTypeValue.md) | Receipt | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

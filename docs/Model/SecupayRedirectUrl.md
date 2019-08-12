@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **url_failure** | **string** | After canceling or on errors the payer will be redirected to this page and can select there an another payment method. | 
 **url_push** | **string** | The secupay system will be send status change notifications to this URL. | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

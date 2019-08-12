@@ -14,6 +14,6 @@ Name | Type | Description | Notes
 **base_version** | **string** | Base version | 
 **terminal_type** | **string** | Terminal type | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

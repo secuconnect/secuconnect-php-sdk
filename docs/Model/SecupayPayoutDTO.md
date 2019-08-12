@@ -14,6 +14,6 @@ Name | Type | Description | Notes
 **order_id** | **string** | Specifying an order number. Depending on the contract setting, this must be unique for each payment. | 
 **transaction_list** | [**\Secuconnect\Client\Model\SecupayTransactionListItem[]**](SecupayTransactionListItem.md) | A list of transaction items | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

@@ -17,6 +17,6 @@ Name | Type | Description | Notes
 **checkout_options** | [**\Secuconnect\Client\Model\GeneralMerchantsCheckoutOptions**](GeneralMerchantsCheckoutOptions.md) | Checkout options | 
 **urls** | [**\Secuconnect\Client\Model\GeneralMerchantsUrls[]**](GeneralMerchantsUrls.md) | Urls | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

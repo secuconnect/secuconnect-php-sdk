@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **unique_order_id** | **bool** | Bool, default FALSE. If TRUE, an error message will be thrown if you try to create a new payment transaction with the same order_id of an previous transaction. | 
 **scoring** | **bool** | Bool, default TRUE. If FALSE, the customer scoring is disabled for your payment contract | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

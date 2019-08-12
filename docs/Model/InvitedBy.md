@@ -7,6 +7,6 @@ Name | Type | Description | Notes
 **id** | **string** | Id of invited by | 
 **invited** | **string** | Invited | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

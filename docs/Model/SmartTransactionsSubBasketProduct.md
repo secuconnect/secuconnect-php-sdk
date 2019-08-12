@@ -18,6 +18,6 @@ Name | Type | Description | Notes
 **contract_id** | **string** | contract id | 
 **group** | [**\Secuconnect\Client\Model\SmartTransactionsBasketProductGroup[]**](SmartTransactionsBasketProductGroup.md) | Group | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 
