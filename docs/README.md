@@ -4,6 +4,8 @@ For more information please visit: [https://developer.secuconnect.com/](https://
 
 All URIs are relative to `https://connect.secucard.com/api/v2`
 
+# Documentation for API-Endpoints
+
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DocumentUploadsApi* | [**documentUploadsMultipartPost**](Api/DocumentUploadsApi.md#documentuploadsmultipartpost) | **POST** /Document/Uploads?multipart | POST Document/Uploads
@@ -133,7 +135,7 @@ Class | Method | HTTP request | Description
 *PaymentTransactionsApi* | [**getOne**](Api/PaymentTransactionsApi.md#getone) | **GET** /Payment/Transactions/{paymentTransactionId} | GET Payment/Transactions/{paymentTransactionId}
 *PaymentTransactionsApi* | [**getShippingUrl**](Api/PaymentTransactionsApi.md#getshippingurl) | **GET** /Payment/Transactions/{paymentTransactionId}/shippingUrl | GET Payment/Transactions/{paymentTransactionId}/shippingUrl
 *PaymentTransactionsApi* | [**revokeAccrual**](Api/PaymentTransactionsApi.md#revokeaccrual) | **POST** /Payment/Transactions/{paymentTransactionId}/revokeAccrual | POST Payment/Transactions/{paymentTransactionId}/revokeAccrual
-*PrepaidContractsProductApi* | [**mappingZvt**](Api/PrepaidContractsProductApi.md#mappingzvt) | **POST** /Prepaid/Contracts/{prepaidContractId}/mappingZvt | POST Prepaid/Contracts/null/mappingZvt
+*PrepaidContractsProductApi* | [**mappingZvt**](Api/PrepaidContractsProductApi.md#mappingzvt) | **POST** /Prepaid/Contracts/{prepaidContractId}/mappingZvt | POST Prepaid/Contracts/me/mappingZvt
 *PrepaidItemsApi* | [**getAll**](Api/PrepaidItemsApi.md#getall) | **GET** /Prepaid/Items | GET Prepaid/Items
 *PrepaidItemsApi* | [**getOne**](Api/PrepaidItemsApi.md#getone) | **GET** /Prepaid/Items/{prepaidItemId} | GET Prepaid/Items/{prepaidItemId}
 *PrepaidSalesProductApi* | [**addSale**](Api/PrepaidSalesProductApi.md#addsale) | **POST** /Prepaid/Sales | POST Prepaid/Sales
@@ -164,7 +166,6 @@ Class | Method | HTTP request | Description
 *SmartTransactionsApi* | [**startEndOfDayReport**](Api/SmartTransactionsApi.md#startendofdayreport) | **POST** /Smart/Transactions/{smartDeviceId}/endOfDay | POST Smart/Transactions/{smartDeviceId}/endOfDay
 *SmartTransactionsApi* | [**startTransaction**](Api/SmartTransactionsApi.md#starttransaction) | **POST** /Smart/Transactions/{smartTransactionId}/start/{paymentMethod} | POST Smart/Transactions/{smartTransactionId}/start/{paymentMethod}
 *SmartTransactionsApi* | [**updateTransaction**](Api/SmartTransactionsApi.md#updatetransaction) | **PUT** /Smart/Transactions/{smartTransactionId} | PUT Smart/Transactions/{smartTransactionId}
-
 
 ## Documentation for models
 
