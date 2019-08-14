@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**contract** | **string** | Contract | 
 **merchant** | **string** | Merchant | 
 **store** | **string** | Store | 
 **terminal** | **string** | Terminal | 
