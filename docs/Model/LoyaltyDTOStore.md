@@ -3,14 +3,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**object** | **string** | LoyaltyDTOStore | [optional] 
-**id** | **string** | LoyaltyDTOStore | [optional] 
-**address_components** | [**\Secuconnect\Client\Model\LoyaltyStoregroupsDTOStoresAddressComponents[]**](LoyaltyStoregroupsDTOStoresAddressComponents.md) | LoyaltyDTOStore | [optional] 
-**address_formatted** | **string** | Address formatted | [optional] 
-**geometry** | **string** | Geometry | [optional] 
-**name** | **string** | Name | [optional] 
-**name_raw** | **string** | Raw name | [optional] 
+**object** | **string** | LoyaltyDTOStore | 
+**id** | **string** | LoyaltyDTOStore | 
+**address_components** | [**\Secuconnect\Client\Model\LoyaltyStoregroupsDTOStoresAddressComponents[]**](LoyaltyStoregroupsDTOStoresAddressComponents.md) | LoyaltyDTOStore | 
+**address_formatted** | **string** | Address formatted | 
+**geometry** | **string** | Geometry | 
+**name** | **string** | Name | 
+**name_raw** | **string** | Raw name | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

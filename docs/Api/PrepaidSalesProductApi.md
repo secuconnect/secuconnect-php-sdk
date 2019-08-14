@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addSale**](PrepaidSalesProductApi.md#addSale) | **POST** /Prepaid/Sales | POST Prepaid/Sales
 
-
 # **addSale**
 > \Secuconnect\Client\Model\PrepaidSalesProductModel addSale($body)
 
@@ -38,7 +37,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Secuconnect\Client\Model\PrepaidSalesProductDTO**](../Model/PrepaidSalesProductDTO.md)| Prepaid transaction input properties | [optional]
+ **body** | [**\Secuconnect\Client\Model\PrepaidSalesProductDTO**](../Model/PrepaidSalesProductDTO.md)| Prepaid transaction input properties |
 
 ### Return type
 
@@ -50,8 +49,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

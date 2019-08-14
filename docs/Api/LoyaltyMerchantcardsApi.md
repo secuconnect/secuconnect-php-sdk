@@ -24,7 +24,6 @@ Method | HTTP request | Description
 [**updateMerchantCard**](LoyaltyMerchantcardsApi.md#updateMerchantCard) | **PUT** /Loyalty/MerchantCards/{loyaltyMerchantCardId} | PUT Loyalty/MerchantCards/{loyaltyMerchantCardId}
 [**validateMerchantCard**](LoyaltyMerchantcardsApi.md#validateMerchantCard) | **POST** /Loyalty/MerchantCards/{loyaltyMerchantCardId}/validateMerchantcard | POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/validateMerchantcard
 
-
 # **addMerchantCard**
 > \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel addMerchantCard($body)
 
@@ -68,8 +67,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -105,7 +104,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyalty_merchant_card_id** | **string**| Loyalty merchant card id |
+ **loyalty_merchant_card_id** | **string**| Loyalty merchant card id | [required]
  **body** | [**\Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCsc**](../Model/LoyaltyMerchantcardsDTOCsc.md)| Information about card |
 
 ### Return type
@@ -118,8 +117,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -155,7 +154,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyalty_merchant_card_id** | **string**| Loyalty merchant card id |
+ **loyalty_merchant_card_id** | **string**| Loyalty merchant card id | [required]
  **body** | [**\Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCheckPasscode**](../Model/LoyaltyMerchantcardsDTOCheckPasscode.md)| Information about card |
 
 ### Return type
@@ -168,8 +167,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -206,8 +205,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **general_merchant_id** | **string**| General merchant id |
- **loyalty_cardgroup_id** | **string**| Loyalty card group id |
+ **general_merchant_id** | **string**| General merchant id | [required]
+ **loyalty_cardgroup_id** | **string**| Loyalty card group id | [required]
  **body** | [**\Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCardsAmount**](../Model/LoyaltyMerchantcardsDTOCardsAmount.md)| Cards amount |
 
 ### Return type
@@ -220,8 +219,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -257,7 +256,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyalty_merchant_card_id** | **string**| Loyalty merchant card id |
+ **loyalty_merchant_card_id** | **string**| Loyalty merchant card id | [required]
  **body** | [**\Secuconnect\Client\Model\LoyaltyMerchantcardsDTOTransaction**](../Model/LoyaltyMerchantcardsDTOTransaction.md)| Transaction properties |
 
 ### Return type
@@ -270,8 +269,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -294,7 +293,7 @@ $api_instance = new Secuconnect\Client\Api\LoyaltyMerchantcardsApi();
 $count = 56; // int | The number of items to return.
 $offset = 56; // int | The position within the whole result set to start returning items (First element is at 0).
 $fields = "fields_example"; // string | List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2
-$q = "q_example"; // string | A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                  A condition may contain:  *                      - wildcard \"*\" for any number of characters  *                      - wildcard \"?\" for one character  *                      - ranges in the form [value TO value]  *  *                  Single expressions may combined by 'AND', 'OR', 'NOT' operators and parenthesis '(', ')' for grouping.  *                  Property names can be nested like \"prop1.prop2\".  *                  Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  *
+$q = "q_example"; // string | A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                   A condition may contain:  *                       - wildcard \"*\" for any number of characters  *                       - wildcard \"?\" for one character  *                       - ranges in the form [value TO value]  *  *                   Single expressions may combined by 'AND', 'OR', 'NOT' operators and parenthesis '(', ')' for grouping.  *                   Property names can be nested like \"prop1.prop2\".  *                   Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  *
 $sort = "sort_example"; // string | String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending 'asc', or descending 'dsc' order.
 
 try {
@@ -310,11 +309,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **count** | **int**| The number of items to return. | [optional]
- **offset** | **int**| The position within the whole result set to start returning items (First element is at 0). | [optional]
- **fields** | **string**| List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 | [optional]
- **q** | **string**| A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                  A condition may contain:  *                      - wildcard \&quot;*\&quot; for any number of characters  *                      - wildcard \&quot;?\&quot; for one character  *                      - ranges in the form [value TO value]  *  *                  Single expressions may combined by &#39;AND&#39;, &#39;OR&#39;, &#39;NOT&#39; operators and parenthesis &#39;(&#39;, &#39;)&#39; for grouping.  *                  Property names can be nested like \&quot;prop1.prop2\&quot;.  *                  Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * | [optional]
- **sort** | **string**| String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#39;asc&#39;, or descending &#39;dsc&#39; order. | [optional]
+ **count** | **int**| The number of items to return. |
+ **offset** | **int**| The position within the whole result set to start returning items (First element is at 0). |
+ **fields** | **string**| List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 |
+ **q** | **string**| A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                   A condition may contain:  *                       - wildcard \&quot;*\&quot; for any number of characters  *                       - wildcard \&quot;?\&quot; for one character  *                       - ranges in the form [value TO value]  *  *                   Single expressions may combined by &#x27;AND&#x27;, &#x27;OR&#x27;, &#x27;NOT&#x27; operators and parenthesis &#x27;(&#x27;, &#x27;)&#x27; for grouping.  *                   Property names can be nested like \&quot;prop1.prop2\&quot;.  *                   Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * |
+ **sort** | **string**| String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#x27;asc&#x27;, or descending &#x27;dsc&#x27; order. |
 
 ### Return type
 
@@ -327,7 +326,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -362,7 +361,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyalty_merchant_card_id** | **string**| Loyalty merchant card id |
+ **loyalty_merchant_card_id** | **string**| Loyalty merchant card id | [required]
 
 ### Return type
 
@@ -375,7 +374,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -410,7 +409,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyalty_merchant_card_id** | **string**| Search one by provided id |
+ **loyalty_merchant_card_id** | **string**| Search one by provided id | [required]
 
 ### Return type
 
@@ -423,7 +422,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -459,8 +458,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyalty_merchant_card_id** | **string**| Merchant card id |
- **loyalty_merchant_id** | **string**| Merchant id |
+ **loyalty_merchant_card_id** | **string**| Merchant card id | [required]
+ **loyalty_merchant_id** | **string**| Merchant id | [required]
 
 ### Return type
 
@@ -473,7 +472,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -509,7 +508,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyalty_merchant_card_id** | **string**| Loyalty merchant card id |
+ **loyalty_merchant_card_id** | **string**| Loyalty merchant card id | [required]
  **body** | [**\Secuconnect\Client\Model\LoyaltyMerchantcardsDTOLock**](../Model/LoyaltyMerchantcardsDTOLock.md)| Information about lock |
 
 ### Return type
@@ -522,8 +521,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -559,7 +558,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyalty_merchant_card_id** | **string**| Loyalty merchant card id |
+ **loyalty_merchant_card_id** | **string**| Loyalty merchant card id | [required]
  **body** | [**\Secuconnect\Client\Model\LoyaltyMerchantcardsDTONewPasscode**](../Model/LoyaltyMerchantcardsDTONewPasscode.md)| Information about card |
 
 ### Return type
@@ -572,8 +571,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -609,7 +608,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyalty_merchant_card_id** | **string**| Loyalty merchant card id |
+ **loyalty_merchant_card_id** | **string**| Loyalty merchant card id | [required]
  **body** | [**\Secuconnect\Client\Model\LoyaltyCustomersDTO**](../Model/LoyaltyCustomersDTO.md)| Loyalty customer properties |
 
 ### Return type
@@ -622,8 +621,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -658,7 +657,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyalty_merchant_card_id** | **string**| Loyalty merchant card id |
+ **loyalty_merchant_card_id** | **string**| Loyalty merchant card id | [required]
 
 ### Return type
 
@@ -671,7 +670,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -707,7 +706,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyalty_merchant_card_id** | **string**| Loyalty merchant card id |
+ **loyalty_merchant_card_id** | **string**| Loyalty merchant card id | [required]
  **body** | [**\Secuconnect\Client\Model\LoyaltyMerchantcardsDTOResetPasscode**](../Model/LoyaltyMerchantcardsDTOResetPasscode.md)| Information about card |
 
 ### Return type
@@ -720,8 +719,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -757,8 +756,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyalty_merchant_card_id** | **string**| Loyalty merchant card id |
- **loyalty_customer_id** | **string**| Loyalty customer id |
+ **loyalty_merchant_card_id** | **string**| Loyalty merchant card id | [required]
+ **loyalty_customer_id** | **string**| Loyalty customer id | [required]
 
 ### Return type
 
@@ -771,7 +770,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -807,7 +806,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyalty_merchant_card_id** | **string**| Loyalty merchant card id |
+ **loyalty_merchant_card_id** | **string**| Loyalty merchant card id | [required]
  **body** | [**\Secuconnect\Client\Model\LoyaltyMerchantcardsDTOLock**](../Model/LoyaltyMerchantcardsDTOLock.md)| Information about unlock |
 
 ### Return type
@@ -820,8 +819,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -857,8 +856,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyalty_merchant_card_id** | **string**| Loyalty merchant card id |
- **loyalty_card_group_id** | **string**| Loyalty card group id |
+ **loyalty_merchant_card_id** | **string**| Loyalty merchant card id | [required]
+ **loyalty_card_group_id** | **string**| Loyalty card group id | [required]
 
 ### Return type
 
@@ -871,7 +870,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -907,7 +906,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyalty_merchant_card_id** | **string**| Loyalty merchant card id |
+ **loyalty_merchant_card_id** | **string**| Loyalty merchant card id | [required]
  **body** | [**\Secuconnect\Client\Model\LoyaltyMerchantcardsDTO**](../Model/LoyaltyMerchantcardsDTO.md)| Loyalty merchant card properties |
 
 ### Return type
@@ -920,8 +919,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -957,7 +956,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyalty_merchant_card_id** | **string**| Loyalty merchant card id |
+ **loyalty_merchant_card_id** | **string**| Loyalty merchant card id | [required]
  **body** | [**\Secuconnect\Client\Model\LoyaltyMerchantcardsDTOValidateMerchantCard**](../Model/LoyaltyMerchantcardsDTOValidateMerchantCard.md)| Information about card |
 
 ### Return type
@@ -970,8 +969,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

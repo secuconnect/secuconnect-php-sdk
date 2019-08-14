@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**customer** | [**\Secuconnect\Client\Model\PaymentContainersDTOCustomer**](PaymentContainersDTOCustomer.md) |  | [optional] 
-**type** | **string** | Type of Payment Containers | [optional] 
-**private** | [**\Secuconnect\Client\Model\PaymentContainersDTOPrivate**](PaymentContainersDTOPrivate.md) |  | [optional] 
+**customer** | [**\Secuconnect\Client\Model\PaymentContainersDTOCustomer**](PaymentContainersDTOCustomer.md) |  | 
+**type** | **string** | Type of Payment Containers | 
+**private** | [**\Secuconnect\Client\Model\PaymentContainersDTOPrivate**](PaymentContainersDTOPrivate.md) |  | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

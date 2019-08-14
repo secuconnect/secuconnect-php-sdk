@@ -19,11 +19,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
-## [0.8.0] - 2019-08-09
+## [0.8.0] - 2019-08-14
 
 ### Added
 
 - Added "mandate" field to SecupayTransactionProductModel
+- Added "contract" field to SmartDevicesDTO
 
 ### Changed
 

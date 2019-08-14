@@ -27,6 +27,7 @@ class SmartDevicesDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'contract' => 'string',
         'merchant' => 'string',
         'store' => 'string',
         'terminal' => 'string',
@@ -44,6 +45,7 @@ class SmartDevicesDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'contract' => null,
         'merchant' => null,
         'store' => null,
         'terminal' => null,
@@ -71,6 +73,7 @@ class SmartDevicesDTO implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'contract' => 'contract',
         'merchant' => 'merchant',
         'store' => 'store',
         'terminal' => 'terminal',
@@ -89,6 +92,7 @@ class SmartDevicesDTO implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'contract' => 'setContract',
         'merchant' => 'setMerchant',
         'store' => 'setStore',
         'terminal' => 'setTerminal',
@@ -107,6 +111,7 @@ class SmartDevicesDTO implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'contract' => 'getContract',
         'merchant' => 'getMerchant',
         'store' => 'getStore',
         'terminal' => 'getTerminal',
@@ -150,6 +155,7 @@ class SmartDevicesDTO implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['store'] = isset($data['store']) ? $data['store'] : null;
         $this->container['terminal'] = isset($data['terminal']) ? $data['terminal'] : null;
@@ -186,6 +192,27 @@ class SmartDevicesDTO implements ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets contract
+     * @return string
+     */
+    public function getContract()
+    {
+        return $this->container['contract'];
+    }
+
+    /**
+     * Sets contract
+     * @param string $contract Contract
+     * @return $this
+     */
+    public function setContract($contract)
+    {
+        $this->container['contract'] = $contract;
+
+        return $this;
+    }
 
     /**
      * Gets merchant

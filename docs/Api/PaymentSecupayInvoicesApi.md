@@ -14,7 +14,6 @@ Method | HTTP request | Description
 [**setShippingInformationByPaymentId**](PaymentSecupayInvoicesApi.md#setShippingInformationByPaymentId) | **PUT** /Payment/{paymentMethod}/{paymentId}/shippingInformation | PUT Payment/{paymentMethod}/{paymentId}/shippingInformation
 [**updateBasketByPaymentId**](PaymentSecupayInvoicesApi.md#updateBasketByPaymentId) | **PUT** /Payment/{paymentMethod}/{paymentId}/basket | PUT Payment/{paymentMethod}/{paymentId}/basket
 
-
 # **assignExternalInvoicePdf**
 > \Secuconnect\Client\Model\SecupayTransactionExternalInvoicePdf assignExternalInvoicePdf($payment_method, $payment_id, $document_id, $body)
 
@@ -49,9 +48,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_method** | **string**| Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) |
- **payment_id** | **string**| Payment id |
- **document_id** | **string**| Document id |
+ **payment_method** | **string**| Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) | [required]
+ **payment_id** | **string**| Payment id | [required]
+ **document_id** | **string**| Document id | [required]
  **body** | [**\Secuconnect\Client\Model\SecupayTransactionDTOExternalInvoicePdf**](../Model/SecupayTransactionDTOExternalInvoicePdf.md)| Request body for assigning external invoice pdf |
 
 ### Return type
@@ -64,8 +63,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -102,9 +101,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_method** | **string**| Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) |
- **payment_id** | **string**| Payment id |
- **body** | [**\Secuconnect\Client\Model\SecupayTransactionCancelDTO**](../Model/SecupayTransactionCancelDTO.md)| Cancel payment transaction input properties | [optional]
+ **payment_method** | **string**| Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) | [required]
+ **payment_id** | **string**| Payment id | [required]
+ **body** | [**\Secuconnect\Client\Model\SecupayTransactionCancelDTO**](../Model/SecupayTransactionCancelDTO.md)| Cancel payment transaction input properties |
 
 ### Return type
 
@@ -116,8 +115,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -154,9 +153,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_method** | **string**| Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) |
- **payment_id** | **string**| Payment id |
- **body** | [**\Secuconnect\Client\Model\SecupayTransactionCaptureDTO**](../Model/SecupayTransactionCaptureDTO.md)| Capture payment transaction input properties | [optional]
+ **payment_method** | **string**| Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) | [required]
+ **payment_id** | **string**| Payment id | [required]
+ **body** | [**\Secuconnect\Client\Model\SecupayTransactionCaptureDTO**](../Model/SecupayTransactionCaptureDTO.md)| Capture payment transaction input properties |
 
 ### Return type
 
@@ -168,8 +167,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -216,8 +215,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -252,7 +251,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_invoice_id** | **string**| Payment transaction ID |
+ **payment_invoice_id** | **string**| Payment transaction ID | [required]
 
 ### Return type
 
@@ -265,7 +264,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -300,7 +299,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Secuconnect\Client\Model\SecupayTransactionProductDTO**](../Model/SecupayTransactionProductDTO.md)| Invoice payment transaction input properties | [optional]
+ **body** | [**\Secuconnect\Client\Model\SecupayTransactionProductDTO**](../Model/SecupayTransactionProductDTO.md)| Invoice payment transaction input properties |
 
 ### Return type
 
@@ -312,8 +311,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -350,8 +349,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_method** | **string**| Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) |
- **payment_id** | **string**| Payment id |
+ **payment_method** | **string**| Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) | [required]
+ **payment_id** | **string**| Payment id | [required]
  **body** | [**\Secuconnect\Client\Model\SecupayTransactionReverseAccrualDTO**](../Model/SecupayTransactionReverseAccrualDTO.md)| Reverse accrual input properties |
 
 ### Return type
@@ -364,8 +363,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -387,7 +386,7 @@ Secuconnect\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOU
 $api_instance = new Secuconnect\Client\Api\PaymentSecupayInvoicesApi();
 $payment_method = "payment_method_example"; // string | Payment method (secupaydebits, secupayprepays, secupayinvoices, ...)
 $payment_id = "payment_id_example"; // string | Payment id
-$body = new \Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO(); // \Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO | Shipping information properties
+$body = new \Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO(); // \Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO | Shipping information propertie
 
 try {
     $result = $api_instance->setShippingInformationByPaymentId($payment_method, $payment_id, $body);
@@ -402,9 +401,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_method** | **string**| Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) |
- **payment_id** | **string**| Payment id |
- **body** | [**\Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO**](../Model/SecupayTransactionSetShippingInformationDTO.md)| Shipping information properties |
+ **payment_method** | **string**| Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) | [required]
+ **payment_id** | **string**| Payment id | [required]
+ **body** | [**\Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO**](../Model/SecupayTransactionSetShippingInformationDTO.md)| Shipping information propertie |
 
 ### Return type
 
@@ -416,8 +415,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -454,8 +453,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_method** | **string**| Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) |
- **payment_id** | **string**| Payment id |
+ **payment_method** | **string**| Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) | [required]
+ **payment_id** | **string**| Payment id | [required]
  **body** | [**\Secuconnect\Client\Model\SecupayTransactionUpdateBasketDTO**](../Model/SecupayTransactionUpdateBasketDTO.md)| Update basket input properties |
 
 ### Return type
@@ -468,8 +467,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
