@@ -19,6 +19,32 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [1.0.0] - 2019-09-09
+
+### Added
+
+- PaymentContractsDTORequestId: parameter "create_first_store" and "store_name"
+- PaymentContractsRequestIdResult: parameter "merchant" and "store"
+- SmartDevicesProductModel: parameter "contract"
+- SmartTransactionsPrepare: some internal parameter
+- SmartTransactionsProductModel: parameter "iframe_url"
+
+### Changed
+
+- \[BREAKING\] PaymentContractsRequestIdResult: parameter "contract" is now a instance of "ProductInstanceUID" instead of "PaymentContractsProductModel"
+
+### Removed
+
+- GeneralMerchantsApi: addMerchants() and related calls
+- PaymentTransactionsApi: deprecated functions
+  - paymentTransactionsIdCancelPost()
+  - paymentTransactionsGet()
+  - paymentTransactionsGetById()
+  - paymentTransactionsIdShippingUrlGet()
+- PrepaidSalesProductApi: deprecated functions
+  - prepaidSalesPost()
+
+
 ## [0.8.0] - 2019-08-14
 
 ### Added

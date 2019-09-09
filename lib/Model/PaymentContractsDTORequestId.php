@@ -31,7 +31,9 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'project' => 'string',
         'payout_account' => '\Secuconnect\Client\Model\PaymentInformation',
         'iframe_opts' => '\Secuconnect\Client\Model\PaymentContractsDTOIFrameOpts',
-        'payin_account' => 'bool'
+        'payin_account' => 'bool',
+        'create_first_store' => 'bool',
+        'store_name' => 'string'
     ];
 
     /**
@@ -43,7 +45,9 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'project' => null,
         'payout_account' => null,
         'iframe_opts' => null,
-        'payin_account' => null
+        'payin_account' => null,
+        'create_first_store' => null,
+        'store_name' => null
     ];
 
     public static function swaggerTypes()
@@ -65,7 +69,9 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'project' => 'project',
         'payout_account' => 'payout_account',
         'iframe_opts' => 'iframe_opts',
-        'payin_account' => 'payin_account'
+        'payin_account' => 'payin_account',
+        'create_first_store' => 'create_first_store',
+        'store_name' => 'store_name'
     ];
 
 
@@ -78,7 +84,9 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'project' => 'setProject',
         'payout_account' => 'setPayoutAccount',
         'iframe_opts' => 'setIframeOpts',
-        'payin_account' => 'setPayinAccount'
+        'payin_account' => 'setPayinAccount',
+        'create_first_store' => 'setCreateFirstStore',
+        'store_name' => 'setStoreName'
     ];
 
 
@@ -91,7 +99,9 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'project' => 'getProject',
         'payout_account' => 'getPayoutAccount',
         'iframe_opts' => 'getIframeOpts',
-        'payin_account' => 'getPayinAccount'
+        'payin_account' => 'getPayinAccount',
+        'create_first_store' => 'getCreateFirstStore',
+        'store_name' => 'getStoreName'
     ];
 
     public static function attributeMap()
@@ -130,6 +140,8 @@ class PaymentContractsDTORequestId implements ArrayAccess
         $this->container['payout_account'] = isset($data['payout_account']) ? $data['payout_account'] : null;
         $this->container['iframe_opts'] = isset($data['iframe_opts']) ? $data['iframe_opts'] : null;
         $this->container['payin_account'] = isset($data['payin_account']) ? $data['payin_account'] : false;
+        $this->container['create_first_store'] = isset($data['create_first_store']) ? $data['create_first_store'] : null;
+        $this->container['store_name'] = isset($data['store_name']) ? $data['store_name'] : false;
     }
 
     /**
@@ -261,6 +273,49 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Gets create_first_store
+     * @return bool
+     */
+    public function getCreateFirstStore()
+    {
+        return $this->container['create_first_store'];
+    }
+
+    /**
+     * Sets create_first_store
+     * @param bool $create_first_store Create first store
+     * @return $this
+     */
+    public function setCreateFirstStore($create_first_store)
+    {
+        $this->container['create_first_store'] = $create_first_store;
+
+        return $this;
+    }
+
+    /**
+     * Gets store_name
+     * @return string
+     */
+    public function getStoreName()
+    {
+        return $this->container['store_name'];
+    }
+
+    /**
+     * Sets store_name
+     * @param string $store_name Store name
+     * @return $this
+     */
+    public function setStoreName($store_name)
+    {
+        $this->container['store_name'] = $store_name;
+
+        return $this;
+    }
+
     /**
      * Returns true if offset exists. False otherwise.
      * @param  integer $offset Offset

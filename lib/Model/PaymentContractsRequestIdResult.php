@@ -27,7 +27,9 @@ class PaymentContractsRequestIdResult implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'contract' => '\Secuconnect\Client\Model\PaymentContractsProductModel',
+        'contract' => '\Secuconnect\Client\Model\ProductInstanceUID',
+        'merchant' => '\Secuconnect\Client\Model\ProductInstanceUID',
+        'store' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'apikey' => 'string',
         'payin_account' => '\Secuconnect\Client\Model\PaymentInformation'
     ];
@@ -38,6 +40,8 @@ class PaymentContractsRequestIdResult implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'contract' => null,
+        'merchant' => null,
+        'store' => null,
         'apikey' => null,
         'payin_account' => null
     ];
@@ -58,6 +62,8 @@ class PaymentContractsRequestIdResult implements ArrayAccess
      */
     protected static $attributeMap = [
         'contract' => 'contract',
+        'merchant' => 'merchant',
+        'store' => 'store',
         'apikey' => 'apikey',
         'payin_account' => 'payin_account'
     ];
@@ -69,6 +75,8 @@ class PaymentContractsRequestIdResult implements ArrayAccess
      */
     protected static $setters = [
         'contract' => 'setContract',
+        'merchant' => 'setMerchant',
+        'store' => 'setStore',
         'apikey' => 'setApikey',
         'payin_account' => 'setPayinAccount'
     ];
@@ -80,6 +88,8 @@ class PaymentContractsRequestIdResult implements ArrayAccess
      */
     protected static $getters = [
         'contract' => 'getContract',
+        'merchant' => 'getMerchant',
+        'store' => 'getStore',
         'apikey' => 'getApikey',
         'payin_account' => 'getPayinAccount'
     ];
@@ -118,6 +128,8 @@ class PaymentContractsRequestIdResult implements ArrayAccess
         $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
         $this->container['apikey'] = isset($data['apikey']) ? $data['apikey'] : null;
         $this->container['payin_account'] = isset($data['payin_account']) ? $data['payin_account'] : null;
+        $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
+        $this->container['store'] = isset($data['store']) ? $data['store'] : null;
     }
 
     /**
@@ -147,7 +159,7 @@ class PaymentContractsRequestIdResult implements ArrayAccess
 
     /**
      * Gets contract
-     * @return \Secuconnect\Client\Model\PaymentContractsProductModel
+     * @return \Secuconnect\Client\Model\ProductInstanceUID
      */
     public function getContract()
     {
@@ -156,12 +168,54 @@ class PaymentContractsRequestIdResult implements ArrayAccess
 
     /**
      * Sets contract
-     * @param \Secuconnect\Client\Model\PaymentContractsProductModel $contract The payment contract object
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $contract The payment contract object
      * @return $this
      */
     public function setContract($contract)
     {
         $this->container['contract'] = $contract;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant
+     * @return \Secuconnect\Client\Model\ProductInstanceUID
+     */
+    public function getMerchant()
+    {
+        return $this->container['merchant'];
+    }
+
+    /**
+     * Sets merchant
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $merchant Merchant
+     * @return $this
+     */
+    public function setMerchant($merchant)
+    {
+        $this->container['merchant'] = $merchant;
+
+        return $this;
+    }
+
+    /**
+     * Gets store
+     * @return \Secuconnect\Client\Model\ProductInstanceUID
+     */
+    public function getStore()
+    {
+        return $this->container['store'];
+    }
+
+    /**
+     * Sets store
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $store Store
+     * @return $this
+     */
+    public function setStore($store)
+    {
+        $this->container['store'] = $store;
 
         return $this;
     }

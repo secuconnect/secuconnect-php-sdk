@@ -28,7 +28,13 @@ class SmartTransactionsPrepare implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'customer' => '\Secuconnect\Client\Model\ProductInstanceUID',
-        'container' => '\Secuconnect\Client\Model\ProductInstanceUID'
+        'container' => '\Secuconnect\Client\Model\ProductInstanceUID',
+        'method' => 'string',
+        'callback_urls' => '\Secuconnect\Client\Model\SmartTransactionsPrepareCallbackUrls.php',
+        'email' => 'string',
+        'mode' => 'string',
+        'is_paypal_basic' => 'bool',
+        'is_demo' => 'bool'
     ];
 
     /**
@@ -37,7 +43,13 @@ class SmartTransactionsPrepare implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'customer' => null,
-        'container' => null
+        'container' => null,
+        'method' => null,
+        'callback_urls' => null,
+        'email' => null,
+        'mode' => null,
+        'is_paypal_basic' => null,
+        'is_demo' => null
     ];
 
     public static function swaggerTypes()
@@ -56,7 +68,13 @@ class SmartTransactionsPrepare implements ArrayAccess
      */
     protected static $attributeMap = [
         'customer' => 'customer',
-        'container' => 'container'
+        'container' => 'container',
+        'method' => 'method',
+        'callback_urls' => 'callback_urls',
+        'email' => 'email',
+        'mode' => 'mode',
+        'is_paypal_basic' => 'is_paypal_basic',
+        'is_demo' => 'is_demo'
     ];
 
 
@@ -66,7 +84,13 @@ class SmartTransactionsPrepare implements ArrayAccess
      */
     protected static $setters = [
         'customer' => 'setCustomer',
-        'container' => 'setContainer'
+        'container' => 'setContainer',
+        'method' => 'setMethod',
+        'callback_urls' => 'setCallbackUrls',
+        'email' => 'setEmail',
+        'mode' => 'setMode',
+        'is_paypal_basic' => 'setIsPaypalBasic',
+        'is_demo' => 'setIsDemo'
     ];
 
 
@@ -76,7 +100,13 @@ class SmartTransactionsPrepare implements ArrayAccess
      */
     protected static $getters = [
         'customer' => 'getCustomer',
-        'container' => 'getContainer'
+        'container' => 'getContainer',
+        'method' => 'getMethod',
+        'callback_urls' => 'getCallbackUrls',
+        'email' => 'getEmail',
+        'mode' => 'getMode',
+        'is_paypal_basic' => 'getIsPaypalBasic',
+        'is_demo' => 'getIsDemo'
     ];
 
     public static function attributeMap()
@@ -112,6 +142,12 @@ class SmartTransactionsPrepare implements ArrayAccess
     {
         $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
         $this->container['container'] = isset($data['container']) ? $data['container'] : null;
+        $this->container['method'] = isset($data['method']) ? $data['method'] : null;
+        $this->container['callback_urls'] = isset($data['callback_urls']) ? $data['callback_urls'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
+        $this->container['is_paypal_basic'] = isset($data['is_paypal_basic']) ? $data['is_paypal_basic'] : null;
+        $this->container['is_demo'] = isset($data['is_demo']) ? $data['is_demo'] : null;
     }
 
     /**
@@ -180,6 +216,133 @@ class SmartTransactionsPrepare implements ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Gets method
+     * @return string
+     */
+    public function getMethod()
+    {
+        return $this->container['method'];
+    }
+
+    /**
+     * Sets method
+     * @param string $method Method
+     * @return $this
+     */
+    public function setMethod($method)
+    {
+        $this->container['method'] = $method;
+
+        return $this;
+    }
+
+    /**
+     * Gets callback_urls
+     * @return \Secuconnect\Client\Model\php
+     */
+    public function getCallbackUrls()
+    {
+        return $this->container['callback_urls'];
+    }
+
+    /**
+     * Sets callback_urls
+     * @param \Secuconnect\Client\Model\php $callback_urls
+     * @return $this
+     */
+    public function setCallbackUrls($callback_urls)
+    {
+        $this->container['callback_urls'] = $callback_urls;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     * @param string $email Email
+     * @return $this
+     */
+    public function setEmail($email)
+    {
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets mode
+     * @return string
+     */
+    public function getMode()
+    {
+        return $this->container['mode'];
+    }
+
+    /**
+     * Sets mode
+     * @param string $mode Mode
+     * @return $this
+     */
+    public function setMode($mode)
+    {
+        $this->container['mode'] = $mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_paypal_basic
+     * @return bool
+     */
+    public function getIsPaypalBasic()
+    {
+        return $this->container['is_paypal_basic'];
+    }
+
+    /**
+     * Sets is_paypal_basic
+     * @param bool $is_paypal_basic Is paypal basic or not
+     * @return $this
+     */
+    public function setIsPaypalBasic($is_paypal_basic)
+    {
+        $this->container['is_paypal_basic'] = $is_paypal_basic;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_demo
+     * @return bool
+     */
+    public function getIsDemo()
+    {
+        return $this->container['is_demo'];
+    }
+
+    /**
+     * Sets is_demo
+     * @param bool $is_demo Is demo or not
+     * @return $this
+     */
+    public function setIsDemo($is_demo)
+    {
+        $this->container['is_demo'] = $is_demo;
+
+        return $this;
+    }
+
     /**
      * Returns true if offset exists. False otherwise.
      * @param  integer $offset Offset
