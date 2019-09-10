@@ -76,8 +76,6 @@ class GeneralMerchantsApiTest extends TestCase
                 $generalUser = $merchant->getUser();
                 $this->assertNotEmpty($generalUser);
                 $this->assertInstanceOf(GeneralMerchantsUser::class, $generalUser);
-                $this->assertEquals("general.users", $generalUser->getObject());
-                $this->assertNotFalse(strpos($generalUser->getId(), "USR_"));
 
                 $userGeoAddresses = $generalUser->getAddress();
 

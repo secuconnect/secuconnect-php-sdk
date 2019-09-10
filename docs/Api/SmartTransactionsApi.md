@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**getAll**](SmartTransactionsApi.md#getAll) | **GET** /Smart/Transactions | GET Smart/Transactions
 [**getOne**](SmartTransactionsApi.md#getOne) | **GET** /Smart/Transactions/{smartTransactionId} | GET Smart/Transactions/{smartTransactionId}
 [**preTransaction**](SmartTransactionsApi.md#preTransaction) | **POST** /Smart/Transactions/{smartTransactionId}/preTransaction | POST Smart/Transactions/{smartTransactionId}/preTransaction
-[**prepare**](SmartTransactionsApi.md#prepare) | **POST** /Smart/Transactions/{smartTransactionId}/prepare | POST Smart/Transactions/stx_xxx/prepare
+[**prepare**](SmartTransactionsApi.md#prepare) | **POST** /Smart/Transactions/{smartTransactionId}/prepare/{paymentMethod} | POST Smart/Transactions/stx_xxx/prepare/{paymentMethod}
 [**startEndOfDayReport**](SmartTransactionsApi.md#startEndOfDayReport) | **POST** /Smart/Transactions/{smartDeviceId}/endOfDay | POST Smart/Transactions/{smartDeviceId}/endOfDay
 [**startTransaction**](SmartTransactionsApi.md#startTransaction) | **POST** /Smart/Transactions/{smartTransactionId}/start/{paymentMethod} | POST Smart/Transactions/{smartTransactionId}/start/{paymentMethod}
 [**updateTransaction**](SmartTransactionsApi.md#updateTransaction) | **PUT** /Smart/Transactions/{smartTransactionId} | PUT Smart/Transactions/{smartTransactionId}
@@ -361,9 +361,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **prepare**
-> \Secuconnect\Client\Model\SmartTransactionsProductModel prepare($smart_transaction_id, $body)
+> \Secuconnect\Client\Model\SmartTransactionsProductModel prepare($smart_transaction_id, $payment_method, $body)
 
-POST Smart/Transactions/stx_xxx/prepare
+POST Smart/Transactions/stx_xxx/prepare/{paymentMethod}
 
 Create and score payment transaction assigned to given smart transaction
 
@@ -377,10 +377,11 @@ Secuconnect\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOU
 
 $api_instance = new Secuconnect\Client\Api\SmartTransactionsApi();
 $smart_transaction_id = "smart_transaction_id_example"; // string | Smart transaction id
+$payment_method = "payment_method_example"; // string | Payment method
 $body = new \Secuconnect\Client\Model\SmartTransactionsPrepare(); // \Secuconnect\Client\Model\SmartTransactionsPrepare | Information which customer and container will be used to this operation
 
 try {
-    $result = $api_instance->prepare($smart_transaction_id, $body);
+    $result = $api_instance->prepare($smart_transaction_id, $payment_method, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SmartTransactionsApi->prepare: ', $e->getMessage(), PHP_EOL;
@@ -393,6 +394,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **smart_transaction_id** | **string**| Smart transaction id | [required]
+ **payment_method** | **string**| Payment method |
  **body** | [**\Secuconnect\Client\Model\SmartTransactionsPrepare**](../Model/SmartTransactionsPrepare.md)| Information which customer and container will be used to this operation |
 
 ### Return type

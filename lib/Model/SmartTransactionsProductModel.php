@@ -64,7 +64,8 @@ class SmartTransactionsProductModel implements ArrayAccess
         'transactions' => '\Secuconnect\Client\Model\PaymentTransactionsProductModel[]',
         'last_visited_page' => 'string',
         'is_demo' => 'bool',
-        'checkout_links' => '\Secuconnect\Client\Model\SmartTransactionsCheckoutLinks'
+        'checkout_links' => '\Secuconnect\Client\Model\SmartTransactionsCheckoutLinks',
+        'iframe_url' => 'string'
     ];
 
     /**
@@ -109,7 +110,8 @@ class SmartTransactionsProductModel implements ArrayAccess
         'transactions' => null,
         'last_visited_page' => null,
         'is_demo' => null,
-        'checkout_links' => null
+        'checkout_links' => null,
+        'iframe_url' => null
     ];
 
     public static function swaggerTypes()
@@ -164,7 +166,8 @@ class SmartTransactionsProductModel implements ArrayAccess
         'transactions' => 'transactions',
         'last_visited_page' => 'last_visited_page',
         'is_demo' => 'is_demo',
-        'checkout_links' => 'checkout_links'
+        'checkout_links' => 'checkout_links',
+        'iframe_url' => 'iframe_url'
     ];
 
 
@@ -210,7 +213,8 @@ class SmartTransactionsProductModel implements ArrayAccess
         'transactions' => 'setTransactions',
         'last_visited_page' => 'setLastVisitedPage',
         'is_demo' => 'setIsDemo',
-        'checkout_links' => 'setCheckoutLinks'
+        'checkout_links' => 'setCheckoutLinks',
+        'iframe_url' => 'setIframeUrl'
     ];
 
 
@@ -256,7 +260,8 @@ class SmartTransactionsProductModel implements ArrayAccess
         'transactions' => 'getTransactions',
         'last_visited_page' => 'getLastVisitedPage',
         'is_demo' => 'getIsDemo',
-        'checkout_links' => 'getCheckoutLinks'
+        'checkout_links' => 'getCheckoutLinks',
+        'iframe_url' => 'getIframeUrl'
     ];
 
     public static function attributeMap()
@@ -328,6 +333,7 @@ class SmartTransactionsProductModel implements ArrayAccess
         $this->container['last_visited_page'] = isset($data['last_visited_page']) ? $data['last_visited_page'] : null;
         $this->container['is_demo'] = isset($data['is_demo']) ? $data['is_demo'] : null;
         $this->container['checkout_links'] = isset($data['checkout_links']) ? $data['checkout_links'] : null;
+        $this->container['iframe_url'] = isset($data['iframe_url']) ? $data['iframe_url'] : null;
     }
 
     /**
@@ -1152,6 +1158,28 @@ class SmartTransactionsProductModel implements ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Gets iframe_url
+     * @return string
+     */
+    public function getIframeUrl()
+    {
+        return $this->container['iframe_url'];
+    }
+
+    /**
+     * Sets iframe_url
+     * @param string $iframe_url IFrame URL
+     * @return $this
+     */
+    public function setIframeUrl($iframe_url)
+    {
+        $this->container['iframe_url'] = $iframe_url;
+
+        return $this;
+    }
+
     /**
      * Returns true if offset exists. False otherwise.
      * @param  integer $offset Offset

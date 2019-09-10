@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **payout_account** | [**\Secuconnect\Client\Model\PaymentInformation**](PaymentInformation.md) | Merchants bank account for the payout | 
 **iframe_opts** | [**\Secuconnect\Client\Model\PaymentContractsDTOIFrameOpts**](PaymentContractsDTOIFrameOpts.md) | IFrame opts | 
 **payin_account** | **bool** | Pay in account | [default to false]
+**create_first_store** | **bool** | Create first store | [optional] [default to false] 
+**store_name** | **string** | Store name | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

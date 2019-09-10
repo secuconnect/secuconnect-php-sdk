@@ -30,6 +30,7 @@ class SmartDevicesProductModel implements ArrayAccess
         'object' => 'string',
         'id' => 'string',
         'merchant' => '\Secuconnect\Client\Model\ProductInstanceUID',
+        'contract' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'store' => '\Secuconnect\Client\Model\Store',
         'vendor' => 'string',
         'vendor_uid' => 'string',
@@ -55,6 +56,7 @@ class SmartDevicesProductModel implements ArrayAccess
         'object' => null,
         'id' => 'id',
         'merchant' => null,
+        'contract' => null,
         'store' => null,
         'vendor' => null,
         'vendor_uid' => null,
@@ -90,6 +92,7 @@ class SmartDevicesProductModel implements ArrayAccess
         'object' => 'object',
         'id' => 'id',
         'merchant' => 'merchant',
+        'contract' => 'contract',
         'store' => 'store',
         'vendor' => 'vendor',
         'vendor_uid' => 'vendor_uid',
@@ -116,6 +119,7 @@ class SmartDevicesProductModel implements ArrayAccess
         'object' => 'setObject',
         'id' => 'setId',
         'merchant' => 'setMerchant',
+        'contract' => 'setContract',
         'store' => 'setStore',
         'vendor' => 'setVendor',
         'vendor_uid' => 'setVendorUid',
@@ -142,6 +146,7 @@ class SmartDevicesProductModel implements ArrayAccess
         'object' => 'getObject',
         'id' => 'getId',
         'merchant' => 'getMerchant',
+        'contract' => 'getContract',
         'store' => 'getStore',
         'vendor' => 'getVendor',
         'vendor_uid' => 'getVendorUid',
@@ -193,6 +198,7 @@ class SmartDevicesProductModel implements ArrayAccess
         $this->container['object'] = isset($data['object']) ? $data['object'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
+        $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
         $this->container['store'] = isset($data['store']) ? $data['store'] : null;
         $this->container['vendor'] = isset($data['vendor']) ? $data['vendor'] : null;
         $this->container['vendor_uid'] = isset($data['vendor_uid']) ? $data['vendor_uid'] : null;
@@ -294,6 +300,27 @@ class SmartDevicesProductModel implements ArrayAccess
     public function setMerchant($merchant)
     {
         $this->container['merchant'] = $merchant;
+
+        return $this;
+    }
+
+    /**
+     * Gets contract
+     * @return \Secuconnect\Client\Model\ProductInstanceUID
+     */
+    public function getContract()
+    {
+        return $this->container['contract'];
+    }
+
+    /**
+     * Sets contract
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $contract Contract
+     * @return $this
+     */
+    public function setContract($contract)
+    {
+        $this->container['contract'] = $contract;
 
         return $this;
     }

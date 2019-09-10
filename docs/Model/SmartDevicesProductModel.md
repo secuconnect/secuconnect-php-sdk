@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **object** | **string** | Object of smart device | 
 **id** | **string** | Id of smart device | 
 **merchant** | [**\Secuconnect\Client\Model\ProductInstanceUID**](ProductInstanceUID.md) | Merchant | 
+**contract** | [**\Secuconnect\Client\Model\ProductInstanceUID**](ProductInstanceUID.md) | Contract | 
 **store** | [**\Secuconnect\Client\Model\Store**](Store.md) | Store | 
 **vendor** | **string** | Vendor | 
 **vendor_uid** | **string** | Vendor uid | 
