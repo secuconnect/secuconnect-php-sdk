@@ -31,7 +31,8 @@ class VirtualTerminalData implements ArrayAccess
         'tid' => 'string',
         'actions' => 'string[]',
         'gift_terminal' => 'int',
-        'amount_split_enabled' => 'int'
+        'amount_split_enabled' => 'int',
+        'disabled' => 'int'
     ];
 
     /**
@@ -43,7 +44,8 @@ class VirtualTerminalData implements ArrayAccess
         'tid' => null,
         'actions' => null,
         'gift_terminal' => null,
-        'amount_split_enabled' => null
+        'amount_split_enabled' => null,
+        'disabled' => null
     ];
 
     public static function swaggerTypes()
@@ -65,7 +67,8 @@ class VirtualTerminalData implements ArrayAccess
         'tid' => 'tid',
         'actions' => 'actions',
         'gift_terminal' => 'gift_terminal',
-        'amount_split_enabled' => 'amount_split_enabled'
+        'amount_split_enabled' => 'amount_split_enabled',
+        'disabled' => 'disabled'
     ];
 
 
@@ -78,7 +81,8 @@ class VirtualTerminalData implements ArrayAccess
         'tid' => 'setTid',
         'actions' => 'setActions',
         'gift_terminal' => 'setGiftTerminal',
-        'amount_split_enabled' => 'setAmountSplitEnabled'
+        'amount_split_enabled' => 'setAmountSplitEnabled',
+        'disabled' => 'setDisabled'
     ];
 
 
@@ -91,7 +95,8 @@ class VirtualTerminalData implements ArrayAccess
         'tid' => 'getTid',
         'actions' => 'getActions',
         'gift_terminal' => 'getGiftTerminal',
-        'amount_split_enabled' => 'getAmountSplitEnabled'
+        'amount_split_enabled' => 'getAmountSplitEnabled',
+        'disabled' => 'getDisabled'
     ];
 
     public static function attributeMap()
@@ -130,6 +135,7 @@ class VirtualTerminalData implements ArrayAccess
         $this->container['actions'] = isset($data['actions']) ? $data['actions'] : null;
         $this->container['gift_terminal'] = isset($data['gift_terminal']) ? $data['gift_terminal'] : null;
         $this->container['amount_split_enabled'] = isset($data['amount_split_enabled']) ? $data['amount_split_enabled'] : null;
+        $this->container['disabled'] = isset($data['disabled']) ? $data['disabled'] : null;
     }
 
     /**
@@ -258,6 +264,27 @@ class VirtualTerminalData implements ArrayAccess
     public function setAmountSplitEnabled($amount_split_enabled)
     {
         $this->container['amount_split_enabled'] = $amount_split_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets disabled
+     * @return int
+     */
+    public function getDisabled()
+    {
+        return $this->container['disabled'];
+    }
+
+    /**
+     * Sets disabled
+     * @param int $disabled disabled
+     * @return $this
+     */
+    public function setDisabled($disabled)
+    {
+        $this->container['disabled'] = $disabled;
 
         return $this;
     }

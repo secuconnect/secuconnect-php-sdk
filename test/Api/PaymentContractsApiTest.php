@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Model\PaymentContractsDTO;
 use Secuconnect\Client\Model\PaymentContractsDTOClone;
+use Secuconnect\Client\Model\PaymentContractsDTORequestId;
 use Secuconnect\Client\Model\PaymentContractsProductModel;
 use Secuconnect\Client\Model\PaymentInformation;
 
@@ -273,7 +274,7 @@ class PaymentContractsApiTest extends TestCase
      */
     public function testPaymentContractsIdClonePost()
     {
-        $this->markTestIncomplete();
+        SecuconnectObjects::getInstance()->authenticateByClientCredentials();
         try {
             $body = new PaymentContractsDTOClone();
             $body->setProject('project_name #' . time());
@@ -284,7 +285,7 @@ class PaymentContractsApiTest extends TestCase
             ]));
 
             $response = $this->api->callClone('me', $body);
-            echo var_dump($response);
+            $this->assertNotEmpty($response);
         } catch (ApiException $e) {
             print_r($e->getResponseBody());
             throw $e;
@@ -299,6 +300,7 @@ class PaymentContractsApiTest extends TestCase
      */
     public function testPaymentContractsIdPaymentMethodsGet()
     {
+        SecuconnectObjects::getInstance()->authenticateByClientCredentials();
         try {
             $response = $this->api->paymentContractsIdPaymentMethodsGet('me');
         } catch (ApiException $e) {
@@ -316,8 +318,19 @@ class PaymentContractsApiTest extends TestCase
      */
     public function testPaymentContractsIdRequestIdPost()
     {
+        SecuconnectObjects::getInstance()->authenticateByClientCredentials();
+        $body = new PaymentContractsDTORequestId();
+        $body->setContact('CNT_36UTTTRGQ2MNT4BY52TSD57X5VTYAJ');
+        $body->setProject('test_' . microtime());
+
+        $account = new PaymentInformation([
+            'iban' => 'DE37503240001000000524',
+            'owner' => 'John Doe',
+        ]);
+        $body->setPayoutAccount($account);
+
         try {
-            $response = $this->api->requestId('me', null);
+            $response = $this->api->requestId('me', $body);
         } catch (ApiException $e) {
             print_r($e->getResponseBody());
             throw $e;

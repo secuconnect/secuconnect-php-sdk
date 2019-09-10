@@ -43,7 +43,7 @@ class StompClient
      */
     public function __construct()
     {
-        $this->initalize();
+        $this->initialize();
         $this->stomp = new Stomp($this->stompHost . ':' . $this->port, $this->token, $this->token);
     }
 
@@ -58,7 +58,7 @@ class StompClient
     public function sendMsg($msgObj, $destinationObj)
     {
         $destination = $destinationObj->prepareDestination();
-        $header = $this->prepareHeder();
+        $header = $this->prepareHeader();
 
         $response = new StompResponse();
 
@@ -90,7 +90,7 @@ class StompClient
      * sets internal variables used by stompClient
      * @throws Exception
      */
-    private function initalize()
+    private function initialize()
     {
         $this->token = Configuration::getDefaultConfiguration()->getAccessToken();
 
@@ -122,7 +122,7 @@ class StompClient
      *
      * @return array $header
      */
-    private function prepareHeder()
+    private function prepareHeader()
     {
         $correlationId = $this->makeCorrelationId();
 

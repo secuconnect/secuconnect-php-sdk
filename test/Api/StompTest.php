@@ -24,18 +24,12 @@ class StompTest extends TestCase
     }
 
     /*
-     * it's only checkong if the Stomp connection id done
+     * it's only checking if the Stomp connection id done
      * 
      * @group ignore
      */
     public function testStomp()
     {
-        try{
-            $StompClient = new Client\StompClient();
-        } catch (Exception $ex) {
-            $responseError = $ex->getResponseBody();
-        }
-        assertFalse(isset($responseError));
-   
+        $StompClient = new Client\StompClient();
     }
 }

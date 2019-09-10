@@ -140,7 +140,11 @@ class LoyaltyCustomersApiTest extends TestCase
          self::$receivedCustomer = null;
          self::$idPaymentContainer = null;
     }
-    private function chceckLoyaltyCustomersProductModel($customer)
+
+    /**
+     * @param LoyaltyCustomersProductModel $customer
+     */
+    private function checkLoyaltyCustomersProductModel($customer)
     {
         $this->assertInstanceOf(LoyaltyCustomersProductModel::class, $customer);
         $this->assertNotEmpty($customer->getObject());
@@ -215,7 +219,7 @@ class LoyaltyCustomersApiTest extends TestCase
         $this->assertInternalType('int', $response->getCount());
         if (is_int($response->getCount()) && $response->getCount() > 0) {
             foreach ($response->getData() as $customer) {
-                $this->chceckLoyaltyCustomersProductModel($customer);
+                $this->checkLoyaltyCustomersProductModel($customer);
             }
         }
     }
@@ -249,7 +253,7 @@ class LoyaltyCustomersApiTest extends TestCase
      *
      * @throws ApiException
      */
-    public function testRemoveAssignPaymentcontainer()
+    public function testRemoveAssignPaymentContainer()
     {
 
        try {
@@ -281,7 +285,7 @@ class LoyaltyCustomersApiTest extends TestCase
      *
      * @throws ApiException
      */
-    public function testAddAssignPaymentcontainer()
+    public function testAddAssignPaymentContainer()
     {
         try {
             $response = self::$api->assignPaymentContainer(self::$receivedCustomer->getId(), self::$idPaymentContainer);
@@ -311,7 +315,7 @@ class LoyaltyCustomersApiTest extends TestCase
      *
      * @throws ApiException
      */
-    public function testcheckDuplicated()
+    public function testCheckDuplicated()
     {
         try {
             $response = self::$api->checkForDuplicates(self::$receivedCustomer->getMerchant()->getId());
@@ -331,7 +335,7 @@ class LoyaltyCustomersApiTest extends TestCase
      *
      * @throws ApiException
      */
-    public function testaddCustomer()
+    public function testAddCustomer()
     {
         try {
             $response = self::$api->addCustomer(self::$dumyCustomer);
@@ -340,7 +344,7 @@ class LoyaltyCustomersApiTest extends TestCase
             throw $e;
         }
         self::$dumyCustomerId = $response->getId();
-       $this->chceckLoyaltyCustomersProductModel($response);
+       $this->checkLoyaltyCustomersProductModel($response);
         
     }
 
@@ -351,7 +355,7 @@ class LoyaltyCustomersApiTest extends TestCase
      *
      * @throws ApiException
      */
-    public function testupdateCustomer()
+    public function testUpdateCustomer()
     {
         try {
             self::$dumyCustomer->setNote('Test Update');
@@ -374,7 +378,7 @@ class LoyaltyCustomersApiTest extends TestCase
      *
      * @throws ApiException
      */
-    public function testremoveCustomer()
+    public function testRemoveCustomer()
     {
         try {
             $response = self::$api->removeCustomer(self::$dumyCustomerId);

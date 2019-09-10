@@ -73,7 +73,7 @@ class PaymentSecupayInvoicesApiTest extends TestCase
     {
         self::$secuconnectObjects = SecuconnectObjects::getInstance();
         self::$customerId = self::$secuconnectObjects->getCustomer()->getId();
-        self::$amount = 100;
+        self::$amount = 6324;
         self::$currency = 'EUR';
         self::$purpose = 'for what text';
         self::$orderId = 'ZZZZZZ';
