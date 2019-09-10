@@ -78,8 +78,8 @@ class LoyaltyMerchantcardsApiTest extends TestCase
         self::$instance = SecuconnectObjects::getInstance();
         self::$instance->authenticateByApplicationUser();
         self::$api = new LoyaltyMerchantcardsApi();
-        $merchantId = 'MCD_WTC73MMG52YD80HCEMBHHAEWE9N9AS';
-        $cardnumber = 'CRD_3CH8BN35U6JKGNFJFFB249SAKJ23PX';
+        $merchantId = 'MCD_WYMK74ZT52YATUBMA9EE2N4SKQRJAP';
+        $cardnumber = 'CRD_3Z6YRPAFZHJT802M8GEWPWP9H7WAP5';
         $passcode = rand(1000, 9999);
         $LoyaltyMerchantcardsProductModel = new LoyaltyMerchantcardsProductModel();
         $LoyaltyMerchantcardsProductModel->setObject('loyalty.merchantcards');
@@ -88,72 +88,51 @@ class LoyaltyMerchantcardsApiTest extends TestCase
         $card = new LoyaltyCardsProductModel();
         $card->setObject('loyalty.cards');
         $card->setId($cardnumber);
-        $card->setCardnumber('9276004421040877');
-        $card->setCreated('2014-03-04T16:27:25+01:00');
+        $card->setCardnumber('9276004428948419');
+        $card->setCreated('2015-03-02T12:07:15+01:00');
         $LoyaltyMerchantcardsProductModel->setCard($card);
 
         $merchant = new ProductInstanceUID();
         $merchant->setObject('general.merchants');
-        $merchant->setId('MRC_3CXH7HNNS704RFFY979BEVC0N08RPZ');
+        $merchant->setId('MRC_Z8RAAFDVDT6AU5KZ4KX2NHH5P4CKP7');
         $LoyaltyMerchantcardsProductModel->setMerchant($merchant);
         $LoyaltyMerchantcardsProductModel->setCreatedForMerchant($merchant);
       
         $cardgroup = new LoyaltyCardgroupsProductModel();
         $cardgroup->setObject('loyalty.cardgroups');
-        $cardgroup->setId('CRG_WQ5B7K6WHVEP8YFB333MCX3RE0K9S4');
+        $cardgroup->setId('CRG_6C8AV6FQBFE0WFSHZT4JH4R2FE4CR6');
 
-        $cardgroup->setDisplayName('Meyers Kundenkarte"');
-        $cardgroup->setDisplayNameRaw('"Meyers Kundenkarte');
-        $cardgroup->setStockWarnLimit(10);
+        $cardgroup->setDisplayName('Bäckerei Card');
+        $cardgroup->setDisplayNameRaw('Bäckerei Card');
+        $cardgroup->setStockWarnLimit(0);
         $cardgroup->setPicture('https://connect.secucard.com/ds_g/8e79737df1e2513db48908b342c3cc436edf501a');
         $LoyaltyMerchantcardsProductModel->setCardgroup($cardgroup);
 
         $store = new ProductInstanceUID();
         $store->setObject('general.stores');
-        $store->setId('STO_2QAY5XNAKG8YB7TXAJ8F6A22N08RPK');
+        $store->setId('STO_3SGKT879YSRC27NEJSG6BJ85P4CKP8');
         $LoyaltyMerchantcardsProductModel->setCreatedForStore($store);
         
         $LoyaltyCustomersProductModel = new LoyaltyCustomersProductModel();
         $LoyaltyCustomersProductModel->setObject('loyalty.customers');
-        $LoyaltyCustomersProductModel->setId('CUS_CP43W58YT2MBV5PFR5GQG3YTXMXYA8');
+        $LoyaltyCustomersProductModel->setId('CUS_WAH0VCXT62YATUBMB5GQGJPRR3QTA8');
         $contact = new Contact();
-        $contact->setForename('Till');
-        $contact->setSurname('Dreißigacker');
+        $contact->setForename('Steffen');
+        $contact->setSurname('Testkarte 2');
         $contact->setSalutation('Herr');
-        $contact->setPhone('00491787070088');
-        $contact->setDob('1982-06-29T00:00:00+00:00');
-        $address = new Address();
-        $address->setStreet('Lister Meile');
-        $address->setStreetNumber('32');
-        $address->setCity('Hannover');
-        $address->setPostalCode('30161');
-        $contact->setAddress($address);
         $LoyaltyCustomersProductModel->setContact($contact);
+        $LoyaltyMerchantcardsProductModel->setCustomer($LoyaltyCustomersProductModel);
 
-        $LoyaltyMerchantcardsProductModel->setBalance(0);
+        $LoyaltyMerchantcardsProductModel->setBalance(3374);
         $LoyaltyMerchantcardsProductModel->setPoints(0);
-        $LoyaltyMerchantcardsProductModel->setBonusBalance(0);
-        $LoyaltyMerchantcardsProductModel->setCashBalance(0);
-        $LoyaltyMerchantcardsProductModel->setCashBalance(0);
-        $LoyaltyMerchantcardsProductModel->setStockStatus('stored');
+        $LoyaltyMerchantcardsProductModel->setBonusBalance(43);
+        $LoyaltyMerchantcardsProductModel->setCashBalance(3331);
+        $LoyaltyMerchantcardsProductModel->setStockStatus('inactive');
         $LoyaltyMerchantcardsProductModel->setLockStatus('unlocked');
         $LoyaltyMerchantcardsProductModel->setIsBaseCard(true);
         $LoyaltyMerchantcardsProductModel->setPasscode(1);
-        $LoyaltyMerchantcardsProductModel->setLastUsage(NULL);
-        $LoyaltyMerchantcardsProductModel->setLastCharge(NULL);
-        
-        $customers = new LoyaltyCustomersProductModel();
-        $customers->setObject("loyalty.customers");
-        $customers->setId('CUS_CP43W58YT2MBV5PFR5GQG3YTXMXYA8');
- 
-        $contact->setForename('Till');
-        $contact->setSurname('Dreißigacker');
-        $contact->setSalutation('Herr');
-        $contact->setPhone('00491787070088');
-        $contact->setDob('1982-06-29T00:00:00+00:00');
-        $customers->setContact($contact);
-        
-        $LoyaltyMerchantcardsProductModel->setCustomer($customers);
+        $LoyaltyMerchantcardsProductModel->setLastUsage('2017-05-31T06:06:18+02:00');
+        $LoyaltyMerchantcardsProductModel->setLastCharge('2017-05-31T06:06:18+02:00');
 
         self::$LoyaltyMerchantcardsProductModel = $LoyaltyMerchantcardsProductModel;
 
