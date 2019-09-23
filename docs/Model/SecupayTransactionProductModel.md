@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **used_payment_instrument** | [**\Secuconnect\Client\Model\SecupayTransactionProductModelUsedPaymentInstrument**](SecupayTransactionProductModelUsedPaymentInstrument.md) |  | 
 **redirect_url** | [**\Secuconnect\Client\Model\SecupayRedirectUrl**](SecupayRedirectUrl.md) | A list of redirect urls used for the payment checkout page | 
 **iframe_url** | **string** | The url of the payment checkout iframe | 
+**subscription** | [**\Secuconnect\Client\Model\SecupayTransactionProductDTOSubscription**](SecupayTransactionProductDTOSubscription.md) |  | 
 **container** | [**\Secuconnect\Client\Model\PaymentContainersProductModel**](PaymentContainersProductModel.md) | The container object | 
 **sub_transactions** | [**\Secuconnect\Client\Model\SecupaySubTransactionProductModel[]**](SecupaySubTransactionProductModel.md) | A list of sub-transactions (for mixed basket) | 
 

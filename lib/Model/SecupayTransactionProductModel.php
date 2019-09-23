@@ -45,6 +45,7 @@ class SecupayTransactionProductModel implements ArrayAccess
         'used_payment_instrument' => '\Secuconnect\Client\Model\SecupayTransactionProductModelUsedPaymentInstrument',
         'redirect_url' => '\Secuconnect\Client\Model\SecupayRedirectUrl',
         'iframe_url' => 'string',
+        'subscription' => '\Secuconnect\Client\Model\SecupayTransactionProductDTOSubscription',
         'container' => '\Secuconnect\Client\Model\PaymentContainersProductModel',
         'sub_transactions' => '\Secuconnect\Client\Model\SecupaySubTransactionProductModel[]',
         'mandate' => '\Secuconnect\Client\Model\PaymentContainerMandate'
@@ -73,6 +74,7 @@ class SecupayTransactionProductModel implements ArrayAccess
         'used_payment_instrument' => null,
         'redirect_url' => null,
         'iframe_url' => null,
+        'subscription' => null,
         'container' => null,
         'sub_transactions' => null,
         'mandate' => null
@@ -111,6 +113,7 @@ class SecupayTransactionProductModel implements ArrayAccess
         'used_payment_instrument' => 'used_payment_instrument',
         'redirect_url' => 'redirect_url',
         'iframe_url' => 'iframe_url',
+        'subscription' => 'subscription',
         'container' => 'container',
         'sub_transactions' => 'sub_transactions',
         'mandate' => 'mandate'
@@ -140,6 +143,7 @@ class SecupayTransactionProductModel implements ArrayAccess
         'used_payment_instrument' => 'setUsedPaymentInstrument',
         'redirect_url' => 'setRedirectUrl',
         'iframe_url' => 'setIframeUrl',
+        'subscription' => 'setSubscription',
         'container' => 'setContainer',
         'sub_transactions' => 'setSubTransactions',
         'mandate' => 'setMandate'
@@ -169,6 +173,7 @@ class SecupayTransactionProductModel implements ArrayAccess
         'used_payment_instrument' => 'getUsedPaymentInstrument',
         'redirect_url' => 'getRedirectUrl',
         'iframe_url' => 'getIframeUrl',
+        'subscription' => 'getSubscription',
         'container' => 'getContainer',
         'sub_transactions' => 'getSubTransactions',
         'mandate' => 'getMandate'
@@ -223,6 +228,7 @@ class SecupayTransactionProductModel implements ArrayAccess
         $this->container['used_payment_instrument'] = isset($data['used_payment_instrument']) ? $data['used_payment_instrument'] : null;
         $this->container['redirect_url'] = isset($data['redirect_url']) ? $data['redirect_url'] : null;
         $this->container['iframe_url'] = isset($data['iframe_url']) ? $data['iframe_url'] : null;
+        $this->container['subscription'] = isset($data['subscription']) ? $data['subscription'] : null;
         $this->container['container'] = isset($data['container']) ? $data['container'] : null;
         $this->container['sub_transactions'] = isset($data['sub_transactions']) ? $data['sub_transactions'] : null;
         $this->container['mandate'] = isset($data['mandate']) ? $data['mandate'] : null;
@@ -627,6 +633,27 @@ class SecupayTransactionProductModel implements ArrayAccess
     public function setIframeUrl($iframe_url)
     {
         $this->container['iframe_url'] = $iframe_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets subscription
+     * @return \Secuconnect\Client\Model\SecupayTransactionProductDTOSubscription
+     */
+    public function getSubscription()
+    {
+        return $this->container['subscription'];
+    }
+
+    /**
+     * Sets subscription
+     * @param \Secuconnect\Client\Model\SecupayTransactionProductDTOSubscription $subscription
+     * @return $this
+     */
+    public function setSubscription($subscription)
+    {
+        $this->container['subscription'] = $subscription;
 
         return $this;
     }

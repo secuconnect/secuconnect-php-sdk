@@ -19,6 +19,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [1.0.1] - 2019-09-23
+
+### Fixed
+
+- Add missing response parameter "subscription" in "SecupayTransactionProductModel"
+
+
 ## [1.0.0] - 2019-09-09
 
 ### Added
@@ -244,3 +251,4 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 [0.7.2]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.7.1...0.7.2
 [0.8.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.7.2...0.8.0
 [1.0.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.8.0...1.0.0
+[1.0.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.0.0...1.0.1
