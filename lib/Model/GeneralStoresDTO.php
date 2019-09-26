@@ -27,6 +27,8 @@ class GeneralStoresDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'name' => 'string',
+        'merchant' => 'string',
         'address' => '\Secuconnect\Client\Model\Address',
         'facebook_id' => 'string',
         'phone' => 'string',
@@ -41,6 +43,8 @@ class GeneralStoresDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'name' => null,
+        'merchant' => null,
         'address' => null,
         'facebook_id' => null,
         'phone' => null,
@@ -65,6 +69,8 @@ class GeneralStoresDTO implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'name' => 'name',
+        'merchant' => 'merchant',
         'address' => 'address',
         'facebook_id' => 'facebook_id',
         'phone' => 'phone',
@@ -80,6 +86,8 @@ class GeneralStoresDTO implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'name' => 'setName',
+        'merchant' => 'setMerchant',
         'address' => 'setAddress',
         'facebook_id' => 'setFacebookId',
         'phone' => 'setPhone',
@@ -95,6 +103,8 @@ class GeneralStoresDTO implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'name' => 'getName',
+        'merchant' => 'getMerchant',
         'address' => 'getAddress',
         'facebook_id' => 'getFacebookId',
         'phone' => 'getPhone',
@@ -135,6 +145,8 @@ class GeneralStoresDTO implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
         $this->container['facebook_id'] = isset($data['facebook_id']) ? $data['facebook_id'] : null;
         $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
@@ -168,6 +180,48 @@ class GeneralStoresDTO implements ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets name
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     * @param string $name Name
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant
+     * @return string
+     */
+    public function getMerchant()
+    {
+        return $this->container['merchant'];
+    }
+
+    /**
+     * Sets merchant
+     * @param string $merchant Merchant
+     * @return $this
+     */
+    public function setMerchant($merchant)
+    {
+        $this->container['merchant'] = $merchant;
+
+        return $this;
+    }
 
     /**
      * Gets address

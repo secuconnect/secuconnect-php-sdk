@@ -3,6 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**name** | **string** | Name | 
+**merchant** | **string** | Merchant | 
 **address** | [**\Secuconnect\Client\Model\Address**](Address.md) | New address | 
 **facebook_id** | **string** | New facebook id | 
 **phone** | **string** | New phone number | 
