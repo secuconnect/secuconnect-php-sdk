@@ -38,13 +38,13 @@ class GeneralStoresProductModel implements ArrayAccess
         'address_components' => '\Secuconnect\Client\Model\AddressComponents[]',
         'address_formatted' => 'string',
         'phone_number_formatted' => 'string',
-        'geometry' => 'string',
+        'geometry' => '\Secuconnect\Client\Model\GeoAddressGeometry',
         'name' => 'string',
         'name_raw' => 'string',
         'photo_main' => 'string',
         'photo' => 'string[]',
         'category_main' => 'string',
-        'category' => 'string',
+        'category' => 'string[]',
         'url_googleplus' => 'string',
         'url_website' => 'string',
         'open_hours' => '\Secuconnect\Client\Model\OpenHours[]',
@@ -522,7 +522,7 @@ class GeneralStoresProductModel implements ArrayAccess
 
     /**
      * Gets geometry
-     * @return string
+     * @return \Secuconnect\Client\Model\GeoAddressGeometry
      */
     public function getGeometry()
     {
@@ -531,7 +531,7 @@ class GeneralStoresProductModel implements ArrayAccess
 
     /**
      * Sets geometry
-     * @param string $geometry General store geometry
+     * @param \Secuconnect\Client\Model\GeoAddressGeometry $geometry General store geometry
      * @return $this
      */
     public function setGeometry($geometry)
@@ -648,7 +648,7 @@ class GeneralStoresProductModel implements ArrayAccess
 
     /**
      * Gets category
-     * @return string
+     * @return string[]
      */
     public function getCategory()
     {
@@ -657,7 +657,7 @@ class GeneralStoresProductModel implements ArrayAccess
 
     /**
      * Sets category
-     * @param string $category General store category
+     * @param string[] $category General store category
      * @return $this
      */
     public function setCategory($category)
