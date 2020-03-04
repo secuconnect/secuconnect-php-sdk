@@ -19,6 +19,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [1.3.0] - 2020-03-04
+
+### Changed
+
+- Making stomp dependencies optional (as they only needed for cash registers)
+
+
 ## [1.2.0] - 2019-10-01
 
 ### Added
@@ -272,3 +279,4 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 [1.0.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.0.0...1.0.1
 [1.1.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.0.1...1.1.0
 [1.2.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.1.0...1.2.0
+[1.3.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.2.0...1.3.0

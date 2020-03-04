@@ -27,7 +27,7 @@ class SecuconnectObjects
     public const BANK_ACCOUNT_BIC = 'FTSBDEFAXXX';
     public const LOYALTY_CARD = [
         'number' => "92760...",
-        'pin' => ...
+        'pin' => "..."
     ];
 
     /**
@@ -142,6 +142,7 @@ class SecuconnectObjects
         $contact->setForename('John');
         $contact->setSurname('Doe');
         $contact->setCompanyname('Example Inc.');
+        $contact->setEmail('mail@example.com');
 
         $this->customer = new PaymentCustomersDTO();
         $this->customer->setContact($contact);

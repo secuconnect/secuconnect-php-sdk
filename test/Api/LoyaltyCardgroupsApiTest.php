@@ -157,15 +157,4 @@ class LoyaltyCardgroupsApiTest extends TestCase
         $this->assertNotEmpty($response);
         $this->assertTrue(true);
     }
-
-    /**
-     * Test case for loyaltyCardgroupsIdPut
-     *
-     * PUT Loyalty/Cardgroups/{id}.
-     *
-     */
-    public function testLoyaltyCardgroupsIdPut()
-    {
-        $this->markTestIncomplete();
-    }
 }

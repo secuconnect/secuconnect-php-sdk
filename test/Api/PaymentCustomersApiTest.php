@@ -154,8 +154,8 @@ class PaymentCustomersApiTest extends TestCase
         $this->assertEquals('Example Inc.', $response->getContact()->getCompanyname());
         $this->assertEquals('1991-02-03T00:00:00+01:00', $response->getContact()->getDob());
         $this->assertEquals('example@example.com', $response->getContact()->getEmail());
-        $this->assertEquals('0049-123-456789', $response->getContact()->getPhone());
-        $this->assertEquals('0049-987-654321', $response->getContact()->getMobile());
+        $this->assertEquals('0049123456789', $response->getContact()->getPhone());
+        $this->assertEquals('0049987654321', $response->getContact()->getMobile());
         $this->assertEquals('Example Street', $response->getContact()->getAddress()->getStreet());
         $this->assertEquals('6a', $response->getContact()->getAddress()->getStreetNumber());
         $this->assertEquals('01234', $response->getContact()->getAddress()->getPostalCode());
@@ -219,8 +219,8 @@ class PaymentCustomersApiTest extends TestCase
         $this->assertEquals('Example2 Inc.', $response->getContact()->getCompanyname());
         $this->assertEquals('1902-03-04T00:00:00+01:00', $response->getContact()->getDob());
         $this->assertEquals('new.email@my-email.com', $response->getContact()->getEmail());
-        $this->assertEquals('0049-321-31701', $response->getContact()->getPhone());
-        $this->assertEquals('0049-537-144093', $response->getContact()->getMobile());
+        $this->assertEquals('004932131701', $response->getContact()->getPhone());
+        $this->assertEquals('0049537144093', $response->getContact()->getMobile());
         $this->assertEquals('Example 2 Street', $response->getContact()->getAddress()->getStreet());
         $this->assertEquals('125b', $response->getContact()->getAddress()->getStreetNumber());
         $this->assertEquals('75432', $response->getContact()->getAddress()->getPostalCode());
@@ -263,8 +263,8 @@ class PaymentCustomersApiTest extends TestCase
         $this->assertEquals('Example2 Inc.', $response->getContact()->getCompanyname());
         $this->assertEquals('1902-03-04T00:00:00+01:00', $response->getContact()->getDob());
         $this->assertEquals('new.email@my-email.com', $response->getContact()->getEmail());
-        $this->assertEquals('0049-321-31701', $response->getContact()->getPhone());
-        $this->assertEquals('0049-537-144093', $response->getContact()->getMobile());
+        $this->assertEquals('004932131701', $response->getContact()->getPhone());
+        $this->assertEquals('0049537144093', $response->getContact()->getMobile());
         $this->assertEquals('Example 2 Street', $response->getContact()->getAddress()->getStreet());
         $this->assertEquals('125b', $response->getContact()->getAddress()->getStreetNumber());
         $this->assertEquals('75432', $response->getContact()->getAddress()->getPostalCode());
@@ -306,8 +306,8 @@ class PaymentCustomersApiTest extends TestCase
         $this->assertEquals('Example2 Inc.', $response[0]->getContact()->getCompanyname());
         $this->assertEquals('1902-03-04T00:00:00+01:00', $response[0]->getContact()->getDob());
         $this->assertEquals('new.email@my-email.com', $response[0]->getContact()->getEmail());
-        $this->assertEquals('0049-321-31701', $response[0]->getContact()->getPhone());
-        $this->assertEquals('0049-537-144093', $response[0]->getContact()->getMobile());
+        $this->assertEquals('004932131701', $response[0]->getContact()->getPhone());
+        $this->assertEquals('0049537144093', $response[0]->getContact()->getMobile());
         $this->assertEquals('Example 2 Street', $response[0]->getContact()->getAddress()->getStreet());
         $this->assertEquals('125b', $response[0]->getContact()->getAddress()->getStreetNumber());
         $this->assertEquals('75432', $response[0]->getContact()->getAddress()->getPostalCode());
