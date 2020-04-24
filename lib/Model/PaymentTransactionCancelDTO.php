@@ -7,10 +7,10 @@ use \ArrayAccess;
 /**
  * PaymentTransactionCancelDTO
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class PaymentTransactionCancelDTO implements ArrayAccess
 {
@@ -29,8 +29,7 @@ class PaymentTransactionCancelDTO implements ArrayAccess
     protected static $swaggerTypes = [
         'reason' => 'string',
         'amount' => 'int',
-        'reduce_stakeholder_payment' => 'bool',
-        'container_id' => 'string'
+        'reduce_stakeholder_payment' => 'bool'
     ];
 
     /**
@@ -40,8 +39,7 @@ class PaymentTransactionCancelDTO implements ArrayAccess
     protected static $swaggerFormats = [
         'reason' => null,
         'amount' => null,
-        'reduce_stakeholder_payment' => null,
-        'container_id' => null
+        'reduce_stakeholder_payment' => null
     ];
 
     public static function swaggerTypes()
@@ -61,10 +59,8 @@ class PaymentTransactionCancelDTO implements ArrayAccess
     protected static $attributeMap = [
         'reason' => 'reason',
         'amount' => 'amount',
-        'reduce_stakeholder_payment' => 'reduce_stakeholder_payment',
-        'container_id' => 'container_id'
+        'reduce_stakeholder_payment' => 'reduce_stakeholder_payment'
     ];
-
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -73,10 +69,8 @@ class PaymentTransactionCancelDTO implements ArrayAccess
     protected static $setters = [
         'reason' => 'setReason',
         'amount' => 'setAmount',
-        'reduce_stakeholder_payment' => 'setReduceStakeholderPayment',
-        'container_id' => 'setContainerId'
+        'reduce_stakeholder_payment' => 'setReduceStakeholderPayment'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -85,8 +79,7 @@ class PaymentTransactionCancelDTO implements ArrayAccess
     protected static $getters = [
         'reason' => 'getReason',
         'amount' => 'getAmount',
-        'reduce_stakeholder_payment' => 'getReduceStakeholderPayment',
-        'container_id' => 'getContainerId'
+        'reduce_stakeholder_payment' => 'getReduceStakeholderPayment'
     ];
 
     public static function attributeMap()
@@ -104,10 +97,6 @@ class PaymentTransactionCancelDTO implements ArrayAccess
         return self::$getters;
     }
 
-    
-
-    
-
     /**
      * Associative array for storing property values
      * @var mixed[]
@@ -123,7 +112,6 @@ class PaymentTransactionCancelDTO implements ArrayAccess
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['reduce_stakeholder_payment'] = isset($data['reduce_stakeholder_payment']) ? $data['reduce_stakeholder_payment'] : false;
-        $this->container['container_id'] = isset($data['container_id']) ? $data['container_id'] : null;
     }
 
     /**
@@ -146,7 +134,6 @@ class PaymentTransactionCancelDTO implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
@@ -215,29 +202,8 @@ class PaymentTransactionCancelDTO implements ArrayAccess
     }
 
     /**
-     * Gets container_id
-     * @return string
-     */
-    public function getContainerId()
-    {
-        return $this->container['container_id'];
-    }
-
-    /**
-     * Sets container_id
-     * @param string $container_id Payment Container ID
-     * @return $this
-     */
-    public function setContainerId($container_id)
-    {
-        $this->container['container_id'] = $container_id;
-
-        return $this;
-    }
-
-    /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -247,7 +213,7 @@ class PaymentTransactionCancelDTO implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -257,8 +223,8 @@ class PaymentTransactionCancelDTO implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -272,7 +238,7 @@ class PaymentTransactionCancelDTO implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -293,5 +259,4 @@ class PaymentTransactionCancelDTO implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

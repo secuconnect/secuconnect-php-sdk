@@ -19,6 +19,64 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [2.0.0] - 2020-04-28
+
+### Added
+
+SmartTransactionsReceiptValue: added element "decoration"
+SmartTransactionsBonusProducts: added element "serial_number"
+Address: added element "additional_address_data"
+SmartTransactionsApi.startTransaction(): added parameter "body"
+PaymentTransactionsProductModel: added elements "parents" and "account_owner"
+PaymentContainersDTO: added element "customer_id"
+
+
+### Changed
+
+SecupayPayoutDTO: changed parameter "customer" from string to PaymentCustomersProductModel
+GeneralStoresApi: changed response declaration from "object" to "ResultBoolean"
+LoyaltyCardsApi: changed input parameter of "assignUser()" from "object" to "CardPin"
+LoyaltyCardsApi: changed response declaration from "object" to "ResultBoolean"
+LoyaltyCustomersApi: changed response declaration from "object" to "CustomersWithoutMerchantcardAndDuplicatedCustomers"
+LoyaltyMerchantcardsApi: changed response declaration from "object" to "ResultBoolean"
+PaymentContractsApi: changed response declaration from "string[]" to "StringList"
+PaymentSecupayCreditcardsApi: changed response declaration from "object" to "PaymentCancelResult"
+PaymentSecupayDebitsApi: changed response declaration from "object" to "PaymentCancelResult"
+PaymentSecupayInvoicesApi: changed response declaration from "object" to "PaymentCancelResult"
+PaymentSecupayPrepaysApi: changed response declaration from "object" to "PaymentCancelResult"
+PaymentSecupaySofortApi: changed response declaration from "object" to "PaymentCancelResult"
+PaymentTransactionsApi: changed response declaration from "PaymentTransactionsProductModel[]" to "PaymentTransactionsCancelList"
+SmartDevicesAp: replaced "SmartDevicesList1" with "SmartDevicesList"
+PaymentContainersDTO: replaced "PaymentContainersDTOPrivate" with "OneOfPaymentContainersDTOModelPrivate"
+
+
+### Fixed
+
+SmartTransactionsPrepare: element "callback_urls" type declaration fixed
+BankAccountDescriptor: removed wrong element "pan"
+
+
+### Removed
+
+GeneralMerchantsApi: updateMerchant call
+LoyaltySalesApi: getVirtualTerminalIdByStoreId call
+PaymentSecupayCreditcardsApi: paymentSecupayCreditcardsCancelById call
+PaymentSecupayDebitsApi: paymentSecupayDebitsCancelById call
+PaymentSecupayInvoicesApi: paymentSecupayInvoicesCancelById call
+PaymentSecupayPrepaysApi: paymentSecupayPrepaysCancelById call
+PaymentTransactionsApi.revokeAccrual(): removed parameter "body"
+PaymentTransactionsProductModel: removed element "platform"
+PaymentTransactionCancelDTO: removed element "container_id"
+removed model "PaymentContainersDTOPrivate"
+removed model "SmartDevicesList1"
+removed model "VirtualTerminalData"
+PaymentContainerMandate: removed element "creditor_id"
+SecupayTransactionProductModel: removed unused element "mandate"
+SecupaySubTransactionProductModel: removed unused elements "amount", "transaction_status", "status", "currency"
+SecupayPayoutDTO: removed unused element "demo"
+ReceiptTypeValue: removed unused parameter "type"
+
+
 ## [1.3.0] - 2020-03-04
 
 ### Changed
@@ -280,3 +338,4 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 [1.1.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.0.1...1.1.0
 [1.2.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.1.0...1.2.0
 [1.3.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.2.0...1.3.0
+[2.0.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.3.0...2.0.0

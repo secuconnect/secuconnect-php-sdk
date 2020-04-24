@@ -7,10 +7,10 @@ use \ArrayAccess;
 /**
  * PaymentContainerMandate
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class PaymentContainerMandate implements ArrayAccess
 {
@@ -32,8 +32,7 @@ class PaymentContainerMandate implements ArrayAccess
         'bic' => 'string',
         'type' => 'string',
         'status' => 'string',
-        'identification' => 'string',
-        'creditor_id' => 'string'
+        'identification' => 'string'
     ];
 
     /**
@@ -46,8 +45,7 @@ class PaymentContainerMandate implements ArrayAccess
         'bic' => null,
         'type' => null,
         'status' => null,
-        'identification' => null,
-        'creditor_id' => null
+        'identification' => null
     ];
 
     public static function swaggerTypes()
@@ -70,10 +68,8 @@ class PaymentContainerMandate implements ArrayAccess
         'bic' => 'bic',
         'type' => 'type',
         'status' => 'status',
-        'identification' => 'identification',
-        'creditor_id' => 'creditor_id'
+        'identification' => 'identification'
     ];
-
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -85,10 +81,8 @@ class PaymentContainerMandate implements ArrayAccess
         'bic' => 'setBic',
         'type' => 'setType',
         'status' => 'setStatus',
-        'identification' => 'setIdentification',
-        'creditor_id' => 'setCreditorId'
+        'identification' => 'setIdentification'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -100,8 +94,7 @@ class PaymentContainerMandate implements ArrayAccess
         'bic' => 'getBic',
         'type' => 'getType',
         'status' => 'getStatus',
-        'identification' => 'getIdentification',
-        'creditor_id' => 'getCreditorId'
+        'identification' => 'getIdentification'
     ];
 
     public static function attributeMap()
@@ -118,10 +111,6 @@ class PaymentContainerMandate implements ArrayAccess
     {
         return self::$getters;
     }
-
-    
-
-    
 
     /**
      * Associative array for storing property values
@@ -141,7 +130,6 @@ class PaymentContainerMandate implements ArrayAccess
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['identification'] = isset($data['identification']) ? $data['identification'] : null;
-        $this->container['creditor_id'] = isset($data['creditor_id']) ? $data['creditor_id'] : null;
     }
 
     /**
@@ -164,7 +152,6 @@ class PaymentContainerMandate implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
@@ -296,28 +283,8 @@ class PaymentContainerMandate implements ArrayAccess
     }
 
     /**
-     * Gets creditor_id
-     * @return string
-     */
-    public function getCreditorId()
-    {
-        return $this->container['creditor_id'];
-    }
-
-    /**
-     * Sets creditor_id
-     * @param string $creditor_id Creditor id
-     * @return $this
-     */
-    public function setCreditorId($creditor_id)
-    {
-        $this->container['creditor_id'] = $creditor_id;
-
-        return $this;
-    }
-    /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -327,7 +294,7 @@ class PaymentContainerMandate implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -337,8 +304,8 @@ class PaymentContainerMandate implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -352,7 +319,7 @@ class PaymentContainerMandate implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -373,5 +340,4 @@ class PaymentContainerMandate implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

@@ -7,10 +7,10 @@ use \ArrayAccess;
 /**
  * PaymentContainersDTO
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class PaymentContainersDTO implements ArrayAccess
 {
@@ -28,8 +28,9 @@ class PaymentContainersDTO implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'customer' => '\Secuconnect\Client\Model\PaymentContainersDTOCustomer',
+        'customer_id' => 'string',
         'type' => 'string',
-        'private' => '\Secuconnect\Client\Model\PaymentContainersDTOPrivate'
+        'private' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate'
     ];
 
     /**
@@ -38,6 +39,7 @@ class PaymentContainersDTO implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'customer' => null,
+        'customer_id' => null,
         'type' => null,
         'private' => null
     ];
@@ -58,10 +60,10 @@ class PaymentContainersDTO implements ArrayAccess
      */
     protected static $attributeMap = [
         'customer' => 'customer',
+        'customer_id' => 'customer_id',
         'type' => 'type',
         'private' => 'private'
     ];
-
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -69,10 +71,10 @@ class PaymentContainersDTO implements ArrayAccess
      */
     protected static $setters = [
         'customer' => 'setCustomer',
+        'customer_id' => 'setCustomerId',
         'type' => 'setType',
         'private' => 'setPrivate'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -80,6 +82,7 @@ class PaymentContainersDTO implements ArrayAccess
      */
     protected static $getters = [
         'customer' => 'getCustomer',
+        'customer_id' => 'getCustomerId',
         'type' => 'getType',
         'private' => 'getPrivate'
     ];
@@ -99,10 +102,6 @@ class PaymentContainersDTO implements ArrayAccess
         return self::$getters;
     }
 
-    
-
-    
-
     /**
      * Associative array for storing property values
      * @var mixed[]
@@ -116,6 +115,7 @@ class PaymentContainersDTO implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
+        $this->container['customer_id'] = isset($data['customer_id']) ? $data['customer_id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['private'] = isset($data['private']) ? $data['private'] : null;
     }
@@ -140,7 +140,6 @@ class PaymentContainersDTO implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
@@ -156,12 +155,33 @@ class PaymentContainersDTO implements ArrayAccess
 
     /**
      * Sets customer
-     * @param \Secuconnect\Client\Model\PaymentContainersDTOCustomer $customer
+     * @param \Secuconnect\Client\Model\PaymentContainersDTOCustomer $customer customer
      * @return $this
      */
     public function setCustomer($customer)
     {
         $this->container['customer'] = $customer;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_id
+     * @return string
+     */
+    public function getCustomerId()
+    {
+        return $this->container['customer_id'];
+    }
+
+    /**
+     * Sets customer_id
+     * @param string $customer_id Payment-Customer-ID
+     * @return $this
+     */
+    public function setCustomerId($customer_id)
+    {
+        $this->container['customer_id'] = $customer_id;
 
         return $this;
     }
@@ -189,7 +209,7 @@ class PaymentContainersDTO implements ArrayAccess
 
     /**
      * Gets private
-     * @return \Secuconnect\Client\Model\PaymentContainersDTOPrivate
+     * @return \Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate
      */
     public function getPrivate()
     {
@@ -198,7 +218,7 @@ class PaymentContainersDTO implements ArrayAccess
 
     /**
      * Sets private
-     * @param \Secuconnect\Client\Model\PaymentContainersDTOPrivate $private
+     * @param \Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate $private private
      * @return $this
      */
     public function setPrivate($private)
@@ -207,9 +227,10 @@ class PaymentContainersDTO implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -219,7 +240,7 @@ class PaymentContainersDTO implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -229,8 +250,8 @@ class PaymentContainersDTO implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -244,7 +265,7 @@ class PaymentContainersDTO implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -265,5 +286,4 @@ class PaymentContainersDTO implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 
