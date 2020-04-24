@@ -147,7 +147,6 @@ class SecupayBaseBasketItem implements ArrayAccess
     {
         return self::$getters;
     }
-    
 
     /**
      * Associative array for storing property values

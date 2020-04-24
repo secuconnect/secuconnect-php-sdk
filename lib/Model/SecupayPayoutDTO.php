@@ -7,10 +7,10 @@ use \ArrayAccess;
 /**
  * SecupayPayoutDTO
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class SecupayPayoutDTO implements ArrayAccess
 {
@@ -27,10 +27,9 @@ class SecupayPayoutDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'demo' => 'bool',
         'redirect_url' => '\Secuconnect\Client\Model\SecupayRedirectUrl',
         'contract' => 'string',
-        'customer' => 'string',
+        'customer' => '\Secuconnect\Client\Model\PaymentCustomersProductModel',
         'opt_data' => '\Secuconnect\Client\Model\SecupayPayoutDTOOptData',
         'amount' => 'int',
         'currency' => 'string',
@@ -44,7 +43,6 @@ class SecupayPayoutDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'demo' => null,
         'redirect_url' => null,
         'contract' => null,
         'customer' => null,
@@ -71,7 +69,6 @@ class SecupayPayoutDTO implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'demo' => 'demo',
         'redirect_url' => 'redirect_url',
         'contract' => 'contract',
         'customer' => 'customer',
@@ -83,13 +80,11 @@ class SecupayPayoutDTO implements ArrayAccess
         'transaction_list' => 'transaction_list'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
      */
     protected static $setters = [
-        'demo' => 'setDemo',
         'redirect_url' => 'setRedirectUrl',
         'contract' => 'setContract',
         'customer' => 'setCustomer',
@@ -101,13 +96,11 @@ class SecupayPayoutDTO implements ArrayAccess
         'transaction_list' => 'setTransactionList'
     ];
 
-
     /**
      * Array of attributes to getter functions (for serialization of requests)
      * @var string[]
      */
     protected static $getters = [
-        'demo' => 'getDemo',
         'redirect_url' => 'getRedirectUrl',
         'contract' => 'getContract',
         'customer' => 'getCustomer',
@@ -134,10 +127,6 @@ class SecupayPayoutDTO implements ArrayAccess
         return self::$getters;
     }
 
-    
-
-    
-
     /**
      * Associative array for storing property values
      * @var mixed[]
@@ -150,7 +139,6 @@ class SecupayPayoutDTO implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['demo'] = isset($data['demo']) ? $data['demo'] : null;
         $this->container['redirect_url'] = isset($data['redirect_url']) ? $data['redirect_url'] : null;
         $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
         $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
@@ -182,31 +170,9 @@ class SecupayPayoutDTO implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
-
-    /**
-     * Gets demo
-     * @return bool
-     */
-    public function getDemo()
-    {
-        return $this->container['demo'];
-    }
-
-    /**
-     * Sets demo
-     * @param bool $demo demo env value
-     * @return $this
-     */
-    public function setDemo($demo)
-    {
-        $this->container['demo'] = $demo;
-
-        return $this;
-    }
 
     /**
      * Gets redirect_url
@@ -219,7 +185,7 @@ class SecupayPayoutDTO implements ArrayAccess
 
     /**
      * Sets redirect_url
-     * @param \Secuconnect\Client\Model\SecupayRedirectUrl $redirect_url A list of redirect urls used for the payment checkout page
+     * @param \Secuconnect\Client\Model\SecupayRedirectUrl $redirect_url redirect_url
      * @return $this
      */
     public function setRedirectUrl($redirect_url)
@@ -240,7 +206,7 @@ class SecupayPayoutDTO implements ArrayAccess
 
     /**
      * Sets contract
-     * @param string $contract Contract ID
+     * @param string $contract The contract ID
      * @return $this
      */
     public function setContract($contract)
@@ -252,7 +218,7 @@ class SecupayPayoutDTO implements ArrayAccess
 
     /**
      * Gets customer
-     * @return string
+     * @return \Secuconnect\Client\Model\PaymentCustomersProductModel
      */
     public function getCustomer()
     {
@@ -261,7 +227,7 @@ class SecupayPayoutDTO implements ArrayAccess
 
     /**
      * Sets customer
-     * @param string $customer Payment customer ID
+     * @param \Secuconnect\Client\Model\PaymentCustomersProductModel $customer customer
      * @return $this
      */
     public function setCustomer($customer)
@@ -282,7 +248,7 @@ class SecupayPayoutDTO implements ArrayAccess
 
     /**
      * Sets opt_data
-     * @param \Secuconnect\Client\Model\SecupayPayoutDTOOptData $opt_data
+     * @param \Secuconnect\Client\Model\SecupayPayoutDTOOptData $opt_data opt_data
      * @return $this
      */
     public function setOptData($opt_data)
@@ -396,9 +362,10 @@ class SecupayPayoutDTO implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -408,7 +375,7 @@ class SecupayPayoutDTO implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -418,8 +385,8 @@ class SecupayPayoutDTO implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -433,7 +400,7 @@ class SecupayPayoutDTO implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -454,5 +421,4 @@ class SecupayPayoutDTO implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

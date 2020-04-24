@@ -2,17 +2,15 @@
 
 namespace Secuconnect\Client\Model;
 
-use \ArrayAccess;
-
 /**
  * ReceiptTypeValue
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ReceiptTypeValue implements ArrayAccess
+class ReceiptTypeValue extends ReceiptType 
 {
     const DISCRIMINATOR = null;
 
@@ -27,7 +25,6 @@ class ReceiptTypeValue implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string',
         'value' => '\Secuconnect\Client\Model\ReceiptValue'
     ];
 
@@ -36,18 +33,17 @@ class ReceiptTypeValue implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null,
         'value' => null
     ];
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -55,54 +51,39 @@ class ReceiptTypeValue implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
         'value' => 'value'
     ];
-
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
         'value' => 'setValue'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
         'value' => 'getValue'
     ];
 
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
-
-    
-
-    
-
-    /**
-     * Associative array for storing property values
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -110,7 +91,8 @@ class ReceiptTypeValue implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        parent::__construct($data);
+
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
@@ -121,7 +103,7 @@ class ReceiptTypeValue implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalid_properties = parent::listInvalidProperties();
 
         return $invalid_properties;
     }
@@ -134,31 +116,9 @@ class ReceiptTypeValue implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
-
-    /**
-     * Gets type
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     * @param string $type Type
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
 
     /**
      * Gets value
@@ -171,7 +131,7 @@ class ReceiptTypeValue implements ArrayAccess
 
     /**
      * Sets value
-     * @param \Secuconnect\Client\Model\ReceiptValue $value Value object
+     * @param \Secuconnect\Client\Model\ReceiptValue $value value
      * @return $this
      */
     public function setValue($value)
@@ -180,9 +140,10 @@ class ReceiptTypeValue implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -192,7 +153,7 @@ class ReceiptTypeValue implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -202,8 +163,8 @@ class ReceiptTypeValue implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -217,7 +178,7 @@ class ReceiptTypeValue implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -238,5 +199,4 @@ class ReceiptTypeValue implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

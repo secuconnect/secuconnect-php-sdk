@@ -91,7 +91,6 @@ class PaymentTransactionsCancelList1 implements ArrayAccess
     {
         return self::$getters;
     }
-    
 
     /**
      * Associative array for storing property values

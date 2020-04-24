@@ -7,11 +7,11 @@ use \ArrayAccess;
 /**
  * PaymentTransactionsProductModelDetails
  *
- * @category    Class
+ * @category Class
  * @description Transaction details
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class PaymentTransactionsProductModelDetails implements ArrayAccess
 {
@@ -78,7 +78,6 @@ class PaymentTransactionsProductModelDetails implements ArrayAccess
         'description_raw' => 'description_raw'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
@@ -93,7 +92,6 @@ class PaymentTransactionsProductModelDetails implements ArrayAccess
         'description' => 'setDescription',
         'description_raw' => 'setDescriptionRaw'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -124,10 +122,6 @@ class PaymentTransactionsProductModelDetails implements ArrayAccess
     {
         return self::$getters;
     }
-
-    
-
-    
 
     /**
      * Associative array for storing property values
@@ -171,7 +165,6 @@ class PaymentTransactionsProductModelDetails implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
@@ -343,9 +336,10 @@ class PaymentTransactionsProductModelDetails implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -355,7 +349,7 @@ class PaymentTransactionsProductModelDetails implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -365,8 +359,8 @@ class PaymentTransactionsProductModelDetails implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -380,7 +374,7 @@ class PaymentTransactionsProductModelDetails implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -401,5 +395,4 @@ class PaymentTransactionsProductModelDetails implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

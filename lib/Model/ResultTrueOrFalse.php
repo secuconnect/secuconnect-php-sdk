@@ -86,7 +86,6 @@ class ResultTrueOrFalse implements ArrayAccess
     {
         return self::$getters;
     }
-    
 
     /**
      * Associative array for storing property values
