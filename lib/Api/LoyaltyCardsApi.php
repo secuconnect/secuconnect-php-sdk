@@ -67,13 +67,13 @@ class LoyaltyCardsApi
      *
      * @param string $loyalty_card_id Loyalty card id (required)
      * @param string $general_account_id General account id (required)
-     * @param object $loyalty_card_pin Loyalty card pin for the specific card (optional)
+     * @param \Secuconnect\Client\Model\CardPin $body Loyalty card pin for the specific card 
      * @throws ApiException on non-2xx response
-     * @return object
+     * @return \Secuconnect\Client\Model\ResultBoolean
      */
-    public function assignUser($loyalty_card_id, $general_account_id, $loyalty_card_pin = null)
+    public function assignUser($loyalty_card_id, $general_account_id, $body)
     {
-        list($response) = $this->assignUserWithHttpInfo($loyalty_card_id, $general_account_id, $loyalty_card_pin);
+        list($response) = $this->assignUserWithHttpInfo($loyalty_card_id, $general_account_id, $body);
         return $response;
     }
 
@@ -84,19 +84,23 @@ class LoyaltyCardsApi
      *
      * @param string $loyalty_card_id Loyalty card id (required)
      * @param string $general_account_id General account id (required)
-     * @param object $loyalty_card_pin Loyalty card pin for the specific card (optional)
+     * @param \Secuconnect\Client\Model\CardPin $body Loyalty card pin for the specific card 
      * @throws ApiException on non-2xx response
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
      */
-    public function assignUserWithHttpInfo($loyalty_card_id, $general_account_id, $loyalty_card_pin = null)
+    public function assignUserWithHttpInfo($loyalty_card_id, $general_account_id, $body)
     {
         // verify the required parameter 'loyalty_card_id' is set
-        if ($loyalty_card_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $loyalty_card_id when calling assignUser');
+        if ($loyalty_card_id === null || (is_array($loyalty_card_id) && count($loyalty_card_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $loyalty_card_id when calling assignUser'
+            );
         }
         // verify the required parameter 'general_account_id' is set
-        if ($general_account_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $general_account_id when calling assignUser');
+        if ($general_account_id === null || (is_array($general_account_id) && count($general_account_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $general_account_id when calling assignUser'
+            );
         }
         // parse inputs
         $resourcePath = "/Loyalty/Cards/{loyaltyCardId}/assignUser/{generalAccountId}";
@@ -104,11 +108,11 @@ class LoyaltyCardsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // path params
         if ($loyalty_card_id !== null) {
@@ -128,8 +132,8 @@ class LoyaltyCardsApi
         }
         // body params
         $_tempBody = null;
-        if (isset($loyalty_card_pin)) {
-            $_tempBody = $loyalty_card_pin;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)
@@ -139,12 +143,12 @@ class LoyaltyCardsApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -153,15 +157,15 @@ class LoyaltyCardsApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    'object',
+                    '\Secuconnect\Client\Model\ResultBoolean',
                     '/Loyalty/Cards/{loyaltyCardId}/assignUser/{generalAccountId}'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, 'object', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\ResultBoolean', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ResultBoolean', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:
@@ -185,11 +189,11 @@ class LoyaltyCardsApi
      *
      * GET Loyalty/Cards
      *
-     * @param int $count The number of items to return. (optional)
-     * @param int $offset The position within the whole result set to start returning items (First element is at 0). (optional)
-     * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 (optional)
-     * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                  A condition may contain:  *                      - wildcard \&quot;*\&quot; for any number of characters  *                      - wildcard \&quot;?\&quot; for one character  *                      - ranges in the form [value TO value]  *  *                  Single expressions may combined by &#39;AND&#39;, &#39;OR&#39;, &#39;NOT&#39; operators and parenthesis &#39;(&#39;, &#39;)&#39; for grouping.  *                  Property names can be nested like \&quot;prop1.prop2\&quot;.  *                  Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * (optional)
-     * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#39;asc&#39;, or descending &#39;dsc&#39; order. (optional)
+     * @param int $count The number of items to return. 
+     * @param int $offset The position within the whole result set to start returning items (First element is at 0). 
+     * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 
+     * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                   A condition may contain:  *                       - wildcard \&quot;*\&quot; for any number of characters  *                       - wildcard \&quot;?\&quot; for one character  *                       - ranges in the form [value TO value]  *  *                   Single expressions may combined by &#x27;AND&#x27;, &#x27;OR&#x27;, &#x27;NOT&#x27; operators and parenthesis &#x27;(&#x27;, &#x27;)&#x27; for grouping.  *                   Property names can be nested like \&quot;prop1.prop2\&quot;.  *                   Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * 
+     * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#x27;asc&#x27;, or descending &#x27;dsc&#x27; order. 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyCardsList
      */
@@ -204,11 +208,11 @@ class LoyaltyCardsApi
      *
      * GET Loyalty/Cards
      *
-     * @param int $count The number of items to return. (optional)
-     * @param int $offset The position within the whole result set to start returning items (First element is at 0). (optional)
-     * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 (optional)
-     * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                  A condition may contain:  *                      - wildcard \&quot;*\&quot; for any number of characters  *                      - wildcard \&quot;?\&quot; for one character  *                      - ranges in the form [value TO value]  *  *                  Single expressions may combined by &#39;AND&#39;, &#39;OR&#39;, &#39;NOT&#39; operators and parenthesis &#39;(&#39;, &#39;)&#39; for grouping.  *                  Property names can be nested like \&quot;prop1.prop2\&quot;.  *                  Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * (optional)
-     * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#39;asc&#39;, or descending &#39;dsc&#39; order. (optional)
+     * @param int $count The number of items to return. 
+     * @param int $offset The position within the whole result set to start returning items (First element is at 0). 
+     * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 
+     * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                   A condition may contain:  *                       - wildcard \&quot;*\&quot; for any number of characters  *                       - wildcard \&quot;?\&quot; for one character  *                       - ranges in the form [value TO value]  *  *                   Single expressions may combined by &#x27;AND&#x27;, &#x27;OR&#x27;, &#x27;NOT&#x27; operators and parenthesis &#x27;(&#x27;, &#x27;)&#x27; for grouping.  *                   Property names can be nested like \&quot;prop1.prop2\&quot;.  *                   Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * 
+     * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#x27;asc&#x27;, or descending &#x27;dsc&#x27; order. 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyCardsList, HTTP status code, HTTP response headers (array of strings)
      */
@@ -220,7 +224,7 @@ class LoyaltyCardsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -254,12 +258,12 @@ class LoyaltyCardsApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -322,8 +326,10 @@ class LoyaltyCardsApi
     public function getOneWithHttpInfo($loyalty_card_id)
     {
         // verify the required parameter 'loyalty_card_id' is set
-        if ($loyalty_card_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $loyalty_card_id when calling getOne');
+        if ($loyalty_card_id === null || (is_array($loyalty_card_id) && count($loyalty_card_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $loyalty_card_id when calling getOne'
+            );
         }
         // parse inputs
         $resourcePath = "/Loyalty/Cards/{loyaltyCardId}";
@@ -331,7 +337,7 @@ class LoyaltyCardsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -353,12 +359,12 @@ class LoyaltyCardsApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -402,7 +408,7 @@ class LoyaltyCardsApi
      * @param string $loyalty_card_id Loyalty card id (required)
      * @param string $general_account_id General account id (required)
      * @throws ApiException on non-2xx response
-     * @return object
+     * @return \Secuconnect\Client\Model\ResultBoolean
      */
     public function removeAssignedUser($loyalty_card_id, $general_account_id)
     {
@@ -418,17 +424,21 @@ class LoyaltyCardsApi
      * @param string $loyalty_card_id Loyalty card id (required)
      * @param string $general_account_id General account id (required)
      * @throws ApiException on non-2xx response
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
      */
     public function removeAssignedUserWithHttpInfo($loyalty_card_id, $general_account_id)
     {
         // verify the required parameter 'loyalty_card_id' is set
-        if ($loyalty_card_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $loyalty_card_id when calling removeAssignedUser');
+        if ($loyalty_card_id === null || (is_array($loyalty_card_id) && count($loyalty_card_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $loyalty_card_id when calling removeAssignedUser'
+            );
         }
         // verify the required parameter 'general_account_id' is set
-        if ($general_account_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $general_account_id when calling removeAssignedUser');
+        if ($general_account_id === null || (is_array($general_account_id) && count($general_account_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $general_account_id when calling removeAssignedUser'
+            );
         }
         // parse inputs
         $resourcePath = "/Loyalty/Cards/{loyaltyCardId}/assignUser/{generalAccountId}";
@@ -436,7 +446,7 @@ class LoyaltyCardsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -466,12 +476,12 @@ class LoyaltyCardsApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -480,15 +490,15 @@ class LoyaltyCardsApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    'object',
+                    '\Secuconnect\Client\Model\ResultBoolean',
                     '/Loyalty/Cards/{loyaltyCardId}/assignUser/{generalAccountId}'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, 'object', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\ResultBoolean', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ResultBoolean', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:

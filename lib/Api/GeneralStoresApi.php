@@ -65,7 +65,7 @@ class GeneralStoresApi
      *
      * POST General/Stores
      *
-     * @param \Secuconnect\Client\Model\GeneralStoresDTO $body General store properties (required)
+     * @param \Secuconnect\Client\Model\GeneralStoresDTO $body General store properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\GeneralStoresProductModel
      */
@@ -80,27 +80,23 @@ class GeneralStoresApi
      *
      * POST General/Stores
      *
-     * @param \Secuconnect\Client\Model\GeneralStoresDTO $body General store properties (required)
+     * @param \Secuconnect\Client\Model\GeneralStoresDTO $body General store properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\GeneralStoresProductModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function addStoreWithHttpInfo($body)
     {
-        // verify the required parameter 'body' is set
-        if ($body === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $body when calling addStore');
-        }
         // parse inputs
         $resourcePath = "/General/Stores";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // body params
         $_tempBody = null;
@@ -115,12 +111,12 @@ class GeneralStoresApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -164,7 +160,7 @@ class GeneralStoresApi
      * @param string $general_store_id General store id (required)
      * @param string $google_key Google key (required)
      * @throws ApiException on non-2xx response
-     * @return object
+     * @return \Secuconnect\Client\Model\ResultBoolean
      */
     public function assignGoogleKey($general_store_id, $google_key)
     {
@@ -180,17 +176,21 @@ class GeneralStoresApi
      * @param string $general_store_id General store id (required)
      * @param string $google_key Google key (required)
      * @throws ApiException on non-2xx response
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
      */
     public function assignGoogleKeyWithHttpInfo($general_store_id, $google_key)
     {
         // verify the required parameter 'general_store_id' is set
-        if ($general_store_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $general_store_id when calling assignGoogleKey');
+        if ($general_store_id === null || (is_array($general_store_id) && count($general_store_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $general_store_id when calling assignGoogleKey'
+            );
         }
         // verify the required parameter 'google_key' is set
-        if ($google_key === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $google_key when calling assignGoogleKey');
+        if ($google_key === null || (is_array($google_key) && count($google_key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $google_key when calling assignGoogleKey'
+            );
         }
         // parse inputs
         $resourcePath = "/General/Stores/{generalStoreId}/assign/{googleKey}";
@@ -198,7 +198,7 @@ class GeneralStoresApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -228,12 +228,12 @@ class GeneralStoresApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -242,15 +242,15 @@ class GeneralStoresApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    'object',
+                    '\Secuconnect\Client\Model\ResultBoolean',
                     '/General/Stores/{generalStoreId}/assign/{googleKey}'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, 'object', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\ResultBoolean', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ResultBoolean', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:
@@ -275,9 +275,9 @@ class GeneralStoresApi
      * POST General/Stores/{generalStoreId}/checkin
      *
      * @param string $general_store_id General store id (required)
-     * @param \Secuconnect\Client\Model\GeneralStoresDTOType $body Type (required)
+     * @param \Secuconnect\Client\Model\GeneralStoresDTOType $body General store properties 
      * @throws ApiException on non-2xx response
-     * @return object
+     * @return \Secuconnect\Client\Model\ResultBoolean
      */
     public function checkIn($general_store_id, $body)
     {
@@ -291,19 +291,17 @@ class GeneralStoresApi
      * POST General/Stores/{generalStoreId}/checkin
      *
      * @param string $general_store_id General store id (required)
-     * @param \Secuconnect\Client\Model\GeneralStoresDTOType $body Type (required)
+     * @param \Secuconnect\Client\Model\GeneralStoresDTOType $body General store properties 
      * @throws ApiException on non-2xx response
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
      */
     public function checkInWithHttpInfo($general_store_id, $body)
     {
         // verify the required parameter 'general_store_id' is set
-        if ($general_store_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $general_store_id when calling checkIn');
-        }
-        // verify the required parameter 'body' is set
-        if ($body === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $body when calling checkIn');
+        if ($general_store_id === null || (is_array($general_store_id) && count($general_store_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $general_store_id when calling checkIn'
+            );
         }
         // parse inputs
         $resourcePath = "/General/Stores/{generalStoreId}/checkin";
@@ -311,11 +309,11 @@ class GeneralStoresApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // path params
         if ($general_store_id !== null) {
@@ -338,12 +336,12 @@ class GeneralStoresApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -352,15 +350,15 @@ class GeneralStoresApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    'object',
+                    '\Secuconnect\Client\Model\ResultBoolean',
                     '/General/Stores/{generalStoreId}/checkin'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, 'object', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\ResultBoolean', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ResultBoolean', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:
@@ -384,11 +382,11 @@ class GeneralStoresApi
      *
      * GET General/Stores
      *
-     * @param int $count The number of items to return. (optional)
-     * @param int $offset The position within the whole result set to start returning items (First element is at 0). (optional)
-     * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 (optional)
-     * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                  A condition may contain:  *                      - wildcard \&quot;*\&quot; for any number of characters  *                      - wildcard \&quot;?\&quot; for one character  *                      - ranges in the form [value TO value]  *  *                  Single expressions may combined by &#39;AND&#39;, &#39;OR&#39;, &#39;NOT&#39; operators and parenthesis &#39;(&#39;, &#39;)&#39; for grouping.  *                  Property names can be nested like \&quot;prop1.prop2\&quot;.  *                  Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * (optional)
-     * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#39;asc&#39;, or descending &#39;dsc&#39; order. (optional)
+     * @param int $count The number of items to return. 
+     * @param int $offset The position within the whole result set to start returning items (First element is at 0). 
+     * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 
+     * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                   A condition may contain:  *                       - wildcard \&quot;*\&quot; for any number of characters  *                       - wildcard \&quot;?\&quot; for one character  *                       - ranges in the form [value TO value]  *  *                   Single expressions may combined by &#x27;AND&#x27;, &#x27;OR&#x27;, &#x27;NOT&#x27; operators and parenthesis &#x27;(&#x27;, &#x27;)&#x27; for grouping.  *                   Property names can be nested like \&quot;prop1.prop2\&quot;.  *                   Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * 
+     * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#x27;asc&#x27;, or descending &#x27;dsc&#x27; order. 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\GeneralStoresList
      */
@@ -403,11 +401,11 @@ class GeneralStoresApi
      *
      * GET General/Stores
      *
-     * @param int $count The number of items to return. (optional)
-     * @param int $offset The position within the whole result set to start returning items (First element is at 0). (optional)
-     * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 (optional)
-     * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                  A condition may contain:  *                      - wildcard \&quot;*\&quot; for any number of characters  *                      - wildcard \&quot;?\&quot; for one character  *                      - ranges in the form [value TO value]  *  *                  Single expressions may combined by &#39;AND&#39;, &#39;OR&#39;, &#39;NOT&#39; operators and parenthesis &#39;(&#39;, &#39;)&#39; for grouping.  *                  Property names can be nested like \&quot;prop1.prop2\&quot;.  *                  Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * (optional)
-     * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#39;asc&#39;, or descending &#39;dsc&#39; order. (optional)
+     * @param int $count The number of items to return. 
+     * @param int $offset The position within the whole result set to start returning items (First element is at 0). 
+     * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 
+     * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                   A condition may contain:  *                       - wildcard \&quot;*\&quot; for any number of characters  *                       - wildcard \&quot;?\&quot; for one character  *                       - ranges in the form [value TO value]  *  *                   Single expressions may combined by &#x27;AND&#x27;, &#x27;OR&#x27;, &#x27;NOT&#x27; operators and parenthesis &#x27;(&#x27;, &#x27;)&#x27; for grouping.  *                   Property names can be nested like \&quot;prop1.prop2\&quot;.  *                   Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * 
+     * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#x27;asc&#x27;, or descending &#x27;dsc&#x27; order. 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\GeneralStoresList, HTTP status code, HTTP response headers (array of strings)
      */
@@ -419,7 +417,7 @@ class GeneralStoresApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -453,12 +451,12 @@ class GeneralStoresApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -521,8 +519,10 @@ class GeneralStoresApi
     public function getOneWithHttpInfo($general_store_id)
     {
         // verify the required parameter 'general_store_id' is set
-        if ($general_store_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $general_store_id when calling getOne');
+        if ($general_store_id === null || (is_array($general_store_id) && count($general_store_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $general_store_id when calling getOne'
+            );
         }
         // parse inputs
         $resourcePath = "/General/Stores/{generalStoreId}";
@@ -530,7 +530,7 @@ class GeneralStoresApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -552,12 +552,12 @@ class GeneralStoresApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -599,11 +599,11 @@ class GeneralStoresApi
      * POST General/Stores/{generalStoreId}/setDefault
      *
      * @param string $general_store_id General store id (required)
-     * @param \Secuconnect\Client\Model\GeneralStoresDTOReason $body Reason (optional)
+     * @param \Secuconnect\Client\Model\GeneralStoresDTOReason $body Reason 
      * @throws ApiException on non-2xx response
-     * @return object
+     * @return \Secuconnect\Client\Model\ResultBoolean
      */
-    public function setDefault($general_store_id, $body = null)
+    public function setDefault($general_store_id, $body)
     {
         list($response) = $this->setDefaultWithHttpInfo($general_store_id, $body);
         return $response;
@@ -615,15 +615,17 @@ class GeneralStoresApi
      * POST General/Stores/{generalStoreId}/setDefault
      *
      * @param string $general_store_id General store id (required)
-     * @param \Secuconnect\Client\Model\GeneralStoresDTOReason $body Reason (optional)
+     * @param \Secuconnect\Client\Model\GeneralStoresDTOReason $body Reason 
      * @throws ApiException on non-2xx response
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
      */
-    public function setDefaultWithHttpInfo($general_store_id, $body = null)
+    public function setDefaultWithHttpInfo($general_store_id, $body)
     {
         // verify the required parameter 'general_store_id' is set
-        if ($general_store_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $general_store_id when calling setDefault');
+        if ($general_store_id === null || (is_array($general_store_id) && count($general_store_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $general_store_id when calling setDefault'
+            );
         }
         // parse inputs
         $resourcePath = "/General/Stores/{generalStoreId}/setDefault";
@@ -631,11 +633,11 @@ class GeneralStoresApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // path params
         if ($general_store_id !== null) {
@@ -658,12 +660,12 @@ class GeneralStoresApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -672,15 +674,15 @@ class GeneralStoresApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    'object',
+                    '\Secuconnect\Client\Model\ResultBoolean',
                     '/General/Stores/{generalStoreId}/setDefault'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, 'object', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\ResultBoolean', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ResultBoolean', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:
@@ -705,7 +707,7 @@ class GeneralStoresApi
      * PUT General/Stores/{generalStoreId}
      *
      * @param string $general_store_id General store id (required)
-     * @param \Secuconnect\Client\Model\GeneralStoresDTO $body General store properties (required)
+     * @param \Secuconnect\Client\Model\GeneralStoresDTO $body General store properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\GeneralStoresProductModel
      */
@@ -721,19 +723,17 @@ class GeneralStoresApi
      * PUT General/Stores/{generalStoreId}
      *
      * @param string $general_store_id General store id (required)
-     * @param \Secuconnect\Client\Model\GeneralStoresDTO $body General store properties (required)
+     * @param \Secuconnect\Client\Model\GeneralStoresDTO $body General store properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\GeneralStoresProductModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateStoreWithHttpInfo($general_store_id, $body)
     {
         // verify the required parameter 'general_store_id' is set
-        if ($general_store_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $general_store_id when calling updateStore');
-        }
-        // verify the required parameter 'body' is set
-        if ($body === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateStore');
+        if ($general_store_id === null || (is_array($general_store_id) && count($general_store_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $general_store_id when calling updateStore'
+            );
         }
         // parse inputs
         $resourcePath = "/General/Stores/{generalStoreId}";
@@ -741,11 +741,11 @@ class GeneralStoresApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // path params
         if ($general_store_id !== null) {
@@ -768,12 +768,12 @@ class GeneralStoresApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(

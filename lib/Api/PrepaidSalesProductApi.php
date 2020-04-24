@@ -65,11 +65,11 @@ class PrepaidSalesProductApi
      *
      * POST Prepaid/Sales
      *
-     * @param \Secuconnect\Client\Model\PrepaidSalesProductDTO $body Prepaid transaction input properties (optional)
+     * @param \Secuconnect\Client\Model\PrepaidSalesProductDTO $body Prepaid transaction input properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PrepaidSalesProductModel
      */
-    public function addSale($body = null)
+    public function addSale($body)
     {
         list($response) = $this->addSaleWithHttpInfo($body);
         return $response;
@@ -80,11 +80,11 @@ class PrepaidSalesProductApi
      *
      * POST Prepaid/Sales
      *
-     * @param \Secuconnect\Client\Model\PrepaidSalesProductDTO $body Prepaid transaction input properties (optional)
+     * @param \Secuconnect\Client\Model\PrepaidSalesProductDTO $body Prepaid transaction input properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PrepaidSalesProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addSaleWithHttpInfo($body = null)
+    public function addSaleWithHttpInfo($body)
     {
         // parse inputs
         $resourcePath = "/Prepaid/Sales";
@@ -92,11 +92,11 @@ class PrepaidSalesProductApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // body params
         $_tempBody = null;
@@ -111,12 +111,12 @@ class PrepaidSalesProductApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(

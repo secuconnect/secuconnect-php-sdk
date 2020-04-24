@@ -65,13 +65,13 @@ class SmartDevicesApi
      *
      * POST Smart/Devices
      *
-     * @param \Secuconnect\Client\Model\SmartDevicesDTO $smart_device_properties Smart device properties (required)
+     * @param \Secuconnect\Client\Model\SmartDevicesDTO $body Smart device properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartDevicesProductModel
      */
-    public function addDevice($smart_device_properties)
+    public function addDevice($body)
     {
-        list($response) = $this->addDeviceWithHttpInfo($smart_device_properties);
+        list($response) = $this->addDeviceWithHttpInfo($body);
         return $response;
     }
 
@@ -80,32 +80,28 @@ class SmartDevicesApi
      *
      * POST Smart/Devices
      *
-     * @param \Secuconnect\Client\Model\SmartDevicesDTO $smart_device_properties Smart device properties (required)
+     * @param \Secuconnect\Client\Model\SmartDevicesDTO $body Smart device properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartDevicesProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addDeviceWithHttpInfo($smart_device_properties)
+    public function addDeviceWithHttpInfo($body)
     {
-        // verify the required parameter 'smart_device_properties' is set
-        if ($smart_device_properties === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $smart_device_properties when calling addDevice');
-        }
         // parse inputs
         $resourcePath = "/Smart/Devices";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // body params
         $_tempBody = null;
-        if (isset($smart_device_properties)) {
-            $_tempBody = $smart_device_properties;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)
@@ -115,12 +111,12 @@ class SmartDevicesApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -162,13 +158,13 @@ class SmartDevicesApi
      * POST Smart/Devices/{smartDeviceId}/createPrepaidTid
      *
      * @param string $smart_device_id Smart device id (required)
-     * @param \Secuconnect\Client\Model\SmartDevicesDTOPrepaidTid $prepaid_tid_properties Prepaid tid properties (required)
+     * @param \Secuconnect\Client\Model\SmartDevicesDTOPrepaidTid $body Prepaid tid properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartDevicesProductModel
      */
-    public function createPrepaidTid($smart_device_id, $prepaid_tid_properties)
+    public function createPrepaidTid($smart_device_id, $body)
     {
-        list($response) = $this->createPrepaidTidWithHttpInfo($smart_device_id, $prepaid_tid_properties);
+        list($response) = $this->createPrepaidTidWithHttpInfo($smart_device_id, $body);
         return $response;
     }
 
@@ -178,19 +174,17 @@ class SmartDevicesApi
      * POST Smart/Devices/{smartDeviceId}/createPrepaidTid
      *
      * @param string $smart_device_id Smart device id (required)
-     * @param \Secuconnect\Client\Model\SmartDevicesDTOPrepaidTid $prepaid_tid_properties Prepaid tid properties (required)
+     * @param \Secuconnect\Client\Model\SmartDevicesDTOPrepaidTid $body Prepaid tid properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartDevicesProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPrepaidTidWithHttpInfo($smart_device_id, $prepaid_tid_properties)
+    public function createPrepaidTidWithHttpInfo($smart_device_id, $body)
     {
         // verify the required parameter 'smart_device_id' is set
-        if ($smart_device_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $smart_device_id when calling createPrepaidTid');
-        }
-        // verify the required parameter 'prepaid_tid_properties' is set
-        if ($prepaid_tid_properties === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $prepaid_tid_properties when calling createPrepaidTid');
+        if ($smart_device_id === null || (is_array($smart_device_id) && count($smart_device_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $smart_device_id when calling createPrepaidTid'
+            );
         }
         // parse inputs
         $resourcePath = "/Smart/Devices/{smartDeviceId}/createPrepaidTid";
@@ -198,11 +192,11 @@ class SmartDevicesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // path params
         if ($smart_device_id !== null) {
@@ -214,8 +208,8 @@ class SmartDevicesApi
         }
         // body params
         $_tempBody = null;
-        if (isset($prepaid_tid_properties)) {
-            $_tempBody = $prepaid_tid_properties;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)
@@ -225,12 +219,12 @@ class SmartDevicesApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -293,8 +287,10 @@ class SmartDevicesApi
     public function createVirtualDeviceWithHttpInfo($smart_device_id)
     {
         // verify the required parameter 'smart_device_id' is set
-        if ($smart_device_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $smart_device_id when calling createVirtualDevice');
+        if ($smart_device_id === null || (is_array($smart_device_id) && count($smart_device_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $smart_device_id when calling createVirtualDevice'
+            );
         }
         // parse inputs
         $resourcePath = "/Smart/Devices/{smartDeviceId}/createVirtualDevice";
@@ -302,7 +298,7 @@ class SmartDevicesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -324,12 +320,12 @@ class SmartDevicesApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -370,11 +366,11 @@ class SmartDevicesApi
      *
      * GET Smart/Devices
      *
-     * @param int $count The number of items to return. (optional)
-     * @param int $offset The position within the whole result set to start returning items (First element is at 0). (optional)
-     * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 (optional)
-     * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                  A condition may contain:  *                      - wildcard \&quot;*\&quot; for any number of characters  *                      - wildcard \&quot;?\&quot; for one character  *                      - ranges in the form [value TO value]  *  *                  Single expressions may combined by &#39;AND&#39;, &#39;OR&#39;, &#39;NOT&#39; operators and parenthesis &#39;(&#39;, &#39;)&#39; for grouping.  *                  Property names can be nested like \&quot;prop1.prop2\&quot;.  *                  Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * (optional)
-     * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#39;asc&#39;, or descending &#39;dsc&#39; order. (optional)
+     * @param int $count The number of items to return. 
+     * @param int $offset The position within the whole result set to start returning items (First element is at 0). 
+     * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 
+     * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                   A condition may contain:  *                       - wildcard \&quot;*\&quot; for any number of characters  *                       - wildcard \&quot;?\&quot; for one character  *                       - ranges in the form [value TO value]  *  *                   Single expressions may combined by &#x27;AND&#x27;, &#x27;OR&#x27;, &#x27;NOT&#x27; operators and parenthesis &#x27;(&#x27;, &#x27;)&#x27; for grouping.  *                   Property names can be nested like \&quot;prop1.prop2\&quot;.  *                   Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * 
+     * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#x27;asc&#x27;, or descending &#x27;dsc&#x27; order. 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartDevicesList
      */
@@ -389,11 +385,11 @@ class SmartDevicesApi
      *
      * GET Smart/Devices
      *
-     * @param int $count The number of items to return. (optional)
-     * @param int $offset The position within the whole result set to start returning items (First element is at 0). (optional)
-     * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 (optional)
-     * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                  A condition may contain:  *                      - wildcard \&quot;*\&quot; for any number of characters  *                      - wildcard \&quot;?\&quot; for one character  *                      - ranges in the form [value TO value]  *  *                  Single expressions may combined by &#39;AND&#39;, &#39;OR&#39;, &#39;NOT&#39; operators and parenthesis &#39;(&#39;, &#39;)&#39; for grouping.  *                  Property names can be nested like \&quot;prop1.prop2\&quot;.  *                  Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * (optional)
-     * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#39;asc&#39;, or descending &#39;dsc&#39; order. (optional)
+     * @param int $count The number of items to return. 
+     * @param int $offset The position within the whole result set to start returning items (First element is at 0). 
+     * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 
+     * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                   A condition may contain:  *                       - wildcard \&quot;*\&quot; for any number of characters  *                       - wildcard \&quot;?\&quot; for one character  *                       - ranges in the form [value TO value]  *  *                   Single expressions may combined by &#x27;AND&#x27;, &#x27;OR&#x27;, &#x27;NOT&#x27; operators and parenthesis &#x27;(&#x27;, &#x27;)&#x27; for grouping.  *                   Property names can be nested like \&quot;prop1.prop2\&quot;.  *                   Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * 
+     * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#x27;asc&#x27;, or descending &#x27;dsc&#x27; order. 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartDevicesList, HTTP status code, HTTP response headers (array of strings)
      */
@@ -405,7 +401,7 @@ class SmartDevicesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -439,12 +435,12 @@ class SmartDevicesApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -507,8 +503,10 @@ class SmartDevicesApi
     public function getOneWithHttpInfo($smart_device_id)
     {
         // verify the required parameter 'smart_device_id' is set
-        if ($smart_device_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $smart_device_id when calling getOne');
+        if ($smart_device_id === null || (is_array($smart_device_id) && count($smart_device_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $smart_device_id when calling getOne'
+            );
         }
         // parse inputs
         $resourcePath = "/Smart/Devices/{smartDeviceId}";
@@ -516,7 +514,7 @@ class SmartDevicesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -538,12 +536,12 @@ class SmartDevicesApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -587,7 +585,7 @@ class SmartDevicesApi
      * @param string $smart_device_id Smart device id (required)
      * @param string $type Payment type (required)
      * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\SmartDevicesList1
+     * @return \Secuconnect\Client\Model\SmartDevicesList
      */
     public function getRouting($smart_device_id, $type)
     {
@@ -603,17 +601,21 @@ class SmartDevicesApi
      * @param string $smart_device_id Smart device id (required)
      * @param string $type Payment type (required)
      * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\SmartDevicesList1, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Secuconnect\Client\Model\SmartDevicesList, HTTP status code, HTTP response headers (array of strings)
      */
     public function getRoutingWithHttpInfo($smart_device_id, $type)
     {
         // verify the required parameter 'smart_device_id' is set
-        if ($smart_device_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $smart_device_id when calling getRouting');
+        if ($smart_device_id === null || (is_array($smart_device_id) && count($smart_device_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $smart_device_id when calling getRouting'
+            );
         }
         // verify the required parameter 'type' is set
-        if ($type === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $type when calling getRouting');
+        if ($type === null || (is_array($type) && count($type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $type when calling getRouting'
+            );
         }
         // parse inputs
         $resourcePath = "/Smart/Devices/{smartDeviceId}/routing/type/{type}";
@@ -621,7 +623,7 @@ class SmartDevicesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -651,12 +653,12 @@ class SmartDevicesApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -665,15 +667,15 @@ class SmartDevicesApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    '\Secuconnect\Client\Model\SmartDevicesList1',
+                    '\Secuconnect\Client\Model\SmartDevicesList',
                     '/Smart/Devices/{smartDeviceId}/routing/type/{type}'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\SmartDevicesList1', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\SmartDevicesList', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\SmartDevicesList1', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\SmartDevicesList', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:
@@ -698,13 +700,13 @@ class SmartDevicesApi
      * POST Smart/Devices/{smartDeviceId}/getSecubaseConfig
      *
      * @param string $smart_device_id Smart device id (required)
-     * @param \Secuconnect\Client\Model\SmartDevicesDTOSecubaseConfig $secubase_config_properties Secubase config properties (required)
+     * @param \Secuconnect\Client\Model\SmartDevicesDTOSecubaseConfig $body Secubase config properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartDevicesSecubaseConfig
      */
-    public function getSecubaseConfig($smart_device_id, $secubase_config_properties)
+    public function getSecubaseConfig($smart_device_id, $body)
     {
-        list($response) = $this->getSecubaseConfigWithHttpInfo($smart_device_id, $secubase_config_properties);
+        list($response) = $this->getSecubaseConfigWithHttpInfo($smart_device_id, $body);
         return $response;
     }
 
@@ -714,19 +716,17 @@ class SmartDevicesApi
      * POST Smart/Devices/{smartDeviceId}/getSecubaseConfig
      *
      * @param string $smart_device_id Smart device id (required)
-     * @param \Secuconnect\Client\Model\SmartDevicesDTOSecubaseConfig $secubase_config_properties Secubase config properties (required)
+     * @param \Secuconnect\Client\Model\SmartDevicesDTOSecubaseConfig $body Secubase config properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartDevicesSecubaseConfig, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSecubaseConfigWithHttpInfo($smart_device_id, $secubase_config_properties)
+    public function getSecubaseConfigWithHttpInfo($smart_device_id, $body)
     {
         // verify the required parameter 'smart_device_id' is set
-        if ($smart_device_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $smart_device_id when calling getSecubaseConfig');
-        }
-        // verify the required parameter 'secubase_config_properties' is set
-        if ($secubase_config_properties === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $secubase_config_properties when calling getSecubaseConfig');
+        if ($smart_device_id === null || (is_array($smart_device_id) && count($smart_device_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $smart_device_id when calling getSecubaseConfig'
+            );
         }
         // parse inputs
         $resourcePath = "/Smart/Devices/{smartDeviceId}/getSecubaseConfig";
@@ -734,11 +734,11 @@ class SmartDevicesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // path params
         if ($smart_device_id !== null) {
@@ -750,8 +750,8 @@ class SmartDevicesApi
         }
         // body params
         $_tempBody = null;
-        if (isset($secubase_config_properties)) {
-            $_tempBody = $secubase_config_properties;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)
@@ -761,12 +761,12 @@ class SmartDevicesApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -808,13 +808,13 @@ class SmartDevicesApi
      * PUT Smart/Devices/{smartDeviceId}
      *
      * @param string $smart_device_id Smart device id (required)
-     * @param \Secuconnect\Client\Model\SmartDevicesDTO $smart_device_properties Smart device properties (required)
+     * @param \Secuconnect\Client\Model\SmartDevicesDTO $body Smart device properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartDevicesProductModel
      */
-    public function updateDevice($smart_device_id, $smart_device_properties)
+    public function updateDevice($smart_device_id, $body)
     {
-        list($response) = $this->updateDeviceWithHttpInfo($smart_device_id, $smart_device_properties);
+        list($response) = $this->updateDeviceWithHttpInfo($smart_device_id, $body);
         return $response;
     }
 
@@ -824,19 +824,17 @@ class SmartDevicesApi
      * PUT Smart/Devices/{smartDeviceId}
      *
      * @param string $smart_device_id Smart device id (required)
-     * @param \Secuconnect\Client\Model\SmartDevicesDTO $smart_device_properties Smart device properties (required)
+     * @param \Secuconnect\Client\Model\SmartDevicesDTO $body Smart device properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartDevicesProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateDeviceWithHttpInfo($smart_device_id, $smart_device_properties)
+    public function updateDeviceWithHttpInfo($smart_device_id, $body)
     {
         // verify the required parameter 'smart_device_id' is set
-        if ($smart_device_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $smart_device_id when calling updateDevice');
-        }
-        // verify the required parameter 'smart_device_properties' is set
-        if ($smart_device_properties === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $smart_device_properties when calling updateDevice');
+        if ($smart_device_id === null || (is_array($smart_device_id) && count($smart_device_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $smart_device_id when calling updateDevice'
+            );
         }
         // parse inputs
         $resourcePath = "/Smart/Devices/{smartDeviceId}";
@@ -844,11 +842,11 @@ class SmartDevicesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // path params
         if ($smart_device_id !== null) {
@@ -860,8 +858,8 @@ class SmartDevicesApi
         }
         // body params
         $_tempBody = null;
-        if (isset($smart_device_properties)) {
-            $_tempBody = $smart_device_properties;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)
@@ -871,12 +869,12 @@ class SmartDevicesApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -918,13 +916,13 @@ class SmartDevicesApi
      * PUT /Smart/Devices/{smartDeviceId}/pin
      *
      * @param string $smart_device_id Smart device id (required)
-     * @param \Secuconnect\Client\Model\SmartDeviceUserPin $smart_device_properties Smart device properties (required)
+     * @param \Secuconnect\Client\Model\SmartDeviceUserPin $body Smart device properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartDevicesProductModel
      */
-    public function updatePin($smart_device_id, $smart_device_properties)
+    public function updatePin($smart_device_id, $body)
     {
-        list($response) = $this->updatePinWithHttpInfo($smart_device_id, $smart_device_properties);
+        list($response) = $this->updatePinWithHttpInfo($smart_device_id, $body);
         return $response;
     }
 
@@ -934,19 +932,17 @@ class SmartDevicesApi
      * PUT /Smart/Devices/{smartDeviceId}/pin
      *
      * @param string $smart_device_id Smart device id (required)
-     * @param \Secuconnect\Client\Model\SmartDeviceUserPin $smart_device_properties Smart device properties (required)
+     * @param \Secuconnect\Client\Model\SmartDeviceUserPin $body Smart device properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartDevicesProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePinWithHttpInfo($smart_device_id, $smart_device_properties)
+    public function updatePinWithHttpInfo($smart_device_id, $body)
     {
         // verify the required parameter 'smart_device_id' is set
-        if ($smart_device_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $smart_device_id when calling updatePin');
-        }
-        // verify the required parameter 'smart_device_properties' is set
-        if ($smart_device_properties === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $smart_device_properties when calling updatePin');
+        if ($smart_device_id === null || (is_array($smart_device_id) && count($smart_device_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $smart_device_id when calling updatePin'
+            );
         }
         // parse inputs
         $resourcePath = "/Smart/Devices/{smartDeviceId}/pin";
@@ -954,11 +950,11 @@ class SmartDevicesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // path params
         if ($smart_device_id !== null) {
@@ -970,8 +966,8 @@ class SmartDevicesApi
         }
         // body params
         $_tempBody = null;
-        if (isset($smart_device_properties)) {
-            $_tempBody = $smart_device_properties;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)
@@ -981,12 +977,12 @@ class SmartDevicesApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
