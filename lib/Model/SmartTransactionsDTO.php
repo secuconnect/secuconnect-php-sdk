@@ -7,10 +7,10 @@ use \ArrayAccess;
 /**
  * SmartTransactionsDTO
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class SmartTransactionsDTO implements ArrayAccess
 {
@@ -137,7 +137,6 @@ class SmartTransactionsDTO implements ArrayAccess
         'checkout_links' => 'checkout_links'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
@@ -172,7 +171,6 @@ class SmartTransactionsDTO implements ArrayAccess
         'is_demo' => 'setIsDemo',
         'checkout_links' => 'setCheckoutLinks'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -223,10 +221,6 @@ class SmartTransactionsDTO implements ArrayAccess
     {
         return self::$getters;
     }
-
-    
-
-    
 
     /**
      * Associative array for storing property values
@@ -290,7 +284,6 @@ class SmartTransactionsDTO implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
@@ -327,7 +320,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets provider_contract
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $provider_contract Provider contract
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $provider_contract provider_contract
      * @return $this
      */
     public function setProviderContract($provider_contract)
@@ -432,7 +425,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets basket
-     * @param \Secuconnect\Client\Model\SmartTransactionsBasket $basket Basket
+     * @param \Secuconnect\Client\Model\SmartTransactionsBasket $basket basket
      * @return $this
      */
     public function setBasket($basket)
@@ -453,7 +446,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets basket_info
-     * @param \Secuconnect\Client\Model\SmartTransactionsBasketInfo $basket_info Basket info
+     * @param \Secuconnect\Client\Model\SmartTransactionsBasketInfo $basket_info basket_info
      * @return $this
      */
     public function setBasketInfo($basket_info)
@@ -684,7 +677,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets contract
-     * @param \Secuconnect\Client\Model\ProductInstanceID $contract Contract
+     * @param \Secuconnect\Client\Model\ProductInstanceID $contract contract
      * @return $this
      */
     public function setContract($contract)
@@ -705,7 +698,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets pickup_options
-     * @param \Secuconnect\Client\Model\SmartTransactionsPickupOptions $pickup_options Pickup options
+     * @param \Secuconnect\Client\Model\SmartTransactionsPickupOptions $pickup_options pickup_options
      * @return $this
      */
     public function setPickupOptions($pickup_options)
@@ -747,7 +740,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets customer
-     * @param \Secuconnect\Client\Model\PaymentCustomersProductModel $customer Customer
+     * @param \Secuconnect\Client\Model\PaymentCustomersProductModel $customer customer
      * @return $this
      */
     public function setCustomer($customer)
@@ -768,7 +761,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets shipping_address
-     * @param \Secuconnect\Client\Model\PaymentCustomersProductModel $shipping_address Customers delivery address
+     * @param \Secuconnect\Client\Model\PaymentCustomersProductModel $shipping_address shipping_address
      * @return $this
      */
     public function setShippingAddress($shipping_address)
@@ -789,7 +782,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets container
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $container Payment Container
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $container container
      * @return $this
      */
     public function setContainer($container)
@@ -810,7 +803,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets checkin
-     * @param \Secuconnect\Client\Model\SmartTransactionsCheckin $checkin Check in
+     * @param \Secuconnect\Client\Model\SmartTransactionsCheckin $checkin checkin
      * @return $this
      */
     public function setCheckin($checkin)
@@ -873,7 +866,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets checkout_links
-     * @param \Secuconnect\Client\Model\SmartTransactionsCheckoutLinks $checkout_links Checkout Links
+     * @param \Secuconnect\Client\Model\SmartTransactionsCheckoutLinks $checkout_links checkout_links
      * @return $this
      */
     public function setCheckoutLinks($checkout_links)
@@ -882,9 +875,10 @@ class SmartTransactionsDTO implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -894,7 +888,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -904,8 +898,8 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -919,7 +913,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -940,5 +934,4 @@ class SmartTransactionsDTO implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

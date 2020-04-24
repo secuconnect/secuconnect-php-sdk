@@ -7,10 +7,10 @@ use \ArrayAccess;
 /**
  * SmartTransactionsPrepare
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class SmartTransactionsPrepare implements ArrayAccess
 {
@@ -30,7 +30,7 @@ class SmartTransactionsPrepare implements ArrayAccess
         'customer' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'container' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'method' => 'string',
-        'callback_urls' => '\Secuconnect\Client\Model\SmartTransactionsPrepareCallbackUrls.php',
+        'callback_urls' => '\Secuconnect\Client\Model\SmartTransactionsPrepareCallbackUrls',
         'email' => 'string',
         'mode' => 'string',
         'is_paypal_basic' => 'bool',
@@ -77,7 +77,6 @@ class SmartTransactionsPrepare implements ArrayAccess
         'is_demo' => 'is_demo'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
@@ -92,7 +91,6 @@ class SmartTransactionsPrepare implements ArrayAccess
         'is_paypal_basic' => 'setIsPaypalBasic',
         'is_demo' => 'setIsDemo'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -123,10 +121,6 @@ class SmartTransactionsPrepare implements ArrayAccess
     {
         return self::$getters;
     }
-
-    
-
-    
 
     /**
      * Associative array for storing property values
@@ -170,7 +164,6 @@ class SmartTransactionsPrepare implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
@@ -186,7 +179,7 @@ class SmartTransactionsPrepare implements ArrayAccess
 
     /**
      * Sets customer
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $customer Customer
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $customer customer
      * @return $this
      */
     public function setCustomer($customer)
@@ -207,7 +200,7 @@ class SmartTransactionsPrepare implements ArrayAccess
 
     /**
      * Sets container
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $container Container
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $container container
      * @return $this
      */
     public function setContainer($container)
@@ -240,7 +233,7 @@ class SmartTransactionsPrepare implements ArrayAccess
 
     /**
      * Gets callback_urls
-     * @return \Secuconnect\Client\Model\php
+     * @return \Secuconnect\Client\Model\SmartTransactionsPrepareCallbackUrls
      */
     public function getCallbackUrls()
     {
@@ -249,7 +242,7 @@ class SmartTransactionsPrepare implements ArrayAccess
 
     /**
      * Sets callback_urls
-     * @param \Secuconnect\Client\Model\php $callback_urls
+     * @param \Secuconnect\Client\Model\SmartTransactionsPrepareCallbackUrls $callback_urls callback_urls
      * @return $this
      */
     public function setCallbackUrls($callback_urls)
@@ -345,7 +338,7 @@ class SmartTransactionsPrepare implements ArrayAccess
 
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -355,7 +348,7 @@ class SmartTransactionsPrepare implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -365,8 +358,8 @@ class SmartTransactionsPrepare implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -380,7 +373,7 @@ class SmartTransactionsPrepare implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -401,5 +394,4 @@ class SmartTransactionsPrepare implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 
