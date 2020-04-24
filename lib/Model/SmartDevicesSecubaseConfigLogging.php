@@ -7,10 +7,10 @@ use \ArrayAccess;
 /**
  * SmartDevicesSecubaseConfigLogging
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class SmartDevicesSecubaseConfigLogging implements ArrayAccess
 {
@@ -59,7 +59,6 @@ class SmartDevicesSecubaseConfigLogging implements ArrayAccess
         'app' => 'app'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
@@ -68,7 +67,6 @@ class SmartDevicesSecubaseConfigLogging implements ArrayAccess
         'secubase' => 'setSecubase',
         'app' => 'setApp'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -93,8 +91,6 @@ class SmartDevicesSecubaseConfigLogging implements ArrayAccess
     {
         return self::$getters;
     }
-
-    
 
     
 
@@ -134,7 +130,6 @@ class SmartDevicesSecubaseConfigLogging implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
@@ -150,7 +145,7 @@ class SmartDevicesSecubaseConfigLogging implements ArrayAccess
 
     /**
      * Sets secubase
-     * @param \Secuconnect\Client\Model\SmartDevicesSecubaseConfigLoggingFileNet $secubase Secubase
+     * @param \Secuconnect\Client\Model\SmartDevicesSecubaseConfigLoggingFileNet $secubase secubase
      * @return $this
      */
     public function setSecubase($secubase)
@@ -171,7 +166,7 @@ class SmartDevicesSecubaseConfigLogging implements ArrayAccess
 
     /**
      * Sets app
-     * @param \Secuconnect\Client\Model\SmartDevicesSecubaseConfigLoggingFileNet $app App
+     * @param \Secuconnect\Client\Model\SmartDevicesSecubaseConfigLoggingFileNet $app app
      * @return $this
      */
     public function setApp($app)
@@ -180,9 +175,10 @@ class SmartDevicesSecubaseConfigLogging implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -192,7 +188,7 @@ class SmartDevicesSecubaseConfigLogging implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -202,8 +198,8 @@ class SmartDevicesSecubaseConfigLogging implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -217,7 +213,7 @@ class SmartDevicesSecubaseConfigLogging implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -238,5 +234,4 @@ class SmartDevicesSecubaseConfigLogging implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

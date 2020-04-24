@@ -7,10 +7,10 @@ use \ArrayAccess;
 /**
  * SmartDevicesProducts
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class SmartDevicesProducts implements ArrayAccess
 {
@@ -74,7 +74,6 @@ class SmartDevicesProducts implements ArrayAccess
         'prepaid' => 'prepaid'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
@@ -88,7 +87,6 @@ class SmartDevicesProducts implements ArrayAccess
         'vtm' => 'setVtm',
         'prepaid' => 'setPrepaid'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -118,8 +116,6 @@ class SmartDevicesProducts implements ArrayAccess
     {
         return self::$getters;
     }
-
-    
 
     
 
@@ -164,7 +160,6 @@ class SmartDevicesProducts implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
@@ -180,7 +175,7 @@ class SmartDevicesProducts implements ArrayAccess
 
     /**
      * Sets loyalty
-     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabled $loyalty Loyalty
+     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabled $loyalty loyalty
      * @return $this
      */
     public function setLoyalty($loyalty)
@@ -201,7 +196,7 @@ class SmartDevicesProducts implements ArrayAccess
 
     /**
      * Sets smart
-     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabled $smart Smart
+     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabled $smart smart
      * @return $this
      */
     public function setSmart($smart)
@@ -222,7 +217,7 @@ class SmartDevicesProducts implements ArrayAccess
 
     /**
      * Sets cashreg
-     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabled $cashreg Cashreg
+     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabled $cashreg cashreg
      * @return $this
      */
     public function setCashreg($cashreg)
@@ -243,7 +238,7 @@ class SmartDevicesProducts implements ArrayAccess
 
     /**
      * Sets collect
-     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabled $collect Collect
+     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabled $collect collect
      * @return $this
      */
     public function setCollect($collect)
@@ -264,7 +259,7 @@ class SmartDevicesProducts implements ArrayAccess
 
     /**
      * Sets showcase
-     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabled $showcase Showcase
+     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabled $showcase showcase
      * @return $this
      */
     public function setShowcase($showcase)
@@ -285,7 +280,7 @@ class SmartDevicesProducts implements ArrayAccess
 
     /**
      * Sets vtm
-     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabled $vtm Vtm
+     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabled $vtm vtm
      * @return $this
      */
     public function setVtm($vtm)
@@ -306,7 +301,7 @@ class SmartDevicesProducts implements ArrayAccess
 
     /**
      * Sets prepaid
-     * @param \Secuconnect\Client\Model\SmartDeviceProductsPrepaid $prepaid Prepaid
+     * @param \Secuconnect\Client\Model\SmartDeviceProductsPrepaid $prepaid prepaid
      * @return $this
      */
     public function setPrepaid($prepaid)
@@ -315,9 +310,10 @@ class SmartDevicesProducts implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -327,7 +323,7 @@ class SmartDevicesProducts implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -337,8 +333,8 @@ class SmartDevicesProducts implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -352,7 +348,7 @@ class SmartDevicesProducts implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -373,5 +369,4 @@ class SmartDevicesProducts implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 
