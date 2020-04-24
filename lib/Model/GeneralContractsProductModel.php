@@ -94,7 +94,6 @@ class GeneralContractsProductModel extends BaseProductModel
     {
         return parent::getters() + self::$getters;
     }
-    
 
     /**
      * Constructor

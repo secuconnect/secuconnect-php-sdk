@@ -7,10 +7,10 @@ use \ArrayAccess;
 /**
  * GeneralStoresDTO
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GeneralStoresDTO implements ArrayAccess
 {
@@ -80,7 +80,6 @@ class GeneralStoresDTO implements ArrayAccess
         'open_hours' => 'open_hours'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
@@ -96,7 +95,6 @@ class GeneralStoresDTO implements ArrayAccess
         'photo' => 'setPhoto',
         'open_hours' => 'setOpenHours'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -128,10 +126,6 @@ class GeneralStoresDTO implements ArrayAccess
     {
         return self::$getters;
     }
-
-    
-
-    
 
     /**
      * Associative array for storing property values
@@ -176,7 +170,6 @@ class GeneralStoresDTO implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
@@ -234,7 +227,7 @@ class GeneralStoresDTO implements ArrayAccess
 
     /**
      * Sets address
-     * @param \Secuconnect\Client\Model\Address $address New address
+     * @param \Secuconnect\Client\Model\Address $address address
      * @return $this
      */
     public function setAddress($address)
@@ -369,9 +362,10 @@ class GeneralStoresDTO implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -381,7 +375,7 @@ class GeneralStoresDTO implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -391,8 +385,8 @@ class GeneralStoresDTO implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -406,7 +400,7 @@ class GeneralStoresDTO implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -427,5 +421,4 @@ class GeneralStoresDTO implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 
