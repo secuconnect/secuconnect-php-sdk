@@ -13,7 +13,7 @@ use \ArrayAccess;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CreditCardDescriptor implements ArrayAccess
+class CreditCardDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModelPrivate 
 {
     const DISCRIMINATOR = null;
 

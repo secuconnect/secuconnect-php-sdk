@@ -10,7 +10,7 @@ namespace Secuconnect\Client\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class DocumentUploadsBaseProductModel extends BaseProductModel 
+class DocumentUploadsBaseProductModel extends BaseProductModel
 {
     const DISCRIMINATOR = null;
 

@@ -469,7 +469,7 @@ class LoyaltyMerchantcardsApiTest extends TestCase
      */
     public function testSetLoyaltyCustomerForASpecificLoyaltyMerchantCard()
     {
-        //TO DO dont do the getAll just have varible MCD_ and CUS_
+        //TO DO dont do the getAll just have variable MCD_ and CUS_
         $currentLoyaltyMerchantCardId = self::$LoyaltyMerchantcardsProductModel->getId();
         $currentLoyaltyCustomer = self::$LoyaltyMerchantcardsProductModel->getCustomer();
 

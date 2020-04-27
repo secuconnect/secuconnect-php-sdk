@@ -137,21 +137,4 @@ class LoyaltySalesApiTest extends TestCase
             }
         }
     }
-
-    /**
-     * Test case for getVirtualTerminalIdByStoreId
-     *
-     * GET Loyalty/Sales/{decoded_id}/VirtualTerminalIdForStore.
-     *
-     */
-    public function testGetVirtualTerminalIdByStoreId()
-    {
-        try {
-            $response = self::$api->getVirtualTerminalIdByStoreId(self::$decoded_store_id);
-        } catch (ApiException $e) {
-            print_r($e->getResponseBody());
-        }
-
-//        $this->assertNotEmpty($response["result"]);
-    }
 }

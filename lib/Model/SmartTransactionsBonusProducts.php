@@ -10,7 +10,7 @@ namespace Secuconnect\Client\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsBonusProducts extends SmartTransactionsBaseProduct 
+class SmartTransactionsBonusProducts extends SmartTransactionsBaseProduct
 {
     const DISCRIMINATOR = null;
 

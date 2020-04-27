@@ -10,7 +10,7 @@ namespace Secuconnect\Client\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LoyaltyCardsProductModel extends BaseProductModel 
+class LoyaltyCardsProductModel extends BaseProductModel
 {
     const DISCRIMINATOR = null;
 

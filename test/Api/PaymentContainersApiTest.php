@@ -7,7 +7,6 @@ use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Model\BankAccountDescriptor;
 use Secuconnect\Client\Model\PaymentContainerMandate;
 use Secuconnect\Client\Model\PaymentContainersDTO;
-use Secuconnect\Client\Model\PaymentContainersDTOPrivate;
 use Secuconnect\Client\Model\PaymentContainersList;
 use Secuconnect\Client\Model\PaymentContainersProductModel;
 use Secuconnect\Client\Model\PaymentCustomersProductModel;
@@ -17,7 +16,7 @@ use Secuconnect\Client\Model\PaymentCustomersProductModel;
  */
 class PaymentContainersApiTest extends TestCase
 {
-    public const BANK_ACCOUNT_OWNER_RENAMED = 'John Doe';
+    const BANK_ACCOUNT_OWNER_RENAMED = 'John Doe';
 
     /**
      * @var PaymentContainersApi
@@ -35,7 +34,7 @@ class PaymentContainersApiTest extends TestCase
     private static $container;
 
     /**
-     * @var PaymentContainersDTOPrivate
+     * @var BankAccountDescriptor
      */
     private static $privateData;
 
@@ -83,7 +82,7 @@ class PaymentContainersApiTest extends TestCase
     {
         self::$containerId = '';
 
-        self::$privateData = new PaymentContainersDTOPrivate();
+        self::$privateData = new BankAccountDescriptor();
         self::$privateData
             ->setOwner(SecuconnectObjects::BANK_ACCOUNT_OWNER)
             ->setIban(SecuconnectObjects::BANK_ACCOUNT_IBAN)
