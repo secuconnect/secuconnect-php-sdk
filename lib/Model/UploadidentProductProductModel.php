@@ -2,17 +2,15 @@
 
 namespace Secuconnect\Client\Model;
 
-use \ArrayAccess;
-
 /**
- * OneOfPaymentContainersDTOModelPrivate
+ * UploadidentProductProductModel
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OneOfPaymentContainersDTOModelPrivate implements ArrayAccess
+class UploadidentProductProductModel extends BaseProductModel 
 {
     const DISCRIMINATOR = null;
 
@@ -20,13 +18,14 @@ class OneOfPaymentContainersDTOModelPrivate implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'OneOfPaymentContainersDTOModelPrivate';
+    protected static $swaggerModelName = 'UploadidentProductProductModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'service_issue_id' => 'int'
     ];
 
     /**
@@ -34,16 +33,17 @@ class OneOfPaymentContainersDTOModelPrivate implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'service_issue_id' => null
     ];
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -51,6 +51,7 @@ class OneOfPaymentContainersDTOModelPrivate implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'service_issue_id' => 'service_issue_id'
     ];
 
     /**
@@ -58,6 +59,7 @@ class OneOfPaymentContainersDTOModelPrivate implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'service_issue_id' => 'setServiceIssueId'
     ];
 
     /**
@@ -65,28 +67,23 @@ class OneOfPaymentContainersDTOModelPrivate implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'service_issue_id' => 'getServiceIssueId'
     ];
 
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
-
-    /**
-     * Associative array for storing property values
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -94,6 +91,9 @@ class OneOfPaymentContainersDTOModelPrivate implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        parent::__construct($data);
+
+        $this->container['service_issue_id'] = isset($data['service_issue_id']) ? $data['service_issue_id'] : null;
     }
 
     /**
@@ -103,7 +103,7 @@ class OneOfPaymentContainersDTOModelPrivate implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalid_properties = parent::listInvalidProperties();
 
         return $invalid_properties;
     }
@@ -119,6 +119,27 @@ class OneOfPaymentContainersDTOModelPrivate implements ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets service_issue_id
+     * @return int
+     */
+    public function getServiceIssueId()
+    {
+        return $this->container['service_issue_id'];
+    }
+
+    /**
+     * Sets service_issue_id
+     * @param int $service_issue_id Service issue id
+     * @return $this
+     */
+    public function setServiceIssueId($service_issue_id)
+    {
+        $this->container['service_issue_id'] = $service_issue_id;
+
+        return $this;
+    }
 
     /**
      * Returns true if offset exists. False otherwise.
