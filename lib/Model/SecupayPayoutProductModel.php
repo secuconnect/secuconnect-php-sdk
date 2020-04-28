@@ -10,7 +10,7 @@ namespace Secuconnect\Client\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SecupayPayoutProductModel extends BaseProductModel 
+class SecupayPayoutProductModel extends BaseProductModel
 {
     const DISCRIMINATOR = null;
 

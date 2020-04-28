@@ -10,7 +10,7 @@ namespace Secuconnect\Client\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartRoutingsProductModel extends BaseProductModel 
+class SmartRoutingsProductModel extends BaseProductModel
 {
     const DISCRIMINATOR = null;
 

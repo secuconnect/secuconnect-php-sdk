@@ -103,7 +103,7 @@ class PaymentTransactionsCancelList implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = parent::listInvalidProperties();
+        $invalid_properties = [];
 
         return $invalid_properties;
     }

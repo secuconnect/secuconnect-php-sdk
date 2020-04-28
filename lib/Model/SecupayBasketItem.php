@@ -11,7 +11,7 @@ namespace Secuconnect\Client\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SecupayBasketItem extends SecupayBaseBasketItem 
+class SecupayBasketItem extends SecupayBaseBasketItem
 {
     const DISCRIMINATOR = null;
 

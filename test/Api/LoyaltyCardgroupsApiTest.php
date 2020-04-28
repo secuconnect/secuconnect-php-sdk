@@ -153,7 +153,7 @@ class LoyaltyCardgroupsApiTest extends TestCase
      */
     public function testLoyaltyCardgroupsIdCheckPasscodeEnabledPost()
     {
-        $response = self::$api->checkPassCodeEnabled(self::$cardgroupsList->getData()[0]->getId());
+        $response = self::$api->checkPassCodeEnabled(self::$cardgroupsList->getData()[0]->getId(), null);
         $this->assertNotEmpty($response);
         $this->assertTrue(true);
     }

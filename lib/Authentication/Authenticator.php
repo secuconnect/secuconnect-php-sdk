@@ -154,7 +154,9 @@ class Authenticator
                 }
                 
                 return self::startAuthenticationProcess(self::$credentials);
-            } catch (ApiException|InvalidArgumentException $e) {
+            } catch (InvalidArgumentException $e) {
+                // ignore
+            } catch (ApiException $e) {
                 // ignore
             }
         }
