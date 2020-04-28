@@ -2,6 +2,10 @@
 
 namespace Secuconnect\Client;
 
+use Secuconnect\Client\Model\BankAccountDescriptor;
+use Secuconnect\Client\Model\CreditCardDescriptor;
+use Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate;
+
 /**
  * ObjectSerializer
  *
@@ -261,12 +265,23 @@ class ObjectSerializer
             }
             return $data;
         } else {
-            // If a discriminator is defined and points to a valid subclass, use it.
-            $discriminator = $class::DISCRIMINATOR;
-            if (!empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
-                $subclass = '\\' . 'Secuconnect\Client\\Model\\' . $data->{$discriminator};
+            if (trim($class, '\\') === OneOfPaymentContainersDTOModelPrivate::class) {
+                $subclass = BankAccountDescriptor::class;
+                if (isset($data->pan)) {
+                    $subclass = CreditCardDescriptor::class;
+                }
+
                 if (is_subclass_of($subclass, $class)) {
                     $class = $subclass;
+                }
+            } else {
+                // If a discriminator is defined and points to a valid subclass, use it.
+                $discriminator = $class::DISCRIMINATOR;
+                if (!empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
+                    $subclass = '\\' . 'Secuconnect\Client\\Model\\' . $data->{$discriminator};
+                    if (is_subclass_of($subclass, $class)) {
+                        $class = $subclass;
+                    }
                 }
             }
             $instance = new $class();
