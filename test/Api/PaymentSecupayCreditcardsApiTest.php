@@ -163,9 +163,6 @@ class PaymentSecupayCreditcardsApiTest extends TestCase
         $this->assertNotEmpty($response->getCustomer());
         $this->assertEquals('payment.customers', $response->getCustomer()->getObject());
         $this->assertEquals(self::$customerId, $response->getCustomer()->getId());
-        $this->assertNotEmpty($response->getCustomer()->getContract());
-        $this->assertEquals('payment.contracts', $response->getCustomer()->getContract()->getObject());
-        $this->assertNotEmpty($response->getCustomer()->getContract()->getId());
         $this->assertNotEmpty($response->getCustomer()->getCreated());
         $this->assertNotEmpty($response->getRedirectUrl());
         $this->assertNotEmpty($response->getRedirectUrl()->getIframeUrl());
@@ -223,9 +220,6 @@ class PaymentSecupayCreditcardsApiTest extends TestCase
             $this->assertInstanceOf(PaymentCustomersProductModel::class, $response->getCustomer());
             $this->assertEquals('payment.customers', $response->getCustomer()->getObject());
             $this->assertEquals(self::$customerId, $response->getCustomer()->getId());
-            $this->assertNotEmpty($response->getCustomer()->getContract());
-            $this->assertEquals('payment.contracts', $response->getCustomer()->getContract()->getObject());
-            $this->assertNotEmpty($response->getCustomer()->getContract()->getId());
             $this->assertNotEmpty($response->getCustomer()->getCreated());
             $this->assertNotEmpty($response->getRedirectUrl());
             $this->assertNotEmpty($response->getRedirectUrl()->getIframeUrl());
@@ -244,7 +238,7 @@ class PaymentSecupayCreditcardsApiTest extends TestCase
     public function testPaymentSecupayCreditcardsCancelById()
     {
         try {
-            $response = $this->api->paymentSecupayCreditcardsCancelById(self::$creditCardTransactionId);
+            $response = $this->api->cancelPaymentTransactionById('secupaycreditcards', self::$creditCardTransactionId, null);
         } catch (ApiException $e) {
             print_r($e->getResponseBody());
             throw $e;

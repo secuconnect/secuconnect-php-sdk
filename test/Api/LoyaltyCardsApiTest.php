@@ -120,7 +120,7 @@ class LoyaltyCardsApiTest extends TestCase
             "cardnumber:" . SecuconnectObjects::LOYALTY_CARD['number']
         );
 
-        if (!empty($response)) {
+        if (!empty($response) && !empty($response->getData())) {
             self::$cardId = $response->getData()[0]->getId();
 
             try {

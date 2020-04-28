@@ -175,9 +175,6 @@ class PaymentSecupayPrepaysApiTest extends TestCase
         $this->assertNotEmpty($response->getCustomer());
         $this->assertEquals('payment.customers', $response->getCustomer()->getObject());
         $this->assertEquals(self::$customerId, $response->getCustomer()->getId());
-        $this->assertNotEmpty($response->getCustomer()->getContract());
-        $this->assertEquals('payment.contracts', $response->getCustomer()->getContract()->getObject());
-        $this->assertNotEmpty($response->getCustomer()->getContract()->getId());
         $this->assertNotEmpty($response->getCustomer()->getCreated());
         $this->assertNotEmpty($response->getRedirectUrl());
         $this->assertNotEmpty($response->getRedirectUrl()->getIframeUrl());
@@ -189,10 +186,13 @@ class PaymentSecupayPrepaysApiTest extends TestCase
     /**
      * Test case for paymentSecupayprepaysHashGet
      *
+     * @depends testPaymentSecupayprepaysPost
+     *
      * @throws ApiException
      */
     public function testPaymentSecupayPrepaysGetById()
     {
+        $this->assertNotEmpty(self::$prepayTransactionId);
         try {
             $response = $this->api->paymentSecupayPrepaysGetById(self::$prepayTransactionId);
         } catch (ApiException $e) {
@@ -238,9 +238,6 @@ class PaymentSecupayPrepaysApiTest extends TestCase
         $this->assertNotEmpty($response->getCustomer());
         $this->assertEquals('payment.customers', $response->getCustomer()->getObject());
         $this->assertEquals(self::$customerId, $response->getCustomer()->getId());
-        $this->assertNotEmpty($response->getCustomer()->getContract());
-        $this->assertEquals('payment.contracts', $response->getCustomer()->getContract()->getObject());
-        $this->assertNotEmpty($response->getCustomer()->getContract()->getId());
         $this->assertNotEmpty($response->getCustomer()->getCreated());
         $this->assertNotEmpty($response->getRedirectUrl());
         $this->assertNotEmpty($response->getRedirectUrl()->getIframeUrl());
@@ -251,12 +248,15 @@ class PaymentSecupayPrepaysApiTest extends TestCase
     /**
      * Test case for paymentSecupayprepaysHashCancelPost
      *
+     * @depends testPaymentSecupayprepaysPost
+     *
      * @throws ApiException
      */
     public function testPaymentSecupayPrepaysCancelById()
     {
+        $this->assertNotEmpty(self::$prepayTransactionId);
         try {
-            $response = $this->api->paymentSecupayPrepaysCancelById(self::$prepayTransactionId);
+            $response = $this->api->cancelPaymentTransactionById('secupayprepays', self::$prepayTransactionId, null);
         } catch (ApiException $e) {
             print_r($e->getResponseBody());
             throw $e;

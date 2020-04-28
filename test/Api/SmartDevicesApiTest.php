@@ -198,8 +198,8 @@ class SmartDevicesApiTest extends TestCase
 
         // print_r($response);
         $this->assertNotEmpty($response);
-        $this->assertInstanceOf(SmartDevicesList1::class, $response);
-        $this->assertInternalType('int', $response->getCount());
+        $this->assertInstanceOf(SmartDevicesList::class, $response);
+        $this->assertIsInt($response->getCount());
 
         foreach ($response->getData() as $smartDevice) {
             $this->assertInstanceOf(SmartDevicesProductModel::class, $smartDevice);

@@ -240,6 +240,10 @@ class ObjectSerializer
                 return null;
             }
         } elseif (in_array($class, ['DateTime', 'bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void'], true)) {
+            if ($data instanceof \stdClass || is_array($data) && $class !== 'object' || $class === 'void') {
+                $data = null;
+            }
+
             settype($data, $class);
             return $data;
         } elseif ($class === '\SplFileObject') {

@@ -34,7 +34,7 @@ class GeneralStoresProductModel extends BaseProductModel
         'address_components' => '\Secuconnect\Client\Model\AddressComponents[]',
         'address_formatted' => 'string',
         'phone_number_formatted' => 'string',
-        'geometry' => 'string',
+        'geometry' => '\Secuconnect\Client\Model\GeoAddressGeometry',
         'name' => 'string',
         'name_raw' => 'string',
         'photo_main' => 'string',

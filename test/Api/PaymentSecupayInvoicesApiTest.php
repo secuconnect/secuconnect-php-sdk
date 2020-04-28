@@ -176,9 +176,6 @@ class PaymentSecupayInvoicesApiTest extends TestCase
         $this->assertNotEmpty($response->getCustomer());
         $this->assertEquals('payment.customers', $response->getCustomer()->getObject());
         $this->assertEquals(self::$customerId, $response->getCustomer()->getId());
-        $this->assertNotEmpty($response->getCustomer()->getContract());
-        $this->assertEquals('payment.contracts', $response->getCustomer()->getContract()->getObject());
-        $this->assertNotEmpty($response->getCustomer()->getContract()->getId());
         $this->assertNotEmpty($response->getCustomer()->getCreated());
         $this->assertNotEmpty($response->getRedirectUrl());
         $this->assertNotEmpty($response->getRedirectUrl()->getIframeUrl());
@@ -189,6 +186,8 @@ class PaymentSecupayInvoicesApiTest extends TestCase
 
     /**
      * Test case for paymentSecupayinvoicesHashGet
+     *
+     * @depends testPaymentSecupayinvoicesPost
      *
      * @throws ApiException
      */
@@ -239,9 +238,6 @@ class PaymentSecupayInvoicesApiTest extends TestCase
         $this->assertNotEmpty($response->getCustomer());
         $this->assertEquals('payment.customers', $response->getCustomer()->getObject());
         $this->assertEquals(self::$customerId, $response->getCustomer()->getId());
-        $this->assertNotEmpty($response->getCustomer()->getContract());
-        $this->assertEquals('payment.contracts', $response->getCustomer()->getContract()->getObject());
-        $this->assertNotEmpty($response->getCustomer()->getContract()->getId());
         $this->assertNotEmpty($response->getCustomer()->getCreated());
         $this->assertNotEmpty($response->getRedirectUrl());
         $this->assertNotEmpty($response->getRedirectUrl()->getIframeUrl());
@@ -252,13 +248,14 @@ class PaymentSecupayInvoicesApiTest extends TestCase
     /**
      * Test case for paymentSecupayinvoicesHashCancelPost
      *
-     * @group ignore
+     * @depends testPaymentSecupayinvoicesPost
+     *
      * @throws ApiException
      */
     public function testPaymentSecupayinvoicesCancelById()
     {
         try {
-            $response = $this->api->paymentSecupayInvoicesCancelById(self::$invoiceTransactionId);
+            $response = $this->api->cancelPaymentTransactionById('secupayinvoices', self::$invoiceTransactionId, null);
         } catch (ApiException $e) {
             print_r($e->getResponseBody());
             throw $e;

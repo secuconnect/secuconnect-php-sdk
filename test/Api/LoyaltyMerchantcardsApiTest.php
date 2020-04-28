@@ -29,6 +29,7 @@ use Secuconnect\Client\Model\LoyaltyMerchantcardsProductWithReceiptModel;
 use Secuconnect\Client\Model\ProductInstanceUID;
 use Secuconnect\Client\Model\VirtualTerminalData;
 use Secuconnect\Client\Model\LoyaltyCustomersProductModel;
+use Secuconnect\Client\Model\VirtualTerminalDataModel;
 
 /**
  * Class LoyaltyMerchantcardsApiTest
@@ -440,18 +441,14 @@ class LoyaltyMerchantcardsApiTest extends TestCase
         $merchantCardId = self::$LoyaltyMerchantcardsProductModel->getId();
         $merchantId = self::$LoyaltyMerchantcardsProductModel->getMerchant()->getId();
 
-        try {
-            $response = self::$api->getVirtualTerminalData(
-                $merchantCardId,
-                $merchantId
-            );
-        } catch (ApiException $e) {
-            throw $e;
-        }
+        $response = self::$api->getVirtualTerminalData(
+            $merchantCardId,
+            $merchantId
+        );
 
         if(empty($response->getDisabled()))
         {
-            $this->assertInstanceOf(VirtualTerminalData::class, $response);
+            $this->assertInstanceOf(VirtualTerminalDataModel::class, $response);
             $this->assertNotEmpty($response->getStore()['name']);
             $this->assertNotEmpty($response->getTid());
             $this->assertTrue(is_array($response->getActions()));

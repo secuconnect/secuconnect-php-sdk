@@ -148,39 +148,6 @@ class GeneralStoresApiTest extends TestCase
     }
 
     /**
-     * Test case for updating general store.
-     *
-     * @throws ApiException
-     */
-    public function testUpdateGeneralStore()
-    {
-        $this->markTestIncomplete();
-        $storeToUpdateId = "STO_FZVKFWQG6XU85SHNBKYJ04N8Z2SKO7";
-
-        if (!empty($storeToUpdate)) {
-            $storeToUpdateId = $storeToUpdate->getId();
-            $newOpenHours = $this->prepareOpenHours();
-            $storeProperties = new GeneralStoresDTO();
-            $newFacebookId = rand(1000, 9999) . "wsdcfrjbed";
-            $newPhone = "+49 " . rand(100, 999) . " " . rand(100000, 999999);
-            $newUrlWebsite = "www.my-super-website-" . rand(1, 99) . ".com";
-            $storeProperties->setFacebookId($newFacebookId);
-            $storeProperties->setPhone($newPhone);
-            $storeProperties->setUrlWebsite($newUrlWebsite);
-            $storeProperties->setOpenHours($newOpenHours);
-            /** FIXME: Set new photo URL, when Documents Uploads product will be available in SDK and check this */
-
-            $updatedStore = self::$api->updateStore($storeToUpdateId, $storeProperties);
-
-            if (!empty($updatedStore)) {
-                $this->assertEquals($newFacebookId, $updatedStore->getFacebookId());
-                $this->assertContains($newPhone, $updatedStore->getPhoneNumberFormatted());
-                $this->assertEquals($newUrlWebsite, $updatedStore->getUrlWebsite());
-                $this->assertEquals($newOpenHours, $updatedStore->getOpenHours());
-            }
-        }
-    }
-
     /**
      * Test case for setting default.
      *

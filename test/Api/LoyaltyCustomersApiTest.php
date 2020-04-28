@@ -216,7 +216,7 @@ class LoyaltyCustomersApiTest extends TestCase
         $this->assertNotEmpty($response);
         $this->assertInstanceOf(LoyaltyCustomersList::class, $response);
         
-        $this->assertInternalType('int', $response->getCount());
+        $this->assertIsInt($response->getCount());
         if (is_int($response->getCount()) && $response->getCount() > 0) {
             foreach ($response->getData() as $customer) {
                 $this->checkLoyaltyCustomersProductModel($customer);
@@ -228,6 +228,8 @@ class LoyaltyCustomersApiTest extends TestCase
      * Test case for loyaltyCustomersGet
      *
      * GET Loyalty/Customers.
+     *
+     * @depends testLoyaltyCustomersGet
      *
      * @throws ApiException
      */
@@ -250,6 +252,8 @@ class LoyaltyCustomersApiTest extends TestCase
      * Test case for loyaltyCustomersLoyaltyCustomerIdAssignPaymentcontainerLoyaltyPaymentcontainerIdDelete
      *
      * DELETE Loyalty/Customers/{loyaltyCustomerId}/assignPaymentcontainer/{loyaltyPaymentcontainerId}.
+     *
+     * @depends testLoyaltyCustomersGet
      *
      * @throws ApiException
      */
@@ -283,6 +287,8 @@ class LoyaltyCustomersApiTest extends TestCase
      *
      * POST Loyalty/Customers/{loyaltyCustomerId}/assignPaymentcontainer/{loyaltyPaymentcontainerId}.
      *
+     * @depends testLoyaltyCustomersGet
+     *
      * @throws ApiException
      */
     public function testAddAssignPaymentContainer()
@@ -312,6 +318,8 @@ class LoyaltyCustomersApiTest extends TestCase
      * Test case for loyaltyCustomersLoyaltyCustomerIdCheckDuplicatedPost
      *
      * POST Loyalty/Customers/{loyaltyCustomerId}/checkDuplicated/.
+     *
+     * @depends testLoyaltyCustomersGet
      *
      * @throws ApiException
      */
