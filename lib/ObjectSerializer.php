@@ -280,11 +280,13 @@ class ObjectSerializer
                 }
             } else {
                 // If a discriminator is defined and points to a valid subclass, use it.
-                $discriminator = $class::DISCRIMINATOR;
-                if (!empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
-                    $subclass = '\\' . 'Secuconnect\Client\\Model\\' . $data->{$discriminator};
-                    if (is_subclass_of($subclass, $class)) {
-                        $class = $subclass;
+                if (class_exists($class) && defined($class.'::DISCRIMINATOR')) {
+                    $discriminator = $class::DISCRIMINATOR;
+                    if (!empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
+                        $subclass = '\\' . 'Secuconnect\Client\\Model\\' . $data->{$discriminator};
+                        if (is_subclass_of($subclass, $class)) {
+                            $class = $subclass;
+                        }
                     }
                 }
             }
