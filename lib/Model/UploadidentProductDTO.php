@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * UploadidentProductProductDTO
+ * UploadidentProductDTO
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UploadidentProductProductDTO implements ArrayAccess
+class UploadidentProductDTO implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class UploadidentProductProductDTO implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'UploadidentProductProductDTO';
+    protected static $swaggerModelName = 'UploadidentProductDTO';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

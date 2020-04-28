@@ -65,9 +65,9 @@ class ServicesUploadidentsProductApi
      *
      * POST Services/UploadIdent
      *
-     * @param \Secuconnect\Client\Model\UploadidentProductProductDTO $body Prepaid transaction input properties 
+     * @param \Secuconnect\Client\Model\UploadidentProductDTO $body Prepaid transaction input properties 
      * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\UploadidentProductProductModel
+     * @return \Secuconnect\Client\Model\UploadidentProductModel
      */
     public function addUploadidents($body)
     {
@@ -80,14 +80,14 @@ class ServicesUploadidentsProductApi
      *
      * POST Services/UploadIdent
      *
-     * @param \Secuconnect\Client\Model\UploadidentProductProductDTO $body Prepaid transaction input properties 
+     * @param \Secuconnect\Client\Model\UploadidentProductDTO $body Prepaid transaction input properties 
      * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\UploadidentProductProductModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Secuconnect\Client\Model\UploadidentProductModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function addUploadidentsWithHttpInfo($body)
     {
         // parse inputs
-        $resourcePath = "/Services/UploadIdent";
+        $resourcePath = "/Services/UploadIdents";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -125,15 +125,15 @@ class ServicesUploadidentsProductApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    '\Secuconnect\Client\Model\UploadidentProductProductModel',
-                    '/Services/UploadIdent'
+                    '\Secuconnect\Client\Model\UploadidentProductModel',
+                    '/Services/UploadIdents'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\UploadidentProductProductModel', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\UploadidentProductModel', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\UploadidentProductProductModel', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\UploadidentProductModel', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:

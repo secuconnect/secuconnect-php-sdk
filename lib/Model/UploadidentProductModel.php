@@ -3,14 +3,14 @@
 namespace Secuconnect\Client\Model;
 
 /**
- * UploadidentProductProductModel
+ * UploadidentProductModel
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UploadidentProductProductModel extends BaseProductModel 
+class UploadidentProductModel extends BaseProductModel 
 {
     const DISCRIMINATOR = null;
 
@@ -18,7 +18,7 @@ class UploadidentProductProductModel extends BaseProductModel
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'UploadidentProductProductModel';
+    protected static $swaggerModelName = 'UploadidentProductModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
