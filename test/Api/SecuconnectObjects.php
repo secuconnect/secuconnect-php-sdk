@@ -61,9 +61,9 @@ class SecuconnectObjects
     }
 
     /**
+     * @return SecuconnectObjects
      * @throws ApiException
      *
-     * @return SecuconnectObjects
      */
     public static function getInstance()
     {
@@ -99,9 +99,9 @@ class SecuconnectObjects
     }
 
     /**
+     * @return $this
      * @throws ApiException
      *
-     * @return $this
      */
     private function createContainer()
     {
@@ -129,9 +129,9 @@ class SecuconnectObjects
     }
 
     /**
+     * @return $this
      * @throws ApiException
      *
-     * @return $this
      */
     private function createCustomer()
     {

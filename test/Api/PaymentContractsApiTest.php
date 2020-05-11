@@ -278,11 +278,15 @@ class PaymentContractsApiTest extends TestCase
         try {
             $body = new PaymentContractsDTOClone();
             $body->setProject('project_name #' . time());
-            $body->setPaymentData(new PaymentInformation([
-                "iban" => "DE89370400440532013000",
-                "bic" => "",
-                "owner"=> "Test #1"
-            ]));
+            $body->setPaymentData(
+                new PaymentInformation(
+                    [
+                        "iban" => "DE89370400440532013000",
+                        "bic" => "",
+                        "owner" => "Test #1"
+                    ]
+                )
+            );
 
             $response = $this->api->callClone('me', $body);
             $this->assertNotEmpty($response);
@@ -323,10 +327,12 @@ class PaymentContractsApiTest extends TestCase
         $body->setContact('CNT_36UTTTRGQ2MNT4BY52TSD57X5VTYAJ');
         $body->setProject('test_' . microtime());
 
-        $account = new PaymentInformation([
-            'iban' => 'DE37503240001000000524',
-            'owner' => 'John Doe',
-        ]);
+        $account = new PaymentInformation(
+            [
+                'iban' => 'DE37503240001000000524',
+                'owner' => 'John Doe',
+            ]
+        );
         $body->setPayoutAccount($account);
 
         try {

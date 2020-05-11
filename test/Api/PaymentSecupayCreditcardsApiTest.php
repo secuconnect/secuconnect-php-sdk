@@ -178,8 +178,7 @@ class PaymentSecupayCreditcardsApiTest extends TestCase
      */
     public function testPaymentSecupayCreditcardsGetById()
     {
-        if(isset(self::$creditCardTransactionId) && !empty(self::$creditCardTransactionId))
-        {
+        if (isset(self::$creditCardTransactionId) && !empty(self::$creditCardTransactionId)) {
             try {
                 $response = $this->api->paymentSecupayCreditcardsGetById(self::$creditCardTransactionId);
             } catch (ApiException $e) {

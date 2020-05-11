@@ -6,7 +6,6 @@ use PHPUnit\Framework\TestCase;
 use Secuconnect\Client\Api\GeneralStoresApi;
 use Secuconnect\Client\Api\SecuconnectObjects;
 use Secuconnect\Client\Model\DayTime;
-use Secuconnect\Client\Model\GeneralStoresDTO;
 use Secuconnect\Client\Model\GeneralStoresDTOReason;
 use Secuconnect\Client\Model\GeneralStoresDTOType;
 use Secuconnect\Client\Model\GeneralStoresProductModel;
@@ -119,7 +118,8 @@ class GeneralStoresApiTest extends TestCase
             if (!empty($response)) {
                 $receivedStore = $response;
 
-                $this->assertInstanceOf(GeneralStoresProductModel::class,
+                $this->assertInstanceOf(
+                    GeneralStoresProductModel::class,
                     $receivedStore
                 );
                 $this->assertEquals($store, $receivedStore);
@@ -148,7 +148,7 @@ class GeneralStoresApiTest extends TestCase
     }
 
     /**
-    /**
+     * /**
      * Test case for setting default.
      *
      * @depends testGetOneGeneralStoreByProvidedId
@@ -178,9 +178,9 @@ class GeneralStoresApiTest extends TestCase
     {
         $numberOfStores = self::$api->getAll()->getCount();
         $isAssigned = true;
-        $offset = rand(10, $numberOfStores-1);
+        $offset = rand(10, $numberOfStores - 1);
 
-        while ($isAssigned || $numberOfStores-1 < $offset) {
+        while ($isAssigned || $numberOfStores - 1 < $offset) {
             try {
                 $store = self::$api->getAll(1, $offset)->getData()[0];
                 $response = self::$api->assignGoogleKey(
@@ -190,7 +190,7 @@ class GeneralStoresApiTest extends TestCase
                 $this->assertTrue($response['result']);
                 $isAssigned = false;
             } catch (ApiException $e) {
-                $offset = rand(10, $numberOfStores-1);
+                $offset = rand(10, $numberOfStores - 1);
             }
         }
     }

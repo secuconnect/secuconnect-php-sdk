@@ -310,8 +310,8 @@ class PaymentContainersApiTest extends TestCase
                 $this->assertNotEmpty($private->getOwner());
                 $this->assertNotEmpty($private->getIssuer());
                 $this->assertNotEmpty($private->getExpirationDate());
-
-            } elseif ($container->getType() == 'bank_account') {;
+            } elseif ($container->getType() == 'bank_account') {
+                ;
                 $this->assertInstanceOf(BankAccountDescriptor::class, $container->getPrivate());
                 /**
                  * @var BankAccountDescriptor $private

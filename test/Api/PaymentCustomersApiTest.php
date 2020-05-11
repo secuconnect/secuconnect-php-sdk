@@ -5,8 +5,8 @@ namespace Secuconnect\Client\Api;
 use PHPUnit\Framework\TestCase;
 use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Model\Address;
-use Secuconnect\Client\Model\PaymentCustomersDTO;
 use Secuconnect\Client\Model\Contact;
+use Secuconnect\Client\Model\PaymentCustomersDTO;
 use Secuconnect\Client\Model\PaymentCustomersList;
 use Secuconnect\Client\Model\PaymentCustomersProductModel;
 
@@ -140,7 +140,7 @@ class PaymentCustomersApiTest extends TestCase
             print_r($e->getResponseBody());
             throw $e;
         }
-        
+
         $this->assertNotEmpty(self::$customerId);
         $this->assertInstanceOf(PaymentCustomersProductModel::class, $response);
         $this->assertEquals('payment.customers', $response->getObject());

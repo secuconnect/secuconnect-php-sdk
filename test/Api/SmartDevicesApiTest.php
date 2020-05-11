@@ -30,20 +30,15 @@ namespace Secuconnect\Client;
 
 use PHPUnit\Framework\TestCase;
 use Secuconnect\Client\Api\SecuconnectObjects;
-use Secuconnect\Client\Configuration;
-use Secuconnect\Client\ApiClient;
-use Secuconnect\Client\ApiException;
+use Secuconnect\Client\Api\SmartDevicesApi;
+use Secuconnect\Client\Model\SmartDevicesDTO;
+use Secuconnect\Client\Model\SmartDevicesDTOPrepaidTid;
+use Secuconnect\Client\Model\SmartDevicesDTOSecubaseConfig;
+use Secuconnect\Client\Model\SmartDevicesList;
+use Secuconnect\Client\Model\SmartDevicesProductModel;
 use Secuconnect\Client\Model\SmartDevicesSecubaseConfig;
 use Secuconnect\Client\Model\SmartDevicesSecubaseConfigLogging;
 use Secuconnect\Client\Model\SmartDevicesSecubaseConfigLoggingFileNet;
-use Secuconnect\Client\ObjectSerializer;
-use Secuconnect\Client\Api\SmartDevicesApi;
-use Secuconnect\Client\Model\SmartDevicesList;
-use Secuconnect\Client\Model\SmartDevicesList1;
-use Secuconnect\Client\Model\SmartDevicesProductModel;
-use Secuconnect\Client\Model\SmartDevicesDTO;
-use Secuconnect\Client\Model\SmartDevicesDTOSecubaseConfig;
-use Secuconnect\Client\Model\SmartDevicesDTOPrepaidTid;
 
 /**
  * SmartDevicesApiTest Class Doc Comment
@@ -312,16 +307,14 @@ class SmartDevicesApiTest extends TestCase
         $this->assertNotEmpty($response);
         $this->assertInstanceOf(SmartDevicesSecubaseConfig::class, $response);
 
-        $this->assertNotNull($response->getApps());     
-        if(!empty( $response->getLogging()))
-        {
+        $this->assertNotNull($response->getApps());
+        if (!empty($response->getLogging())) {
             $this->assertInstanceOf(SmartDevicesSecubaseConfigLogging::class, $response->getLogging());
             $this->assertNotEmpty($response->getLogging()->getApp());
             $this->assertInstanceOf(SmartDevicesSecubaseConfigLoggingFileNet::class, $response->getLogging()->getApp());
             $this->assertNotEmpty($response->getLogging()->getSecubase());
             $this->assertInstanceOf(SmartDevicesSecubaseConfigLoggingFileNet::class, $response->getLogging()->getSecubase());
         }
-        
     }
 
     /**

@@ -2,7 +2,7 @@
 
 namespace Secuconnect\Client;
 
-use \PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\TestCase;
 use Secuconnect\Client\Api\LoyaltyCardsApi;
 use Secuconnect\Client\Api\SecuconnectObjects;
 use Secuconnect\Client\Model\LoyaltyCardsProductModel;

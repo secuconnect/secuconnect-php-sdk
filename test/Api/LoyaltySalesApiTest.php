@@ -29,11 +29,9 @@
 namespace Secuconnect\Client;
 
 use PHPUnit\Framework\TestCase;
-use Secuconnect\Client\Api\GeneralMerchantsApi;
 use Secuconnect\Client\Api\LoyaltyMerchantcardsApi;
 use Secuconnect\Client\Api\LoyaltySalesApi;
 use Secuconnect\Client\Api\SecuconnectObjects;
-use Secuconnect\Client\Model\GeneralMerchantsList;
 use Secuconnect\Client\Model\LoyaltyCardgroupsProductModel;
 
 

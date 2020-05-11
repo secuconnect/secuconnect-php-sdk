@@ -129,7 +129,6 @@ class PaymentSecupayDebitsApiTest extends TestCase
      */
     public function testPaymentSecupaydebitsPost()
     {
-        
         $debitData = [
             'customer' => self::$customerId,
             'container' => self::$containerId,
@@ -139,22 +138,20 @@ class PaymentSecupayDebitsApiTest extends TestCase
             'order_id' => self::$orderId,
             'opt_data' => self::$optData,
             'basket' => self::$basket,
-            'demo' =>  true
+            'demo' => true
         ];
         try {
             $response = $this->api->paymentSecupaydebitsPost($debitData);
             self::$debitTransactionId = $response->getId();
         } catch (ApiException $e) {
-            if($e->getResponseObject()->getErrorDetails() == 'Payment method not available (for this customer)')
-            {
-                echo $e->getResponseObject()->getErrorDetails().' PaymentSecupaydebitsPost';
+            if ($e->getResponseObject()->getErrorDetails() == 'Payment method not available (for this customer)') {
+                echo $e->getResponseObject()->getErrorDetails() . ' PaymentSecupaydebitsPost';
             } else {
                 print_r($e->getResponseObject()->getErrorDetails());
                 throw $e;
             }
         }
-        if(isset(self::$debitTransactionId))
-        {
+        if (isset(self::$debitTransactionId)) {
             $this->assertNotEmpty(self::$debitTransactionId);
             $this->assertInstanceOf(SecupayTransactionProductModel::class, $response);
             $this->assertEquals('payment.secupaydebits', $response->getObject());
@@ -227,8 +224,7 @@ class PaymentSecupayDebitsApiTest extends TestCase
      */
     public function testPaymentSecupayDebitsGetById()
     {
-        if(isset(self::$debitTransactionId) && !empty(self::$debitTransactionId))
-        {
+        if (isset(self::$debitTransactionId) && !empty(self::$debitTransactionId)) {
             try {
                 $response = $this->api->paymentSecupayDebitsGetById(self::$debitTransactionId);
             } catch (ApiException $e) {
@@ -307,8 +303,7 @@ class PaymentSecupayDebitsApiTest extends TestCase
      */
     public function testPaymentSecupayDebitsCancelById()
     {
-        if(isset(self::$debitTransactionId) && !empty(self::$debitTransactionId))
-        {
+        if (isset(self::$debitTransactionId) && !empty(self::$debitTransactionId)) {
             try {
                 $response = $this->api->cancelPaymentTransactionById('secupaydebits', self::$debitTransactionId, null);
             } catch (ApiException $e) {
