@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * CustomersWithoutMerchantcardAndDuplicatedCustomers
+ * LoyaltyTransactionsList
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
+class LoyaltyTransactionsList implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,15 +20,15 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'customers_without_merchantcard_and_duplicated_customers';
+    protected static $swaggerModelName = 'LoyaltyTransactionsList';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'customers_without_merchantcard' => 'string[]',
-        'duplicated_customers' => 'string[]'
+        'count' => 'int',
+        'data' => '\Secuconnect\Client\Model\LoyaltyTransactionsProductModel[]'
     ];
 
     /**
@@ -36,8 +36,8 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'customers_without_merchantcard' => null,
-        'duplicated_customers' => null
+        'count' => null,
+        'data' => null
     ];
 
     public static function swaggerTypes()
@@ -55,8 +55,8 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'customers_without_merchantcard' => 'customers_without_merchantcard',
-        'duplicated_customers' => 'duplicated_customers'
+        'count' => 'count',
+        'data' => 'data'
     ];
 
     /**
@@ -64,8 +64,8 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'customers_without_merchantcard' => 'setCustomersWithoutMerchantcard',
-        'duplicated_customers' => 'setDuplicatedCustomers'
+        'count' => 'setCount',
+        'data' => 'setData'
     ];
 
     /**
@@ -73,8 +73,8 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'customers_without_merchantcard' => 'getCustomersWithoutMerchantcard',
-        'duplicated_customers' => 'getDuplicatedCustomers'
+        'count' => 'getCount',
+        'data' => 'getData'
     ];
 
     public static function attributeMap()
@@ -104,8 +104,8 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['customers_without_merchantcard'] = isset($data['customers_without_merchantcard']) ? $data['customers_without_merchantcard'] : null;
-        $this->container['duplicated_customers'] = isset($data['duplicated_customers']) ? $data['duplicated_customers'] : null;
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -133,43 +133,43 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
 
 
     /**
-     * Gets customers_without_merchantcard
-     * @return string[]
+     * Gets count
+     * @return int
      */
-    public function getCustomersWithoutMerchantcard()
+    public function getCount()
     {
-        return $this->container['customers_without_merchantcard'];
+        return $this->container['count'];
     }
 
     /**
-     * Sets customers_without_merchantcard
-     * @param string[] $customers_without_merchantcard customers without merchantcard
+     * Sets count
+     * @param int $count Number of existing loyalty transactions
      * @return $this
      */
-    public function setCustomersWithoutMerchantcard($customers_without_merchantcard)
+    public function setCount($count)
     {
-        $this->container['customers_without_merchantcard'] = $customers_without_merchantcard;
+        $this->container['count'] = $count;
 
         return $this;
     }
 
     /**
-     * Gets duplicated_customers
-     * @return string[]
+     * Gets data
+     * @return \Secuconnect\Client\Model\LoyaltyTransactionsProductModel[]
      */
-    public function getDuplicatedCustomers()
+    public function getData()
     {
-        return $this->container['duplicated_customers'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets duplicated_customers
-     * @param string[] $duplicated_customers duplicated customers
+     * Sets data
+     * @param \Secuconnect\Client\Model\LoyaltyTransactionsProductModel[] $data data
      * @return $this
      */
-    public function setDuplicatedCustomers($duplicated_customers)
+    public function setData($data)
     {
-        $this->container['duplicated_customers'] = $duplicated_customers;
+        $this->container['data'] = $data;
 
         return $this;
     }

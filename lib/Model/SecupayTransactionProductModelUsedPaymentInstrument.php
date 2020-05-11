@@ -29,7 +29,7 @@ class SecupayTransactionProductModelUsedPaymentInstrument implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'type' => 'string',
-        'data' => '\Secuconnect\Client\Model\BankAccountDescriptor'
+        'data' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate'
     ];
 
     /**
@@ -156,7 +156,7 @@ class SecupayTransactionProductModelUsedPaymentInstrument implements ArrayAccess
 
     /**
      * Gets data
-     * @return \Secuconnect\Client\Model\BankAccountDescriptor
+     * @return \Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate
      */
     public function getData()
     {
@@ -165,7 +165,7 @@ class SecupayTransactionProductModelUsedPaymentInstrument implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\BankAccountDescriptor $data data
+     * @param \Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate $data data
      * @return $this
      */
     public function setData($data)

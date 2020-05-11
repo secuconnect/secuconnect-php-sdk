@@ -26,7 +26,9 @@ class LoyaltyMerchantcardsProductWithReceiptModel extends LoyaltyMerchantcardsPr
       */
     protected static $swaggerTypes = [
         'receipt_header' => '\Secuconnect\Client\Model\ReceiptType[]',
-        'receipt' => '\Secuconnect\Client\Model\ReceiptTypeValue[]'
+        'receipt' => '\Secuconnect\Client\Model\ReceiptTypeValue[]',
+        'trans_id' => 'int',
+        'amount' => 'int'
     ];
 
     /**
@@ -35,7 +37,9 @@ class LoyaltyMerchantcardsProductWithReceiptModel extends LoyaltyMerchantcardsPr
       */
     protected static $swaggerFormats = [
         'receipt_header' => null,
-        'receipt' => null
+        'receipt' => null,
+        'trans_id' => null,
+        'amount' => null
     ];
 
     public static function swaggerTypes()
@@ -54,7 +58,9 @@ class LoyaltyMerchantcardsProductWithReceiptModel extends LoyaltyMerchantcardsPr
      */
     protected static $attributeMap = [
         'receipt_header' => 'receipt_header',
-        'receipt' => 'receipt'
+        'receipt' => 'receipt',
+        'trans_id' => 'trans_id',
+        'amount' => 'amount'
     ];
 
     /**
@@ -63,7 +69,9 @@ class LoyaltyMerchantcardsProductWithReceiptModel extends LoyaltyMerchantcardsPr
      */
     protected static $setters = [
         'receipt_header' => 'setReceiptHeader',
-        'receipt' => 'setReceipt'
+        'receipt' => 'setReceipt',
+        'trans_id' => 'setTransId',
+        'amount' => 'setAmount'
     ];
 
     /**
@@ -72,7 +80,9 @@ class LoyaltyMerchantcardsProductWithReceiptModel extends LoyaltyMerchantcardsPr
      */
     protected static $getters = [
         'receipt_header' => 'getReceiptHeader',
-        'receipt' => 'getReceipt'
+        'receipt' => 'getReceipt',
+        'trans_id' => 'getTransId',
+        'amount' => 'getAmount'
     ];
 
     public static function attributeMap()
@@ -100,6 +110,8 @@ class LoyaltyMerchantcardsProductWithReceiptModel extends LoyaltyMerchantcardsPr
 
         $this->container['receipt_header'] = isset($data['receipt_header']) ? $data['receipt_header'] : null;
         $this->container['receipt'] = isset($data['receipt']) ? $data['receipt'] : null;
+        $this->container['trans_id'] = isset($data['trans_id']) ? $data['trans_id'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
     }
 
     /**
@@ -164,6 +176,48 @@ class LoyaltyMerchantcardsProductWithReceiptModel extends LoyaltyMerchantcardsPr
     public function setReceipt($receipt)
     {
         $this->container['receipt'] = $receipt;
+
+        return $this;
+    }
+
+    /**
+     * Gets trans_id
+     * @return int
+     */
+    public function getTransId()
+    {
+        return $this->container['trans_id'];
+    }
+
+    /**
+     * Sets trans_id
+     * @param int $trans_id Created TransactionId
+     * @return $this
+     */
+    public function setTransId($trans_id)
+    {
+        $this->container['trans_id'] = $trans_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount
+     * @return int
+     */
+    public function getAmount()
+    {
+        return $this->container['amount'];
+    }
+
+    /**
+     * Sets amount
+     * @param int $amount Amount
+     * @return $this
+     */
+    public function setAmount($amount)
+    {
+        $this->container['amount'] = $amount;
 
         return $this;
     }

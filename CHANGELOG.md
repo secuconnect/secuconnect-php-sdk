@@ -19,6 +19,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [2.1.0] - 2020-05-12
+
+### Added
+
+- `Api.LoyaltyMerchantcardsApi`: added call `cardBalanceReceipt`
+- `Api.LoyaltyTransactionsApi` was added
+- `Api.ServicesUploadidentsProductApi` was added
+- `Model.LoyaltyMerchantcardsProductWithReceiptModel.php`: added elements `trans_id` and `amount`
+
+### Fixed
+
+- `Api.LoyaltyCustomersApi`: fixed response declaration from `null[]` to `string[]`
+- `Model.SecupayTransactionProductModelUsedPaymentInstrument`: fixed response declaration from `BankAccountDescriptor` to `OneOfPaymentContainersDTOModelPrivate`
+
+
 ## [2.0.0] - 2020-05-11
 
 ### Added
@@ -337,3 +352,4 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 [1.2.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.1.0...1.2.0
 [1.3.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.2.0...1.3.0
 [2.0.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.3.0...2.0.0
+[2.1.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.0.0...2.1.0

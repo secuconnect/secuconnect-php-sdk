@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * CustomersWithoutMerchantcardAndDuplicatedCustomers
+ * UploadidentsProductModel
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
+class UploadidentsProductModel implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,15 +20,14 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'customers_without_merchantcard_and_duplicated_customers';
+    protected static $swaggerModelName = 'UploadidentsProductModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'customers_without_merchantcard' => 'string[]',
-        'duplicated_customers' => 'string[]'
+        'service_issue_id' => 'int'
     ];
 
     /**
@@ -36,8 +35,7 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'customers_without_merchantcard' => null,
-        'duplicated_customers' => null
+        'service_issue_id' => null
     ];
 
     public static function swaggerTypes()
@@ -55,8 +53,7 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'customers_without_merchantcard' => 'customers_without_merchantcard',
-        'duplicated_customers' => 'duplicated_customers'
+        'service_issue_id' => 'service_issue_id'
     ];
 
     /**
@@ -64,8 +61,7 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'customers_without_merchantcard' => 'setCustomersWithoutMerchantcard',
-        'duplicated_customers' => 'setDuplicatedCustomers'
+        'service_issue_id' => 'setServiceIssueId'
     ];
 
     /**
@@ -73,8 +69,7 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'customers_without_merchantcard' => 'getCustomersWithoutMerchantcard',
-        'duplicated_customers' => 'getDuplicatedCustomers'
+        'service_issue_id' => 'getServiceIssueId'
     ];
 
     public static function attributeMap()
@@ -104,8 +99,7 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['customers_without_merchantcard'] = isset($data['customers_without_merchantcard']) ? $data['customers_without_merchantcard'] : null;
-        $this->container['duplicated_customers'] = isset($data['duplicated_customers']) ? $data['duplicated_customers'] : null;
+        $this->container['service_issue_id'] = isset($data['service_issue_id']) ? $data['service_issue_id'] : null;
     }
 
     /**
@@ -133,43 +127,22 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
 
 
     /**
-     * Gets customers_without_merchantcard
-     * @return string[]
+     * Gets service_issue_id
+     * @return int
      */
-    public function getCustomersWithoutMerchantcard()
+    public function getServiceIssueId()
     {
-        return $this->container['customers_without_merchantcard'];
+        return $this->container['service_issue_id'];
     }
 
     /**
-     * Sets customers_without_merchantcard
-     * @param string[] $customers_without_merchantcard customers without merchantcard
+     * Sets service_issue_id
+     * @param int $service_issue_id Service issue id
      * @return $this
      */
-    public function setCustomersWithoutMerchantcard($customers_without_merchantcard)
+    public function setServiceIssueId($service_issue_id)
     {
-        $this->container['customers_without_merchantcard'] = $customers_without_merchantcard;
-
-        return $this;
-    }
-
-    /**
-     * Gets duplicated_customers
-     * @return string[]
-     */
-    public function getDuplicatedCustomers()
-    {
-        return $this->container['duplicated_customers'];
-    }
-
-    /**
-     * Sets duplicated_customers
-     * @param string[] $duplicated_customers duplicated customers
-     * @return $this
-     */
-    public function setDuplicatedCustomers($duplicated_customers)
-    {
-        $this->container['duplicated_customers'] = $duplicated_customers;
+        $this->container['service_issue_id'] = $service_issue_id;
 
         return $this;
     }

@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * CustomersWithoutMerchantcardAndDuplicatedCustomers
+ * LoyaltyTransactionsDTOCardgroup
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
+class LoyaltyTransactionsDTOCardgroup implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,15 +20,16 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'customers_without_merchantcard_and_duplicated_customers';
+    protected static $swaggerModelName = 'LoyaltyTransactionsDTOCardgroup';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'customers_without_merchantcard' => 'string[]',
-        'duplicated_customers' => 'string[]'
+        'id' => 'string',
+        'display_name' => 'string',
+        'stock_warn_limit' => 'int'
     ];
 
     /**
@@ -36,8 +37,9 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'customers_without_merchantcard' => null,
-        'duplicated_customers' => null
+        'id' => null,
+        'display_name' => null,
+        'stock_warn_limit' => null
     ];
 
     public static function swaggerTypes()
@@ -55,8 +57,9 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'customers_without_merchantcard' => 'customers_without_merchantcard',
-        'duplicated_customers' => 'duplicated_customers'
+        'id' => 'id',
+        'display_name' => 'display_name',
+        'stock_warn_limit' => 'stock_warn_limit'
     ];
 
     /**
@@ -64,8 +67,9 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'customers_without_merchantcard' => 'setCustomersWithoutMerchantcard',
-        'duplicated_customers' => 'setDuplicatedCustomers'
+        'id' => 'setId',
+        'display_name' => 'setDisplayName',
+        'stock_warn_limit' => 'setStockWarnLimit'
     ];
 
     /**
@@ -73,8 +77,9 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'customers_without_merchantcard' => 'getCustomersWithoutMerchantcard',
-        'duplicated_customers' => 'getDuplicatedCustomers'
+        'id' => 'getId',
+        'display_name' => 'getDisplayName',
+        'stock_warn_limit' => 'getStockWarnLimit'
     ];
 
     public static function attributeMap()
@@ -104,8 +109,9 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['customers_without_merchantcard'] = isset($data['customers_without_merchantcard']) ? $data['customers_without_merchantcard'] : null;
-        $this->container['duplicated_customers'] = isset($data['duplicated_customers']) ? $data['duplicated_customers'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
+        $this->container['stock_warn_limit'] = isset($data['stock_warn_limit']) ? $data['stock_warn_limit'] : null;
     }
 
     /**
@@ -133,43 +139,64 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
 
 
     /**
-     * Gets customers_without_merchantcard
-     * @return string[]
+     * Gets id
+     * @return string
      */
-    public function getCustomersWithoutMerchantcard()
+    public function getId()
     {
-        return $this->container['customers_without_merchantcard'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets customers_without_merchantcard
-     * @param string[] $customers_without_merchantcard customers without merchantcard
+     * Sets id
+     * @param string $id Cardgroup id
      * @return $this
      */
-    public function setCustomersWithoutMerchantcard($customers_without_merchantcard)
+    public function setId($id)
     {
-        $this->container['customers_without_merchantcard'] = $customers_without_merchantcard;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets duplicated_customers
-     * @return string[]
+     * Gets display_name
+     * @return string
      */
-    public function getDuplicatedCustomers()
+    public function getDisplayName()
     {
-        return $this->container['duplicated_customers'];
+        return $this->container['display_name'];
     }
 
     /**
-     * Sets duplicated_customers
-     * @param string[] $duplicated_customers duplicated customers
+     * Sets display_name
+     * @param string $display_name Cardgroup Name
      * @return $this
      */
-    public function setDuplicatedCustomers($duplicated_customers)
+    public function setDisplayName($display_name)
     {
-        $this->container['duplicated_customers'] = $duplicated_customers;
+        $this->container['display_name'] = $display_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets stock_warn_limit
+     * @return int
+     */
+    public function getStockWarnLimit()
+    {
+        return $this->container['stock_warn_limit'];
+    }
+
+    /**
+     * Sets stock_warn_limit
+     * @param int $stock_warn_limit Warn limit for Cardgroup stock
+     * @return $this
+     */
+    public function setStockWarnLimit($stock_warn_limit)
+    {
+        $this->container['stock_warn_limit'] = $stock_warn_limit;
 
         return $this;
     }

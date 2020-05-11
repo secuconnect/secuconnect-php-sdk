@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * CustomersWithoutMerchantcardAndDuplicatedCustomers
+ * LoyaltyMerchantcardsDTOCardBalanceReceipt
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
+class LoyaltyMerchantcardsDTOCardBalanceReceipt implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,15 +20,15 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'customers_without_merchantcard_and_duplicated_customers';
+    protected static $swaggerModelName = 'LoyaltyMerchantcardsDTOCardBalanceReceipt';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'customers_without_merchantcard' => 'string[]',
-        'duplicated_customers' => 'string[]'
+        'cardnumber' => 'int',
+        'terminal_id' => 'string'
     ];
 
     /**
@@ -36,8 +36,8 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'customers_without_merchantcard' => null,
-        'duplicated_customers' => null
+        'cardnumber' => null,
+        'terminal_id' => null
     ];
 
     public static function swaggerTypes()
@@ -55,8 +55,8 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'customers_without_merchantcard' => 'customers_without_merchantcard',
-        'duplicated_customers' => 'duplicated_customers'
+        'cardnumber' => 'cardnumber',
+        'terminal_id' => 'terminal_id'
     ];
 
     /**
@@ -64,8 +64,8 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'customers_without_merchantcard' => 'setCustomersWithoutMerchantcard',
-        'duplicated_customers' => 'setDuplicatedCustomers'
+        'cardnumber' => 'setCardnumber',
+        'terminal_id' => 'setTerminalId'
     ];
 
     /**
@@ -73,8 +73,8 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'customers_without_merchantcard' => 'getCustomersWithoutMerchantcard',
-        'duplicated_customers' => 'getDuplicatedCustomers'
+        'cardnumber' => 'getCardnumber',
+        'terminal_id' => 'getTerminalId'
     ];
 
     public static function attributeMap()
@@ -104,8 +104,8 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['customers_without_merchantcard'] = isset($data['customers_without_merchantcard']) ? $data['customers_without_merchantcard'] : null;
-        $this->container['duplicated_customers'] = isset($data['duplicated_customers']) ? $data['duplicated_customers'] : null;
+        $this->container['cardnumber'] = isset($data['cardnumber']) ? $data['cardnumber'] : null;
+        $this->container['terminal_id'] = isset($data['terminal_id']) ? $data['terminal_id'] : null;
     }
 
     /**
@@ -133,43 +133,43 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
 
 
     /**
-     * Gets customers_without_merchantcard
-     * @return string[]
+     * Gets cardnumber
+     * @return int
      */
-    public function getCustomersWithoutMerchantcard()
+    public function getCardnumber()
     {
-        return $this->container['customers_without_merchantcard'];
+        return $this->container['cardnumber'];
     }
 
     /**
-     * Sets customers_without_merchantcard
-     * @param string[] $customers_without_merchantcard customers without merchantcard
+     * Sets cardnumber
+     * @param int $cardnumber Loyalty Card number
      * @return $this
      */
-    public function setCustomersWithoutMerchantcard($customers_without_merchantcard)
+    public function setCardnumber($cardnumber)
     {
-        $this->container['customers_without_merchantcard'] = $customers_without_merchantcard;
+        $this->container['cardnumber'] = $cardnumber;
 
         return $this;
     }
 
     /**
-     * Gets duplicated_customers
-     * @return string[]
+     * Gets terminal_id
+     * @return string
      */
-    public function getDuplicatedCustomers()
+    public function getTerminalId()
     {
-        return $this->container['duplicated_customers'];
+        return $this->container['terminal_id'];
     }
 
     /**
-     * Sets duplicated_customers
-     * @param string[] $duplicated_customers duplicated customers
+     * Sets terminal_id
+     * @param string $terminal_id Terminal id
      * @return $this
      */
-    public function setDuplicatedCustomers($duplicated_customers)
+    public function setTerminalId($terminal_id)
     {
-        $this->container['duplicated_customers'] = $duplicated_customers;
+        $this->container['terminal_id'] = $terminal_id;
 
         return $this;
     }

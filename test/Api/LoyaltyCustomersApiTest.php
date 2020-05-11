@@ -341,9 +341,16 @@ class LoyaltyCustomersApiTest extends TestCase
             print_r($e->getResponseBody());
             throw $e;
         }
-        $array = (array)$response;
-        $this->assertArrayHasKey('customers_without_merchantcard', $array);
-        $this->assertArrayHasKey('duplicated_customers', $array);
+
+        $this->assertNotEmpty($response->getCustomersWithoutMerchantcard());
+        $this->assertIsArray($response->getCustomersWithoutMerchantcard());
+        $this->assertCount(2, $response->getCustomersWithoutMerchantcard());
+        $this->assertNotEmpty($response->getCustomersWithoutMerchantcard()[0]);
+        $this->assertNotEmpty($response->getCustomersWithoutMerchantcard()[1]);
+        $this->assertNotEmpty($response->getDuplicatedCustomers());
+        $this->assertIsArray($response->getDuplicatedCustomers());
+        $this->assertCount(1, $response->getDuplicatedCustomers());
+        $this->assertNotEmpty($response->getDuplicatedCustomers()[0]);
     }
 
     /**

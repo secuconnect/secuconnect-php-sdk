@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * CustomersWithoutMerchantcardAndDuplicatedCustomers
+ * LoyaltyTransactionsDTORelatedTransactions
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
+class LoyaltyTransactionsDTORelatedTransactions implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,15 +20,16 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'customers_without_merchantcard_and_duplicated_customers';
+    protected static $swaggerModelName = 'LoyaltyTransactionsDTORelatedTransactions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'customers_without_merchantcard' => 'string[]',
-        'duplicated_customers' => 'string[]'
+        'id' => 'string',
+        'trans_id' => 'int',
+        'ref_type_id' => 'int'
     ];
 
     /**
@@ -36,8 +37,9 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'customers_without_merchantcard' => null,
-        'duplicated_customers' => null
+        'id' => null,
+        'trans_id' => null,
+        'ref_type_id' => null
     ];
 
     public static function swaggerTypes()
@@ -55,8 +57,9 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'customers_without_merchantcard' => 'customers_without_merchantcard',
-        'duplicated_customers' => 'duplicated_customers'
+        'id' => 'id',
+        'trans_id' => 'trans_id',
+        'ref_type_id' => 'ref_type_id'
     ];
 
     /**
@@ -64,8 +67,9 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'customers_without_merchantcard' => 'setCustomersWithoutMerchantcard',
-        'duplicated_customers' => 'setDuplicatedCustomers'
+        'id' => 'setId',
+        'trans_id' => 'setTransId',
+        'ref_type_id' => 'setRefTypeId'
     ];
 
     /**
@@ -73,8 +77,9 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'customers_without_merchantcard' => 'getCustomersWithoutMerchantcard',
-        'duplicated_customers' => 'getDuplicatedCustomers'
+        'id' => 'getId',
+        'trans_id' => 'getTransId',
+        'ref_type_id' => 'getRefTypeId'
     ];
 
     public static function attributeMap()
@@ -104,8 +109,9 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['customers_without_merchantcard'] = isset($data['customers_without_merchantcard']) ? $data['customers_without_merchantcard'] : null;
-        $this->container['duplicated_customers'] = isset($data['duplicated_customers']) ? $data['duplicated_customers'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['trans_id'] = isset($data['trans_id']) ? $data['trans_id'] : null;
+        $this->container['ref_type_id'] = isset($data['ref_type_id']) ? $data['ref_type_id'] : null;
     }
 
     /**
@@ -133,43 +139,64 @@ class CustomersWithoutMerchantcardAndDuplicatedCustomers implements ArrayAccess
 
 
     /**
-     * Gets customers_without_merchantcard
-     * @return string[]
+     * Gets id
+     * @return string
      */
-    public function getCustomersWithoutMerchantcard()
+    public function getId()
     {
-        return $this->container['customers_without_merchantcard'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets customers_without_merchantcard
-     * @param string[] $customers_without_merchantcard customers without merchantcard
+     * Sets id
+     * @param string $id Loyalty Transaction id
      * @return $this
      */
-    public function setCustomersWithoutMerchantcard($customers_without_merchantcard)
+    public function setId($id)
     {
-        $this->container['customers_without_merchantcard'] = $customers_without_merchantcard;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets duplicated_customers
-     * @return string[]
+     * Gets trans_id
+     * @return int
      */
-    public function getDuplicatedCustomers()
+    public function getTransId()
     {
-        return $this->container['duplicated_customers'];
+        return $this->container['trans_id'];
     }
 
     /**
-     * Sets duplicated_customers
-     * @param string[] $duplicated_customers duplicated customers
+     * Sets trans_id
+     * @param int $trans_id Loyalty Transaction trans_id
      * @return $this
      */
-    public function setDuplicatedCustomers($duplicated_customers)
+    public function setTransId($trans_id)
     {
-        $this->container['duplicated_customers'] = $duplicated_customers;
+        $this->container['trans_id'] = $trans_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ref_type_id
+     * @return int
+     */
+    public function getRefTypeId()
+    {
+        return $this->container['ref_type_id'];
+    }
+
+    /**
+     * Sets ref_type_id
+     * @param int $ref_type_id Indicator for relation type of Loyalty Transactions
+     * @return $this
+     */
+    public function setRefTypeId($ref_type_id)
+    {
+        $this->container['ref_type_id'] = $ref_type_id;
 
         return $this;
     }
