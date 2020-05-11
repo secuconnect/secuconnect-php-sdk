@@ -52,8 +52,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'transaction_hash' => 'string',
         'reference_id' => 'string',
         'account_owner' => 'string',
-        'accrual' => 'bool',
-        'mandate' => '\Secuconnect\Client\Model\PaymentContainerMandate'
+        'accrual' => 'bool'
     ];
 
     /**
@@ -88,8 +87,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'transaction_hash' => null,
         'reference_id' => null,
         'account_owner' => null,
-        'accrual' => null,
-        'mandate' => null
+        'accrual' => null
     ];
 
     public static function swaggerTypes()
@@ -134,8 +132,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'transaction_hash' => 'transaction_hash',
         'reference_id' => 'reference_id',
         'account_owner' => 'account_owner',
-        'accrual' => 'accrual',
-        'mandate' => 'mandate'
+        'accrual' => 'accrual'
     ];
 
     /**
@@ -170,8 +167,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'transaction_hash' => 'setTransactionHash',
         'reference_id' => 'setReferenceId',
         'account_owner' => 'setAccountOwner',
-        'accrual' => 'setAccrual',
-        'mandate' => 'setMandate'
+        'accrual' => 'setAccrual'
     ];
 
     /**
@@ -206,8 +202,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'transaction_hash' => 'getTransactionHash',
         'reference_id' => 'getReferenceId',
         'account_owner' => 'getAccountOwner',
-        'accrual' => 'getAccrual',
-        'mandate' => 'getMandate'
+        'accrual' => 'getAccrual'
     ];
 
     public static function attributeMap()
@@ -261,7 +256,6 @@ class PaymentTransactionsProductModel extends BaseProductModel
         $this->container['reference_id'] = isset($data['reference_id']) ? $data['reference_id'] : null;
         $this->container['account_owner'] = isset($data['account_owner']) ? $data['account_owner'] : null;
         $this->container['accrual'] = isset($data['accrual']) ? $data['accrual'] : null;
-        $this->container['mandate'] = isset($data['mandate']) ? $data['mandate'] : null;
     }
 
     /**
@@ -872,27 +866,6 @@ class PaymentTransactionsProductModel extends BaseProductModel
     public function setAccrual($accrual)
     {
         $this->container['accrual'] = $accrual;
-
-        return $this;
-    }
-
-    /**
-     * Gets mandate
-     * @return \Secuconnect\Client\Model\PaymentContainerMandate
-     */
-    public function getMandate()
-    {
-        return $this->container['mandate'];
-    }
-
-    /**
-     * Sets mandate
-     * @param \Secuconnect\Client\Model\PaymentContainerMandate $mandate mandate
-     * @return $this
-     */
-    public function setMandate($mandate)
-    {
-        $this->container['mandate'] = $mandate;
 
         return $this;
     }

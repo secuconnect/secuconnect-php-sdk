@@ -23,13 +23,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
-- `Model.SmartTransactionsReceiptValue`: added element `decoration`
-- `Model.SmartTransactionsBonusProducts`: added element `serial_number`
-- `Model.Address`: added element `additional_address_data`
 - `Api.SmartTransactionsApi.startTransaction()`: added parameter `body`
+- `Model.Address`: added element `additional_address_data`
+- `Model.GeneralStoresProductModel`: added element `store_name`
 - `Model.PaymentTransactionsProductModel`: added elements `parents` and `account_owner`
 - `Model.PaymentContainersDTO`: added element `customer_id`
-- `Model.GeneralStoresProductModel`: added element `store_name`
+- `Model.SmartTransactionsReceiptValue`: added element `decoration`
+- `Model.SmartTransactionsBonusProducts`: added element `serial_number`
 
 
 ### Changed
@@ -46,10 +46,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - `Api.PaymentSecupayInvoicesApi.cancelPaymentTransactionById()`: changed response declaration from `object` to `PaymentCancelResult`
 - `Api.PaymentSecupayPrepaysApi.cancelPaymentTransactionById()`: changed response declaration from `object` to `PaymentCancelResult`
 - `Api.PaymentSecupaySofortApi.cancelPaymentTransactionById()`: changed response declaration from `object` to `PaymentCancelResult`
-- `Api.PaymentTransactionsApi.cancel()`: changed response declaration from `PaymentTransactionsProductModel[]` to `PaymentTransactionsCancelList`
 - `Api.SmartDevicesApi`: replaced `SmartDevicesList1` with `SmartDevicesList`
-- `Model.SecupayPayoutDTO`: changed parameter `customer` from string to `PaymentCustomersProductModel`
 - `Model.PaymentContainersDTO`: replaced `PaymentContainersDTOPrivate` with `OneOfPaymentContainersDTOModelPrivate`
+- `Model.SecupayPayoutDTO`: changed parameter `customer` from string to `PaymentCustomersProductModel`
 
 
 ### Fixed
@@ -68,13 +67,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - `Api.PaymentSecupayInvoicesApi`: call `paymentSecupayInvoicesCancelById` was removed
 - `Api.PaymentSecupayPrepaysApi`: call `paymentSecupayPrepaysCancelById` was removed
 - `Api.PaymentTransactionsApi.revokeAccrual()`: parameter `body` was removed
-- `Model.PaymentTransactionsProductModel`: element `platform` was removed
-- `Model.PaymentTransactionCancelDTO`: element `container_id` was removed
 - `Model.PaymentContainersDTOPrivate` was removed
 - `Model.SmartDevicesList1` was removed
 - `Model.VirtualTerminalData` was removed
-- `Model.PaymentContainerMandate`: element `creditor_id` was removed
-- `Model.SecupayTransactionProductModel`: element `mandate` was removed
 - `Model.SecupaySubTransactionProductModel`: elements `amount`, `transaction_status`, `status`, `currency` were removed
 - `Model.SecupayPayoutDTO`: element `demo` was removed
 - `Model.ReceiptTypeValue`: element `type` was removed

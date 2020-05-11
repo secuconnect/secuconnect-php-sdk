@@ -24,7 +24,6 @@ use Secuconnect\Client\Model\LoyaltyMerchantcardsList;
 use Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel;
 use Secuconnect\Client\Model\LoyaltyMerchantcardsProductWithReceiptModel;
 use Secuconnect\Client\Model\ProductInstanceUID;
-use Secuconnect\Client\Model\VirtualTerminalData;
 use Secuconnect\Client\Model\VirtualTerminalDataModel;
 
 /**

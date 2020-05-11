@@ -43,7 +43,8 @@ class SecupayTransactionProductModel extends BaseProductModel
         'subscription' => '\Secuconnect\Client\Model\SecupayTransactionProductDTOSubscription',
         'iframe_url' => 'string',
         'container' => '\Secuconnect\Client\Model\PaymentContainersProductModel',
-        'sub_transactions' => '\Secuconnect\Client\Model\SecupaySubTransactionProductModel[]'
+        'sub_transactions' => '\Secuconnect\Client\Model\SecupaySubTransactionProductModel[]',
+        'mandate' => '\Secuconnect\Client\Model\PaymentContainerMandate'
     ];
 
     /**
@@ -69,7 +70,8 @@ class SecupayTransactionProductModel extends BaseProductModel
         'subscription' => null,
         'iframe_url' => null,
         'container' => null,
-        'sub_transactions' => null
+        'sub_transactions' => null,
+        'mandate' => null
     ];
 
     public static function swaggerTypes()
@@ -105,7 +107,8 @@ class SecupayTransactionProductModel extends BaseProductModel
         'subscription' => 'subscription',
         'iframe_url' => 'iframe_url',
         'container' => 'container',
-        'sub_transactions' => 'sub_transactions'
+        'sub_transactions' => 'sub_transactions',
+        'mandate' => 'mandate'
     ];
 
     /**
@@ -131,7 +134,8 @@ class SecupayTransactionProductModel extends BaseProductModel
         'subscription' => 'setSubscription',
         'iframe_url' => 'setIframeUrl',
         'container' => 'setContainer',
-        'sub_transactions' => 'setSubTransactions'
+        'sub_transactions' => 'setSubTransactions',
+        'mandate' => 'setMandate'
     ];
 
     /**
@@ -157,7 +161,8 @@ class SecupayTransactionProductModel extends BaseProductModel
         'subscription' => 'getSubscription',
         'iframe_url' => 'getIframeUrl',
         'container' => 'getContainer',
-        'sub_transactions' => 'getSubTransactions'
+        'sub_transactions' => 'getSubTransactions',
+        'mandate' => 'getMandate'
     ];
 
     public static function attributeMap()
@@ -202,6 +207,7 @@ class SecupayTransactionProductModel extends BaseProductModel
         $this->container['iframe_url'] = isset($data['iframe_url']) ? $data['iframe_url'] : null;
         $this->container['container'] = isset($data['container']) ? $data['container'] : null;
         $this->container['sub_transactions'] = isset($data['sub_transactions']) ? $data['sub_transactions'] : null;
+        $this->container['mandate'] = isset($data['mandate']) ? $data['mandate'] : null;
     }
 
     /**
@@ -623,6 +629,27 @@ class SecupayTransactionProductModel extends BaseProductModel
     public function setSubTransactions($sub_transactions)
     {
         $this->container['sub_transactions'] = $sub_transactions;
+
+        return $this;
+    }
+
+    /**
+     * Gets mandate
+     * @return \Secuconnect\Client\Model\PaymentContainerMandate
+     */
+    public function getMandate()
+    {
+        return $this->container['mandate'];
+    }
+
+    /**
+     * Sets mandate
+     * @param \Secuconnect\Client\Model\PaymentContainerMandate $mandate mandate
+     * @return $this
+     */
+    public function setMandate($mandate)
+    {
+        $this->container['mandate'] = $mandate;
 
         return $this;
     }
