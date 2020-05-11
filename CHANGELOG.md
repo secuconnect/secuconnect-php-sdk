@@ -19,62 +19,65 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
-## [2.0.0] - 2020-04-28
+## [2.0.0] - 2020-05-11
 
 ### Added
 
-SmartTransactionsReceiptValue: added element "decoration"
-SmartTransactionsBonusProducts: added element "serial_number"
-Address: added element "additional_address_data"
-SmartTransactionsApi.startTransaction(): added parameter "body"
-PaymentTransactionsProductModel: added elements "parents" and "account_owner"
-PaymentContainersDTO: added element "customer_id"
+- `Model.SmartTransactionsReceiptValue`: added element `decoration`
+- `Model.SmartTransactionsBonusProducts`: added element `serial_number`
+- `Model.Address`: added element `additional_address_data`
+- `Api.SmartTransactionsApi.startTransaction()`: added parameter `body`
+- `Model.PaymentTransactionsProductModel`: added elements `parents` and `account_owner`
+- `Model.PaymentContainersDTO`: added element `customer_id`
+- `Model.GeneralStoresProductModel`: added element `store_name`
 
 
 ### Changed
 
-SecupayPayoutDTO: changed parameter "customer" from string to PaymentCustomersProductModel
-GeneralStoresApi: changed response declaration from "object" to "ResultBoolean"
-LoyaltyCardsApi: changed input parameter of "assignUser()" from "object" to "CardPin"
-LoyaltyCardsApi: changed response declaration from "object" to "ResultBoolean"
-LoyaltyCustomersApi: changed response declaration from "object" to "CustomersWithoutMerchantcardAndDuplicatedCustomers"
-LoyaltyMerchantcardsApi: changed response declaration from "object" to "ResultBoolean"
-PaymentContractsApi: changed response declaration from "string[]" to "StringList"
-PaymentSecupayCreditcardsApi: changed response declaration from "object" to "PaymentCancelResult"
-PaymentSecupayDebitsApi: changed response declaration from "object" to "PaymentCancelResult"
-PaymentSecupayInvoicesApi: changed response declaration from "object" to "PaymentCancelResult"
-PaymentSecupayPrepaysApi: changed response declaration from "object" to "PaymentCancelResult"
-PaymentSecupaySofortApi: changed response declaration from "object" to "PaymentCancelResult"
-PaymentTransactionsApi: changed response declaration from "PaymentTransactionsProductModel[]" to "PaymentTransactionsCancelList"
-SmartDevicesAp: replaced "SmartDevicesList1" with "SmartDevicesList"
-PaymentContainersDTO: replaced "PaymentContainersDTOPrivate" with "OneOfPaymentContainersDTOModelPrivate"
+- The `body` parameter is now always a required parameter in the API calls, but you set it to `null` if you do not need it.
+- `Api.GeneralStoresApi`: changed response declarations from `object` to `ResultBoolean`
+- `Api.LoyaltyCardsApi.assignUser()`: changed input parameter from `object` to `CardPin`
+- `Api.LoyaltyCardsApi`: changed response declarations from `object` to `ResultBoolean`
+- `Api.LoyaltyCustomersApi.checkForDuplicates()`: changed response declaration from `object` to `CustomersWithoutMerchantcardAndDuplicatedCustomers`
+- `Api.LoyaltyMerchantcardsApi`: changed response declarations from `object` to `ResultBoolean`
+- `Api.PaymentContractsApi.paymentContractsIdPaymentMethodsGet()`: changed response declaration from `string[]` to `StringList`
+- `Api.PaymentSecupayCreditcardsApi.cancelPaymentTransactionById()`: changed response declaration from `object` to `PaymentCancelResult`
+- `Api.PaymentSecupayDebitsApi.cancelPaymentTransactionById()`: changed response declaration from `object` to `PaymentCancelResult`
+- `Api.PaymentSecupayInvoicesApi.cancelPaymentTransactionById()`: changed response declaration from `object` to `PaymentCancelResult`
+- `Api.PaymentSecupayPrepaysApi.cancelPaymentTransactionById()`: changed response declaration from `object` to `PaymentCancelResult`
+- `Api.PaymentSecupaySofortApi.cancelPaymentTransactionById()`: changed response declaration from `object` to `PaymentCancelResult`
+- `Api.PaymentTransactionsApi.cancel()`: changed response declaration from `PaymentTransactionsProductModel[]` to `PaymentTransactionsCancelList`
+- `Api.SmartDevicesApi`: replaced `SmartDevicesList1` with `SmartDevicesList`
+- `Model.SecupayPayoutDTO`: changed parameter `customer` from string to `PaymentCustomersProductModel`
+- `Model.PaymentContainersDTO`: replaced `PaymentContainersDTOPrivate` with `OneOfPaymentContainersDTOModelPrivate`
 
 
 ### Fixed
 
-SmartTransactionsPrepare: element "callback_urls" type declaration fixed
-BankAccountDescriptor: removed wrong element "pan"
+- `Model.SmartTransactionsPrepare`: fixed type declaration of element `callback_urls`
+- `Model.GeneralStoresProductModel`: fixed type declaration of element `geometry`
+- `Model.BankAccountDescriptor`: wrong element `pan` was removed, instead of this we have now the model `CreditCardDescriptor`
 
 
 ### Removed
 
-GeneralMerchantsApi: updateMerchant call
-LoyaltySalesApi: getVirtualTerminalIdByStoreId call
-PaymentSecupayCreditcardsApi: paymentSecupayCreditcardsCancelById call
-PaymentSecupayDebitsApi: paymentSecupayDebitsCancelById call
-PaymentSecupayInvoicesApi: paymentSecupayInvoicesCancelById call
-PaymentSecupayPrepaysApi: paymentSecupayPrepaysCancelById call
-PaymentTransactionsApi.revokeAccrual(): removed parameter "body"
-PaymentTransactionsProductModel: removed element "platform"
-PaymentTransactionCancelDTO: removed element "container_id"
-removed model "PaymentContainersDTOPrivate"
-removed model "SmartDevicesList1"
-removed model "VirtualTerminalData"
-PaymentContainerMandate: removed element "creditor_id"
-SecupayTransactionProductModel: removed unused element "mandate"
-SecupaySubTransactionProductModel: removed unused elements "amount", "transaction_status", "status", "currency"
-SecupayPayoutDTO: removed unused element "demo"
-ReceiptTypeValue: removed unused parameter "type"
+- `Api.GeneralMerchantsApi`: call `updateMerchant` was removed
+- `Api.LoyaltySalesApi`: call `getVirtualTerminalIdByStoreId` was removed
+- `Api.PaymentSecupayCreditcardsApi`: call `paymentSecupayCreditcardsCancelById` was removed
+- `Api.PaymentSecupayDebitsApi`: call `paymentSecupayDebitsCancelById` was removed
+- `Api.PaymentSecupayInvoicesApi`: call `paymentSecupayInvoicesCancelById` was removed
+- `Api.PaymentSecupayPrepaysApi`: call `paymentSecupayPrepaysCancelById` was removed
+- `Api.PaymentTransactionsApi.revokeAccrual()`: parameter `body` was removed
+- `Model.PaymentTransactionsProductModel`: element `platform` was removed
+- `Model.PaymentTransactionCancelDTO`: element `container_id` was removed
+- `Model.PaymentContainersDTOPrivate` was removed
+- `Model.SmartDevicesList1` was removed
+- `Model.VirtualTerminalData` was removed
+- `Model.PaymentContainerMandate`: element `creditor_id` was removed
+- `Model.SecupayTransactionProductModel`: element `mandate` was removed
+- `Model.SecupaySubTransactionProductModel`: elements `amount`, `transaction_status`, `status`, `currency` were removed
+- `Model.SecupayPayoutDTO`: element `demo` was removed
+- `Model.ReceiptTypeValue`: element `type` was removed
 
 
 ## [1.3.0] - 2020-03-04

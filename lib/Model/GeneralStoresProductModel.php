@@ -27,6 +27,7 @@ class GeneralStoresProductModel extends BaseProductModel
     protected static $swaggerTypes = [
         'id_old' => 'string',
         'merchant' => '\Secuconnect\Client\Model\ProductInstanceUID',
+        'store_name' => 'string',
         'facebook_id' => 'string',
         'source' => 'string',
         'key' => 'string',
@@ -59,6 +60,7 @@ class GeneralStoresProductModel extends BaseProductModel
     protected static $swaggerFormats = [
         'id_old' => 'id',
         'merchant' => null,
+        'store_name' => null,
         'facebook_id' => null,
         'source' => null,
         'key' => null,
@@ -101,6 +103,7 @@ class GeneralStoresProductModel extends BaseProductModel
     protected static $attributeMap = [
         'id_old' => 'id_old',
         'merchant' => 'merchant',
+        'store_name' => 'store_name',
         'facebook_id' => 'facebook_id',
         'source' => 'source',
         'key' => 'key',
@@ -133,6 +136,7 @@ class GeneralStoresProductModel extends BaseProductModel
     protected static $setters = [
         'id_old' => 'setIdOld',
         'merchant' => 'setMerchant',
+        'store_name' => 'setStoreName',
         'facebook_id' => 'setFacebookId',
         'source' => 'setSource',
         'key' => 'setKey',
@@ -165,6 +169,7 @@ class GeneralStoresProductModel extends BaseProductModel
     protected static $getters = [
         'id_old' => 'getIdOld',
         'merchant' => 'getMerchant',
+        'store_name' => 'getStoreName',
         'facebook_id' => 'getFacebookId',
         'source' => 'getSource',
         'key' => 'getKey',
@@ -215,6 +220,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
         $this->container['id_old'] = isset($data['id_old']) ? $data['id_old'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
+        $this->container['store_name'] = isset($data['store_name']) ? $data['store_name'] : null;
         $this->container['facebook_id'] = isset($data['facebook_id']) ? $data['facebook_id'] : null;
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;
@@ -302,6 +308,27 @@ class GeneralStoresProductModel extends BaseProductModel
     public function setMerchant($merchant)
     {
         $this->container['merchant'] = $merchant;
+
+        return $this;
+    }
+
+    /**
+     * Gets store_name
+     * @return string
+     */
+    public function getStoreName()
+    {
+        return $this->container['store_name'];
+    }
+
+    /**
+     * Sets store_name
+     * @param string $store_name Store Name
+     * @return $this
+     */
+    public function setStoreName($store_name)
+    {
+        $this->container['store_name'] = $store_name;
 
         return $this;
     }
@@ -455,7 +482,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Gets geometry
-     * @return string
+     * @return \Secuconnect\Client\Model\GeoAddressGeometry
      */
     public function getGeometry()
     {
@@ -464,7 +491,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets geometry
-     * @param string $geometry General store geometry
+     * @param \Secuconnect\Client\Model\GeoAddressGeometry $geometry geometry
      * @return $this
      */
     public function setGeometry($geometry)
