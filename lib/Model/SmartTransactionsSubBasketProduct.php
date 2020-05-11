@@ -7,10 +7,10 @@ use \ArrayAccess;
 /**
  * SmartTransactionsSubBasketProduct
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class SmartTransactionsSubBasketProduct implements ArrayAccess
 {
@@ -95,7 +95,6 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
         'group' => 'group'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
@@ -116,7 +115,6 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
         'contract_id' => 'setContractId',
         'group' => 'setGroup'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -153,10 +151,6 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
     {
         return self::$getters;
     }
-
-    
-
-    
 
     /**
      * Associative array for storing property values
@@ -206,7 +200,6 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
@@ -411,7 +404,7 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
 
     /**
      * Sets sum
-     * @param int $sum 
+     * @param int $sum sum
      * @return $this
      */
     public function setSum($sum)
@@ -504,9 +497,10 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -516,7 +510,7 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -526,8 +520,8 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -541,7 +535,7 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -562,5 +556,4 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

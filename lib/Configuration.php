@@ -13,7 +13,7 @@ use Secuconnect\Client\Printer\Printer;
 class Configuration
 {
     const DEFAULT_HOST = 'connect-testing.secupay-ag.de'; // For live use: connect.secucard.com
-    const SDK_VERSION = '1.3.0';
+    const SDK_VERSION = '2.0.0';
 
     const BASE_URL = 'https://' . self::DEFAULT_HOST . '/';
     const API_URL = self::BASE_URL . 'api/v2';
@@ -202,7 +202,7 @@ class Configuration
     /**
      * @return Printer
      */
-    public function getPrinter(): Printer
+    public function getPrinter()
     {
         return $this->printer;
     }
@@ -210,7 +210,7 @@ class Configuration
     /**
      * @param Printer $printer
      */
-    public function setPrinter(Printer $printer): void
+    public function setPrinter(Printer $printer)
     {
         $this->printer = $printer;
     }

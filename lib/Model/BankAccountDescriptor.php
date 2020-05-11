@@ -7,13 +7,13 @@ use \ArrayAccess;
 /**
  * BankAccountDescriptor
  *
- * @category    Class
+ * @category Class
  * @description Bank account data like owner, iban, bic and bank name
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
-class BankAccountDescriptor implements ArrayAccess
+class BankAccountDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModelPrivate 
 {
     const DISCRIMINATOR = null;
 
@@ -32,8 +32,7 @@ class BankAccountDescriptor implements ArrayAccess
         'bic' => 'string',
         'owner' => 'string',
         'bankname' => 'string',
-        'purpose' => 'string',
-        'pan' => 'string'
+        'purpose' => 'string'
     ];
 
     /**
@@ -45,8 +44,7 @@ class BankAccountDescriptor implements ArrayAccess
         'bic' => null,
         'owner' => null,
         'bankname' => null,
-        'purpose' => null,
-        'pan' => null
+        'purpose' => null
     ];
 
     public static function swaggerTypes()
@@ -68,10 +66,8 @@ class BankAccountDescriptor implements ArrayAccess
         'bic' => 'bic',
         'owner' => 'owner',
         'bankname' => 'bankname',
-        'purpose' => 'purpose',
-        'pan' => 'pan'
+        'purpose' => 'purpose'
     ];
-
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -82,10 +78,8 @@ class BankAccountDescriptor implements ArrayAccess
         'bic' => 'setBic',
         'owner' => 'setOwner',
         'bankname' => 'setBankname',
-        'purpose' => 'setPurpose',
-        'pan' => 'setPan'
+        'purpose' => 'setPurpose'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -96,8 +90,7 @@ class BankAccountDescriptor implements ArrayAccess
         'bic' => 'getBic',
         'owner' => 'getOwner',
         'bankname' => 'getBankname',
-        'purpose' => 'getPurpose',
-        'pan' => 'getPan'
+        'purpose' => 'getPurpose'
     ];
 
     public static function attributeMap()
@@ -114,10 +107,6 @@ class BankAccountDescriptor implements ArrayAccess
     {
         return self::$getters;
     }
-
-    
-
-    
 
     /**
      * Associative array for storing property values
@@ -136,7 +125,6 @@ class BankAccountDescriptor implements ArrayAccess
         $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
         $this->container['bankname'] = isset($data['bankname']) ? $data['bankname'] : null;
         $this->container['purpose'] = isset($data['purpose']) ? $data['purpose'] : null;
-        $this->container['pan'] = isset($data['pan']) ? $data['pan'] : null;
     }
 
     /**
@@ -159,7 +147,6 @@ class BankAccountDescriptor implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
@@ -259,7 +246,7 @@ class BankAccountDescriptor implements ArrayAccess
 
     /**
      * Sets purpose
-     * @param string $purpose Purpose
+     * @param string $purpose Purpose for the bank statement
      * @return $this
      */
     public function setPurpose($purpose)
@@ -270,29 +257,8 @@ class BankAccountDescriptor implements ArrayAccess
     }
 
     /**
-     * Gets pan
-     * @return string
-     */
-    public function getPan()
-    {
-        return $this->container['pan'];
-    }
-
-    /**
-     * Sets pan
-     * @param string $pan Pan
-     * @return $this
-     */
-    public function setPan($pan)
-    {
-        $this->container['pan'] = $pan;
-
-        return $this;
-    }
-
-    /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -302,7 +268,7 @@ class BankAccountDescriptor implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -312,8 +278,8 @@ class BankAccountDescriptor implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -327,7 +293,7 @@ class BankAccountDescriptor implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -348,5 +314,4 @@ class BankAccountDescriptor implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

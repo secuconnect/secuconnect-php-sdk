@@ -68,7 +68,7 @@ class PaymentSecupayInvoicesApi
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
      * @param string $document_id Document id (required)
-     * @param \Secuconnect\Client\Model\SecupayTransactionDTOExternalInvoicePdf $body Request body for assigning external invoice pdf (required)
+     * @param \Secuconnect\Client\Model\SecupayTransactionDTOExternalInvoicePdf $body Request body for assigning external invoice pdf 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SecupayTransactionExternalInvoicePdf
      */
@@ -86,27 +86,29 @@ class PaymentSecupayInvoicesApi
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
      * @param string $document_id Document id (required)
-     * @param \Secuconnect\Client\Model\SecupayTransactionDTOExternalInvoicePdf $body Request body for assigning external invoice pdf (required)
+     * @param \Secuconnect\Client\Model\SecupayTransactionDTOExternalInvoicePdf $body Request body for assigning external invoice pdf 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SecupayTransactionExternalInvoicePdf, HTTP status code, HTTP response headers (array of strings)
      */
     public function assignExternalInvoicePdfWithHttpInfo($payment_method, $payment_id, $document_id, $body)
     {
         // verify the required parameter 'payment_method' is set
-        if ($payment_method === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payment_method when calling assignExternalInvoicePdf');
+        if ($payment_method === null || (is_array($payment_method) && count($payment_method) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $payment_method when calling assignExternalInvoicePdf'
+            );
         }
         // verify the required parameter 'payment_id' is set
-        if ($payment_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payment_id when calling assignExternalInvoicePdf');
+        if ($payment_id === null || (is_array($payment_id) && count($payment_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $payment_id when calling assignExternalInvoicePdf'
+            );
         }
         // verify the required parameter 'document_id' is set
-        if ($document_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $document_id when calling assignExternalInvoicePdf');
-        }
-        // verify the required parameter 'body' is set
-        if ($body === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $body when calling assignExternalInvoicePdf');
+        if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $document_id when calling assignExternalInvoicePdf'
+            );
         }
         // parse inputs
         $resourcePath = "/Payment/{paymentMethod}/{paymentId}/assignExternalInvoicePdf/{documentId}";
@@ -114,11 +116,11 @@ class PaymentSecupayInvoicesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // path params
         if ($payment_method !== null) {
@@ -157,12 +159,12 @@ class PaymentSecupayInvoicesApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -205,11 +207,11 @@ class PaymentSecupayInvoicesApi
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
-     * @param \Secuconnect\Client\Model\SecupayTransactionCancelDTO $body Cancel payment transaction input properties (optional)
+     * @param \Secuconnect\Client\Model\SecupayTransactionCancelDTO $body Cancel payment transaction input properties 
      * @throws ApiException on non-2xx response
-     * @return object
+     * @return \Secuconnect\Client\Model\PaymentCancelResult
      */
-    public function cancelPaymentTransactionById($payment_method, $payment_id, $body = null)
+    public function cancelPaymentTransactionById($payment_method, $payment_id, $body)
     {
         list($response) = $this->cancelPaymentTransactionByIdWithHttpInfo($payment_method, $payment_id, $body);
         return $response;
@@ -222,19 +224,23 @@ class PaymentSecupayInvoicesApi
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
-     * @param \Secuconnect\Client\Model\SecupayTransactionCancelDTO $body Cancel payment transaction input properties (optional)
+     * @param \Secuconnect\Client\Model\SecupayTransactionCancelDTO $body Cancel payment transaction input properties 
      * @throws ApiException on non-2xx response
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Secuconnect\Client\Model\PaymentCancelResult, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelPaymentTransactionByIdWithHttpInfo($payment_method, $payment_id, $body = null)
+    public function cancelPaymentTransactionByIdWithHttpInfo($payment_method, $payment_id, $body)
     {
         // verify the required parameter 'payment_method' is set
-        if ($payment_method === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payment_method when calling cancelPaymentTransactionById');
+        if ($payment_method === null || (is_array($payment_method) && count($payment_method) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $payment_method when calling cancelPaymentTransactionById'
+            );
         }
         // verify the required parameter 'payment_id' is set
-        if ($payment_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payment_id when calling cancelPaymentTransactionById');
+        if ($payment_id === null || (is_array($payment_id) && count($payment_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $payment_id when calling cancelPaymentTransactionById'
+            );
         }
         // parse inputs
         $resourcePath = "/Payment/{paymentMethod}/{paymentId}/cancel";
@@ -242,11 +248,11 @@ class PaymentSecupayInvoicesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // path params
         if ($payment_method !== null) {
@@ -277,12 +283,12 @@ class PaymentSecupayInvoicesApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -291,15 +297,15 @@ class PaymentSecupayInvoicesApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    'object',
+                    '\Secuconnect\Client\Model\PaymentCancelResult',
                     '/Payment/{paymentMethod}/{paymentId}/cancel'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, 'object', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentCancelResult', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentCancelResult', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:
@@ -325,11 +331,11 @@ class PaymentSecupayInvoicesApi
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
-     * @param \Secuconnect\Client\Model\SecupayTransactionCaptureDTO $body Capture payment transaction input properties (optional)
+     * @param \Secuconnect\Client\Model\SecupayTransactionCaptureDTO $body Capture payment transaction input properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SecupayTransactionProductModel
      */
-    public function capturePaymentTransactionById($payment_method, $payment_id, $body = null)
+    public function capturePaymentTransactionById($payment_method, $payment_id, $body)
     {
         list($response) = $this->capturePaymentTransactionByIdWithHttpInfo($payment_method, $payment_id, $body);
         return $response;
@@ -342,19 +348,23 @@ class PaymentSecupayInvoicesApi
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
-     * @param \Secuconnect\Client\Model\SecupayTransactionCaptureDTO $body Capture payment transaction input properties (optional)
+     * @param \Secuconnect\Client\Model\SecupayTransactionCaptureDTO $body Capture payment transaction input properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SecupayTransactionProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function capturePaymentTransactionByIdWithHttpInfo($payment_method, $payment_id, $body = null)
+    public function capturePaymentTransactionByIdWithHttpInfo($payment_method, $payment_id, $body)
     {
         // verify the required parameter 'payment_method' is set
-        if ($payment_method === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payment_method when calling capturePaymentTransactionById');
+        if ($payment_method === null || (is_array($payment_method) && count($payment_method) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $payment_method when calling capturePaymentTransactionById'
+            );
         }
         // verify the required parameter 'payment_id' is set
-        if ($payment_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payment_id when calling capturePaymentTransactionById');
+        if ($payment_id === null || (is_array($payment_id) && count($payment_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $payment_id when calling capturePaymentTransactionById'
+            );
         }
         // parse inputs
         $resourcePath = "/Payment/{paymentMethod}/{paymentId}/capture";
@@ -362,11 +372,11 @@ class PaymentSecupayInvoicesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // path params
         if ($payment_method !== null) {
@@ -397,12 +407,12 @@ class PaymentSecupayInvoicesApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -420,105 +430,6 @@ class PaymentSecupayInvoicesApi
                 switch ($e->getCode()) {
                     case 200:
                         $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\SecupayTransactionProductModel', $e->getResponseHeaders());
-                        $e->setResponseObject($data);
-                        break;
-                    case 401:
-                        if ($retries < 1) {
-                            Authenticator::reauthenticate();
-                            continue 2;
-                        }
-                    default:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
-                        $e->setResponseObject($data);
-                        break;
-                }
-
-                throw $e;
-            }
-        }
-    }
-
-    /**
-     * Operation paymentSecupayInvoicesCancelById
-     *
-     * POST Payment/Secupayinvoices/{paymentInvoiceId}/cancel
-     *
-     * @param string $payment_invoice_id Payment invoice id (required)
-     * @throws ApiException on non-2xx response
-     * @return object
-     */
-    public function paymentSecupayInvoicesCancelById($payment_invoice_id)
-    {
-        list($response) = $this->paymentSecupayInvoicesCancelByIdWithHttpInfo($payment_invoice_id);
-        return $response;
-    }
-
-    /**
-     * Operation paymentSecupayInvoicesCancelByIdWithHttpInfo
-     *
-     * POST Payment/Secupayinvoices/{paymentInvoiceId}/cancel
-     *
-     * @param string $payment_invoice_id Payment invoice id (required)
-     * @throws ApiException on non-2xx response
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function paymentSecupayInvoicesCancelByIdWithHttpInfo($payment_invoice_id)
-    {
-        // verify the required parameter 'payment_invoice_id' is set
-        if ($payment_invoice_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payment_invoice_id when calling paymentSecupayInvoicesCancelById');
-        }
-        // parse inputs
-        $resourcePath = "/Payment/Secupayinvoices/{paymentInvoiceId}/cancel";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
-
-        // path params
-        if ($payment_invoice_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "paymentInvoiceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($payment_invoice_id),
-                $resourcePath
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        for ($retries = 0; ; $retries++) {
-            
-            // this endpoint requires OAuth (access token)
-            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-            }
-            
-            // make the API Call
-            try {
-                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                    $resourcePath,
-                    'POST',
-                    $queryParams,
-                    $httpBody,
-                    $headerParams,
-                    'object',
-                    '/Payment/Secupayinvoices/{paymentInvoiceId}/cancel'
-                );
-
-                return [$this->apiClient->getSerializer()->deserialize($response, 'object', $httpHeader), $statusCode, $httpHeader];
-            } catch (ApiException $e) {
-                switch ($e->getCode()) {
-                    case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:
@@ -564,8 +475,10 @@ class PaymentSecupayInvoicesApi
     public function paymentSecupayInvoicesGetByIdWithHttpInfo($payment_invoice_id)
     {
         // verify the required parameter 'payment_invoice_id' is set
-        if ($payment_invoice_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payment_invoice_id when calling paymentSecupayInvoicesGetById');
+        if ($payment_invoice_id === null || (is_array($payment_invoice_id) && count($payment_invoice_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $payment_invoice_id when calling paymentSecupayInvoicesGetById'
+            );
         }
         // parse inputs
         $resourcePath = "/Payment/Secupayinvoices/{paymentInvoiceId}";
@@ -573,7 +486,7 @@ class PaymentSecupayInvoicesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -595,12 +508,12 @@ class PaymentSecupayInvoicesApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -641,11 +554,11 @@ class PaymentSecupayInvoicesApi
      *
      * POST Payment/Secupayinvoices
      *
-     * @param \Secuconnect\Client\Model\SecupayTransactionProductDTO $body Invoice payment transaction input properties (optional)
+     * @param \Secuconnect\Client\Model\SecupayTransactionProductDTO $body Invoice payment transaction input properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SecupayTransactionProductModel
      */
-    public function paymentSecupayinvoicesPost($body = null)
+    public function paymentSecupayinvoicesPost($body)
     {
         list($response) = $this->paymentSecupayinvoicesPostWithHttpInfo($body);
         return $response;
@@ -656,11 +569,11 @@ class PaymentSecupayInvoicesApi
      *
      * POST Payment/Secupayinvoices
      *
-     * @param \Secuconnect\Client\Model\SecupayTransactionProductDTO $body Invoice payment transaction input properties (optional)
+     * @param \Secuconnect\Client\Model\SecupayTransactionProductDTO $body Invoice payment transaction input properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SecupayTransactionProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function paymentSecupayinvoicesPostWithHttpInfo($body = null)
+    public function paymentSecupayinvoicesPostWithHttpInfo($body)
     {
         // parse inputs
         $resourcePath = "/Payment/Secupayinvoices";
@@ -668,11 +581,11 @@ class PaymentSecupayInvoicesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // body params
         $_tempBody = null;
@@ -687,12 +600,12 @@ class PaymentSecupayInvoicesApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -735,7 +648,7 @@ class PaymentSecupayInvoicesApi
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
-     * @param \Secuconnect\Client\Model\SecupayTransactionReverseAccrualDTO $body Reverse accrual input properties (required)
+     * @param \Secuconnect\Client\Model\SecupayTransactionReverseAccrualDTO $body Reverse accrual input properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SecupayTransactionProductModel
      */
@@ -752,23 +665,23 @@ class PaymentSecupayInvoicesApi
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
-     * @param \Secuconnect\Client\Model\SecupayTransactionReverseAccrualDTO $body Reverse accrual input properties (required)
+     * @param \Secuconnect\Client\Model\SecupayTransactionReverseAccrualDTO $body Reverse accrual input properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SecupayTransactionProductModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function reverseAccrualByPaymentIdWithHttpInfo($payment_method, $payment_id, $body)
     {
         // verify the required parameter 'payment_method' is set
-        if ($payment_method === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payment_method when calling reverseAccrualByPaymentId');
+        if ($payment_method === null || (is_array($payment_method) && count($payment_method) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $payment_method when calling reverseAccrualByPaymentId'
+            );
         }
         // verify the required parameter 'payment_id' is set
-        if ($payment_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payment_id when calling reverseAccrualByPaymentId');
-        }
-        // verify the required parameter 'body' is set
-        if ($body === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $body when calling reverseAccrualByPaymentId');
+        if ($payment_id === null || (is_array($payment_id) && count($payment_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $payment_id when calling reverseAccrualByPaymentId'
+            );
         }
         // parse inputs
         $resourcePath = "/Payment/{paymentMethod}/{paymentId}/accrual";
@@ -776,11 +689,11 @@ class PaymentSecupayInvoicesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // path params
         if ($payment_method !== null) {
@@ -811,12 +724,12 @@ class PaymentSecupayInvoicesApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -859,7 +772,7 @@ class PaymentSecupayInvoicesApi
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
-     * @param \Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO $body Shipping information properties (required)
+     * @param \Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO $body Shipping information propertie 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SecupayTransactionProductModel
      */
@@ -876,23 +789,23 @@ class PaymentSecupayInvoicesApi
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
-     * @param \Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO $body Shipping information properties (required)
+     * @param \Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO $body Shipping information propertie 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SecupayTransactionProductModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function setShippingInformationByPaymentIdWithHttpInfo($payment_method, $payment_id, $body)
     {
         // verify the required parameter 'payment_method' is set
-        if ($payment_method === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payment_method when calling setShippingInformationByPaymentId');
+        if ($payment_method === null || (is_array($payment_method) && count($payment_method) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $payment_method when calling setShippingInformationByPaymentId'
+            );
         }
         // verify the required parameter 'payment_id' is set
-        if ($payment_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payment_id when calling setShippingInformationByPaymentId');
-        }
-        // verify the required parameter 'body' is set
-        if ($body === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $body when calling setShippingInformationByPaymentId');
+        if ($payment_id === null || (is_array($payment_id) && count($payment_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $payment_id when calling setShippingInformationByPaymentId'
+            );
         }
         // parse inputs
         $resourcePath = "/Payment/{paymentMethod}/{paymentId}/shippingInformation";
@@ -900,11 +813,11 @@ class PaymentSecupayInvoicesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // path params
         if ($payment_method !== null) {
@@ -935,12 +848,12 @@ class PaymentSecupayInvoicesApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -983,7 +896,7 @@ class PaymentSecupayInvoicesApi
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
-     * @param \Secuconnect\Client\Model\SecupayTransactionUpdateBasketDTO $body Update basket input properties (required)
+     * @param \Secuconnect\Client\Model\SecupayTransactionUpdateBasketDTO $body Update basket input properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SecupayTransactionProductModel
      */
@@ -1000,23 +913,23 @@ class PaymentSecupayInvoicesApi
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
-     * @param \Secuconnect\Client\Model\SecupayTransactionUpdateBasketDTO $body Update basket input properties (required)
+     * @param \Secuconnect\Client\Model\SecupayTransactionUpdateBasketDTO $body Update basket input properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SecupayTransactionProductModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateBasketByPaymentIdWithHttpInfo($payment_method, $payment_id, $body)
     {
         // verify the required parameter 'payment_method' is set
-        if ($payment_method === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payment_method when calling updateBasketByPaymentId');
+        if ($payment_method === null || (is_array($payment_method) && count($payment_method) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $payment_method when calling updateBasketByPaymentId'
+            );
         }
         // verify the required parameter 'payment_id' is set
-        if ($payment_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payment_id when calling updateBasketByPaymentId');
-        }
-        // verify the required parameter 'body' is set
-        if ($body === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateBasketByPaymentId');
+        if ($payment_id === null || (is_array($payment_id) && count($payment_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $payment_id when calling updateBasketByPaymentId'
+            );
         }
         // parse inputs
         $resourcePath = "/Payment/{paymentMethod}/{paymentId}/basket";
@@ -1024,11 +937,11 @@ class PaymentSecupayInvoicesApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // path params
         if ($payment_method !== null) {
@@ -1059,12 +972,12 @@ class PaymentSecupayInvoicesApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(

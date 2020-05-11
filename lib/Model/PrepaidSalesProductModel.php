@@ -2,17 +2,15 @@
 
 namespace Secuconnect\Client\Model;
 
-use \ArrayAccess;
-
 /**
  * PrepaidSalesProductModel
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PrepaidSalesProductModel implements ArrayAccess
+class PrepaidSalesProductModel extends BaseProductModel
 {
     const DISCRIMINATOR = null;
 
@@ -27,8 +25,6 @@ class PrepaidSalesProductModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'object' => 'string',
-        'id' => 'string',
         'status' => 'string',
         'stock' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'item' => '\Secuconnect\Client\Model\PrepaidSalesItem',
@@ -61,8 +57,6 @@ class PrepaidSalesProductModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'object' => null,
-        'id' => 'id',
         'status' => null,
         'stock' => null,
         'item' => null,
@@ -92,12 +86,12 @@ class PrepaidSalesProductModel implements ArrayAccess
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -105,8 +99,6 @@ class PrepaidSalesProductModel implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'object' => 'object',
-        'id' => 'id',
         'status' => 'status',
         'stock' => 'stock',
         'item' => 'item',
@@ -134,14 +126,11 @@ class PrepaidSalesProductModel implements ArrayAccess
         'vtc_tid' => 'vtc_tid'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
      */
     protected static $setters = [
-        'object' => 'setObject',
-        'id' => 'setId',
         'status' => 'setStatus',
         'stock' => 'setStock',
         'item' => 'setItem',
@@ -169,14 +158,11 @@ class PrepaidSalesProductModel implements ArrayAccess
         'vtc_tid' => 'setVtcTid'
     ];
 
-
     /**
      * Array of attributes to getter functions (for serialization of requests)
      * @var string[]
      */
     protected static $getters = [
-        'object' => 'getObject',
-        'id' => 'getId',
         'status' => 'getStatus',
         'stock' => 'getStock',
         'item' => 'getItem',
@@ -206,28 +192,18 @@ class PrepaidSalesProductModel implements ArrayAccess
 
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
-
-    
-
-    
-
-    /**
-     * Associative array for storing property values
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -235,8 +211,8 @@ class PrepaidSalesProductModel implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['object'] = isset($data['object']) ? $data['object'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        parent::__construct($data);
+
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['stock'] = isset($data['stock']) ? $data['stock'] : null;
         $this->container['item'] = isset($data['item']) ? $data['item'] : null;
@@ -271,7 +247,7 @@ class PrepaidSalesProductModel implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalid_properties = parent::listInvalidProperties();
 
         return $invalid_properties;
     }
@@ -284,52 +260,9 @@ class PrepaidSalesProductModel implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
-
-    /**
-     * Gets object
-     * @return string
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     * @param string $object Object of prepaid sale
-     * @return $this
-     */
-    public function setObject($object)
-    {
-        $this->container['object'] = $object;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     * @param string $id Id of prepaid sale
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets status
@@ -363,7 +296,7 @@ class PrepaidSalesProductModel implements ArrayAccess
 
     /**
      * Sets stock
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $stock Prepaid stock
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $stock stock
      * @return $this
      */
     public function setStock($stock)
@@ -384,7 +317,7 @@ class PrepaidSalesProductModel implements ArrayAccess
 
     /**
      * Sets item
-     * @param \Secuconnect\Client\Model\PrepaidSalesItem $item Prepaid item
+     * @param \Secuconnect\Client\Model\PrepaidSalesItem $item item
      * @return $this
      */
     public function setItem($item)
@@ -405,7 +338,7 @@ class PrepaidSalesProductModel implements ArrayAccess
 
     /**
      * Sets itemgroup
-     * @param \Secuconnect\Client\Model\ItemGroup $itemgroup Prepaid item group
+     * @param \Secuconnect\Client\Model\ItemGroup $itemgroup itemgroup
      * @return $this
      */
     public function setItemgroup($itemgroup)
@@ -426,7 +359,7 @@ class PrepaidSalesProductModel implements ArrayAccess
 
     /**
      * Sets smart_device
-     * @param \Secuconnect\Client\Model\PrepaidSalesSmartDevice $smart_device Smart device
+     * @param \Secuconnect\Client\Model\PrepaidSalesSmartDevice $smart_device smart_device
      * @return $this
      */
     public function setSmartDevice($smart_device)
@@ -447,7 +380,7 @@ class PrepaidSalesProductModel implements ArrayAccess
 
     /**
      * Sets merchant
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $merchant General merchant
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $merchant merchant
      * @return $this
      */
     public function setMerchant($merchant)
@@ -468,7 +401,7 @@ class PrepaidSalesProductModel implements ArrayAccess
 
     /**
      * Sets store
-     * @param \Secuconnect\Client\Model\Store $store General store
+     * @param \Secuconnect\Client\Model\Store $store store
      * @return $this
      */
     public function setStore($store)
@@ -489,7 +422,7 @@ class PrepaidSalesProductModel implements ArrayAccess
 
     /**
      * Sets contract
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $contract Prepaid contract
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $contract contract
      * @return $this
      */
     public function setContract($contract)
@@ -855,9 +788,10 @@ class PrepaidSalesProductModel implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -867,7 +801,7 @@ class PrepaidSalesProductModel implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -877,8 +811,8 @@ class PrepaidSalesProductModel implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -892,7 +826,7 @@ class PrepaidSalesProductModel implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -913,5 +847,4 @@ class PrepaidSalesProductModel implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

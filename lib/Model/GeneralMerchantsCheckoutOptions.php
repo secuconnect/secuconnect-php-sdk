@@ -7,10 +7,10 @@ use \ArrayAccess;
 /**
  * GeneralMerchantsCheckoutOptions
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GeneralMerchantsCheckoutOptions implements ArrayAccess
 {
@@ -62,7 +62,6 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
         'collection' => 'collection'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
@@ -72,7 +71,6 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
         'shipping' => 'setShipping',
         'collection' => 'setCollection'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -98,10 +96,6 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
     {
         return self::$getters;
     }
-
-    
-
-    
 
     /**
      * Associative array for storing property values
@@ -140,7 +134,6 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
@@ -177,7 +170,7 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
 
     /**
      * Sets shipping
-     * @param \Secuconnect\Client\Model\GeneralMerchantsCheckoutOptionsShipping $shipping Shipping
+     * @param \Secuconnect\Client\Model\GeneralMerchantsCheckoutOptionsShipping $shipping shipping
      * @return $this
      */
     public function setShipping($shipping)
@@ -198,7 +191,7 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
 
     /**
      * Sets collection
-     * @param \Secuconnect\Client\Model\GeneralMerchantsCheckoutOptionsCollection $collection Collection
+     * @param \Secuconnect\Client\Model\GeneralMerchantsCheckoutOptionsCollection $collection collection
      * @return $this
      */
     public function setCollection($collection)
@@ -207,9 +200,10 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -219,7 +213,7 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -229,8 +223,8 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -244,7 +238,7 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -265,5 +259,4 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

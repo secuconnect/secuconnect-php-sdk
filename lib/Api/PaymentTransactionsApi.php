@@ -66,11 +66,11 @@ class PaymentTransactionsApi
      * POST Payment/Transactions/{paymentTransactionId}/cancel
      *
      * @param string $payment_transaction_id Payment transaction id (required)
-     * @param \Secuconnect\Client\Model\PaymentTransactionCancelDTO $body Cancel payment transaction input properties (optional)
+     * @param \Secuconnect\Client\Model\PaymentTransactionCancelDTO $body Cancel payment transaction input properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentTransactionsProductModel[]
      */
-    public function cancel($payment_transaction_id, $body = null)
+    public function cancel($payment_transaction_id, $body)
     {
         list($response) = $this->cancelWithHttpInfo($payment_transaction_id, $body);
         return $response;
@@ -82,15 +82,17 @@ class PaymentTransactionsApi
      * POST Payment/Transactions/{paymentTransactionId}/cancel
      *
      * @param string $payment_transaction_id Payment transaction id (required)
-     * @param \Secuconnect\Client\Model\PaymentTransactionCancelDTO $body Cancel payment transaction input properties (optional)
+     * @param \Secuconnect\Client\Model\PaymentTransactionCancelDTO $body Cancel payment transaction input properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentTransactionsProductModel[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelWithHttpInfo($payment_transaction_id, $body = null)
+    public function cancelWithHttpInfo($payment_transaction_id, $body)
     {
         // verify the required parameter 'payment_transaction_id' is set
-        if ($payment_transaction_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payment_transaction_id when calling cancel');
+        if ($payment_transaction_id === null || (is_array($payment_transaction_id) && count($payment_transaction_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $payment_transaction_id when calling cancel'
+            );
         }
         // parse inputs
         $resourcePath = "/Payment/Transactions/{paymentTransactionId}/cancel";
@@ -98,11 +100,11 @@ class PaymentTransactionsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // path params
         if ($payment_transaction_id !== null) {
@@ -125,12 +127,12 @@ class PaymentTransactionsApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -171,11 +173,11 @@ class PaymentTransactionsApi
      *
      * GET Payment/Transactions
      *
-     * @param int $count The number of items to return. (optional)
-     * @param int $offset The position within the whole result set to start returning items (First element is at 0). (optional)
-     * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 (optional)
-     * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                  A condition may contain:  *                      - wildcard \&quot;*\&quot; for any number of characters  *                      - wildcard \&quot;?\&quot; for one character  *                      - ranges in the form [value TO value]  *  *                  Single expressions may combined by &#39;AND&#39;, &#39;OR&#39;, &#39;NOT&#39; operators and parenthesis &#39;(&#39;, &#39;)&#39; for grouping.  *                  Property names can be nested like \&quot;prop1.prop2\&quot;.  *                  Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * (optional)
-     * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#39;asc&#39;, or descending &#39;dsc&#39; order. (optional)
+     * @param int $count The number of items to return. 
+     * @param int $offset The position within the whole result set to start returning items (First element is at 0). 
+     * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 
+     * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                   A condition may contain:  *                       - wildcard \&quot;*\&quot; for any number of characters  *                       - wildcard \&quot;?\&quot; for one character  *                       - ranges in the form [value TO value]  *  *                   Single expressions may combined by &#x27;AND&#x27;, &#x27;OR&#x27;, &#x27;NOT&#x27; operators and parenthesis &#x27;(&#x27;, &#x27;)&#x27; for grouping.  *                   Property names can be nested like \&quot;prop1.prop2\&quot;.  *                   Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * 
+     * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#x27;asc&#x27;, or descending &#x27;dsc&#x27; order. 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentTransactionsList
      */
@@ -190,11 +192,11 @@ class PaymentTransactionsApi
      *
      * GET Payment/Transactions
      *
-     * @param int $count The number of items to return. (optional)
-     * @param int $offset The position within the whole result set to start returning items (First element is at 0). (optional)
-     * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 (optional)
-     * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                  A condition may contain:  *                      - wildcard \&quot;*\&quot; for any number of characters  *                      - wildcard \&quot;?\&quot; for one character  *                      - ranges in the form [value TO value]  *  *                  Single expressions may combined by &#39;AND&#39;, &#39;OR&#39;, &#39;NOT&#39; operators and parenthesis &#39;(&#39;, &#39;)&#39; for grouping.  *                  Property names can be nested like \&quot;prop1.prop2\&quot;.  *                  Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * (optional)
-     * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#39;asc&#39;, or descending &#39;dsc&#39; order. (optional)
+     * @param int $count The number of items to return. 
+     * @param int $offset The position within the whole result set to start returning items (First element is at 0). 
+     * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 
+     * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                   A condition may contain:  *                       - wildcard \&quot;*\&quot; for any number of characters  *                       - wildcard \&quot;?\&quot; for one character  *                       - ranges in the form [value TO value]  *  *                   Single expressions may combined by &#x27;AND&#x27;, &#x27;OR&#x27;, &#x27;NOT&#x27; operators and parenthesis &#x27;(&#x27;, &#x27;)&#x27; for grouping.  *                   Property names can be nested like \&quot;prop1.prop2\&quot;.  *                   Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * 
+     * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#x27;asc&#x27;, or descending &#x27;dsc&#x27; order. 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentTransactionsList, HTTP status code, HTTP response headers (array of strings)
      */
@@ -206,7 +208,7 @@ class PaymentTransactionsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -240,12 +242,12 @@ class PaymentTransactionsApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -308,8 +310,10 @@ class PaymentTransactionsApi
     public function getOneWithHttpInfo($payment_transaction_id)
     {
         // verify the required parameter 'payment_transaction_id' is set
-        if ($payment_transaction_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payment_transaction_id when calling getOne');
+        if ($payment_transaction_id === null || (is_array($payment_transaction_id) && count($payment_transaction_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $payment_transaction_id when calling getOne'
+            );
         }
         // parse inputs
         $resourcePath = "/Payment/Transactions/{paymentTransactionId}";
@@ -317,7 +321,7 @@ class PaymentTransactionsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -339,12 +343,12 @@ class PaymentTransactionsApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -407,8 +411,10 @@ class PaymentTransactionsApi
     public function getShippingUrlWithHttpInfo($payment_transaction_id)
     {
         // verify the required parameter 'payment_transaction_id' is set
-        if ($payment_transaction_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payment_transaction_id when calling getShippingUrl');
+        if ($payment_transaction_id === null || (is_array($payment_transaction_id) && count($payment_transaction_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $payment_transaction_id when calling getShippingUrl'
+            );
         }
         // parse inputs
         $resourcePath = "/Payment/Transactions/{paymentTransactionId}/shippingUrl";
@@ -416,7 +422,7 @@ class PaymentTransactionsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -438,12 +444,12 @@ class PaymentTransactionsApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -485,13 +491,12 @@ class PaymentTransactionsApi
      * POST Payment/Transactions/{paymentTransactionId}/revokeAccrual
      *
      * @param string $payment_transaction_id Payment transaction id (required)
-     * @param object $body Reverse accrual input properties (optional)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentTransactionsProductModel
      */
-    public function revokeAccrual($payment_transaction_id, $body = null)
+    public function revokeAccrual($payment_transaction_id)
     {
-        list($response) = $this->revokeAccrualWithHttpInfo($payment_transaction_id, $body);
+        list($response) = $this->revokeAccrualWithHttpInfo($payment_transaction_id);
         return $response;
     }
 
@@ -501,15 +506,16 @@ class PaymentTransactionsApi
      * POST Payment/Transactions/{paymentTransactionId}/revokeAccrual
      *
      * @param string $payment_transaction_id Payment transaction id (required)
-     * @param object $body Reverse accrual input properties (optional)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function revokeAccrualWithHttpInfo($payment_transaction_id, $body = null)
+    public function revokeAccrualWithHttpInfo($payment_transaction_id)
     {
         // verify the required parameter 'payment_transaction_id' is set
-        if ($payment_transaction_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $payment_transaction_id when calling revokeAccrual');
+        if ($payment_transaction_id === null || (is_array($payment_transaction_id) && count($payment_transaction_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $payment_transaction_id when calling revokeAccrual'
+            );
         }
         // parse inputs
         $resourcePath = "/Payment/Transactions/{paymentTransactionId}/revokeAccrual";
@@ -517,7 +523,7 @@ class PaymentTransactionsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -531,11 +537,6 @@ class PaymentTransactionsApi
                 $resourcePath
             );
         }
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -544,12 +545,12 @@ class PaymentTransactionsApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -584,5 +585,4 @@ class PaymentTransactionsApi
             }
         }
     }
-
 }

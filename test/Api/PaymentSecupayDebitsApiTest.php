@@ -129,7 +129,6 @@ class PaymentSecupayDebitsApiTest extends TestCase
      */
     public function testPaymentSecupaydebitsPost()
     {
-        
         $debitData = [
             'customer' => self::$customerId,
             'container' => self::$containerId,
@@ -138,22 +137,21 @@ class PaymentSecupayDebitsApiTest extends TestCase
             'purpose' => self::$purpose,
             'order_id' => self::$orderId,
             'opt_data' => self::$optData,
-            'basket' => self::$basket
+            'basket' => self::$basket,
+            'demo' => true
         ];
         try {
             $response = $this->api->paymentSecupaydebitsPost($debitData);
             self::$debitTransactionId = $response->getId();
         } catch (ApiException $e) {
-            if($e->getResponseObject()->getErrorDetails() == 'Payment method not available (for this customer)')
-            {
-                echo $e->getResponseObject()->getErrorDetails().' PaymentSecupaydebitsPost';
+            if ($e->getResponseObject()->getErrorDetails() == 'Payment method not available (for this customer)') {
+                echo $e->getResponseObject()->getErrorDetails() . ' PaymentSecupaydebitsPost';
             } else {
                 print_r($e->getResponseObject()->getErrorDetails());
                 throw $e;
             }
         }
-        if(isset(self::$debitTransactionId))
-        {
+        if (isset(self::$debitTransactionId)) {
             $this->assertNotEmpty(self::$debitTransactionId);
             $this->assertInstanceOf(SecupayTransactionProductModel::class, $response);
             $this->assertEquals('payment.secupaydebits', $response->getObject());
@@ -187,9 +185,6 @@ class PaymentSecupayDebitsApiTest extends TestCase
             $this->assertNotEmpty($response->getCustomer());
             $this->assertEquals('payment.customers', $response->getCustomer()->getObject());
             $this->assertEquals(self::$customerId, $response->getCustomer()->getId());
-            $this->assertNotEmpty($response->getCustomer()->getContract());
-            $this->assertEquals('payment.contracts', $response->getCustomer()->getContract()->getObject());
-            $this->assertNotEmpty($response->getCustomer()->getContract()->getId());
             $this->assertNotEmpty($response->getCustomer()->getCreated());
             $this->assertInstanceOf(SecupayTransactionProductModelUsedPaymentInstrument::class, $response->getUsedPaymentInstrument());
             $this->assertEquals('bank_account', $response->getUsedPaymentInstrument()['type']);
@@ -201,9 +196,6 @@ class PaymentSecupayDebitsApiTest extends TestCase
             $this->assertNotEmpty($response->getContainer());
             $this->assertEquals('payment.containers', $response->getContainer()->getObject());
             $this->assertEquals(self::$containerId, $response->getContainer()->getId());
-            $this->assertNotEmpty($response->getContainer()->getContract());
-            $this->assertEquals('payment.contracts', $response->getContainer()->getContract()->getObject());
-            $this->assertNotEmpty($response->getContainer()->getContract()->getId());
             $this->assertInstanceOf(BankAccountDescriptor::class, $response->getContainer()->getPrivate());
             $this->assertNotEmpty($response->getContainer()->getPrivate());
             $this->assertNotEmpty($response->getContainer()->getPrivate()->getOwner());
@@ -226,12 +218,13 @@ class PaymentSecupayDebitsApiTest extends TestCase
     /**
      * Test case for paymentSecupaydebitsHashGet
      *
+     * @depends testPaymentSecupaydebitsPost
+     *
      * @throws ApiException
      */
     public function testPaymentSecupayDebitsGetById()
     {
-        if(isset(self::$debitTransactionId) && !empty(self::$debitTransactionId))
-        {
+        if (isset(self::$debitTransactionId) && !empty(self::$debitTransactionId)) {
             try {
                 $response = $this->api->paymentSecupayDebitsGetById(self::$debitTransactionId);
             } catch (ApiException $e) {
@@ -271,9 +264,6 @@ class PaymentSecupayDebitsApiTest extends TestCase
             $this->assertNotEmpty($response->getCustomer());
             $this->assertEquals('payment.customers', $response->getCustomer()->getObject());
             $this->assertEquals(self::$customerId, $response->getCustomer()->getId());
-            $this->assertNotEmpty($response->getCustomer()->getContract());
-            $this->assertEquals('payment.contracts', $response->getCustomer()->getContract()->getObject());
-            $this->assertNotEmpty($response->getCustomer()->getContract()->getId());
             $this->assertNotEmpty($response->getCustomer()->getCreated());
             $this->assertInstanceOf(SecupayTransactionProductModelUsedPaymentInstrument::class, $response->getUsedPaymentInstrument());
             $this->assertEquals('bank_account', $response->getUsedPaymentInstrument()->getType());
@@ -285,9 +275,6 @@ class PaymentSecupayDebitsApiTest extends TestCase
             $this->assertNotEmpty($response->getContainer());
             $this->assertEquals('payment.containers', $response->getContainer()->getObject());
             $this->assertEquals(self::$containerId, $response->getContainer()->getId());
-            $this->assertNotEmpty($response->getContainer()->getContract());
-            $this->assertEquals('payment.contracts', $response->getContainer()->getContract()->getObject());
-            $this->assertNotEmpty($response->getContainer()->getContract()->getId());
             $this->assertInstanceOf(BankAccountDescriptor::class, $response->getContainer()->getPrivate());
             $this->assertNotEmpty($response->getContainer()->getPrivate());
             $this->assertNotEmpty($response->getContainer()->getPrivate()->getOwner());
@@ -310,21 +297,21 @@ class PaymentSecupayDebitsApiTest extends TestCase
     /**
      * Test case for paymentSecupaydebitsHashCancelPost
      *
+     * @depends testPaymentSecupaydebitsPost
+     *
      * @throws ApiException
      */
     public function testPaymentSecupayDebitsCancelById()
     {
-        if(isset(self::$debitTransactionId) && !empty(self::$debitTransactionId))
-        {
+        if (isset(self::$debitTransactionId) && !empty(self::$debitTransactionId)) {
             try {
-                $response = $this->api->paymentSecupayDebitsCancelById(self::$debitTransactionId);
+                $response = $this->api->cancelPaymentTransactionById('secupaydebits', self::$debitTransactionId, null);
             } catch (ApiException $e) {
                 print_r($e->getResponseBody());
                 throw $e;
             }
 
             $this->assertNotEmpty($response);
-//            $this->assertTrue($response['result']);
             $this->assertTrue($response['demo']);
         }
     }

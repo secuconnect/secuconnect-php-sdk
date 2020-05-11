@@ -6,23 +6,16 @@
          convertWarningsToExceptions="true"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="General">
-            <directory prefix="General">./test/Api</directory>
-        </testsuite>
-        <testsuite name="Loyalty">
-            <directory prefix="Loyalty">./test/Api</directory>
-        </testsuite>
-        <testsuite name="Payment">
-            <directory prefix="Payment">./test/Api</directory>
-        </testsuite>
-        <testsuite name="Smart">
-            <directory prefix="Smart">./test/Api</directory>
+        <testsuite>
+            <directory>./test/Api</directory>
+            <directory>./test/Model</directory>
         </testsuite>
     </testsuites>
 
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./lib/Api</directory>
+            <directory suffix=".php">./lib/Model</directory>
         </whitelist>
     </filter>
 

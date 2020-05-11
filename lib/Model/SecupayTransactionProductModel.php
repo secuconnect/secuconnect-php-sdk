@@ -2,17 +2,15 @@
 
 namespace Secuconnect\Client\Model;
 
-use \ArrayAccess;
-
 /**
  * SecupayTransactionProductModel
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SecupayTransactionProductModel implements ArrayAccess
+class SecupayTransactionProductModel extends BaseProductModel
 {
     const DISCRIMINATOR = null;
 
@@ -27,8 +25,6 @@ class SecupayTransactionProductModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'object' => 'string',
-        'id' => 'string',
         'trans_id' => 'int',
         'status' => 'string',
         'amount' => 'int',
@@ -44,8 +40,8 @@ class SecupayTransactionProductModel implements ArrayAccess
         'customer' => '\Secuconnect\Client\Model\PaymentCustomersProductModel',
         'used_payment_instrument' => '\Secuconnect\Client\Model\SecupayTransactionProductModelUsedPaymentInstrument',
         'redirect_url' => '\Secuconnect\Client\Model\SecupayRedirectUrl',
-        'iframe_url' => 'string',
         'subscription' => '\Secuconnect\Client\Model\SecupayTransactionProductDTOSubscription',
+        'iframe_url' => 'string',
         'container' => '\Secuconnect\Client\Model\PaymentContainersProductModel',
         'sub_transactions' => '\Secuconnect\Client\Model\SecupaySubTransactionProductModel[]',
         'mandate' => '\Secuconnect\Client\Model\PaymentContainerMandate'
@@ -56,8 +52,6 @@ class SecupayTransactionProductModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'object' => null,
-        'id' => null,
         'trans_id' => null,
         'status' => null,
         'amount' => null,
@@ -73,8 +67,8 @@ class SecupayTransactionProductModel implements ArrayAccess
         'customer' => null,
         'used_payment_instrument' => null,
         'redirect_url' => null,
-        'iframe_url' => null,
         'subscription' => null,
+        'iframe_url' => null,
         'container' => null,
         'sub_transactions' => null,
         'mandate' => null
@@ -82,12 +76,12 @@ class SecupayTransactionProductModel implements ArrayAccess
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -95,8 +89,6 @@ class SecupayTransactionProductModel implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'object' => 'object',
-        'id' => 'id',
         'trans_id' => 'trans_id',
         'status' => 'status',
         'amount' => 'amount',
@@ -112,21 +104,18 @@ class SecupayTransactionProductModel implements ArrayAccess
         'customer' => 'customer',
         'used_payment_instrument' => 'used_payment_instrument',
         'redirect_url' => 'redirect_url',
-        'iframe_url' => 'iframe_url',
         'subscription' => 'subscription',
+        'iframe_url' => 'iframe_url',
         'container' => 'container',
         'sub_transactions' => 'sub_transactions',
         'mandate' => 'mandate'
     ];
-
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
      */
     protected static $setters = [
-        'object' => 'setObject',
-        'id' => 'setId',
         'trans_id' => 'setTransId',
         'status' => 'setStatus',
         'amount' => 'setAmount',
@@ -142,21 +131,18 @@ class SecupayTransactionProductModel implements ArrayAccess
         'customer' => 'setCustomer',
         'used_payment_instrument' => 'setUsedPaymentInstrument',
         'redirect_url' => 'setRedirectUrl',
-        'iframe_url' => 'setIframeUrl',
         'subscription' => 'setSubscription',
+        'iframe_url' => 'setIframeUrl',
         'container' => 'setContainer',
         'sub_transactions' => 'setSubTransactions',
         'mandate' => 'setMandate'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
      * @var string[]
      */
     protected static $getters = [
-        'object' => 'getObject',
-        'id' => 'getId',
         'trans_id' => 'getTransId',
         'status' => 'getStatus',
         'amount' => 'getAmount',
@@ -172,8 +158,8 @@ class SecupayTransactionProductModel implements ArrayAccess
         'customer' => 'getCustomer',
         'used_payment_instrument' => 'getUsedPaymentInstrument',
         'redirect_url' => 'getRedirectUrl',
-        'iframe_url' => 'getIframeUrl',
         'subscription' => 'getSubscription',
+        'iframe_url' => 'getIframeUrl',
         'container' => 'getContainer',
         'sub_transactions' => 'getSubTransactions',
         'mandate' => 'getMandate'
@@ -181,28 +167,18 @@ class SecupayTransactionProductModel implements ArrayAccess
 
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
-
-    
-
-    
-
-    /**
-     * Associative array for storing property values
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -210,8 +186,8 @@ class SecupayTransactionProductModel implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['object'] = isset($data['object']) ? $data['object'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        parent::__construct($data);
+
         $this->container['trans_id'] = isset($data['trans_id']) ? $data['trans_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
@@ -227,8 +203,8 @@ class SecupayTransactionProductModel implements ArrayAccess
         $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
         $this->container['used_payment_instrument'] = isset($data['used_payment_instrument']) ? $data['used_payment_instrument'] : null;
         $this->container['redirect_url'] = isset($data['redirect_url']) ? $data['redirect_url'] : null;
-        $this->container['iframe_url'] = isset($data['iframe_url']) ? $data['iframe_url'] : null;
         $this->container['subscription'] = isset($data['subscription']) ? $data['subscription'] : null;
+        $this->container['iframe_url'] = isset($data['iframe_url']) ? $data['iframe_url'] : null;
         $this->container['container'] = isset($data['container']) ? $data['container'] : null;
         $this->container['sub_transactions'] = isset($data['sub_transactions']) ? $data['sub_transactions'] : null;
         $this->container['mandate'] = isset($data['mandate']) ? $data['mandate'] : null;
@@ -241,7 +217,7 @@ class SecupayTransactionProductModel implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalid_properties = parent::listInvalidProperties();
 
         return $invalid_properties;
     }
@@ -254,52 +230,9 @@ class SecupayTransactionProductModel implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
-
-    /**
-     * Gets object
-     * @return string
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     * @param string $object Product name
-     * @return $this
-     */
-    public function setObject($object)
-    {
-        $this->container['object'] = $object;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     * @param string $id ID of instance
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets trans_id
@@ -543,7 +476,7 @@ class SecupayTransactionProductModel implements ArrayAccess
 
     /**
      * Sets transfer_account
-     * @param \Secuconnect\Client\Model\PaymentInformation $transfer_account The bank account the payer needs to use for his transfer
+     * @param \Secuconnect\Client\Model\PaymentInformation $transfer_account transfer_account
      * @return $this
      */
     public function setTransferAccount($transfer_account)
@@ -564,7 +497,7 @@ class SecupayTransactionProductModel implements ArrayAccess
 
     /**
      * Sets customer
-     * @param \Secuconnect\Client\Model\PaymentCustomersProductModel $customer The customer object
+     * @param \Secuconnect\Client\Model\PaymentCustomersProductModel $customer customer
      * @return $this
      */
     public function setCustomer($customer)
@@ -585,7 +518,7 @@ class SecupayTransactionProductModel implements ArrayAccess
 
     /**
      * Sets used_payment_instrument
-     * @param \Secuconnect\Client\Model\SecupayTransactionProductModelUsedPaymentInstrument $used_payment_instrument
+     * @param \Secuconnect\Client\Model\SecupayTransactionProductModelUsedPaymentInstrument $used_payment_instrument used_payment_instrument
      * @return $this
      */
     public function setUsedPaymentInstrument($used_payment_instrument)
@@ -606,12 +539,33 @@ class SecupayTransactionProductModel implements ArrayAccess
 
     /**
      * Sets redirect_url
-     * @param \Secuconnect\Client\Model\SecupayRedirectUrl $redirect_url A list of redirect urls used for the payment checkout page
+     * @param \Secuconnect\Client\Model\SecupayRedirectUrl $redirect_url redirect_url
      * @return $this
      */
     public function setRedirectUrl($redirect_url)
     {
         $this->container['redirect_url'] = $redirect_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets subscription
+     * @return \Secuconnect\Client\Model\SecupayTransactionProductDTOSubscription
+     */
+    public function getSubscription()
+    {
+        return $this->container['subscription'];
+    }
+
+    /**
+     * Sets subscription
+     * @param \Secuconnect\Client\Model\SecupayTransactionProductDTOSubscription $subscription subscription
+     * @return $this
+     */
+    public function setSubscription($subscription)
+    {
+        $this->container['subscription'] = $subscription;
 
         return $this;
     }
@@ -638,27 +592,6 @@ class SecupayTransactionProductModel implements ArrayAccess
     }
 
     /**
-     * Gets subscription
-     * @return \Secuconnect\Client\Model\SecupayTransactionProductDTOSubscription
-     */
-    public function getSubscription()
-    {
-        return $this->container['subscription'];
-    }
-
-    /**
-     * Sets subscription
-     * @param \Secuconnect\Client\Model\SecupayTransactionProductDTOSubscription $subscription
-     * @return $this
-     */
-    public function setSubscription($subscription)
-    {
-        $this->container['subscription'] = $subscription;
-
-        return $this;
-    }
-
-    /**
      * Gets container
      * @return \Secuconnect\Client\Model\PaymentContainersProductModel
      */
@@ -669,7 +602,7 @@ class SecupayTransactionProductModel implements ArrayAccess
 
     /**
      * Sets container
-     * @param \Secuconnect\Client\Model\PaymentContainersProductModel $container The container object
+     * @param \Secuconnect\Client\Model\PaymentContainersProductModel $container container
      * @return $this
      */
     public function setContainer($container)
@@ -690,7 +623,7 @@ class SecupayTransactionProductModel implements ArrayAccess
 
     /**
      * Sets sub_transactions
-     * @param \Secuconnect\Client\Model\SecupaySubTransactionProductModel[] $sub_transactions A list of sub-transactions (for mixed basket)
+     * @param \Secuconnect\Client\Model\SecupaySubTransactionProductModel[] $sub_transactions A list of sub transactions (for mixed basket)
      * @return $this
      */
     public function setSubTransactions($sub_transactions)
@@ -711,7 +644,7 @@ class SecupayTransactionProductModel implements ArrayAccess
 
     /**
      * Sets mandate
-     * @param \Secuconnect\Client\Model\PaymentContainerMandate $mandate Payment container mandate
+     * @param \Secuconnect\Client\Model\PaymentContainerMandate $mandate mandate
      * @return $this
      */
     public function setMandate($mandate)
@@ -720,9 +653,10 @@ class SecupayTransactionProductModel implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -732,7 +666,7 @@ class SecupayTransactionProductModel implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -742,8 +676,8 @@ class SecupayTransactionProductModel implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -757,7 +691,7 @@ class SecupayTransactionProductModel implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -778,5 +712,4 @@ class SecupayTransactionProductModel implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

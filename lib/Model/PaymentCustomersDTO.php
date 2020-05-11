@@ -7,10 +7,10 @@ use \ArrayAccess;
 /**
  * PaymentCustomersDTO
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class PaymentCustomersDTO implements ArrayAccess
 {
@@ -56,7 +56,6 @@ class PaymentCustomersDTO implements ArrayAccess
         'contact' => 'contact'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
@@ -64,7 +63,6 @@ class PaymentCustomersDTO implements ArrayAccess
     protected static $setters = [
         'contact' => 'setContact'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -88,10 +86,6 @@ class PaymentCustomersDTO implements ArrayAccess
     {
         return self::$getters;
     }
-
-    
-
-    
 
     /**
      * Associative array for storing property values
@@ -128,7 +122,6 @@ class PaymentCustomersDTO implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
@@ -144,7 +137,7 @@ class PaymentCustomersDTO implements ArrayAccess
 
     /**
      * Sets contact
-     * @param \Secuconnect\Client\Model\Contact $contact PaymentCustomersDTO
+     * @param \Secuconnect\Client\Model\Contact $contact contact
      * @return $this
      */
     public function setContact($contact)
@@ -153,9 +146,10 @@ class PaymentCustomersDTO implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -165,7 +159,7 @@ class PaymentCustomersDTO implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -175,8 +169,8 @@ class PaymentCustomersDTO implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -190,7 +184,7 @@ class PaymentCustomersDTO implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -211,5 +205,4 @@ class PaymentCustomersDTO implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

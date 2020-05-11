@@ -5,13 +5,10 @@ namespace Secuconnect\Client\Api;
 use Secuconnect\Client\ApiClient;
 use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Authentication\Authenticator;
-use Secuconnect\Client\Authentication\OAuthApplicationUserCredentials;
-use Secuconnect\Client\Authentication\OAuthClientCredentials;
-use Secuconnect\Client\Configuration;
 use Secuconnect\Client\Globals;
+use Secuconnect\Client\Model\BankAccountDescriptor;
 use Secuconnect\Client\Model\Contact;
 use Secuconnect\Client\Model\PaymentContainersDTO;
-use Secuconnect\Client\Model\PaymentContainersDTOPrivate;
 use Secuconnect\Client\Model\PaymentContainersProductModel;
 use Secuconnect\Client\Model\PaymentCustomersDTO;
 use Secuconnect\Client\Model\PaymentCustomersProductModel;
@@ -22,10 +19,10 @@ use Secuconnect\Client\Model\SecupayBasketItem;
  */
 class SecuconnectObjects
 {
-    public const BANK_ACCOUNT_OWNER = 'John Doe';
-    public const BANK_ACCOUNT_IBAN = 'DE37503240001000000524';
-    public const BANK_ACCOUNT_BIC = 'FTSBDEFAXXX';
-    public const LOYALTY_CARD = [
+    const BANK_ACCOUNT_OWNER = 'John Doe';
+    const BANK_ACCOUNT_IBAN = 'DE37503240001000000524';
+    const BANK_ACCOUNT_BIC = 'FTSBDEFAXXX';
+    const LOYALTY_CARD = [
         'number' => "92760...",
         'pin' => "..."
     ];
@@ -64,9 +61,9 @@ class SecuconnectObjects
     }
 
     /**
+     * @return SecuconnectObjects
      * @throws ApiException
      *
-     * @return SecuconnectObjects
      */
     public static function getInstance()
     {
@@ -102,13 +99,13 @@ class SecuconnectObjects
     }
 
     /**
+     * @return $this
      * @throws ApiException
      *
-     * @return $this
      */
     private function createContainer()
     {
-        $privateData = new PaymentContainersDTOPrivate();
+        $privateData = new BankAccountDescriptor();
         $privateData
             ->setOwner(self::BANK_ACCOUNT_OWNER)
             ->setIban(self::BANK_ACCOUNT_IBAN)
@@ -132,9 +129,9 @@ class SecuconnectObjects
     }
 
     /**
+     * @return $this
      * @throws ApiException
      *
-     * @return $this
      */
     private function createCustomer()
     {

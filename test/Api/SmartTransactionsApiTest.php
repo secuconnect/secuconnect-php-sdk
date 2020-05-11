@@ -8,15 +8,14 @@ use Secuconnect\Client\Authentication\Authenticator;
 use Secuconnect\Client\Model\SmartTransactionsBasket;
 use Secuconnect\Client\Model\SmartTransactionsBasketInfo;
 use Secuconnect\Client\Model\SmartTransactionsBasketProduct;
+use Secuconnect\Client\Model\SmartTransactionsBasketProductGroup;
 use Secuconnect\Client\Model\SmartTransactionsDTO;
+use Secuconnect\Client\Model\SmartTransactionsIdent;
 use Secuconnect\Client\Model\SmartTransactionsList;
+use Secuconnect\Client\Model\SmartTransactionsMerchant;
 use Secuconnect\Client\Model\SmartTransactionsPreTransactionModel;
 use Secuconnect\Client\Model\SmartTransactionsProductModel;
 use Secuconnect\Client\Model\SmartTransactionsSubBasketProduct;
-use Secuconnect\Client\Model\SmartTransactionsMerchant;
-use Secuconnect\Client\Model\ProductInstanceUID;
-use Secuconnect\Client\Model\SmartTransactionsBasketProductGroup;
-use Secuconnect\Client\Model\SmartTransactionsIdent;
 
 /**
  * Class SmartTransactionsApiTest
@@ -29,7 +28,7 @@ class SmartTransactionsApiTest extends TestCase
      * @var SmartTransactionsApi
      */
     private static $api;
-    
+
     /**
      * @var SmartTransactionsProductModel
      */
@@ -45,12 +44,12 @@ class SmartTransactionsApiTest extends TestCase
         Authenticator::authenticateByRefreshToken(...array_values(Globals::OAuthRefreshCredentials));
 
         self::$api = new SmartTransactionsApi();
-        
+
         $SmartTransactionsProductModel = new SmartTransactionsProductModel();
         $SmartTransactionsProductModel->setObject('smart.transactions');
         $SmartTransactionsProductModel->setId('STX_WK634H24D2MQDX9Y52TSD52XKSJVAW');
         $SmartTransactionsProductModel->setStatus('created');
-        
+
         $merchant = new SmartTransactionsMerchant();
         $merchant->setObject('general.merchants');
         $merchant->setId('MRC_Z8RAAFDVDT6AU5KZ4KX2NHH5P4CKP7');
@@ -58,15 +57,15 @@ class SmartTransactionsApiTest extends TestCase
 
         $SmartTransactionsProductModel->setMerchantRef('DemoMerchantRef');
         $SmartTransactionsProductModel->setTransactionRef('201610141523-999-994-45');
-        
+
         $SmartTransactionsProductModel->setCreated('2018-07-17T12:18:18+02:00');
         $SmartTransactionsProductModel->setUpdated('2018-07-17T12:18:19+02:00');
-        
+
         $basketInfo = new SmartTransactionsBasketInfo();
         $basketInfo->setSum(420);
         $basketInfo->setCurrency('EUR');
         $SmartTransactionsProductModel->setBasketInfo($basketInfo);
-        
+
         $basket = new SmartTransactionsBasket();
 
         $product1 = new SmartTransactionsBasketProduct();
@@ -76,11 +75,17 @@ class SmartTransactionsApiTest extends TestCase
         $product1->setQuantity(1);
         $product1->setPriceOne(39);
         $product1->setTax(1900);
-        $product1->setGroup([new SmartTransactionsBasketProductGroup([
-            "id" => "2",
-            "desc" => "Brötchen",
-            "level" => 2
-        ])]);
+        $product1->setGroup(
+            [
+                new SmartTransactionsBasketProductGroup(
+                    [
+                        "id" => "2",
+                        "desc" => "Brötchen",
+                        "level" => 2
+                    ]
+                )
+            ]
+        );
 
         $product2 = new SmartTransactionsBasketProduct();
         $product2->setId(2);
@@ -89,11 +94,17 @@ class SmartTransactionsApiTest extends TestCase
         $product2->setQuantity(1);
         $product2->setPriceOne(32);
         $product2->setTax(1900);
-        $product2->setGroup([new SmartTransactionsBasketProductGroup([
-            "id" => "2",
-            "desc" => "Brötchen",
-            "level" => 2
-        ])]);
+        $product2->setGroup(
+            [
+                new SmartTransactionsBasketProductGroup(
+                    [
+                        "id" => "2",
+                        "desc" => "Brötchen",
+                        "level" => 2
+                    ]
+                )
+            ]
+        );
 
         $product3 = new SmartTransactionsBasketProduct();
         $product3->setId(3);
@@ -102,11 +113,17 @@ class SmartTransactionsApiTest extends TestCase
         $product3->setQuantity(1);
         $product3->setPriceOne(110);
         $product3->setTax(1900);
-        $product3->setGroup([new SmartTransactionsBasketProductGroup([
-            "id" => "2",
-            "desc" => "Brötchen",
-            "level" => 2
-        ])]);
+        $product3->setGroup(
+            [
+                new SmartTransactionsBasketProductGroup(
+                    [
+                        "id" => "2",
+                        "desc" => "Brötchen",
+                        "level" => 2
+                    ]
+                )
+            ]
+        );
 
         $product4 = new SmartTransactionsBasketProduct();
         $product4->setId(4);
@@ -115,11 +132,17 @@ class SmartTransactionsApiTest extends TestCase
         $product4->setQuantity(1);
         $product4->setPriceOne(140);
         $product4->setTax(1900);
-        $product4->setGroup([new SmartTransactionsBasketProductGroup([
-            "id" => "2",
-            "desc" => "Brötchen",
-            "level" => 2
-        ])]);
+        $product4->setGroup(
+            [
+                new SmartTransactionsBasketProductGroup(
+                    [
+                        "id" => "2",
+                        "desc" => "Brötchen",
+                        "level" => 2
+                    ]
+                )
+            ]
+        );
 
         $product5 = new SmartTransactionsBasketProduct();
         $product5->setId(5);
@@ -128,15 +151,21 @@ class SmartTransactionsApiTest extends TestCase
         $product5->setQuantity(1);
         $product5->setPriceOne(99);
         $product5->setTax(1900);
-        $product5->setGroup([new SmartTransactionsBasketProductGroup([
-            "id" => "2",
-            "desc" => "Brötchen",
-            "level" => 2
-        ])]);
+        $product5->setGroup(
+            [
+                new SmartTransactionsBasketProductGroup(
+                    [
+                        "id" => "2",
+                        "desc" => "Brötchen",
+                        "level" => 2
+                    ]
+                )
+            ]
+        );
 
         $basket->setProducts([$product1, $product2, $product3, $product4, $product5]);
         $SmartTransactionsProductModel->setBasket($basket);
-        
+
         self::$SmartTransactionsProductModel = $SmartTransactionsProductModel;
     }
 
@@ -238,14 +267,14 @@ class SmartTransactionsApiTest extends TestCase
         $transactionDTO = new SmartTransactionsDTO();
 
         $transactionDTO->setMerchant($receivedTransaction->getMerchant());
-        
-        $price = rand(10,1000);
-        
+
+        $price = rand(10, 1000);
+
         $basketInfo = new SmartTransactionsBasketInfo();
         $basketInfo->setSum($price);
         $basketInfo->setCurrency('EUR');
-        
-        
+
+
         $basket = new SmartTransactionsBasket();
         $product1 = new SmartTransactionsBasketProduct();
         $product1->setId(1);
@@ -255,7 +284,7 @@ class SmartTransactionsApiTest extends TestCase
         $product1->setPriceOne($price);
         $product1->setTax(700);
         $basket->setProducts(array($product1));
-        
+
         $transactionDTO->setBasket($basket);
         $transactionDTO->setBasketInfo($basketInfo);
 
@@ -289,7 +318,7 @@ class SmartTransactionsApiTest extends TestCase
         $SmartTransactionsIdent->setType('card');
         $SmartTransactionsIdent->setValue('9276004427483018');
         $transactionDTO->setIdents([$SmartTransactionsIdent]);
-        
+
         try {
             $smartTransaction = self::$api->addTransaction($transactionDTO);
         } catch (ApiException $e) {
@@ -301,7 +330,6 @@ class SmartTransactionsApiTest extends TestCase
             $preTransaction = self::$api->preTransaction($smartTransaction->getId());
             $this->assertInstanceOf(SmartTransactionsPreTransactionModel::class, $preTransaction);
             $this->assertTrue(is_numeric($preTransaction->getMissingSum()));
-
         } catch (ApiException $e) {
             print_r($e->getResponseBody());
             throw $e;
@@ -325,7 +353,7 @@ class SmartTransactionsApiTest extends TestCase
             print_r($e->getResponseBody());
             throw $e;
         }
-        
+
 
         try {
             $transactionAfterStart = self::$api->startTransaction($smartTransaction->getId(), 'demo');
@@ -334,7 +362,6 @@ class SmartTransactionsApiTest extends TestCase
             print_r($e->getResponseBody());
             throw $e;
         }
-        
     }
 
     /**
@@ -345,7 +372,8 @@ class SmartTransactionsApiTest extends TestCase
      * @group ignore
      * @throws ApiException
      */
-    public function testSmartTransactionsAddMixedBasket() {
+    public function testSmartTransactionsAddMixedBasket()
+    {
         $SmartTransactionsDTO = new SmartTransactionsDTO();
 
         $subBasket1 = new SmartTransactionsSubBasketProduct();
@@ -405,6 +433,5 @@ class SmartTransactionsApiTest extends TestCase
                 throw $e;
             }
         }
-
     }
 }

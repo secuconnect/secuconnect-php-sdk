@@ -7,10 +7,10 @@ use \ArrayAccess;
 /**
  * SmartTransactionsIdent
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class SmartTransactionsIdent implements ArrayAccess
 {
@@ -77,7 +77,6 @@ class SmartTransactionsIdent implements ArrayAccess
         'merchantcard' => 'merchantcard'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
@@ -92,7 +91,6 @@ class SmartTransactionsIdent implements ArrayAccess
         'valid' => 'setValid',
         'merchantcard' => 'setMerchantcard'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -123,10 +121,6 @@ class SmartTransactionsIdent implements ArrayAccess
     {
         return self::$getters;
     }
-
-    
-
-    
 
     /**
      * Associative array for storing property values
@@ -170,7 +164,6 @@ class SmartTransactionsIdent implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
@@ -333,7 +326,7 @@ class SmartTransactionsIdent implements ArrayAccess
 
     /**
      * Sets merchantcard
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel $merchantcard Loyalty merchant card
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel $merchantcard merchantcard
      * @return $this
      */
     public function setMerchantcard($merchantcard)
@@ -342,9 +335,10 @@ class SmartTransactionsIdent implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -354,7 +348,7 @@ class SmartTransactionsIdent implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -364,8 +358,8 @@ class SmartTransactionsIdent implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -379,7 +373,7 @@ class SmartTransactionsIdent implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -400,5 +394,4 @@ class SmartTransactionsIdent implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

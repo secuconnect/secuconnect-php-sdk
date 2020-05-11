@@ -63,14 +63,14 @@ class PrepaidContractsProductApi
     /**
      * Operation mappingZvt
      *
-     * POST Prepaid/Contracts/null/mappingZvt
+     * POST Prepaid/Contracts/me/mappingZvt
      *
      * @param string $prepaid_contract_id Prepaid contract id (required)
-     * @param \Secuconnect\Client\Model\PrepaidZvtDTO $body Prepaid transaction input properties (optional)
+     * @param \Secuconnect\Client\Model\PrepaidZvtDTO $body Prepaid transaction input properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PrepaidMappingZvt
      */
-    public function mappingZvt($prepaid_contract_id, $body = null)
+    public function mappingZvt($prepaid_contract_id, $body)
     {
         list($response) = $this->mappingZvtWithHttpInfo($prepaid_contract_id, $body);
         return $response;
@@ -79,18 +79,20 @@ class PrepaidContractsProductApi
     /**
      * Operation mappingZvtWithHttpInfo
      *
-     * POST Prepaid/Contracts/null/mappingZvt
+     * POST Prepaid/Contracts/me/mappingZvt
      *
      * @param string $prepaid_contract_id Prepaid contract id (required)
-     * @param \Secuconnect\Client\Model\PrepaidZvtDTO $body Prepaid transaction input properties (optional)
+     * @param \Secuconnect\Client\Model\PrepaidZvtDTO $body Prepaid transaction input properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PrepaidMappingZvt, HTTP status code, HTTP response headers (array of strings)
      */
-    public function mappingZvtWithHttpInfo($prepaid_contract_id, $body = null)
+    public function mappingZvtWithHttpInfo($prepaid_contract_id, $body)
     {
         // verify the required parameter 'prepaid_contract_id' is set
-        if ($prepaid_contract_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $prepaid_contract_id when calling mappingZvt');
+        if ($prepaid_contract_id === null || (is_array($prepaid_contract_id) && count($prepaid_contract_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $prepaid_contract_id when calling mappingZvt'
+            );
         }
         // parse inputs
         $resourcePath = "/Prepaid/Contracts/{prepaidContractId}/mappingZvt";
@@ -98,11 +100,11 @@ class PrepaidContractsProductApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // path params
         if ($prepaid_contract_id !== null) {
@@ -125,12 +127,12 @@ class PrepaidContractsProductApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(

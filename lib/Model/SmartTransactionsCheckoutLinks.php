@@ -7,10 +7,10 @@ use \ArrayAccess;
 /**
  * SmartTransactionsCheckoutLinks
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class SmartTransactionsCheckoutLinks implements ArrayAccess
 {
@@ -68,7 +68,6 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
         'url_checkout' => 'url_checkout'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
@@ -80,7 +79,6 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
         'url_error' => 'setUrlError',
         'url_checkout' => 'setUrlCheckout'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -108,10 +106,6 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
     {
         return self::$getters;
     }
-
-    
-
-    
 
     /**
      * Associative array for storing property values
@@ -152,7 +146,6 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
@@ -261,9 +254,10 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -273,7 +267,7 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -283,8 +277,8 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -298,7 +292,7 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -319,5 +313,4 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

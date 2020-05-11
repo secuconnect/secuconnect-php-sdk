@@ -7,11 +7,11 @@ use \ArrayAccess;
 /**
  * Address
  *
- * @category    Class
+ * @category Class
  * @description Address
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class Address implements ArrayAccess
 {
@@ -33,7 +33,8 @@ class Address implements ArrayAccess
         'street_number' => 'string',
         'city' => 'string',
         'postal_code' => 'string',
-        'country' => 'string'
+        'country' => 'string',
+        'additional_address_data' => 'string'
     ];
 
     /**
@@ -46,7 +47,8 @@ class Address implements ArrayAccess
         'street_number' => null,
         'city' => null,
         'postal_code' => null,
-        'country' => null
+        'country' => null,
+        'additional_address_data' => null
     ];
 
     public static function swaggerTypes()
@@ -69,9 +71,9 @@ class Address implements ArrayAccess
         'street_number' => 'street_number',
         'city' => 'city',
         'postal_code' => 'postal_code',
-        'country' => 'country'
+        'country' => 'country',
+        'additional_address_data' => 'additional_address_data'
     ];
-
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -83,9 +85,9 @@ class Address implements ArrayAccess
         'street_number' => 'setStreetNumber',
         'city' => 'setCity',
         'postal_code' => 'setPostalCode',
-        'country' => 'setCountry'
+        'country' => 'setCountry',
+        'additional_address_data' => 'setAdditionalAddressData'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -97,7 +99,8 @@ class Address implements ArrayAccess
         'street_number' => 'getStreetNumber',
         'city' => 'getCity',
         'postal_code' => 'getPostalCode',
-        'country' => 'getCountry'
+        'country' => 'getCountry',
+        'additional_address_data' => 'getAdditionalAddressData'
     ];
 
     public static function attributeMap()
@@ -114,10 +117,6 @@ class Address implements ArrayAccess
     {
         return self::$getters;
     }
-
-    
-
-    
 
     /**
      * Associative array for storing property values
@@ -137,6 +136,7 @@ class Address implements ArrayAccess
         $this->container['city'] = isset($data['city']) ? $data['city'] : null;
         $this->container['postal_code'] = isset($data['postal_code']) ? $data['postal_code'] : null;
         $this->container['country'] = isset($data['country']) ? $data['country'] : null;
+        $this->container['additional_address_data'] = isset($data['additional_address_data']) ? $data['additional_address_data'] : null;
     }
 
     /**
@@ -159,7 +159,6 @@ class Address implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
@@ -289,9 +288,31 @@ class Address implements ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Gets additional_address_data
+     * @return string
+     */
+    public function getAdditionalAddressData()
+    {
+        return $this->container['additional_address_data'];
+    }
+
+    /**
+     * Sets additional_address_data
+     * @param string $additional_address_data Additional address data
+     * @return $this
+     */
+    public function setAdditionalAddressData($additional_address_data)
+    {
+        $this->container['additional_address_data'] = $additional_address_data;
+
+        return $this;
+    }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -301,7 +322,7 @@ class Address implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -311,8 +332,8 @@ class Address implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -326,7 +347,7 @@ class Address implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -347,5 +368,4 @@ class Address implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

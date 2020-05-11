@@ -7,11 +7,11 @@ use \ArrayAccess;
 /**
  * OpenHours
  *
- * @category    Class
+ * @category Class
  * @description Open hours
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class OpenHours implements ArrayAccess
 {
@@ -60,7 +60,6 @@ class OpenHours implements ArrayAccess
         'close' => 'close'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
@@ -69,7 +68,6 @@ class OpenHours implements ArrayAccess
         'open' => 'setOpen',
         'close' => 'setClose'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -94,10 +92,6 @@ class OpenHours implements ArrayAccess
     {
         return self::$getters;
     }
-
-    
-
-    
 
     /**
      * Associative array for storing property values
@@ -135,7 +129,6 @@ class OpenHours implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
@@ -151,7 +144,7 @@ class OpenHours implements ArrayAccess
 
     /**
      * Sets open
-     * @param \Secuconnect\Client\Model\DayTime $open Open
+     * @param \Secuconnect\Client\Model\DayTime $open open
      * @return $this
      */
     public function setOpen($open)
@@ -172,7 +165,7 @@ class OpenHours implements ArrayAccess
 
     /**
      * Sets close
-     * @param \Secuconnect\Client\Model\DayTime $close Close
+     * @param \Secuconnect\Client\Model\DayTime $close close
      * @return $this
      */
     public function setClose($close)
@@ -181,9 +174,10 @@ class OpenHours implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -193,7 +187,7 @@ class OpenHours implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -203,8 +197,8 @@ class OpenHours implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -218,7 +212,7 @@ class OpenHours implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -239,5 +233,4 @@ class OpenHours implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

@@ -5,9 +5,9 @@ namespace Secuconnect\Client\Api;
 use PHPUnit\Framework\TestCase;
 use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Model\BankAccountDescriptor;
+use Secuconnect\Client\Model\CreditCardDescriptor;
 use Secuconnect\Client\Model\PaymentContainerMandate;
 use Secuconnect\Client\Model\PaymentContainersDTO;
-use Secuconnect\Client\Model\PaymentContainersDTOPrivate;
 use Secuconnect\Client\Model\PaymentContainersList;
 use Secuconnect\Client\Model\PaymentContainersProductModel;
 use Secuconnect\Client\Model\PaymentCustomersProductModel;
@@ -17,7 +17,7 @@ use Secuconnect\Client\Model\PaymentCustomersProductModel;
  */
 class PaymentContainersApiTest extends TestCase
 {
-    public const BANK_ACCOUNT_OWNER_RENAMED = 'John Doe';
+    const BANK_ACCOUNT_OWNER_RENAMED = 'John Doe';
 
     /**
      * @var PaymentContainersApi
@@ -35,7 +35,7 @@ class PaymentContainersApiTest extends TestCase
     private static $container;
 
     /**
-     * @var PaymentContainersDTOPrivate
+     * @var BankAccountDescriptor
      */
     private static $privateData;
 
@@ -83,7 +83,7 @@ class PaymentContainersApiTest extends TestCase
     {
         self::$containerId = '';
 
-        self::$privateData = new PaymentContainersDTOPrivate();
+        self::$privateData = new BankAccountDescriptor();
         self::$privateData
             ->setOwner(SecuconnectObjects::BANK_ACCOUNT_OWNER)
             ->setIban(SecuconnectObjects::BANK_ACCOUNT_IBAN)
@@ -156,9 +156,6 @@ class PaymentContainersApiTest extends TestCase
         $this->assertEquals('payment.containers', $response->getObject());
         $this->assertNotNull($response->getId());
         $this->assertNotEmpty($response->getId());
-        $this->assertEquals('payment.contracts', $response->getContract()->getObject());
-        $this->assertNotNull($response->getContract()->getId());
-        $this->assertNotEmpty($response->getContract()->getId());
         $this->assertNull($response->getCustomer());
         $this->assertNull($response->getAssign());
         $this->assertInstanceOf(BankAccountDescriptor::class, $response->getPrivate());
@@ -221,11 +218,7 @@ class PaymentContainersApiTest extends TestCase
         $this->assertNotEmpty(self::$containerId);
         $this->assertInstanceOf(PaymentContainersProductModel::class, $response);
         $this->assertEquals('payment.containers', $response->getObject());
-        $this->assertNotNull($response->getId());
         $this->assertNotEmpty($response->getId());
-        $this->assertEquals('payment.contracts', $response->getContract()->getObject());
-        $this->assertNotNull($response->getContract()->getId());
-        $this->assertNotEmpty($response->getContract()->getId());
         $this->assertInstanceOf(BankAccountDescriptor::class, $response->getPrivate());
         $this->assertInstanceOf(BankAccountDescriptor::class, $response->getPublic());
         $this->assertEquals(self::BANK_ACCOUNT_OWNER_RENAMED, $response->getPrivate()->getOwner());
@@ -239,20 +232,10 @@ class PaymentContainersApiTest extends TestCase
         $this->assertEquals(self::$bankAccount->getBankname(), $response->getPublic()->getBankname());
         $this->assertEquals('bank_account', $response->getType());
         $this->assertEquals(self::$created, $response->getCreated());
-        $this->assertNotNull($response->getUpdated());
         $this->assertNotEmpty($response->getUpdated());
         $this->assertInstanceOf(PaymentContainerMandate::class, $response->getMandate());
-        $this->assertNotNull($response->getMandate()->getSepaMandateId());
         $this->assertNotEmpty($response->getMandate()->getSepaMandateId());
-        $this->assertNotNull($response->getMandate()->getIban());
-        $this->assertNotEmpty($response->getMandate()->getIban());
-        $this->assertNotNull($response->getMandate()->getBic());
-        $this->assertNotEmpty($response->getMandate()->getBic());
-        $this->assertNotNull($response->getMandate()->getType());
         $this->assertNotEmpty($response->getMandate()->getType());
-        $this->assertNotNull($response->getMandate()->getStatus());
-        $this->assertNotEmpty($response->getMandate()->getStatus());
-        $this->assertNotNull($response->getMandate()->getIdentification());
         $this->assertNotEmpty($response->getMandate()->getIdentification());
 
         self::$updated = $response->getUpdated();
@@ -275,9 +258,6 @@ class PaymentContainersApiTest extends TestCase
         $this->assertInstanceOf(PaymentContainersProductModel::class, $response);
         $this->assertEquals('payment.containers', $response->getObject());
         $this->assertEquals(self::$containerId, $response->getId());
-        $this->assertEquals('payment.contracts', $response->getContract()->getObject());
-        $this->assertNotNull($response->getContract()->getId());
-        $this->assertNotEmpty($response->getContract()->getId());
         $this->assertInstanceOf(BankAccountDescriptor::class, $response->getPrivate());
         $this->assertInstanceOf(BankAccountDescriptor::class, $response->getPublic());
         $this->assertEquals(self::$bankAccount->getOwner(), $response->getPrivate()->getOwner());
@@ -291,7 +271,6 @@ class PaymentContainersApiTest extends TestCase
         $this->assertEquals(self::$bankAccount->getBankname(), $response->getPublic()->getBankname());
         $this->assertEquals('bank_account', $response->getType());
         $this->assertEquals(self::$created, $response->getCreated());
-        $this->assertEquals(self::$updated, $response->getUpdated());
     }
 
     /**
@@ -317,17 +296,30 @@ class PaymentContainersApiTest extends TestCase
             $this->assertEquals('payment.containers', $container->getObject());
             $this->assertNotNull($container->getId());
             $this->assertNotEmpty($container->getId());
-            $this->assertEquals('payment.contracts', $container->getContract()->getObject());
-            $this->assertNotNull($container->getContract()->getId());
-            $this->assertNotEmpty($container->getContract()->getId());
-            $this->assertNotNull($container->getPrivate()->getIban());
-            $this->assertNotEmpty($container->getPrivate()->getIban());
-            $this->assertNotNull($container->getPrivate()->getBic());
-            $this->assertNotEmpty($container->getPrivate()->getBic());
-            $this->assertNotNull($container->getPrivate()->getBankname());
-            $this->assertNotEmpty($container->getPrivate()->getBankname());
             $this->assertNotNull($container->getCreated());
             $this->assertNotEmpty($container->getCreated());
+
+            $this->assertNotEmpty($container->getType());
+            if ($container->getType() == 'credit_card') {
+                $this->assertInstanceOf(CreditCardDescriptor::class, $container->getPrivate());
+                /**
+                 * @var CreditCardDescriptor $private
+                 */
+                $private = $container->getPrivate();
+                $this->assertNotEmpty($private->getPan());
+                $this->assertNotEmpty($private->getOwner());
+                $this->assertNotEmpty($private->getIssuer());
+                $this->assertNotEmpty($private->getExpirationDate());
+            } elseif ($container->getType() == 'bank_account') {
+                ;
+                $this->assertInstanceOf(BankAccountDescriptor::class, $container->getPrivate());
+                /**
+                 * @var BankAccountDescriptor $private
+                 */
+                $private = $container->getPrivate();
+                $this->assertNotEmpty($private->getIban());
+                $this->assertNotEmpty($private->getBic());
+            }
         }
     }
 
@@ -413,12 +405,10 @@ class PaymentContainersApiTest extends TestCase
         }
 
         $this->assertNotEmpty($response);
-        $this->assertInternalType('array', $response);
+        $this->assertIsArray($response);
         $this->assertContainsOnlyInstancesOf(PaymentContainersProductModel::class, $response);
         $this->assertEquals('payment.containers', $response[0]->getObject());
         $this->assertEquals(self::$containerId, $response[0]->getId());
-        $this->assertEquals('payment.contracts', $response[0]->getContract()->getObject());
-        $this->assertNotEmpty($response[0]->getContract()->getId());
         $this->assertInstanceOf(BankAccountDescriptor::class, $response[0]->getPrivate());
         $this->assertInstanceOf(BankAccountDescriptor::class, $response[0]->getPublic());
         $this->assertEquals(self::$bankAccount->getOwner(), $response[0]->getPrivate()->getOwner());
@@ -432,6 +422,5 @@ class PaymentContainersApiTest extends TestCase
         $this->assertEquals(self::$bankAccount->getBankname(), $response[0]->getPublic()->getBankname());
         $this->assertEquals('bank_account', $response[0]->getType());
         $this->assertEquals(self::$created, $response[0]->getCreated());
-        $this->assertEquals(self::$updated, $response[0]->getUpdated());
     }
 }

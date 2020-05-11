@@ -7,11 +7,11 @@ use \ArrayAccess;
 /**
  * PaymentInformation
  *
- * @category    Class
+ * @category Class
  * @description Payment information
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class PaymentInformation implements ArrayAccess
 {
@@ -66,7 +66,6 @@ class PaymentInformation implements ArrayAccess
         'bankname' => 'bankname'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
@@ -77,7 +76,6 @@ class PaymentInformation implements ArrayAccess
         'owner' => 'setOwner',
         'bankname' => 'setBankname'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -104,10 +102,6 @@ class PaymentInformation implements ArrayAccess
     {
         return self::$getters;
     }
-
-    
-
-    
 
     /**
      * Associative array for storing property values
@@ -147,7 +141,6 @@ class PaymentInformation implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
@@ -235,9 +228,10 @@ class PaymentInformation implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -247,7 +241,7 @@ class PaymentInformation implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -257,8 +251,8 @@ class PaymentInformation implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -272,7 +266,7 @@ class PaymentInformation implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -293,5 +287,4 @@ class PaymentInformation implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

@@ -7,10 +7,11 @@ use \ArrayAccess;
 /**
  * SecupaySubTransactionProductModel
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @description SecupaySubTransactionProductModel
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class SecupaySubTransactionProductModel implements ArrayAccess
 {
@@ -29,11 +30,7 @@ class SecupaySubTransactionProductModel implements ArrayAccess
     protected static $swaggerTypes = [
         'id' => 'string',
         'trans_id' => 'int',
-        'reference_id' => 'string',
-        'amount' => 'int',
-        'transaction_status' => 'string',
-        'status' => 'string',
-        'currency' => 'string'
+        'reference_id' => 'string'
     ];
 
     /**
@@ -43,11 +40,7 @@ class SecupaySubTransactionProductModel implements ArrayAccess
     protected static $swaggerFormats = [
         'id' => null,
         'trans_id' => null,
-        'reference_id' => null,
-        'amount' => null,
-        'transaction_status' => null,
-        'status' => null,
-        'currency' => null
+        'reference_id' => null
     ];
 
     public static function swaggerTypes()
@@ -67,13 +60,8 @@ class SecupaySubTransactionProductModel implements ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'trans_id' => 'trans_id',
-        'reference_id' => 'reference_id',
-        'amount' => 'amount',
-        'transaction_status' => 'transaction_status',
-        'status' => 'status',
-        'currency' => 'currency'
+        'reference_id' => 'reference_id'
     ];
-
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -82,13 +70,8 @@ class SecupaySubTransactionProductModel implements ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'trans_id' => 'setTransId',
-        'reference_id' => 'setReferenceId',
-        'amount' => 'setAmount',
-        'transaction_status' => 'setTransactionStatus',
-        'status' => 'setStatus',
-        'currency' => 'setCurrency'
+        'reference_id' => 'setReferenceId'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -97,11 +80,7 @@ class SecupaySubTransactionProductModel implements ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'trans_id' => 'getTransId',
-        'reference_id' => 'getReferenceId',
-        'amount' => 'getAmount',
-        'transaction_status' => 'getTransactionStatus',
-        'status' => 'getStatus',
-        'currency' => 'getCurrency'
+        'reference_id' => 'getReferenceId'
     ];
 
     public static function attributeMap()
@@ -119,10 +98,6 @@ class SecupaySubTransactionProductModel implements ArrayAccess
         return self::$getters;
     }
 
-    
-
-    
-
     /**
      * Associative array for storing property values
      * @var mixed[]
@@ -138,10 +113,6 @@ class SecupaySubTransactionProductModel implements ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['trans_id'] = isset($data['trans_id']) ? $data['trans_id'] : null;
         $this->container['reference_id'] = isset($data['reference_id']) ? $data['reference_id'] : null;
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['transaction_status'] = isset($data['transaction_status']) ? $data['transaction_status'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
     }
 
     /**
@@ -164,7 +135,6 @@ class SecupaySubTransactionProductModel implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
@@ -180,7 +150,7 @@ class SecupaySubTransactionProductModel implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id The payment id of the sub-transaction
+     * @param string $id id
      * @return $this
      */
     public function setId($id)
@@ -201,7 +171,7 @@ class SecupaySubTransactionProductModel implements ArrayAccess
 
     /**
      * Sets trans_id
-     * @param int $trans_id Transaction identifier
+     * @param int $trans_id trans_id
      * @return $this
      */
     public function setTransId($trans_id)
@@ -222,7 +192,7 @@ class SecupaySubTransactionProductModel implements ArrayAccess
 
     /**
      * Sets reference_id
-     * @param string $reference_id Reference id - which was used in the mixed basket
+     * @param string $reference_id reference_id
      * @return $this
      */
     public function setReferenceId($reference_id)
@@ -233,91 +203,8 @@ class SecupaySubTransactionProductModel implements ArrayAccess
     }
 
     /**
-     * Gets amount
-     * @return int
-     */
-    public function getAmount()
-    {
-        return $this->container['amount'];
-    }
-
-    /**
-     * Sets amount
-     * @param int $amount Total amount of payment in cents (or the smallest cash unit of the relevant currency)
-     * @return $this
-     */
-    public function setAmount($amount)
-    {
-        $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets transaction_status
-     * @return string
-     */
-    public function getTransactionStatus()
-    {
-        return $this->container['transaction_status'];
-    }
-
-    /**
-     * Sets transaction_status
-     * @param string $transaction_status Transaction status (number)
-     * @return $this
-     */
-    public function setTransactionStatus($transaction_status)
-    {
-        $this->container['transaction_status'] = $transaction_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     * @param string $status Transaction status
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency
-     * @return string
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     * @param string $currency ISO 4217 code of currency, eg EUR for Euro.
-     * @return $this
-     */
-    public function setCurrency($currency)
-    {
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-    /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -327,7 +214,7 @@ class SecupaySubTransactionProductModel implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -337,8 +224,8 @@ class SecupaySubTransactionProductModel implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -352,7 +239,7 @@ class SecupaySubTransactionProductModel implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -373,5 +260,4 @@ class SecupaySubTransactionProductModel implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

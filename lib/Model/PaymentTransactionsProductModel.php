@@ -2,17 +2,15 @@
 
 namespace Secuconnect\Client\Model;
 
-use \ArrayAccess;
-
 /**
  * PaymentTransactionsProductModel
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PaymentTransactionsProductModel implements ArrayAccess
+class PaymentTransactionsProductModel extends BaseProductModel
 {
     const DISCRIMINATOR = null;
 
@@ -27,11 +25,11 @@ class PaymentTransactionsProductModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'object' => 'string',
-        'id' => 'string',
+        'platform' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'merchant' => '\Secuconnect\Client\Model\GeneralMerchantsProductModel',
         'store' => '\Secuconnect\Client\Model\GeneralStoresProductModel',
         'trans_id' => 'int',
+        'parents' => '\Secuconnect\Client\Model\ParentObj[]',
         'product_id' => 'int',
         'product' => 'string',
         'product_raw' => 'string',
@@ -53,6 +51,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'invoice_number' => 'string',
         'transaction_hash' => 'string',
         'reference_id' => 'string',
+        'account_owner' => 'string',
         'accrual' => 'bool'
     ];
 
@@ -61,11 +60,11 @@ class PaymentTransactionsProductModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'object' => null,
-        'id' => 'id',
+        'platform' => null,
         'merchant' => null,
         'store' => null,
         'trans_id' => null,
+        'parents' => null,
         'product_id' => null,
         'product' => null,
         'product_raw' => null,
@@ -87,17 +86,18 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'invoice_number' => null,
         'transaction_hash' => null,
         'reference_id' => null,
+        'account_owner' => null,
         'accrual' => null
     ];
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -105,11 +105,11 @@ class PaymentTransactionsProductModel implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'object' => 'object',
-        'id' => 'id',
+        'platform' => 'platform',
         'merchant' => 'merchant',
         'store' => 'store',
         'trans_id' => 'trans_id',
+        'parents' => 'parents',
         'product_id' => 'product_id',
         'product' => 'product',
         'product_raw' => 'product_raw',
@@ -131,20 +131,20 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'invoice_number' => 'invoice_number',
         'transaction_hash' => 'transaction_hash',
         'reference_id' => 'reference_id',
+        'account_owner' => 'account_owner',
         'accrual' => 'accrual'
     ];
-
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
      */
     protected static $setters = [
-        'object' => 'setObject',
-        'id' => 'setId',
+        'platform' => 'setPlatform',
         'merchant' => 'setMerchant',
         'store' => 'setStore',
         'trans_id' => 'setTransId',
+        'parents' => 'setParents',
         'product_id' => 'setProductId',
         'product' => 'setProduct',
         'product_raw' => 'setProductRaw',
@@ -166,20 +166,20 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'invoice_number' => 'setInvoiceNumber',
         'transaction_hash' => 'setTransactionHash',
         'reference_id' => 'setReferenceId',
+        'account_owner' => 'setAccountOwner',
         'accrual' => 'setAccrual'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
      * @var string[]
      */
     protected static $getters = [
-        'object' => 'getObject',
-        'id' => 'getId',
+        'platform' => 'getPlatform',
         'merchant' => 'getMerchant',
         'store' => 'getStore',
         'trans_id' => 'getTransId',
+        'parents' => 'getParents',
         'product_id' => 'getProductId',
         'product' => 'getProduct',
         'product_raw' => 'getProductRaw',
@@ -201,33 +201,24 @@ class PaymentTransactionsProductModel implements ArrayAccess
         'invoice_number' => 'getInvoiceNumber',
         'transaction_hash' => 'getTransactionHash',
         'reference_id' => 'getReferenceId',
+        'account_owner' => 'getAccountOwner',
         'accrual' => 'getAccrual'
     ];
 
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
-
-    
-
-    
-
-    /**
-     * Associative array for storing property values
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -235,11 +226,13 @@ class PaymentTransactionsProductModel implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['object'] = isset($data['object']) ? $data['object'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        parent::__construct($data);
+
+        $this->container['platform'] = isset($data['platform']) ? $data['platform'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['store'] = isset($data['store']) ? $data['store'] : null;
         $this->container['trans_id'] = isset($data['trans_id']) ? $data['trans_id'] : null;
+        $this->container['parents'] = isset($data['parents']) ? $data['parents'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
         $this->container['product_raw'] = isset($data['product_raw']) ? $data['product_raw'] : null;
@@ -261,6 +254,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
         $this->container['invoice_number'] = isset($data['invoice_number']) ? $data['invoice_number'] : null;
         $this->container['transaction_hash'] = isset($data['transaction_hash']) ? $data['transaction_hash'] : null;
         $this->container['reference_id'] = isset($data['reference_id']) ? $data['reference_id'] : null;
+        $this->container['account_owner'] = isset($data['account_owner']) ? $data['account_owner'] : null;
         $this->container['accrual'] = isset($data['accrual']) ? $data['accrual'] : null;
     }
 
@@ -271,7 +265,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalid_properties = parent::listInvalidProperties();
 
         return $invalid_properties;
     }
@@ -284,49 +278,27 @@ class PaymentTransactionsProductModel implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
 
     /**
-     * Gets object
-     * @return string
+     * Gets platform
+     * @return \Secuconnect\Client\Model\ProductInstanceUID
      */
-    public function getObject()
+    public function getPlatform()
     {
-        return $this->container['object'];
+        return $this->container['platform'];
     }
 
     /**
-     * Sets object
-     * @param string $object Object of payment transaction
+     * Sets platform
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $platform platform
      * @return $this
      */
-    public function setObject($object)
+    public function setPlatform($platform)
     {
-        $this->container['object'] = $object;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     * @param string $id Id of payment transaction
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
+        $this->container['platform'] = $platform;
 
         return $this;
     }
@@ -342,7 +314,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets merchant
-     * @param \Secuconnect\Client\Model\GeneralMerchantsProductModel $merchant Merchant information
+     * @param \Secuconnect\Client\Model\GeneralMerchantsProductModel $merchant merchant
      * @return $this
      */
     public function setMerchant($merchant)
@@ -363,7 +335,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets store
-     * @param \Secuconnect\Client\Model\GeneralStoresProductModel $store Merchants store information
+     * @param \Secuconnect\Client\Model\GeneralStoresProductModel $store store
      * @return $this
      */
     public function setStore($store)
@@ -390,6 +362,27 @@ class PaymentTransactionsProductModel implements ArrayAccess
     public function setTransId($trans_id)
     {
         $this->container['trans_id'] = $trans_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets parents
+     * @return \Secuconnect\Client\Model\ParentObj[]
+     */
+    public function getParents()
+    {
+        return $this->container['parents'];
+    }
+
+    /**
+     * Sets parents
+     * @param \Secuconnect\Client\Model\ParentObj[] $parents Parents
+     * @return $this
+     */
+    public function setParents($parents)
+    {
+        $this->container['parents'] = $parents;
 
         return $this;
     }
@@ -657,7 +650,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets details
-     * @param \Secuconnect\Client\Model\PaymentTransactionsProductModelDetails $details
+     * @param \Secuconnect\Client\Model\PaymentTransactionsProductModelDetails $details details
      * @return $this
      */
     public function setDetails($details)
@@ -678,7 +671,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets customer
-     * @param \Secuconnect\Client\Model\PaymentTransactionsProductModelCustomer $customer
+     * @param \Secuconnect\Client\Model\PaymentTransactionsProductModelCustomer $customer customer
      * @return $this
      */
     public function setCustomer($customer)
@@ -836,6 +829,27 @@ class PaymentTransactionsProductModel implements ArrayAccess
     }
 
     /**
+     * Gets account_owner
+     * @return string
+     */
+    public function getAccountOwner()
+    {
+        return $this->container['account_owner'];
+    }
+
+    /**
+     * Sets account_owner
+     * @param string $account_owner Name of the bank account owner
+     * @return $this
+     */
+    public function setAccountOwner($account_owner)
+    {
+        $this->container['account_owner'] = $account_owner;
+
+        return $this;
+    }
+
+    /**
      * Gets accrual
      * @return bool
      */
@@ -855,9 +869,10 @@ class PaymentTransactionsProductModel implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -867,7 +882,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -877,8 +892,8 @@ class PaymentTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -892,7 +907,7 @@ class PaymentTransactionsProductModel implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -913,5 +928,4 @@ class PaymentTransactionsProductModel implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

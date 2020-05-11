@@ -2,17 +2,15 @@
 
 namespace Secuconnect\Client\Model;
 
-use \ArrayAccess;
-
 /**
  * SmartTransactionsProductModel
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsProductModel implements ArrayAccess
+class SmartTransactionsProductModel extends BaseProductModel
 {
     const DISCRIMINATOR = null;
 
@@ -27,8 +25,6 @@ class SmartTransactionsProductModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'object' => 'string',
-        'id' => 'string',
         'status' => 'string',
         'merchant' => '\Secuconnect\Client\Model\SmartTransactionsMerchant',
         'contract' => '\Secuconnect\Client\Model\ProductInstanceUID',
@@ -73,8 +69,6 @@ class SmartTransactionsProductModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'object' => null,
-        'id' => null,
         'status' => null,
         'merchant' => null,
         'contract' => null,
@@ -116,12 +110,12 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -129,8 +123,6 @@ class SmartTransactionsProductModel implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'object' => 'object',
-        'id' => 'id',
         'status' => 'status',
         'merchant' => 'merchant',
         'contract' => 'contract',
@@ -170,14 +162,11 @@ class SmartTransactionsProductModel implements ArrayAccess
         'iframe_url' => 'iframe_url'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
      */
     protected static $setters = [
-        'object' => 'setObject',
-        'id' => 'setId',
         'status' => 'setStatus',
         'merchant' => 'setMerchant',
         'contract' => 'setContract',
@@ -217,14 +206,11 @@ class SmartTransactionsProductModel implements ArrayAccess
         'iframe_url' => 'setIframeUrl'
     ];
 
-
     /**
      * Array of attributes to getter functions (for serialization of requests)
      * @var string[]
      */
     protected static $getters = [
-        'object' => 'getObject',
-        'id' => 'getId',
         'status' => 'getStatus',
         'merchant' => 'getMerchant',
         'contract' => 'getContract',
@@ -266,28 +252,18 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
-
-    
-
-    
-
-    /**
-     * Associative array for storing property values
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -295,8 +271,8 @@ class SmartTransactionsProductModel implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['object'] = isset($data['object']) ? $data['object'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        parent::__construct($data);
+
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
@@ -343,7 +319,7 @@ class SmartTransactionsProductModel implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalid_properties = parent::listInvalidProperties();
 
         return $invalid_properties;
     }
@@ -356,52 +332,9 @@ class SmartTransactionsProductModel implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
-
-    /**
-     * Gets object
-     * @return string
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     * @param string $object Object of smart transaction
-     * @return $this
-     */
-    public function setObject($object)
-    {
-        $this->container['object'] = $object;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     * @param string $id Id of smart transaction
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets status
@@ -435,7 +368,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets merchant
-     * @param \Secuconnect\Client\Model\SmartTransactionsMerchant $merchant Merchant
+     * @param \Secuconnect\Client\Model\SmartTransactionsMerchant $merchant merchant
      * @return $this
      */
     public function setMerchant($merchant)
@@ -456,7 +389,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets contract
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $contract Contract
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $contract contract
      * @return $this
      */
     public function setContract($contract)
@@ -477,7 +410,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets provider_contract
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $provider_contract Provider contract
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $provider_contract provider_contract
      * @return $this
      */
     public function setProviderContract($provider_contract)
@@ -498,7 +431,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets customer
-     * @param \Secuconnect\Client\Model\PaymentCustomersProductModel $customer Customer
+     * @param \Secuconnect\Client\Model\PaymentCustomersProductModel $customer customer
      * @return $this
      */
     public function setCustomer($customer)
@@ -519,7 +452,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets shipping_address
-     * @param \Secuconnect\Client\Model\PaymentCustomersProductModel $shipping_address Customers delivery address
+     * @param \Secuconnect\Client\Model\PaymentCustomersProductModel $shipping_address shipping_address
      * @return $this
      */
     public function setShippingAddress($shipping_address)
@@ -540,7 +473,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets container
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $container Payment Container
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $container container
      * @return $this
      */
     public function setContainer($container)
@@ -561,7 +494,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets checkin
-     * @param \Secuconnect\Client\Model\SmartTransactionsCheckin $checkin Check in
+     * @param \Secuconnect\Client\Model\SmartTransactionsCheckin $checkin checkin
      * @return $this
      */
     public function setCheckin($checkin)
@@ -624,7 +557,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets store
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $store Store
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $store store
      * @return $this
      */
     public function setStore($store)
@@ -645,7 +578,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets device_source
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $device_source Device source
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $device_source device_source
      * @return $this
      */
     public function setDeviceSource($device_source)
@@ -666,7 +599,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets device_destination
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $device_destination Device destination
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $device_destination device_destination
      * @return $this
      */
     public function setDeviceDestination($device_destination)
@@ -813,7 +746,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets basket_info
-     * @param \Secuconnect\Client\Model\SmartTransactionsBasketInfo $basket_info Basket info
+     * @param \Secuconnect\Client\Model\SmartTransactionsBasketInfo $basket_info basket_info
      * @return $this
      */
     public function setBasketInfo($basket_info)
@@ -834,7 +767,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets basket
-     * @param \Secuconnect\Client\Model\SmartTransactionsBasket $basket Basket
+     * @param \Secuconnect\Client\Model\SmartTransactionsBasket $basket basket
      * @return $this
      */
     public function setBasket($basket)
@@ -981,7 +914,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets pickup_options
-     * @param \Secuconnect\Client\Model\SmartTransactionsPickupOptions $pickup_options Pickup options
+     * @param \Secuconnect\Client\Model\SmartTransactionsPickupOptions $pickup_options pickup_options
      * @return $this
      */
     public function setPickupOptions($pickup_options)
@@ -1002,7 +935,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets shipment_details
-     * @param \Secuconnect\Client\Model\SmartTransactionsShipmentDetails $shipment_details Shipment details
+     * @param \Secuconnect\Client\Model\SmartTransactionsShipmentDetails $shipment_details shipment_details
      * @return $this
      */
     public function setShipmentDetails($shipment_details)
@@ -1149,7 +1082,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets checkout_links
-     * @param \Secuconnect\Client\Model\SmartTransactionsCheckoutLinks $checkout_links Checkout Links
+     * @param \Secuconnect\Client\Model\SmartTransactionsCheckoutLinks $checkout_links checkout_links
      * @return $this
      */
     public function setCheckoutLinks($checkout_links)
@@ -1182,7 +1115,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -1192,7 +1125,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -1202,8 +1135,8 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -1217,7 +1150,7 @@ class SmartTransactionsProductModel implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -1238,5 +1171,4 @@ class SmartTransactionsProductModel implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

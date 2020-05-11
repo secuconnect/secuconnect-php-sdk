@@ -2,17 +2,15 @@
 
 namespace Secuconnect\Client\Model;
 
-use \ArrayAccess;
-
 /**
  * PaymentContainersProductModel
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PaymentContainersProductModel implements ArrayAccess
+class PaymentContainersProductModel extends BaseProductModel
 {
     const DISCRIMINATOR = null;
 
@@ -27,14 +25,12 @@ class PaymentContainersProductModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'object' => 'string',
-        'id' => 'string',
         'contract' => '\Secuconnect\Client\Model\PaymentContractsProductModel',
         'customer' => '\Secuconnect\Client\Model\PaymentCustomersProductModel',
         'assign' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'type' => 'string',
-        'public' => '\Secuconnect\Client\Model\BankAccountDescriptor',
-        'private' => '\Secuconnect\Client\Model\BankAccountDescriptor',
+        'public' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate',
+        'private' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate',
         'created' => 'string',
         'updated' => 'string',
         'mandate' => '\Secuconnect\Client\Model\PaymentContainerMandate'
@@ -45,8 +41,6 @@ class PaymentContainersProductModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'object' => null,
-        'id' => 'id',
         'contract' => null,
         'customer' => null,
         'assign' => null,
@@ -60,12 +54,12 @@ class PaymentContainersProductModel implements ArrayAccess
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -73,8 +67,6 @@ class PaymentContainersProductModel implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'object' => 'object',
-        'id' => 'id',
         'contract' => 'contract',
         'customer' => 'customer',
         'assign' => 'assign',
@@ -86,14 +78,11 @@ class PaymentContainersProductModel implements ArrayAccess
         'mandate' => 'mandate'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
      */
     protected static $setters = [
-        'object' => 'setObject',
-        'id' => 'setId',
         'contract' => 'setContract',
         'customer' => 'setCustomer',
         'assign' => 'setAssign',
@@ -105,14 +94,11 @@ class PaymentContainersProductModel implements ArrayAccess
         'mandate' => 'setMandate'
     ];
 
-
     /**
      * Array of attributes to getter functions (for serialization of requests)
      * @var string[]
      */
     protected static $getters = [
-        'object' => 'getObject',
-        'id' => 'getId',
         'contract' => 'getContract',
         'customer' => 'getCustomer',
         'assign' => 'getAssign',
@@ -126,28 +112,18 @@ class PaymentContainersProductModel implements ArrayAccess
 
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
-
-    
-
-    
-
-    /**
-     * Associative array for storing property values
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -155,8 +131,8 @@ class PaymentContainersProductModel implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['object'] = isset($data['object']) ? $data['object'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        parent::__construct($data);
+
         $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
         $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
         $this->container['assign'] = isset($data['assign']) ? $data['assign'] : null;
@@ -175,7 +151,7 @@ class PaymentContainersProductModel implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalid_properties = parent::listInvalidProperties();
 
         return $invalid_properties;
     }
@@ -188,52 +164,9 @@ class PaymentContainersProductModel implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
-
-    /**
-     * Gets object
-     * @return string
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     * @param string $object Object of payment container
-     * @return $this
-     */
-    public function setObject($object)
-    {
-        $this->container['object'] = $object;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     * @param string $id Id of payment container
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets contract
@@ -246,7 +179,7 @@ class PaymentContainersProductModel implements ArrayAccess
 
     /**
      * Sets contract
-     * @param \Secuconnect\Client\Model\PaymentContractsProductModel $contract Payment container contract
+     * @param \Secuconnect\Client\Model\PaymentContractsProductModel $contract contract
      * @return $this
      */
     public function setContract($contract)
@@ -267,7 +200,7 @@ class PaymentContainersProductModel implements ArrayAccess
 
     /**
      * Sets customer
-     * @param \Secuconnect\Client\Model\PaymentCustomersProductModel $customer Payment container customer
+     * @param \Secuconnect\Client\Model\PaymentCustomersProductModel $customer customer
      * @return $this
      */
     public function setCustomer($customer)
@@ -288,7 +221,7 @@ class PaymentContainersProductModel implements ArrayAccess
 
     /**
      * Sets assign
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $assign Assign to
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $assign assign
      * @return $this
      */
     public function setAssign($assign)
@@ -321,7 +254,7 @@ class PaymentContainersProductModel implements ArrayAccess
 
     /**
      * Gets public
-     * @return \Secuconnect\Client\Model\BankAccountDescriptor
+     * @return \Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate
      */
     public function getPublic()
     {
@@ -330,7 +263,7 @@ class PaymentContainersProductModel implements ArrayAccess
 
     /**
      * Sets public
-     * @param \Secuconnect\Client\Model\BankAccountDescriptor $public Public payment instrument data
+     * @param \Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate $public public
      * @return $this
      */
     public function setPublic($public)
@@ -342,7 +275,7 @@ class PaymentContainersProductModel implements ArrayAccess
 
     /**
      * Gets private
-     * @return \Secuconnect\Client\Model\BankAccountDescriptor
+     * @return \Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate
      */
     public function getPrivate()
     {
@@ -351,7 +284,7 @@ class PaymentContainersProductModel implements ArrayAccess
 
     /**
      * Sets private
-     * @param \Secuconnect\Client\Model\BankAccountDescriptor $private Private payment instrument data
+     * @param \Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate $private private
      * @return $this
      */
     public function setPrivate($private)
@@ -414,7 +347,7 @@ class PaymentContainersProductModel implements ArrayAccess
 
     /**
      * Sets mandate
-     * @param \Secuconnect\Client\Model\PaymentContainerMandate $mandate Payment container mandate
+     * @param \Secuconnect\Client\Model\PaymentContainerMandate $mandate mandate
      * @return $this
      */
     public function setMandate($mandate)
@@ -423,9 +356,10 @@ class PaymentContainersProductModel implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -435,7 +369,7 @@ class PaymentContainersProductModel implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -445,8 +379,8 @@ class PaymentContainersProductModel implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -460,7 +394,7 @@ class PaymentContainersProductModel implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -481,5 +415,4 @@ class PaymentContainersProductModel implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

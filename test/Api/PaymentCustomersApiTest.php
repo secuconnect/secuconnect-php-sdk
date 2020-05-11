@@ -5,8 +5,8 @@ namespace Secuconnect\Client\Api;
 use PHPUnit\Framework\TestCase;
 use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Model\Address;
-use Secuconnect\Client\Model\PaymentCustomersDTO;
 use Secuconnect\Client\Model\Contact;
+use Secuconnect\Client\Model\PaymentCustomersDTO;
 use Secuconnect\Client\Model\PaymentCustomersList;
 use Secuconnect\Client\Model\PaymentCustomersProductModel;
 
@@ -140,12 +140,10 @@ class PaymentCustomersApiTest extends TestCase
             print_r($e->getResponseBody());
             throw $e;
         }
-        
+
         $this->assertNotEmpty(self::$customerId);
         $this->assertInstanceOf(PaymentCustomersProductModel::class, $response);
         $this->assertEquals('payment.customers', $response->getObject());
-        $this->assertEquals('payment.contracts', $response->getContract()->getObject());
-        $this->assertNotEmpty($response->getContract()->getId());
 
         $this->assertEquals('Mr.', $response->getContact()->getSalutation());
         $this->assertEquals('Dr.', $response->getContact()->getTitle());
@@ -208,8 +206,6 @@ class PaymentCustomersApiTest extends TestCase
         $this->assertNotEmpty(self::$customerId);
         $this->assertInstanceOf(PaymentCustomersProductModel::class, $response);
         $this->assertEquals('payment.customers', $response->getObject());
-        $this->assertEquals('payment.contracts', $response->getContract()->getObject());
-        $this->assertNotEmpty($response->getContract()->getId());
         $this->assertEquals(self::$customerId, $response->getId());
 
         $this->assertEquals('Mrs.', $response->getContact()->getSalutation());
@@ -252,8 +248,6 @@ class PaymentCustomersApiTest extends TestCase
         $this->assertInstanceOf(PaymentCustomersProductModel::class, $response);
         $this->assertEquals(self::$customerId, $response->getId());
         $this->assertEquals('payment.customers', $response->getObject());
-        $this->assertEquals('payment.contracts', $response->getContract()->getObject());
-        $this->assertNotEmpty($response->getContract()->getId());
         $this->assertEquals(self::$customerId, $response->getId());
 
         $this->assertEquals('Mrs.', $response->getContact()->getSalutation());
@@ -296,8 +290,6 @@ class PaymentCustomersApiTest extends TestCase
         $this->assertContainsOnlyInstancesOf(PaymentCustomersProductModel::class, $response);
         $this->assertEquals('payment.customers', $response[0]->getObject());
         $this->assertEquals(self::$customerId, $response[0]->getId());
-        $this->assertEquals('payment.contracts', $response[0]->getContract()->getObject());
-        $this->assertNotEmpty($response[0]->getContract()->getId());
 
         $this->assertEquals('Mrs.', $response[0]->getContact()->getSalutation());
         $this->assertEquals('Prof.', $response[0]->getContact()->getTitle());
@@ -340,9 +332,6 @@ class PaymentCustomersApiTest extends TestCase
                 $this->assertInstanceOf(PaymentCustomersProductModel::class, $customer);
                 $this->assertNotEmpty($customer->getObject());
                 $this->assertNotEmpty($customer->getId());
-                $this->assertNotEmpty($customer->getContract());
-                $this->assertNotEmpty($customer->getContract()->getObject());
-                $this->assertNotEmpty($customer->getContract()->getId());
                 $this->assertNotEmpty($customer->getCreated());
             }
         }

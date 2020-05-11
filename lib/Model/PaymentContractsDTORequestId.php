@@ -7,10 +7,10 @@ use \ArrayAccess;
 /**
  * PaymentContractsDTORequestId
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class PaymentContractsDTORequestId implements ArrayAccess
 {
@@ -74,7 +74,6 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'store_name' => 'store_name'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
@@ -88,7 +87,6 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'create_first_store' => 'setCreateFirstStore',
         'store_name' => 'setStoreName'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -119,10 +117,6 @@ class PaymentContractsDTORequestId implements ArrayAccess
         return self::$getters;
     }
 
-    
-
-    
-
     /**
      * Associative array for storing property values
      * @var mixed[]
@@ -140,8 +134,8 @@ class PaymentContractsDTORequestId implements ArrayAccess
         $this->container['payout_account'] = isset($data['payout_account']) ? $data['payout_account'] : null;
         $this->container['iframe_opts'] = isset($data['iframe_opts']) ? $data['iframe_opts'] : null;
         $this->container['payin_account'] = isset($data['payin_account']) ? $data['payin_account'] : false;
-        $this->container['create_first_store'] = isset($data['create_first_store']) ? $data['create_first_store'] : null;
-        $this->container['store_name'] = isset($data['store_name']) ? $data['store_name'] : false;
+        $this->container['create_first_store'] = isset($data['create_first_store']) ? $data['create_first_store'] : false;
+        $this->container['store_name'] = isset($data['store_name']) ? $data['store_name'] : null;
     }
 
     /**
@@ -164,7 +158,6 @@ class PaymentContractsDTORequestId implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
@@ -180,7 +173,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets contact
-     * @param \Secuconnect\Client\Model\Contact $contact Contact
+     * @param \Secuconnect\Client\Model\Contact $contact contact
      * @return $this
      */
     public function setContact($contact)
@@ -222,7 +215,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets payout_account
-     * @param \Secuconnect\Client\Model\PaymentInformation $payout_account Merchants bank account for the payout
+     * @param \Secuconnect\Client\Model\PaymentInformation $payout_account payout_account
      * @return $this
      */
     public function setPayoutAccount($payout_account)
@@ -243,7 +236,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets iframe_opts
-     * @param \Secuconnect\Client\Model\PaymentContractsDTOIFrameOpts $iframe_opts IFrame opts
+     * @param \Secuconnect\Client\Model\PaymentContractsDTOIFrameOpts $iframe_opts iframe_opts
      * @return $this
      */
     public function setIframeOpts($iframe_opts)
@@ -318,7 +311,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -328,7 +321,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -338,8 +331,8 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -353,7 +346,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -374,5 +367,4 @@ class PaymentContractsDTORequestId implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

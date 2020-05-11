@@ -3,8 +3,8 @@
 namespace Secuconnect\Client;
 
 use PHPUnit\Framework\TestCase;
-use Secuconnect\Client\Api\SmartRoutingsApi;
 use Secuconnect\Client\Api\SecuconnectObjects;
+use Secuconnect\Client\Api\SmartRoutingsApi;
 use Secuconnect\Client\Model\SmartRoutingPriority;
 use Secuconnect\Client\Model\SmartRoutingsDTO;
 use Secuconnect\Client\Model\SmartRoutingsProductModel;

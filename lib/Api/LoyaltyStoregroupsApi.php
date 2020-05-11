@@ -65,7 +65,7 @@ class LoyaltyStoregroupsApi
      *
      * POST Loyalty/Storegroups
      *
-     * @param \Secuconnect\Client\Model\LoyaltyStoregroupsDTO $body Loyalty store group properties (required)
+     * @param \Secuconnect\Client\Model\LoyaltyStoregroupsDTO $body Loyalty store group properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyStoregroupsProductModel
      */
@@ -80,27 +80,23 @@ class LoyaltyStoregroupsApi
      *
      * POST Loyalty/Storegroups
      *
-     * @param \Secuconnect\Client\Model\LoyaltyStoregroupsDTO $body Loyalty store group properties (required)
+     * @param \Secuconnect\Client\Model\LoyaltyStoregroupsDTO $body Loyalty store group properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyStoregroupsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function addStoreGroupWithHttpInfo($body)
     {
-        // verify the required parameter 'body' is set
-        if ($body === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $body when calling addStoreGroup');
-        }
         // parse inputs
         $resourcePath = "/Loyalty/Storegroups";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // body params
         $_tempBody = null;
@@ -115,12 +111,12 @@ class LoyaltyStoregroupsApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -161,11 +157,11 @@ class LoyaltyStoregroupsApi
      *
      * GET Loyalty/StoreGroups
      *
-     * @param int $count The number of items to return. (optional)
-     * @param int $offset The position within the whole result set to start returning items (First element is at 0). (optional)
-     * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 (optional)
-     * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                  A condition may contain:  *                      - wildcard \&quot;*\&quot; for any number of characters  *                      - wildcard \&quot;?\&quot; for one character  *                      - ranges in the form [value TO value]  *  *                  Single expressions may combined by &#39;AND&#39;, &#39;OR&#39;, &#39;NOT&#39; operators and parenthesis &#39;(&#39;, &#39;)&#39; for grouping.  *                  Property names can be nested like \&quot;prop1.prop2\&quot;.  *                  Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * (optional)
-     * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#39;asc&#39;, or descending &#39;dsc&#39; order. (optional)
+     * @param int $count The number of items to return. 
+     * @param int $offset The position within the whole result set to start returning items (First element is at 0). 
+     * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 
+     * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                   A condition may contain:  *                       - wildcard \&quot;*\&quot; for any number of characters  *                       - wildcard \&quot;?\&quot; for one character  *                       - ranges in the form [value TO value]  *  *                   Single expressions may combined by &#x27;AND&#x27;, &#x27;OR&#x27;, &#x27;NOT&#x27; operators and parenthesis &#x27;(&#x27;, &#x27;)&#x27; for grouping.  *                   Property names can be nested like \&quot;prop1.prop2\&quot;.  *                   Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * 
+     * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#x27;asc&#x27;, or descending &#x27;dsc&#x27; order. 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyStoregroupsList
      */
@@ -180,11 +176,11 @@ class LoyaltyStoregroupsApi
      *
      * GET Loyalty/StoreGroups
      *
-     * @param int $count The number of items to return. (optional)
-     * @param int $offset The position within the whole result set to start returning items (First element is at 0). (optional)
-     * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 (optional)
-     * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                  A condition may contain:  *                      - wildcard \&quot;*\&quot; for any number of characters  *                      - wildcard \&quot;?\&quot; for one character  *                      - ranges in the form [value TO value]  *  *                  Single expressions may combined by &#39;AND&#39;, &#39;OR&#39;, &#39;NOT&#39; operators and parenthesis &#39;(&#39;, &#39;)&#39; for grouping.  *                  Property names can be nested like \&quot;prop1.prop2\&quot;.  *                  Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * (optional)
-     * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#39;asc&#39;, or descending &#39;dsc&#39; order. (optional)
+     * @param int $count The number of items to return. 
+     * @param int $offset The position within the whole result set to start returning items (First element is at 0). 
+     * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: prop1.prop2  Example: prop3,prop1.prop2 
+     * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form property:condition.  *                   A condition may contain:  *                       - wildcard \&quot;*\&quot; for any number of characters  *                       - wildcard \&quot;?\&quot; for one character  *                       - ranges in the form [value TO value]  *  *                   Single expressions may combined by &#x27;AND&#x27;, &#x27;OR&#x27;, &#x27;NOT&#x27; operators and parenthesis &#x27;(&#x27;, &#x27;)&#x27; for grouping.  *                   Property names can be nested like \&quot;prop1.prop2\&quot;.  *                   Example: (NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])  * 
+     * @param string $sort String with comma separated pairs of field:order (e.g. contact.surname:asc,contact.comapnyname:desc). Result set will be sorted by included fields, in ascending &#x27;asc&#x27;, or descending &#x27;dsc&#x27; order. 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyStoregroupsList, HTTP status code, HTTP response headers (array of strings)
      */
@@ -196,7 +192,7 @@ class LoyaltyStoregroupsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -230,12 +226,12 @@ class LoyaltyStoregroupsApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -298,8 +294,10 @@ class LoyaltyStoregroupsApi
     public function getOneWithHttpInfo($loyalty_store_group_id)
     {
         // verify the required parameter 'loyalty_store_group_id' is set
-        if ($loyalty_store_group_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $loyalty_store_group_id when calling getOne');
+        if ($loyalty_store_group_id === null || (is_array($loyalty_store_group_id) && count($loyalty_store_group_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $loyalty_store_group_id when calling getOne'
+            );
         }
         // parse inputs
         $resourcePath = "/Loyalty/StoreGroups/{loyaltyStoreGroupId}";
@@ -307,7 +305,7 @@ class LoyaltyStoregroupsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -329,12 +327,12 @@ class LoyaltyStoregroupsApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -397,8 +395,10 @@ class LoyaltyStoregroupsApi
     public function removeStoreGroupWithHttpInfo($loyalty_store_group_id)
     {
         // verify the required parameter 'loyalty_store_group_id' is set
-        if ($loyalty_store_group_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $loyalty_store_group_id when calling removeStoreGroup');
+        if ($loyalty_store_group_id === null || (is_array($loyalty_store_group_id) && count($loyalty_store_group_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $loyalty_store_group_id when calling removeStoreGroup'
+            );
         }
         // parse inputs
         $resourcePath = "/Loyalty/StoreGroups/{loyaltyStoreGroupId}";
@@ -406,7 +406,7 @@ class LoyaltyStoregroupsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -428,12 +428,12 @@ class LoyaltyStoregroupsApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -475,7 +475,7 @@ class LoyaltyStoregroupsApi
      * PUT Loyalty/StoreGroups/{loyaltyStoreGroupId}
      *
      * @param string $loyalty_store_group_id Loyalty store group id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyStoregroupsDTO $body Loyalty store group properties (required)
+     * @param \Secuconnect\Client\Model\LoyaltyStoregroupsDTO $body Loyalty store group properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyStoregroupsProductModel
      */
@@ -491,19 +491,17 @@ class LoyaltyStoregroupsApi
      * PUT Loyalty/StoreGroups/{loyaltyStoreGroupId}
      *
      * @param string $loyalty_store_group_id Loyalty store group id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyStoregroupsDTO $body Loyalty store group properties (required)
+     * @param \Secuconnect\Client\Model\LoyaltyStoregroupsDTO $body Loyalty store group properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyStoregroupsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateStoreGroupWithHttpInfo($loyalty_store_group_id, $body)
     {
         // verify the required parameter 'loyalty_store_group_id' is set
-        if ($loyalty_store_group_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $loyalty_store_group_id when calling updateStoreGroup');
-        }
-        // verify the required parameter 'body' is set
-        if ($body === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateStoreGroup');
+        if ($loyalty_store_group_id === null || (is_array($loyalty_store_group_id) && count($loyalty_store_group_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $loyalty_store_group_id when calling updateStoreGroup'
+            );
         }
         // parse inputs
         $resourcePath = "/Loyalty/StoreGroups/{loyaltyStoreGroupId}";
@@ -511,11 +509,11 @@ class LoyaltyStoregroupsApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // path params
         if ($loyalty_store_group_id !== null) {
@@ -538,12 +536,12 @@ class LoyaltyStoregroupsApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(

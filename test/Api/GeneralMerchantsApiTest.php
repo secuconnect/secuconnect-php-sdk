@@ -5,7 +5,6 @@ namespace Secuconnect\Client;
 use PHPUnit\Framework\TestCase;
 use Secuconnect\Client\Api\GeneralMerchantsApi;
 use Secuconnect\Client\Api\SecuconnectObjects;
-use Secuconnect\Client\Authentication\Authenticator;
 use Secuconnect\Client\Model\GeneralMerchantsProductModel;
 use Secuconnect\Client\Model\GeneralMerchantsUser;
 use Secuconnect\Client\Model\GeoAddress;

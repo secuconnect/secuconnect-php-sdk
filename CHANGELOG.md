@@ -19,6 +19,62 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [2.0.0] - 2020-05-11
+
+### Added
+
+- `Api.SmartTransactionsApi.startTransaction()`: added parameter `body`
+- `Model.Address`: added element `additional_address_data`
+- `Model.GeneralStoresProductModel`: added element `store_name`
+- `Model.PaymentTransactionsProductModel`: added elements `parents` and `account_owner`
+- `Model.PaymentContainersDTO`: added element `customer_id`
+- `Model.SmartTransactionsReceiptValue`: added element `decoration`
+- `Model.SmartTransactionsBonusProducts`: added element `serial_number`
+
+
+### Changed
+
+- The `body` parameter is now always a required parameter in the API calls, but you set it to `null` if you do not need it.
+- `Api.GeneralStoresApi`: changed response declarations from `object` to `ResultBoolean`
+- `Api.LoyaltyCardsApi.assignUser()`: changed input parameter from `object` to `CardPin`
+- `Api.LoyaltyCardsApi`: changed response declarations from `object` to `ResultBoolean`
+- `Api.LoyaltyCustomersApi.checkForDuplicates()`: changed response declaration from `object` to `CustomersWithoutMerchantcardAndDuplicatedCustomers`
+- `Api.LoyaltyMerchantcardsApi`: changed response declarations from `object` to `ResultBoolean`
+- `Api.PaymentContractsApi.paymentContractsIdPaymentMethodsGet()`: changed response declaration from `string[]` to `StringList`
+- `Api.PaymentSecupayCreditcardsApi.cancelPaymentTransactionById()`: changed response declaration from `object` to `PaymentCancelResult`
+- `Api.PaymentSecupayDebitsApi.cancelPaymentTransactionById()`: changed response declaration from `object` to `PaymentCancelResult`
+- `Api.PaymentSecupayInvoicesApi.cancelPaymentTransactionById()`: changed response declaration from `object` to `PaymentCancelResult`
+- `Api.PaymentSecupayPrepaysApi.cancelPaymentTransactionById()`: changed response declaration from `object` to `PaymentCancelResult`
+- `Api.PaymentSecupaySofortApi.cancelPaymentTransactionById()`: changed response declaration from `object` to `PaymentCancelResult`
+- `Api.SmartDevicesApi`: replaced `SmartDevicesList1` with `SmartDevicesList`
+- `Model.PaymentContainersDTO`: replaced `PaymentContainersDTOPrivate` with `OneOfPaymentContainersDTOModelPrivate`
+- `Model.SecupayPayoutDTO`: changed parameter `customer` from string to `PaymentCustomersProductModel`
+
+
+### Fixed
+
+- `Model.SmartTransactionsPrepare`: fixed type declaration of element `callback_urls`
+- `Model.GeneralStoresProductModel`: fixed type declaration of element `geometry`
+- `Model.BankAccountDescriptor`: wrong element `pan` was removed, instead of this we have now the model `CreditCardDescriptor`
+
+
+### Removed
+
+- `Api.GeneralMerchantsApi`: call `updateMerchant` was removed
+- `Api.LoyaltySalesApi`: call `getVirtualTerminalIdByStoreId` was removed
+- `Api.PaymentSecupayCreditcardsApi`: call `paymentSecupayCreditcardsCancelById` was removed
+- `Api.PaymentSecupayDebitsApi`: call `paymentSecupayDebitsCancelById` was removed
+- `Api.PaymentSecupayInvoicesApi`: call `paymentSecupayInvoicesCancelById` was removed
+- `Api.PaymentSecupayPrepaysApi`: call `paymentSecupayPrepaysCancelById` was removed
+- `Api.PaymentTransactionsApi.revokeAccrual()`: parameter `body` was removed
+- `Model.PaymentContainersDTOPrivate` was removed
+- `Model.SmartDevicesList1` was removed
+- `Model.VirtualTerminalData` was removed
+- `Model.SecupaySubTransactionProductModel`: elements `amount`, `transaction_status`, `status`, `currency` were removed
+- `Model.SecupayPayoutDTO`: element `demo` was removed
+- `Model.ReceiptTypeValue`: element `type` was removed
+
+
 ## [1.3.0] - 2020-03-04
 
 ### Changed
@@ -280,3 +336,4 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 [1.1.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.0.1...1.1.0
 [1.2.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.1.0...1.2.0
 [1.3.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.2.0...1.3.0
+[2.0.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.3.0...2.0.0

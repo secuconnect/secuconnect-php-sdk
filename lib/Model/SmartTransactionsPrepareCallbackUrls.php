@@ -7,34 +7,34 @@ use \ArrayAccess;
 /**
  * SmartTransactionsPrepareCallbackUrls
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class SmartTransactionsPrepareCallbackUrls implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     * @var string
-     */
+      * The original name of the model.
+      * @var string
+      */
     protected static $swaggerModelName = 'SmartTransactionsPrepareCallbackUrls';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      * @var string[]
+      */
     protected static $swaggerTypes = [
         'success_url' => 'string',
         'failure_url' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
     protected static $swaggerFormats = [
         'success_url' => null,
         'failure_url' => null
@@ -131,6 +131,7 @@ class SmartTransactionsPrepareCallbackUrls implements ArrayAccess
         return true;
     }
 
+
     /**
      * Gets success_url
      * @return string
@@ -172,9 +173,10 @@ class SmartTransactionsPrepareCallbackUrls implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -184,7 +186,7 @@ class SmartTransactionsPrepareCallbackUrls implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -194,8 +196,8 @@ class SmartTransactionsPrepareCallbackUrls implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -209,7 +211,7 @@ class SmartTransactionsPrepareCallbackUrls implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -230,3 +232,4 @@ class SmartTransactionsPrepareCallbackUrls implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+

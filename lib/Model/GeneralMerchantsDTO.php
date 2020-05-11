@@ -7,10 +7,10 @@ use \ArrayAccess;
 /**
  * GeneralMerchantsDTO
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class GeneralMerchantsDTO implements ArrayAccess
 {
@@ -92,7 +92,6 @@ class GeneralMerchantsDTO implements ArrayAccess
         'urls' => 'urls'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
@@ -112,7 +111,6 @@ class GeneralMerchantsDTO implements ArrayAccess
         'checkout_options' => 'setCheckoutOptions',
         'urls' => 'setUrls'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -148,10 +146,6 @@ class GeneralMerchantsDTO implements ArrayAccess
     {
         return self::$getters;
     }
-
-    
-
-    
 
     /**
      * Associative array for storing property values
@@ -200,7 +194,6 @@ class GeneralMerchantsDTO implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
@@ -384,7 +377,7 @@ class GeneralMerchantsDTO implements ArrayAccess
 
     /**
      * Sets address
-     * @param \Secuconnect\Client\Model\Address $address Address
+     * @param \Secuconnect\Client\Model\Address $address address
      * @return $this
      */
     public function setAddress($address)
@@ -405,7 +398,7 @@ class GeneralMerchantsDTO implements ArrayAccess
 
     /**
      * Sets payment_data
-     * @param \Secuconnect\Client\Model\PaymentInformation $payment_data Merchants bank account for the payout
+     * @param \Secuconnect\Client\Model\PaymentInformation $payment_data payment_data
      * @return $this
      */
     public function setPaymentData($payment_data)
@@ -447,7 +440,7 @@ class GeneralMerchantsDTO implements ArrayAccess
 
     /**
      * Sets checkout_options
-     * @param \Secuconnect\Client\Model\GeneralMerchantsCheckoutOptions $checkout_options Checkout options
+     * @param \Secuconnect\Client\Model\GeneralMerchantsCheckoutOptions $checkout_options checkout_options
      * @return $this
      */
     public function setCheckoutOptions($checkout_options)
@@ -477,9 +470,10 @@ class GeneralMerchantsDTO implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -489,7 +483,7 @@ class GeneralMerchantsDTO implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -499,8 +493,8 @@ class GeneralMerchantsDTO implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -514,7 +508,7 @@ class GeneralMerchantsDTO implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -535,5 +529,4 @@ class GeneralMerchantsDTO implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

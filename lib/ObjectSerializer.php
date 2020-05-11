@@ -2,6 +2,10 @@
 
 namespace Secuconnect\Client;
 
+use Secuconnect\Client\Model\BankAccountDescriptor;
+use Secuconnect\Client\Model\CreditCardDescriptor;
+use Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate;
+
 /**
  * ObjectSerializer
  *
@@ -38,7 +42,9 @@ class ObjectSerializer
             foreach ($data::swaggerTypes() as $property => $swaggerType) {
                 $getter = $data::getters()[$property];
                 $value = $data->$getter();
-                if ($value !== null && method_exists($swaggerType, 'getAllowableEnumValues')
+                if ($value !== null
+                    && !in_array($swaggerType, ['DateTime', 'bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void'], true)
+                    && method_exists($swaggerType, 'getAllowableEnumValues')
                     && !in_array($value, $swaggerType::getAllowableEnumValues())) {
                     $imploded = implode("', '", $swaggerType::getAllowableEnumValues());
                     throw new \InvalidArgumentException("Invalid value for enum '$swaggerType', must be one of: '$imploded'");
@@ -78,9 +84,9 @@ class ObjectSerializer
      *
      * @return string the serialized object
      */
-    public function toPathValue($value)
+    public static function toPathValue($value)
     {
-        return rawurlencode($this->toString($value));
+        return rawurlencode(self::toString($value));
     }
 
     /**
@@ -93,12 +99,12 @@ class ObjectSerializer
      *
      * @return string the serialized object
      */
-    public function toQueryValue($object)
+    public static function toQueryValue($object)
     {
         if (is_array($object)) {
             return implode(',', $object);
         } else {
-            return $this->toString($object);
+            return self::toString($object);
         }
     }
 
@@ -111,9 +117,9 @@ class ObjectSerializer
      *
      * @return string the header string
      */
-    public function toHeaderValue($value)
+    public static function toHeaderValue($value)
     {
-        return $this->toString($value);
+        return self::toString($value);
     }
 
     /**
@@ -125,12 +131,12 @@ class ObjectSerializer
      *
      * @return string the form string
      */
-    public function toFormValue($value)
+    public static function toFormValue($value)
     {
         if ($value instanceof \SplFileObject) {
             return $value->getRealPath();
         } else {
-            return $this->toString($value);
+            return self::toString($value);
         }
     }
 
@@ -143,7 +149,7 @@ class ObjectSerializer
      *
      * @return string the header string
      */
-    public function toString($value)
+    public static function toString($value)
     {
         if ($value instanceof \DateTime) { // datetime in ISO8601 format
             return $value->format(\DateTime::ATOM);
@@ -162,7 +168,7 @@ class ObjectSerializer
      *
      * @return string
      */
-    public function serializeCollection(array $collection, $collectionFormat, $allowCollectionFormatMulti = false)
+    public static function serializeCollection(array $collection, $collectionFormat, $allowCollectionFormatMulti = false)
     {
         if ($allowCollectionFormatMulti && ('multi' === $collectionFormat)) {
             // http_build_query() almost does the job for us. We just
@@ -192,9 +198,9 @@ class ObjectSerializer
      * @param mixed    $data          object or primitive to be deserialized
      * @param string   $class         class name is passed as a string
      * @param string[] $httpHeaders   HTTP headers
-     * @param string   $discriminator discriminator if polymorphism is used
      *
      * @return object|array|null an single or an array of $class instances
+     * @throws \Exception
      */
     public static function deserialize($data, $class, $httpHeaders = null)
     {
@@ -234,23 +240,28 @@ class ObjectSerializer
                 return null;
             }
         } elseif (in_array($class, ['DateTime', 'bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void'], true)) {
+            if ($data instanceof \stdClass || is_array($data) && $class !== 'object' || $class === 'void') {
+                $data = null;
+            }
+
             settype($data, $class);
             return $data;
         } elseif ($class === '\SplFileObject') {
             // determine file name
             if (array_key_exists('Content-Disposition', $httpHeaders) &&
                 preg_match('/inline; filename=[\'"]?([^\'"\s]+)[\'"]?$/i', $httpHeaders['Content-Disposition'], $match)) {
-                $filename = Configuration::getDefaultConfiguration()->getTempFolderPath() . self::sanitizeFilename($match[1]);
+                $filename = Configuration::getDefaultConfiguration()->getTempFolderPath() . DIRECTORY_SEPARATOR . self::sanitizeFilename($match[1]);
             } else {
                 $filename = tempnam(Configuration::getDefaultConfiguration()->getTempFolderPath(), '');
             }
-            $deserialized = new \SplFileObject($filename, "w");
-            $byte_written = $deserialized->fwrite($data);
-            if (Configuration::getDefaultConfiguration()->getDebug()) {
-                error_log("[DEBUG] Written $byte_written byte to $filename. Please move the file to a proper folder or delete the temp file after processing.".PHP_EOL, 3, Configuration::getDefaultConfiguration()->getDebugFile());
-            }
 
-            return $deserialized;
+            $file = fopen($filename, 'w');
+            while ($chunk = $data->read(200)) {
+                fwrite($file, $chunk);
+            }
+            fclose($file);
+
+            return new \SplFileObject($filename, 'r');
         } elseif (method_exists($class, 'getAllowableEnumValues')) {
             if (!in_array($data, $class::getAllowableEnumValues())) {
                 $imploded = implode("', '", $class::getAllowableEnumValues());
@@ -258,12 +269,25 @@ class ObjectSerializer
             }
             return $data;
         } else {
-            // If a discriminator is defined and points to a valid subclass, use it.
-            $discriminator = $class::DISCRIMINATOR;
-            if (!empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
-                $subclass = '\Secuconnect\Client\Model\\' . $data->{$discriminator};
+            if (trim($class, '\\') === OneOfPaymentContainersDTOModelPrivate::class) {
+                $subclass = BankAccountDescriptor::class;
+                if (isset($data->pan)) {
+                    $subclass = CreditCardDescriptor::class;
+                }
+
                 if (is_subclass_of($subclass, $class)) {
                     $class = $subclass;
+                }
+            } else {
+                // If a discriminator is defined and points to a valid subclass, use it.
+                if (class_exists($class) && defined($class.'::DISCRIMINATOR')) {
+                    $discriminator = $class::DISCRIMINATOR;
+                    if (!empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
+                        $subclass = '\\' . 'Secuconnect\Client\\Model\\' . $data->{$discriminator};
+                        if (is_subclass_of($subclass, $class)) {
+                            $class = $subclass;
+                        }
+                    }
                 }
             }
             $instance = new $class();

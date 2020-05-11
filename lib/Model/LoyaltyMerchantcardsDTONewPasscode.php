@@ -2,17 +2,15 @@
 
 namespace Secuconnect\Client\Model;
 
-use \ArrayAccess;
-
 /**
  * LoyaltyMerchantcardsDTONewPasscode
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LoyaltyMerchantcardsDTONewPasscode implements ArrayAccess
+class LoyaltyMerchantcardsDTONewPasscode extends LoyaltyMerchantcardsDTOValidateMerchantCard
 {
     const DISCRIMINATOR = null;
 
@@ -27,8 +25,6 @@ class LoyaltyMerchantcardsDTONewPasscode implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'merchant' => 'string',
-        'cardnumber' => 'int',
         'passcode' => 'int'
     ];
 
@@ -37,19 +33,17 @@ class LoyaltyMerchantcardsDTONewPasscode implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'merchant' => null,
-        'cardnumber' => null,
         'passcode' => null
     ];
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -57,57 +51,39 @@ class LoyaltyMerchantcardsDTONewPasscode implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'merchant' => 'merchant',
-        'cardnumber' => 'cardnumber',
         'passcode' => 'passcode'
     ];
-
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
      */
     protected static $setters = [
-        'merchant' => 'setMerchant',
-        'cardnumber' => 'setCardnumber',
         'passcode' => 'setPasscode'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
      * @var string[]
      */
     protected static $getters = [
-        'merchant' => 'getMerchant',
-        'cardnumber' => 'getCardnumber',
         'passcode' => 'getPasscode'
     ];
 
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
-
-    
-
-    
-
-    /**
-     * Associative array for storing property values
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -115,8 +91,8 @@ class LoyaltyMerchantcardsDTONewPasscode implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
-        $this->container['cardnumber'] = isset($data['cardnumber']) ? $data['cardnumber'] : null;
+        parent::__construct($data);
+
         $this->container['passcode'] = isset($data['passcode']) ? $data['passcode'] : null;
     }
 
@@ -127,7 +103,7 @@ class LoyaltyMerchantcardsDTONewPasscode implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalid_properties = parent::listInvalidProperties();
 
         return $invalid_properties;
     }
@@ -140,52 +116,9 @@ class LoyaltyMerchantcardsDTONewPasscode implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
-
-    /**
-     * Gets merchant
-     * @return string
-     */
-    public function getMerchant()
-    {
-        return $this->container['merchant'];
-    }
-
-    /**
-     * Sets merchant
-     * @param string $merchant General Merchant id
-     * @return $this
-     */
-    public function setMerchant($merchant)
-    {
-        $this->container['merchant'] = $merchant;
-
-        return $this;
-    }
-
-    /**
-     * Gets cardnumber
-     * @return int
-     */
-    public function getCardnumber()
-    {
-        return $this->container['cardnumber'];
-    }
-
-    /**
-     * Sets cardnumber
-     * @param int $cardnumber Loyalty Card number
-     * @return $this
-     */
-    public function setCardnumber($cardnumber)
-    {
-        $this->container['cardnumber'] = $cardnumber;
-
-        return $this;
-    }
 
     /**
      * Gets passcode
@@ -207,9 +140,10 @@ class LoyaltyMerchantcardsDTONewPasscode implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -219,7 +153,7 @@ class LoyaltyMerchantcardsDTONewPasscode implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -229,8 +163,8 @@ class LoyaltyMerchantcardsDTONewPasscode implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -244,7 +178,7 @@ class LoyaltyMerchantcardsDTONewPasscode implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -265,5 +199,4 @@ class LoyaltyMerchantcardsDTONewPasscode implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

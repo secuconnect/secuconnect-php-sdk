@@ -2,17 +2,15 @@
 
 namespace Secuconnect\Client\Model;
 
-use \ArrayAccess;
-
 /**
  * GeneralStoresProductModel
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GeneralStoresProductModel implements ArrayAccess
+class GeneralStoresProductModel extends BaseProductModel
 {
     const DISCRIMINATOR = null;
 
@@ -27,10 +25,9 @@ class GeneralStoresProductModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'object' => 'string',
-        'id' => 'string',
         'id_old' => 'string',
         'merchant' => '\Secuconnect\Client\Model\ProductInstanceUID',
+        'store_name' => 'string',
         'facebook_id' => 'string',
         'source' => 'string',
         'key' => 'string',
@@ -61,10 +58,9 @@ class GeneralStoresProductModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'object' => null,
-        'id' => 'id',
         'id_old' => 'id',
         'merchant' => null,
+        'store_name' => null,
         'facebook_id' => null,
         'source' => null,
         'key' => null,
@@ -92,12 +88,12 @@ class GeneralStoresProductModel implements ArrayAccess
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -105,10 +101,9 @@ class GeneralStoresProductModel implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'object' => 'object',
-        'id' => 'id',
         'id_old' => 'id_old',
         'merchant' => 'merchant',
+        'store_name' => 'store_name',
         'facebook_id' => 'facebook_id',
         'source' => 'source',
         'key' => 'key',
@@ -134,16 +129,14 @@ class GeneralStoresProductModel implements ArrayAccess
         'has_beacon' => 'has_beacon'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
      */
     protected static $setters = [
-        'object' => 'setObject',
-        'id' => 'setId',
         'id_old' => 'setIdOld',
         'merchant' => 'setMerchant',
+        'store_name' => 'setStoreName',
         'facebook_id' => 'setFacebookId',
         'source' => 'setSource',
         'key' => 'setKey',
@@ -169,16 +162,14 @@ class GeneralStoresProductModel implements ArrayAccess
         'has_beacon' => 'setHasBeacon'
     ];
 
-
     /**
      * Array of attributes to getter functions (for serialization of requests)
      * @var string[]
      */
     protected static $getters = [
-        'object' => 'getObject',
-        'id' => 'getId',
         'id_old' => 'getIdOld',
         'merchant' => 'getMerchant',
+        'store_name' => 'getStoreName',
         'facebook_id' => 'getFacebookId',
         'source' => 'getSource',
         'key' => 'getKey',
@@ -206,28 +197,18 @@ class GeneralStoresProductModel implements ArrayAccess
 
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
-
-    
-
-    
-
-    /**
-     * Associative array for storing property values
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -235,10 +216,11 @@ class GeneralStoresProductModel implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['object'] = isset($data['object']) ? $data['object'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        parent::__construct($data);
+
         $this->container['id_old'] = isset($data['id_old']) ? $data['id_old'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
+        $this->container['store_name'] = isset($data['store_name']) ? $data['store_name'] : null;
         $this->container['facebook_id'] = isset($data['facebook_id']) ? $data['facebook_id'] : null;
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;
@@ -271,7 +253,7 @@ class GeneralStoresProductModel implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalid_properties = parent::listInvalidProperties();
 
         return $invalid_properties;
     }
@@ -284,52 +266,9 @@ class GeneralStoresProductModel implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
-
-    /**
-     * Gets object
-     * @return string
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     * @param string $object Object of general store
-     * @return $this
-     */
-    public function setObject($object)
-    {
-        $this->container['object'] = $object;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     * @param string $id Id of general store
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets id_old
@@ -363,12 +302,33 @@ class GeneralStoresProductModel implements ArrayAccess
 
     /**
      * Sets merchant
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $merchant General merchant of general store
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $merchant merchant
      * @return $this
      */
     public function setMerchant($merchant)
     {
         $this->container['merchant'] = $merchant;
+
+        return $this;
+    }
+
+    /**
+     * Gets store_name
+     * @return string
+     */
+    public function getStoreName()
+    {
+        return $this->container['store_name'];
+    }
+
+    /**
+     * Sets store_name
+     * @param string $store_name Store Name
+     * @return $this
+     */
+    public function setStoreName($store_name)
+    {
+        $this->container['store_name'] = $store_name;
 
         return $this;
     }
@@ -531,7 +491,7 @@ class GeneralStoresProductModel implements ArrayAccess
 
     /**
      * Sets geometry
-     * @param \Secuconnect\Client\Model\GeoAddressGeometry $geometry General store geometry
+     * @param \Secuconnect\Client\Model\GeoAddressGeometry $geometry geometry
      * @return $this
      */
     public function setGeometry($geometry)
@@ -855,9 +815,10 @@ class GeneralStoresProductModel implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -867,7 +828,7 @@ class GeneralStoresProductModel implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -877,8 +838,8 @@ class GeneralStoresProductModel implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -892,7 +853,7 @@ class GeneralStoresProductModel implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -913,5 +874,4 @@ class GeneralStoresProductModel implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

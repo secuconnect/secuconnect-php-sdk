@@ -2,17 +2,16 @@
 
 namespace Secuconnect\Client\Model;
 
-use \ArrayAccess;
-
 /**
  * LoyaltyMerchantcardsProductModel
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @description Loyalty merchant card
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LoyaltyMerchantcardsProductModel implements ArrayAccess
+class LoyaltyMerchantcardsProductModel extends BaseProductModel
 {
     const DISCRIMINATOR = null;
 
@@ -27,8 +26,6 @@ class LoyaltyMerchantcardsProductModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'object' => 'string',
-        'id' => 'string',
         'card' => '\Secuconnect\Client\Model\LoyaltyCardsProductModel',
         'merchant' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'created_for_merchant' => '\Secuconnect\Client\Model\ProductInstanceUID',
@@ -53,8 +50,6 @@ class LoyaltyMerchantcardsProductModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'object' => null,
-        'id' => 'id',
         'card' => null,
         'merchant' => null,
         'created_for_merchant' => null,
@@ -76,12 +71,12 @@ class LoyaltyMerchantcardsProductModel implements ArrayAccess
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -89,8 +84,6 @@ class LoyaltyMerchantcardsProductModel implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'object' => 'object',
-        'id' => 'id',
         'card' => 'card',
         'merchant' => 'merchant',
         'created_for_merchant' => 'created_for_merchant',
@@ -110,14 +103,11 @@ class LoyaltyMerchantcardsProductModel implements ArrayAccess
         'passcode' => 'passcode'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
      */
     protected static $setters = [
-        'object' => 'setObject',
-        'id' => 'setId',
         'card' => 'setCard',
         'merchant' => 'setMerchant',
         'created_for_merchant' => 'setCreatedForMerchant',
@@ -137,14 +127,11 @@ class LoyaltyMerchantcardsProductModel implements ArrayAccess
         'passcode' => 'setPasscode'
     ];
 
-
     /**
      * Array of attributes to getter functions (for serialization of requests)
      * @var string[]
      */
     protected static $getters = [
-        'object' => 'getObject',
-        'id' => 'getId',
         'card' => 'getCard',
         'merchant' => 'getMerchant',
         'created_for_merchant' => 'getCreatedForMerchant',
@@ -166,28 +153,18 @@ class LoyaltyMerchantcardsProductModel implements ArrayAccess
 
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
-
-    
-
-    
-
-    /**
-     * Associative array for storing property values
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -195,8 +172,8 @@ class LoyaltyMerchantcardsProductModel implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['object'] = isset($data['object']) ? $data['object'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        parent::__construct($data);
+
         $this->container['card'] = isset($data['card']) ? $data['card'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['created_for_merchant'] = isset($data['created_for_merchant']) ? $data['created_for_merchant'] : null;
@@ -223,7 +200,7 @@ class LoyaltyMerchantcardsProductModel implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalid_properties = parent::listInvalidProperties();
 
         return $invalid_properties;
     }
@@ -236,52 +213,9 @@ class LoyaltyMerchantcardsProductModel implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
-
-    /**
-     * Gets object
-     * @return string
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     * @param string $object Object of loyalty merchant card
-     * @return $this
-     */
-    public function setObject($object)
-    {
-        $this->container['object'] = $object;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     * @param string $id Id of loyalty merchant card
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets card
@@ -294,7 +228,7 @@ class LoyaltyMerchantcardsProductModel implements ArrayAccess
 
     /**
      * Sets card
-     * @param \Secuconnect\Client\Model\LoyaltyCardsProductModel $card Id of loyalty store group
+     * @param \Secuconnect\Client\Model\LoyaltyCardsProductModel $card card
      * @return $this
      */
     public function setCard($card)
@@ -315,7 +249,7 @@ class LoyaltyMerchantcardsProductModel implements ArrayAccess
 
     /**
      * Sets merchant
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $merchant Current merchant id
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $merchant merchant
      * @return $this
      */
     public function setMerchant($merchant)
@@ -336,7 +270,7 @@ class LoyaltyMerchantcardsProductModel implements ArrayAccess
 
     /**
      * Sets created_for_merchant
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $created_for_merchant Merchant id, that loyalty merchant card object was created for
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $created_for_merchant created_for_merchant
      * @return $this
      */
     public function setCreatedForMerchant($created_for_merchant)
@@ -357,7 +291,7 @@ class LoyaltyMerchantcardsProductModel implements ArrayAccess
 
     /**
      * Sets created_for_store
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $created_for_store Store id, that loyalty merchant card object was created for
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $created_for_store created_for_store
      * @return $this
      */
     public function setCreatedForStore($created_for_store)
@@ -378,7 +312,7 @@ class LoyaltyMerchantcardsProductModel implements ArrayAccess
 
     /**
      * Sets customer
-     * @param \Secuconnect\Client\Model\LoyaltyCustomersProductModel $customer Loyalty merchant card customer
+     * @param \Secuconnect\Client\Model\LoyaltyCustomersProductModel $customer customer
      * @return $this
      */
     public function setCustomer($customer)
@@ -399,7 +333,7 @@ class LoyaltyMerchantcardsProductModel implements ArrayAccess
 
     /**
      * Sets cardgroup
-     * @param \Secuconnect\Client\Model\LoyaltyCardgroupsProductModel $cardgroup Loyalty merchant card card group
+     * @param \Secuconnect\Client\Model\LoyaltyCardgroupsProductModel $cardgroup cardgroup
      * @return $this
      */
     public function setCardgroup($cardgroup)
@@ -420,7 +354,7 @@ class LoyaltyMerchantcardsProductModel implements ArrayAccess
 
     /**
      * Sets payment_container
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOPaymentContainer $payment_container Loyalty merchant card payment container
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOPaymentContainer $payment_container payment_container
      * @return $this
      */
     public function setPaymentContainer($payment_container)
@@ -639,9 +573,10 @@ class LoyaltyMerchantcardsProductModel implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -651,7 +586,7 @@ class LoyaltyMerchantcardsProductModel implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -661,8 +596,8 @@ class LoyaltyMerchantcardsProductModel implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -676,7 +611,7 @@ class LoyaltyMerchantcardsProductModel implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -697,5 +632,4 @@ class LoyaltyMerchantcardsProductModel implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

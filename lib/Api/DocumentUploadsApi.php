@@ -61,51 +61,53 @@ class DocumentUploadsApi
     }
 
     /**
-     * Operation documentUploadsPost
+     * Operation documentUploadsMultipartPost
      *
      * POST Document/Uploads
      *
-     * @param \Secuconnect\Client\Model\DocumentUploadsDTOContent $content Content (required)
+     * @param \Secuconnect\Client\Model\FileToUpload $body Input data format 
+     * @param string $multipart multipart 
      * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\DocumentUploadsBaseProductModel
+     * @return \Secuconnect\Client\Model\DocumentUploadsProductModel
      */
-    public function documentUploadsPost($content)
+    public function documentUploadsMultipartPost($body, $multipart = null)
     {
-        list($response) = $this->documentUploadsPostWithHttpInfo($content);
+        list($response) = $this->documentUploadsMultipartPostWithHttpInfo($body, $multipart);
         return $response;
     }
 
     /**
-     * Operation documentUploadsPostWithHttpInfo
+     * Operation documentUploadsMultipartPostWithHttpInfo
      *
      * POST Document/Uploads
      *
-     * @param \Secuconnect\Client\Model\DocumentUploadsDTOContent $content Content (required)
+     * @param \Secuconnect\Client\Model\FileToUpload $body Input data format 
+     * @param string $multipart 
      * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\DocumentUploadsBaseProductModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Secuconnect\Client\Model\DocumentUploadsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function documentUploadsPostWithHttpInfo($content)
+    public function documentUploadsMultipartPostWithHttpInfo($body, $multipart = null)
     {
-        // verify the required parameter 'content' is set
-        if ($content === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $content when calling documentUploadsPost');
-        }
         // parse inputs
-        $resourcePath = "/Document/Uploads";
+        $resourcePath = "/Document/Uploads?multipart";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($multipart !== null) {
+            $queryParams['multipart'] = $this->apiClient->getSerializer()->toQueryValue($multipart);
+        }
         // body params
         $_tempBody = null;
-        if (isset($content)) {
-            $_tempBody = $content;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)
@@ -115,12 +117,12 @@ class DocumentUploadsApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -129,15 +131,15 @@ class DocumentUploadsApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    '\Secuconnect\Client\Model\DocumentUploadsBaseProductModel',
-                    '/Document/Uploads'
+                    '\Secuconnect\Client\Model\DocumentUploadsProductModel',
+                    '/Document/Uploads?multipart'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\DocumentUploadsBaseProductModel', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\DocumentUploadsProductModel', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\DocumentUploadsBaseProductModel', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\DocumentUploadsProductModel', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:
@@ -157,56 +159,47 @@ class DocumentUploadsApi
     }
 
     /**
-     * Operation documentUploadsmultipartPost
+     * Operation documentUploadsPost
      *
      * POST Document/Uploads
      *
-     * @param \SplFileObject $file_to_upload File to upload (required)
+     * @param \Secuconnect\Client\Model\DocumentUploadsDTOContent $body Content 
      * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\DocumentUploadsProductModel
+     * @return \Secuconnect\Client\Model\DocumentUploadsBaseProductModel
      */
-    public function documentUploadsmultipartPost($file_to_upload)
+    public function documentUploadsPost($body)
     {
-        list($response) = $this->documentUploadsmultipartPostWithHttpInfo($file_to_upload);
+        list($response) = $this->documentUploadsPostWithHttpInfo($body);
         return $response;
     }
 
     /**
-     * Operation documentUploadsmultipartPostWithHttpInfo
+     * Operation documentUploadsPostWithHttpInfo
      *
      * POST Document/Uploads
      *
-     * @param \SplFileObject $file_to_upload File to upload (required)
+     * @param \Secuconnect\Client\Model\DocumentUploadsDTOContent $body Content 
      * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\DocumentUploadsProductModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Secuconnect\Client\Model\DocumentUploadsBaseProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function documentUploadsmultipartPostWithHttpInfo($file_to_upload)
+    public function documentUploadsPostWithHttpInfo($body)
     {
-        // verify the required parameter 'file_to_upload' is set
-        if ($file_to_upload === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $file_to_upload when calling documentUploadsmultipartPost');
-        }
         // parse inputs
-        $resourcePath = "/Document/Uploads?multipart";
+        $resourcePath = "/Document/Uploads";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept([]);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['multipart/form-data']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
-        // form params
-        if ($file_to_upload !== null) {
-            // PHP 5.5 introduced a CurlFile object that deprecates the old @filename syntax
-            // See: https://wiki.php.net/rfc/curl-file-upload
-            if (function_exists('curl_file_create')) {
-                $formParams['fileToUpload'] = curl_file_create($this->apiClient->getSerializer()->toFormValue($file_to_upload));
-            } else {
-                $formParams['fileToUpload'] = '@' . $this->apiClient->getSerializer()->toFormValue($file_to_upload);
-            }
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)
@@ -216,12 +209,12 @@ class DocumentUploadsApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         for ($retries = 0; ; $retries++) {
-            
+
             // this endpoint requires OAuth (access token)
             if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
                 $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
             }
-            
+
             // make the API Call
             try {
                 list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -230,15 +223,15 @@ class DocumentUploadsApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    '\Secuconnect\Client\Model\DocumentUploadsProductModel',
-                    '/Document/Uploads?multipart'
+                    '\Secuconnect\Client\Model\DocumentUploadsBaseProductModel',
+                    '/Document/Uploads'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\DocumentUploadsProductModel', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\DocumentUploadsBaseProductModel', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\DocumentUploadsProductModel', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\DocumentUploadsBaseProductModel', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:

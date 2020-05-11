@@ -11,12 +11,16 @@ use Psr\Cache\CacheItemPoolInterface;
 class FileCache implements CacheItemPoolInterface
 {
     const DEFAULT_FOLDER = 'tmp';
+
     /**
      * @var array
      */
     private $cacheItems = [];
 
-    private $dir = '';
+    /**
+     * @var string
+     */
+    private $dir;
 
     /**
      * FileCache constructor.

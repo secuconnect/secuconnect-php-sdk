@@ -7,10 +7,10 @@ use \ArrayAccess;
 /**
  * LoyaltyCustomersDTO
  *
- * @category    Class
- * @package     Secuconnect\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @package  Secuconnect\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 class LoyaltyCustomersDTO implements ArrayAccess
 {
@@ -74,7 +74,6 @@ class LoyaltyCustomersDTO implements ArrayAccess
         'additional_data' => 'additional_data'
     ];
 
-
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      * @var string[]
@@ -88,7 +87,6 @@ class LoyaltyCustomersDTO implements ArrayAccess
         'note' => 'setNote',
         'additional_data' => 'setAdditionalData'
     ];
-
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -118,10 +116,6 @@ class LoyaltyCustomersDTO implements ArrayAccess
     {
         return self::$getters;
     }
-
-    
-
-    
 
     /**
      * Associative array for storing property values
@@ -164,7 +158,6 @@ class LoyaltyCustomersDTO implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
 
@@ -201,7 +194,7 @@ class LoyaltyCustomersDTO implements ArrayAccess
 
     /**
      * Sets merchant_contact
-     * @param \Secuconnect\Client\Model\Contact $merchant_contact Contact
+     * @param \Secuconnect\Client\Model\Contact $merchant_contact merchant_contact
      * @return $this
      */
     public function setMerchantContact($merchant_contact)
@@ -315,9 +308,10 @@ class LoyaltyCustomersDTO implements ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -327,7 +321,7 @@ class LoyaltyCustomersDTO implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -337,8 +331,8 @@ class LoyaltyCustomersDTO implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -352,7 +346,7 @@ class LoyaltyCustomersDTO implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)
@@ -373,5 +367,4 @@ class LoyaltyCustomersDTO implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
 

@@ -6,7 +6,6 @@ use PHPUnit\Framework\TestCase;
 use Secuconnect\Client\Api\GeneralStoresApi;
 use Secuconnect\Client\Api\SecuconnectObjects;
 use Secuconnect\Client\Model\DayTime;
-use Secuconnect\Client\Model\GeneralStoresDTO;
 use Secuconnect\Client\Model\GeneralStoresDTOReason;
 use Secuconnect\Client\Model\GeneralStoresDTOType;
 use Secuconnect\Client\Model\GeneralStoresProductModel;
@@ -119,7 +118,8 @@ class GeneralStoresApiTest extends TestCase
             if (!empty($response)) {
                 $receivedStore = $response;
 
-                $this->assertInstanceOf(GeneralStoresProductModel::class,
+                $this->assertInstanceOf(
+                    GeneralStoresProductModel::class,
                     $receivedStore
                 );
                 $this->assertEquals($store, $receivedStore);
@@ -148,40 +148,7 @@ class GeneralStoresApiTest extends TestCase
     }
 
     /**
-     * Test case for updating general store.
-     *
-     * @throws ApiException
-     */
-    public function testUpdateGeneralStore()
-    {
-        $this->markTestIncomplete();
-        $storeToUpdateId = "STO_FZVKFWQG6XU85SHNBKYJ04N8Z2SKO7";
-
-        if (!empty($storeToUpdate)) {
-            $storeToUpdateId = $storeToUpdate->getId();
-            $newOpenHours = $this->prepareOpenHours();
-            $storeProperties = new GeneralStoresDTO();
-            $newFacebookId = rand(1000, 9999) . "wsdcfrjbed";
-            $newPhone = "+49 " . rand(100, 999) . " " . rand(100000, 999999);
-            $newUrlWebsite = "www.my-super-website-" . rand(1, 99) . ".com";
-            $storeProperties->setFacebookId($newFacebookId);
-            $storeProperties->setPhone($newPhone);
-            $storeProperties->setUrlWebsite($newUrlWebsite);
-            $storeProperties->setOpenHours($newOpenHours);
-            /** FIXME: Set new photo URL, when Documents Uploads product will be available in SDK and check this */
-
-            $updatedStore = self::$api->updateStore($storeToUpdateId, $storeProperties);
-
-            if (!empty($updatedStore)) {
-                $this->assertEquals($newFacebookId, $updatedStore->getFacebookId());
-                $this->assertContains($newPhone, $updatedStore->getPhoneNumberFormatted());
-                $this->assertEquals($newUrlWebsite, $updatedStore->getUrlWebsite());
-                $this->assertEquals($newOpenHours, $updatedStore->getOpenHours());
-            }
-        }
-    }
-
-    /**
+     * /**
      * Test case for setting default.
      *
      * @depends testGetOneGeneralStoreByProvidedId
@@ -211,9 +178,9 @@ class GeneralStoresApiTest extends TestCase
     {
         $numberOfStores = self::$api->getAll()->getCount();
         $isAssigned = true;
-        $offset = rand(10, $numberOfStores-1);
+        $offset = rand(10, $numberOfStores - 1);
 
-        while ($isAssigned || $numberOfStores-1 < $offset) {
+        while ($isAssigned || $numberOfStores - 1 < $offset) {
             try {
                 $store = self::$api->getAll(1, $offset)->getData()[0];
                 $response = self::$api->assignGoogleKey(
@@ -223,7 +190,7 @@ class GeneralStoresApiTest extends TestCase
                 $this->assertTrue($response['result']);
                 $isAssigned = false;
             } catch (ApiException $e) {
-                $offset = rand(10, $numberOfStores-1);
+                $offset = rand(10, $numberOfStores - 1);
             }
         }
     }
