@@ -41,7 +41,7 @@ class GeneralStoresProductModel extends BaseProductModel
         'photo_main' => 'string',
         'photo' => 'string[]',
         'category_main' => 'string',
-        'category' => 'string',
+        'category' => 'string[]',
         'url_googleplus' => 'string',
         'url_website' => 'string',
         'open_hours' => '\Secuconnect\Client\Model\OpenHours[]',
@@ -608,7 +608,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Gets category
-     * @return string
+     * @return string[]
      */
     public function getCategory()
     {
@@ -617,7 +617,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets category
-     * @param string $category General store category
+     * @param string[] $category General store category
      * @return $this
      */
     public function setCategory($category)

@@ -29,7 +29,8 @@ class PaymentTransactionCancelDTO implements ArrayAccess
     protected static $swaggerTypes = [
         'reason' => 'string',
         'amount' => 'int',
-        'reduce_stakeholder_payment' => 'bool'
+        'reduce_stakeholder_payment' => 'bool',
+        'container_id' => 'string'
     ];
 
     /**
@@ -39,7 +40,8 @@ class PaymentTransactionCancelDTO implements ArrayAccess
     protected static $swaggerFormats = [
         'reason' => null,
         'amount' => null,
-        'reduce_stakeholder_payment' => null
+        'reduce_stakeholder_payment' => null,
+        'container_id' => null
     ];
 
     public static function swaggerTypes()
@@ -59,7 +61,8 @@ class PaymentTransactionCancelDTO implements ArrayAccess
     protected static $attributeMap = [
         'reason' => 'reason',
         'amount' => 'amount',
-        'reduce_stakeholder_payment' => 'reduce_stakeholder_payment'
+        'reduce_stakeholder_payment' => 'reduce_stakeholder_payment',
+        'container_id' => 'container_id'
     ];
 
     /**
@@ -69,7 +72,8 @@ class PaymentTransactionCancelDTO implements ArrayAccess
     protected static $setters = [
         'reason' => 'setReason',
         'amount' => 'setAmount',
-        'reduce_stakeholder_payment' => 'setReduceStakeholderPayment'
+        'reduce_stakeholder_payment' => 'setReduceStakeholderPayment',
+        'container_id' => 'setContainerId'
     ];
 
     /**
@@ -79,7 +83,8 @@ class PaymentTransactionCancelDTO implements ArrayAccess
     protected static $getters = [
         'reason' => 'getReason',
         'amount' => 'getAmount',
-        'reduce_stakeholder_payment' => 'getReduceStakeholderPayment'
+        'reduce_stakeholder_payment' => 'getReduceStakeholderPayment',
+        'container_id' => 'getContainerId'
     ];
 
     public static function attributeMap()
@@ -112,6 +117,7 @@ class PaymentTransactionCancelDTO implements ArrayAccess
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['reduce_stakeholder_payment'] = isset($data['reduce_stakeholder_payment']) ? $data['reduce_stakeholder_payment'] : false;
+        $this->container['container_id'] = isset($data['container_id']) ? $data['container_id'] : null;
     }
 
     /**
@@ -197,6 +203,27 @@ class PaymentTransactionCancelDTO implements ArrayAccess
     public function setReduceStakeholderPayment($reduce_stakeholder_payment)
     {
         $this->container['reduce_stakeholder_payment'] = $reduce_stakeholder_payment;
+
+        return $this;
+    }
+
+    /**
+     * Gets container_id
+     * @return string
+     */
+    public function getContainerId()
+    {
+        return $this->container['container_id'];
+    }
+
+    /**
+     * Sets container_id
+     * @param string $container_id Payment Container ID
+     * @return $this
+     */
+    public function setContainerId($container_id)
+    {
+        $this->container['container_id'] = $container_id;
 
         return $this;
     }
