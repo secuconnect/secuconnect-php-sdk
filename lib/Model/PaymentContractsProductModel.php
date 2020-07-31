@@ -10,7 +10,7 @@ namespace Secuconnect\Client\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PaymentContractsProductModel extends BaseProductModel
+class PaymentContractsProductModel extends BaseProductModel 
 {
     const DISCRIMINATOR = null;
 
@@ -26,6 +26,7 @@ class PaymentContractsProductModel extends BaseProductModel
       */
     protected static $swaggerTypes = [
         'parent' => '\Secuconnect\Client\Model\ProductInstanceUID',
+        'pay_in_account' => '\Secuconnect\Client\Model\PaymentInformation',
         'demo' => 'bool',
         'created' => 'string',
         'updated' => 'string'
@@ -37,6 +38,7 @@ class PaymentContractsProductModel extends BaseProductModel
       */
     protected static $swaggerFormats = [
         'parent' => null,
+        'pay_in_account' => null,
         'demo' => null,
         'created' => null,
         'updated' => null
@@ -58,6 +60,7 @@ class PaymentContractsProductModel extends BaseProductModel
      */
     protected static $attributeMap = [
         'parent' => 'parent',
+        'pay_in_account' => 'pay_in_account',
         'demo' => 'demo',
         'created' => 'created',
         'updated' => 'updated'
@@ -69,6 +72,7 @@ class PaymentContractsProductModel extends BaseProductModel
      */
     protected static $setters = [
         'parent' => 'setParent',
+        'pay_in_account' => 'setPayInAccount',
         'demo' => 'setDemo',
         'created' => 'setCreated',
         'updated' => 'setUpdated'
@@ -80,6 +84,7 @@ class PaymentContractsProductModel extends BaseProductModel
      */
     protected static $getters = [
         'parent' => 'getParent',
+        'pay_in_account' => 'getPayInAccount',
         'demo' => 'getDemo',
         'created' => 'getCreated',
         'updated' => 'getUpdated'
@@ -109,6 +114,7 @@ class PaymentContractsProductModel extends BaseProductModel
         parent::__construct($data);
 
         $this->container['parent'] = isset($data['parent']) ? $data['parent'] : null;
+        $this->container['pay_in_account'] = isset($data['pay_in_account']) ? $data['pay_in_account'] : null;
         $this->container['demo'] = isset($data['demo']) ? $data['demo'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
@@ -155,6 +161,27 @@ class PaymentContractsProductModel extends BaseProductModel
     public function setParent($parent)
     {
         $this->container['parent'] = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Gets pay_in_account
+     * @return \Secuconnect\Client\Model\PaymentInformation
+     */
+    public function getPayInAccount()
+    {
+        return $this->container['pay_in_account'];
+    }
+
+    /**
+     * Sets pay_in_account
+     * @param \Secuconnect\Client\Model\PaymentInformation $pay_in_account pay_in_account
+     * @return $this
+     */
+    public function setPayInAccount($pay_in_account)
+    {
+        $this->container['pay_in_account'] = $pay_in_account;
 
         return $this;
     }

@@ -6,7 +6,7 @@
 For more information please visit: [https://developer.secuconnect.com/](https://developer.secuconnect.com)
 
 - API version: 2.0.0
-- SDK version: 2.1.0
+- SDK version: 2.1.2
 
 
 ## Requirements
@@ -23,7 +23,7 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
 ```
 {
   "require": {
-    "secuconnect/secuconnect-php-sdk": "~2.1.0",
+    "secuconnect/secuconnect-php-sdk": "~2.1.2",
   }
 }
 ```
@@ -41,5 +41,5 @@ composer run test
 
 ## Getting Started
 
-Please take a look at our demo code: [https://github.com/secuconnect/secuconnect-php-sdk-demo](https://github.com/secuconnect/secuconnect-php-sdk-demo)
+Please take a look at our demo code: [https://github.com/secuconnect/secuconnect-java-sdk-demo](https://github.com/secuconnect/secuconnect-java-sdk-demo)
 
