@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SmartTransactionsPickupOptions
+ * SmartTransactionsCollectionModel
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsPickupOptions implements ArrayAccess
+class SmartTransactionsCollectionModel implements ArrayAccess, SmartTransactionsBaseDeliveryOptionsModelType, , SmartTransactionsSetDeliveryModelDeliveryOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -20,16 +20,17 @@ class SmartTransactionsPickupOptions implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTransactionsPickupOptions';
+    protected static $swaggerModelName = 'SmartTransactionsCollectionModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'string',
-        'date' => 'string',
-        'store' => '\Secuconnect\Client\Model\ProductInstanceUID'
+        'type' => 'string',
+        'scheduled_slot' => '\Secuconnect\Client\Model\SmartTransactionsTimeSlot',
+        'store_id' => 'string',
+        'delivered_at' => 'string'
     ];
 
     /**
@@ -37,9 +38,10 @@ class SmartTransactionsPickupOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => null,
-        'date' => null,
-        'store' => null
+        'type' => null,
+        'scheduled_slot' => null,
+        'store_id' => null,
+        'delivered_at' => null
     ];
 
     public static function swaggerTypes()
@@ -57,9 +59,10 @@ class SmartTransactionsPickupOptions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'date' => 'date',
-        'store' => 'store'
+        'type' => 'type',
+        'scheduled_slot' => 'scheduled_slot',
+        'store_id' => 'store_id',
+        'delivered_at' => 'delivered_at'
     ];
 
     /**
@@ -67,9 +70,10 @@ class SmartTransactionsPickupOptions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'date' => 'setDate',
-        'store' => 'setStore'
+        'type' => 'setType',
+        'scheduled_slot' => 'setScheduledSlot',
+        'store_id' => 'setStoreId',
+        'delivered_at' => 'setDeliveredAt'
     ];
 
     /**
@@ -77,9 +81,10 @@ class SmartTransactionsPickupOptions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'date' => 'getDate',
-        'store' => 'getStore'
+        'type' => 'getType',
+        'scheduled_slot' => 'getScheduledSlot',
+        'store_id' => 'getStoreId',
+        'delivered_at' => 'getDeliveredAt'
     ];
 
     public static function attributeMap()
@@ -109,9 +114,10 @@ class SmartTransactionsPickupOptions implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['date'] = isset($data['date']) ? $data['date'] : null;
-        $this->container['store'] = isset($data['store']) ? $data['store'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['scheduled_slot'] = isset($data['scheduled_slot']) ? $data['scheduled_slot'] : null;
+        $this->container['store_id'] = isset($data['store_id']) ? $data['store_id'] : null;
+        $this->container['delivered_at'] = isset($data['delivered_at']) ? $data['delivered_at'] : null;
     }
 
     /**
@@ -139,64 +145,85 @@ class SmartTransactionsPickupOptions implements ArrayAccess
 
 
     /**
-     * Gets code
+     * Gets type
      * @return string
      */
-    public function getCode()
+    public function getType()
     {
-        return $this->container['code'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets code
-     * @param string $code Code
+     * Sets type
+     * @param string $type Type of delivery option
      * @return $this
      */
-    public function setCode($code)
+    public function setType($type)
     {
-        $this->container['code'] = $code;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets date
-     * @return string
+     * Gets scheduled_slot
+     * @return \Secuconnect\Client\Model\SmartTransactionsTimeSlot
      */
-    public function getDate()
+    public function getScheduledSlot()
     {
-        return $this->container['date'];
+        return $this->container['scheduled_slot'];
     }
 
     /**
-     * Sets date
-     * @param string $date Date
+     * Sets scheduled_slot
+     * @param \Secuconnect\Client\Model\SmartTransactionsTimeSlot $scheduled_slot scheduled_slot
      * @return $this
      */
-    public function setDate($date)
+    public function setScheduledSlot($scheduled_slot)
     {
-        $this->container['date'] = $date;
+        $this->container['scheduled_slot'] = $scheduled_slot;
 
         return $this;
     }
 
     /**
-     * Gets store
-     * @return \Secuconnect\Client\Model\ProductInstanceUID
+     * Gets store_id
+     * @return string
      */
-    public function getStore()
+    public function getStoreId()
     {
-        return $this->container['store'];
+        return $this->container['store_id'];
     }
 
     /**
-     * Sets store
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $store store
+     * Sets store_id
+     * @param string $store_id Store ID
      * @return $this
      */
-    public function setStore($store)
+    public function setStoreId($store_id)
     {
-        $this->container['store'] = $store;
+        $this->container['store_id'] = $store_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets delivered_at
+     * @return string
+     */
+    public function getDeliveredAt()
+    {
+        return $this->container['delivered_at'];
+    }
+
+    /**
+     * Sets delivered_at
+     * @param string $delivered_at Delivered at
+     * @return $this
+     */
+    public function setDeliveredAt($delivered_at)
+    {
+        $this->container['delivered_at'] = $delivered_at;
 
         return $this;
     }

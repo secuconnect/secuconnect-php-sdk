@@ -29,7 +29,6 @@ class SmartTransactionsDTO implements ArrayAccess
     protected static $swaggerTypes = [
         'merchant' => 'string',
         'provider_contract' => '\Secuconnect\Client\Model\ProductInstanceUID',
-        'order_option' => 'string',
         'status' => 'string',
         'transaction_ref' => 'string',
         'merchant_ref' => 'string',
@@ -46,7 +45,6 @@ class SmartTransactionsDTO implements ArrayAccess
         'device_source' => 'string',
         'trans_id' => 'int',
         'contract' => '\Secuconnect\Client\Model\ProductInstanceID',
-        'pickup_options' => '\Secuconnect\Client\Model\SmartTransactionsPickupOptions',
         'last_visited_page' => 'string',
         'customer' => '\Secuconnect\Client\Model\PaymentCustomersProductModel',
         'shipping_address' => '\Secuconnect\Client\Model\PaymentCustomersProductModel',
@@ -64,7 +62,6 @@ class SmartTransactionsDTO implements ArrayAccess
     protected static $swaggerFormats = [
         'merchant' => null,
         'provider_contract' => null,
-        'order_option' => null,
         'status' => null,
         'transaction_ref' => null,
         'merchant_ref' => null,
@@ -81,7 +78,6 @@ class SmartTransactionsDTO implements ArrayAccess
         'device_source' => null,
         'trans_id' => null,
         'contract' => null,
-        'pickup_options' => null,
         'last_visited_page' => null,
         'customer' => null,
         'shipping_address' => null,
@@ -109,7 +105,6 @@ class SmartTransactionsDTO implements ArrayAccess
     protected static $attributeMap = [
         'merchant' => 'merchant',
         'provider_contract' => 'provider_contract',
-        'order_option' => 'order_option',
         'status' => 'status',
         'transaction_ref' => 'transactionRef',
         'merchant_ref' => 'merchantRef',
@@ -126,7 +121,6 @@ class SmartTransactionsDTO implements ArrayAccess
         'device_source' => 'device_source',
         'trans_id' => 'trans_id',
         'contract' => 'contract',
-        'pickup_options' => 'pickup_options',
         'last_visited_page' => 'last_visited_page',
         'customer' => 'customer',
         'shipping_address' => 'shipping_address',
@@ -144,7 +138,6 @@ class SmartTransactionsDTO implements ArrayAccess
     protected static $setters = [
         'merchant' => 'setMerchant',
         'provider_contract' => 'setProviderContract',
-        'order_option' => 'setOrderOption',
         'status' => 'setStatus',
         'transaction_ref' => 'setTransactionRef',
         'merchant_ref' => 'setMerchantRef',
@@ -161,7 +154,6 @@ class SmartTransactionsDTO implements ArrayAccess
         'device_source' => 'setDeviceSource',
         'trans_id' => 'setTransId',
         'contract' => 'setContract',
-        'pickup_options' => 'setPickupOptions',
         'last_visited_page' => 'setLastVisitedPage',
         'customer' => 'setCustomer',
         'shipping_address' => 'setShippingAddress',
@@ -179,7 +171,6 @@ class SmartTransactionsDTO implements ArrayAccess
     protected static $getters = [
         'merchant' => 'getMerchant',
         'provider_contract' => 'getProviderContract',
-        'order_option' => 'getOrderOption',
         'status' => 'getStatus',
         'transaction_ref' => 'getTransactionRef',
         'merchant_ref' => 'getMerchantRef',
@@ -196,7 +187,6 @@ class SmartTransactionsDTO implements ArrayAccess
         'device_source' => 'getDeviceSource',
         'trans_id' => 'getTransId',
         'contract' => 'getContract',
-        'pickup_options' => 'getPickupOptions',
         'last_visited_page' => 'getLastVisitedPage',
         'customer' => 'getCustomer',
         'shipping_address' => 'getShippingAddress',
@@ -236,7 +226,6 @@ class SmartTransactionsDTO implements ArrayAccess
     {
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['provider_contract'] = isset($data['provider_contract']) ? $data['provider_contract'] : null;
-        $this->container['order_option'] = isset($data['order_option']) ? $data['order_option'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['transaction_ref'] = isset($data['transaction_ref']) ? $data['transaction_ref'] : null;
         $this->container['merchant_ref'] = isset($data['merchant_ref']) ? $data['merchant_ref'] : null;
@@ -253,7 +242,6 @@ class SmartTransactionsDTO implements ArrayAccess
         $this->container['device_source'] = isset($data['device_source']) ? $data['device_source'] : null;
         $this->container['trans_id'] = isset($data['trans_id']) ? $data['trans_id'] : null;
         $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
-        $this->container['pickup_options'] = isset($data['pickup_options']) ? $data['pickup_options'] : null;
         $this->container['last_visited_page'] = isset($data['last_visited_page']) ? $data['last_visited_page'] : null;
         $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
         $this->container['shipping_address'] = isset($data['shipping_address']) ? $data['shipping_address'] : null;
@@ -326,27 +314,6 @@ class SmartTransactionsDTO implements ArrayAccess
     public function setProviderContract($provider_contract)
     {
         $this->container['provider_contract'] = $provider_contract;
-
-        return $this;
-    }
-
-    /**
-     * Gets order_option
-     * @return string
-     */
-    public function getOrderOption()
-    {
-        return $this->container['order_option'];
-    }
-
-    /**
-     * Sets order_option
-     * @param string $order_option Order option
-     * @return $this
-     */
-    public function setOrderOption($order_option)
-    {
-        $this->container['order_option'] = $order_option;
 
         return $this;
     }
@@ -683,27 +650,6 @@ class SmartTransactionsDTO implements ArrayAccess
     public function setContract($contract)
     {
         $this->container['contract'] = $contract;
-
-        return $this;
-    }
-
-    /**
-     * Gets pickup_options
-     * @return \Secuconnect\Client\Model\SmartTransactionsPickupOptions
-     */
-    public function getPickupOptions()
-    {
-        return $this->container['pickup_options'];
-    }
-
-    /**
-     * Sets pickup_options
-     * @param \Secuconnect\Client\Model\SmartTransactionsPickupOptions $pickup_options pickup_options
-     * @return $this
-     */
-    public function setPickupOptions($pickup_options)
-    {
-        $this->container['pickup_options'] = $pickup_options;
 
         return $this;
     }

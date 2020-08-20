@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * LoyaltyStoregroupsList
+ * SmartTransactionsShippingModel
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LoyaltyStoregroupsList implements ArrayAccess
+class SmartTransactionsShippingModel implements ArrayAccess, SmartTransactionsBaseDeliveryOptionsModelType, , SmartTransactionsSetDeliveryModelDeliveryOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -20,15 +20,17 @@ class LoyaltyStoregroupsList implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'LoyaltyStoregroupsList';
+    protected static $swaggerModelName = 'SmartTransactionsShippingModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'count' => 'int',
-        'data' => '\Secuconnect\Client\Model\LoyaltyStoregroupsProductModel[]'
+        'shipped_at' => 'string',
+        'shipped_by' => 'string',
+        'tracking_code' => 'string',
+        'invoice_number' => 'string'
     ];
 
     /**
@@ -36,8 +38,10 @@ class LoyaltyStoregroupsList implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'count' => null,
-        'data' => null
+        'shipped_at' => null,
+        'shipped_by' => null,
+        'tracking_code' => null,
+        'invoice_number' => null
     ];
 
     public static function swaggerTypes()
@@ -55,8 +59,10 @@ class LoyaltyStoregroupsList implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'count' => 'count',
-        'data' => 'data'
+        'shipped_at' => 'shipped_at',
+        'shipped_by' => 'shipped_by',
+        'tracking_code' => 'tracking_code',
+        'invoice_number' => 'invoice_number'
     ];
 
     /**
@@ -64,8 +70,10 @@ class LoyaltyStoregroupsList implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'count' => 'setCount',
-        'data' => 'setData'
+        'shipped_at' => 'setShippedAt',
+        'shipped_by' => 'setShippedBy',
+        'tracking_code' => 'setTrackingCode',
+        'invoice_number' => 'setInvoiceNumber'
     ];
 
     /**
@@ -73,8 +81,10 @@ class LoyaltyStoregroupsList implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'count' => 'getCount',
-        'data' => 'getData'
+        'shipped_at' => 'getShippedAt',
+        'shipped_by' => 'getShippedBy',
+        'tracking_code' => 'getTrackingCode',
+        'invoice_number' => 'getInvoiceNumber'
     ];
 
     public static function attributeMap()
@@ -104,8 +114,10 @@ class LoyaltyStoregroupsList implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['shipped_at'] = isset($data['shipped_at']) ? $data['shipped_at'] : null;
+        $this->container['shipped_by'] = isset($data['shipped_by']) ? $data['shipped_by'] : null;
+        $this->container['tracking_code'] = isset($data['tracking_code']) ? $data['tracking_code'] : null;
+        $this->container['invoice_number'] = isset($data['invoice_number']) ? $data['invoice_number'] : null;
     }
 
     /**
@@ -133,43 +145,85 @@ class LoyaltyStoregroupsList implements ArrayAccess
 
 
     /**
-     * Gets count
-     * @return int
+     * Gets shipped_at
+     * @return string
      */
-    public function getCount()
+    public function getShippedAt()
     {
-        return $this->container['count'];
+        return $this->container['shipped_at'];
     }
 
     /**
-     * Sets count
-     * @param int $count Number of existing loyalty store groups
+     * Sets shipped_at
+     * @param string $shipped_at Shipment Date
      * @return $this
      */
-    public function setCount($count)
+    public function setShippedAt($shipped_at)
     {
-        $this->container['count'] = $count;
+        $this->container['shipped_at'] = $shipped_at;
 
         return $this;
     }
 
     /**
-     * Gets data
-     * @return \Secuconnect\Client\Model\LoyaltyStoregroupsProductModel[]
+     * Gets shipped_by
+     * @return string
      */
-    public function getData()
+    public function getShippedBy()
     {
-        return $this->container['data'];
+        return $this->container['shipped_by'];
     }
 
     /**
-     * Sets data
-     * @param \Secuconnect\Client\Model\LoyaltyStoregroupsProductModel[] $data data
+     * Sets shipped_by
+     * @param string $shipped_by Parcel Provider
      * @return $this
      */
-    public function setData($data)
+    public function setShippedBy($shipped_by)
     {
-        $this->container['data'] = $data;
+        $this->container['shipped_by'] = $shipped_by;
+
+        return $this;
+    }
+
+    /**
+     * Gets tracking_code
+     * @return string
+     */
+    public function getTrackingCode()
+    {
+        return $this->container['tracking_code'];
+    }
+
+    /**
+     * Sets tracking_code
+     * @param string $tracking_code Tracking Code
+     * @return $this
+     */
+    public function setTrackingCode($tracking_code)
+    {
+        $this->container['tracking_code'] = $tracking_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets invoice_number
+     * @return string
+     */
+    public function getInvoiceNumber()
+    {
+        return $this->container['invoice_number'];
+    }
+
+    /**
+     * Sets invoice_number
+     * @param string $invoice_number Invoice Number
+     * @return $this
+     */
+    public function setInvoiceNumber($invoice_number)
+    {
+        $this->container['invoice_number'] = $invoice_number;
 
         return $this;
     }

@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SmartTransactionsBasketText
+ * SmartTransactionsSetDeliveryModel
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsBasketText implements ArrayAccess
+class SmartTransactionsSetDeliveryModel implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,16 +20,14 @@ class SmartTransactionsBasketText implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTransactionsBasketText';
+    protected static $swaggerModelName = 'SmartTransactionsSetDeliveryModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'int',
-        'parent' => 'int',
-        'desc' => 'string'
+        'delivery_options' => 'SmartTransactionsSetDeliveryModelDeliveryOptions'
     ];
 
     /**
@@ -37,9 +35,7 @@ class SmartTransactionsBasketText implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'parent' => null,
-        'desc' => null
+        'delivery_options' => null
     ];
 
     public static function swaggerTypes()
@@ -57,9 +53,7 @@ class SmartTransactionsBasketText implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'parent' => 'parent',
-        'desc' => 'desc'
+        'delivery_options' => 'delivery_options'
     ];
 
     /**
@@ -67,9 +61,7 @@ class SmartTransactionsBasketText implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'parent' => 'setParent',
-        'desc' => 'setDesc'
+        'delivery_options' => 'setDeliveryOptions'
     ];
 
     /**
@@ -77,9 +69,7 @@ class SmartTransactionsBasketText implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'parent' => 'getParent',
-        'desc' => 'getDesc'
+        'delivery_options' => 'getDeliveryOptions'
     ];
 
     public static function attributeMap()
@@ -109,9 +99,7 @@ class SmartTransactionsBasketText implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['parent'] = isset($data['parent']) ? $data['parent'] : null;
-        $this->container['desc'] = isset($data['desc']) ? $data['desc'] : null;
+        $this->container['delivery_options'] = isset($data['delivery_options']) ? $data['delivery_options'] : null;
     }
 
     /**
@@ -139,64 +127,22 @@ class SmartTransactionsBasketText implements ArrayAccess
 
 
     /**
-     * Gets id
-     * @return int
+     * Gets delivery_options
+     * @return SmartTransactionsSetDeliveryModelDeliveryOptions
      */
-    public function getId()
+    public function getDeliveryOptions()
     {
-        return $this->container['id'];
+        return $this->container['delivery_options'];
     }
 
     /**
-     * Sets id
-     * @param int $id Text id
+     * Sets delivery_options
+     * @param SmartTransactionsSetDeliveryModelDeliveryOptions $delivery_options SmartTransactionsSetDeliveryModel
      * @return $this
      */
-    public function setId($id)
+    public function setDeliveryOptions($delivery_options)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets parent
-     * @return int
-     */
-    public function getParent()
-    {
-        return $this->container['parent'];
-    }
-
-    /**
-     * Sets parent
-     * @param int $parent Parent
-     * @return $this
-     */
-    public function setParent($parent)
-    {
-        $this->container['parent'] = $parent;
-
-        return $this;
-    }
-
-    /**
-     * Gets desc
-     * @return string
-     */
-    public function getDesc()
-    {
-        return $this->container['desc'];
-    }
-
-    /**
-     * Sets desc
-     * @param string $desc Desc
-     * @return $this
-     */
-    public function setDesc($desc)
-    {
-        $this->container['desc'] = $desc;
+        $this->container['delivery_options'] = $delivery_options;
 
         return $this;
     }

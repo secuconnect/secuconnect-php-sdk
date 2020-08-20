@@ -30,6 +30,7 @@ class SecupayTransactionProductDTO implements ArrayAccess
         'amount' => 'int',
         'currency' => 'string',
         'purpose' => 'string',
+        'payment_methods' => 'string[]',
         'order_id' => 'string',
         'basket' => '\Secuconnect\Client\Model\SecupayBasketItem[]',
         'accrual' => 'bool',
@@ -52,6 +53,7 @@ class SecupayTransactionProductDTO implements ArrayAccess
         'amount' => null,
         'currency' => null,
         'purpose' => null,
+        'payment_methods' => null,
         'order_id' => null,
         'basket' => null,
         'accrual' => null,
@@ -84,6 +86,7 @@ class SecupayTransactionProductDTO implements ArrayAccess
         'amount' => 'amount',
         'currency' => 'currency',
         'purpose' => 'purpose',
+        'payment_methods' => 'payment_methods',
         'order_id' => 'order_id',
         'basket' => 'basket',
         'accrual' => 'accrual',
@@ -106,6 +109,7 @@ class SecupayTransactionProductDTO implements ArrayAccess
         'amount' => 'setAmount',
         'currency' => 'setCurrency',
         'purpose' => 'setPurpose',
+        'payment_methods' => 'setPaymentMethods',
         'order_id' => 'setOrderId',
         'basket' => 'setBasket',
         'accrual' => 'setAccrual',
@@ -128,6 +132,7 @@ class SecupayTransactionProductDTO implements ArrayAccess
         'amount' => 'getAmount',
         'currency' => 'getCurrency',
         'purpose' => 'getPurpose',
+        'payment_methods' => 'getPaymentMethods',
         'order_id' => 'getOrderId',
         'basket' => 'getBasket',
         'accrual' => 'getAccrual',
@@ -172,6 +177,7 @@ class SecupayTransactionProductDTO implements ArrayAccess
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['purpose'] = isset($data['purpose']) ? $data['purpose'] : null;
+        $this->container['payment_methods'] = isset($data['payment_methods']) ? $data['payment_methods'] : null;
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
         $this->container['basket'] = isset($data['basket']) ? $data['basket'] : null;
         $this->container['accrual'] = isset($data['accrual']) ? $data['accrual'] : null;
@@ -269,6 +275,27 @@ class SecupayTransactionProductDTO implements ArrayAccess
     public function setPurpose($purpose)
     {
         $this->container['purpose'] = $purpose;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_methods
+     * @return string[]
+     */
+    public function getPaymentMethods()
+    {
+        return $this->container['payment_methods'];
+    }
+
+    /**
+     * Sets payment_methods
+     * @param string[] $payment_methods payment methods
+     * @return $this
+     */
+    public function setPaymentMethods($payment_methods)
+    {
+        $this->container['payment_methods'] = $payment_methods;
 
         return $this;
     }

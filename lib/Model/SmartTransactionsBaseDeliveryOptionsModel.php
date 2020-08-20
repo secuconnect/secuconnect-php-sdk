@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * GeneralMerchantsCheckoutOptions
+ * SmartTransactionsBaseDeliveryOptionsModel
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GeneralMerchantsCheckoutOptions implements ArrayAccess
+class SmartTransactionsBaseDeliveryOptionsModel implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,16 +20,14 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'GeneralMerchantsCheckoutOptions';
+    protected static $swaggerModelName = 'SmartTransactionsBaseDeliveryOptionsModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'enabled' => 'bool',
-        'shipping' => '\Secuconnect\Client\Model\GeneralMerchantsCheckoutOptionsShipping',
-        'collection' => '\Secuconnect\Client\Model\GeneralMerchantsCheckoutOptionsCollection'
+        'type' => 'SmartTransactionsBaseDeliveryOptionsModelType'
     ];
 
     /**
@@ -37,9 +35,7 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'enabled' => null,
-        'shipping' => null,
-        'collection' => null
+        'type' => null
     ];
 
     public static function swaggerTypes()
@@ -57,9 +53,7 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'enabled' => 'enabled',
-        'shipping' => 'shipping',
-        'collection' => 'collection'
+        'type' => 'type'
     ];
 
     /**
@@ -67,9 +61,7 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'enabled' => 'setEnabled',
-        'shipping' => 'setShipping',
-        'collection' => 'setCollection'
+        'type' => 'setType'
     ];
 
     /**
@@ -77,9 +69,7 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'enabled' => 'getEnabled',
-        'shipping' => 'getShipping',
-        'collection' => 'getCollection'
+        'type' => 'getType'
     ];
 
     public static function attributeMap()
@@ -109,9 +99,7 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
-        $this->container['shipping'] = isset($data['shipping']) ? $data['shipping'] : null;
-        $this->container['collection'] = isset($data['collection']) ? $data['collection'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -139,64 +127,22 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
 
 
     /**
-     * Gets enabled
-     * @return bool
+     * Gets type
+     * @return SmartTransactionsBaseDeliveryOptionsModelType
      */
-    public function getEnabled()
+    public function getType()
     {
-        return $this->container['enabled'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets enabled
-     * @param bool $enabled Enabled
+     * Sets type
+     * @param SmartTransactionsBaseDeliveryOptionsModelType $type SmartTransactionsBaseDeliveryOptionsModel
      * @return $this
      */
-    public function setEnabled($enabled)
+    public function setType($type)
     {
-        $this->container['enabled'] = $enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets shipping
-     * @return \Secuconnect\Client\Model\GeneralMerchantsCheckoutOptionsShipping
-     */
-    public function getShipping()
-    {
-        return $this->container['shipping'];
-    }
-
-    /**
-     * Sets shipping
-     * @param \Secuconnect\Client\Model\GeneralMerchantsCheckoutOptionsShipping $shipping shipping
-     * @return $this
-     */
-    public function setShipping($shipping)
-    {
-        $this->container['shipping'] = $shipping;
-
-        return $this;
-    }
-
-    /**
-     * Gets collection
-     * @return \Secuconnect\Client\Model\GeneralMerchantsCheckoutOptionsCollection
-     */
-    public function getCollection()
-    {
-        return $this->container['collection'];
-    }
-
-    /**
-     * Sets collection
-     * @param \Secuconnect\Client\Model\GeneralMerchantsCheckoutOptionsCollection $collection collection
-     * @return $this
-     */
-    public function setCollection($collection)
-    {
-        $this->container['collection'] = $collection;
+        $this->container['type'] = $type;
 
         return $this;
     }

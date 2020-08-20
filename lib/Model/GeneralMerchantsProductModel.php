@@ -32,7 +32,6 @@ class GeneralMerchantsProductModel extends BaseProductModel
         'assigned_by' => '\Secuconnect\Client\Model\AssignedBy[]',
         'invited_by' => '\Secuconnect\Client\Model\InvitedBy[]',
         'legal_details' => '\Secuconnect\Client\Model\GeneralMerchantsLegalDetails',
-        'checkout_options' => '\Secuconnect\Client\Model\GeneralMerchantsCheckoutOptions',
         'urls' => '\Secuconnect\Client\Model\GeneralMerchantsUrls',
         'store_name' => 'string'
     ];
@@ -49,7 +48,6 @@ class GeneralMerchantsProductModel extends BaseProductModel
         'assigned_by' => null,
         'invited_by' => null,
         'legal_details' => null,
-        'checkout_options' => null,
         'urls' => null,
         'store_name' => null
     ];
@@ -76,7 +74,6 @@ class GeneralMerchantsProductModel extends BaseProductModel
         'assigned_by' => 'assigned_by',
         'invited_by' => 'invited_by',
         'legal_details' => 'legal_details',
-        'checkout_options' => 'checkout_options',
         'urls' => 'urls',
         'store_name' => 'store_name'
     ];
@@ -93,7 +90,6 @@ class GeneralMerchantsProductModel extends BaseProductModel
         'assigned_by' => 'setAssignedBy',
         'invited_by' => 'setInvitedBy',
         'legal_details' => 'setLegalDetails',
-        'checkout_options' => 'setCheckoutOptions',
         'urls' => 'setUrls',
         'store_name' => 'setStoreName'
     ];
@@ -110,7 +106,6 @@ class GeneralMerchantsProductModel extends BaseProductModel
         'assigned_by' => 'getAssignedBy',
         'invited_by' => 'getInvitedBy',
         'legal_details' => 'getLegalDetails',
-        'checkout_options' => 'getCheckoutOptions',
         'urls' => 'getUrls',
         'store_name' => 'getStoreName'
     ];
@@ -145,7 +140,6 @@ class GeneralMerchantsProductModel extends BaseProductModel
         $this->container['assigned_by'] = isset($data['assigned_by']) ? $data['assigned_by'] : null;
         $this->container['invited_by'] = isset($data['invited_by']) ? $data['invited_by'] : null;
         $this->container['legal_details'] = isset($data['legal_details']) ? $data['legal_details'] : null;
-        $this->container['checkout_options'] = isset($data['checkout_options']) ? $data['checkout_options'] : null;
         $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
         $this->container['store_name'] = isset($data['store_name']) ? $data['store_name'] : null;
     }
@@ -317,27 +311,6 @@ class GeneralMerchantsProductModel extends BaseProductModel
     public function setLegalDetails($legal_details)
     {
         $this->container['legal_details'] = $legal_details;
-
-        return $this;
-    }
-
-    /**
-     * Gets checkout_options
-     * @return \Secuconnect\Client\Model\GeneralMerchantsCheckoutOptions
-     */
-    public function getCheckoutOptions()
-    {
-        return $this->container['checkout_options'];
-    }
-
-    /**
-     * Sets checkout_options
-     * @param \Secuconnect\Client\Model\GeneralMerchantsCheckoutOptions $checkout_options checkout_options
-     * @return $this
-     */
-    public function setCheckoutOptions($checkout_options)
-    {
-        $this->container['checkout_options'] = $checkout_options;
 
         return $this;
     }

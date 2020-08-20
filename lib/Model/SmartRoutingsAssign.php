@@ -29,9 +29,9 @@ class SmartRoutingsAssign implements ArrayAccess
     protected static $swaggerTypes = [
         'object' => 'string',
         'id' => 'string',
+        'priority' => 'int',
         'type' => 'string',
-        'description' => 'string',
-        'priority' => 'int'
+        'description' => 'string'
     ];
 
     /**
@@ -41,9 +41,9 @@ class SmartRoutingsAssign implements ArrayAccess
     protected static $swaggerFormats = [
         'object' => null,
         'id' => 'id',
+        'priority' => null,
         'type' => null,
-        'description' => null,
-        'priority' => null
+        'description' => null
     ];
 
     public static function swaggerTypes()
@@ -63,9 +63,9 @@ class SmartRoutingsAssign implements ArrayAccess
     protected static $attributeMap = [
         'object' => 'object',
         'id' => 'id',
+        'priority' => 'priority',
         'type' => 'type',
-        'description' => 'description',
-        'priority' => 'priority'
+        'description' => 'description'
     ];
 
     /**
@@ -75,9 +75,9 @@ class SmartRoutingsAssign implements ArrayAccess
     protected static $setters = [
         'object' => 'setObject',
         'id' => 'setId',
+        'priority' => 'setPriority',
         'type' => 'setType',
-        'description' => 'setDescription',
-        'priority' => 'setPriority'
+        'description' => 'setDescription'
     ];
 
     /**
@@ -87,9 +87,9 @@ class SmartRoutingsAssign implements ArrayAccess
     protected static $getters = [
         'object' => 'getObject',
         'id' => 'getId',
+        'priority' => 'getPriority',
         'type' => 'getType',
-        'description' => 'getDescription',
-        'priority' => 'getPriority'
+        'description' => 'getDescription'
     ];
 
     public static function attributeMap()
@@ -121,9 +121,9 @@ class SmartRoutingsAssign implements ArrayAccess
     {
         $this->container['object'] = isset($data['object']) ? $data['object'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
     }
 
     /**
@@ -193,6 +193,27 @@ class SmartRoutingsAssign implements ArrayAccess
     }
 
     /**
+     * Gets priority
+     * @return int
+     */
+    public function getPriority()
+    {
+        return $this->container['priority'];
+    }
+
+    /**
+     * Sets priority
+     * @param int $priority Priority
+     * @return $this
+     */
+    public function setPriority($priority)
+    {
+        $this->container['priority'] = $priority;
+
+        return $this;
+    }
+
+    /**
      * Gets type
      * @return string
      */
@@ -230,27 +251,6 @@ class SmartRoutingsAssign implements ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets priority
-     * @return int
-     */
-    public function getPriority()
-    {
-        return $this->container['priority'];
-    }
-
-    /**
-     * Sets priority
-     * @param int $priority Priority
-     * @return $this
-     */
-    public function setPriority($priority)
-    {
-        $this->container['priority'] = $priority;
 
         return $this;
     }

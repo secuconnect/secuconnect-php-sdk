@@ -51,9 +51,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         'tax_amount' => 'int',
         'cashier' => 'string',
         'market' => 'string',
-        'order_option' => 'string',
-        'pickup_options' => '\Secuconnect\Client\Model\SmartTransactionsPickupOptions',
-        'shipment_details' => '\Secuconnect\Client\Model\SmartTransactionsShipmentDetails',
+        'delivery_options' => '\Secuconnect\Client\Model\SmartTransactionsBaseDeliveryOptionsModel',
         'product' => 'string',
         'trans_id' => 'int',
         'payment_method' => 'string',
@@ -95,9 +93,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         'tax_amount' => null,
         'cashier' => null,
         'market' => null,
-        'order_option' => null,
-        'pickup_options' => null,
-        'shipment_details' => null,
+        'delivery_options' => null,
         'product' => null,
         'trans_id' => null,
         'payment_method' => null,
@@ -149,9 +145,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         'tax_amount' => 'tax_amount',
         'cashier' => 'cashier',
         'market' => 'market',
-        'order_option' => 'order_option',
-        'pickup_options' => 'pickup_options',
-        'shipment_details' => 'shipment_details',
+        'delivery_options' => 'delivery_options',
         'product' => 'product',
         'trans_id' => 'trans_id',
         'payment_method' => 'payment_method',
@@ -193,9 +187,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         'tax_amount' => 'setTaxAmount',
         'cashier' => 'setCashier',
         'market' => 'setMarket',
-        'order_option' => 'setOrderOption',
-        'pickup_options' => 'setPickupOptions',
-        'shipment_details' => 'setShipmentDetails',
+        'delivery_options' => 'setDeliveryOptions',
         'product' => 'setProduct',
         'trans_id' => 'setTransId',
         'payment_method' => 'setPaymentMethod',
@@ -237,9 +229,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         'tax_amount' => 'getTaxAmount',
         'cashier' => 'getCashier',
         'market' => 'getMarket',
-        'order_option' => 'getOrderOption',
-        'pickup_options' => 'getPickupOptions',
-        'shipment_details' => 'getShipmentDetails',
+        'delivery_options' => 'getDeliveryOptions',
         'product' => 'getProduct',
         'trans_id' => 'getTransId',
         'payment_method' => 'getPaymentMethod',
@@ -299,9 +289,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         $this->container['tax_amount'] = isset($data['tax_amount']) ? $data['tax_amount'] : null;
         $this->container['cashier'] = isset($data['cashier']) ? $data['cashier'] : null;
         $this->container['market'] = isset($data['market']) ? $data['market'] : null;
-        $this->container['order_option'] = isset($data['order_option']) ? $data['order_option'] : null;
-        $this->container['pickup_options'] = isset($data['pickup_options']) ? $data['pickup_options'] : null;
-        $this->container['shipment_details'] = isset($data['shipment_details']) ? $data['shipment_details'] : null;
+        $this->container['delivery_options'] = isset($data['delivery_options']) ? $data['delivery_options'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
         $this->container['trans_id'] = isset($data['trans_id']) ? $data['trans_id'] : null;
         $this->container['payment_method'] = isset($data['payment_method']) ? $data['payment_method'] : null;
@@ -883,64 +871,22 @@ class SmartTransactionsProductModel extends BaseProductModel
     }
 
     /**
-     * Gets order_option
-     * @return string
+     * Gets delivery_options
+     * @return \Secuconnect\Client\Model\SmartTransactionsBaseDeliveryOptionsModel
      */
-    public function getOrderOption()
+    public function getDeliveryOptions()
     {
-        return $this->container['order_option'];
+        return $this->container['delivery_options'];
     }
 
     /**
-     * Sets order_option
-     * @param string $order_option Order option
+     * Sets delivery_options
+     * @param \Secuconnect\Client\Model\SmartTransactionsBaseDeliveryOptionsModel $delivery_options delivery_options
      * @return $this
      */
-    public function setOrderOption($order_option)
+    public function setDeliveryOptions($delivery_options)
     {
-        $this->container['order_option'] = $order_option;
-
-        return $this;
-    }
-
-    /**
-     * Gets pickup_options
-     * @return \Secuconnect\Client\Model\SmartTransactionsPickupOptions
-     */
-    public function getPickupOptions()
-    {
-        return $this->container['pickup_options'];
-    }
-
-    /**
-     * Sets pickup_options
-     * @param \Secuconnect\Client\Model\SmartTransactionsPickupOptions $pickup_options pickup_options
-     * @return $this
-     */
-    public function setPickupOptions($pickup_options)
-    {
-        $this->container['pickup_options'] = $pickup_options;
-
-        return $this;
-    }
-
-    /**
-     * Gets shipment_details
-     * @return \Secuconnect\Client\Model\SmartTransactionsShipmentDetails
-     */
-    public function getShipmentDetails()
-    {
-        return $this->container['shipment_details'];
-    }
-
-    /**
-     * Sets shipment_details
-     * @param \Secuconnect\Client\Model\SmartTransactionsShipmentDetails $shipment_details shipment_details
-     * @return $this
-     */
-    public function setShipmentDetails($shipment_details)
-    {
-        $this->container['shipment_details'] = $shipment_details;
+        $this->container['delivery_options'] = $delivery_options;
 
         return $this;
     }

@@ -31,6 +31,7 @@ class SecupayTransactionProductModel extends BaseProductModel
         'currency' => 'string',
         'purpose' => 'string',
         'order_id' => 'string',
+        'payment_id' => 'string',
         'basket' => '\Secuconnect\Client\Model\SecupayBasketItem[]',
         'transaction_status' => 'string',
         'accrual' => 'bool',
@@ -58,6 +59,7 @@ class SecupayTransactionProductModel extends BaseProductModel
         'currency' => null,
         'purpose' => null,
         'order_id' => null,
+        'payment_id' => null,
         'basket' => null,
         'transaction_status' => null,
         'accrual' => null,
@@ -95,6 +97,7 @@ class SecupayTransactionProductModel extends BaseProductModel
         'currency' => 'currency',
         'purpose' => 'purpose',
         'order_id' => 'order_id',
+        'payment_id' => 'payment_id',
         'basket' => 'basket',
         'transaction_status' => 'transaction_status',
         'accrual' => 'accrual',
@@ -122,6 +125,7 @@ class SecupayTransactionProductModel extends BaseProductModel
         'currency' => 'setCurrency',
         'purpose' => 'setPurpose',
         'order_id' => 'setOrderId',
+        'payment_id' => 'setPaymentId',
         'basket' => 'setBasket',
         'transaction_status' => 'setTransactionStatus',
         'accrual' => 'setAccrual',
@@ -149,6 +153,7 @@ class SecupayTransactionProductModel extends BaseProductModel
         'currency' => 'getCurrency',
         'purpose' => 'getPurpose',
         'order_id' => 'getOrderId',
+        'payment_id' => 'getPaymentId',
         'basket' => 'getBasket',
         'transaction_status' => 'getTransactionStatus',
         'accrual' => 'getAccrual',
@@ -194,6 +199,7 @@ class SecupayTransactionProductModel extends BaseProductModel
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['purpose'] = isset($data['purpose']) ? $data['purpose'] : null;
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
+        $this->container['payment_id'] = isset($data['payment_id']) ? $data['payment_id'] : null;
         $this->container['basket'] = isset($data['basket']) ? $data['basket'] : null;
         $this->container['transaction_status'] = isset($data['transaction_status']) ? $data['transaction_status'] : null;
         $this->container['accrual'] = isset($data['accrual']) ? $data['accrual'] : null;
@@ -356,6 +362,27 @@ class SecupayTransactionProductModel extends BaseProductModel
     public function setOrderId($order_id)
     {
         $this->container['order_id'] = $order_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_id
+     * @return string
+     */
+    public function getPaymentId()
+    {
+        return $this->container['payment_id'];
+    }
+
+    /**
+     * Sets payment_id
+     * @param string $payment_id Payment ID
+     * @return $this
+     */
+    public function setPaymentId($payment_id)
+    {
+        $this->container['payment_id'] = $payment_id;
 
         return $this;
     }
