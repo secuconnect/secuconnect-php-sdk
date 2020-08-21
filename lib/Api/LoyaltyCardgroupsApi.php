@@ -7,14 +7,14 @@ use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Authentication\Authenticator;
 
 /**
- * LoyaltyCardGroupsApi
+ * LoyaltyCardgroupsApi
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LoyaltyCardGroupsApi
+class LoyaltyCardgroupsApi
 {
     /**
      * API Client
@@ -52,7 +52,7 @@ class LoyaltyCardGroupsApi
      *
      * @param ApiClient $apiClient set the API client
      *
-     * @return LoyaltyCardGroupsApi
+     * @return LoyaltyCardgroupsApi
      */
     public function setApiClient(ApiClient $apiClient)
     {
