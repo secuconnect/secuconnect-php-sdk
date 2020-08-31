@@ -12,7 +12,7 @@ use \ArrayAccess;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsShippingModel implements ArrayAccess, SmartTransactionsBaseDeliveryOptionsModelType, , SmartTransactionsSetDeliveryModelDeliveryOptions 
+class SmartTransactionsShippingModel implements ArrayAccess, SmartTransactionsDTODeliveryOptions, , SmartTransactionsSetDeliveryModelDeliveryOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -27,6 +27,7 @@ class SmartTransactionsShippingModel implements ArrayAccess, SmartTransactionsBa
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'type' => 'string',
         'shipped_at' => 'string',
         'shipped_by' => 'string',
         'tracking_code' => 'string',
@@ -38,6 +39,7 @@ class SmartTransactionsShippingModel implements ArrayAccess, SmartTransactionsBa
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'type' => null,
         'shipped_at' => null,
         'shipped_by' => null,
         'tracking_code' => null,
@@ -59,6 +61,7 @@ class SmartTransactionsShippingModel implements ArrayAccess, SmartTransactionsBa
      * @var string[]
      */
     protected static $attributeMap = [
+        'type' => 'type',
         'shipped_at' => 'shipped_at',
         'shipped_by' => 'shipped_by',
         'tracking_code' => 'tracking_code',
@@ -70,6 +73,7 @@ class SmartTransactionsShippingModel implements ArrayAccess, SmartTransactionsBa
      * @var string[]
      */
     protected static $setters = [
+        'type' => 'setType',
         'shipped_at' => 'setShippedAt',
         'shipped_by' => 'setShippedBy',
         'tracking_code' => 'setTrackingCode',
@@ -81,6 +85,7 @@ class SmartTransactionsShippingModel implements ArrayAccess, SmartTransactionsBa
      * @var string[]
      */
     protected static $getters = [
+        'type' => 'getType',
         'shipped_at' => 'getShippedAt',
         'shipped_by' => 'getShippedBy',
         'tracking_code' => 'getTrackingCode',
@@ -114,6 +119,7 @@ class SmartTransactionsShippingModel implements ArrayAccess, SmartTransactionsBa
      */
     public function __construct(array $data = null)
     {
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['shipped_at'] = isset($data['shipped_at']) ? $data['shipped_at'] : null;
         $this->container['shipped_by'] = isset($data['shipped_by']) ? $data['shipped_by'] : null;
         $this->container['tracking_code'] = isset($data['tracking_code']) ? $data['tracking_code'] : null;
@@ -143,6 +149,27 @@ class SmartTransactionsShippingModel implements ArrayAccess, SmartTransactionsBa
         return true;
     }
 
+
+    /**
+     * Gets type
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     * @param string $type Type of delivery option
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
+
+        return $this;
+    }
 
     /**
      * Gets shipped_at

@@ -52,7 +52,8 @@ class SmartTransactionsDTO implements ArrayAccess
         'checkin' => '\Secuconnect\Client\Model\SmartTransactionsCheckin',
         'payment_method' => 'string',
         'is_demo' => 'bool',
-        'checkout_links' => '\Secuconnect\Client\Model\SmartTransactionsCheckoutLinks'
+        'checkout_links' => '\Secuconnect\Client\Model\SmartTransactionsCheckoutLinks',
+        'delivery_options' => 'SmartTransactionsDTODeliveryOptions'
     ];
 
     /**
@@ -85,7 +86,8 @@ class SmartTransactionsDTO implements ArrayAccess
         'checkin' => null,
         'payment_method' => null,
         'is_demo' => null,
-        'checkout_links' => null
+        'checkout_links' => null,
+        'delivery_options' => null
     ];
 
     public static function swaggerTypes()
@@ -128,7 +130,8 @@ class SmartTransactionsDTO implements ArrayAccess
         'checkin' => 'checkin',
         'payment_method' => 'payment_method',
         'is_demo' => 'is_demo',
-        'checkout_links' => 'checkout_links'
+        'checkout_links' => 'checkout_links',
+        'delivery_options' => 'delivery_options'
     ];
 
     /**
@@ -161,7 +164,8 @@ class SmartTransactionsDTO implements ArrayAccess
         'checkin' => 'setCheckin',
         'payment_method' => 'setPaymentMethod',
         'is_demo' => 'setIsDemo',
-        'checkout_links' => 'setCheckoutLinks'
+        'checkout_links' => 'setCheckoutLinks',
+        'delivery_options' => 'setDeliveryOptions'
     ];
 
     /**
@@ -194,7 +198,8 @@ class SmartTransactionsDTO implements ArrayAccess
         'checkin' => 'getCheckin',
         'payment_method' => 'getPaymentMethod',
         'is_demo' => 'getIsDemo',
-        'checkout_links' => 'getCheckoutLinks'
+        'checkout_links' => 'getCheckoutLinks',
+        'delivery_options' => 'getDeliveryOptions'
     ];
 
     public static function attributeMap()
@@ -250,6 +255,7 @@ class SmartTransactionsDTO implements ArrayAccess
         $this->container['payment_method'] = isset($data['payment_method']) ? $data['payment_method'] : null;
         $this->container['is_demo'] = isset($data['is_demo']) ? $data['is_demo'] : null;
         $this->container['checkout_links'] = isset($data['checkout_links']) ? $data['checkout_links'] : null;
+        $this->container['delivery_options'] = isset($data['delivery_options']) ? $data['delivery_options'] : null;
     }
 
     /**
@@ -818,6 +824,27 @@ class SmartTransactionsDTO implements ArrayAccess
     public function setCheckoutLinks($checkout_links)
     {
         $this->container['checkout_links'] = $checkout_links;
+
+        return $this;
+    }
+
+    /**
+     * Gets delivery_options
+     * @return SmartTransactionsDTODeliveryOptions
+     */
+    public function getDeliveryOptions()
+    {
+        return $this->container['delivery_options'];
+    }
+
+    /**
+     * Sets delivery_options
+     * @param SmartTransactionsDTODeliveryOptions $delivery_options SmartTransactionsDTO
+     * @return $this
+     */
+    public function setDeliveryOptions($delivery_options)
+    {
+        $this->container['delivery_options'] = $delivery_options;
 
         return $this;
     }
