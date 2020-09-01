@@ -30,7 +30,8 @@ class SmartTransactionsCollectionModel implements ArrayAccess, SmartTransactions
         'type' => 'string',
         'scheduled_slot' => '\Secuconnect\Client\Model\SmartTransactionsTimeSlot',
         'store_id' => 'string',
-        'delivered_at' => 'string'
+        'delivered_at' => 'string',
+        'code' => 'string'
     ];
 
     /**
@@ -41,7 +42,8 @@ class SmartTransactionsCollectionModel implements ArrayAccess, SmartTransactions
         'type' => null,
         'scheduled_slot' => null,
         'store_id' => null,
-        'delivered_at' => null
+        'delivered_at' => null,
+        'code' => null
     ];
 
     public static function swaggerTypes()
@@ -62,7 +64,8 @@ class SmartTransactionsCollectionModel implements ArrayAccess, SmartTransactions
         'type' => 'type',
         'scheduled_slot' => 'scheduled_slot',
         'store_id' => 'store_id',
-        'delivered_at' => 'delivered_at'
+        'delivered_at' => 'delivered_at',
+        'code' => 'code'
     ];
 
     /**
@@ -73,7 +76,8 @@ class SmartTransactionsCollectionModel implements ArrayAccess, SmartTransactions
         'type' => 'setType',
         'scheduled_slot' => 'setScheduledSlot',
         'store_id' => 'setStoreId',
-        'delivered_at' => 'setDeliveredAt'
+        'delivered_at' => 'setDeliveredAt',
+        'code' => 'setCode'
     ];
 
     /**
@@ -84,7 +88,8 @@ class SmartTransactionsCollectionModel implements ArrayAccess, SmartTransactions
         'type' => 'getType',
         'scheduled_slot' => 'getScheduledSlot',
         'store_id' => 'getStoreId',
-        'delivered_at' => 'getDeliveredAt'
+        'delivered_at' => 'getDeliveredAt',
+        'code' => 'getCode'
     ];
 
     public static function attributeMap()
@@ -118,6 +123,7 @@ class SmartTransactionsCollectionModel implements ArrayAccess, SmartTransactions
         $this->container['scheduled_slot'] = isset($data['scheduled_slot']) ? $data['scheduled_slot'] : null;
         $this->container['store_id'] = isset($data['store_id']) ? $data['store_id'] : null;
         $this->container['delivered_at'] = isset($data['delivered_at']) ? $data['delivered_at'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
     }
 
     /**
@@ -224,6 +230,27 @@ class SmartTransactionsCollectionModel implements ArrayAccess, SmartTransactions
     public function setDeliveredAt($delivered_at)
     {
         $this->container['delivered_at'] = $delivered_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets code
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->container['code'];
+    }
+
+    /**
+     * Sets code
+     * @param string $code code of the colledction
+     * @return $this
+     */
+    public function setCode($code)
+    {
+        $this->container['code'] = $code;
 
         return $this;
     }
