@@ -245,7 +245,7 @@ class SmartTransactionsCollectionModel implements ArrayAccess, SmartTransactions
 
     /**
      * Sets code
-     * @param string $code code of the colledction
+     * @param string $code confirmation code to pickup the collection
      * @return $this
      */
     public function setCode($code)
