@@ -3,8 +3,18 @@
 namespace Secuconnect\Client;
 
 use PHPUnit\Framework\TestCase;
+use Secuconnect\Client\Api\PaymentContainersApi;
+use Secuconnect\Client\Api\PaymentCustomersApi;
+use Secuconnect\Client\Api\SecuconnectObjects;
 use Secuconnect\Client\Api\SmartTransactionsApi;
 use Secuconnect\Client\Authentication\Authenticator;
+use Secuconnect\Client\Model\Address;
+use Secuconnect\Client\Model\BankAccountDescriptor;
+use Secuconnect\Client\Model\Contact;
+use Secuconnect\Client\Model\PaymentContainersDTO;
+use Secuconnect\Client\Model\PaymentCustomersDTO;
+use Secuconnect\Client\Model\ProductInstanceID;
+use Secuconnect\Client\Model\ProductInstanceUID;
 use Secuconnect\Client\Model\SmartTransactionsBasket;
 use Secuconnect\Client\Model\SmartTransactionsBasketInfo;
 use Secuconnect\Client\Model\SmartTransactionsBasketProduct;
@@ -14,8 +24,10 @@ use Secuconnect\Client\Model\SmartTransactionsDTO;
 use Secuconnect\Client\Model\SmartTransactionsIdent;
 use Secuconnect\Client\Model\SmartTransactionsList;
 use Secuconnect\Client\Model\SmartTransactionsMerchant;
+use Secuconnect\Client\Model\SmartTransactionsPrepare;
 use Secuconnect\Client\Model\SmartTransactionsPreTransactionModel;
 use Secuconnect\Client\Model\SmartTransactionsProductModel;
+use Secuconnect\Client\Model\SmartTransactionsSetDeliveryModel;
 use Secuconnect\Client\Model\SmartTransactionsShippingModel;
 use Secuconnect\Client\Model\SmartTransactionsSubBasketProduct;
 use Secuconnect\Client\Model\SmartTransactionsTimeSlot;
@@ -44,19 +56,23 @@ class SmartTransactionsApiTest extends TestCase
      */
     public static function setUpBeforeClass()
     {
-        Authenticator::authenticateByRefreshToken(...array_values(Globals::OAuthRefreshCredentials));
+        Authenticator::authenticateByClientCredentials(...array_values(Globals::OAuthClientCredentials));
 
         self::$api = new SmartTransactionsApi();
 
         $SmartTransactionsProductModel = new SmartTransactionsProductModel();
         $SmartTransactionsProductModel->setObject('smart.transactions');
-        $SmartTransactionsProductModel->setId('STX_WK634H24D2MQDX9Y52TSD52XKSJVAW');
+        $SmartTransactionsProductModel->setId('STX_3WNFW2NUT2NMD52YD3H584XVMV2GAZ');
         $SmartTransactionsProductModel->setStatus('created');
 
         $merchant = new SmartTransactionsMerchant();
         $merchant->setObject('general.merchants');
-        $merchant->setId('MRC_Z8RAAFDVDT6AU5KZ4KX2NHH5P4CKP7');
+        $merchant->setId('MRC_ESEG7R4TH4BAMWSAM8AF2AW9K0KAOX');
         $SmartTransactionsProductModel->setMerchant($merchant);
+
+        $contract = new ProductInstanceUID();
+        $contract->setId('GCR_35KH2CMCWHUT5DNV8843K9XWXG29PM');
+        $SmartTransactionsProductModel->setContract($contract);
 
         $SmartTransactionsProductModel->setMerchantRef('DemoMerchantRef');
         $SmartTransactionsProductModel->setTransactionRef('201610141523-999-994-45');
@@ -239,9 +255,11 @@ class SmartTransactionsApiTest extends TestCase
         $receivedTransaction = self::$SmartTransactionsProductModel;
 
         $transactionDTO = new SmartTransactionsDTO();
-        $transactionDTO->setMerchant($receivedTransaction->getMerchant());
-        $transactionDTO->setBasket($receivedTransaction->getBasket());
-        $transactionDTO->setBasketInfo($receivedTransaction->getBasketInfo());
+        $transactionDTO->setMerchant(self::$SmartTransactionsProductModel->getMerchant());
+        $transactionDTO->setIsDemo(true);
+        $transactionDTO->setBasket(self::$SmartTransactionsProductModel->getBasket());
+        $transactionDTO->setBasketInfo(self::$SmartTransactionsProductModel->getBasketInfo());
+        $transactionDTO->setContract(self::$SmartTransactionsProductModel->getContract());
 
         try {
             $createdTransaction = self::$api->addTransaction($transactionDTO);
@@ -270,6 +288,7 @@ class SmartTransactionsApiTest extends TestCase
         $transactionDTO = new SmartTransactionsDTO();
 
         $transactionDTO->setMerchant($receivedTransaction->getMerchant());
+        $transactionDTO->setContract(self::$SmartTransactionsProductModel->getContract());
 
         $price = rand(10, 1000);
 
@@ -313,8 +332,12 @@ class SmartTransactionsApiTest extends TestCase
      */
     public function testPreTransaction()
     {
+        Authenticator::authenticateByRefreshToken(...array_values(Globals::OAuthRefreshCredentials));
+
+        self::$api = new SmartTransactionsApi();
+
         $transactionDTO = new SmartTransactionsDTO();
-        $transactionDTO->setMerchant(self::$SmartTransactionsProductModel->getMerchant());
+        $transactionDTO->setMerchant('MRC_Z8RAAFDVDT6AU5KZ4KX2NHH5P4CKP7');
         $transactionDTO->setBasket(self::$SmartTransactionsProductModel->getBasket());
         $transactionDTO->setBasketInfo(self::$SmartTransactionsProductModel->getBasketInfo());
         $SmartTransactionsIdent = new SmartTransactionsIdent();
@@ -401,7 +424,7 @@ class SmartTransactionsApiTest extends TestCase
         $subBasket3->setItemType('stakeholder_payment');
         $subBasket3->setDesc("stakeholder_1");
         $subBasket3->setSum(10);
-        $subBasket3->setContractId("GCR_372E9PEKJAD5VEHGBGSPTUVSKBWBPP");
+        $subBasket3->setContractId("GCR_2H69XY35227V2VKP9WRA3SJ0W95RP0");
         $subBasket3->setReferenceId("1001.3");
 
         $prod1 = new SmartTransactionsBasketProduct();
@@ -410,7 +433,7 @@ class SmartTransactionsApiTest extends TestCase
         $prod1->setDesc("Position 1 Order something");
         $prod1->setSum(130);
         $prod1->setQuantity(1);
-        $prod1->setContractId("GCR_KYG4WA80H0P236QUNUMWWXKQKBWCP0");
+        $prod1->setContractId("GCR_3QCX2UMNSE87Y698A5B90GD5MZWHP7");
         $prod1->setReferenceId("1001");
         $prod1->setSubBasket(array($subBasket1, $subBasket2, $subBasket3));
 
@@ -439,47 +462,123 @@ class SmartTransactionsApiTest extends TestCase
     }
 
     /**
-     * Test case for starting smart transaction.
+     * Test case for set shipping to smart transaction.
      * @throws ApiException
      */
-    public function testStartshippingTransaction()
+    public function testSetShippingTransaction()
     {
-
         $smartTransactionShipping = new SmartTransactionsShippingModel();
         $smartTransactionShipping->setType('shipping');
+
+        $transactionDTO = new SmartTransactionsDTO();
+        $transactionDTO->setMerchant(self::$SmartTransactionsProductModel->getMerchant());
+        $transactionDTO->setIsDemo(true);
+        $transactionDTO->setBasket(self::$SmartTransactionsProductModel->getBasket());
+        $transactionDTO->setBasketInfo(self::$SmartTransactionsProductModel->getBasketInfo());
+        $transactionDTO->setDeliveryOptions($smartTransactionShipping);
+        $transactionDTO->setContract(self::$SmartTransactionsProductModel->getContract());
+        $transactionDTO->setIntent('order');
+
+        //create payment customer
+        $customer = SecuconnectObjects::getInstance()->getCustomer();
+        $paymentCustomerApi = new PaymentCustomersApi();
+
+        try {
+            $response = $paymentCustomerApi->paymentCustomersPost($customer);
+            $customerID = $response->getId();
+
+        } catch (ApiException $e) {
+            print_r($e->getResponseBody());
+            throw $e;
+        }
+
+        //create payment container
+        $container = SecuconnectObjects::getInstance()->getContainer();
+        $paymentContainerApi = new PaymentContainersApi();
+
+        try {
+            $response = $paymentContainerApi->paymentContainersPost($container);
+            $containerId = $response->getId();
+
+        } catch (ApiException $e) {
+            print_r($e->getResponseBody());
+            throw $e;
+        }
+
+        // add transaction
+        try {
+            $smartTransaction = self::$api->addTransaction($transactionDTO);
+            $this->assertEquals('shipping', $smartTransaction->getDeliveryOptions()['type']);
+
+        } catch (ApiException $e) {
+            print_r($e->getResponseBody());
+            throw $e;
+        }
+
+        //add container and customer for prepare
+        $customerUid = new ProductInstanceUID();
+        $customerUid->setObject('payment.customers');
+        $customerUid->setId($customerID);
+
+        $containerUid = new ProductInstanceUID();
+        $containerUid->setObject('payment.containers');
+        $containerUid->setId($containerId);
+
+        $smartTransactionPrepareModel = new SmartTransactionsPrepare();
+        $smartTransactionPrepareModel->setCustomer($customerUid);
+        $smartTransactionPrepareModel->setContainer($containerUid);
+        $smartTransactionPrepareModel->getIsDemo();
+
+        try {
+            $prepareresponse = self::$api->prepare($smartTransaction->getId(), 'debit', $smartTransactionPrepareModel);
+            $this->assertInstanceOf(SmartTransactionsProductModel::class, $prepareresponse);
+
+        } catch (ApiException $e) {
+            print_r($e->getResponseBody());
+            throw $e;
+        }
+
+        try {
+            $transactionAfterStart = self::$api->startTransaction($smartTransaction->getId(), '', NULL);
+            $this->assertInstanceOf(SmartTransactionsProductModel::class, $transactionAfterStart);
+
+        } catch (ApiException $e) {
+            print_r($e->getResponseBody());
+            throw $e;
+        }
+
+        $smartTransactionShipping = new SmartTransactionsShippingModel();
         $smartTransactionShipping->setShippedAt('2020-07-17T12:18:18+02:00');
         $smartTransactionShipping->setShippedBy('DHL');
         $smartTransactionShipping->setTrackingCode('1234567');
         $smartTransactionShipping->setInvoiceNumber('12345');
 
-        $transactionDTO = new SmartTransactionsDTO();
-        $transactionDTO->setMerchant(self::$SmartTransactionsProductModel->getMerchant());
-        $transactionDTO->setBasket(self::$SmartTransactionsProductModel->getBasket());
-        $transactionDTO->setBasketInfo(self::$SmartTransactionsProductModel->getBasketInfo());
-        $transactionDTO->setDeliveryOptions($smartTransactionShipping);
-
+        //set delivery
         try {
-            $smartTransaction = self::$api->addTransaction($transactionDTO);
+
+            $delivery = new SmartTransactionsSetDeliveryModel();
+            $delivery->setDeliveryOptions($smartTransactionShipping);
+
+            $smartTransaction = self::$api->setDelivery($smartTransaction->getId(),$delivery);
+            $this->assertEquals('2020-07-17T12:18:18+02:00', $smartTransaction->getDeliveryOptions()['shipped_at']);
+            $this->assertEquals('DHL', $smartTransaction->getDeliveryOptions()['shipped_by']);
+            $this->assertEquals('1234567', $smartTransaction->getDeliveryOptions()['tracking_code']);
+            $this->assertEquals('12345', $smartTransaction->getDeliveryOptions()['invoice_number']);
+
         } catch (ApiException $e) {
             print_r($e->getResponseBody());
             throw $e;
         }
 
-        try {
-            $transactionAfterStart = self::$api->startTransaction($smartTransaction->getId(), 'demo', NULL);
-            $this->assertInstanceOf(SmartTransactionsProductModel::class, $transactionAfterStart);
-        } catch (ApiException $e) {
-            print_r($e->getResponseBody());
-            throw $e;
-        }
     }
 
     /**
-     * Test case for starting smart transaction.
+     * Test case for set delivery date to a smart transaction.
      * @throws ApiException
      */
-    public function testStartCollectionTransaction()
+    public function testSetCollectionTransaction()
     {
+        //smart transactions parameters
         $SmartTransactionSceduledSlot = new SmartTransactionsTimeSlot();
         $SmartTransactionSceduledSlot->setStartDate('2020-07-18T12:18:18+02:00');
         $SmartTransactionSceduledSlot->setEndDate('2020-07-20T12:18:18+02:00');
@@ -487,26 +586,99 @@ class SmartTransactionsApiTest extends TestCase
         $smartTransactionShipping = new SmartTransactionsCollectionModel();
         $smartTransactionShipping->setType('collection');
         $smartTransactionShipping->setScheduledSlot($SmartTransactionSceduledSlot);
-        $smartTransactionShipping->setDeliveredAt('2020-07-19T12:18:18+02:00');
-        $smartTransactionShipping->setStoreId('STO_C4REGJFGDHD4ZP3EG56GDDSJP4CKPM');
+        $smartTransactionShipping->setStoreId('STO_284SYJN9UDMJQWVH9UXNVYK9K0KBOW');
 
         $transactionDTO = new SmartTransactionsDTO();
         $transactionDTO->setMerchant(self::$SmartTransactionsProductModel->getMerchant());
+        $transactionDTO->setIsDemo(true);
         $transactionDTO->setBasket(self::$SmartTransactionsProductModel->getBasket());
         $transactionDTO->setBasketInfo(self::$SmartTransactionsProductModel->getBasketInfo());
         $transactionDTO->setDeliveryOptions($smartTransactionShipping);
+        $transactionDTO->setContract(self::$SmartTransactionsProductModel->getContract());
+        $transactionDTO->setIntent('order');
+
+        //create payment customer
+        $customer = SecuconnectObjects::getInstance()->getCustomer();
+        $paymentCustomerApi = new PaymentCustomersApi();
 
         try {
-            $smartTransaction = self::$api->addTransaction($transactionDTO);
+            $response = $paymentCustomerApi->paymentCustomersPost($customer);
+            $customerID = $response->getId();
+
         } catch (ApiException $e) {
             print_r($e->getResponseBody());
             throw $e;
         }
 
+        //create payment container
+        $container = SecuconnectObjects::getInstance()->getContainer();
+        $paymentContainerApi = new PaymentContainersApi();
 
         try {
-            $transactionAfterStart = self::$api->startTransaction($smartTransaction->getId(), 'demo', NULL);
-            $this->assertInstanceOf(SmartTransactionsProductModel::class, $transactionAfterStart);
+            $response = $paymentContainerApi->paymentContainersPost($container);
+            $containerId = $response->getId();
+
+        } catch (ApiException $e) {
+            print_r($e->getResponseBody());
+            throw $e;
+        }
+
+        //add transaction
+        try {
+            $smartTransaction = self::$api->addTransaction($transactionDTO);
+
+            $this->assertEquals('STO_284SYJN9UDMJQWVH9UXNVYK9K0KBOW', $smartTransaction->getDeliveryOptions()['store_id']);
+            $this->assertEquals('collection', $smartTransaction->getDeliveryOptions()['type']);
+
+        } catch (ApiException $e) {
+            print_r($e->getResponseBody());
+            throw $e;
+        }
+
+        //add container and customer for prepare
+        $customerUid = new ProductInstanceUID();
+        $customerUid->setObject('payment.customers');
+        $customerUid->setId($customerID);
+
+        $containerUid = new ProductInstanceUID();
+        $containerUid->setObject('payment.containers');
+        $containerUid->setId($containerId);
+
+        $smartTransactionPrepareModel = new SmartTransactionsPrepare();
+        $smartTransactionPrepareModel->setCustomer($customerUid);
+        $smartTransactionPrepareModel->setContainer($containerUid);
+
+        try {
+            $prepareresponse = self::$api->prepare($smartTransaction->getId(), 'debit', $smartTransactionPrepareModel);
+            $this->assertInstanceOf(SmartTransactionsProductModel::class, $prepareresponse);
+
+        } catch (ApiException $e) {
+            print_r($e->getResponseBody());
+            throw $e;
+        }
+
+        //start transaction
+        try {
+            $startresponse = self::$api->startTransaction($smartTransaction->getId(), '', NULL);
+            $this->assertInstanceOf(SmartTransactionsProductModel::class, $startresponse);
+            $this->assertNotEmpty($startresponse->getDeliveryOptions()['code']);
+
+        } catch (ApiException $e) {
+            print_r($e->getResponseBody());
+            throw $e;
+        }
+
+        //set delivery
+        try {
+            $smartTransactionCollection = new SmartTransactionsCollectionModel();
+            $smartTransactionCollection->setDeliveredAt('2020-07-19T12:18:18+02:00');
+
+            $delivery = new SmartTransactionsSetDeliveryModel();
+            $delivery->setDeliveryOptions($smartTransactionCollection);
+
+            $smartTransaction = self::$api->setDelivery($startresponse->getId(),$delivery);
+            $this->assertEquals('2020-07-19T12:18:18+02:00', $smartTransaction->getDeliveryOptions()['delivered_at']);
+
         } catch (ApiException $e) {
             print_r($e->getResponseBody());
             throw $e;

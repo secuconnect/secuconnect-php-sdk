@@ -52,6 +52,7 @@ class SmartTransactionsDTO implements ArrayAccess
         'checkin' => '\Secuconnect\Client\Model\SmartTransactionsCheckin',
         'payment_method' => 'string',
         'is_demo' => 'bool',
+        'intent' => 'string',
         'checkout_links' => '\Secuconnect\Client\Model\SmartTransactionsCheckoutLinks',
         'delivery_options' => 'SmartTransactionsDTODeliveryOptions'
     ];
@@ -86,6 +87,7 @@ class SmartTransactionsDTO implements ArrayAccess
         'checkin' => null,
         'payment_method' => null,
         'is_demo' => null,
+        'intent' => null,
         'checkout_links' => null,
         'delivery_options' => null
     ];
@@ -130,6 +132,7 @@ class SmartTransactionsDTO implements ArrayAccess
         'checkin' => 'checkin',
         'payment_method' => 'payment_method',
         'is_demo' => 'is_demo',
+        'intent' => 'intent',
         'checkout_links' => 'checkout_links',
         'delivery_options' => 'delivery_options'
     ];
@@ -164,6 +167,7 @@ class SmartTransactionsDTO implements ArrayAccess
         'checkin' => 'setCheckin',
         'payment_method' => 'setPaymentMethod',
         'is_demo' => 'setIsDemo',
+        'intent' => 'setIntent',
         'checkout_links' => 'setCheckoutLinks',
         'delivery_options' => 'setDeliveryOptions'
     ];
@@ -198,6 +202,7 @@ class SmartTransactionsDTO implements ArrayAccess
         'checkin' => 'getCheckin',
         'payment_method' => 'getPaymentMethod',
         'is_demo' => 'getIsDemo',
+        'intent' => 'getIntent',
         'checkout_links' => 'getCheckoutLinks',
         'delivery_options' => 'getDeliveryOptions'
     ];
@@ -254,6 +259,7 @@ class SmartTransactionsDTO implements ArrayAccess
         $this->container['checkin'] = isset($data['checkin']) ? $data['checkin'] : null;
         $this->container['payment_method'] = isset($data['payment_method']) ? $data['payment_method'] : null;
         $this->container['is_demo'] = isset($data['is_demo']) ? $data['is_demo'] : null;
+        $this->container['intent'] = isset($data['intent']) ? $data['intent'] : null;
         $this->container['checkout_links'] = isset($data['checkout_links']) ? $data['checkout_links'] : null;
         $this->container['delivery_options'] = isset($data['delivery_options']) ? $data['delivery_options'] : null;
     }
@@ -803,6 +809,27 @@ class SmartTransactionsDTO implements ArrayAccess
     public function setIsDemo($is_demo)
     {
         $this->container['is_demo'] = $is_demo;
+
+        return $this;
+    }
+
+    /**
+     * Gets intent
+     * @return string
+     */
+    public function getIntent()
+    {
+        return $this->container['intent'];
+    }
+
+    /**
+     * Sets intent
+     * @param string $intent
+     * @return $this
+     */
+    public function setIntent($intent)
+    {
+        $this->container['intent'] = $intent;
 
         return $this;
     }
