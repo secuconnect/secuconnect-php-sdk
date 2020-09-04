@@ -29,8 +29,7 @@ class Store implements ArrayAccess
     protected static $swaggerTypes = [
         'object' => 'string',
         'id' => 'string',
-        'name' => 'string',
-        'name_raw' => 'string'
+        'name' => 'string'
     ];
 
     /**
@@ -40,8 +39,7 @@ class Store implements ArrayAccess
     protected static $swaggerFormats = [
         'object' => null,
         'id' => 'id',
-        'name' => null,
-        'name_raw' => null
+        'name' => null
     ];
 
     public static function swaggerTypes()
@@ -61,8 +59,7 @@ class Store implements ArrayAccess
     protected static $attributeMap = [
         'object' => 'object',
         'id' => 'id',
-        'name' => 'name',
-        'name_raw' => 'name_raw'
+        'name' => 'name'
     ];
 
     /**
@@ -72,8 +69,7 @@ class Store implements ArrayAccess
     protected static $setters = [
         'object' => 'setObject',
         'id' => 'setId',
-        'name' => 'setName',
-        'name_raw' => 'setNameRaw'
+        'name' => 'setName'
     ];
 
     /**
@@ -83,8 +79,7 @@ class Store implements ArrayAccess
     protected static $getters = [
         'object' => 'getObject',
         'id' => 'getId',
-        'name' => 'getName',
-        'name_raw' => 'getNameRaw'
+        'name' => 'getName'
     ];
 
     public static function attributeMap()
@@ -117,7 +112,6 @@ class Store implements ArrayAccess
         $this->container['object'] = isset($data['object']) ? $data['object'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['name_raw'] = isset($data['name_raw']) ? $data['name_raw'] : null;
     }
 
     /**
@@ -203,27 +197,6 @@ class Store implements ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets name_raw
-     * @return string
-     */
-    public function getNameRaw()
-    {
-        return $this->container['name_raw'];
-    }
-
-    /**
-     * Sets name_raw
-     * @param string $name_raw Store name raw
-     * @return $this
-     */
-    public function setNameRaw($name_raw)
-    {
-        $this->container['name_raw'] = $name_raw;
 
         return $this;
     }

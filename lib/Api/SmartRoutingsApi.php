@@ -499,7 +499,7 @@ class SmartRoutingsApi
      *
      * @param string $smart_routing_id Smart routing id (required)
      * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\SmartRoutingsProductModel[]
+     * @return \Secuconnect\Client\Model\SmartRoutingsProductModel
      */
     public function removeRouting($smart_routing_id)
     {
@@ -514,7 +514,7 @@ class SmartRoutingsApi
      *
      * @param string $smart_routing_id Smart routing id (required)
      * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\SmartRoutingsProductModel[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Secuconnect\Client\Model\SmartRoutingsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function removeRoutingWithHttpInfo($smart_routing_id)
     {
@@ -566,15 +566,15 @@ class SmartRoutingsApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    '\Secuconnect\Client\Model\SmartRoutingsProductModel[]',
+                    '\Secuconnect\Client\Model\SmartRoutingsProductModel',
                     '/Smart/Routings/{smartRoutingId}'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\SmartRoutingsProductModel[]', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\SmartRoutingsProductModel', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\SmartRoutingsProductModel[]', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\SmartRoutingsProductModel', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:

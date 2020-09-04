@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * GeneralMerchantsCheckoutOptions
+ * SmartTransactionsTimeSlot
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GeneralMerchantsCheckoutOptions implements ArrayAccess
+class SmartTransactionsTimeSlot implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,16 +20,15 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'GeneralMerchantsCheckoutOptions';
+    protected static $swaggerModelName = 'SmartTransactionsTimeSlot';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'enabled' => 'bool',
-        'shipping' => '\Secuconnect\Client\Model\GeneralMerchantsCheckoutOptionsShipping',
-        'collection' => '\Secuconnect\Client\Model\GeneralMerchantsCheckoutOptionsCollection'
+        'start_date' => 'string',
+        'end_date' => 'string'
     ];
 
     /**
@@ -37,9 +36,8 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'enabled' => null,
-        'shipping' => null,
-        'collection' => null
+        'start_date' => null,
+        'end_date' => null
     ];
 
     public static function swaggerTypes()
@@ -57,9 +55,8 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'enabled' => 'enabled',
-        'shipping' => 'shipping',
-        'collection' => 'collection'
+        'start_date' => 'start_date',
+        'end_date' => 'end_date'
     ];
 
     /**
@@ -67,9 +64,8 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'enabled' => 'setEnabled',
-        'shipping' => 'setShipping',
-        'collection' => 'setCollection'
+        'start_date' => 'setStartDate',
+        'end_date' => 'setEndDate'
     ];
 
     /**
@@ -77,9 +73,8 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'enabled' => 'getEnabled',
-        'shipping' => 'getShipping',
-        'collection' => 'getCollection'
+        'start_date' => 'getStartDate',
+        'end_date' => 'getEndDate'
     ];
 
     public static function attributeMap()
@@ -109,9 +104,8 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
-        $this->container['shipping'] = isset($data['shipping']) ? $data['shipping'] : null;
-        $this->container['collection'] = isset($data['collection']) ? $data['collection'] : null;
+        $this->container['start_date'] = isset($data['start_date']) ? $data['start_date'] : null;
+        $this->container['end_date'] = isset($data['end_date']) ? $data['end_date'] : null;
     }
 
     /**
@@ -139,64 +133,43 @@ class GeneralMerchantsCheckoutOptions implements ArrayAccess
 
 
     /**
-     * Gets enabled
-     * @return bool
+     * Gets start_date
+     * @return string
      */
-    public function getEnabled()
+    public function getStartDate()
     {
-        return $this->container['enabled'];
+        return $this->container['start_date'];
     }
 
     /**
-     * Sets enabled
-     * @param bool $enabled Enabled
+     * Sets start_date
+     * @param string $start_date Start Date
      * @return $this
      */
-    public function setEnabled($enabled)
+    public function setStartDate($start_date)
     {
-        $this->container['enabled'] = $enabled;
+        $this->container['start_date'] = $start_date;
 
         return $this;
     }
 
     /**
-     * Gets shipping
-     * @return \Secuconnect\Client\Model\GeneralMerchantsCheckoutOptionsShipping
+     * Gets end_date
+     * @return string
      */
-    public function getShipping()
+    public function getEndDate()
     {
-        return $this->container['shipping'];
+        return $this->container['end_date'];
     }
 
     /**
-     * Sets shipping
-     * @param \Secuconnect\Client\Model\GeneralMerchantsCheckoutOptionsShipping $shipping shipping
+     * Sets end_date
+     * @param string $end_date End Date
      * @return $this
      */
-    public function setShipping($shipping)
+    public function setEndDate($end_date)
     {
-        $this->container['shipping'] = $shipping;
-
-        return $this;
-    }
-
-    /**
-     * Gets collection
-     * @return \Secuconnect\Client\Model\GeneralMerchantsCheckoutOptionsCollection
-     */
-    public function getCollection()
-    {
-        return $this->container['collection'];
-    }
-
-    /**
-     * Sets collection
-     * @param \Secuconnect\Client\Model\GeneralMerchantsCheckoutOptionsCollection $collection collection
-     * @return $this
-     */
-    public function setCollection($collection)
-    {
-        $this->container['collection'] = $collection;
+        $this->container['end_date'] = $end_date;
 
         return $this;
     }

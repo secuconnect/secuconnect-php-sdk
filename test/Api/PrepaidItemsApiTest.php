@@ -26,11 +26,10 @@
  * Please update the test case below to test the endpoint.
  */
 
-namespace Secuconnect\Client;
+namespace Secuconnect\Client\Api;
 
 use PHPUnit\Framework\TestCase;
-use Secuconnect\Client\Api\PrepaidItemsApi;
-use Secuconnect\Client\Api\SecuconnectObjects;
+use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Model\PrepaidItemsList;
 use Secuconnect\Client\Model\PrepaidItemsProductModel;
 
@@ -65,16 +64,10 @@ class PrepaidItemsApiTest extends TestCase
      */
     public static function setUpBeforeClass()
     {
+        parent::setUpBeforeClass();
         self::$secuconnectObjects = SecuconnectObjects::getInstance();
         self::$secuconnectObjects->authenticateByApplicationUser();
         self::$api = new PrepaidItemsApi();
-    }
-
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass()
-    {
     }
 
     /**

@@ -1,10 +1,9 @@
 <?php
 
-namespace Secuconnect\Client;
+namespace Secuconnect\Client\Api;
 
 use PHPUnit\Framework\TestCase;
-use Secuconnect\Client\Api\SecuconnectObjects;
-use Secuconnect\Client\Api\SmartRoutingsApi;
+use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Model\SmartRoutingPriority;
 use Secuconnect\Client\Model\SmartRoutingsDTO;
 use Secuconnect\Client\Model\SmartRoutingsProductModel;
@@ -42,6 +41,7 @@ class SmartRoutingsApiTest extends TestCase
      */
     public static function setUpBeforeClass()
     {
+        parent::setUpBeforeClass();
         self::$instance = SecuconnectObjects::getInstance();
         self::$instance->authenticateByApplicationUser();
         self::$api = new SmartRoutingsApi();
@@ -55,10 +55,12 @@ class SmartRoutingsApiTest extends TestCase
         self::$instance = null;
         self::$api = null;
         self::$smartRoutingId = null;
+        parent::tearDownAfterClass();
     }
 
     /**
      * Test case for creating new Smart Routing.
+     * @throws ApiException
      */
     public function testAddSmartRouting()
     {
@@ -112,6 +114,7 @@ class SmartRoutingsApiTest extends TestCase
      * Test case for getting one Smart Routing.\
      *
      * @depends testAddSmartRouting
+     * @throws ApiException
      */
     public function testGetSmartRouting()
     {
@@ -161,6 +164,7 @@ class SmartRoutingsApiTest extends TestCase
      * Test case for adding a routing assignment.
      *
      * @depends testAddSmartRouting
+     * @throws ApiException
      */
     public function testAddNewSmartDeviceToSmartRouting()
     {
@@ -211,6 +215,7 @@ class SmartRoutingsApiTest extends TestCase
      * Test case for removing a routing assignment.
      *
      * @depends testAddSmartRouting
+     * @throws ApiException
      */
     public function testRemoveSmartDeviceFromSmartRouting()
     {
@@ -258,6 +263,7 @@ class SmartRoutingsApiTest extends TestCase
      * Test case for updating existing Smart Routing.
      *
      * @depends testAddSmartRouting
+     * @throws ApiException
      */
     public function testUpdateSmartRouting()
     {
@@ -284,6 +290,7 @@ class SmartRoutingsApiTest extends TestCase
      * Test case for removing existing Smart Routing.
      *
      * @depends testAddSmartRouting
+     * @throws ApiException
      */
     public function testRemoveSmartRouting()
     {
@@ -293,8 +300,6 @@ class SmartRoutingsApiTest extends TestCase
             print_r($e->getResponseBody());
             throw $e;
         }
-
-        $response = $response[0];
 
         if ($response instanceof SmartRoutingsProductModel) {
             $routing = $response;
@@ -333,6 +338,7 @@ class SmartRoutingsApiTest extends TestCase
 
     /**
      * Test case for getting list of Smart Routings.
+     * @throws ApiException
      */
     public function testGetListOfSmartRoutings()
     {

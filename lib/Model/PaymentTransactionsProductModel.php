@@ -6,6 +6,7 @@ namespace Secuconnect\Client\Model;
  * PaymentTransactionsProductModel
  *
  * @category Class
+ * @description The Payment Transaction manages the payment process, from authorization till the payment is really executed.
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

@@ -60,7 +60,8 @@ class PaymentContractsApiTest extends TestCase
      */
     public static function setUpBeforeClass()
     {
-        //TO DO remove this merchantID get it from API based on curent credentials
+        parent::setUpBeforeClass();
+        // TODO remove this merchantID get it from API based on current credentials
         self::$contract = new PaymentContractsDTO();
         self::$contract->setMerchant('MRC_WVHJQFQ4JNVYNG5B55TYK748ZCHQP8')
             ->setInternalReference('181365')
@@ -78,8 +79,8 @@ class PaymentContractsApiTest extends TestCase
      */
     public function setUp()
     {
+        parent::setUp();
         SecuconnectObjects::getInstance()->authenticateByApplicationUser();
-        $this->api = SecuconnectObjects::getInstance()->getApi();
         $this->api = new PaymentContractsApi();
     }
 
@@ -89,6 +90,7 @@ class PaymentContractsApiTest extends TestCase
     public function tearDown()
     {
         $this->api = null;
+        parent::tearDown();
     }
 
     /**
@@ -100,6 +102,7 @@ class PaymentContractsApiTest extends TestCase
         self::$contract = null;
         self::$created = null;
         self::$updated = null;
+        parent::tearDownAfterClass();
     }
 
     /**
@@ -236,7 +239,7 @@ class PaymentContractsApiTest extends TestCase
         }
 
         $this->assertNotEmpty($response);
-        $this->assertEquals(2, count($response->getData()));
+        $this->assertCount(2, $response->getData());
     }
 
     /**

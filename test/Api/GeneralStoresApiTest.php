@@ -1,10 +1,9 @@
 <?php
 
-namespace Secuconnect\Client;
+namespace Secuconnect\Client\Api;
 
 use PHPUnit\Framework\TestCase;
-use Secuconnect\Client\Api\GeneralStoresApi;
-use Secuconnect\Client\Api\SecuconnectObjects;
+use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Model\DayTime;
 use Secuconnect\Client\Model\GeneralStoresDTOReason;
 use Secuconnect\Client\Model\GeneralStoresDTOType;
@@ -34,9 +33,10 @@ class GeneralStoresApiTest extends TestCase
      */
     public static function setUpBeforeClass()
     {
+        parent::setUpBeforeClass();
         self::$instance = SecuconnectObjects::getInstance();
         self::$instance->authenticateByApplicationUser();
-        self::$api = new GeneralStoresApi;
+        self::$api = new GeneralStoresApi();
     }
 
     /**
@@ -46,6 +46,7 @@ class GeneralStoresApiTest extends TestCase
     {
         self::$instance = null;
         self::$api = null;
+        parent::tearDownAfterClass();
     }
 
     /**
@@ -155,7 +156,7 @@ class GeneralStoresApiTest extends TestCase
      * @param string $storeId
      * @throws ApiException
      */
-    public function testSetDefault(string $storeId)
+    public function testSetDefault($storeId)
     {
         if (!empty($storeId)) {
             $reason = new GeneralStoresDTOReason();
@@ -208,7 +209,7 @@ class GeneralStoresApiTest extends TestCase
         $checkinType->setType("standard");
 
         try {
-            $response = self::$api->checkin($storeId, $checkinType);
+            $response = self::$api->checkIn($storeId, $checkinType);
             $this->assertTrue(is_bool($response['result']));
         } catch (ApiException $e) {
             $response = $e->getResponseBody();
@@ -221,9 +222,12 @@ class GeneralStoresApiTest extends TestCase
         }
     }
 
+    /**
+     * @return array
+     */
     public function prepareOpenHours()
     {
-        $newOpenHours = array();
+        $newOpenHours = [];
 
         for ($i = 0; $i < 7; $i++) {
             $open = new DayTime();

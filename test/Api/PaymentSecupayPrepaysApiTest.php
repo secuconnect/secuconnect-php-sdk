@@ -7,8 +7,8 @@ use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Model\PaymentCustomersProductModel;
 use Secuconnect\Client\Model\PaymentInformation;
 use Secuconnect\Client\Model\SecupayBasketItem;
+use Secuconnect\Client\Model\SecupayTransactionProductDTO;
 use Secuconnect\Client\Model\SecupayTransactionProductModel;
-use Secuconnect\Client\Model\SecupayTransactionProductModelTransferAccount;
 
 /**
  * Class PaymentSecupayPrepaysApiTest
@@ -72,6 +72,7 @@ class PaymentSecupayPrepaysApiTest extends TestCase
      */
     public static function setUpBeforeClass()
     {
+        parent::setUpBeforeClass();
         self::$secuconnectObjects = SecuconnectObjects::getInstance();
         self::$customerId = self::$secuconnectObjects->getCustomer()->getId();
         self::$amount = 6324;
@@ -86,7 +87,7 @@ class PaymentSecupayPrepaysApiTest extends TestCase
      */
     public function setUp()
     {
-        $this->api = self::$secuconnectObjects->getApi();
+        parent::setUp();
         $this->api = new PaymentSecupayPrepaysApi();
     }
 
@@ -96,6 +97,7 @@ class PaymentSecupayPrepaysApiTest extends TestCase
     public function tearDown()
     {
         $this->api = null;
+        parent::tearDown();
     }
 
     /**
@@ -110,6 +112,7 @@ class PaymentSecupayPrepaysApiTest extends TestCase
         self::$orderId = null;
         self::$accrual = null;
         self::$basket = null;
+        parent::tearDownAfterClass();
     }
 
     /**
@@ -130,7 +133,7 @@ class PaymentSecupayPrepaysApiTest extends TestCase
         ];
 
         try {
-            $response = $this->api->paymentSecupayprepaysPost($invoiceData);
+            $response = $this->api->paymentSecupayprepaysPost(new SecupayTransactionProductDTO($invoiceData));
             self::$prepayTransactionId = $response->getId();
         } catch (ApiException $e) {
             print_r($e->getResponseBody());

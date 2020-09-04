@@ -22,11 +22,10 @@
  * Please update the test case below to test the endpoint.
  */
 
-namespace Secuconnect\Client;
+namespace Secuconnect\Client\Api;
 
 use PHPUnit\Framework\TestCase;
-use Secuconnect\Client\Api\LoyaltyCardgroupsApi;
-use Secuconnect\Client\Api\SecuconnectObjects;
+use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Model\LoyaltyCardgroupsList;
 use Secuconnect\Client\Model\LoyaltyCardgroupsProductModel;
 
@@ -61,30 +60,10 @@ class LoyaltyCardgroupsApiTest extends TestCase
      */
     public static function setUpBeforeClass()
     {
+        parent::setUpBeforeClass();
         self::$instance = SecuconnectObjects::getInstance();
         self::$instance->authenticateByApplicationUser();
         self::$api = new LoyaltyCardgroupsApi();
-    }
-
-    /**
-     * Setup before running each test case
-     */
-    public function setUp()
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown()
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass()
-    {
     }
 
     /**

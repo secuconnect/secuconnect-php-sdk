@@ -28,7 +28,6 @@ class SmartTransactionsBasket implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'products' => '\Secuconnect\Client\Model\SmartTransactionsBasketProduct[]',
-        'texts' => '\Secuconnect\Client\Model\SmartTransactionsBasketText[]',
         'type' => 'string'
     ];
 
@@ -38,7 +37,6 @@ class SmartTransactionsBasket implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'products' => null,
-        'texts' => null,
         'type' => null
     ];
 
@@ -58,7 +56,6 @@ class SmartTransactionsBasket implements ArrayAccess
      */
     protected static $attributeMap = [
         'products' => 'products',
-        'texts' => 'texts',
         'type' => 'type'
     ];
 
@@ -68,7 +65,6 @@ class SmartTransactionsBasket implements ArrayAccess
      */
     protected static $setters = [
         'products' => 'setProducts',
-        'texts' => 'setTexts',
         'type' => 'setType'
     ];
 
@@ -78,7 +74,6 @@ class SmartTransactionsBasket implements ArrayAccess
      */
     protected static $getters = [
         'products' => 'getProducts',
-        'texts' => 'getTexts',
         'type' => 'getType'
     ];
 
@@ -110,7 +105,6 @@ class SmartTransactionsBasket implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['products'] = isset($data['products']) ? $data['products'] : null;
-        $this->container['texts'] = isset($data['texts']) ? $data['texts'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
@@ -155,27 +149,6 @@ class SmartTransactionsBasket implements ArrayAccess
     public function setProducts($products)
     {
         $this->container['products'] = $products;
-
-        return $this;
-    }
-
-    /**
-     * Gets texts
-     * @return \Secuconnect\Client\Model\SmartTransactionsBasketText[]
-     */
-    public function getTexts()
-    {
-        return $this->container['texts'];
-    }
-
-    /**
-     * Sets texts
-     * @param \Secuconnect\Client\Model\SmartTransactionsBasketText[] $texts Texts
-     * @return $this
-     */
-    public function setTexts($texts)
-    {
-        $this->container['texts'] = $texts;
 
         return $this;
     }

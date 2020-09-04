@@ -50,7 +50,8 @@ class GeneralStoresProductModel extends BaseProductModel
         'utc_offset' => 'string',
         'assigned_by' => '\Secuconnect\Client\Model\AssignedBy[]',
         'invited_by' => '\Secuconnect\Client\Model\InvitedBy[]',
-        'has_beacon' => 'bool'
+        'has_beacon' => 'bool',
+        'acceptance_point' => 'bool'
     ];
 
     /**
@@ -83,7 +84,8 @@ class GeneralStoresProductModel extends BaseProductModel
         'utc_offset' => null,
         'assigned_by' => null,
         'invited_by' => null,
-        'has_beacon' => null
+        'has_beacon' => null,
+        'acceptance_point' => null
     ];
 
     public static function swaggerTypes()
@@ -126,7 +128,8 @@ class GeneralStoresProductModel extends BaseProductModel
         'utc_offset' => 'utc_offset',
         'assigned_by' => 'assigned_by',
         'invited_by' => 'invited_by',
-        'has_beacon' => 'has_beacon'
+        'has_beacon' => 'has_beacon',
+        'acceptance_point' => 'acceptance_point'
     ];
 
     /**
@@ -159,7 +162,8 @@ class GeneralStoresProductModel extends BaseProductModel
         'utc_offset' => 'setUtcOffset',
         'assigned_by' => 'setAssignedBy',
         'invited_by' => 'setInvitedBy',
-        'has_beacon' => 'setHasBeacon'
+        'has_beacon' => 'setHasBeacon',
+        'acceptance_point' => 'setAcceptancePoint'
     ];
 
     /**
@@ -192,7 +196,8 @@ class GeneralStoresProductModel extends BaseProductModel
         'utc_offset' => 'getUtcOffset',
         'assigned_by' => 'getAssignedBy',
         'invited_by' => 'getInvitedBy',
-        'has_beacon' => 'getHasBeacon'
+        'has_beacon' => 'getHasBeacon',
+        'acceptance_point' => 'getAcceptancePoint'
     ];
 
     public static function attributeMap()
@@ -244,6 +249,7 @@ class GeneralStoresProductModel extends BaseProductModel
         $this->container['assigned_by'] = isset($data['assigned_by']) ? $data['assigned_by'] : null;
         $this->container['invited_by'] = isset($data['invited_by']) ? $data['invited_by'] : null;
         $this->container['has_beacon'] = isset($data['has_beacon']) ? $data['has_beacon'] : null;
+        $this->container['acceptance_point'] = isset($data['acceptance_point']) ? $data['acceptance_point'] : null;
     }
 
     /**
@@ -812,6 +818,27 @@ class GeneralStoresProductModel extends BaseProductModel
     public function setHasBeacon($has_beacon)
     {
         $this->container['has_beacon'] = $has_beacon;
+
+        return $this;
+    }
+
+    /**
+     * Gets acceptance_point
+     * @return bool
+     */
+    public function getAcceptancePoint()
+    {
+        return $this->container['acceptance_point'];
+    }
+
+    /**
+     * Sets acceptance_point
+     * @param bool $acceptance_point Is Acceptance Point
+     * @return $this
+     */
+    public function setAcceptancePoint($acceptance_point)
+    {
+        $this->container['acceptance_point'] = $acceptance_point;
 
         return $this;
     }

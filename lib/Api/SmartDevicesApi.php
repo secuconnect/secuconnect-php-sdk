@@ -153,215 +153,6 @@ class SmartDevicesApi
     }
 
     /**
-     * Operation createPrepaidTid
-     *
-     * POST Smart/Devices/{smartDeviceId}/createPrepaidTid
-     *
-     * @param string $smart_device_id Smart device id (required)
-     * @param \Secuconnect\Client\Model\SmartDevicesDTOPrepaidTid $body Prepaid tid properties 
-     * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\SmartDevicesProductModel
-     */
-    public function createPrepaidTid($smart_device_id, $body)
-    {
-        list($response) = $this->createPrepaidTidWithHttpInfo($smart_device_id, $body);
-        return $response;
-    }
-
-    /**
-     * Operation createPrepaidTidWithHttpInfo
-     *
-     * POST Smart/Devices/{smartDeviceId}/createPrepaidTid
-     *
-     * @param string $smart_device_id Smart device id (required)
-     * @param \Secuconnect\Client\Model\SmartDevicesDTOPrepaidTid $body Prepaid tid properties 
-     * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\SmartDevicesProductModel, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function createPrepaidTidWithHttpInfo($smart_device_id, $body)
-    {
-        // verify the required parameter 'smart_device_id' is set
-        if ($smart_device_id === null || (is_array($smart_device_id) && count($smart_device_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $smart_device_id when calling createPrepaidTid'
-            );
-        }
-        // parse inputs
-        $resourcePath = "/Smart/Devices/{smartDeviceId}/createPrepaidTid";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
-
-        // path params
-        if ($smart_device_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "smartDeviceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($smart_device_id),
-                $resourcePath
-            );
-        }
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        for ($retries = 0; ; $retries++) {
-
-            // this endpoint requires OAuth (access token)
-            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-            }
-
-            // make the API Call
-            try {
-                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                    $resourcePath,
-                    'POST',
-                    $queryParams,
-                    $httpBody,
-                    $headerParams,
-                    '\Secuconnect\Client\Model\SmartDevicesProductModel',
-                    '/Smart/Devices/{smartDeviceId}/createPrepaidTid'
-                );
-
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\SmartDevicesProductModel', $httpHeader), $statusCode, $httpHeader];
-            } catch (ApiException $e) {
-                switch ($e->getCode()) {
-                    case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\SmartDevicesProductModel', $e->getResponseHeaders());
-                        $e->setResponseObject($data);
-                        break;
-                    case 401:
-                        if ($retries < 1) {
-                            Authenticator::reauthenticate();
-                            continue 2;
-                        }
-                    default:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
-                        $e->setResponseObject($data);
-                        break;
-                }
-
-                throw $e;
-            }
-        }
-    }
-
-    /**
-     * Operation createVirtualDevice
-     *
-     * POST Smart/Devices/{smartDeviceId}/createVirtualDevice
-     *
-     * @param string $smart_device_id Smart device id (required)
-     * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\SmartDevicesProductModel
-     */
-    public function createVirtualDevice($smart_device_id)
-    {
-        list($response) = $this->createVirtualDeviceWithHttpInfo($smart_device_id);
-        return $response;
-    }
-
-    /**
-     * Operation createVirtualDeviceWithHttpInfo
-     *
-     * POST Smart/Devices/{smartDeviceId}/createVirtualDevice
-     *
-     * @param string $smart_device_id Smart device id (required)
-     * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\SmartDevicesProductModel, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function createVirtualDeviceWithHttpInfo($smart_device_id)
-    {
-        // verify the required parameter 'smart_device_id' is set
-        if ($smart_device_id === null || (is_array($smart_device_id) && count($smart_device_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $smart_device_id when calling createVirtualDevice'
-            );
-        }
-        // parse inputs
-        $resourcePath = "/Smart/Devices/{smartDeviceId}/createVirtualDevice";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
-
-        // path params
-        if ($smart_device_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "smartDeviceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($smart_device_id),
-                $resourcePath
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        for ($retries = 0; ; $retries++) {
-
-            // this endpoint requires OAuth (access token)
-            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-            }
-
-            // make the API Call
-            try {
-                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                    $resourcePath,
-                    'POST',
-                    $queryParams,
-                    $httpBody,
-                    $headerParams,
-                    '\Secuconnect\Client\Model\SmartDevicesProductModel',
-                    '/Smart/Devices/{smartDeviceId}/createVirtualDevice'
-                );
-
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\SmartDevicesProductModel', $httpHeader), $statusCode, $httpHeader];
-            } catch (ApiException $e) {
-                switch ($e->getCode()) {
-                    case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\SmartDevicesProductModel', $e->getResponseHeaders());
-                        $e->setResponseObject($data);
-                        break;
-                    case 401:
-                        if ($retries < 1) {
-                            Authenticator::reauthenticate();
-                            continue 2;
-                        }
-                    default:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
-                        $e->setResponseObject($data);
-                        break;
-                }
-
-                throw $e;
-            }
-        }
-    }
-
-    /**
      * Operation getAll
      *
      * GET Smart/Devices
@@ -583,9 +374,9 @@ class SmartDevicesApi
      * GET Smart/Devices/{smartDeviceId}/routing/type/{type}
      *
      * @param string $smart_device_id Smart device id (required)
-     * @param string $type Payment type (required)
+     * @param string $type Smart Device Type (required)
      * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\SmartDevicesList
+     * @return \Secuconnect\Client\Model\SmartDevicesProductModel
      */
     public function getRouting($smart_device_id, $type)
     {
@@ -599,9 +390,9 @@ class SmartDevicesApi
      * GET Smart/Devices/{smartDeviceId}/routing/type/{type}
      *
      * @param string $smart_device_id Smart device id (required)
-     * @param string $type Payment type (required)
+     * @param string $type Smart Device Type (required)
      * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\SmartDevicesList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Secuconnect\Client\Model\SmartDevicesProductModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function getRoutingWithHttpInfo($smart_device_id, $type)
     {
@@ -667,123 +458,15 @@ class SmartDevicesApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    '\Secuconnect\Client\Model\SmartDevicesList',
+                    '\Secuconnect\Client\Model\SmartDevicesProductModel',
                     '/Smart/Devices/{smartDeviceId}/routing/type/{type}'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\SmartDevicesList', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\SmartDevicesProductModel', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\SmartDevicesList', $e->getResponseHeaders());
-                        $e->setResponseObject($data);
-                        break;
-                    case 401:
-                        if ($retries < 1) {
-                            Authenticator::reauthenticate();
-                            continue 2;
-                        }
-                    default:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
-                        $e->setResponseObject($data);
-                        break;
-                }
-
-                throw $e;
-            }
-        }
-    }
-
-    /**
-     * Operation getSecubaseConfig
-     *
-     * POST Smart/Devices/{smartDeviceId}/getSecubaseConfig
-     *
-     * @param string $smart_device_id Smart device id (required)
-     * @param \Secuconnect\Client\Model\SmartDevicesDTOSecubaseConfig $body Secubase config properties 
-     * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\SmartDevicesSecubaseConfig
-     */
-    public function getSecubaseConfig($smart_device_id, $body)
-    {
-        list($response) = $this->getSecubaseConfigWithHttpInfo($smart_device_id, $body);
-        return $response;
-    }
-
-    /**
-     * Operation getSecubaseConfigWithHttpInfo
-     *
-     * POST Smart/Devices/{smartDeviceId}/getSecubaseConfig
-     *
-     * @param string $smart_device_id Smart device id (required)
-     * @param \Secuconnect\Client\Model\SmartDevicesDTOSecubaseConfig $body Secubase config properties 
-     * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\SmartDevicesSecubaseConfig, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getSecubaseConfigWithHttpInfo($smart_device_id, $body)
-    {
-        // verify the required parameter 'smart_device_id' is set
-        if ($smart_device_id === null || (is_array($smart_device_id) && count($smart_device_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $smart_device_id when calling getSecubaseConfig'
-            );
-        }
-        // parse inputs
-        $resourcePath = "/Smart/Devices/{smartDeviceId}/getSecubaseConfig";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
-
-        // path params
-        if ($smart_device_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "smartDeviceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($smart_device_id),
-                $resourcePath
-            );
-        }
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        for ($retries = 0; ; $retries++) {
-
-            // this endpoint requires OAuth (access token)
-            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-            }
-
-            // make the API Call
-            try {
-                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                    $resourcePath,
-                    'POST',
-                    $queryParams,
-                    $httpBody,
-                    $headerParams,
-                    '\Secuconnect\Client\Model\SmartDevicesSecubaseConfig',
-                    '/Smart/Devices/{smartDeviceId}/getSecubaseConfig'
-                );
-
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\SmartDevicesSecubaseConfig', $httpHeader), $statusCode, $httpHeader];
-            } catch (ApiException $e) {
-                switch ($e->getCode()) {
-                    case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\SmartDevicesSecubaseConfig', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\SmartDevicesProductModel', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:

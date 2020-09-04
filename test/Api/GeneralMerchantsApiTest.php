@@ -1,10 +1,9 @@
 <?php
 
-namespace Secuconnect\Client;
+namespace Secuconnect\Client\Api;
 
 use PHPUnit\Framework\TestCase;
-use Secuconnect\Client\Api\GeneralMerchantsApi;
-use Secuconnect\Client\Api\SecuconnectObjects;
+use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Model\GeneralMerchantsProductModel;
 use Secuconnect\Client\Model\GeneralMerchantsUser;
 use Secuconnect\Client\Model\GeoAddress;
@@ -32,6 +31,7 @@ class GeneralMerchantsApiTest extends TestCase
      */
     public static function setUpBeforeClass()
     {
+        parent::setUpBeforeClass();
         self::$instance = SecuconnectObjects::getInstance();
         self::$instance->authenticateByApplicationUser();
         self::$api = new GeneralMerchantsApi();
@@ -44,6 +44,7 @@ class GeneralMerchantsApiTest extends TestCase
     {
         self::$instance = null;
         self::$api = null;
+        parent::tearDownAfterClass();
     }
 
     /**
