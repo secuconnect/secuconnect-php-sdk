@@ -54,7 +54,7 @@ class SmartTransactionsDTO implements ArrayAccess
         'is_demo' => 'bool',
         'intent' => 'string',
         'checkout_links' => '\Secuconnect\Client\Model\SmartTransactionsCheckoutLinks',
-        'delivery_options' => 'SmartTransactionsDTODeliveryOptions'
+        'delivery_options' => '\Secuconnect\Client\Model\OneOfSmartTransactionsDeliveryOptionsModel'
     ];
 
     /**
@@ -857,7 +857,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Gets delivery_options
-     * @return SmartTransactionsDTODeliveryOptions
+     * @return \Secuconnect\Client\Model\OneOfSmartTransactionsDeliveryOptionsModel
      */
     public function getDeliveryOptions()
     {
@@ -866,7 +866,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets delivery_options
-     * @param SmartTransactionsDTODeliveryOptions $delivery_options SmartTransactionsDTO
+     * @param \Secuconnect\Client\Model\OneOfSmartTransactionsDeliveryOptionsModel $delivery_options delivery_options
      * @return $this
      */
     public function setDeliveryOptions($delivery_options)

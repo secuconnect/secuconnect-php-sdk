@@ -12,7 +12,7 @@ use \ArrayAccess;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsCollectionModel implements ArrayAccess, SmartTransactionsDTODeliveryOptions, SmartTransactionsSetDeliveryModelDeliveryOptions
+class SmartTransactionsCollectionModel implements ArrayAccess, OneOfSmartTransactionsDeliveryOptionsModel 
 {
     const DISCRIMINATOR = null;
 

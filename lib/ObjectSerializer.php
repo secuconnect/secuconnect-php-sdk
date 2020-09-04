@@ -5,6 +5,9 @@ namespace Secuconnect\Client;
 use Secuconnect\Client\Model\BankAccountDescriptor;
 use Secuconnect\Client\Model\CreditCardDescriptor;
 use Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate;
+use Secuconnect\Client\Model\OneOfSmartTransactionsDeliveryOptionsModel;
+use Secuconnect\Client\Model\SmartTransactionsCollectionModel;
+use Secuconnect\Client\Model\SmartTransactionsShippingModel;
 
 /**
  * ObjectSerializer
@@ -276,6 +279,17 @@ class ObjectSerializer
                 }
 
                 if (is_subclass_of($subclass, $class)) {
+                    $class = $subclass;
+                }
+            } elseif (trim($class, '\\') === OneOfSmartTransactionsDeliveryOptionsModel::class) {
+                $subclass = null;
+                if ($data->type === 'shipping') {
+                    $subclass = SmartTransactionsShippingModel::class;
+                } elseif ($data->type === 'collection') {
+                    $subclass = SmartTransactionsCollectionModel::class;
+                }
+
+                if ($subclass && is_subclass_of($subclass, $class)) {
                     $class = $subclass;
                 }
             } else {

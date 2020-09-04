@@ -51,7 +51,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         'tax_amount' => 'int',
         'cashier' => 'string',
         'market' => 'string',
-        'delivery_options' => '\Secuconnect\Client\Model\SmartTransactionsBaseDeliveryOptionsModel',
+        'delivery_options' => '\Secuconnect\Client\Model\OneOfSmartTransactionsDeliveryOptionsModel',
         'product' => 'string',
         'trans_id' => 'int',
         'payment_method' => 'string',
@@ -872,7 +872,7 @@ class SmartTransactionsProductModel extends BaseProductModel
 
     /**
      * Gets delivery_options
-     * @return \Secuconnect\Client\Model\SmartTransactionsBaseDeliveryOptionsModel
+     * @return \Secuconnect\Client\Model\OneOfSmartTransactionsDeliveryOptionsModel
      */
     public function getDeliveryOptions()
     {
@@ -881,7 +881,7 @@ class SmartTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets delivery_options
-     * @param \Secuconnect\Client\Model\SmartTransactionsBaseDeliveryOptionsModel $delivery_options delivery_options
+     * @param \Secuconnect\Client\Model\OneOfSmartTransactionsDeliveryOptionsModel $delivery_options delivery_options
      * @return $this
      */
     public function setDeliveryOptions($delivery_options)

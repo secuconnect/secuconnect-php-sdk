@@ -27,7 +27,7 @@ class SmartTransactionsSetDeliveryModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'delivery_options' => 'SmartTransactionsSetDeliveryModelDeliveryOptions'
+        'delivery_options' => '\Secuconnect\Client\Model\OneOfSmartTransactionsDeliveryOptionsModel'
     ];
 
     /**
@@ -128,7 +128,7 @@ class SmartTransactionsSetDeliveryModel implements ArrayAccess
 
     /**
      * Gets delivery_options
-     * @return SmartTransactionsSetDeliveryModelDeliveryOptions
+     * @return \Secuconnect\Client\Model\OneOfSmartTransactionsDeliveryOptionsModel
      */
     public function getDeliveryOptions()
     {
@@ -137,7 +137,7 @@ class SmartTransactionsSetDeliveryModel implements ArrayAccess
 
     /**
      * Sets delivery_options
-     * @param SmartTransactionsSetDeliveryModelDeliveryOptions $delivery_options SmartTransactionsSetDeliveryModel
+     * @param \Secuconnect\Client\Model\OneOfSmartTransactionsDeliveryOptionsModel $delivery_options delivery_options
      * @return $this
      */
     public function setDeliveryOptions($delivery_options)
