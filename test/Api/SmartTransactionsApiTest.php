@@ -508,7 +508,7 @@ class SmartTransactionsApiTest extends TestCase
         // add transaction
         try {
             $smartTransaction = self::$api->addTransaction($transactionDTO);
-            $this->assertEquals('shipping', $smartTransaction->getDeliveryOptions()['type']);
+            $this->assertEquals('shipping', $smartTransaction->getDeliveryOptions()->getType());
 
         } catch (ApiException $e) {
             print_r($e->getResponseBody());
@@ -561,9 +561,9 @@ class SmartTransactionsApiTest extends TestCase
 
             $smartTransaction = self::$api->setDelivery($smartTransaction->getId(),$delivery);
             $this->assertEquals('2020-07-17T12:18:18+02:00', $smartTransaction->getDeliveryOptions()['shipped_at']);
-            $this->assertEquals('DHL', $smartTransaction->getDeliveryOptions()['shipped_by']);
-            $this->assertEquals('1234567', $smartTransaction->getDeliveryOptions()['tracking_code']);
-            $this->assertEquals('12345', $smartTransaction->getDeliveryOptions()['invoice_number']);
+            $this->assertEquals('DHL', $smartTransaction->getDeliveryOptions()->getShippedBy());
+            $this->assertEquals('1234567', $smartTransaction->getDeliveryOptions()->getTrackingCode());
+            $this->assertEquals('12345', $smartTransaction->getDeliveryOptions()->getInvoiceNumber());
 
         } catch (ApiException $e) {
             print_r($e->getResponseBody());
@@ -627,8 +627,8 @@ class SmartTransactionsApiTest extends TestCase
         try {
             $smartTransaction = self::$api->addTransaction($transactionDTO);
 
-            $this->assertEquals('STO_284SYJN9UDMJQWVH9UXNVYK9K0KBOW', $smartTransaction->getDeliveryOptions()['store_id']);
-            $this->assertEquals('collection', $smartTransaction->getDeliveryOptions()['type']);
+            $this->assertEquals('STO_284SYJN9UDMJQWVH9UXNVYK9K0KBOW', $smartTransaction->getDeliveryOptions()->getStoreId());
+            $this->assertEquals('collection', $smartTransaction->getDeliveryOptions()->getType());
 
         } catch (ApiException $e) {
             print_r($e->getResponseBody());
@@ -661,7 +661,7 @@ class SmartTransactionsApiTest extends TestCase
         try {
             $startresponse = self::$api->startTransaction($smartTransaction->getId(), '', NULL);
             $this->assertInstanceOf(SmartTransactionsProductModel::class, $startresponse);
-            $this->assertNotEmpty($startresponse->getDeliveryOptions()['code']);
+            $this->assertNotEmpty($startresponse->getDeliveryOptions()->getCode());
 
         } catch (ApiException $e) {
             print_r($e->getResponseBody());
@@ -677,7 +677,7 @@ class SmartTransactionsApiTest extends TestCase
             $delivery->setDeliveryOptions($smartTransactionCollection);
 
             $smartTransaction = self::$api->setDelivery($startresponse->getId(),$delivery);
-            $this->assertEquals('2020-07-19T12:18:18+02:00', $smartTransaction->getDeliveryOptions()['delivered_at']);
+            $this->assertEquals('2020-07-19T12:18:18+02:00', $smartTransaction->getDeliveryOptions()->getDeliveredAt());
 
         } catch (ApiException $e) {
             print_r($e->getResponseBody());
