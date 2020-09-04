@@ -12,7 +12,7 @@ namespace Secuconnect\Client\Model;
  */
 class SmartTransactionsProductModel extends BaseProductModel
 {
-    const DISCRIMINATOR = 'type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -51,7 +51,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         'tax_amount' => 'int',
         'cashier' => 'string',
         'market' => 'string',
-        'delivery_options' => 'object',
+        'delivery_options' => '\Secuconnect\Client\Model\SmartTransactionsBaseDeliveryOptionsModel',
         'product' => 'string',
         'trans_id' => 'int',
         'payment_method' => 'string',
@@ -298,10 +298,6 @@ class SmartTransactionsProductModel extends BaseProductModel
         $this->container['is_demo'] = isset($data['is_demo']) ? $data['is_demo'] : null;
         $this->container['checkout_links'] = isset($data['checkout_links']) ? $data['checkout_links'] : null;
         $this->container['iframe_url'] = isset($data['iframe_url']) ? $data['iframe_url'] : null;
-
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
     }
 
     /**
@@ -876,7 +872,7 @@ class SmartTransactionsProductModel extends BaseProductModel
 
     /**
      * Gets delivery_options
-     * @return object
+     * @return \Secuconnect\Client\Model\SmartTransactionsBaseDeliveryOptionsModel
      */
     public function getDeliveryOptions()
     {
@@ -885,7 +881,7 @@ class SmartTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets delivery_options
-     * @param object $delivery_options SmartTransactionsProductModel
+     * @param \Secuconnect\Client\Model\SmartTransactionsBaseDeliveryOptionsModel $delivery_options delivery_options
      * @return $this
      */
     public function setDeliveryOptions($delivery_options)
