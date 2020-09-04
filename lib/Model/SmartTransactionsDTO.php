@@ -824,7 +824,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets intent
-     * @param string $intent
+     * @param string $intent intent of transaction
      * @return $this
      */
     public function setIntent($intent)

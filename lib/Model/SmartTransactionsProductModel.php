@@ -59,6 +59,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         'last_visited_page' => 'string',
         'is_demo' => 'bool',
         'checkout_links' => '\Secuconnect\Client\Model\SmartTransactionsCheckoutLinks',
+        'intent' => 'string',
         'iframe_url' => 'string'
     ];
 
@@ -101,6 +102,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         'last_visited_page' => null,
         'is_demo' => null,
         'checkout_links' => null,
+        'intent' => null,
         'iframe_url' => null
     ];
 
@@ -153,6 +155,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         'last_visited_page' => 'last_visited_page',
         'is_demo' => 'is_demo',
         'checkout_links' => 'checkout_links',
+        'intent' => 'intent',
         'iframe_url' => 'iframe_url'
     ];
 
@@ -195,6 +198,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         'last_visited_page' => 'setLastVisitedPage',
         'is_demo' => 'setIsDemo',
         'checkout_links' => 'setCheckoutLinks',
+        'intent' => 'setIntent',
         'iframe_url' => 'setIframeUrl'
     ];
 
@@ -237,6 +241,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         'last_visited_page' => 'getLastVisitedPage',
         'is_demo' => 'getIsDemo',
         'checkout_links' => 'getCheckoutLinks',
+        'intent' => 'getIntent',
         'iframe_url' => 'getIframeUrl'
     ];
 
@@ -297,6 +302,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         $this->container['last_visited_page'] = isset($data['last_visited_page']) ? $data['last_visited_page'] : null;
         $this->container['is_demo'] = isset($data['is_demo']) ? $data['is_demo'] : null;
         $this->container['checkout_links'] = isset($data['checkout_links']) ? $data['checkout_links'] : null;
+        $this->container['intent'] = isset($data['intent']) ? $data['intent'] : null;
         $this->container['iframe_url'] = isset($data['iframe_url']) ? $data['iframe_url'] : null;
     }
 
@@ -1034,6 +1040,27 @@ class SmartTransactionsProductModel extends BaseProductModel
     public function setCheckoutLinks($checkout_links)
     {
         $this->container['checkout_links'] = $checkout_links;
+
+        return $this;
+    }
+
+    /**
+     * Gets intent
+     * @return string
+     */
+    public function getIntent()
+    {
+        return $this->container['intent'];
+    }
+
+    /**
+     * Sets intent
+     * @param string $intent intent of transaction
+     * @return $this
+     */
+    public function setIntent($intent)
+    {
+        $this->container['intent'] = $intent;
 
         return $this;
     }

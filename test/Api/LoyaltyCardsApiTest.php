@@ -1,10 +1,10 @@
 <?php
 
-namespace Secuconnect\Client;
+namespace Secuconnect\Client\Api;
 
 use PHPUnit\Framework\TestCase;
-use Secuconnect\Client\Api\LoyaltyCardsApi;
-use Secuconnect\Client\Api\SecuconnectObjects;
+use Secuconnect\Client\ApiException;
+use Secuconnect\Client\Model\CardPin;
 use Secuconnect\Client\Model\LoyaltyCardsProductModel;
 
 /**
@@ -37,6 +37,7 @@ class LoyaltyCardsApiTest extends TestCase
      */
     public static function setUpBeforeClass()
     {
+        parent::setUpBeforeClass();
         self::$instance = SecuconnectObjects::getInstance();
         self::$instance->authenticateByApplicationUser();
         self::$api = new LoyaltyCardsApi();
@@ -51,6 +52,7 @@ class LoyaltyCardsApiTest extends TestCase
         self::$instance = null;
         self::$api = null;
         self::$cardId = null;
+        parent::tearDownAfterClass();
     }
 
     /**
@@ -127,7 +129,7 @@ class LoyaltyCardsApiTest extends TestCase
                 $response = self::$api->assignUser(
                     self::$cardId,
                     'me',
-                    ['pin' => SecuconnectObjects::LOYALTY_CARD['pin']]
+                    new CardPin(['pin' => SecuconnectObjects::LOYALTY_CARD['pin']])
                 );
 
                 $this->assertTrue($response['result']);

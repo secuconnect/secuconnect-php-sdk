@@ -65,6 +65,7 @@ class PaymentCustomersApiTest extends TestCase
      */
     public static function setUpBeforeClass()
     {
+        parent::setUpBeforeClass();
         self::$customerId = '';
         self::$created = '';
         self::$updated = '';
@@ -98,8 +99,8 @@ class PaymentCustomersApiTest extends TestCase
      */
     public function setUp()
     {
+        parent::setUp();
         SecuconnectObjects::getInstance()->authenticateByClientCredentials();
-        $this->api = SecuconnectObjects::getInstance()->getApi();
         $this->api = new PaymentCustomersApi();
     }
 
@@ -109,6 +110,7 @@ class PaymentCustomersApiTest extends TestCase
     public function tearDown()
     {
         $this->api = null;
+        parent::tearDown();
     }
 
     /**
@@ -121,6 +123,7 @@ class PaymentCustomersApiTest extends TestCase
         self::$contactAddress = null;
         self::$created = null;
         self::$updated = null;
+        parent::tearDownAfterClass();
     }
 
     /**
@@ -359,7 +362,7 @@ class PaymentCustomersApiTest extends TestCase
         }
 
         $this->assertNotEmpty($response);
-        $this->assertEquals(2, count($response->getData()));
+        $this->assertCount(2, $response->getData());
     }
 
     /**

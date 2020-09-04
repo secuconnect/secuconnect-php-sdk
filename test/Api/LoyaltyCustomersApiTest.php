@@ -80,6 +80,7 @@ class LoyaltyCustomersApiTest extends TestCase
      */
     public static function setUpBeforeClass()
     {
+        parent::setUpBeforeClass();
         self::$instance = SecuconnectObjects::getInstance();
         self::$instance->authenticateByApplicationUser();
         self::$api = new LoyaltyCustomersApi();
@@ -123,20 +124,7 @@ class LoyaltyCustomersApiTest extends TestCase
     {
         self::$receivedCustomer = null;
         self::$idPaymentContainer = null;
-    }
-
-    /**
-     * Setup before running each test case
-     */
-    public function setUp()
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown()
-    {
+        parent::tearDownAfterClass();
     }
 
     /**
@@ -168,7 +156,12 @@ class LoyaltyCustomersApiTest extends TestCase
     public function testLoyaltyCustomersGet()
     {
         try {
-            $response = self::$api->getAll();
+            $response = self::$api->getAll(
+                null,
+                null,
+                null,
+                ['customernumber' => 'testnr']
+            );
         } catch (ApiException $e) {
             print_r($e->getResponseBody());
             throw $e;
@@ -217,20 +210,20 @@ class LoyaltyCustomersApiTest extends TestCase
         }
 
 //        Disabled forename check, because it's not set always:
-//        $this->assertNotEmpty($customer->getMerchantContact()->getForename());
+        $this->assertNotEmpty($customer->getMerchantContact()->getForename());
         $this->assertNotEmpty($customer->getMerchantContact()->getSurname());
 
         $this->assertNotEmpty($customer->getMerchantContact()->getAddress());
         $this->assertNotEmpty($customer->getMerchantContact()->getAddress()->getStreet());
-//        $this->assertNotEmpty($customer->getMerchantContact()->getAddress()->getStreetNumber());
+        $this->assertNotEmpty($customer->getMerchantContact()->getAddress()->getStreetNumber());
         $this->assertNotEmpty($customer->getMerchantContact()->getAddress()->getPostalCode());
         $this->assertNotEmpty($customer->getMerchantContact()->getAddress()->getCity());
 
-//        $this->assertNotEmpty($customer->getContact()->getForename());
+        $this->assertNotEmpty($customer->getContact()->getForename());
         $this->assertNotEmpty($customer->getContact()->getSurname());
         $this->assertNotEmpty($customer->getContact()->getAddress());
         $this->assertNotEmpty($customer->getContact()->getAddress()->getStreet());
-//        $this->assertNotEmpty($customer->getContact()->getAddress()->getStreetNumber());
+        $this->assertNotEmpty($customer->getContact()->getAddress()->getStreetNumber());
         $this->assertNotEmpty($customer->getContact()->getAddress()->getPostalCode());
         $this->assertNotEmpty($customer->getContact()->getAddress()->getCity());
 
@@ -273,6 +266,8 @@ class LoyaltyCustomersApiTest extends TestCase
      */
     public function testRemoveAssignPaymentContainer()
     {
+        $this->markTestSkipped('Should be activated when it\'s possible to create a loyalty payment container.');
+
         $this->assertNotEmpty(self::$receivedCustomer);
         $this->assertNotEmpty(self::$idPaymentContainer);
 
@@ -305,6 +300,8 @@ class LoyaltyCustomersApiTest extends TestCase
      */
     public function testAddAssignPaymentContainer()
     {
+        $this->markTestSkipped('Should be activated when it\'s possible to create a loyalty payment container.');
+
         $this->assertNotEmpty(self::$receivedCustomer);
         $this->assertNotEmpty(self::$idPaymentContainer);
 
@@ -349,7 +346,7 @@ class LoyaltyCustomersApiTest extends TestCase
         $this->assertNotEmpty($response->getCustomersWithoutMerchantcard()[1]);
         $this->assertNotEmpty($response->getDuplicatedCustomers());
         $this->assertIsArray($response->getDuplicatedCustomers());
-        $this->assertCount(1, $response->getDuplicatedCustomers());
+        $this->assertGreaterThanOrEqual(1, $response->getDuplicatedCustomers());
         $this->assertNotEmpty($response->getDuplicatedCustomers()[0]);
     }
 
@@ -398,5 +395,29 @@ class LoyaltyCustomersApiTest extends TestCase
         $this->assertNotEmpty('deleted', $response->getDeleted());
     }
 
+    /**
+     * Asserts that a variable is of type array.
+     * @param mixed $value
+     */
+    public static function assertIsInt($value)
+    {
+        if (method_exists(TestCase::class, 'assertIsInt')) {
+            parent::assertIsInt($value);
+        } else {
+            self::assertInternalType('int', $value);
+        }
+    }
 
+    /**
+     * Asserts that a variable is of type array.
+     * @param mixed $value
+     */
+    public static function assertIsArray($value)
+    {
+        if (method_exists(TestCase::class, 'assertIsArray')) {
+            parent::assertIsArray($value);
+        } else {
+            self::assertInternalType('array', $value);
+        }
+    }
 }

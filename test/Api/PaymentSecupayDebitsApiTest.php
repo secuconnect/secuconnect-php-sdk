@@ -8,6 +8,7 @@ use Secuconnect\Client\Model\BankAccountDescriptor;
 use Secuconnect\Client\Model\PaymentContainersProductModel;
 use Secuconnect\Client\Model\PaymentCustomersProductModel;
 use Secuconnect\Client\Model\SecupayBasketItem;
+use Secuconnect\Client\Model\SecupayTransactionProductDTO;
 use Secuconnect\Client\Model\SecupayTransactionProductModel;
 use Secuconnect\Client\Model\SecupayTransactionProductModelUsedPaymentInstrument;
 
@@ -78,6 +79,7 @@ class PaymentSecupayDebitsApiTest extends TestCase
      */
     public static function setUpBeforeClass()
     {
+        parent::setUpBeforeClass();
         self::$secuconnectObjects = SecuconnectObjects::getInstance();
         self::$containerId = self::$secuconnectObjects->getContainer()->getId();
         self::$customerId = self::$secuconnectObjects->getCustomer()->getId();
@@ -94,7 +96,7 @@ class PaymentSecupayDebitsApiTest extends TestCase
      */
     public function setUp()
     {
-        $this->api = self::$secuconnectObjects->getApi();
+        parent::setUp();
         $this->api = new PaymentSecupayDebitsApi();
     }
 
@@ -104,6 +106,7 @@ class PaymentSecupayDebitsApiTest extends TestCase
     public function tearDown()
     {
         $this->api = null;
+        parent::tearDown();
     }
 
     /**
@@ -120,6 +123,7 @@ class PaymentSecupayDebitsApiTest extends TestCase
         self::$orderId = null;
         self::$optData = null;
         self::$basket = null;
+        parent::tearDownAfterClass();
     }
 
     /**
@@ -141,16 +145,17 @@ class PaymentSecupayDebitsApiTest extends TestCase
             'demo' => true
         ];
         try {
-            $response = $this->api->paymentSecupaydebitsPost($debitData);
+            $response = $this->api->paymentSecupaydebitsPost(new SecupayTransactionProductDTO($debitData));
             self::$debitTransactionId = $response->getId();
         } catch (ApiException $e) {
             if ($e->getResponseObject()->getErrorDetails() == 'Payment method not available (for this customer)') {
                 echo $e->getResponseObject()->getErrorDetails() . ' PaymentSecupaydebitsPost';
             } else {
                 print_r($e->getResponseObject()->getErrorDetails());
-                throw $e;
             }
+            throw $e;
         }
+
         if (isset(self::$debitTransactionId)) {
             $this->assertNotEmpty(self::$debitTransactionId);
             $this->assertInstanceOf(SecupayTransactionProductModel::class, $response);
@@ -187,26 +192,38 @@ class PaymentSecupayDebitsApiTest extends TestCase
             $this->assertEquals(self::$customerId, $response->getCustomer()->getId());
             $this->assertNotEmpty($response->getCustomer()->getCreated());
             $this->assertInstanceOf(SecupayTransactionProductModelUsedPaymentInstrument::class, $response->getUsedPaymentInstrument());
-            $this->assertEquals('bank_account', $response->getUsedPaymentInstrument()['type']);
-            $this->assertEmpty($response->getUsedPaymentInstrument()->getData()->getOwner());
-            $this->assertNotEmpty($response->getUsedPaymentInstrument()->getData()->getIban());
-            $this->assertNotEmpty($response->getUsedPaymentInstrument()->getData()->getBic());
-            $this->assertNotEmpty($response->getUsedPaymentInstrument()->getData()->getBankname());
+            $this->assertEquals('bank_account', $response->getUsedPaymentInstrument()->getType());
+            $this->assertInstanceOf(BankAccountDescriptor::class, $response->getUsedPaymentInstrument()->getData());
+            /**
+             * @var BankAccountDescriptor $used_payment_instrument
+             */
+            $used_payment_instrument = $response->getUsedPaymentInstrument()->getData();
+            $this->assertEmpty($used_payment_instrument->getOwner());
+            $this->assertNotEmpty($used_payment_instrument->getIban());
+            $this->assertNotEmpty($used_payment_instrument->getBic());
+            $this->assertNotEmpty($used_payment_instrument->getBankname());
             $this->assertInstanceOf(PaymentContainersProductModel::class, $response->getContainer());
             $this->assertNotEmpty($response->getContainer());
             $this->assertEquals('payment.containers', $response->getContainer()->getObject());
             $this->assertEquals(self::$containerId, $response->getContainer()->getId());
             $this->assertInstanceOf(BankAccountDescriptor::class, $response->getContainer()->getPrivate());
-            $this->assertNotEmpty($response->getContainer()->getPrivate());
-            $this->assertNotEmpty($response->getContainer()->getPrivate()->getOwner());
-            $this->assertNotEmpty($response->getContainer()->getPrivate()->getIban());
-            $this->assertNotEmpty($response->getContainer()->getPrivate()->getBic());
-            $this->assertNotEmpty($response->getContainer()->getPrivate()->getBankname());
-            $this->assertNotEmpty($response->getContainer()->getPublic());
-            $this->assertNotEmpty($response->getContainer()->getPublic()->getOwner());
-            $this->assertNotEmpty($response->getContainer()->getPublic()->getIban());
-            $this->assertNotEmpty($response->getContainer()->getPublic()->getBic());
-            $this->assertNotEmpty($response->getContainer()->getPublic()->getBankname());
+            /**
+             * @var BankAccountDescriptor $private_data
+             */
+            $private_data = $response->getContainer()->getPrivate();
+            $this->assertNotEmpty($private_data->getOwner());
+            $this->assertNotEmpty($private_data->getIban());
+            $this->assertNotEmpty($private_data->getBic());
+            $this->assertNotEmpty($private_data->getBankname());
+            $this->assertInstanceOf(BankAccountDescriptor::class, $response->getContainer()->getPublic());
+            /**
+             * @var BankAccountDescriptor $public_data
+             */
+            $public_data = $response->getContainer()->getPublic();
+            $this->assertNotEmpty($public_data->getOwner());
+            $this->assertNotEmpty($public_data->getIban());
+            $this->assertNotEmpty($public_data->getBic());
+            $this->assertNotEmpty($public_data->getBankname());
             $this->assertEquals('bank_account', $response->getContainer()->getType());
             $this->assertNotEmpty($response->getContainer()->getCreated());
             $this->assertNotEmpty($response->getContainer()->getCustomer());
@@ -267,25 +284,37 @@ class PaymentSecupayDebitsApiTest extends TestCase
             $this->assertNotEmpty($response->getCustomer()->getCreated());
             $this->assertInstanceOf(SecupayTransactionProductModelUsedPaymentInstrument::class, $response->getUsedPaymentInstrument());
             $this->assertEquals('bank_account', $response->getUsedPaymentInstrument()->getType());
-            $this->assertEmpty($response->getUsedPaymentInstrument()->getData()->getOwner());
-            $this->assertNotEmpty($response->getUsedPaymentInstrument()->getData()->getIban());
-            $this->assertNotEmpty($response->getUsedPaymentInstrument()->getData()->getBic());
-            $this->assertNotEmpty($response->getUsedPaymentInstrument()->getData()->getBankname());
+            $this->assertInstanceOf(BankAccountDescriptor::class, $response->getUsedPaymentInstrument()->getData());
+            /**
+             * @var BankAccountDescriptor $used_payment_instrument
+             */
+            $used_payment_instrument = $response->getUsedPaymentInstrument()->getData();
+            $this->assertEmpty($used_payment_instrument->getOwner());
+            $this->assertNotEmpty($used_payment_instrument->getIban());
+            $this->assertNotEmpty($used_payment_instrument->getBic());
+            $this->assertNotEmpty($used_payment_instrument->getBankname());
             $this->assertInstanceOf(PaymentContainersProductModel::class, $response->getContainer());
             $this->assertNotEmpty($response->getContainer());
             $this->assertEquals('payment.containers', $response->getContainer()->getObject());
             $this->assertEquals(self::$containerId, $response->getContainer()->getId());
             $this->assertInstanceOf(BankAccountDescriptor::class, $response->getContainer()->getPrivate());
-            $this->assertNotEmpty($response->getContainer()->getPrivate());
-            $this->assertNotEmpty($response->getContainer()->getPrivate()->getOwner());
-            $this->assertNotEmpty($response->getContainer()->getPrivate()->getIban());
-            $this->assertNotEmpty($response->getContainer()->getPrivate()->getBic());
-            $this->assertNotEmpty($response->getContainer()->getPrivate()->getBankname());
-            $this->assertNotEmpty($response->getContainer()->getPublic());
-            $this->assertNotEmpty($response->getContainer()->getPublic()->getOwner());
-            $this->assertNotEmpty($response->getContainer()->getPublic()->getIban());
-            $this->assertNotEmpty($response->getContainer()->getPublic()->getBic());
-            $this->assertNotEmpty($response->getContainer()->getPublic()->getBankname());
+            /**
+             * @var BankAccountDescriptor $private_data
+             */
+            $private_data = $response->getContainer()->getPrivate();
+            $this->assertNotEmpty($private_data->getOwner());
+            $this->assertNotEmpty($private_data->getIban());
+            $this->assertNotEmpty($private_data->getBic());
+            $this->assertNotEmpty($private_data->getBankname());
+            $this->assertInstanceOf(BankAccountDescriptor::class, $response->getContainer()->getPublic());
+            /**
+             * @var BankAccountDescriptor $public_data
+             */
+            $public_data = $response->getContainer()->getPublic();
+            $this->assertNotEmpty($public_data->getOwner());
+            $this->assertNotEmpty($public_data->getIban());
+            $this->assertNotEmpty($public_data->getBic());
+            $this->assertNotEmpty($public_data->getBankname());
             $this->assertEquals('bank_account', $response->getContainer()->getType());
             $this->assertNotEmpty($response->getContainer()->getCreated());
             $this->assertNotEmpty($response->getContainer()->getCustomer());
