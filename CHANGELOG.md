@@ -19,75 +19,134 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [2.2.0] - 2020-09-04
+
+### Added
+
+- `Api.LoyaltyCardgroupsApi.getCardgroupsByMerchantId()`
+- `Api.PaymentTransactionsApi.addTransaction()`
+- `Api.SmartTransactionsApi.setDelivery()`
+- `Model.GeneralStoresProductModel` element `acceptance_point`
+- `Model.OneOfSmartTransactionsDeliveryOptionsModel`
+- `Model.PaymentContractsProductModel` element `pay_in_account`
+- `Model.SecupayTransactionProductDTO` element `payment_methods`
+- `Model.SecupayTransactionProductModel ` element `payment_id`
+- `Model.SmartDevicesDTO` element `device` and `tid`
+- `MModel.SmartDevicesProductModel` element `tid` and `refresh`
+- `Model.SmartTransactionsCollectionModel`
+- `Model.SmartTransactionsDTO` element `intent` and `delivery_options`
+- `Model.SmartTransactionsProductModel ` element `delivery_options`
+- `Model.SmartTransactionsSetDeliveryModel`
+- `Model.SmartTransactionsShippingModel`
+- `Model.SmartTransactionsTimeSlot`
+
+### Changed
+
+- `Printer.ImitationDevicePrinter.printUserCode()` returns a new text
+- The dev-dependency `phpunit/phpunit` can be installed in version 5.7 or newer.
+
+### Fixed
+
+- Fixed some api tests
+
+### Removed
+
+- `Api.LoyaltySalesApi`
+- `Api.LoyaltyStoregroupsApi`
+- `Api.SmartDevicesApi`
+- `Model.GeneralMerchantsCheckoutOptions`
+- `Model.GeneralMerchantsCheckoutOptionsCollection`
+- `Model.GeneralMerchantsCheckoutOptionsCollectionSmartDevices`
+- `Model.GeneralMerchantsDTO` element `checkout_options`
+- `Model.GeneralMerchantsProductModel ` element `checkout_options`
+- `Model.LoyaltyDTOStore `
+- `Model.LoyaltyStoregroupsDTO`
+- `Model.LoyaltyStoregroupsDTOStoresAddressComponents`
+- `Model.LoyaltyStoregroupsList`
+- `Model.LoyaltyStoregroupsProductModel `
+- `Model.SmartDevicesDTO` element `terminal`
+- `Model.SmartDevicesDTOPrepaidTid`
+- `Model.SmartDevicesDTOSecubaseConfig `
+- `Model.SmartDevicesSecubaseConfig`
+- `Model.SmartDevicesSecubaseConfigLogging `
+- `Model.SmartDevicesSecubaseConfigLoggingFileNet`
+- `Model.SmartTransactionsBasket` element `texts`
+- `Model.SmartTransactionsBasketText`
+- `Model.SmartTransactionsPickupOptions`
+- `Model.SmartTransactionsDTO` element `order_option`
+- `Model.SmartTransactionsProductModel ` elements `order_option`, `pickup_options` and `shipment_details`
+- `Model.GeneralMerchantsCheckoutOptionsShipping`
+- `Model.SmartTransactionsShipmentDetails`
+- `Model.LoyaltyDTOMerchant`
+- `Model.Store` element `name_raw`
+
+
 ## [2.1.0] - 2020-05-12
 
 ### Added
 
-- `Api.LoyaltyMerchantcardsApi`: added call `cardBalanceReceipt`
-- `Api.LoyaltyTransactionsApi` was added
-- `Api.ServicesUploadidentsProductApi` was added
-- `Model.LoyaltyMerchantcardsProductWithReceiptModel`: added elements `trans_id` and `amount`
+- `Api.LoyaltyMerchantcardsApi.cardBalanceReceipt()`
+- `Api.LoyaltyTransactionsApi`
+- `Api.ServicesUploadidentsProductApi`
+- `Model.LoyaltyMerchantcardsProductWithReceiptModel` element `trans_id` and `amount`
 
 ### Fixed
 
-- `Api.LoyaltyCustomersApi`: fixed response declaration from `null[]` to `string[]`
-- `Model.SecupayTransactionProductModelUsedPaymentInstrument`: fixed response declaration from `BankAccountDescriptor` to `OneOfPaymentContainersDTOModelPrivate`
+- `Api.LoyaltyCustomersApi` fixed response declaration from `null[]` to `string[]`
+- `Model.SecupayTransactionProductModelUsedPaymentInstrument` fixed response declaration from `BankAccountDescriptor` to `OneOfPaymentContainersDTOModelPrivate`
 
 
 ## [2.0.0] - 2020-05-11
 
 ### Added
 
-- `Api.SmartTransactionsApi.startTransaction()`: added parameter `body`
-- `Model.Address`: added element `additional_address_data`
-- `Model.GeneralStoresProductModel`: added element `store_name`
-- `Model.PaymentTransactionsProductModel`: added elements `parents` and `account_owner`
-- `Model.PaymentContainersDTO`: added element `customer_id`
-- `Model.SmartTransactionsReceiptValue`: added element `decoration`
-- `Model.SmartTransactionsBonusProducts`: added element `serial_number`
-
+- `Api.SmartTransactionsApi.startTransaction()` parameter `body`
+- `Model.Address` element `additional_address_data`
+- `Model.GeneralStoresProductModel` element `store_name`
+- `Model.PaymentTransactionsProductModel` element `parents` and `account_owner`
+- `Model.PaymentContainersDTO` element `customer_id`
+- `Model.SmartTransactionsReceiptValue` element `decoration`
+- `Model.SmartTransactionsBonusProducts` element `serial_number`
 
 ### Changed
 
 - The `body` parameter is now always a required parameter in the API calls, but you set it to `null` if you do not need it.
-- `Api.GeneralStoresApi`: changed response declarations from `object` to `ResultBoolean`
-- `Api.LoyaltyCardsApi.assignUser()`: changed input parameter from `object` to `CardPin`
-- `Api.LoyaltyCardsApi`: changed response declarations from `object` to `ResultBoolean`
-- `Api.LoyaltyCustomersApi.checkForDuplicates()`: changed response declaration from `object` to `CustomersWithoutMerchantcardAndDuplicatedCustomers`
-- `Api.LoyaltyMerchantcardsApi`: changed response declarations from `object` to `ResultBoolean`
-- `Api.PaymentContractsApi.paymentContractsIdPaymentMethodsGet()`: changed response declaration from `string[]` to `StringList`
-- `Api.PaymentSecupayCreditcardsApi.cancelPaymentTransactionById()`: changed response declaration from `object` to `PaymentCancelResult`
-- `Api.PaymentSecupayDebitsApi.cancelPaymentTransactionById()`: changed response declaration from `object` to `PaymentCancelResult`
-- `Api.PaymentSecupayInvoicesApi.cancelPaymentTransactionById()`: changed response declaration from `object` to `PaymentCancelResult`
-- `Api.PaymentSecupayPrepaysApi.cancelPaymentTransactionById()`: changed response declaration from `object` to `PaymentCancelResult`
-- `Api.PaymentSecupaySofortApi.cancelPaymentTransactionById()`: changed response declaration from `object` to `PaymentCancelResult`
-- `Api.SmartDevicesApi`: replaced `SmartDevicesList1` with `SmartDevicesList`
-- `Model.PaymentContainersDTO`: replaced `PaymentContainersDTOPrivate` with `OneOfPaymentContainersDTOModelPrivate`
-- `Model.SecupayPayoutDTO`: changed parameter `customer` from string to `PaymentCustomersProductModel`
-
+- `Api.GeneralStoresApi` changed response declarations from `object` to `ResultBoolean`
+- `Api.LoyaltyCardsApi.assignUser()` changed input parameter from `object` to `CardPin`
+- `Api.LoyaltyCardsApi` changed response declarations from `object` to `ResultBoolean`
+- `Api.LoyaltyCustomersApi.checkForDuplicates()` changed response declaration from `object` to `CustomersWithoutMerchantcardAndDuplicatedCustomers`
+- `Api.LoyaltyMerchantcardsApi` changed response declarations from `object` to `ResultBoolean`
+- `Api.PaymentContractsApi.paymentContractsIdPaymentMethodsGet()` changed response declaration from `string[]` to `StringList`
+- `Api.PaymentSecupayCreditcardsApi.cancelPaymentTransactionById()` changed response declaration from `object` to `PaymentCancelResult`
+- `Api.PaymentSecupayDebitsApi.cancelPaymentTransactionById()` changed response declaration from `object` to `PaymentCancelResult`
+- `Api.PaymentSecupayInvoicesApi.cancelPaymentTransactionById()` changed response declaration from `object` to `PaymentCancelResult`
+- `Api.PaymentSecupayPrepaysApi.cancelPaymentTransactionById()` changed response declaration from `object` to `PaymentCancelResult`
+- `Api.PaymentSecupaySofortApi.cancelPaymentTransactionById()` changed response declaration from `object` to `PaymentCancelResult`
+- `Api.SmartDevicesApi` replaced `SmartDevicesList1` with `SmartDevicesList`
+- `Model.PaymentContainersDTO` replaced `PaymentContainersDTOPrivate` with `OneOfPaymentContainersDTOModelPrivate`
+- `Model.SecupayPayoutDTO` changed parameter `customer` from string to `PaymentCustomersProductModel`
 
 ### Fixed
 
-- `Model.SmartTransactionsPrepare`: fixed type declaration of element `callback_urls`
-- `Model.GeneralStoresProductModel`: fixed type declaration of element `geometry`
-- `Model.BankAccountDescriptor`: wrong element `pan` was removed, instead of this we have now the model `CreditCardDescriptor`
-
+- `Model.SmartTransactionsPrepare` fixed type declaration of element `callback_urls`
+- `Model.GeneralStoresProductModel` fixed type declaration of element `geometry`
+- `Model.BankAccountDescriptor` wrong element `pan` was removed, instead of this we have now the model `CreditCardDescriptor`
 
 ### Removed
 
-- `Api.GeneralMerchantsApi`: call `updateMerchant` was removed
-- `Api.LoyaltySalesApi`: call `getVirtualTerminalIdByStoreId` was removed
-- `Api.PaymentSecupayCreditcardsApi`: call `paymentSecupayCreditcardsCancelById` was removed
-- `Api.PaymentSecupayDebitsApi`: call `paymentSecupayDebitsCancelById` was removed
-- `Api.PaymentSecupayInvoicesApi`: call `paymentSecupayInvoicesCancelById` was removed
-- `Api.PaymentSecupayPrepaysApi`: call `paymentSecupayPrepaysCancelById` was removed
-- `Api.PaymentTransactionsApi.revokeAccrual()`: parameter `body` was removed
-- `Model.PaymentContainersDTOPrivate` was removed
-- `Model.SmartDevicesList1` was removed
-- `Model.VirtualTerminalData` was removed
-- `Model.SecupaySubTransactionProductModel`: elements `amount`, `transaction_status`, `status`, `currency` were removed
-- `Model.SecupayPayoutDTO`: element `demo` was removed
-- `Model.ReceiptTypeValue`: element `type` was removed
+- `Api.GeneralMerchantsApi.updateMerchant()`
+- `Api.LoyaltySalesAp.getVirtualTerminalIdByStoreId()`
+- `Api.PaymentSecupayCreditcardsApi.paymentSecupayCreditcardsCancelById()`
+- `Api.PaymentSecupayDebitsApi.paymentSecupayDebitsCancelById()`
+- `Api.PaymentSecupayInvoicesApi.paymentSecupayInvoicesCancelById()`
+- `Api.PaymentSecupayPrepaysApi.paymentSecupayPrepaysCancelById()`
+- `Api.PaymentTransactionsApi.revokeAccrual()` parameter `body`
+- `Model.PaymentContainersDTOPrivate`
+- `Model.SmartDevicesList1`
+- `Model.VirtualTerminalData`
+- `Model.SecupaySubTransactionProductModel` elements `amount`, `transaction_status`, `status`, `currency` were removed
+- `Model.SecupayPayoutDTO` element `demo`
+- `Model.ReceiptTypeValue` element `type`
 
 
 ## [1.3.0] - 2020-03-04
@@ -126,26 +185,26 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
-- PaymentContractsDTORequestId: parameter "create_first_store" and "store_name"
-- PaymentContractsRequestIdResult: parameter "merchant" and "store"
-- SmartDevicesProductModel: parameter "contract"
-- SmartTransactionsPrepare: some internal parameter
-- SmartTransactionsProductModel: parameter "iframe_url"
+- `PaymentContractsDTORequestId` parameter `create_first_store` and `store_name`
+- `PaymentContractsRequestIdResult` parameter `merchant` and `store`
+- `SmartDevicesProductModel` parameter `contract`
+- `SmartTransactionsPrepare` some internal parameter
+- `SmartTransactionsProductModel` parameter `iframe_url`
 
 ### Changed
 
-- **[BREAKING\]** PaymentContractsRequestIdResult: parameter "contract" is now a instance of "ProductInstanceUID" instead of "PaymentContractsProductModel"
+- **[BREAKING\]** `PaymentContractsRequestIdResult` parameter `contract` is now a instance of `ProductInstanceUID` instead of `PaymentContractsProductModel`
 
 ### Removed
 
-- GeneralMerchantsApi: addMerchants() and related calls
-- PaymentTransactionsApi: deprecated functions
-  - paymentTransactionsIdCancelPost()
-  - paymentTransactionsGet()
-  - paymentTransactionsGetById()
-  - paymentTransactionsIdShippingUrlGet()
-- PrepaidSalesProductApi: deprecated functions
-  - prepaidSalesPost()
+- `GeneralMerchantsApi.addMerchants()`
+- `PaymentTransactionsApi` deprecated functions
+  - `paymentTransactionsIdCancelPost()`
+  - `paymentTransactionsGet()`
+  - `paymentTransactionsGetById()`
+  - `paymentTransactionsIdShippingUrlGet()`
+- `PrepaidSalesProductApi` deprecated functions
+  - `prepaidSalesPost()`
 
 
 ## [0.8.0] - 2019-08-14
@@ -353,3 +412,4 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 [1.3.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.2.0...1.3.0
 [2.0.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.3.0...2.0.0
 [2.1.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.0.0...2.1.0
+[2.2.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.1.0...2.2.0

@@ -38,7 +38,6 @@ class GeneralMerchantsDTO implements ArrayAccess
         'address' => '\Secuconnect\Client\Model\Address',
         'payment_data' => '\Secuconnect\Client\Model\PaymentInformation',
         'legal_details' => '\Secuconnect\Client\Model\GeneralMerchantsLegalDetails[]',
-        'checkout_options' => '\Secuconnect\Client\Model\GeneralMerchantsCheckoutOptions',
         'urls' => '\Secuconnect\Client\Model\GeneralMerchantsUrls[]'
     ];
 
@@ -58,7 +57,6 @@ class GeneralMerchantsDTO implements ArrayAccess
         'address' => null,
         'payment_data' => null,
         'legal_details' => null,
-        'checkout_options' => null,
         'urls' => null
     ];
 
@@ -88,7 +86,6 @@ class GeneralMerchantsDTO implements ArrayAccess
         'address' => 'address',
         'payment_data' => 'payment_data',
         'legal_details' => 'legal_details',
-        'checkout_options' => 'checkout_options',
         'urls' => 'urls'
     ];
 
@@ -108,7 +105,6 @@ class GeneralMerchantsDTO implements ArrayAccess
         'address' => 'setAddress',
         'payment_data' => 'setPaymentData',
         'legal_details' => 'setLegalDetails',
-        'checkout_options' => 'setCheckoutOptions',
         'urls' => 'setUrls'
     ];
 
@@ -128,7 +124,6 @@ class GeneralMerchantsDTO implements ArrayAccess
         'address' => 'getAddress',
         'payment_data' => 'getPaymentData',
         'legal_details' => 'getLegalDetails',
-        'checkout_options' => 'getCheckoutOptions',
         'urls' => 'getUrls'
     ];
 
@@ -170,7 +165,6 @@ class GeneralMerchantsDTO implements ArrayAccess
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
         $this->container['payment_data'] = isset($data['payment_data']) ? $data['payment_data'] : null;
         $this->container['legal_details'] = isset($data['legal_details']) ? $data['legal_details'] : null;
-        $this->container['checkout_options'] = isset($data['checkout_options']) ? $data['checkout_options'] : null;
         $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
     }
 
@@ -425,27 +419,6 @@ class GeneralMerchantsDTO implements ArrayAccess
     public function setLegalDetails($legal_details)
     {
         $this->container['legal_details'] = $legal_details;
-
-        return $this;
-    }
-
-    /**
-     * Gets checkout_options
-     * @return \Secuconnect\Client\Model\GeneralMerchantsCheckoutOptions
-     */
-    public function getCheckoutOptions()
-    {
-        return $this->container['checkout_options'];
-    }
-
-    /**
-     * Sets checkout_options
-     * @param \Secuconnect\Client\Model\GeneralMerchantsCheckoutOptions $checkout_options checkout_options
-     * @return $this
-     */
-    public function setCheckoutOptions($checkout_options)
-    {
-        $this->container['checkout_options'] = $checkout_options;
 
         return $this;
     }

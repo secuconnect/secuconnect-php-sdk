@@ -7,12 +7,12 @@ namespace Secuconnect\Client;
  */
 class Globals
 {
-    public const OAuthClientCredentials = [
+    const OAuthClientCredentials = [
         'clientId' => '...',
         'clientSecret' => '...'
     ];
 
-    public const OAuthApplicationUserCredentials = [
+    const OAuthApplicationUserCredentials = [
         'clientId' => '...',
         'clientSecret' => '...',
         'username' => '...',
@@ -21,13 +21,13 @@ class Globals
         'deviceName' => '...'
     ];
 
-    public const OAuthDeviceCredentials = [
+    const OAuthDeviceCredentials = [
         'clientId' => '...',
         'clientSecret' => '...',
         'uuid' => '...'
     ];
 
-    public const OAuthRefreshCredentials = [
+    const OAuthRefreshCredentials = [
         'clientId' => '...',
         'clientSecret' => '...',
         'refreshToken' => '...'

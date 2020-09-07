@@ -3,14 +3,16 @@
 namespace Secuconnect\Client\Cache;
 
 use DateTime;
+use PHPUnit\Framework\TestCase;
+use Psr\Cache\InvalidArgumentException;
+use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Authentication\Authenticator;
-use Secuconnect\Client\Authentication\OAuthClientCredentials;
 use Secuconnect\Client\Globals;
 
 /**
  * Class FileCacheTest
  */
-class FileCacheTest extends \PHPUnit\Framework\TestCase
+class FileCacheTest extends TestCase
 {
     /**
      * @var FileCache
@@ -19,22 +21,19 @@ class FileCacheTest extends \PHPUnit\Framework\TestCase
 
     public static function setUpBeforeClass()
     {
+        parent::setUpBeforeClass();
         self::$fileCache = new FileCache();
-    }
-
-    public function setUp()
-    {
-    }
-
-    public function tearDown()
-    {
     }
 
     public static function tearDownAfterClass()
     {
         self::$fileCache = null;
+        parent::tearDownAfterClass();
     }
 
+    /**
+     * @throws InvalidArgumentException
+     */
     public function testHasItem()
     {
         $cacheItem = new CacheItem('simpleKey');
@@ -47,6 +46,9 @@ class FileCacheTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue(self::$fileCache->hasItem('simpleKey'));
     }
 
+    /**
+     * @throws InvalidArgumentException
+     */
     public function testGetItem()
     {
         $cacheItem = new CacheItem('simpleKey');
@@ -58,6 +60,9 @@ class FileCacheTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($cacheItem, self::$fileCache->getItem('simpleKey'));
     }
 
+    /**
+     * @throws InvalidArgumentException
+     */
     public function testHasItemExpired()
     {
         $cacheItem = new CacheItem('simpleKey');
@@ -70,6 +75,9 @@ class FileCacheTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse(self::$fileCache->hasItem('simpleKey'));
     }
 
+    /**
+     * @throws InvalidArgumentException
+     */
     public function testGetItems()
     {
         $cacheItem = new CacheItem('simpleKey');
@@ -86,6 +94,9 @@ class FileCacheTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($cacheItem3, self::$fileCache->getItems(['simpleKey', 'simpleKey2', 'simpleKey3'])['simpleKey3']);
     }
 
+    /**
+     * @throws ApiException
+     */
     public function testSaveTokenToCache()
     {
         $accessToken = Authenticator::authenticateByClientCredentials(...array_values(Globals::OAuthClientCredentials));

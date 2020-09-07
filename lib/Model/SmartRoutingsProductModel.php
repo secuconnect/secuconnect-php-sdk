@@ -27,9 +27,9 @@ class SmartRoutingsProductModel extends BaseProductModel
     protected static $swaggerTypes = [
         'merchant' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'store' => '\Secuconnect\Client\Model\Store',
+        'description' => 'string',
         'created' => 'string',
         'updated' => 'string',
-        'description' => 'string',
         'assign' => '\Secuconnect\Client\Model\SmartRoutingsAssign[]'
     ];
 
@@ -40,9 +40,9 @@ class SmartRoutingsProductModel extends BaseProductModel
     protected static $swaggerFormats = [
         'merchant' => null,
         'store' => null,
+        'description' => null,
         'created' => null,
         'updated' => null,
-        'description' => null,
         'assign' => null
     ];
 
@@ -63,9 +63,9 @@ class SmartRoutingsProductModel extends BaseProductModel
     protected static $attributeMap = [
         'merchant' => 'merchant',
         'store' => 'store',
+        'description' => 'description',
         'created' => 'created',
         'updated' => 'updated',
-        'description' => 'description',
         'assign' => 'assign'
     ];
 
@@ -76,9 +76,9 @@ class SmartRoutingsProductModel extends BaseProductModel
     protected static $setters = [
         'merchant' => 'setMerchant',
         'store' => 'setStore',
+        'description' => 'setDescription',
         'created' => 'setCreated',
         'updated' => 'setUpdated',
-        'description' => 'setDescription',
         'assign' => 'setAssign'
     ];
 
@@ -89,9 +89,9 @@ class SmartRoutingsProductModel extends BaseProductModel
     protected static $getters = [
         'merchant' => 'getMerchant',
         'store' => 'getStore',
+        'description' => 'getDescription',
         'created' => 'getCreated',
         'updated' => 'getUpdated',
-        'description' => 'getDescription',
         'assign' => 'getAssign'
     ];
 
@@ -120,9 +120,9 @@ class SmartRoutingsProductModel extends BaseProductModel
 
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['store'] = isset($data['store']) ? $data['store'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['assign'] = isset($data['assign']) ? $data['assign'] : null;
     }
 
@@ -193,6 +193,27 @@ class SmartRoutingsProductModel extends BaseProductModel
     }
 
     /**
+     * Gets description
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     * @param string $description Description
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
      * Gets created
      * @return string
      */
@@ -230,27 +251,6 @@ class SmartRoutingsProductModel extends BaseProductModel
     public function setUpdated($updated)
     {
         $this->container['updated'] = $updated;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     * @param string $description Description
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
 
         return $this;
     }

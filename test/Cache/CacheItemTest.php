@@ -3,11 +3,13 @@
 namespace Secuconnect\Client\Cache;
 
 use DateTime;
+use Exception;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class CacheItemTest
  */
-class CacheItemTest extends \PHPUnit\Framework\TestCase
+class CacheItemTest extends TestCase
 {
     /**
      * @var CacheItem
@@ -16,21 +18,15 @@ class CacheItemTest extends \PHPUnit\Framework\TestCase
 
     public static function setUpBeforeClass()
     {
+        parent::setUpBeforeClass();
         self::$cacheItem = new CacheItem('simpleKey');
         self::$cacheItem->set('simpleValue');
-    }
-
-    public function setUp()
-    {
-    }
-
-    public function tearDown()
-    {
     }
 
     public static function tearDownAfterClass()
     {
         self::$cacheItem = null;
+        parent::tearDownAfterClass();
     }
 
     public function testGetKey()
@@ -38,6 +34,9 @@ class CacheItemTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('simpleKey', self::$cacheItem->getKey());
     }
 
+    /**
+     * @throws Exception
+     */
     public function testExpiresAtTomorrow()
     {
         $now = new DateTime();
@@ -47,11 +46,17 @@ class CacheItemTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue(self::$cacheItem->isHit());
     }
 
+    /**
+     * @throws Exception
+     */
     public function testGetValue()
     {
         $this->assertEquals('simpleValue', self::$cacheItem->get());
     }
 
+    /**
+     * @throws Exception
+     */
     public function testExpiresAtNullAfterSet()
     {
         self::$cacheItem->expiresAt(null);
@@ -59,6 +64,9 @@ class CacheItemTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse(self::$cacheItem->isHit());
     }
 
+    /**
+     * @throws Exception
+     */
     public function testExpiresAtYesterday()
     {
         $now = new DateTime();
@@ -68,6 +76,9 @@ class CacheItemTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse(self::$cacheItem->isHit());
     }
 
+    /**
+     * @throws Exception
+     */
     public function testExpiresAtNull()
     {
         self::$cacheItem->expiresAt(null);

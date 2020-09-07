@@ -2,7 +2,6 @@
 
 namespace Secuconnect\Client\Api;
 
-use Secuconnect\Client\ApiClient;
 use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Authentication\Authenticator;
 use Secuconnect\Client\Globals;
@@ -31,11 +30,6 @@ class SecuconnectObjects
      * @var SecuconnectObjects
      */
     private static $instance;
-
-    /**
-     * @var ApiClient
-     */
-    private $api;
 
     /**
      * @var PaymentContainersProductModel
@@ -99,11 +93,9 @@ class SecuconnectObjects
     }
 
     /**
-     * @return $this
-     * @throws ApiException
-     *
+     * @return PaymentContainersDTO
      */
-    private function createContainer()
+    public function createPaymentContainersDTO()
     {
         $privateData = new BankAccountDescriptor();
         $privateData
@@ -116,10 +108,19 @@ class SecuconnectObjects
             ->setType('bank_account')
             ->setPrivate($privateData);
 
-        $this->api = new PaymentContainersApi();
+        return $container;
+    }
 
+    /**
+     * @return $this
+     * @throws ApiException
+     *
+     */
+    private function createContainer()
+    {
         try {
-            $this->container = $this->api->paymentContainersPost($container);
+            $api = new PaymentContainersApi();
+            $this->container = $api->paymentContainersPost($this->createPaymentContainersDTO());
         } catch (ApiException $e) {
             print_r($e->getResponseBody());
             throw $e;
@@ -129,11 +130,9 @@ class SecuconnectObjects
     }
 
     /**
-     * @return $this
-     * @throws ApiException
-     *
+     * @return PaymentCustomersDTO
      */
-    private function createCustomer()
+    public function createPaymentCustomersDTO()
     {
         $contact = new Contact();
         $contact->setForename('John');
@@ -141,13 +140,22 @@ class SecuconnectObjects
         $contact->setCompanyname('Example Inc.');
         $contact->setEmail('mail@example.com');
 
-        $this->customer = new PaymentCustomersDTO();
-        $this->customer->setContact($contact);
+        $customer = new PaymentCustomersDTO();
+        $customer->setContact($contact);
 
-        $this->api = new PaymentCustomersApi();
+        return $customer;
+    }
 
+    /**
+     * @return $this
+     * @throws ApiException
+     *
+     */
+    private function createCustomer()
+    {
         try {
-            $this->customer = $this->api->paymentCustomersPost($this->customer);
+            $api = new PaymentCustomersApi();
+            $this->customer = $api->paymentCustomersPost($this->createPaymentCustomersDTO());
         } catch (ApiException $e) {
             print_r($e->getResponseBody());
             throw $e;
@@ -190,14 +198,6 @@ class SecuconnectObjects
         $this->basket = [$basketItem1, $basketItem2, $basketItem3];
 
         return $this;
-    }
-
-    /**
-     * @return ApiClient
-     */
-    public function getApi()
-    {
-        return $this->api;
     }
 
     /**

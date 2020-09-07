@@ -81,6 +81,7 @@ class PaymentContainersApiTest extends TestCase
      */
     public static function setUpBeforeClass()
     {
+        parent::setUpBeforeClass();
         self::$containerId = '';
 
         self::$privateData = new BankAccountDescriptor();
@@ -108,9 +109,9 @@ class PaymentContainersApiTest extends TestCase
      */
     public function setUp()
     {
+        parent::setUp();
         $instance = SecuconnectObjects::getInstance();
         $instance->authenticateByClientCredentials();
-        $this->api = $instance->getApi();
         $this->api = new PaymentContainersApi();
     }
 
@@ -120,6 +121,7 @@ class PaymentContainersApiTest extends TestCase
     public function tearDown()
     {
         $this->api = null;
+        parent::tearDown();
     }
 
     /**
@@ -134,6 +136,7 @@ class PaymentContainersApiTest extends TestCase
         self::$bankAccount = null;
         self::$created = null;
         self::$updated = null;
+        parent::tearDownAfterClass();
     }
 
     /**
@@ -159,22 +162,21 @@ class PaymentContainersApiTest extends TestCase
         $this->assertNull($response->getCustomer());
         $this->assertNull($response->getAssign());
         $this->assertInstanceOf(BankAccountDescriptor::class, $response->getPrivate());
-        $this->assertNotNull($response->getPrivate()->getOwner());
-        $this->assertNotEmpty($response->getPrivate()->getOwner());
-        $this->assertNotNull($response->getPrivate()->getIban());
-        $this->assertNotEmpty($response->getPrivate()->getIban());
-        $this->assertNotNull($response->getPrivate()->getBic());
-        $this->assertNotEmpty($response->getPrivate()->getBic());
-        $this->assertNotNull($response->getPrivate()->getBankname());
-        $this->assertNotEmpty($response->getPrivate()->getBankname());
-
         self::$bankAccount = $response->getPrivate();
+        $this->assertNotEmpty(self::$bankAccount->getOwner());
+        $this->assertNotEmpty(self::$bankAccount->getIban());
+        $this->assertNotEmpty(self::$bankAccount->getBic());
+        $this->assertNotEmpty(self::$bankAccount->getBankname());
 
         $this->assertInstanceOf(BankAccountDescriptor::class, $response->getPublic());
-        $this->assertEquals(SecuconnectObjects::BANK_ACCOUNT_OWNER, $response->getPublic()->getOwner());
-        $this->assertEquals(SecuconnectObjects::BANK_ACCOUNT_IBAN, $response->getPublic()->getIban());
-        $this->assertEquals(SecuconnectObjects::BANK_ACCOUNT_BIC, $response->getPublic()->getBic());
-        $this->assertEquals(self::$bankAccount->getBankname(), $response->getPublic()->getBankname());
+        /**
+         * @var BankAccountDescriptor $public_data
+         */
+        $public_data = $response->getPublic();
+        $this->assertEquals(SecuconnectObjects::BANK_ACCOUNT_OWNER, $public_data->getOwner());
+        $this->assertEquals(SecuconnectObjects::BANK_ACCOUNT_IBAN, $public_data->getIban());
+        $this->assertEquals(SecuconnectObjects::BANK_ACCOUNT_BIC, $public_data->getBic());
+        $this->assertEquals(self::$bankAccount->getBankname(), $public_data->getBankname());
         $this->assertEquals('bank_account', $response->getType());
         $this->assertNotNull($response->getCreated());
         $this->assertNotEmpty($response->getCreated());
@@ -220,16 +222,23 @@ class PaymentContainersApiTest extends TestCase
         $this->assertEquals('payment.containers', $response->getObject());
         $this->assertNotEmpty($response->getId());
         $this->assertInstanceOf(BankAccountDescriptor::class, $response->getPrivate());
+        /**
+         * @var BankAccountDescriptor $private_data
+         */
+        $private_data = $response->getPrivate();
+        $this->assertEquals(self::BANK_ACCOUNT_OWNER_RENAMED, $private_data->getOwner());
+        $this->assertEquals(SecuconnectObjects::BANK_ACCOUNT_IBAN, $private_data->getIban());
+        $this->assertEquals(SecuconnectObjects::BANK_ACCOUNT_BIC, $private_data->getBic());
+        $this->assertEquals(self::$bankAccount->getBankname(), $private_data->getBankname());
         $this->assertInstanceOf(BankAccountDescriptor::class, $response->getPublic());
-        $this->assertEquals(self::BANK_ACCOUNT_OWNER_RENAMED, $response->getPrivate()->getOwner());
-        $this->assertEquals(SecuconnectObjects::BANK_ACCOUNT_IBAN, $response->getPrivate()->getIban());
-        $this->assertEquals(SecuconnectObjects::BANK_ACCOUNT_BIC, $response->getPrivate()->getBic());
-        $this->assertEquals(self::$bankAccount->getBankname(), $response->getPrivate()->getBankname());
-        $this->assertInstanceOf(BankAccountDescriptor::class, $response->getPublic());
-        $this->assertEquals(self::BANK_ACCOUNT_OWNER_RENAMED, $response->getPublic()->getOwner());
-        $this->assertEquals(SecuconnectObjects::BANK_ACCOUNT_IBAN, $response->getPublic()->getIban());
-        $this->assertEquals(SecuconnectObjects::BANK_ACCOUNT_BIC, $response->getPublic()->getBic());
-        $this->assertEquals(self::$bankAccount->getBankname(), $response->getPublic()->getBankname());
+        /**
+         * @var BankAccountDescriptor $public_data
+         */
+        $public_data = $response->getPublic();
+        $this->assertEquals(self::BANK_ACCOUNT_OWNER_RENAMED, $public_data->getOwner());
+        $this->assertEquals(SecuconnectObjects::BANK_ACCOUNT_IBAN, $public_data->getIban());
+        $this->assertEquals(SecuconnectObjects::BANK_ACCOUNT_BIC, $public_data->getBic());
+        $this->assertEquals(self::$bankAccount->getBankname(), $public_data->getBankname());
         $this->assertEquals('bank_account', $response->getType());
         $this->assertEquals(self::$created, $response->getCreated());
         $this->assertNotEmpty($response->getUpdated());
@@ -259,16 +268,23 @@ class PaymentContainersApiTest extends TestCase
         $this->assertEquals('payment.containers', $response->getObject());
         $this->assertEquals(self::$containerId, $response->getId());
         $this->assertInstanceOf(BankAccountDescriptor::class, $response->getPrivate());
+        /**
+         * @var BankAccountDescriptor $private_data
+         */
+        $private_data = $response->getPrivate();
+        $this->assertEquals(self::$bankAccount->getOwner(), $private_data->getOwner());
+        $this->assertEquals(self::$bankAccount->getIban(), $private_data->getIban());
+        $this->assertEquals(self::$bankAccount->getBic(), $private_data->getBic());
+        $this->assertEquals(self::$bankAccount->getBankname(), $private_data->getBankname());
         $this->assertInstanceOf(BankAccountDescriptor::class, $response->getPublic());
-        $this->assertEquals(self::$bankAccount->getOwner(), $response->getPrivate()->getOwner());
-        $this->assertEquals(self::$bankAccount->getIban(), $response->getPrivate()->getIban());
-        $this->assertEquals(self::$bankAccount->getBic(), $response->getPrivate()->getBic());
-        $this->assertEquals(self::$bankAccount->getBankname(), $response->getPrivate()->getBankname());
-        $this->assertInstanceOf(BankAccountDescriptor::class, $response->getPublic());
-        $this->assertEquals(self::$bankAccount->getOwner(), $response->getPublic()->getOwner());
-        $this->assertEquals(self::$bankAccount->getIban(), $response->getPublic()->getIban());
-        $this->assertEquals(self::$bankAccount->getBic(), $response->getPublic()->getBic());
-        $this->assertEquals(self::$bankAccount->getBankname(), $response->getPublic()->getBankname());
+        /**
+         * @var BankAccountDescriptor $public_data
+         */
+        $public_data = $response->getPublic();
+        $this->assertEquals(self::$bankAccount->getOwner(), $public_data->getOwner());
+        $this->assertEquals(self::$bankAccount->getIban(), $public_data->getIban());
+        $this->assertEquals(self::$bankAccount->getBic(), $public_data->getBic());
+        $this->assertEquals(self::$bankAccount->getBankname(), $public_data->getBankname());
         $this->assertEquals('bank_account', $response->getType());
         $this->assertEquals(self::$created, $response->getCreated());
     }
@@ -311,14 +327,12 @@ class PaymentContainersApiTest extends TestCase
                 $this->assertNotEmpty($private->getIssuer());
                 $this->assertNotEmpty($private->getExpirationDate());
             } elseif ($container->getType() == 'bank_account') {
-                ;
                 $this->assertInstanceOf(BankAccountDescriptor::class, $container->getPrivate());
                 /**
                  * @var BankAccountDescriptor $private
                  */
                 $private = $container->getPrivate();
                 $this->assertNotEmpty($private->getIban());
-                $this->assertNotEmpty($private->getBic());
             }
         }
     }
@@ -353,7 +367,7 @@ class PaymentContainersApiTest extends TestCase
         }
 
         $this->assertNotEmpty($response);
-        $this->assertEquals(2, count($response->getData()));
+        $this->assertCount(2, $response->getData());
     }
 
     /**
@@ -410,17 +424,37 @@ class PaymentContainersApiTest extends TestCase
         $this->assertEquals('payment.containers', $response[0]->getObject());
         $this->assertEquals(self::$containerId, $response[0]->getId());
         $this->assertInstanceOf(BankAccountDescriptor::class, $response[0]->getPrivate());
+        /**
+         * @var BankAccountDescriptor $private_data
+         */
+        $private_data = $response[0]->getPrivate();
+        $this->assertEquals(self::$bankAccount->getOwner(), $private_data->getOwner());
+        $this->assertEquals(self::$bankAccount->getIban(), $private_data->getIban());
+        $this->assertEquals(self::$bankAccount->getBic(), $private_data->getBic());
+        $this->assertEquals(self::$bankAccount->getBankname(), $private_data->getBankname());
         $this->assertInstanceOf(BankAccountDescriptor::class, $response[0]->getPublic());
-        $this->assertEquals(self::$bankAccount->getOwner(), $response[0]->getPrivate()->getOwner());
-        $this->assertEquals(self::$bankAccount->getIban(), $response[0]->getPrivate()->getIban());
-        $this->assertEquals(self::$bankAccount->getBic(), $response[0]->getPrivate()->getBic());
-        $this->assertEquals(self::$bankAccount->getBankname(), $response[0]->getPrivate()->getBankname());
-        $this->assertInstanceOf(BankAccountDescriptor::class, $response[0]->getPublic());
-        $this->assertEquals(self::$bankAccount->getOwner(), $response[0]->getPublic()->getOwner());
-        $this->assertEquals(self::$bankAccount->getIban(), $response[0]->getPublic()->getIban());
-        $this->assertEquals(self::$bankAccount->getBic(), $response[0]->getPublic()->getBic());
-        $this->assertEquals(self::$bankAccount->getBankname(), $response[0]->getPublic()->getBankname());
+        /**
+         * @var BankAccountDescriptor $public_data
+         */
+        $public_data = $response[0]->getPublic();
+        $this->assertEquals(self::$bankAccount->getOwner(), $public_data->getOwner());
+        $this->assertEquals(self::$bankAccount->getIban(), $public_data->getIban());
+        $this->assertEquals(self::$bankAccount->getBic(), $public_data->getBic());
+        $this->assertEquals(self::$bankAccount->getBankname(), $public_data->getBankname());
         $this->assertEquals('bank_account', $response[0]->getType());
         $this->assertEquals(self::$created, $response[0]->getCreated());
+    }
+
+    /**
+     * Asserts that a variable is of type array.
+     * @param mixed $value
+     */
+    public static function assertIsArray($value)
+    {
+        if (method_exists(TestCase::class, 'assertIsArray')) {
+            parent::assertIsArray($value);
+        } else {
+            self::assertInternalType('array', $value);
+        }
     }
 }

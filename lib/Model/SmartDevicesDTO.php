@@ -27,17 +27,18 @@ class SmartDevicesDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'contract' => 'string',
         'merchant' => 'string',
         'store' => 'string',
-        'terminal' => 'string',
+        'device' => 'string',
+        'contract' => 'string',
         'vendor' => 'string',
         'vendor_uid' => 'string',
         'type' => 'string',
         'description' => 'string',
-        'products' => 'string[]',
-        'base_version' => 'string',
-        'terminal_type' => 'string'
+        'tid' => 'string',
+        'products' => '\Secuconnect\Client\Model\SmartDevicesProducts',
+        'terminal_type' => 'string',
+        'base_version' => 'string'
     ];
 
     /**
@@ -45,17 +46,18 @@ class SmartDevicesDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'contract' => null,
         'merchant' => null,
         'store' => null,
-        'terminal' => null,
+        'device' => null,
+        'contract' => null,
         'vendor' => null,
         'vendor_uid' => null,
         'type' => null,
         'description' => null,
+        'tid' => null,
         'products' => null,
-        'base_version' => null,
-        'terminal_type' => null
+        'terminal_type' => null,
+        'base_version' => null
     ];
 
     public static function swaggerTypes()
@@ -73,17 +75,18 @@ class SmartDevicesDTO implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'contract' => 'contract',
         'merchant' => 'merchant',
         'store' => 'store',
-        'terminal' => 'terminal',
+        'device' => 'device',
+        'contract' => 'contract',
         'vendor' => 'vendor',
         'vendor_uid' => 'vendor_uid',
         'type' => 'type',
         'description' => 'description',
+        'tid' => 'tid',
         'products' => 'products',
-        'base_version' => 'base_version',
-        'terminal_type' => 'terminal_type'
+        'terminal_type' => 'terminal_type',
+        'base_version' => 'base_version'
     ];
 
     /**
@@ -91,17 +94,18 @@ class SmartDevicesDTO implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'contract' => 'setContract',
         'merchant' => 'setMerchant',
         'store' => 'setStore',
-        'terminal' => 'setTerminal',
+        'device' => 'setDevice',
+        'contract' => 'setContract',
         'vendor' => 'setVendor',
         'vendor_uid' => 'setVendorUid',
         'type' => 'setType',
         'description' => 'setDescription',
+        'tid' => 'setTid',
         'products' => 'setProducts',
-        'base_version' => 'setBaseVersion',
-        'terminal_type' => 'setTerminalType'
+        'terminal_type' => 'setTerminalType',
+        'base_version' => 'setBaseVersion'
     ];
 
     /**
@@ -109,17 +113,18 @@ class SmartDevicesDTO implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'contract' => 'getContract',
         'merchant' => 'getMerchant',
         'store' => 'getStore',
-        'terminal' => 'getTerminal',
+        'device' => 'getDevice',
+        'contract' => 'getContract',
         'vendor' => 'getVendor',
         'vendor_uid' => 'getVendorUid',
         'type' => 'getType',
         'description' => 'getDescription',
+        'tid' => 'getTid',
         'products' => 'getProducts',
-        'base_version' => 'getBaseVersion',
-        'terminal_type' => 'getTerminalType'
+        'terminal_type' => 'getTerminalType',
+        'base_version' => 'getBaseVersion'
     ];
 
     public static function attributeMap()
@@ -149,17 +154,18 @@ class SmartDevicesDTO implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['store'] = isset($data['store']) ? $data['store'] : null;
-        $this->container['terminal'] = isset($data['terminal']) ? $data['terminal'] : null;
+        $this->container['device'] = isset($data['device']) ? $data['device'] : null;
+        $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
         $this->container['vendor'] = isset($data['vendor']) ? $data['vendor'] : null;
         $this->container['vendor_uid'] = isset($data['vendor_uid']) ? $data['vendor_uid'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['tid'] = isset($data['tid']) ? $data['tid'] : null;
         $this->container['products'] = isset($data['products']) ? $data['products'] : null;
-        $this->container['base_version'] = isset($data['base_version']) ? $data['base_version'] : null;
         $this->container['terminal_type'] = isset($data['terminal_type']) ? $data['terminal_type'] : null;
+        $this->container['base_version'] = isset($data['base_version']) ? $data['base_version'] : null;
     }
 
     /**
@@ -185,27 +191,6 @@ class SmartDevicesDTO implements ArrayAccess
         return true;
     }
 
-
-    /**
-     * Gets contract
-     * @return string
-     */
-    public function getContract()
-    {
-        return $this->container['contract'];
-    }
-
-    /**
-     * Sets contract
-     * @param string $contract Contract
-     * @return $this
-     */
-    public function setContract($contract)
-    {
-        $this->container['contract'] = $contract;
-
-        return $this;
-    }
 
     /**
      * Gets merchant
@@ -250,22 +235,43 @@ class SmartDevicesDTO implements ArrayAccess
     }
 
     /**
-     * Gets terminal
+     * Gets device
      * @return string
      */
-    public function getTerminal()
+    public function getDevice()
     {
-        return $this->container['terminal'];
+        return $this->container['device'];
     }
 
     /**
-     * Sets terminal
-     * @param string $terminal Terminal
+     * Sets device
+     * @param string $device Device
      * @return $this
      */
-    public function setTerminal($terminal)
+    public function setDevice($device)
     {
-        $this->container['terminal'] = $terminal;
+        $this->container['device'] = $device;
+
+        return $this;
+    }
+
+    /**
+     * Gets contract
+     * @return string
+     */
+    public function getContract()
+    {
+        return $this->container['contract'];
+    }
+
+    /**
+     * Sets contract
+     * @param string $contract Contract
+     * @return $this
+     */
+    public function setContract($contract)
+    {
+        $this->container['contract'] = $contract;
 
         return $this;
     }
@@ -355,8 +361,29 @@ class SmartDevicesDTO implements ArrayAccess
     }
 
     /**
+     * Gets tid
+     * @return string
+     */
+    public function getTid()
+    {
+        return $this->container['tid'];
+    }
+
+    /**
+     * Sets tid
+     * @param string $tid TID
+     * @return $this
+     */
+    public function setTid($tid)
+    {
+        $this->container['tid'] = $tid;
+
+        return $this;
+    }
+
+    /**
      * Gets products
-     * @return string[]
+     * @return \Secuconnect\Client\Model\SmartDevicesProducts
      */
     public function getProducts()
     {
@@ -365,33 +392,12 @@ class SmartDevicesDTO implements ArrayAccess
 
     /**
      * Sets products
-     * @param string[] $products Products
+     * @param \Secuconnect\Client\Model\SmartDevicesProducts $products products
      * @return $this
      */
     public function setProducts($products)
     {
         $this->container['products'] = $products;
-
-        return $this;
-    }
-
-    /**
-     * Gets base_version
-     * @return string
-     */
-    public function getBaseVersion()
-    {
-        return $this->container['base_version'];
-    }
-
-    /**
-     * Sets base_version
-     * @param string $base_version Base version
-     * @return $this
-     */
-    public function setBaseVersion($base_version)
-    {
-        $this->container['base_version'] = $base_version;
 
         return $this;
     }
@@ -413,6 +419,27 @@ class SmartDevicesDTO implements ArrayAccess
     public function setTerminalType($terminal_type)
     {
         $this->container['terminal_type'] = $terminal_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets base_version
+     * @return string
+     */
+    public function getBaseVersion()
+    {
+        return $this->container['base_version'];
+    }
+
+    /**
+     * Sets base_version
+     * @param string $base_version Base version
+     * @return $this
+     */
+    public function setBaseVersion($base_version)
+    {
+        $this->container['base_version'] = $base_version;
 
         return $this;
     }

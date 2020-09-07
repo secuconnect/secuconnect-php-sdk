@@ -7,6 +7,7 @@ use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Model\PaymentCustomersProductModel;
 use Secuconnect\Client\Model\PaymentInformation;
 use Secuconnect\Client\Model\SecupayBasketItem;
+use Secuconnect\Client\Model\SecupayTransactionProductDTO;
 use Secuconnect\Client\Model\SecupayTransactionProductModel;
 
 /**
@@ -71,6 +72,7 @@ class PaymentSecupayInvoicesApiTest extends TestCase
      */
     public static function setUpBeforeClass()
     {
+        parent::setUpBeforeClass();
         self::$secuconnectObjects = SecuconnectObjects::getInstance();
         self::$customerId = self::$secuconnectObjects->getCustomer()->getId();
         self::$amount = 6324;
@@ -86,7 +88,7 @@ class PaymentSecupayInvoicesApiTest extends TestCase
      */
     public function setUp()
     {
-        $this->api = self::$secuconnectObjects->getApi();
+        parent::setUp();
         $this->api = new PaymentSecupayInvoicesApi();
     }
 
@@ -96,6 +98,7 @@ class PaymentSecupayInvoicesApiTest extends TestCase
     public function tearDown()
     {
         $this->api = null;
+        parent::tearDown();
     }
 
     /**
@@ -111,6 +114,7 @@ class PaymentSecupayInvoicesApiTest extends TestCase
         self::$orderId = null;
         self::$accrual = null;
         self::$basket = null;
+        parent::tearDownAfterClass();
     }
 
     /**
@@ -131,7 +135,7 @@ class PaymentSecupayInvoicesApiTest extends TestCase
         ];
 
         try {
-            $response = $this->api->paymentSecupayinvoicesPost($invoiceData);
+            $response = $this->api->paymentSecupayinvoicesPost(new SecupayTransactionProductDTO($invoiceData));
             self::$invoiceTransactionId = $response->getId();
         } catch (ApiException $e) {
             print_r($e->getResponseBody());
@@ -262,7 +266,7 @@ class PaymentSecupayInvoicesApiTest extends TestCase
         }
 
         $this->assertNotEmpty($response);
-        $this->assertTrue($response['result']);
+        $this->assertNotEmpty($response['result']);
         $this->assertTrue($response['demo']);
     }
 }

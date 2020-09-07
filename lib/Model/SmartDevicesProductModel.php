@@ -26,8 +26,8 @@ class SmartDevicesProductModel extends BaseProductModel
       */
     protected static $swaggerTypes = [
         'merchant' => '\Secuconnect\Client\Model\ProductInstanceUID',
-        'contract' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'store' => '\Secuconnect\Client\Model\Store',
+        'contract' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'vendor' => 'string',
         'vendor_uid' => 'string',
         'type' => 'string',
@@ -36,10 +36,12 @@ class SmartDevicesProductModel extends BaseProductModel
         'user_pin' => 'string',
         'products' => '\Secuconnect\Client\Model\SmartDevicesProducts',
         'description' => 'string',
+        'tid' => 'string',
         'idle_screen_register' => 'string',
         'idle_screen_terminal' => 'string',
         'created' => 'string',
         'online' => 'bool',
+        'refresh' => 'int',
         'terminal_type' => 'string',
         'base_version' => 'string'
     ];
@@ -50,8 +52,8 @@ class SmartDevicesProductModel extends BaseProductModel
       */
     protected static $swaggerFormats = [
         'merchant' => null,
-        'contract' => null,
         'store' => null,
+        'contract' => null,
         'vendor' => null,
         'vendor_uid' => null,
         'type' => null,
@@ -60,10 +62,12 @@ class SmartDevicesProductModel extends BaseProductModel
         'user_pin' => null,
         'products' => null,
         'description' => null,
+        'tid' => null,
         'idle_screen_register' => null,
         'idle_screen_terminal' => null,
         'created' => null,
         'online' => null,
+        'refresh' => null,
         'terminal_type' => null,
         'base_version' => null
     ];
@@ -84,8 +88,8 @@ class SmartDevicesProductModel extends BaseProductModel
      */
     protected static $attributeMap = [
         'merchant' => 'merchant',
-        'contract' => 'contract',
         'store' => 'store',
+        'contract' => 'contract',
         'vendor' => 'vendor',
         'vendor_uid' => 'vendor_uid',
         'type' => 'type',
@@ -94,10 +98,12 @@ class SmartDevicesProductModel extends BaseProductModel
         'user_pin' => 'user_pin',
         'products' => 'products',
         'description' => 'description',
+        'tid' => 'tid',
         'idle_screen_register' => 'idle_screen_register',
         'idle_screen_terminal' => 'idle_screen_terminal',
         'created' => 'created',
         'online' => 'online',
+        'refresh' => 'refresh',
         'terminal_type' => 'terminal_type',
         'base_version' => 'base_version'
     ];
@@ -108,8 +114,8 @@ class SmartDevicesProductModel extends BaseProductModel
      */
     protected static $setters = [
         'merchant' => 'setMerchant',
-        'contract' => 'setContract',
         'store' => 'setStore',
+        'contract' => 'setContract',
         'vendor' => 'setVendor',
         'vendor_uid' => 'setVendorUid',
         'type' => 'setType',
@@ -118,10 +124,12 @@ class SmartDevicesProductModel extends BaseProductModel
         'user_pin' => 'setUserPin',
         'products' => 'setProducts',
         'description' => 'setDescription',
+        'tid' => 'setTid',
         'idle_screen_register' => 'setIdleScreenRegister',
         'idle_screen_terminal' => 'setIdleScreenTerminal',
         'created' => 'setCreated',
         'online' => 'setOnline',
+        'refresh' => 'setRefresh',
         'terminal_type' => 'setTerminalType',
         'base_version' => 'setBaseVersion'
     ];
@@ -132,8 +140,8 @@ class SmartDevicesProductModel extends BaseProductModel
      */
     protected static $getters = [
         'merchant' => 'getMerchant',
-        'contract' => 'getContract',
         'store' => 'getStore',
+        'contract' => 'getContract',
         'vendor' => 'getVendor',
         'vendor_uid' => 'getVendorUid',
         'type' => 'getType',
@@ -142,10 +150,12 @@ class SmartDevicesProductModel extends BaseProductModel
         'user_pin' => 'getUserPin',
         'products' => 'getProducts',
         'description' => 'getDescription',
+        'tid' => 'getTid',
         'idle_screen_register' => 'getIdleScreenRegister',
         'idle_screen_terminal' => 'getIdleScreenTerminal',
         'created' => 'getCreated',
         'online' => 'getOnline',
+        'refresh' => 'getRefresh',
         'terminal_type' => 'getTerminalType',
         'base_version' => 'getBaseVersion'
     ];
@@ -174,8 +184,8 @@ class SmartDevicesProductModel extends BaseProductModel
         parent::__construct($data);
 
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
-        $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
         $this->container['store'] = isset($data['store']) ? $data['store'] : null;
+        $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
         $this->container['vendor'] = isset($data['vendor']) ? $data['vendor'] : null;
         $this->container['vendor_uid'] = isset($data['vendor_uid']) ? $data['vendor_uid'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
@@ -184,10 +194,12 @@ class SmartDevicesProductModel extends BaseProductModel
         $this->container['user_pin'] = isset($data['user_pin']) ? $data['user_pin'] : null;
         $this->container['products'] = isset($data['products']) ? $data['products'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['tid'] = isset($data['tid']) ? $data['tid'] : null;
         $this->container['idle_screen_register'] = isset($data['idle_screen_register']) ? $data['idle_screen_register'] : null;
         $this->container['idle_screen_terminal'] = isset($data['idle_screen_terminal']) ? $data['idle_screen_terminal'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['online'] = isset($data['online']) ? $data['online'] : null;
+        $this->container['refresh'] = isset($data['refresh']) ? $data['refresh'] : null;
         $this->container['terminal_type'] = isset($data['terminal_type']) ? $data['terminal_type'] : null;
         $this->container['base_version'] = isset($data['base_version']) ? $data['base_version'] : null;
     }
@@ -238,27 +250,6 @@ class SmartDevicesProductModel extends BaseProductModel
     }
 
     /**
-     * Gets contract
-     * @return \Secuconnect\Client\Model\ProductInstanceUID
-     */
-    public function getContract()
-    {
-        return $this->container['contract'];
-    }
-
-    /**
-     * Sets contract
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $contract contract
-     * @return $this
-     */
-    public function setContract($contract)
-    {
-        $this->container['contract'] = $contract;
-
-        return $this;
-    }
-
-    /**
      * Gets store
      * @return \Secuconnect\Client\Model\Store
      */
@@ -275,6 +266,27 @@ class SmartDevicesProductModel extends BaseProductModel
     public function setStore($store)
     {
         $this->container['store'] = $store;
+
+        return $this;
+    }
+
+    /**
+     * Gets contract
+     * @return \Secuconnect\Client\Model\ProductInstanceUID
+     */
+    public function getContract()
+    {
+        return $this->container['contract'];
+    }
+
+    /**
+     * Sets contract
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $contract contract
+     * @return $this
+     */
+    public function setContract($contract)
+    {
+        $this->container['contract'] = $contract;
 
         return $this;
     }
@@ -448,6 +460,27 @@ class SmartDevicesProductModel extends BaseProductModel
     }
 
     /**
+     * Gets tid
+     * @return string
+     */
+    public function getTid()
+    {
+        return $this->container['tid'];
+    }
+
+    /**
+     * Sets tid
+     * @param string $tid TID
+     * @return $this
+     */
+    public function setTid($tid)
+    {
+        $this->container['tid'] = $tid;
+
+        return $this;
+    }
+
+    /**
      * Gets idle_screen_register
      * @return string
      */
@@ -527,6 +560,27 @@ class SmartDevicesProductModel extends BaseProductModel
     public function setOnline($online)
     {
         $this->container['online'] = $online;
+
+        return $this;
+    }
+
+    /**
+     * Gets refresh
+     * @return int
+     */
+    public function getRefresh()
+    {
+        return $this->container['refresh'];
+    }
+
+    /**
+     * Sets refresh
+     * @param int $refresh Last refresh timestamp
+     * @return $this
+     */
+    public function setRefresh($refresh)
+    {
+        $this->container['refresh'] = $refresh;
 
         return $this;
     }
