@@ -8,6 +8,7 @@ use \ArrayAccess;
  * AddressComponents
  *
  * @category Class
+ * @description Address component like street, postal code, or ountry
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

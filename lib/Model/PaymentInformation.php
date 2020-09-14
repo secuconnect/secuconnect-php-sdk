@@ -8,7 +8,7 @@ use \ArrayAccess;
  * PaymentInformation
  *
  * @category Class
- * @description Payment information
+ * @description Bank details for withdrawals
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -156,7 +156,7 @@ class PaymentInformation implements ArrayAccess
 
     /**
      * Sets iban
-     * @param string $iban IBAN
+     * @param string $iban International Bank Account Number (IBAN)
      * @return $this
      */
     public function setIban($iban)
@@ -177,7 +177,7 @@ class PaymentInformation implements ArrayAccess
 
     /**
      * Sets bic
-     * @param string $bic BIC
+     * @param string $bic Bank Identifier Code (BIC), or formerly SWIFT code
      * @return $this
      */
     public function setBic($bic)
@@ -198,7 +198,7 @@ class PaymentInformation implements ArrayAccess
 
     /**
      * Sets owner
-     * @param string $owner Owner
+     * @param string $owner Account owner name
      * @return $this
      */
     public function setOwner($owner)

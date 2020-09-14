@@ -287,7 +287,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets id_old
-     * @param string $id_old Old id of general store
+     * @param string $id_old ID in secupay Frontend
      * @return $this
      */
     public function setIdOld($id_old)
@@ -329,7 +329,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets store_name
-     * @param string $store_name Store Name
+     * @param string $store_name Store name
      * @return $this
      */
     public function setStoreName($store_name)
@@ -350,7 +350,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets facebook_id
-     * @param string $facebook_id Facebook id
+     * @param string $facebook_id Facebook ID
      * @return $this
      */
     public function setFacebookId($facebook_id)
@@ -455,7 +455,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets address_formatted
-     * @param string $address_formatted General store formatted address
+     * @param string $address_formatted Formatted address
      * @return $this
      */
     public function setAddressFormatted($address_formatted)
@@ -476,7 +476,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets phone_number_formatted
-     * @param string $phone_number_formatted General store formatted phone number
+     * @param string $phone_number_formatted Formatted phone number
      * @return $this
      */
     public function setPhoneNumberFormatted($phone_number_formatted)
@@ -518,7 +518,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets name
-     * @param string $name General store name
+     * @param string $name Store name
      * @return $this
      */
     public function setName($name)
@@ -539,7 +539,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets name_raw
-     * @param string $name_raw General store raw name
+     * @param string $name_raw Raw store name
      * @return $this
      */
     public function setNameRaw($name_raw)
@@ -560,7 +560,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets photo_main
-     * @param string $photo_main General store main photo
+     * @param string $photo_main Main photo
      * @return $this
      */
     public function setPhotoMain($photo_main)
@@ -581,7 +581,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets photo
-     * @param string[] $photo General store photos
+     * @param string[] $photo All photos
      * @return $this
      */
     public function setPhoto($photo)
@@ -602,7 +602,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets category_main
-     * @param string $category_main General store main category
+     * @param string $category_main Main category
      * @return $this
      */
     public function setCategoryMain($category_main)
@@ -623,7 +623,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets category
-     * @param string[] $category General store category
+     * @param string[] $category All categories
      * @return $this
      */
     public function setCategory($category)
@@ -644,7 +644,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets url_googleplus
-     * @param string $url_googleplus Url to general store google plus
+     * @param string $url_googleplus Google+ URL of the store
      * @return $this
      */
     public function setUrlGoogleplus($url_googleplus)
@@ -665,7 +665,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets url_website
-     * @param string $url_website Url to general store website
+     * @param string $url_website Store website URL (e. g. a webpage of yours with the details of this store)
      * @return $this
      */
     public function setUrlWebsite($url_website)
@@ -686,7 +686,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets open_hours
-     * @param \Secuconnect\Client\Model\OpenHours[] $open_hours Open hours in every day
+     * @param \Secuconnect\Client\Model\OpenHours[] $open_hours Opening hours per weekday
      * @return $this
      */
     public function setOpenHours($open_hours)
@@ -707,7 +707,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets open_now
-     * @param bool $open_now Open now
+     * @param bool $open_now Whether the store is just open
      * @return $this
      */
     public function setOpenNow($open_now)
@@ -728,7 +728,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets open_time
-     * @param string $open_time Open time
+     * @param string $open_time Opening time
      * @return $this
      */
     public function setOpenTime($open_time)
@@ -749,7 +749,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets utc_offset
-     * @param string $utc_offset Utc offset
+     * @param string $utc_offset UTC offset
      * @return $this
      */
     public function setUtcOffset($utc_offset)
@@ -812,7 +812,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets has_beacon
-     * @param bool $has_beacon Has beacon
+     * @param bool $has_beacon Whether the store has a WiFi beacon
      * @return $this
      */
     public function setHasBeacon($has_beacon)
@@ -833,7 +833,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets acceptance_point
-     * @param bool $acceptance_point Is Acceptance Point
+     * @param bool $acceptance_point Whether the store is a secucard acceptance point
      * @return $this
      */
     public function setAcceptancePoint($acceptance_point)

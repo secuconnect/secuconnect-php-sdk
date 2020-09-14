@@ -179,7 +179,7 @@ class GeneralMerchantsProductModel extends BaseProductModel
 
     /**
      * Sets id_old
-     * @param string $id_old Old id of general merchant
+     * @param string $id_old ID in secupay Frontend
      * @return $this
      */
     public function setIdOld($id_old)
@@ -200,7 +200,7 @@ class GeneralMerchantsProductModel extends BaseProductModel
 
     /**
      * Sets type
-     * @param string $type Type of general merchant
+     * @param string $type Object type
      * @return $this
      */
     public function setType($type)
@@ -347,7 +347,7 @@ class GeneralMerchantsProductModel extends BaseProductModel
 
     /**
      * Sets store_name
-     * @param string $store_name store name
+     * @param string $store_name Store name
      * @return $this
      */
     public function setStoreName($store_name)

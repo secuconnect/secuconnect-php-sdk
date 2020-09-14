@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * GeneralContractsList
+ * MandateDTO
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GeneralContractsList implements ArrayAccess
+class MandateDTO implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,15 +20,15 @@ class GeneralContractsList implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'GeneralContractsList';
+    protected static $swaggerModelName = 'MandateDTO';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'count' => 'int',
-        'data' => '\Secuconnect\Client\Model\GeneralContractsProductModel[]'
+        'customer_id' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -36,8 +36,8 @@ class GeneralContractsList implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'count' => null,
-        'data' => null
+        'customer_id' => null,
+        'type' => null
     ];
 
     public static function swaggerTypes()
@@ -55,8 +55,8 @@ class GeneralContractsList implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'count' => 'count',
-        'data' => 'data'
+        'customer_id' => 'customer_id',
+        'type' => 'type'
     ];
 
     /**
@@ -64,8 +64,8 @@ class GeneralContractsList implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'count' => 'setCount',
-        'data' => 'setData'
+        'customer_id' => 'setCustomerId',
+        'type' => 'setType'
     ];
 
     /**
@@ -73,8 +73,8 @@ class GeneralContractsList implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'count' => 'getCount',
-        'data' => 'getData'
+        'customer_id' => 'getCustomerId',
+        'type' => 'getType'
     ];
 
     public static function attributeMap()
@@ -104,8 +104,8 @@ class GeneralContractsList implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['customer_id'] = isset($data['customer_id']) ? $data['customer_id'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -133,43 +133,43 @@ class GeneralContractsList implements ArrayAccess
 
 
     /**
-     * Gets count
-     * @return int
+     * Gets customer_id
+     * @return string
      */
-    public function getCount()
+    public function getCustomerId()
     {
-        return $this->container['count'];
+        return $this->container['customer_id'];
     }
 
     /**
-     * Sets count
-     * @param int $count Number of existing General Contracts
+     * Sets customer_id
+     * @param string $customer_id Customer id
      * @return $this
      */
-    public function setCount($count)
+    public function setCustomerId($customer_id)
     {
-        $this->container['count'] = $count;
+        $this->container['customer_id'] = $customer_id;
 
         return $this;
     }
 
     /**
-     * Gets data
-     * @return \Secuconnect\Client\Model\GeneralContractsProductModel[]
+     * Gets type
+     * @return string
      */
-    public function getData()
+    public function getType()
     {
-        return $this->container['data'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets data
-     * @param \Secuconnect\Client\Model\GeneralContractsProductModel[] $data GeneralContractsList
+     * Sets type
+     * @param string $type Mandate type
      * @return $this
      */
-    public function setData($data)
+    public function setType($type)
     {
-        $this->container['data'] = $data;
+        $this->container['type'] = $type;
 
         return $this;
     }

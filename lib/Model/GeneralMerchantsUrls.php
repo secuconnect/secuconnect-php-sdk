@@ -143,7 +143,7 @@ class GeneralMerchantsUrls implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type Type of urls
+     * @param string $type Type of URLs
      * @return $this
      */
     public function setType($type)
@@ -164,7 +164,7 @@ class GeneralMerchantsUrls implements ArrayAccess
 
     /**
      * Sets url
-     * @param string $url Url
+     * @param string $url URL
      * @return $this
      */
     public function setUrl($url)

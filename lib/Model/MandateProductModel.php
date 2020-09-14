@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * GeneralContractsList
+ * MandateProductModel
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GeneralContractsList implements ArrayAccess
+class MandateProductModel implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,15 +20,14 @@ class GeneralContractsList implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'GeneralContractsList';
+    protected static $swaggerModelName = 'MandateProductModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'count' => 'int',
-        'data' => '\Secuconnect\Client\Model\GeneralContractsProductModel[]'
+        'mandate_url' => 'string'
     ];
 
     /**
@@ -36,8 +35,7 @@ class GeneralContractsList implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'count' => null,
-        'data' => null
+        'mandate_url' => null
     ];
 
     public static function swaggerTypes()
@@ -55,8 +53,7 @@ class GeneralContractsList implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'count' => 'count',
-        'data' => 'data'
+        'mandate_url' => 'mandate_url'
     ];
 
     /**
@@ -64,8 +61,7 @@ class GeneralContractsList implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'count' => 'setCount',
-        'data' => 'setData'
+        'mandate_url' => 'setMandateUrl'
     ];
 
     /**
@@ -73,8 +69,7 @@ class GeneralContractsList implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'count' => 'getCount',
-        'data' => 'getData'
+        'mandate_url' => 'getMandateUrl'
     ];
 
     public static function attributeMap()
@@ -104,8 +99,7 @@ class GeneralContractsList implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['mandate_url'] = isset($data['mandate_url']) ? $data['mandate_url'] : null;
     }
 
     /**
@@ -133,43 +127,22 @@ class GeneralContractsList implements ArrayAccess
 
 
     /**
-     * Gets count
-     * @return int
+     * Gets mandate_url
+     * @return string
      */
-    public function getCount()
+    public function getMandateUrl()
     {
-        return $this->container['count'];
+        return $this->container['mandate_url'];
     }
 
     /**
-     * Sets count
-     * @param int $count Number of existing General Contracts
+     * Sets mandate_url
+     * @param string $mandate_url Link to sepamandate B2B doc
      * @return $this
      */
-    public function setCount($count)
+    public function setMandateUrl($mandate_url)
     {
-        $this->container['count'] = $count;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     * @return \Secuconnect\Client\Model\GeneralContractsProductModel[]
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     * @param \Secuconnect\Client\Model\GeneralContractsProductModel[] $data GeneralContractsList
-     * @return $this
-     */
-    public function setData($data)
-    {
-        $this->container['data'] = $data;
+        $this->container['mandate_url'] = $mandate_url;
 
         return $this;
     }

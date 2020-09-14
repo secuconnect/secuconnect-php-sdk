@@ -8,7 +8,7 @@ use \ArrayAccess;
  * CreditCardDescriptor
  *
  * @category Class
- * @description Credit card data like owner, iban, bic and bank name
+ * @description Credit card details
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -180,7 +180,7 @@ class CreditCardDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMode
 
     /**
      * Sets owner
-     * @param string $owner Owner
+     * @param string $owner Card holder
      * @return $this
      */
     public function setOwner($owner)
@@ -201,7 +201,7 @@ class CreditCardDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMode
 
     /**
      * Sets pan
-     * @param string $pan truncated Primary Account Number (PAN)
+     * @param string $pan Truncated Primary Account Number (PAN)
      * @return $this
      */
     public function setPan($pan)
@@ -222,7 +222,7 @@ class CreditCardDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMode
 
     /**
      * Sets expiration_date
-     * @param string $expiration_date Expiration date
+     * @param string $expiration_date Date and time when the card will expire; the system must pass 2023-07-01T00:00:00 if the card is valid thru 06/23
      * @return $this
      */
     public function setExpirationDate($expiration_date)
@@ -243,7 +243,7 @@ class CreditCardDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMode
 
     /**
      * Sets issuer
-     * @param string $issuer Card issuer
+     * @param string $issuer Card brand or scheme like VISA, or MasterCard
      * @return $this
      */
     public function setIssuer($issuer)
@@ -306,7 +306,7 @@ class CreditCardDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMode
 
     /**
      * Sets transact_skey_keyname
-     * @param string $transact_skey_keyname transact keyname
+     * @param string $transact_skey_keyname transact key name
      * @return $this
      */
     public function setTransactSkeyKeyname($transact_skey_keyname)

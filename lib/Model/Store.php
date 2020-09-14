@@ -149,7 +149,7 @@ class Store implements ArrayAccess
 
     /**
      * Sets object
-     * @param string $object Object of store
+     * @param string $object Store object type
      * @return $this
      */
     public function setObject($object)
@@ -170,7 +170,7 @@ class Store implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Id of store
+     * @param string $id Store object ID
      * @return $this
      */
     public function setId($id)

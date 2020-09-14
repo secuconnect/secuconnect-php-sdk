@@ -8,6 +8,7 @@ use \ArrayAccess;
  * ItemGroup
  *
  * @category Class
+ * @description E-goods product category, e. g. all cards for a vendor
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -161,7 +162,7 @@ class ItemGroup implements ArrayAccess
 
     /**
      * Sets object
-     * @param string $object Object of item group
+     * @param string $object Object type
      * @return $this
      */
     public function setObject($object)
@@ -182,7 +183,7 @@ class ItemGroup implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Id of item group
+     * @param string $id Object ID
      * @return $this
      */
     public function setId($id)
@@ -203,7 +204,7 @@ class ItemGroup implements ArrayAccess
 
     /**
      * Sets description
-     * @param string $description Description
+     * @param string $description Short name, e. g. the vendor name
      * @return $this
      */
     public function setDescription($description)
@@ -224,7 +225,7 @@ class ItemGroup implements ArrayAccess
 
     /**
      * Sets logo
-     * @param string $logo Logo
+     * @param string $logo Document upload ID of vendor
      * @return $this
      */
     public function setLogo($logo)
@@ -245,7 +246,7 @@ class ItemGroup implements ArrayAccess
 
     /**
      * Sets enabled
-     * @param bool $enabled Enabled
+     * @param bool $enabled Whether the category is available
      * @return $this
      */
     public function setEnabled($enabled)

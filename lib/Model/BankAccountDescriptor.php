@@ -8,7 +8,7 @@ use \ArrayAccess;
  * BankAccountDescriptor
  *
  * @category Class
- * @description Bank account data like owner, iban, bic and bank name
+ * @description Bank details for money transfers
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -162,7 +162,7 @@ class BankAccountDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMod
 
     /**
      * Sets iban
-     * @param string $iban IBAN
+     * @param string $iban International Bank Account Number (IBAN)
      * @return $this
      */
     public function setIban($iban)
@@ -183,7 +183,7 @@ class BankAccountDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMod
 
     /**
      * Sets bic
-     * @param string $bic BIC
+     * @param string $bic Bank Identifier Code (BIC), or formerly SWIFT code
      * @return $this
      */
     public function setBic($bic)
@@ -204,7 +204,7 @@ class BankAccountDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMod
 
     /**
      * Sets owner
-     * @param string $owner Owner
+     * @param string $owner Account owner name
      * @return $this
      */
     public function setOwner($owner)
@@ -246,7 +246,7 @@ class BankAccountDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMod
 
     /**
      * Sets purpose
-     * @param string $purpose Purpose for the bank statement
+     * @param string $purpose Purpose to use
      * @return $this
      */
     public function setPurpose($purpose)

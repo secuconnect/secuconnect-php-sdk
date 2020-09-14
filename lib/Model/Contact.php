@@ -227,7 +227,7 @@ class Contact implements ArrayAccess
 
     /**
      * Sets forename
-     * @param string $forename Forename
+     * @param string $forename First name
      * @return $this
      */
     public function setForename($forename)
@@ -248,7 +248,7 @@ class Contact implements ArrayAccess
 
     /**
      * Sets surname
-     * @param string $surname Surname
+     * @param string $surname Last name
      * @return $this
      */
     public function setSurname($surname)
@@ -332,7 +332,7 @@ class Contact implements ArrayAccess
 
     /**
      * Sets title
-     * @param string $title Title
+     * @param string $title Title or academic degree
      * @return $this
      */
     public function setTitle($title)
@@ -353,7 +353,7 @@ class Contact implements ArrayAccess
 
     /**
      * Sets email
-     * @param string $email Email
+     * @param string $email E-mail address
      * @return $this
      */
     public function setEmail($email)
@@ -374,7 +374,7 @@ class Contact implements ArrayAccess
 
     /**
      * Sets phone
-     * @param string $phone Phone
+     * @param string $phone Landline number
      * @return $this
      */
     public function setPhone($phone)
@@ -395,7 +395,7 @@ class Contact implements ArrayAccess
 
     /**
      * Sets mobile
-     * @param string $mobile Mobile
+     * @param string $mobile Mobile phone number
      * @return $this
      */
     public function setMobile($mobile)
@@ -416,7 +416,7 @@ class Contact implements ArrayAccess
 
     /**
      * Sets fax
-     * @param string $fax Fax
+     * @param string $fax Fax number
      * @return $this
      */
     public function setFax($fax)
@@ -458,7 +458,7 @@ class Contact implements ArrayAccess
 
     /**
      * Sets picture
-     * @param string $picture The document id of an user picture (To upload the picture use our document service.)
+     * @param string $picture The document ID of an user picture; s. Document service
      * @return $this
      */
     public function setPicture($picture)

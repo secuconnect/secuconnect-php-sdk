@@ -248,7 +248,7 @@ class GeneralStoresDTO implements ArrayAccess
 
     /**
      * Sets facebook_id
-     * @param string $facebook_id New facebook id
+     * @param string $facebook_id New facebook ID
      * @return $this
      */
     public function setFacebookId($facebook_id)
@@ -290,7 +290,7 @@ class GeneralStoresDTO implements ArrayAccess
 
     /**
      * Sets url_website
-     * @param string $url_website New url to general store website
+     * @param string $url_website New URL to general store website
      * @return $this
      */
     public function setUrlWebsite($url_website)
@@ -353,7 +353,7 @@ class GeneralStoresDTO implements ArrayAccess
 
     /**
      * Sets open_hours
-     * @param \Secuconnect\Client\Model\OpenHours[] $open_hours Open hours in every day
+     * @param \Secuconnect\Client\Model\OpenHours[] $open_hours Opening hours per weekday
      * @return $this
      */
     public function setOpenHours($open_hours)

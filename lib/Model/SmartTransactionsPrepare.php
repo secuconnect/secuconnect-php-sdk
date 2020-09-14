@@ -32,6 +32,7 @@ class SmartTransactionsPrepare implements ArrayAccess
         'method' => 'string',
         'callback_urls' => '\Secuconnect\Client\Model\SmartTransactionsPrepareCallbackUrls',
         'email' => 'string',
+        'device_source' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'mode' => 'string',
         'is_paypal_basic' => 'bool',
         'is_demo' => 'bool'
@@ -47,6 +48,7 @@ class SmartTransactionsPrepare implements ArrayAccess
         'method' => null,
         'callback_urls' => null,
         'email' => null,
+        'device_source' => null,
         'mode' => null,
         'is_paypal_basic' => null,
         'is_demo' => null
@@ -72,6 +74,7 @@ class SmartTransactionsPrepare implements ArrayAccess
         'method' => 'method',
         'callback_urls' => 'callback_urls',
         'email' => 'email',
+        'device_source' => 'device_source',
         'mode' => 'mode',
         'is_paypal_basic' => 'is_paypal_basic',
         'is_demo' => 'is_demo'
@@ -87,6 +90,7 @@ class SmartTransactionsPrepare implements ArrayAccess
         'method' => 'setMethod',
         'callback_urls' => 'setCallbackUrls',
         'email' => 'setEmail',
+        'device_source' => 'setDeviceSource',
         'mode' => 'setMode',
         'is_paypal_basic' => 'setIsPaypalBasic',
         'is_demo' => 'setIsDemo'
@@ -102,6 +106,7 @@ class SmartTransactionsPrepare implements ArrayAccess
         'method' => 'getMethod',
         'callback_urls' => 'getCallbackUrls',
         'email' => 'getEmail',
+        'device_source' => 'getDeviceSource',
         'mode' => 'getMode',
         'is_paypal_basic' => 'getIsPaypalBasic',
         'is_demo' => 'getIsDemo'
@@ -139,6 +144,7 @@ class SmartTransactionsPrepare implements ArrayAccess
         $this->container['method'] = isset($data['method']) ? $data['method'] : null;
         $this->container['callback_urls'] = isset($data['callback_urls']) ? $data['callback_urls'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['device_source'] = isset($data['device_source']) ? $data['device_source'] : null;
         $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
         $this->container['is_paypal_basic'] = isset($data['is_paypal_basic']) ? $data['is_paypal_basic'] : null;
         $this->container['is_demo'] = isset($data['is_demo']) ? $data['is_demo'] : null;
@@ -269,6 +275,27 @@ class SmartTransactionsPrepare implements ArrayAccess
     public function setEmail($email)
     {
         $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets device_source
+     * @return \Secuconnect\Client\Model\ProductInstanceUID
+     */
+    public function getDeviceSource()
+    {
+        return $this->container['device_source'];
+    }
+
+    /**
+     * Sets device_source
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $device_source device_source
+     * @return $this
+     */
+    public function setDeviceSource($device_source)
+    {
+        $this->container['device_source'] = $device_source;
 
         return $this;
     }

@@ -161,7 +161,7 @@ class ParentObj implements ArrayAccess
 
     /**
      * Sets object
-     * @param string $object Object of parent
+     * @param string $object Parent object type
      * @return $this
      */
     public function setObject($object)
@@ -182,7 +182,7 @@ class ParentObj implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Id of parent
+     * @param string $id Parent object ID
      * @return $this
      */
     public function setId($id)

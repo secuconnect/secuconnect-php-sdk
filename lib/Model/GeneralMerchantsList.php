@@ -143,7 +143,7 @@ class GeneralMerchantsList implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Number of existing general merchants
+     * @param int $count Number of existing General Merchants
      * @return $this
      */
     public function setCount($count)

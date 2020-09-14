@@ -42,7 +42,7 @@ class SmartTransactionsDTO implements ArrayAccess
         'product' => 'string',
         'receipt' => '\Secuconnect\Client\Model\SmartTransactionsReceipt[]',
         'receipt_number' => 'int',
-        'device_source' => 'string',
+        'device_source' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'trans_id' => 'int',
         'contract' => '\Secuconnect\Client\Model\ProductInstanceID',
         'last_visited_page' => 'string',
@@ -605,7 +605,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Gets device_source
-     * @return string
+     * @return \Secuconnect\Client\Model\ProductInstanceUID
      */
     public function getDeviceSource()
     {
@@ -614,7 +614,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets device_source
-     * @param string $device_source Device source
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $device_source device_source
      * @return $this
      */
     public function setDeviceSource($device_source)

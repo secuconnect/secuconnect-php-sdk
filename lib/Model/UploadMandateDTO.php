@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * GeneralContractsList
+ * UploadMandateDTO
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GeneralContractsList implements ArrayAccess
+class UploadMandateDTO implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,15 +20,14 @@ class GeneralContractsList implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'GeneralContractsList';
+    protected static $swaggerModelName = 'UploadMandateDTO';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'count' => 'int',
-        'data' => '\Secuconnect\Client\Model\GeneralContractsProductModel[]'
+        'document_id' => 'string'
     ];
 
     /**
@@ -36,8 +35,7 @@ class GeneralContractsList implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'count' => null,
-        'data' => null
+        'document_id' => null
     ];
 
     public static function swaggerTypes()
@@ -55,8 +53,7 @@ class GeneralContractsList implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'count' => 'count',
-        'data' => 'data'
+        'document_id' => 'document_id'
     ];
 
     /**
@@ -64,8 +61,7 @@ class GeneralContractsList implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'count' => 'setCount',
-        'data' => 'setData'
+        'document_id' => 'setDocumentId'
     ];
 
     /**
@@ -73,8 +69,7 @@ class GeneralContractsList implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'count' => 'getCount',
-        'data' => 'getData'
+        'document_id' => 'getDocumentId'
     ];
 
     public static function attributeMap()
@@ -104,8 +99,7 @@ class GeneralContractsList implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['document_id'] = isset($data['document_id']) ? $data['document_id'] : null;
     }
 
     /**
@@ -133,43 +127,22 @@ class GeneralContractsList implements ArrayAccess
 
 
     /**
-     * Gets count
-     * @return int
+     * Gets document_id
+     * @return string
      */
-    public function getCount()
+    public function getDocumentId()
     {
-        return $this->container['count'];
+        return $this->container['document_id'];
     }
 
     /**
-     * Sets count
-     * @param int $count Number of existing General Contracts
+     * Sets document_id
+     * @param string $document_id Document id for assign
      * @return $this
      */
-    public function setCount($count)
+    public function setDocumentId($document_id)
     {
-        $this->container['count'] = $count;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     * @return \Secuconnect\Client\Model\GeneralContractsProductModel[]
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     * @param \Secuconnect\Client\Model\GeneralContractsProductModel[] $data GeneralContractsList
-     * @return $this
-     */
-    public function setData($data)
-    {
-        $this->container['data'] = $data;
+        $this->container['document_id'] = $document_id;
 
         return $this;
     }

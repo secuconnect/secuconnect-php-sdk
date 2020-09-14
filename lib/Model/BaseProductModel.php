@@ -143,7 +143,7 @@ class BaseProductModel implements ArrayAccess
 
     /**
      * Sets object
-     * @param string $object Object of the model
+     * @param string $object Object type
      * @return $this
      */
     public function setObject($object)
@@ -164,7 +164,7 @@ class BaseProductModel implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Id of the model
+     * @param string $id Object ID
      * @return $this
      */
     public function setId($id)

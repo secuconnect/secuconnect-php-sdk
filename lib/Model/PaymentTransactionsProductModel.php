@@ -357,7 +357,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets trans_id
-     * @param int $trans_id Transaction identifier
+     * @param int $trans_id Transaction ID in secupay Frontend
      * @return $this
      */
     public function setTransId($trans_id)
@@ -378,7 +378,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets parents
-     * @param \Secuconnect\Client\Model\ParentObj[] $parents Parents
+     * @param \Secuconnect\Client\Model\ParentObj[] $parents Parent transactions
      * @return $this
      */
     public function setParents($parents)
@@ -399,7 +399,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets product_id
-     * @param int $product_id Product identifier
+     * @param int $product_id Payment product ID
      * @return $this
      */
     public function setProductId($product_id)
@@ -420,7 +420,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets product
-     * @param string $product Product type
+     * @param string $product Payment product type
      * @return $this
      */
     public function setProduct($product)
@@ -441,7 +441,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets product_raw
-     * @param string $product_raw the name of the payment product
+     * @param string $product_raw Payment product name
      * @return $this
      */
     public function setProductRaw($product_raw)
@@ -462,7 +462,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets zahlungsmittel_id
-     * @param int $zahlungsmittel_id The internal id of the stored payment instrument.
+     * @param int $zahlungsmittel_id Internal ID of the payment instrument
      * @return $this
      */
     public function setZahlungsmittelId($zahlungsmittel_id)
@@ -483,7 +483,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets contract_id
-     * @param int $contract_id Contract identifier
+     * @param int $contract_id Merchant's contract ID
      * @return $this
      */
     public function setContractId($contract_id)
@@ -504,7 +504,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets amount
-     * @param int $amount Total amount of payment in cents (or the smallest cash unit of the relevant currency)
+     * @param int $amount Total amount to payment in the minor currency unit (e. g. Euro Cents)
      * @return $this
      */
     public function setAmount($amount)
@@ -525,7 +525,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets currency
-     * @param string $currency ISO 4217 code of currency, eg EUR for Euro.
+     * @param string $currency ISO 4217 three-letter currency (e. g. EUR for Euro)
      * @return $this
      */
     public function setCurrency($currency)

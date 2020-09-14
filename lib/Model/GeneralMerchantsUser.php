@@ -161,7 +161,7 @@ class GeneralMerchantsUser implements ArrayAccess
 
     /**
      * Sets object
-     * @param string $object Object of general merchant user
+     * @param string $object Object of General Merchant user
      * @return $this
      */
     public function setObject($object)
@@ -182,7 +182,7 @@ class GeneralMerchantsUser implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Id of general merchant user
+     * @param string $id ID of General Merchant user
      * @return $this
      */
     public function setId($id)
@@ -203,7 +203,7 @@ class GeneralMerchantsUser implements ArrayAccess
 
     /**
      * Sets name
-     * @param string $name Name of general merchant user
+     * @param string $name Name of General Merchant user
      * @return $this
      */
     public function setName($name)
@@ -224,7 +224,7 @@ class GeneralMerchantsUser implements ArrayAccess
 
     /**
      * Sets companyname
-     * @param string $companyname Company name of general merchant user
+     * @param string $companyname Company name of General Merchant user
      * @return $this
      */
     public function setCompanyname($companyname)
@@ -245,7 +245,7 @@ class GeneralMerchantsUser implements ArrayAccess
 
     /**
      * Sets address
-     * @param \Secuconnect\Client\Model\GeoAddress[] $address Address of general merchant user
+     * @param \Secuconnect\Client\Model\GeoAddress[] $address Address of General Merchant user
      * @return $this
      */
     public function setAddress($address)

@@ -155,7 +155,7 @@ class GeneralMerchantsLegalDetails implements ArrayAccess
 
     /**
      * Sets url
-     * @param string $url Url
+     * @param string $url URL
      * @return $this
      */
     public function setUrl($url)

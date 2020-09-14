@@ -224,7 +224,7 @@ class GeneralMerchantsDTO implements ArrayAccess
 
     /**
      * Sets companyname
-     * @param string $companyname companyname
+     * @param string $companyname Company name
      * @return $this
      */
     public function setCompanyname($companyname)
@@ -245,7 +245,7 @@ class GeneralMerchantsDTO implements ArrayAccess
 
     /**
      * Sets forename
-     * @param string $forename forename
+     * @param string $forename First name
      * @return $this
      */
     public function setForename($forename)
@@ -266,7 +266,7 @@ class GeneralMerchantsDTO implements ArrayAccess
 
     /**
      * Sets surname
-     * @param string $surname surname
+     * @param string $surname Last name
      * @return $this
      */
     public function setSurname($surname)
@@ -308,7 +308,7 @@ class GeneralMerchantsDTO implements ArrayAccess
 
     /**
      * Sets homepage
-     * @param string $homepage Merchant homepage url or shop url
+     * @param string $homepage Merchant homepage or shop URL
      * @return $this
      */
     public function setHomepage($homepage)
@@ -413,7 +413,7 @@ class GeneralMerchantsDTO implements ArrayAccess
 
     /**
      * Sets legal_details
-     * @param \Secuconnect\Client\Model\GeneralMerchantsLegalDetails[] $legal_details Legal details
+     * @param \Secuconnect\Client\Model\GeneralMerchantsLegalDetails[] $legal_details Legal details, like terms of use, privacy policy, or imprint
      * @return $this
      */
     public function setLegalDetails($legal_details)
@@ -434,7 +434,7 @@ class GeneralMerchantsDTO implements ArrayAccess
 
     /**
      * Sets urls
-     * @param \Secuconnect\Client\Model\GeneralMerchantsUrls[] $urls Urls
+     * @param \Secuconnect\Client\Model\GeneralMerchantsUrls[] $urls URLs
      * @return $this
      */
     public function setUrls($urls)

@@ -149,7 +149,7 @@ class GetAvailablePaymentMethodsDTO implements ArrayAccess
 
     /**
      * Sets currency
-     * @param string $currency Currency-Code
+     * @param string $currency Currency code
      * @return $this
      */
     public function setCurrency($currency)
@@ -170,7 +170,7 @@ class GetAvailablePaymentMethodsDTO implements ArrayAccess
 
     /**
      * Sets is_demo
-     * @param bool $is_demo Demo
+     * @param bool $is_demo Demo mode. Such transactions are not actually processed.
      * @return $this
      */
     public function setIsDemo($is_demo)

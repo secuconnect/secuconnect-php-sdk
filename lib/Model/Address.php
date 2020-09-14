@@ -8,7 +8,7 @@ use \ArrayAccess;
  * Address
  *
  * @category Class
- * @description Address
+ * @description Postal address
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -195,7 +195,7 @@ class Address implements ArrayAccess
 
     /**
      * Sets street
-     * @param string $street Street
+     * @param string $street Street name without house number
      * @return $this
      */
     public function setStreet($street)
@@ -216,7 +216,7 @@ class Address implements ArrayAccess
 
     /**
      * Sets street_number
-     * @param string $street_number Street number
+     * @param string $street_number House number
      * @return $this
      */
     public function setStreetNumber($street_number)
@@ -258,7 +258,7 @@ class Address implements ArrayAccess
 
     /**
      * Sets postal_code
-     * @param string $postal_code Postal code
+     * @param string $postal_code Postal code / ZIP code
      * @return $this
      */
     public function setPostalCode($postal_code)
@@ -279,7 +279,7 @@ class Address implements ArrayAccess
 
     /**
      * Sets country
-     * @param string $country Country
+     * @param string $country Two-letter country code
      * @return $this
      */
     public function setCountry($country)
@@ -300,7 +300,7 @@ class Address implements ArrayAccess
 
     /**
      * Sets additional_address_data
-     * @param string $additional_address_data Additional address data
+     * @param string $additional_address_data Additional address line, like c/o, or an appartment number
      * @return $this
      */
     public function setAdditionalAddressData($additional_address_data)

@@ -144,7 +144,7 @@ class GeoAddressGeometry implements ArrayAccess
 
     /**
      * Sets lat
-     * @param string $lat latitude
+     * @param string $lat Latitude
      * @return $this
      */
     public function setLat($lat)
@@ -165,7 +165,7 @@ class GeoAddressGeometry implements ArrayAccess
 
     /**
      * Sets lon
-     * @param string $lon longitude
+     * @param string $lon Longitude
      * @return $this
      */
     public function setLon($lon)

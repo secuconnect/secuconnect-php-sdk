@@ -8,7 +8,7 @@ use \ArrayAccess;
  * ProductInstanceUID
  *
  * @category Class
- * @description Product name and instance id, uniquely identifying instance of Product
+ * @description Object type and ID
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -144,7 +144,7 @@ class ProductInstanceUID implements ArrayAccess
 
     /**
      * Sets object
-     * @param string $object Object type of instance
+     * @param string $object Object type
      * @return $this
      */
     public function setObject($object)
@@ -165,7 +165,7 @@ class ProductInstanceUID implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id ID of instance
+     * @param string $id Object ID
      * @return $this
      */
     public function setId($id)
