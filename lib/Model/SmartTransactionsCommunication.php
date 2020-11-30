@@ -94,10 +94,6 @@ class SmartTransactionsCommunication implements ArrayAccess
         return self::$getters;
     }
 
-    
-
-
-
     /**
      * Associative array for storing property values
      * @var mixed[]
@@ -134,10 +130,8 @@ class SmartTransactionsCommunication implements ArrayAccess
      */
     public function valid()
     {
-
         return true;
     }
-
 
     /**
      * Gets action_type
