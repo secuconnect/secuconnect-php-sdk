@@ -52,6 +52,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         'cashier' => 'string',
         'market' => 'string',
         'delivery_options' => '\Secuconnect\Client\Model\OneOfSmartTransactionsDeliveryOptionsModel',
+        'communications' => '\Secuconnect\Client\Model\SmartTransactionsCommunication',
         'product' => 'string',
         'trans_id' => 'int',
         'payment_method' => 'string',
@@ -95,6 +96,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         'cashier' => null,
         'market' => null,
         'delivery_options' => null,
+        'communications' => null,
         'product' => null,
         'trans_id' => null,
         'payment_method' => null,
@@ -148,6 +150,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         'cashier' => 'cashier',
         'market' => 'market',
         'delivery_options' => 'delivery_options',
+        'communications' => 'communications',
         'product' => 'product',
         'trans_id' => 'trans_id',
         'payment_method' => 'payment_method',
@@ -191,6 +194,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         'cashier' => 'setCashier',
         'market' => 'setMarket',
         'delivery_options' => 'setDeliveryOptions',
+        'communications' => 'setCommunications',
         'product' => 'setProduct',
         'trans_id' => 'setTransId',
         'payment_method' => 'setPaymentMethod',
@@ -234,6 +238,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         'cashier' => 'getCashier',
         'market' => 'getMarket',
         'delivery_options' => 'getDeliveryOptions',
+        'communications' => 'getCommunications',
         'product' => 'getProduct',
         'trans_id' => 'getTransId',
         'payment_method' => 'getPaymentMethod',
@@ -295,6 +300,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         $this->container['cashier'] = isset($data['cashier']) ? $data['cashier'] : null;
         $this->container['market'] = isset($data['market']) ? $data['market'] : null;
         $this->container['delivery_options'] = isset($data['delivery_options']) ? $data['delivery_options'] : null;
+        $this->container['communications'] = isset($data['communications']) ? $data['communications'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
         $this->container['trans_id'] = isset($data['trans_id']) ? $data['trans_id'] : null;
         $this->container['payment_method'] = isset($data['payment_method']) ? $data['payment_method'] : null;
@@ -893,6 +899,27 @@ class SmartTransactionsProductModel extends BaseProductModel
     public function setDeliveryOptions($delivery_options)
     {
         $this->container['delivery_options'] = $delivery_options;
+
+        return $this;
+    }
+
+    /**
+     * Gets communications
+     * @return \Secuconnect\Client\Model\SmartTransactionsCommunication
+     */
+    public function getCommunications()
+    {
+        return $this->container['communications'];
+    }
+
+    /**
+     * Sets communications
+     * @param \Secuconnect\Client\Model\SmartTransactionsCommunication $communications communications
+     * @return $this
+     */
+    public function setCommunications($communications)
+    {
+        $this->container['communications'] = $communications;
 
         return $this;
     }
