@@ -216,7 +216,7 @@ class Address implements ArrayAccess
 
     /**
      * Sets street_number
-     * @param string $street_number House number
+     * @param string $street_number House number incl. supplement
      * @return $this
      */
     public function setStreetNumber($street_number)
@@ -279,7 +279,7 @@ class Address implements ArrayAccess
 
     /**
      * Sets country
-     * @param string $country Two-letter country code
+     * @param string $country country
      * @return $this
      */
     public function setCountry($country)

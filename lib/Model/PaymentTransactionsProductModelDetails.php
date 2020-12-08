@@ -180,7 +180,7 @@ class PaymentTransactionsProductModelDetails implements ArrayAccess
 
     /**
      * Sets amount
-     * @param int $amount Total amount of payment in cents (or the smallest cash unit of the relevant currency)
+     * @param int $amount amount
      * @return $this
      */
     public function setAmount($amount)

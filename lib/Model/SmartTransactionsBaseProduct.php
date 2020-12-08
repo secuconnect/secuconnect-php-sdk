@@ -194,7 +194,7 @@ class SmartTransactionsBaseProduct implements ArrayAccess
 
     /**
      * Sets tax
-     * @param int $tax Tax
+     * @param int $tax tax
      * @return $this
      */
     public function setTax($tax)
@@ -215,7 +215,7 @@ class SmartTransactionsBaseProduct implements ArrayAccess
 
     /**
      * Sets price_one
-     * @param int $price_one price of one bonus product
+     * @param int $price_one price_one
      * @return $this
      */
     public function setPriceOne($price_one)
@@ -299,7 +299,7 @@ class SmartTransactionsBaseProduct implements ArrayAccess
 
     /**
      * Sets ean
-     * @param string $ean international article number
+     * @param string $ean ean
      * @return $this
      */
     public function setEan($ean)

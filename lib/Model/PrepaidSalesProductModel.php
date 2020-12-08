@@ -25,6 +25,7 @@ class PrepaidSalesProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'created' => 'string',
         'status' => 'string',
         'stock' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'item' => '\Secuconnect\Client\Model\PrepaidSalesItem',
@@ -33,7 +34,6 @@ class PrepaidSalesProductModel extends BaseProductModel
         'merchant' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'store' => '\Secuconnect\Client\Model\Store',
         'contract' => '\Secuconnect\Client\Model\ProductInstanceUID',
-        'created' => 'string',
         'demo' => 'bool',
         'description' => 'string',
         'amount' => 'int',
@@ -57,6 +57,7 @@ class PrepaidSalesProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'created' => null,
         'status' => null,
         'stock' => null,
         'item' => null,
@@ -65,7 +66,6 @@ class PrepaidSalesProductModel extends BaseProductModel
         'merchant' => null,
         'store' => null,
         'contract' => null,
-        'created' => null,
         'demo' => null,
         'description' => null,
         'amount' => null,
@@ -99,6 +99,7 @@ class PrepaidSalesProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $attributeMap = [
+        'created' => 'created',
         'status' => 'status',
         'stock' => 'stock',
         'item' => 'item',
@@ -107,7 +108,6 @@ class PrepaidSalesProductModel extends BaseProductModel
         'merchant' => 'merchant',
         'store' => 'store',
         'contract' => 'contract',
-        'created' => 'created',
         'demo' => 'demo',
         'description' => 'description',
         'amount' => 'amount',
@@ -131,6 +131,7 @@ class PrepaidSalesProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $setters = [
+        'created' => 'setCreated',
         'status' => 'setStatus',
         'stock' => 'setStock',
         'item' => 'setItem',
@@ -139,7 +140,6 @@ class PrepaidSalesProductModel extends BaseProductModel
         'merchant' => 'setMerchant',
         'store' => 'setStore',
         'contract' => 'setContract',
-        'created' => 'setCreated',
         'demo' => 'setDemo',
         'description' => 'setDescription',
         'amount' => 'setAmount',
@@ -163,6 +163,7 @@ class PrepaidSalesProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $getters = [
+        'created' => 'getCreated',
         'status' => 'getStatus',
         'stock' => 'getStock',
         'item' => 'getItem',
@@ -171,7 +172,6 @@ class PrepaidSalesProductModel extends BaseProductModel
         'merchant' => 'getMerchant',
         'store' => 'getStore',
         'contract' => 'getContract',
-        'created' => 'getCreated',
         'demo' => 'getDemo',
         'description' => 'getDescription',
         'amount' => 'getAmount',
@@ -213,6 +213,7 @@ class PrepaidSalesProductModel extends BaseProductModel
     {
         parent::__construct($data);
 
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['stock'] = isset($data['stock']) ? $data['stock'] : null;
         $this->container['item'] = isset($data['item']) ? $data['item'] : null;
@@ -221,7 +222,6 @@ class PrepaidSalesProductModel extends BaseProductModel
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['store'] = isset($data['store']) ? $data['store'] : null;
         $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
-        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['demo'] = isset($data['demo']) ? $data['demo'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
@@ -263,6 +263,27 @@ class PrepaidSalesProductModel extends BaseProductModel
         return true;
     }
 
+
+    /**
+     * Gets created
+     * @return string
+     */
+    public function getCreated()
+    {
+        return $this->container['created'];
+    }
+
+    /**
+     * Sets created
+     * @param string $created created
+     * @return $this
+     */
+    public function setCreated($created)
+    {
+        $this->container['created'] = $created;
+
+        return $this;
+    }
 
     /**
      * Gets status
@@ -433,27 +454,6 @@ class PrepaidSalesProductModel extends BaseProductModel
     }
 
     /**
-     * Gets created
-     * @return string
-     */
-    public function getCreated()
-    {
-        return $this->container['created'];
-    }
-
-    /**
-     * Sets created
-     * @param string $created Prepaid sale creation date
-     * @return $this
-     */
-    public function setCreated($created)
-    {
-        $this->container['created'] = $created;
-
-        return $this;
-    }
-
-    /**
      * Gets demo
      * @return bool
      */
@@ -506,7 +506,7 @@ class PrepaidSalesProductModel extends BaseProductModel
 
     /**
      * Sets amount
-     * @param int $amount Amount
+     * @param int $amount amount
      * @return $this
      */
     public function setAmount($amount)
@@ -527,7 +527,7 @@ class PrepaidSalesProductModel extends BaseProductModel
 
     /**
      * Sets currency
-     * @param string $currency Currency
+     * @param string $currency currency
      * @return $this
      */
     public function setCurrency($currency)

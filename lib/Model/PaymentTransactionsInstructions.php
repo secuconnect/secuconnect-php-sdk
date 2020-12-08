@@ -176,7 +176,7 @@ class PaymentTransactionsInstructions implements ArrayAccess
 
     /**
      * Sets amount
-     * @param int $amount Amount
+     * @param int $amount amount
      * @return $this
      */
     public function setAmount($amount)
@@ -197,7 +197,7 @@ class PaymentTransactionsInstructions implements ArrayAccess
 
     /**
      * Sets currency
-     * @param string $currency Currency
+     * @param string $currency currency
      * @return $this
      */
     public function setCurrency($currency)

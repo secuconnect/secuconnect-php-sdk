@@ -25,6 +25,8 @@ class SmartTransactionsProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'created' => 'string',
+        'updated' => 'string',
         'status' => 'string',
         'merchant' => '\Secuconnect\Client\Model\SmartTransactionsMerchant',
         'contract' => '\Secuconnect\Client\Model\ProductInstanceUID',
@@ -38,8 +40,6 @@ class SmartTransactionsProductModel extends BaseProductModel
         'store' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'device_source' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'device_destination' => '\Secuconnect\Client\Model\ProductInstanceUID',
-        'created' => 'string',
-        'updated' => 'string',
         'receipt_number' => 'int',
         'receipt' => '\Secuconnect\Client\Model\SmartTransactionsReceipt[]',
         'receipt_merchant' => '\Secuconnect\Client\Model\SmartTransactionsReceipt[]',
@@ -68,6 +68,8 @@ class SmartTransactionsProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'created' => null,
+        'updated' => null,
         'status' => null,
         'merchant' => null,
         'contract' => null,
@@ -81,8 +83,6 @@ class SmartTransactionsProductModel extends BaseProductModel
         'store' => null,
         'device_source' => null,
         'device_destination' => null,
-        'created' => null,
-        'updated' => null,
         'receipt_number' => null,
         'receipt' => null,
         'receipt_merchant' => null,
@@ -121,6 +121,8 @@ class SmartTransactionsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $attributeMap = [
+        'created' => 'created',
+        'updated' => 'updated',
         'status' => 'status',
         'merchant' => 'merchant',
         'contract' => 'contract',
@@ -134,8 +136,6 @@ class SmartTransactionsProductModel extends BaseProductModel
         'store' => 'store',
         'device_source' => 'device_source',
         'device_destination' => 'device_destination',
-        'created' => 'created',
-        'updated' => 'updated',
         'receipt_number' => 'receipt_number',
         'receipt' => 'receipt',
         'receipt_merchant' => 'receipt_merchant',
@@ -164,6 +164,8 @@ class SmartTransactionsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $setters = [
+        'created' => 'setCreated',
+        'updated' => 'setUpdated',
         'status' => 'setStatus',
         'merchant' => 'setMerchant',
         'contract' => 'setContract',
@@ -177,8 +179,6 @@ class SmartTransactionsProductModel extends BaseProductModel
         'store' => 'setStore',
         'device_source' => 'setDeviceSource',
         'device_destination' => 'setDeviceDestination',
-        'created' => 'setCreated',
-        'updated' => 'setUpdated',
         'receipt_number' => 'setReceiptNumber',
         'receipt' => 'setReceipt',
         'receipt_merchant' => 'setReceiptMerchant',
@@ -207,6 +207,8 @@ class SmartTransactionsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $getters = [
+        'created' => 'getCreated',
+        'updated' => 'getUpdated',
         'status' => 'getStatus',
         'merchant' => 'getMerchant',
         'contract' => 'getContract',
@@ -220,8 +222,6 @@ class SmartTransactionsProductModel extends BaseProductModel
         'store' => 'getStore',
         'device_source' => 'getDeviceSource',
         'device_destination' => 'getDeviceDestination',
-        'created' => 'getCreated',
-        'updated' => 'getUpdated',
         'receipt_number' => 'getReceiptNumber',
         'receipt' => 'getReceipt',
         'receipt_merchant' => 'getReceiptMerchant',
@@ -268,6 +268,8 @@ class SmartTransactionsProductModel extends BaseProductModel
     {
         parent::__construct($data);
 
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
@@ -281,8 +283,6 @@ class SmartTransactionsProductModel extends BaseProductModel
         $this->container['store'] = isset($data['store']) ? $data['store'] : null;
         $this->container['device_source'] = isset($data['device_source']) ? $data['device_source'] : null;
         $this->container['device_destination'] = isset($data['device_destination']) ? $data['device_destination'] : null;
-        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
         $this->container['receipt_number'] = isset($data['receipt_number']) ? $data['receipt_number'] : null;
         $this->container['receipt'] = isset($data['receipt']) ? $data['receipt'] : null;
         $this->container['receipt_merchant'] = isset($data['receipt_merchant']) ? $data['receipt_merchant'] : null;
@@ -329,6 +329,48 @@ class SmartTransactionsProductModel extends BaseProductModel
         return true;
     }
 
+
+    /**
+     * Gets created
+     * @return string
+     */
+    public function getCreated()
+    {
+        return $this->container['created'];
+    }
+
+    /**
+     * Sets created
+     * @param string $created created
+     * @return $this
+     */
+    public function setCreated($created)
+    {
+        $this->container['created'] = $created;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated
+     * @return string
+     */
+    public function getUpdated()
+    {
+        return $this->container['updated'];
+    }
+
+    /**
+     * Sets updated
+     * @param string $updated updated
+     * @return $this
+     */
+    public function setUpdated($updated)
+    {
+        $this->container['updated'] = $updated;
+
+        return $this;
+    }
 
     /**
      * Gets status
@@ -599,48 +641,6 @@ class SmartTransactionsProductModel extends BaseProductModel
     public function setDeviceDestination($device_destination)
     {
         $this->container['device_destination'] = $device_destination;
-
-        return $this;
-    }
-
-    /**
-     * Gets created
-     * @return string
-     */
-    public function getCreated()
-    {
-        return $this->container['created'];
-    }
-
-    /**
-     * Sets created
-     * @param string $created Created at date
-     * @return $this
-     */
-    public function setCreated($created)
-    {
-        $this->container['created'] = $created;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated
-     * @return string
-     */
-    public function getUpdated()
-    {
-        return $this->container['updated'];
-    }
-
-    /**
-     * Sets updated
-     * @param string $updated Updated at date
-     * @return $this
-     */
-    public function setUpdated($updated)
-    {
-        $this->container['updated'] = $updated;
 
         return $this;
     }

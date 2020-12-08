@@ -131,7 +131,7 @@ class DocumentUploadsBaseProductModel extends BaseProductModel
 
     /**
      * Sets created
-     * @param string $created Created at date
+     * @param string $created created
      * @return $this
      */
     public function setCreated($created)

@@ -210,7 +210,7 @@ class SecupayBaseBasketItem implements ArrayAccess
 
     /**
      * Sets item_type
-     * @param string $item_type Category of item
+     * @param string $item_type Line type {'article', 'sub_transaction', 'stakeholder_payment', 'shipping'}
      * @return $this
      */
     public function setItemType($item_type)
@@ -231,7 +231,7 @@ class SecupayBaseBasketItem implements ArrayAccess
 
     /**
      * Sets article_number
-     * @param string $article_number Article number of item
+     * @param string $article_number Your article number, storage key unit (SKU)
      * @return $this
      */
     public function setArticleNumber($article_number)
@@ -273,7 +273,7 @@ class SecupayBaseBasketItem implements ArrayAccess
 
     /**
      * Sets name
-     * @param string $name Descriptive name of item
+     * @param string $name Descriptive article name
      * @return $this
      */
     public function setName($name)
@@ -315,7 +315,7 @@ class SecupayBaseBasketItem implements ArrayAccess
 
     /**
      * Sets ean
-     * @param string $ean EAN, European Article Number
+     * @param string $ean ean
      * @return $this
      */
     public function setEan($ean)
@@ -336,7 +336,7 @@ class SecupayBaseBasketItem implements ArrayAccess
 
     /**
      * Sets tax
-     * @param string $tax Applicable tax in percentages
+     * @param string $tax Tax rate in percent (integer values only)
      * @return $this
      */
     public function setTax($tax)
@@ -357,7 +357,7 @@ class SecupayBaseBasketItem implements ArrayAccess
 
     /**
      * Sets total
-     * @param int $total Total price
+     * @param int $total total
      * @return $this
      */
     public function setTotal($total)
@@ -378,7 +378,7 @@ class SecupayBaseBasketItem implements ArrayAccess
 
     /**
      * Sets price
-     * @param int $price Price of single article, if item is of article category
+     * @param int $price price
      * @return $this
      */
     public function setPrice($price)
@@ -399,7 +399,7 @@ class SecupayBaseBasketItem implements ArrayAccess
 
     /**
      * Sets apikey
-     * @param string $apikey Special param for stakeholder payments
+     * @param string $apikey API key (only for stakeholder payments)
      * @return $this
      */
     public function setApikey($apikey)
@@ -420,7 +420,7 @@ class SecupayBaseBasketItem implements ArrayAccess
 
     /**
      * Sets transaction_hash
-     * @param string $transaction_hash Special param for payout payments
+     * @param string $transaction_hash Original transaction hash (only for payouts)
      * @return $this
      */
     public function setTransactionHash($transaction_hash)
@@ -441,7 +441,7 @@ class SecupayBaseBasketItem implements ArrayAccess
 
     /**
      * Sets contract_id
-     * @param string $contract_id Contract id - Special param for stakeholder payments
+     * @param string $contract_id Contract ID (only for stakeholder payments)
      * @return $this
      */
     public function setContractId($contract_id)
@@ -462,7 +462,7 @@ class SecupayBaseBasketItem implements ArrayAccess
 
     /**
      * Sets reference_id
-     * @param string $reference_id Reference id - must be unique for the entire basket
+     * @param string $reference_id Unique line identifier, used to maintain the basket before the transaction is executed
      * @return $this
      */
     public function setReferenceId($reference_id)

@@ -25,6 +25,7 @@ class SmartDevicesProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'created' => 'string',
         'merchant' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'store' => '\Secuconnect\Client\Model\Store',
         'contract' => '\Secuconnect\Client\Model\ProductInstanceUID',
@@ -39,7 +40,6 @@ class SmartDevicesProductModel extends BaseProductModel
         'tid' => 'string',
         'idle_screen_register' => 'string',
         'idle_screen_terminal' => 'string',
-        'created' => 'string',
         'online' => 'bool',
         'refresh' => 'int',
         'terminal_type' => 'string',
@@ -51,6 +51,7 @@ class SmartDevicesProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'created' => null,
         'merchant' => null,
         'store' => null,
         'contract' => null,
@@ -65,7 +66,6 @@ class SmartDevicesProductModel extends BaseProductModel
         'tid' => null,
         'idle_screen_register' => null,
         'idle_screen_terminal' => null,
-        'created' => null,
         'online' => null,
         'refresh' => null,
         'terminal_type' => null,
@@ -87,6 +87,7 @@ class SmartDevicesProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $attributeMap = [
+        'created' => 'created',
         'merchant' => 'merchant',
         'store' => 'store',
         'contract' => 'contract',
@@ -101,7 +102,6 @@ class SmartDevicesProductModel extends BaseProductModel
         'tid' => 'tid',
         'idle_screen_register' => 'idle_screen_register',
         'idle_screen_terminal' => 'idle_screen_terminal',
-        'created' => 'created',
         'online' => 'online',
         'refresh' => 'refresh',
         'terminal_type' => 'terminal_type',
@@ -113,6 +113,7 @@ class SmartDevicesProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $setters = [
+        'created' => 'setCreated',
         'merchant' => 'setMerchant',
         'store' => 'setStore',
         'contract' => 'setContract',
@@ -127,7 +128,6 @@ class SmartDevicesProductModel extends BaseProductModel
         'tid' => 'setTid',
         'idle_screen_register' => 'setIdleScreenRegister',
         'idle_screen_terminal' => 'setIdleScreenTerminal',
-        'created' => 'setCreated',
         'online' => 'setOnline',
         'refresh' => 'setRefresh',
         'terminal_type' => 'setTerminalType',
@@ -139,6 +139,7 @@ class SmartDevicesProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $getters = [
+        'created' => 'getCreated',
         'merchant' => 'getMerchant',
         'store' => 'getStore',
         'contract' => 'getContract',
@@ -153,7 +154,6 @@ class SmartDevicesProductModel extends BaseProductModel
         'tid' => 'getTid',
         'idle_screen_register' => 'getIdleScreenRegister',
         'idle_screen_terminal' => 'getIdleScreenTerminal',
-        'created' => 'getCreated',
         'online' => 'getOnline',
         'refresh' => 'getRefresh',
         'terminal_type' => 'getTerminalType',
@@ -183,6 +183,7 @@ class SmartDevicesProductModel extends BaseProductModel
     {
         parent::__construct($data);
 
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['store'] = isset($data['store']) ? $data['store'] : null;
         $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
@@ -197,7 +198,6 @@ class SmartDevicesProductModel extends BaseProductModel
         $this->container['tid'] = isset($data['tid']) ? $data['tid'] : null;
         $this->container['idle_screen_register'] = isset($data['idle_screen_register']) ? $data['idle_screen_register'] : null;
         $this->container['idle_screen_terminal'] = isset($data['idle_screen_terminal']) ? $data['idle_screen_terminal'] : null;
-        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['online'] = isset($data['online']) ? $data['online'] : null;
         $this->container['refresh'] = isset($data['refresh']) ? $data['refresh'] : null;
         $this->container['terminal_type'] = isset($data['terminal_type']) ? $data['terminal_type'] : null;
@@ -227,6 +227,27 @@ class SmartDevicesProductModel extends BaseProductModel
         return true;
     }
 
+
+    /**
+     * Gets created
+     * @return string
+     */
+    public function getCreated()
+    {
+        return $this->container['created'];
+    }
+
+    /**
+     * Sets created
+     * @param string $created created
+     * @return $this
+     */
+    public function setCreated($created)
+    {
+        $this->container['created'] = $created;
+
+        return $this;
+    }
 
     /**
      * Gets merchant
@@ -518,27 +539,6 @@ class SmartDevicesProductModel extends BaseProductModel
     public function setIdleScreenTerminal($idle_screen_terminal)
     {
         $this->container['idle_screen_terminal'] = $idle_screen_terminal;
-
-        return $this;
-    }
-
-    /**
-     * Gets created
-     * @return string
-     */
-    public function getCreated()
-    {
-        return $this->container['created'];
-    }
-
-    /**
-     * Sets created
-     * @param string $created Created at date
-     * @return $this
-     */
-    public function setCreated($created)
-    {
-        $this->container['created'] = $created;
 
         return $this;
     }

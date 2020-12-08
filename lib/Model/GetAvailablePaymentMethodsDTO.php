@@ -149,7 +149,7 @@ class GetAvailablePaymentMethodsDTO implements ArrayAccess
 
     /**
      * Sets currency
-     * @param string $currency Currency code
+     * @param string $currency currency
      * @return $this
      */
     public function setCurrency($currency)

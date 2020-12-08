@@ -293,7 +293,7 @@ class SecupayTransactionProductModel extends BaseProductModel
 
     /**
      * Sets amount
-     * @param int $amount Total amount of payment in cents (or the smallest cash unit of the relevant currency)
+     * @param int $amount amount
      * @return $this
      */
     public function setAmount($amount)
@@ -314,7 +314,7 @@ class SecupayTransactionProductModel extends BaseProductModel
 
     /**
      * Sets currency
-     * @param string $currency ISO 4217 code of currency, eg EUR for Euro.
+     * @param string $currency currency
      * @return $this
      */
     public function setCurrency($currency)

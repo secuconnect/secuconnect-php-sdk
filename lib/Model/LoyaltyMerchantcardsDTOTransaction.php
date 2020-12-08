@@ -227,7 +227,7 @@ class LoyaltyMerchantcardsDTOTransaction implements ArrayAccess
 
     /**
      * Sets amount
-     * @param int $amount Amount
+     * @param int $amount amount
      * @return $this
      */
     public function setAmount($amount)

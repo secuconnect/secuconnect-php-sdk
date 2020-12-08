@@ -299,7 +299,7 @@ class SecupayTransactionListItem implements ArrayAccess
 
     /**
      * Sets total
-     * @param int $total Total price
+     * @param int $total total
      * @return $this
      */
     public function setTotal($total)

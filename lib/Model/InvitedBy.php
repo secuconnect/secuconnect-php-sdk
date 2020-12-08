@@ -149,7 +149,7 @@ class InvitedBy implements ArrayAccess
 
     /**
      * Sets object
-     * @param string $object Object of invited by
+     * @param string $object object
      * @return $this
      */
     public function setObject($object)
@@ -170,7 +170,7 @@ class InvitedBy implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Id of invited by
+     * @param string $id id
      * @return $this
      */
     public function setId($id)

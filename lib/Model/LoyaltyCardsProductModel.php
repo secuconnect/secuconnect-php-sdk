@@ -25,9 +25,9 @@ class LoyaltyCardsProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'created' => 'string',
         'account' => '\Secuconnect\Client\Model\LoyaltyCardsDTOAccount',
-        'cardnumber' => 'string',
-        'created' => 'string'
+        'cardnumber' => 'string'
     ];
 
     /**
@@ -35,9 +35,9 @@ class LoyaltyCardsProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'created' => null,
         'account' => null,
-        'cardnumber' => null,
-        'created' => null
+        'cardnumber' => null
     ];
 
     public static function swaggerTypes()
@@ -55,9 +55,9 @@ class LoyaltyCardsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $attributeMap = [
+        'created' => 'created',
         'account' => 'account',
-        'cardnumber' => 'cardnumber',
-        'created' => 'created'
+        'cardnumber' => 'cardnumber'
     ];
 
     /**
@@ -65,9 +65,9 @@ class LoyaltyCardsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $setters = [
+        'created' => 'setCreated',
         'account' => 'setAccount',
-        'cardnumber' => 'setCardnumber',
-        'created' => 'setCreated'
+        'cardnumber' => 'setCardnumber'
     ];
 
     /**
@@ -75,9 +75,9 @@ class LoyaltyCardsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $getters = [
+        'created' => 'getCreated',
         'account' => 'getAccount',
-        'cardnumber' => 'getCardnumber',
-        'created' => 'getCreated'
+        'cardnumber' => 'getCardnumber'
     ];
 
     public static function attributeMap()
@@ -103,9 +103,9 @@ class LoyaltyCardsProductModel extends BaseProductModel
     {
         parent::__construct($data);
 
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['account'] = isset($data['account']) ? $data['account'] : null;
         $this->container['cardnumber'] = isset($data['cardnumber']) ? $data['cardnumber'] : null;
-        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
     }
 
     /**
@@ -131,6 +131,27 @@ class LoyaltyCardsProductModel extends BaseProductModel
         return true;
     }
 
+
+    /**
+     * Gets created
+     * @return string
+     */
+    public function getCreated()
+    {
+        return $this->container['created'];
+    }
+
+    /**
+     * Sets created
+     * @param string $created created
+     * @return $this
+     */
+    public function setCreated($created)
+    {
+        $this->container['created'] = $created;
+
+        return $this;
+    }
 
     /**
      * Gets account
@@ -170,27 +191,6 @@ class LoyaltyCardsProductModel extends BaseProductModel
     public function setCardnumber($cardnumber)
     {
         $this->container['cardnumber'] = $cardnumber;
-
-        return $this;
-    }
-
-    /**
-     * Gets created
-     * @return string
-     */
-    public function getCreated()
-    {
-        return $this->container['created'];
-    }
-
-    /**
-     * Sets created
-     * @param string $created Creation date
-     * @return $this
-     */
-    public function setCreated($created)
-    {
-        $this->container['created'] = $created;
 
         return $this;
     }

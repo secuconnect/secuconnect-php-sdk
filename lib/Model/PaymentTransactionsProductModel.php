@@ -26,6 +26,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'created' => 'string',
+        'updated' => 'string',
         'platform' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'merchant' => '\Secuconnect\Client\Model\GeneralMerchantsProductModel',
         'store' => '\Secuconnect\Client\Model\GeneralStoresProductModel',
@@ -38,8 +40,6 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'contract_id' => 'int',
         'amount' => 'int',
         'currency' => 'string',
-        'created' => 'string',
-        'updated' => 'string',
         'status' => 'int',
         'status_text' => 'string',
         'incoming_payment_date' => 'string',
@@ -61,6 +61,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'created' => null,
+        'updated' => null,
         'platform' => null,
         'merchant' => null,
         'store' => null,
@@ -73,8 +75,6 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'contract_id' => null,
         'amount' => null,
         'currency' => null,
-        'created' => null,
-        'updated' => null,
         'status' => null,
         'status_text' => null,
         'incoming_payment_date' => null,
@@ -106,6 +106,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $attributeMap = [
+        'created' => 'created',
+        'updated' => 'updated',
         'platform' => 'platform',
         'merchant' => 'merchant',
         'store' => 'store',
@@ -118,8 +120,6 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'contract_id' => 'contract_id',
         'amount' => 'amount',
         'currency' => 'currency',
-        'created' => 'created',
-        'updated' => 'updated',
         'status' => 'status',
         'status_text' => 'status_text',
         'incoming_payment_date' => 'incoming_payment_date',
@@ -141,6 +141,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $setters = [
+        'created' => 'setCreated',
+        'updated' => 'setUpdated',
         'platform' => 'setPlatform',
         'merchant' => 'setMerchant',
         'store' => 'setStore',
@@ -153,8 +155,6 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'contract_id' => 'setContractId',
         'amount' => 'setAmount',
         'currency' => 'setCurrency',
-        'created' => 'setCreated',
-        'updated' => 'setUpdated',
         'status' => 'setStatus',
         'status_text' => 'setStatusText',
         'incoming_payment_date' => 'setIncomingPaymentDate',
@@ -176,6 +176,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $getters = [
+        'created' => 'getCreated',
+        'updated' => 'getUpdated',
         'platform' => 'getPlatform',
         'merchant' => 'getMerchant',
         'store' => 'getStore',
@@ -188,8 +190,6 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'contract_id' => 'getContractId',
         'amount' => 'getAmount',
         'currency' => 'getCurrency',
-        'created' => 'getCreated',
-        'updated' => 'getUpdated',
         'status' => 'getStatus',
         'status_text' => 'getStatusText',
         'incoming_payment_date' => 'getIncomingPaymentDate',
@@ -229,6 +229,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
     {
         parent::__construct($data);
 
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
         $this->container['platform'] = isset($data['platform']) ? $data['platform'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['store'] = isset($data['store']) ? $data['store'] : null;
@@ -241,8 +243,6 @@ class PaymentTransactionsProductModel extends BaseProductModel
         $this->container['contract_id'] = isset($data['contract_id']) ? $data['contract_id'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['status_text'] = isset($data['status_text']) ? $data['status_text'] : null;
         $this->container['incoming_payment_date'] = isset($data['incoming_payment_date']) ? $data['incoming_payment_date'] : null;
@@ -282,6 +282,48 @@ class PaymentTransactionsProductModel extends BaseProductModel
         return true;
     }
 
+
+    /**
+     * Gets created
+     * @return string
+     */
+    public function getCreated()
+    {
+        return $this->container['created'];
+    }
+
+    /**
+     * Sets created
+     * @param string $created created
+     * @return $this
+     */
+    public function setCreated($created)
+    {
+        $this->container['created'] = $created;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated
+     * @return string
+     */
+    public function getUpdated()
+    {
+        return $this->container['updated'];
+    }
+
+    /**
+     * Sets updated
+     * @param string $updated updated
+     * @return $this
+     */
+    public function setUpdated($updated)
+    {
+        $this->container['updated'] = $updated;
+
+        return $this;
+    }
 
     /**
      * Gets platform
@@ -504,7 +546,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets amount
-     * @param int $amount Total amount to payment in the minor currency unit (e. g. Euro Cents)
+     * @param int $amount amount
      * @return $this
      */
     public function setAmount($amount)
@@ -525,54 +567,12 @@ class PaymentTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets currency
-     * @param string $currency ISO 4217 three-letter currency (e. g. EUR for Euro)
+     * @param string $currency currency
      * @return $this
      */
     public function setCurrency($currency)
     {
         $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets created
-     * @return string
-     */
-    public function getCreated()
-    {
-        return $this->container['created'];
-    }
-
-    /**
-     * Sets created
-     * @param string $created Created at date
-     * @return $this
-     */
-    public function setCreated($created)
-    {
-        $this->container['created'] = $created;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated
-     * @return string
-     */
-    public function getUpdated()
-    {
-        return $this->container['updated'];
-    }
-
-    /**
-     * Sets updated
-     * @param string $updated Updated at date
-     * @return $this
-     */
-    public function setUpdated($updated)
-    {
-        $this->container['updated'] = $updated;
 
         return $this;
     }

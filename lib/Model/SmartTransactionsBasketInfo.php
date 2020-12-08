@@ -191,7 +191,7 @@ class SmartTransactionsBasketInfo implements ArrayAccess
 
     /**
      * Sets currency
-     * @param string $currency Currency
+     * @param string $currency currency
      * @return $this
      */
     public function setCurrency($currency)

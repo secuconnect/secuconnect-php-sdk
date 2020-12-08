@@ -479,7 +479,7 @@ class Contact implements ArrayAccess
 
     /**
      * Sets url_website
-     * @param string $url_website URL to website
+     * @param string $url_website URL to company website
      * @return $this
      */
     public function setUrlWebsite($url_website)
@@ -521,7 +521,7 @@ class Contact implements ArrayAccess
 
     /**
      * Sets nationality
-     * @param string $nationality Nationality
+     * @param string $nationality nationality
      * @return $this
      */
     public function setNationality($nationality)

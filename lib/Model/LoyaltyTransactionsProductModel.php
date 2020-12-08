@@ -25,6 +25,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'created' => 'string',
         'merchant' => '\Secuconnect\Client\Model\LoyaltyTransactionsDTOMerchant',
         'cardgroup' => '\Secuconnect\Client\Model\LoyaltyTransactionsDTOCardgroup',
         'store' => '\Secuconnect\Client\Model\LoyaltyTransactionsDTOStore',
@@ -38,7 +39,6 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
         'currency' => 'string',
         'balance' => 'int',
         'description' => 'string',
-        'created' => 'string',
         'last_changee' => 'string',
         'receipt' => '\Secuconnect\Client\Model\ReceiptTypeValue[]',
         'is_cancelling' => 'int'
@@ -49,6 +49,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'created' => null,
         'merchant' => null,
         'cardgroup' => null,
         'store' => null,
@@ -62,7 +63,6 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
         'currency' => null,
         'balance' => null,
         'description' => null,
-        'created' => null,
         'last_changee' => null,
         'receipt' => null,
         'is_cancelling' => null
@@ -83,6 +83,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $attributeMap = [
+        'created' => 'created',
         'merchant' => 'merchant',
         'cardgroup' => 'cardgroup',
         'store' => 'store',
@@ -96,7 +97,6 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
         'currency' => 'currency',
         'balance' => 'balance',
         'description' => 'description',
-        'created' => 'created',
         'last_changee' => 'last_changee',
         'receipt' => 'receipt',
         'is_cancelling' => 'is_cancelling'
@@ -107,6 +107,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $setters = [
+        'created' => 'setCreated',
         'merchant' => 'setMerchant',
         'cardgroup' => 'setCardgroup',
         'store' => 'setStore',
@@ -120,7 +121,6 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
         'currency' => 'setCurrency',
         'balance' => 'setBalance',
         'description' => 'setDescription',
-        'created' => 'setCreated',
         'last_changee' => 'setLastChangee',
         'receipt' => 'setReceipt',
         'is_cancelling' => 'setIsCancelling'
@@ -131,6 +131,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $getters = [
+        'created' => 'getCreated',
         'merchant' => 'getMerchant',
         'cardgroup' => 'getCardgroup',
         'store' => 'getStore',
@@ -144,7 +145,6 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
         'currency' => 'getCurrency',
         'balance' => 'getBalance',
         'description' => 'getDescription',
-        'created' => 'getCreated',
         'last_changee' => 'getLastChangee',
         'receipt' => 'getReceipt',
         'is_cancelling' => 'getIsCancelling'
@@ -173,6 +173,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
     {
         parent::__construct($data);
 
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['cardgroup'] = isset($data['cardgroup']) ? $data['cardgroup'] : null;
         $this->container['store'] = isset($data['store']) ? $data['store'] : null;
@@ -186,7 +187,6 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['balance'] = isset($data['balance']) ? $data['balance'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['last_changee'] = isset($data['last_changee']) ? $data['last_changee'] : null;
         $this->container['receipt'] = isset($data['receipt']) ? $data['receipt'] : null;
         $this->container['is_cancelling'] = isset($data['is_cancelling']) ? $data['is_cancelling'] : null;
@@ -215,6 +215,27 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
         return true;
     }
 
+
+    /**
+     * Gets created
+     * @return string
+     */
+    public function getCreated()
+    {
+        return $this->container['created'];
+    }
+
+    /**
+     * Sets created
+     * @param string $created created
+     * @return $this
+     */
+    public function setCreated($created)
+    {
+        $this->container['created'] = $created;
+
+        return $this;
+    }
 
     /**
      * Gets merchant
@@ -416,7 +437,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets amount
-     * @param int $amount Loyalty Transaction amount
+     * @param int $amount amount
      * @return $this
      */
     public function setAmount($amount)
@@ -437,7 +458,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets currency
-     * @param string $currency The currency of the Loyalty Transaction
+     * @param string $currency currency
      * @return $this
      */
     public function setCurrency($currency)
@@ -485,27 +506,6 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
     public function setDescription($description)
     {
         $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets created
-     * @return string
-     */
-    public function getCreated()
-    {
-        return $this->container['created'];
-    }
-
-    /**
-     * Sets created
-     * @param string $created Created at date
-     * @return $this
-     */
-    public function setCreated($created)
-    {
-        $this->container['created'] = $created;
 
         return $this;
     }

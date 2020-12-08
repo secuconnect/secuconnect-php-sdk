@@ -25,11 +25,11 @@ class SmartRoutingsProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'created' => 'string',
+        'updated' => 'string',
         'merchant' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'store' => '\Secuconnect\Client\Model\Store',
         'description' => 'string',
-        'created' => 'string',
-        'updated' => 'string',
         'assign' => '\Secuconnect\Client\Model\SmartRoutingsAssign[]'
     ];
 
@@ -38,11 +38,11 @@ class SmartRoutingsProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'created' => null,
+        'updated' => null,
         'merchant' => null,
         'store' => null,
         'description' => null,
-        'created' => null,
-        'updated' => null,
         'assign' => null
     ];
 
@@ -61,11 +61,11 @@ class SmartRoutingsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $attributeMap = [
+        'created' => 'created',
+        'updated' => 'updated',
         'merchant' => 'merchant',
         'store' => 'store',
         'description' => 'description',
-        'created' => 'created',
-        'updated' => 'updated',
         'assign' => 'assign'
     ];
 
@@ -74,11 +74,11 @@ class SmartRoutingsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $setters = [
+        'created' => 'setCreated',
+        'updated' => 'setUpdated',
         'merchant' => 'setMerchant',
         'store' => 'setStore',
         'description' => 'setDescription',
-        'created' => 'setCreated',
-        'updated' => 'setUpdated',
         'assign' => 'setAssign'
     ];
 
@@ -87,11 +87,11 @@ class SmartRoutingsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $getters = [
+        'created' => 'getCreated',
+        'updated' => 'getUpdated',
         'merchant' => 'getMerchant',
         'store' => 'getStore',
         'description' => 'getDescription',
-        'created' => 'getCreated',
-        'updated' => 'getUpdated',
         'assign' => 'getAssign'
     ];
 
@@ -118,11 +118,11 @@ class SmartRoutingsProductModel extends BaseProductModel
     {
         parent::__construct($data);
 
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['store'] = isset($data['store']) ? $data['store'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
         $this->container['assign'] = isset($data['assign']) ? $data['assign'] : null;
     }
 
@@ -149,6 +149,48 @@ class SmartRoutingsProductModel extends BaseProductModel
         return true;
     }
 
+
+    /**
+     * Gets created
+     * @return string
+     */
+    public function getCreated()
+    {
+        return $this->container['created'];
+    }
+
+    /**
+     * Sets created
+     * @param string $created created
+     * @return $this
+     */
+    public function setCreated($created)
+    {
+        $this->container['created'] = $created;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated
+     * @return string
+     */
+    public function getUpdated()
+    {
+        return $this->container['updated'];
+    }
+
+    /**
+     * Sets updated
+     * @param string $updated updated
+     * @return $this
+     */
+    public function setUpdated($updated)
+    {
+        $this->container['updated'] = $updated;
+
+        return $this;
+    }
 
     /**
      * Gets merchant
@@ -209,48 +251,6 @@ class SmartRoutingsProductModel extends BaseProductModel
     public function setDescription($description)
     {
         $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets created
-     * @return string
-     */
-    public function getCreated()
-    {
-        return $this->container['created'];
-    }
-
-    /**
-     * Sets created
-     * @param string $created Created at date
-     * @return $this
-     */
-    public function setCreated($created)
-    {
-        $this->container['created'] = $created;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated
-     * @return string
-     */
-    public function getUpdated()
-    {
-        return $this->container['updated'];
-    }
-
-    /**
-     * Sets updated
-     * @param string $updated Updated at date
-     * @return $this
-     */
-    public function setUpdated($updated)
-    {
-        $this->container['updated'] = $updated;
 
         return $this;
     }

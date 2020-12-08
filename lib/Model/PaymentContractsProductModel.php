@@ -25,11 +25,11 @@ class PaymentContractsProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'created' => 'string',
+        'updated' => 'string',
         'parent' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'pay_in_account' => '\Secuconnect\Client\Model\PaymentInformation',
-        'demo' => 'bool',
-        'created' => 'string',
-        'updated' => 'string'
+        'demo' => 'bool'
     ];
 
     /**
@@ -37,11 +37,11 @@ class PaymentContractsProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'created' => null,
+        'updated' => null,
         'parent' => null,
         'pay_in_account' => null,
-        'demo' => null,
-        'created' => null,
-        'updated' => null
+        'demo' => null
     ];
 
     public static function swaggerTypes()
@@ -59,11 +59,11 @@ class PaymentContractsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $attributeMap = [
+        'created' => 'created',
+        'updated' => 'updated',
         'parent' => 'parent',
         'pay_in_account' => 'pay_in_account',
-        'demo' => 'demo',
-        'created' => 'created',
-        'updated' => 'updated'
+        'demo' => 'demo'
     ];
 
     /**
@@ -71,11 +71,11 @@ class PaymentContractsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $setters = [
+        'created' => 'setCreated',
+        'updated' => 'setUpdated',
         'parent' => 'setParent',
         'pay_in_account' => 'setPayInAccount',
-        'demo' => 'setDemo',
-        'created' => 'setCreated',
-        'updated' => 'setUpdated'
+        'demo' => 'setDemo'
     ];
 
     /**
@@ -83,11 +83,11 @@ class PaymentContractsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $getters = [
+        'created' => 'getCreated',
+        'updated' => 'getUpdated',
         'parent' => 'getParent',
         'pay_in_account' => 'getPayInAccount',
-        'demo' => 'getDemo',
-        'created' => 'getCreated',
-        'updated' => 'getUpdated'
+        'demo' => 'getDemo'
     ];
 
     public static function attributeMap()
@@ -113,11 +113,11 @@ class PaymentContractsProductModel extends BaseProductModel
     {
         parent::__construct($data);
 
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
         $this->container['parent'] = isset($data['parent']) ? $data['parent'] : null;
         $this->container['pay_in_account'] = isset($data['pay_in_account']) ? $data['pay_in_account'] : null;
         $this->container['demo'] = isset($data['demo']) ? $data['demo'] : null;
-        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
     }
 
     /**
@@ -143,6 +143,48 @@ class PaymentContractsProductModel extends BaseProductModel
         return true;
     }
 
+
+    /**
+     * Gets created
+     * @return string
+     */
+    public function getCreated()
+    {
+        return $this->container['created'];
+    }
+
+    /**
+     * Sets created
+     * @param string $created created
+     * @return $this
+     */
+    public function setCreated($created)
+    {
+        $this->container['created'] = $created;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated
+     * @return string
+     */
+    public function getUpdated()
+    {
+        return $this->container['updated'];
+    }
+
+    /**
+     * Sets updated
+     * @param string $updated updated
+     * @return $this
+     */
+    public function setUpdated($updated)
+    {
+        $this->container['updated'] = $updated;
+
+        return $this;
+    }
 
     /**
      * Gets parent
@@ -203,48 +245,6 @@ class PaymentContractsProductModel extends BaseProductModel
     public function setDemo($demo)
     {
         $this->container['demo'] = $demo;
-
-        return $this;
-    }
-
-    /**
-     * Gets created
-     * @return string
-     */
-    public function getCreated()
-    {
-        return $this->container['created'];
-    }
-
-    /**
-     * Sets created
-     * @param string $created Created at date
-     * @return $this
-     */
-    public function setCreated($created)
-    {
-        $this->container['created'] = $created;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated
-     * @return string
-     */
-    public function getUpdated()
-    {
-        return $this->container['updated'];
-    }
-
-    /**
-     * Sets updated
-     * @param string $updated Updated at date
-     * @return $this
-     */
-    public function setUpdated($updated)
-    {
-        $this->container['updated'] = $updated;
 
         return $this;
     }

@@ -203,7 +203,7 @@ class GeneralMerchantsDTO implements ArrayAccess
 
     /**
      * Sets salutation
-     * @param string $salutation Salutation
+     * @param string $salutation Salutation {'Frau', 'Herr', 'Firma', 'Divers'}
      * @return $this
      */
     public function setSalutation($salutation)

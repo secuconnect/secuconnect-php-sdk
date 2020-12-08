@@ -143,7 +143,7 @@ class GeneralContractsList implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Number of existing General Contracts
+     * @param int $count Number of matching General Contracts
      * @return $this
      */
     public function setCount($count)

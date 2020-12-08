@@ -37,7 +37,7 @@ class BaseProductModel implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'object' => null,
-        'id' => 'id'
+        'id' => null
     ];
 
     public static function swaggerTypes()
@@ -143,7 +143,7 @@ class BaseProductModel implements ArrayAccess
 
     /**
      * Sets object
-     * @param string $object Object type
+     * @param string $object object
      * @return $this
      */
     public function setObject($object)
@@ -164,7 +164,7 @@ class BaseProductModel implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Object ID
+     * @param string $id id
      * @return $this
      */
     public function setId($id)

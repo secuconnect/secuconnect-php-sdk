@@ -341,7 +341,7 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
 
     /**
      * Sets ean
-     * @param string $ean international article number
+     * @param string $ean ean
      * @return $this
      */
     public function setEan($ean)
@@ -383,7 +383,7 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
 
     /**
      * Sets price_one
-     * @param int $price_one Price one
+     * @param int $price_one price_one
      * @return $this
      */
     public function setPriceOne($price_one)
@@ -425,7 +425,7 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
 
     /**
      * Sets tax
-     * @param int $tax Tax
+     * @param int $tax tax
      * @return $this
      */
     public function setTax($tax)

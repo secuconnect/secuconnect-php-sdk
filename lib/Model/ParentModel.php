@@ -149,7 +149,7 @@ class ParentModel implements ArrayAccess
 
     /**
      * Sets object
-     * @param string $object Parent object
+     * @param string $object object
      * @return $this
      */
     public function setObject($object)
@@ -170,7 +170,7 @@ class ParentModel implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Parent object ID
+     * @param string $id id
      * @return $this
      */
     public function setId($id)
@@ -191,7 +191,7 @@ class ParentModel implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type Parent object type
+     * @param string $type Parent object subtype number
      * @return $this
      */
     public function setType($type)

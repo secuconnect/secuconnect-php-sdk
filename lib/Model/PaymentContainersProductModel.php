@@ -25,14 +25,14 @@ class PaymentContainersProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'created' => 'string',
+        'updated' => 'string',
         'contract' => '\Secuconnect\Client\Model\PaymentContractsProductModel',
         'customer' => '\Secuconnect\Client\Model\PaymentCustomersProductModel',
         'assign' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'type' => 'string',
         'public' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate',
         'private' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate',
-        'created' => 'string',
-        'updated' => 'string',
         'mandate' => '\Secuconnect\Client\Model\PaymentContainerMandate'
     ];
 
@@ -41,14 +41,14 @@ class PaymentContainersProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'created' => null,
+        'updated' => null,
         'contract' => null,
         'customer' => null,
         'assign' => null,
         'type' => null,
         'public' => null,
         'private' => null,
-        'created' => null,
-        'updated' => null,
         'mandate' => null
     ];
 
@@ -67,14 +67,14 @@ class PaymentContainersProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $attributeMap = [
+        'created' => 'created',
+        'updated' => 'updated',
         'contract' => 'contract',
         'customer' => 'customer',
         'assign' => 'assign',
         'type' => 'type',
         'public' => 'public',
         'private' => 'private',
-        'created' => 'created',
-        'updated' => 'updated',
         'mandate' => 'mandate'
     ];
 
@@ -83,14 +83,14 @@ class PaymentContainersProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $setters = [
+        'created' => 'setCreated',
+        'updated' => 'setUpdated',
         'contract' => 'setContract',
         'customer' => 'setCustomer',
         'assign' => 'setAssign',
         'type' => 'setType',
         'public' => 'setPublic',
         'private' => 'setPrivate',
-        'created' => 'setCreated',
-        'updated' => 'setUpdated',
         'mandate' => 'setMandate'
     ];
 
@@ -99,14 +99,14 @@ class PaymentContainersProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $getters = [
+        'created' => 'getCreated',
+        'updated' => 'getUpdated',
         'contract' => 'getContract',
         'customer' => 'getCustomer',
         'assign' => 'getAssign',
         'type' => 'getType',
         'public' => 'getPublic',
         'private' => 'getPrivate',
-        'created' => 'getCreated',
-        'updated' => 'getUpdated',
         'mandate' => 'getMandate'
     ];
 
@@ -133,14 +133,14 @@ class PaymentContainersProductModel extends BaseProductModel
     {
         parent::__construct($data);
 
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
         $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
         $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
         $this->container['assign'] = isset($data['assign']) ? $data['assign'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['public'] = isset($data['public']) ? $data['public'] : null;
         $this->container['private'] = isset($data['private']) ? $data['private'] : null;
-        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
         $this->container['mandate'] = isset($data['mandate']) ? $data['mandate'] : null;
     }
 
@@ -167,6 +167,48 @@ class PaymentContainersProductModel extends BaseProductModel
         return true;
     }
 
+
+    /**
+     * Gets created
+     * @return string
+     */
+    public function getCreated()
+    {
+        return $this->container['created'];
+    }
+
+    /**
+     * Sets created
+     * @param string $created created
+     * @return $this
+     */
+    public function setCreated($created)
+    {
+        $this->container['created'] = $created;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated
+     * @return string
+     */
+    public function getUpdated()
+    {
+        return $this->container['updated'];
+    }
+
+    /**
+     * Sets updated
+     * @param string $updated updated
+     * @return $this
+     */
+    public function setUpdated($updated)
+    {
+        $this->container['updated'] = $updated;
+
+        return $this;
+    }
 
     /**
      * Gets contract
@@ -290,48 +332,6 @@ class PaymentContainersProductModel extends BaseProductModel
     public function setPrivate($private)
     {
         $this->container['private'] = $private;
-
-        return $this;
-    }
-
-    /**
-     * Gets created
-     * @return string
-     */
-    public function getCreated()
-    {
-        return $this->container['created'];
-    }
-
-    /**
-     * Sets created
-     * @param string $created Creation date
-     * @return $this
-     */
-    public function setCreated($created)
-    {
-        $this->container['created'] = $created;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated
-     * @return string
-     */
-    public function getUpdated()
-    {
-        return $this->container['updated'];
-    }
-
-    /**
-     * Sets updated
-     * @param string $updated Last update date
-     * @return $this
-     */
-    public function setUpdated($updated)
-    {
-        $this->container['updated'] = $updated;
 
         return $this;
     }

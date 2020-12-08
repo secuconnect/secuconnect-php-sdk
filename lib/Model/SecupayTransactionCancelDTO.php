@@ -170,7 +170,7 @@ class SecupayTransactionCancelDTO implements ArrayAccess
 
     /**
      * Sets amount
-     * @param int $amount partial or full refund amount, \"0\" means full refund
+     * @param int $amount amount
      * @return $this
      */
     public function setAmount($amount)
