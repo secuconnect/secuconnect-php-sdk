@@ -61,13 +61,14 @@ class SmartTransactionsProductModel extends BaseProductModel
         'checkout_links' => '\Secuconnect\Client\Model\SmartTransactionsCheckoutLinks',
         'intent' => 'string',
         'iframe_url' => 'string',
-        'communications' => '\Secuconnect\Client\Model\SmartTransactionsCommunication'
+        'communications' => '\Secuconnect\Client\Model\SmartTransactionsCommunication',
+        'payment_links' => '\Secuconnect\Client\Model\SmartTransactionsPaymentLinks'
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      * @var string[]
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     * @var string[]
+     */
     protected static $swaggerFormats = [
         'created' => null,
         'updated' => null,
@@ -105,7 +106,8 @@ class SmartTransactionsProductModel extends BaseProductModel
         'checkout_links' => null,
         'intent' => null,
         'iframe_url' => null,
-        'communications' => null
+        'communications' => null,
+        'payment_links' => null
     ];
 
     public static function swaggerTypes()
@@ -159,8 +161,10 @@ class SmartTransactionsProductModel extends BaseProductModel
         'checkout_links' => 'checkout_links',
         'intent' => 'intent',
         'iframe_url' => 'iframe_url',
-        'communications' => 'communications'
+        'communications' => 'communications',
+        'payment_links' => 'payment_links'
     ];
+
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -203,8 +207,10 @@ class SmartTransactionsProductModel extends BaseProductModel
         'checkout_links' => 'setCheckoutLinks',
         'intent' => 'setIntent',
         'iframe_url' => 'setIframeUrl',
-        'communications' => 'setCommunications'
+        'communications' => 'setCommunications',
+        'payment_links' => 'setPaymentLinks'
     ];
+
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -247,7 +253,8 @@ class SmartTransactionsProductModel extends BaseProductModel
         'checkout_links' => 'getCheckoutLinks',
         'intent' => 'getIntent',
         'iframe_url' => 'getIframeUrl',
-        'communications' => 'getCommunications'
+        'communications' => 'getCommunications',
+        'payment_links' => 'getPaymentLinks'
     ];
 
     public static function attributeMap()
@@ -310,6 +317,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         $this->container['intent'] = isset($data['intent']) ? $data['intent'] : null;
         $this->container['iframe_url'] = isset($data['iframe_url']) ? $data['iframe_url'] : null;
         $this->container['communications'] = isset($data['communications']) ? $data['communications'] : null;
+        $this->container['payment_links'] = isset($data['payment_links']) ? $data['payment_links'] : null;
     }
 
     /**
@@ -332,13 +340,17 @@ class SmartTransactionsProductModel extends BaseProductModel
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
+
         return true;
     }
 
 
     /**
      * Gets created
-     * @return string
+     * @return \Secuconnect\Client\Model\IsoDateTime
      */
     public function getCreated()
     {
@@ -1114,6 +1126,27 @@ class SmartTransactionsProductModel extends BaseProductModel
     }
 
     /**
+     * Gets payment_links
+     * @return \Secuconnect\Client\Model\SmartTransactionsPaymentLinks
+     */
+    public function getPaymentLinks()
+    {
+        return $this->container['payment_links'];
+    }
+
+    /**
+     * Sets payment_links
+     * @param \Secuconnect\Client\Model\SmartTransactionsPaymentLinks $payment_links payment_links
+     * @return $this
+     */
+    public function setPaymentLinks($payment_links)
+    {
+        $this->container['payment_links'] = $payment_links;
+
+        return $this;
+    }
+
+    /**
      * Returns true if offset exists. False otherwise.
      * @param integer $offset Offset
      * @return boolean
@@ -1171,4 +1204,3 @@ class SmartTransactionsProductModel extends BaseProductModel
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
