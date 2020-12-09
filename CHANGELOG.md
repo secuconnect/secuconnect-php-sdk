@@ -19,6 +19,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [2.4.0] - 2020-12-09
+
+### Added
+
+- `Api.PaymentTransactionsApi.getPaymentTransactionsOldFormat()`
+- `Model.SmartTransactionsDTO` element `communications`
+- `Model.SmartTransactionsProductModel` element `communications`
+
+### Fixed
+
+- `Model.GeneralMerchantsProductModel` element `id_old` is an instance of `Integer` instead of `String`
+- `Model.GeneralMerchantsProductModel` element `legal_details` is a List of `GeneralMerchantsLegalDetails`
+- `Model.GeneralMerchantsProductModel` element `urls` is a List of `GeneralMerchantsUrls`
+
+
 ## [2.3.0] - 2020-09-14
 
 ### Added
@@ -431,3 +446,4 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 [2.1.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.0.0...2.1.0
 [2.2.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.1.0...2.2.0
 [2.3.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.2.0...2.3.0
+[2.4.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.3.0...2.4.0

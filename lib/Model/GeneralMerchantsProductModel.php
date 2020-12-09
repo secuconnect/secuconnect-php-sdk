@@ -25,14 +25,14 @@ class GeneralMerchantsProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id_old' => 'string',
+        'id_old' => 'int',
         'type' => 'string',
         'user' => '\Secuconnect\Client\Model\GeneralMerchantsUser',
         'parent' => '\Secuconnect\Client\Model\ParentModel',
         'assigned_by' => '\Secuconnect\Client\Model\AssignedBy[]',
         'invited_by' => '\Secuconnect\Client\Model\InvitedBy[]',
-        'legal_details' => '\Secuconnect\Client\Model\GeneralMerchantsLegalDetails',
-        'urls' => '\Secuconnect\Client\Model\GeneralMerchantsUrls',
+        'legal_details' => '\Secuconnect\Client\Model\GeneralMerchantsLegalDetails[]',
+        'urls' => '\Secuconnect\Client\Model\GeneralMerchantsUrls[]',
         'store_name' => 'string'
     ];
 
@@ -170,7 +170,7 @@ class GeneralMerchantsProductModel extends BaseProductModel
 
     /**
      * Gets id_old
-     * @return string
+     * @return int
      */
     public function getIdOld()
     {
@@ -179,7 +179,7 @@ class GeneralMerchantsProductModel extends BaseProductModel
 
     /**
      * Sets id_old
-     * @param string $id_old ID in secupay Frontend
+     * @param int $id_old ID in secupay Frontend
      * @return $this
      */
     public function setIdOld($id_old)
@@ -296,7 +296,7 @@ class GeneralMerchantsProductModel extends BaseProductModel
 
     /**
      * Gets legal_details
-     * @return \Secuconnect\Client\Model\GeneralMerchantsLegalDetails
+     * @return \Secuconnect\Client\Model\GeneralMerchantsLegalDetails[]
      */
     public function getLegalDetails()
     {
@@ -305,7 +305,7 @@ class GeneralMerchantsProductModel extends BaseProductModel
 
     /**
      * Sets legal_details
-     * @param \Secuconnect\Client\Model\GeneralMerchantsLegalDetails $legal_details legal_details
+     * @param \Secuconnect\Client\Model\GeneralMerchantsLegalDetails[] $legal_details Legal details like terms of use, privacy policy, or imprint
      * @return $this
      */
     public function setLegalDetails($legal_details)
@@ -317,7 +317,7 @@ class GeneralMerchantsProductModel extends BaseProductModel
 
     /**
      * Gets urls
-     * @return \Secuconnect\Client\Model\GeneralMerchantsUrls
+     * @return \Secuconnect\Client\Model\GeneralMerchantsUrls[]
      */
     public function getUrls()
     {
@@ -326,7 +326,7 @@ class GeneralMerchantsProductModel extends BaseProductModel
 
     /**
      * Sets urls
-     * @param \Secuconnect\Client\Model\GeneralMerchantsUrls $urls urls
+     * @param \Secuconnect\Client\Model\GeneralMerchantsUrls[] $urls URLs
      * @return $this
      */
     public function setUrls($urls)

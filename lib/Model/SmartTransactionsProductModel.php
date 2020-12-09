@@ -60,7 +60,8 @@ class SmartTransactionsProductModel extends BaseProductModel
         'is_demo' => 'bool',
         'checkout_links' => '\Secuconnect\Client\Model\SmartTransactionsCheckoutLinks',
         'intent' => 'string',
-        'iframe_url' => 'string'
+        'iframe_url' => 'string',
+        'communications' => '\Secuconnect\Client\Model\SmartTransactionsCommunication'
     ];
 
     /**
@@ -103,7 +104,8 @@ class SmartTransactionsProductModel extends BaseProductModel
         'is_demo' => null,
         'checkout_links' => null,
         'intent' => null,
-        'iframe_url' => null
+        'iframe_url' => null,
+        'communications' => null
     ];
 
     public static function swaggerTypes()
@@ -156,7 +158,8 @@ class SmartTransactionsProductModel extends BaseProductModel
         'is_demo' => 'is_demo',
         'checkout_links' => 'checkout_links',
         'intent' => 'intent',
-        'iframe_url' => 'iframe_url'
+        'iframe_url' => 'iframe_url',
+        'communications' => 'communications'
     ];
 
     /**
@@ -199,7 +202,8 @@ class SmartTransactionsProductModel extends BaseProductModel
         'is_demo' => 'setIsDemo',
         'checkout_links' => 'setCheckoutLinks',
         'intent' => 'setIntent',
-        'iframe_url' => 'setIframeUrl'
+        'iframe_url' => 'setIframeUrl',
+        'communications' => 'setCommunications'
     ];
 
     /**
@@ -242,7 +246,8 @@ class SmartTransactionsProductModel extends BaseProductModel
         'is_demo' => 'getIsDemo',
         'checkout_links' => 'getCheckoutLinks',
         'intent' => 'getIntent',
-        'iframe_url' => 'getIframeUrl'
+        'iframe_url' => 'getIframeUrl',
+        'communications' => 'getCommunications'
     ];
 
     public static function attributeMap()
@@ -304,6 +309,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         $this->container['checkout_links'] = isset($data['checkout_links']) ? $data['checkout_links'] : null;
         $this->container['intent'] = isset($data['intent']) ? $data['intent'] : null;
         $this->container['iframe_url'] = isset($data['iframe_url']) ? $data['iframe_url'] : null;
+        $this->container['communications'] = isset($data['communications']) ? $data['communications'] : null;
     }
 
     /**
@@ -1082,6 +1088,27 @@ class SmartTransactionsProductModel extends BaseProductModel
     public function setIframeUrl($iframe_url)
     {
         $this->container['iframe_url'] = $iframe_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets communications
+     * @return \Secuconnect\Client\Model\SmartTransactionsCommunication
+     */
+    public function getCommunications()
+    {
+        return $this->container['communications'];
+    }
+
+    /**
+     * Sets communications
+     * @param \Secuconnect\Client\Model\SmartTransactionsCommunication $communications communications
+     * @return $this
+     */
+    public function setCommunications($communications)
+    {
+        $this->container['communications'] = $communications;
 
         return $this;
     }
