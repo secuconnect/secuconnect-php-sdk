@@ -33,7 +33,8 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'iframe_opts' => '\Secuconnect\Client\Model\PaymentContractsDTOIFrameOpts',
         'payin_account' => 'bool',
         'create_first_store' => 'bool',
-        'store_name' => 'string'
+        'store_name' => 'string',
+        'payout_purpose' => 'string'
     ];
 
     /**
@@ -47,7 +48,8 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'iframe_opts' => null,
         'payin_account' => null,
         'create_first_store' => null,
-        'store_name' => null
+        'store_name' => null,
+        'payout_purpose' => null
     ];
 
     public static function swaggerTypes()
@@ -71,7 +73,8 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'iframe_opts' => 'iframe_opts',
         'payin_account' => 'payin_account',
         'create_first_store' => 'create_first_store',
-        'store_name' => 'store_name'
+        'store_name' => 'store_name',
+        'payout_purpose' => 'payout_purpose'
     ];
 
     /**
@@ -85,7 +88,8 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'iframe_opts' => 'setIframeOpts',
         'payin_account' => 'setPayinAccount',
         'create_first_store' => 'setCreateFirstStore',
-        'store_name' => 'setStoreName'
+        'store_name' => 'setStoreName',
+        'payout_purpose' => 'setPayoutPurpose'
     ];
 
     /**
@@ -99,7 +103,8 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'iframe_opts' => 'getIframeOpts',
         'payin_account' => 'getPayinAccount',
         'create_first_store' => 'getCreateFirstStore',
-        'store_name' => 'getStoreName'
+        'store_name' => 'getStoreName',
+        'payout_purpose' => 'getPayoutPurpose'
     ];
 
     public static function attributeMap()
@@ -136,6 +141,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
         $this->container['payin_account'] = isset($data['payin_account']) ? $data['payin_account'] : false;
         $this->container['create_first_store'] = isset($data['create_first_store']) ? $data['create_first_store'] : false;
         $this->container['store_name'] = isset($data['store_name']) ? $data['store_name'] : null;
+        $this->container['payout_purpose'] = isset($data['payout_purpose']) ? $data['payout_purpose'] : null;
     }
 
     /**
@@ -305,6 +311,27 @@ class PaymentContractsDTORequestId implements ArrayAccess
     public function setStoreName($store_name)
     {
         $this->container['store_name'] = $store_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets payout_purpose
+     * @return string
+     */
+    public function getPayoutPurpose()
+    {
+        return $this->container['payout_purpose'];
+    }
+
+    /**
+     * Sets payout_purpose
+     * @param string $payout_purpose Payout purpose
+     * @return $this
+     */
+    public function setPayoutPurpose($payout_purpose)
+    {
+        $this->container['payout_purpose'] = $payout_purpose;
 
         return $this;
     }

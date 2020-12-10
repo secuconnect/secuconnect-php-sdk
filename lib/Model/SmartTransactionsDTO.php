@@ -29,7 +29,6 @@ class SmartTransactionsDTO implements ArrayAccess
     protected static $swaggerTypes = [
         'merchant' => 'string',
         'provider_contract' => '\Secuconnect\Client\Model\ProductInstanceUID',
-        'status' => 'string',
         'transaction_ref' => 'string',
         'merchant_ref' => 'string',
         'basket' => '\Secuconnect\Client\Model\SmartTransactionsBasket',
@@ -40,8 +39,6 @@ class SmartTransactionsDTO implements ArrayAccess
         'market' => 'string',
         'cashier' => 'string',
         'product' => 'string',
-        'receipt' => '\Secuconnect\Client\Model\SmartTransactionsReceipt[]',
-        'receipt_number' => 'int',
         'device_source' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'trans_id' => 'int',
         'contract' => '\Secuconnect\Client\Model\ProductInstanceID',
@@ -55,7 +52,8 @@ class SmartTransactionsDTO implements ArrayAccess
         'intent' => 'string',
         'checkout_links' => '\Secuconnect\Client\Model\SmartTransactionsCheckoutLinks',
         'delivery_options' => '\Secuconnect\Client\Model\OneOfSmartTransactionsDeliveryOptionsModel',
-        'communications' => '\Secuconnect\Client\Model\SmartTransactionsCommunication'
+        'communications' => '\Secuconnect\Client\Model\SmartTransactionsCommunication',
+        'application_context' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContext'
     ];
 
     /**
@@ -65,7 +63,6 @@ class SmartTransactionsDTO implements ArrayAccess
     protected static $swaggerFormats = [
         'merchant' => null,
         'provider_contract' => null,
-        'status' => null,
         'transaction_ref' => null,
         'merchant_ref' => null,
         'basket' => null,
@@ -76,8 +73,6 @@ class SmartTransactionsDTO implements ArrayAccess
         'market' => null,
         'cashier' => null,
         'product' => null,
-        'receipt' => null,
-        'receipt_number' => null,
         'device_source' => null,
         'trans_id' => null,
         'contract' => null,
@@ -91,7 +86,8 @@ class SmartTransactionsDTO implements ArrayAccess
         'intent' => null,
         'checkout_links' => null,
         'delivery_options' => null,
-        'communications' => null
+        'communications' => null,
+        'application_context' => null
     ];
 
     public static function swaggerTypes()
@@ -111,7 +107,6 @@ class SmartTransactionsDTO implements ArrayAccess
     protected static $attributeMap = [
         'merchant' => 'merchant',
         'provider_contract' => 'provider_contract',
-        'status' => 'status',
         'transaction_ref' => 'transactionRef',
         'merchant_ref' => 'merchantRef',
         'basket' => 'basket',
@@ -122,8 +117,6 @@ class SmartTransactionsDTO implements ArrayAccess
         'market' => 'market',
         'cashier' => 'cashier',
         'product' => 'product',
-        'receipt' => 'receipt',
-        'receipt_number' => 'receipt_number',
         'device_source' => 'device_source',
         'trans_id' => 'trans_id',
         'contract' => 'contract',
@@ -137,7 +130,8 @@ class SmartTransactionsDTO implements ArrayAccess
         'intent' => 'intent',
         'checkout_links' => 'checkout_links',
         'delivery_options' => 'delivery_options',
-        'communications' => 'communications'
+        'communications' => 'communications',
+        'application_context' => 'application_context'
     ];
 
     /**
@@ -147,7 +141,6 @@ class SmartTransactionsDTO implements ArrayAccess
     protected static $setters = [
         'merchant' => 'setMerchant',
         'provider_contract' => 'setProviderContract',
-        'status' => 'setStatus',
         'transaction_ref' => 'setTransactionRef',
         'merchant_ref' => 'setMerchantRef',
         'basket' => 'setBasket',
@@ -158,8 +151,6 @@ class SmartTransactionsDTO implements ArrayAccess
         'market' => 'setMarket',
         'cashier' => 'setCashier',
         'product' => 'setProduct',
-        'receipt' => 'setReceipt',
-        'receipt_number' => 'setReceiptNumber',
         'device_source' => 'setDeviceSource',
         'trans_id' => 'setTransId',
         'contract' => 'setContract',
@@ -173,7 +164,8 @@ class SmartTransactionsDTO implements ArrayAccess
         'intent' => 'setIntent',
         'checkout_links' => 'setCheckoutLinks',
         'delivery_options' => 'setDeliveryOptions',
-        'communications' => 'setCommunications'
+        'communications' => 'setCommunications',
+        'application_context' => 'setApplicationContext'
     ];
 
     /**
@@ -183,7 +175,6 @@ class SmartTransactionsDTO implements ArrayAccess
     protected static $getters = [
         'merchant' => 'getMerchant',
         'provider_contract' => 'getProviderContract',
-        'status' => 'getStatus',
         'transaction_ref' => 'getTransactionRef',
         'merchant_ref' => 'getMerchantRef',
         'basket' => 'getBasket',
@@ -194,8 +185,6 @@ class SmartTransactionsDTO implements ArrayAccess
         'market' => 'getMarket',
         'cashier' => 'getCashier',
         'product' => 'getProduct',
-        'receipt' => 'getReceipt',
-        'receipt_number' => 'getReceiptNumber',
         'device_source' => 'getDeviceSource',
         'trans_id' => 'getTransId',
         'contract' => 'getContract',
@@ -209,7 +198,8 @@ class SmartTransactionsDTO implements ArrayAccess
         'intent' => 'getIntent',
         'checkout_links' => 'getCheckoutLinks',
         'delivery_options' => 'getDeliveryOptions',
-        'communications' => 'getCommunications'
+        'communications' => 'getCommunications',
+        'application_context' => 'getApplicationContext'
     ];
 
     public static function attributeMap()
@@ -241,7 +231,6 @@ class SmartTransactionsDTO implements ArrayAccess
     {
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['provider_contract'] = isset($data['provider_contract']) ? $data['provider_contract'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['transaction_ref'] = isset($data['transaction_ref']) ? $data['transaction_ref'] : null;
         $this->container['merchant_ref'] = isset($data['merchant_ref']) ? $data['merchant_ref'] : null;
         $this->container['basket'] = isset($data['basket']) ? $data['basket'] : null;
@@ -252,8 +241,6 @@ class SmartTransactionsDTO implements ArrayAccess
         $this->container['market'] = isset($data['market']) ? $data['market'] : null;
         $this->container['cashier'] = isset($data['cashier']) ? $data['cashier'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
-        $this->container['receipt'] = isset($data['receipt']) ? $data['receipt'] : null;
-        $this->container['receipt_number'] = isset($data['receipt_number']) ? $data['receipt_number'] : null;
         $this->container['device_source'] = isset($data['device_source']) ? $data['device_source'] : null;
         $this->container['trans_id'] = isset($data['trans_id']) ? $data['trans_id'] : null;
         $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
@@ -268,6 +255,7 @@ class SmartTransactionsDTO implements ArrayAccess
         $this->container['checkout_links'] = isset($data['checkout_links']) ? $data['checkout_links'] : null;
         $this->container['delivery_options'] = isset($data['delivery_options']) ? $data['delivery_options'] : null;
         $this->container['communications'] = isset($data['communications']) ? $data['communications'] : null;
+        $this->container['application_context'] = isset($data['application_context']) ? $data['application_context'] : null;
     }
 
     /**
@@ -337,27 +325,6 @@ class SmartTransactionsDTO implements ArrayAccess
     }
 
     /**
-     * Gets status
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     * @param string $status Status
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
      * Gets transaction_ref
      * @return string
      */
@@ -368,7 +335,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets transaction_ref
-     * @param string $transaction_ref Transaction ref
+     * @param string $transaction_ref Transaction reference
      * @return $this
      */
     public function setTransactionRef($transaction_ref)
@@ -389,7 +356,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets merchant_ref
-     * @param string $merchant_ref Merchant ref
+     * @param string $merchant_ref Merchant reference
      * @return $this
      */
     public function setMerchantRef($merchant_ref)
@@ -473,7 +440,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets tax_amount
-     * @param int $tax_amount Tax amount
+     * @param int $tax_amount tax_amount
      * @return $this
      */
     public function setTaxAmount($tax_amount)
@@ -494,7 +461,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets tax_rate
-     * @param int $tax_rate Tax rate
+     * @param int $tax_rate tax_rate
      * @return $this
      */
     public function setTaxRate($tax_rate)
@@ -563,48 +530,6 @@ class SmartTransactionsDTO implements ArrayAccess
     public function setProduct($product)
     {
         $this->container['product'] = $product;
-
-        return $this;
-    }
-
-    /**
-     * Gets receipt
-     * @return \Secuconnect\Client\Model\SmartTransactionsReceipt[]
-     */
-    public function getReceipt()
-    {
-        return $this->container['receipt'];
-    }
-
-    /**
-     * Sets receipt
-     * @param \Secuconnect\Client\Model\SmartTransactionsReceipt[] $receipt Receipt
-     * @return $this
-     */
-    public function setReceipt($receipt)
-    {
-        $this->container['receipt'] = $receipt;
-
-        return $this;
-    }
-
-    /**
-     * Gets receipt_number
-     * @return int
-     */
-    public function getReceiptNumber()
-    {
-        return $this->container['receipt_number'];
-    }
-
-    /**
-     * Sets receipt_number
-     * @param int $receipt_number Receipt number
-     * @return $this
-     */
-    public function setReceiptNumber($receipt_number)
-    {
-        $this->container['receipt_number'] = $receipt_number;
 
         return $this;
     }
@@ -899,6 +824,27 @@ class SmartTransactionsDTO implements ArrayAccess
     public function setCommunications($communications)
     {
         $this->container['communications'] = $communications;
+
+        return $this;
+    }
+
+    /**
+     * Gets application_context
+     * @return \Secuconnect\Client\Model\SmartTransactionsApplicationContext
+     */
+    public function getApplicationContext()
+    {
+        return $this->container['application_context'];
+    }
+
+    /**
+     * Sets application_context
+     * @param \Secuconnect\Client\Model\SmartTransactionsApplicationContext $application_context application_context
+     * @return $this
+     */
+    public function setApplicationContext($application_context)
+    {
+        $this->container['application_context'] = $application_context;
 
         return $this;
     }

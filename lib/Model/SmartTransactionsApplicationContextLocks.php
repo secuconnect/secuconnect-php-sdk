@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SmartTransactionsCheckoutLinks
+ * SmartTransactionsApplicationContextLocks
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsCheckoutLinks implements ArrayAccess
+class SmartTransactionsApplicationContextLocks implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,14 +20,15 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTransactionsCheckoutLinks';
+    protected static $swaggerModelName = 'SmartTransactionsApplicationContextLocks';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'url_checkout' => 'string'
+        'customer' => 'bool',
+        'shipping_address' => 'bool'
     ];
 
     /**
@@ -35,7 +36,8 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'url_checkout' => null
+        'customer' => null,
+        'shipping_address' => null
     ];
 
     public static function swaggerTypes()
@@ -53,7 +55,8 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'url_checkout' => 'url_checkout'
+        'customer' => 'customer',
+        'shipping_address' => 'shipping_address'
     ];
 
     /**
@@ -61,7 +64,8 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'url_checkout' => 'setUrlCheckout'
+        'customer' => 'setCustomer',
+        'shipping_address' => 'setShippingAddress'
     ];
 
     /**
@@ -69,7 +73,8 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'url_checkout' => 'getUrlCheckout'
+        'customer' => 'getCustomer',
+        'shipping_address' => 'getShippingAddress'
     ];
 
     public static function attributeMap()
@@ -99,7 +104,8 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['url_checkout'] = isset($data['url_checkout']) ? $data['url_checkout'] : null;
+        $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
+        $this->container['shipping_address'] = isset($data['shipping_address']) ? $data['shipping_address'] : null;
     }
 
     /**
@@ -127,22 +133,43 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
 
 
     /**
-     * Gets url_checkout
-     * @return string
+     * Gets customer
+     * @return bool
      */
-    public function getUrlCheckout()
+    public function getCustomer()
     {
-        return $this->container['url_checkout'];
+        return $this->container['customer'];
     }
 
     /**
-     * Sets url_checkout
-     * @param string $url_checkout Smart Checkout URL
+     * Sets customer
+     * @param bool $customer look customer data
      * @return $this
      */
-    public function setUrlCheckout($url_checkout)
+    public function setCustomer($customer)
     {
-        $this->container['url_checkout'] = $url_checkout;
+        $this->container['customer'] = $customer;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_address
+     * @return bool
+     */
+    public function getShippingAddress()
+    {
+        return $this->container['shipping_address'];
+    }
+
+    /**
+     * Sets shipping_address
+     * @param bool $shipping_address look shipping address data
+     * @return $this
+     */
+    public function setShippingAddress($shipping_address)
+    {
+        $this->container['shipping_address'] = $shipping_address;
 
         return $this;
     }

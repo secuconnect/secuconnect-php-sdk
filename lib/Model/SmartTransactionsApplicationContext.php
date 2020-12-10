@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SmartTransactionsCheckoutLinks
+ * SmartTransactionsApplicationContext
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsCheckoutLinks implements ArrayAccess
+class SmartTransactionsApplicationContext implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,14 +20,16 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTransactionsCheckoutLinks';
+    protected static $swaggerModelName = 'SmartTransactionsApplicationContext';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'url_checkout' => 'string'
+        'locks' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContextLocks',
+        'return_urls' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContextReturnUrls',
+        'iframe_opts' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContextIframeOpts'
     ];
 
     /**
@@ -35,7 +37,9 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'url_checkout' => null
+        'locks' => null,
+        'return_urls' => null,
+        'iframe_opts' => null
     ];
 
     public static function swaggerTypes()
@@ -53,7 +57,9 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'url_checkout' => 'url_checkout'
+        'locks' => 'locks',
+        'return_urls' => 'return_urls',
+        'iframe_opts' => 'iframe_opts'
     ];
 
     /**
@@ -61,7 +67,9 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'url_checkout' => 'setUrlCheckout'
+        'locks' => 'setLocks',
+        'return_urls' => 'setReturnUrls',
+        'iframe_opts' => 'setIframeOpts'
     ];
 
     /**
@@ -69,7 +77,9 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'url_checkout' => 'getUrlCheckout'
+        'locks' => 'getLocks',
+        'return_urls' => 'getReturnUrls',
+        'iframe_opts' => 'getIframeOpts'
     ];
 
     public static function attributeMap()
@@ -99,7 +109,9 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['url_checkout'] = isset($data['url_checkout']) ? $data['url_checkout'] : null;
+        $this->container['locks'] = isset($data['locks']) ? $data['locks'] : null;
+        $this->container['return_urls'] = isset($data['return_urls']) ? $data['return_urls'] : null;
+        $this->container['iframe_opts'] = isset($data['iframe_opts']) ? $data['iframe_opts'] : null;
     }
 
     /**
@@ -127,22 +139,64 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
 
 
     /**
-     * Gets url_checkout
-     * @return string
+     * Gets locks
+     * @return \Secuconnect\Client\Model\SmartTransactionsApplicationContextLocks
      */
-    public function getUrlCheckout()
+    public function getLocks()
     {
-        return $this->container['url_checkout'];
+        return $this->container['locks'];
     }
 
     /**
-     * Sets url_checkout
-     * @param string $url_checkout Smart Checkout URL
+     * Sets locks
+     * @param \Secuconnect\Client\Model\SmartTransactionsApplicationContextLocks $locks locks
      * @return $this
      */
-    public function setUrlCheckout($url_checkout)
+    public function setLocks($locks)
     {
-        $this->container['url_checkout'] = $url_checkout;
+        $this->container['locks'] = $locks;
+
+        return $this;
+    }
+
+    /**
+     * Gets return_urls
+     * @return \Secuconnect\Client\Model\SmartTransactionsApplicationContextReturnUrls
+     */
+    public function getReturnUrls()
+    {
+        return $this->container['return_urls'];
+    }
+
+    /**
+     * Sets return_urls
+     * @param \Secuconnect\Client\Model\SmartTransactionsApplicationContextReturnUrls $return_urls return_urls
+     * @return $this
+     */
+    public function setReturnUrls($return_urls)
+    {
+        $this->container['return_urls'] = $return_urls;
+
+        return $this;
+    }
+
+    /**
+     * Gets iframe_opts
+     * @return \Secuconnect\Client\Model\SmartTransactionsApplicationContextIframeOpts
+     */
+    public function getIframeOpts()
+    {
+        return $this->container['iframe_opts'];
+    }
+
+    /**
+     * Sets iframe_opts
+     * @param \Secuconnect\Client\Model\SmartTransactionsApplicationContextIframeOpts $iframe_opts iframe_opts
+     * @return $this
+     */
+    public function setIframeOpts($iframe_opts)
+    {
+        $this->container['iframe_opts'] = $iframe_opts;
 
         return $this;
     }

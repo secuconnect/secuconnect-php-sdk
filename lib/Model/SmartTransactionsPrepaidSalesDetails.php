@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SmartTransactionsCheckoutLinks
+ * SmartTransactionsPrepaidSalesDetails
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsCheckoutLinks implements ArrayAccess
+class SmartTransactionsPrepaidSalesDetails implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,14 +20,16 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTransactionsCheckoutLinks';
+    protected static $swaggerModelName = 'SmartTransactionsPrepaidSalesDetails';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'url_checkout' => 'string'
+        'id' => 'int',
+        'status' => 'string',
+        'error_details' => 'string'
     ];
 
     /**
@@ -35,7 +37,9 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'url_checkout' => null
+        'id' => null,
+        'status' => null,
+        'error_details' => null
     ];
 
     public static function swaggerTypes()
@@ -53,7 +57,9 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'url_checkout' => 'url_checkout'
+        'id' => 'id',
+        'status' => 'status',
+        'error_details' => 'error_details'
     ];
 
     /**
@@ -61,7 +67,9 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'url_checkout' => 'setUrlCheckout'
+        'id' => 'setId',
+        'status' => 'setStatus',
+        'error_details' => 'setErrorDetails'
     ];
 
     /**
@@ -69,7 +77,9 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'url_checkout' => 'getUrlCheckout'
+        'id' => 'getId',
+        'status' => 'getStatus',
+        'error_details' => 'getErrorDetails'
     ];
 
     public static function attributeMap()
@@ -99,7 +109,9 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['url_checkout'] = isset($data['url_checkout']) ? $data['url_checkout'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['error_details'] = isset($data['error_details']) ? $data['error_details'] : null;
     }
 
     /**
@@ -127,22 +139,64 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
 
 
     /**
-     * Gets url_checkout
-     * @return string
+     * Gets id
+     * @return int
      */
-    public function getUrlCheckout()
+    public function getId()
     {
-        return $this->container['url_checkout'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets url_checkout
-     * @param string $url_checkout Smart Checkout URL
+     * Sets id
+     * @param int $id ID
      * @return $this
      */
-    public function setUrlCheckout($url_checkout)
+    public function setId($id)
     {
-        $this->container['url_checkout'] = $url_checkout;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     * @param string $status Status
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets error_details
+     * @return string
+     */
+    public function getErrorDetails()
+    {
+        return $this->container['error_details'];
+    }
+
+    /**
+     * Sets error_details
+     * @param string $error_details Error Details
+     * @return $this
+     */
+    public function setErrorDetails($error_details)
+    {
+        $this->container['error_details'] = $error_details;
 
         return $this;
     }

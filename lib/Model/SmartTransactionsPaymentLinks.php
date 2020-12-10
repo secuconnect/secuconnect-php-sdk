@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SmartTransactionsCheckoutLinks
+ * SmartTransactionsPaymentLinks
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsCheckoutLinks implements ArrayAccess
+class SmartTransactionsPaymentLinks implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,14 +20,18 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTransactionsCheckoutLinks';
+    protected static $swaggerModelName = 'SmartTransactionsPaymentLinks';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'url_checkout' => 'string'
+        'prepaid' => 'string',
+        'debit' => 'string',
+        'creditcard' => 'string',
+        'invoice' => 'string',
+        'general' => 'string'
     ];
 
     /**
@@ -35,7 +39,11 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'url_checkout' => null
+        'prepaid' => null,
+        'debit' => null,
+        'creditcard' => null,
+        'invoice' => null,
+        'general' => null
     ];
 
     public static function swaggerTypes()
@@ -53,7 +61,11 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'url_checkout' => 'url_checkout'
+        'prepaid' => 'prepaid',
+        'debit' => 'debit',
+        'creditcard' => 'creditcard',
+        'invoice' => 'invoice',
+        'general' => 'general'
     ];
 
     /**
@@ -61,7 +73,11 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'url_checkout' => 'setUrlCheckout'
+        'prepaid' => 'setPrepaid',
+        'debit' => 'setDebit',
+        'creditcard' => 'setCreditcard',
+        'invoice' => 'setInvoice',
+        'general' => 'setGeneral'
     ];
 
     /**
@@ -69,7 +85,11 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'url_checkout' => 'getUrlCheckout'
+        'prepaid' => 'getPrepaid',
+        'debit' => 'getDebit',
+        'creditcard' => 'getCreditcard',
+        'invoice' => 'getInvoice',
+        'general' => 'getGeneral'
     ];
 
     public static function attributeMap()
@@ -99,7 +119,11 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['url_checkout'] = isset($data['url_checkout']) ? $data['url_checkout'] : null;
+        $this->container['prepaid'] = isset($data['prepaid']) ? $data['prepaid'] : null;
+        $this->container['debit'] = isset($data['debit']) ? $data['debit'] : null;
+        $this->container['creditcard'] = isset($data['creditcard']) ? $data['creditcard'] : null;
+        $this->container['invoice'] = isset($data['invoice']) ? $data['invoice'] : null;
+        $this->container['general'] = isset($data['general']) ? $data['general'] : null;
     }
 
     /**
@@ -127,22 +151,106 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
 
 
     /**
-     * Gets url_checkout
+     * Gets prepaid
      * @return string
      */
-    public function getUrlCheckout()
+    public function getPrepaid()
     {
-        return $this->container['url_checkout'];
+        return $this->container['prepaid'];
     }
 
     /**
-     * Sets url_checkout
-     * @param string $url_checkout Smart Checkout URL
+     * Sets prepaid
+     * @param string $prepaid prepaid link
      * @return $this
      */
-    public function setUrlCheckout($url_checkout)
+    public function setPrepaid($prepaid)
     {
-        $this->container['url_checkout'] = $url_checkout;
+        $this->container['prepaid'] = $prepaid;
+
+        return $this;
+    }
+
+    /**
+     * Gets debit
+     * @return string
+     */
+    public function getDebit()
+    {
+        return $this->container['debit'];
+    }
+
+    /**
+     * Sets debit
+     * @param string $debit debit link
+     * @return $this
+     */
+    public function setDebit($debit)
+    {
+        $this->container['debit'] = $debit;
+
+        return $this;
+    }
+
+    /**
+     * Gets creditcard
+     * @return string
+     */
+    public function getCreditcard()
+    {
+        return $this->container['creditcard'];
+    }
+
+    /**
+     * Sets creditcard
+     * @param string $creditcard creditcard link
+     * @return $this
+     */
+    public function setCreditcard($creditcard)
+    {
+        $this->container['creditcard'] = $creditcard;
+
+        return $this;
+    }
+
+    /**
+     * Gets invoice
+     * @return string
+     */
+    public function getInvoice()
+    {
+        return $this->container['invoice'];
+    }
+
+    /**
+     * Sets invoice
+     * @param string $invoice invoice link
+     * @return $this
+     */
+    public function setInvoice($invoice)
+    {
+        $this->container['invoice'] = $invoice;
+
+        return $this;
+    }
+
+    /**
+     * Gets general
+     * @return string
+     */
+    public function getGeneral()
+    {
+        return $this->container['general'];
+    }
+
+    /**
+     * Sets general
+     * @param string $general general link
+     * @return $this
+     */
+    public function setGeneral($general)
+    {
+        $this->container['general'] = $general;
 
         return $this;
     }

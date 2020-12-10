@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SmartTransactionsCheckoutLinks
+ * SmartTransactionsApplicationContextReturnUrls
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsCheckoutLinks implements ArrayAccess
+class SmartTransactionsApplicationContextReturnUrls implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,14 +20,16 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTransactionsCheckoutLinks';
+    protected static $swaggerModelName = 'SmartTransactionsApplicationContextReturnUrls';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'url_checkout' => 'string'
+        'url_success' => 'string',
+        'url_abort' => 'string',
+        'url_error' => 'string'
     ];
 
     /**
@@ -35,7 +37,9 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'url_checkout' => null
+        'url_success' => null,
+        'url_abort' => null,
+        'url_error' => null
     ];
 
     public static function swaggerTypes()
@@ -53,7 +57,9 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'url_checkout' => 'url_checkout'
+        'url_success' => 'url_success',
+        'url_abort' => 'url_abort',
+        'url_error' => 'url_error'
     ];
 
     /**
@@ -61,7 +67,9 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'url_checkout' => 'setUrlCheckout'
+        'url_success' => 'setUrlSuccess',
+        'url_abort' => 'setUrlAbort',
+        'url_error' => 'setUrlError'
     ];
 
     /**
@@ -69,7 +77,9 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'url_checkout' => 'getUrlCheckout'
+        'url_success' => 'getUrlSuccess',
+        'url_abort' => 'getUrlAbort',
+        'url_error' => 'getUrlError'
     ];
 
     public static function attributeMap()
@@ -99,7 +109,9 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['url_checkout'] = isset($data['url_checkout']) ? $data['url_checkout'] : null;
+        $this->container['url_success'] = isset($data['url_success']) ? $data['url_success'] : null;
+        $this->container['url_abort'] = isset($data['url_abort']) ? $data['url_abort'] : null;
+        $this->container['url_error'] = isset($data['url_error']) ? $data['url_error'] : null;
     }
 
     /**
@@ -127,22 +139,64 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
 
 
     /**
-     * Gets url_checkout
+     * Gets url_success
      * @return string
      */
-    public function getUrlCheckout()
+    public function getUrlSuccess()
     {
-        return $this->container['url_checkout'];
+        return $this->container['url_success'];
     }
 
     /**
-     * Sets url_checkout
-     * @param string $url_checkout Smart Checkout URL
+     * Sets url_success
+     * @param string $url_success Success URL
      * @return $this
      */
-    public function setUrlCheckout($url_checkout)
+    public function setUrlSuccess($url_success)
     {
-        $this->container['url_checkout'] = $url_checkout;
+        $this->container['url_success'] = $url_success;
+
+        return $this;
+    }
+
+    /**
+     * Gets url_abort
+     * @return string
+     */
+    public function getUrlAbort()
+    {
+        return $this->container['url_abort'];
+    }
+
+    /**
+     * Sets url_abort
+     * @param string $url_abort Abort URL
+     * @return $this
+     */
+    public function setUrlAbort($url_abort)
+    {
+        $this->container['url_abort'] = $url_abort;
+
+        return $this;
+    }
+
+    /**
+     * Gets url_error
+     * @return string
+     */
+    public function getUrlError()
+    {
+        return $this->container['url_error'];
+    }
+
+    /**
+     * Sets url_error
+     * @param string $url_error Error URL
+     * @return $this
+     */
+    public function setUrlError($url_error)
+    {
+        $this->container['url_error'] = $url_error;
 
         return $this;
     }

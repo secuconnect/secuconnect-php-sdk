@@ -19,19 +19,29 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
-## [2.4.0] - 2020-12-09
+## [2.4.0] - 2020-12-11
 
 ### Added
 
 - `Api.PaymentTransactionsApi.getPaymentTransactionsOldFormat()`
+- `Model.SmartTransactionsDTO` element `application_context`
 - `Model.SmartTransactionsDTO` element `communications`
+- `Model.SmartTransactionsProductModel` element `application_context`
 - `Model.SmartTransactionsProductModel` element `communications`
+- `Model.SmartTransactionsProductModel` element `payment_links`
+- `Model.SmartTransactionsProductModel` element `prepaid_sales`
+- `Model.PaymentContractsDTORequestId` element `payout_purpose`
 
 ### Fixed
 
 - `Model.GeneralMerchantsProductModel` element `id_old` is an instance of `Integer` instead of `String`
 - `Model.GeneralMerchantsProductModel` element `legal_details` is a List of `GeneralMerchantsLegalDetails`
 - `Model.GeneralMerchantsProductModel` element `urls` is a List of `GeneralMerchantsUrls`
+
+### Removed
+
+- `Model.SmartTransactionsDTO` element `status`, `receipt` and `receipt_number`
+- `Model.SmartTransactionsCheckoutLinks` element `url_success`, `url_failure`, `url_abort` and `url_error` (moved to `application_context.return_urls`)
 
 
 ## [2.3.0] - 2020-09-14
