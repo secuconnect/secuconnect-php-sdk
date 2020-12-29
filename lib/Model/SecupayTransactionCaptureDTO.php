@@ -27,7 +27,8 @@ class SecupayTransactionCaptureDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'contract' => 'object'
+        'contract' => '\Secuconnect\Client\Model\PaymentContractsProductModel',
+        'shipping_information' => '\Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO'
     ];
 
     /**
@@ -35,7 +36,8 @@ class SecupayTransactionCaptureDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'contract' => null
+        'contract' => null,
+        'shipping_information' => null
     ];
 
     public static function swaggerTypes()
@@ -53,7 +55,8 @@ class SecupayTransactionCaptureDTO implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'contract' => 'contract'
+        'contract' => 'contract',
+        'shipping_information' => 'shipping_information'
     ];
 
     /**
@@ -61,7 +64,8 @@ class SecupayTransactionCaptureDTO implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'contract' => 'setContract'
+        'contract' => 'setContract',
+        'shipping_information' => 'setShippingInformation'
     ];
 
     /**
@@ -69,7 +73,8 @@ class SecupayTransactionCaptureDTO implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'contract' => 'getContract'
+        'contract' => 'getContract',
+        'shipping_information' => 'getShippingInformation'
     ];
 
     public static function attributeMap()
@@ -100,6 +105,7 @@ class SecupayTransactionCaptureDTO implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
+        $this->container['shipping_information'] = isset($data['shipping_information']) ? $data['shipping_information'] : null;
     }
 
     /**
@@ -128,7 +134,7 @@ class SecupayTransactionCaptureDTO implements ArrayAccess
 
     /**
      * Gets contract
-     * @return object
+     * @return \Secuconnect\Client\Model\PaymentContractsProductModel
      */
     public function getContract()
     {
@@ -137,12 +143,33 @@ class SecupayTransactionCaptureDTO implements ArrayAccess
 
     /**
      * Sets contract
-     * @param object $contract The payment contract object
+     * @param \Secuconnect\Client\Model\PaymentContractsProductModel $contract contract
      * @return $this
      */
     public function setContract($contract)
     {
         $this->container['contract'] = $contract;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_information
+     * @return \Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO
+     */
+    public function getShippingInformation()
+    {
+        return $this->container['shipping_information'];
+    }
+
+    /**
+     * Sets shipping_information
+     * @param \Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO $shipping_information shipping_information
+     * @return $this
+     */
+    public function setShippingInformation($shipping_information)
+    {
+        $this->container['shipping_information'] = $shipping_information;
 
         return $this;
     }

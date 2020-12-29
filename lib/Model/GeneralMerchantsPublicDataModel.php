@@ -2,17 +2,15 @@
 
 namespace Secuconnect\Client\Model;
 
-use \ArrayAccess;
-
 /**
- * SecupayTransactionCancelDTO
+ * GeneralMerchantsPublicDataModel
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SecupayTransactionCancelDTO implements ArrayAccess
+class GeneralMerchantsPublicDataModel extends BaseProductModel
 {
     const DISCRIMINATOR = null;
 
@@ -20,16 +18,16 @@ class SecupayTransactionCancelDTO implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SecupayTransactionCancelDTO';
+    protected static $swaggerModelName = 'GeneralMerchantsPublicDataModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'contract' => '\Secuconnect\Client\Model\PaymentContractsProductModel',
-        'amount' => 'int',
-        'reduce_stakeholder_payment' => 'bool'
+        'legal_details' => '\Secuconnect\Client\Model\GeneralMerchantsLegalDetails[]',
+        'company' => '\Secuconnect\Client\Model\GeneralMerchantsPublicDataCompany',
+        'merchant_urls' => '\Secuconnect\Client\Model\GeneralMerchantsUrls[]'
     ];
 
     /**
@@ -37,19 +35,19 @@ class SecupayTransactionCancelDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'contract' => null,
-        'amount' => null,
-        'reduce_stakeholder_payment' => null
+        'legal_details' => null,
+        'company' => null,
+        'merchant_urls' => null
     ];
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -57,9 +55,9 @@ class SecupayTransactionCancelDTO implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'contract' => 'contract',
-        'amount' => 'amount',
-        'reduce_stakeholder_payment' => 'reduce_stakeholder_payment'
+        'legal_details' => 'legal_details',
+        'company' => 'company',
+        'merchant_urls' => 'merchant_urls'
     ];
 
     /**
@@ -67,9 +65,9 @@ class SecupayTransactionCancelDTO implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'contract' => 'setContract',
-        'amount' => 'setAmount',
-        'reduce_stakeholder_payment' => 'setReduceStakeholderPayment'
+        'legal_details' => 'setLegalDetails',
+        'company' => 'setCompany',
+        'merchant_urls' => 'setMerchantUrls'
     ];
 
     /**
@@ -77,31 +75,25 @@ class SecupayTransactionCancelDTO implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'contract' => 'getContract',
-        'amount' => 'getAmount',
-        'reduce_stakeholder_payment' => 'getReduceStakeholderPayment'
+        'legal_details' => 'getLegalDetails',
+        'company' => 'getCompany',
+        'merchant_urls' => 'getMerchantUrls'
     ];
 
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
-
-    /**
-     * Associative array for storing property values
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -109,9 +101,11 @@ class SecupayTransactionCancelDTO implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['reduce_stakeholder_payment'] = isset($data['reduce_stakeholder_payment']) ? $data['reduce_stakeholder_payment'] : false;
+        parent::__construct($data);
+
+        $this->container['legal_details'] = isset($data['legal_details']) ? $data['legal_details'] : null;
+        $this->container['company'] = isset($data['company']) ? $data['company'] : null;
+        $this->container['merchant_urls'] = isset($data['merchant_urls']) ? $data['merchant_urls'] : null;
     }
 
     /**
@@ -121,7 +115,7 @@ class SecupayTransactionCancelDTO implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalid_properties = parent::listInvalidProperties();
 
         return $invalid_properties;
     }
@@ -139,64 +133,64 @@ class SecupayTransactionCancelDTO implements ArrayAccess
 
 
     /**
-     * Gets contract
-     * @return \Secuconnect\Client\Model\PaymentContractsProductModel
+     * Gets legal_details
+     * @return \Secuconnect\Client\Model\GeneralMerchantsLegalDetails[]
      */
-    public function getContract()
+    public function getLegalDetails()
     {
-        return $this->container['contract'];
+        return $this->container['legal_details'];
     }
 
     /**
-     * Sets contract
-     * @param \Secuconnect\Client\Model\PaymentContractsProductModel $contract contract
+     * Sets legal_details
+     * @param \Secuconnect\Client\Model\GeneralMerchantsLegalDetails[] $legal_details Legal details like terms of use, privacy policy, or imprint
      * @return $this
      */
-    public function setContract($contract)
+    public function setLegalDetails($legal_details)
     {
-        $this->container['contract'] = $contract;
+        $this->container['legal_details'] = $legal_details;
 
         return $this;
     }
 
     /**
-     * Gets amount
-     * @return int
+     * Gets company
+     * @return \Secuconnect\Client\Model\GeneralMerchantsPublicDataCompany
      */
-    public function getAmount()
+    public function getCompany()
     {
-        return $this->container['amount'];
+        return $this->container['company'];
     }
 
     /**
-     * Sets amount
-     * @param int $amount amount
+     * Sets company
+     * @param \Secuconnect\Client\Model\GeneralMerchantsPublicDataCompany $company company
      * @return $this
      */
-    public function setAmount($amount)
+    public function setCompany($company)
     {
-        $this->container['amount'] = $amount;
+        $this->container['company'] = $company;
 
         return $this;
     }
 
     /**
-     * Gets reduce_stakeholder_payment
-     * @return bool
+     * Gets merchant_urls
+     * @return \Secuconnect\Client\Model\GeneralMerchantsUrls[]
      */
-    public function getReduceStakeholderPayment()
+    public function getMerchantUrls()
     {
-        return $this->container['reduce_stakeholder_payment'];
+        return $this->container['merchant_urls'];
     }
 
     /**
-     * Sets reduce_stakeholder_payment
-     * @param bool $reduce_stakeholder_payment Mixed-Basket: (percentage) reduce the stakeholder amount too
+     * Sets merchant_urls
+     * @param \Secuconnect\Client\Model\GeneralMerchantsUrls[] $merchant_urls URLs
      * @return $this
      */
-    public function setReduceStakeholderPayment($reduce_stakeholder_payment)
+    public function setMerchantUrls($merchant_urls)
     {
-        $this->container['reduce_stakeholder_payment'] = $reduce_stakeholder_payment;
+        $this->container['merchant_urls'] = $merchant_urls;
 
         return $this;
     }

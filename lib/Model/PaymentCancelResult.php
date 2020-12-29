@@ -30,7 +30,7 @@ class PaymentCancelResult implements ArrayAccess
     protected static $swaggerTypes = [
         'new_trans_id' => 'int',
         'demo' => 'bool',
-        'result' => 'object'
+        'result' => '\Secuconnect\Client\Model\PaymentCancelResultDetails'
     ];
 
     /**
@@ -183,7 +183,7 @@ class PaymentCancelResult implements ArrayAccess
 
     /**
      * Gets result
-     * @return object
+     * @return \Secuconnect\Client\Model\PaymentCancelResultDetails
      */
     public function getResult()
     {
@@ -192,7 +192,7 @@ class PaymentCancelResult implements ArrayAccess
 
     /**
      * Sets result
-     * @param object $result Refund information
+     * @param \Secuconnect\Client\Model\PaymentCancelResultDetails $result result
      * @return $this
      */
     public function setResult($result)
