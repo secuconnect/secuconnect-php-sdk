@@ -167,7 +167,6 @@ class PaymentContractsDTORequestId implements ArrayAccess
         return true;
     }
 
-
     /**
      * Gets contact
      * @return \Secuconnect\Client\Model\Contact
@@ -394,4 +393,3 @@ class PaymentContractsDTORequestId implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
