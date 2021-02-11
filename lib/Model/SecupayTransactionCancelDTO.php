@@ -27,7 +27,7 @@ class SecupayTransactionCancelDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'contract' => 'object',
+        'contract' => '\Secuconnect\Client\Model\PaymentContractsProductModel',
         'amount' => 'int',
         'reduce_stakeholder_payment' => 'bool'
     ];
@@ -140,7 +140,7 @@ class SecupayTransactionCancelDTO implements ArrayAccess
 
     /**
      * Gets contract
-     * @return object
+     * @return \Secuconnect\Client\Model\PaymentContractsProductModel
      */
     public function getContract()
     {
@@ -149,7 +149,7 @@ class SecupayTransactionCancelDTO implements ArrayAccess
 
     /**
      * Sets contract
-     * @param object $contract The payment contract object
+     * @param \Secuconnect\Client\Model\PaymentContractsProductModel $contract contract
      * @return $this
      */
     public function setContract($contract)

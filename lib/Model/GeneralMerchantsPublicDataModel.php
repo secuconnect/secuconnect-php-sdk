@@ -2,17 +2,15 @@
 
 namespace Secuconnect\Client\Model;
 
-use \ArrayAccess;
-
 /**
- * SmartTransactionsPaymentLinks
+ * GeneralMerchantsPublicDataModel
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsPaymentLinks implements ArrayAccess
+class GeneralMerchantsPublicDataModel extends BaseProductModel
 {
     const DISCRIMINATOR = null;
 
@@ -20,18 +18,16 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTransactionsPaymentLinks';
+    protected static $swaggerModelName = 'GeneralMerchantsPublicDataModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'prepaid' => 'string',
-        'debit' => 'string',
-        'creditcard' => 'string',
-        'invoice' => 'string',
-        'general' => 'string'
+        'legal_details' => '\Secuconnect\Client\Model\GeneralMerchantsLegalDetails[]',
+        'company' => '\Secuconnect\Client\Model\GeneralMerchantsPublicDataCompany',
+        'merchant_urls' => '\Secuconnect\Client\Model\GeneralMerchantsUrls[]'
     ];
 
     /**
@@ -39,21 +35,19 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'prepaid' => null,
-        'debit' => null,
-        'creditcard' => null,
-        'invoice' => null,
-        'general' => null
+        'legal_details' => null,
+        'company' => null,
+        'merchant_urls' => null
     ];
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -61,11 +55,9 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'prepaid' => 'prepaid',
-        'debit' => 'debit',
-        'creditcard' => 'creditcard',
-        'invoice' => 'invoice',
-        'general' => 'general'
+        'legal_details' => 'legal_details',
+        'company' => 'company',
+        'merchant_urls' => 'merchant_urls'
     ];
 
     /**
@@ -73,11 +65,9 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'prepaid' => 'setPrepaid',
-        'debit' => 'setDebit',
-        'creditcard' => 'setCreditcard',
-        'invoice' => 'setInvoice',
-        'general' => 'setGeneral'
+        'legal_details' => 'setLegalDetails',
+        'company' => 'setCompany',
+        'merchant_urls' => 'setMerchantUrls'
     ];
 
     /**
@@ -85,33 +75,25 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'prepaid' => 'getPrepaid',
-        'debit' => 'getDebit',
-        'creditcard' => 'getCreditcard',
-        'invoice' => 'getInvoice',
-        'general' => 'getGeneral'
+        'legal_details' => 'getLegalDetails',
+        'company' => 'getCompany',
+        'merchant_urls' => 'getMerchantUrls'
     ];
 
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
-
-    /**
-     * Associative array for storing property values
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -119,11 +101,11 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['prepaid'] = isset($data['prepaid']) ? $data['prepaid'] : null;
-        $this->container['debit'] = isset($data['debit']) ? $data['debit'] : null;
-        $this->container['creditcard'] = isset($data['creditcard']) ? $data['creditcard'] : null;
-        $this->container['invoice'] = isset($data['invoice']) ? $data['invoice'] : null;
-        $this->container['general'] = isset($data['general']) ? $data['general'] : null;
+        parent::__construct($data);
+
+        $this->container['legal_details'] = isset($data['legal_details']) ? $data['legal_details'] : null;
+        $this->container['company'] = isset($data['company']) ? $data['company'] : null;
+        $this->container['merchant_urls'] = isset($data['merchant_urls']) ? $data['merchant_urls'] : null;
     }
 
     /**
@@ -133,7 +115,7 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalid_properties = parent::listInvalidProperties();
 
         return $invalid_properties;
     }
@@ -149,107 +131,66 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
         return true;
     }
 
+
     /**
-     * Gets prepaid
-     * @return string
+     * Gets legal_details
+     * @return \Secuconnect\Client\Model\GeneralMerchantsLegalDetails[]
      */
-    public function getPrepaid()
+    public function getLegalDetails()
     {
-        return $this->container['prepaid'];
+        return $this->container['legal_details'];
     }
 
     /**
-     * Sets prepaid
-     * @param string $prepaid prepaid link
+     * Sets legal_details
+     * @param \Secuconnect\Client\Model\GeneralMerchantsLegalDetails[] $legal_details Legal details like terms of use, privacy policy, or imprint
      * @return $this
      */
-    public function setPrepaid($prepaid)
+    public function setLegalDetails($legal_details)
     {
-        $this->container['prepaid'] = $prepaid;
+        $this->container['legal_details'] = $legal_details;
 
         return $this;
     }
 
     /**
-     * Gets debit
-     * @return string
+     * Gets company
+     * @return \Secuconnect\Client\Model\GeneralMerchantsPublicDataCompany
      */
-    public function getDebit()
+    public function getCompany()
     {
-        return $this->container['debit'];
+        return $this->container['company'];
     }
 
     /**
-     * Sets debit
-     * @param string $debit debit link
+     * Sets company
+     * @param \Secuconnect\Client\Model\GeneralMerchantsPublicDataCompany $company company
      * @return $this
      */
-    public function setDebit($debit)
+    public function setCompany($company)
     {
-        $this->container['debit'] = $debit;
+        $this->container['company'] = $company;
 
         return $this;
     }
 
     /**
-     * Gets creditcard
-     * @return string
+     * Gets merchant_urls
+     * @return \Secuconnect\Client\Model\GeneralMerchantsUrls[]
      */
-    public function getCreditcard()
+    public function getMerchantUrls()
     {
-        return $this->container['creditcard'];
+        return $this->container['merchant_urls'];
     }
 
     /**
-     * Sets creditcard
-     * @param string $creditcard creditcard link
+     * Sets merchant_urls
+     * @param \Secuconnect\Client\Model\GeneralMerchantsUrls[] $merchant_urls URLs
      * @return $this
      */
-    public function setCreditcard($creditcard)
+    public function setMerchantUrls($merchant_urls)
     {
-        $this->container['creditcard'] = $creditcard;
-
-        return $this;
-    }
-
-    /**
-     * Gets invoice
-     * @return string
-     */
-    public function getInvoice()
-    {
-        return $this->container['invoice'];
-    }
-
-    /**
-     * Sets invoice
-     * @param string $invoice invoice link
-     * @return $this
-     */
-    public function setInvoice($invoice)
-    {
-        $this->container['invoice'] = $invoice;
-
-        return $this;
-    }
-
-    /**
-     * Gets general
-     * @return string
-     */
-    public function getGeneral()
-    {
-        return $this->container['general'];
-    }
-
-    /**
-     * Sets general
-     * @param string $general general link
-     * @return $this
-     */
-    public function setGeneral($general)
-    {
-        $this->container['general'] = $general;
+        $this->container['merchant_urls'] = $merchant_urls;
 
         return $this;
     }

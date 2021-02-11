@@ -27,7 +27,7 @@ class SecupayTransactionUpdateBasketDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'contract' => 'object',
+        'contract' => '\Secuconnect\Client\Model\PaymentContractsProductModel',
         'basket' => '\Secuconnect\Client\Model\SecupayBasketItem[]'
     ];
 
@@ -134,7 +134,7 @@ class SecupayTransactionUpdateBasketDTO implements ArrayAccess
 
     /**
      * Gets contract
-     * @return object
+     * @return \Secuconnect\Client\Model\PaymentContractsProductModel
      */
     public function getContract()
     {
@@ -143,7 +143,7 @@ class SecupayTransactionUpdateBasketDTO implements ArrayAccess
 
     /**
      * Sets contract
-     * @param object $contract The payment contract object
+     * @param \Secuconnect\Client\Model\PaymentContractsProductModel $contract contract
      * @return $this
      */
     public function setContract($contract)

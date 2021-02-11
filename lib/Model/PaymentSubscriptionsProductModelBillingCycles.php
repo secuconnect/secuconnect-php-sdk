@@ -5,14 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SmartTransactionsPaymentLinks
+ * PaymentSubscriptionsProductModelBillingCycles
  *
  * @category Class
+ * @description Billing cycles
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsPaymentLinks implements ArrayAccess
+class PaymentSubscriptionsProductModelBillingCycles implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,18 +21,15 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTransactionsPaymentLinks';
+    protected static $swaggerModelName = 'PaymentSubscriptionsProductModel_billing_cycles';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'prepaid' => 'string',
-        'debit' => 'string',
-        'creditcard' => 'string',
-        'invoice' => 'string',
-        'general' => 'string'
+        'cycle_executions' => '\Secuconnect\Client\Model\BillingCyclesItem[]',
+        'next_billing_time' => 'string'
     ];
 
     /**
@@ -39,11 +37,8 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'prepaid' => null,
-        'debit' => null,
-        'creditcard' => null,
-        'invoice' => null,
-        'general' => null
+        'cycle_executions' => null,
+        'next_billing_time' => null
     ];
 
     public static function swaggerTypes()
@@ -61,11 +56,8 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'prepaid' => 'prepaid',
-        'debit' => 'debit',
-        'creditcard' => 'creditcard',
-        'invoice' => 'invoice',
-        'general' => 'general'
+        'cycle_executions' => 'cycle_executions',
+        'next_billing_time' => 'next_billing_time'
     ];
 
     /**
@@ -73,11 +65,8 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'prepaid' => 'setPrepaid',
-        'debit' => 'setDebit',
-        'creditcard' => 'setCreditcard',
-        'invoice' => 'setInvoice',
-        'general' => 'setGeneral'
+        'cycle_executions' => 'setCycleExecutions',
+        'next_billing_time' => 'setNextBillingTime'
     ];
 
     /**
@@ -85,11 +74,8 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'prepaid' => 'getPrepaid',
-        'debit' => 'getDebit',
-        'creditcard' => 'getCreditcard',
-        'invoice' => 'getInvoice',
-        'general' => 'getGeneral'
+        'cycle_executions' => 'getCycleExecutions',
+        'next_billing_time' => 'getNextBillingTime'
     ];
 
     public static function attributeMap()
@@ -119,11 +105,8 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['prepaid'] = isset($data['prepaid']) ? $data['prepaid'] : null;
-        $this->container['debit'] = isset($data['debit']) ? $data['debit'] : null;
-        $this->container['creditcard'] = isset($data['creditcard']) ? $data['creditcard'] : null;
-        $this->container['invoice'] = isset($data['invoice']) ? $data['invoice'] : null;
-        $this->container['general'] = isset($data['general']) ? $data['general'] : null;
+        $this->container['cycle_executions'] = isset($data['cycle_executions']) ? $data['cycle_executions'] : null;
+        $this->container['next_billing_time'] = isset($data['next_billing_time']) ? $data['next_billing_time'] : null;
     }
 
     /**
@@ -149,107 +132,45 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
         return true;
     }
 
+
     /**
-     * Gets prepaid
-     * @return string
+     * Gets cycle_executions
+     * @return \Secuconnect\Client\Model\BillingCyclesItem[]
      */
-    public function getPrepaid()
+    public function getCycleExecutions()
     {
-        return $this->container['prepaid'];
+        return $this->container['cycle_executions'];
     }
 
     /**
-     * Sets prepaid
-     * @param string $prepaid prepaid link
+     * Sets cycle_executions
+     * @param \Secuconnect\Client\Model\BillingCyclesItem[] $cycle_executions cycle executions
      * @return $this
      */
-    public function setPrepaid($prepaid)
+    public function setCycleExecutions($cycle_executions)
     {
-        $this->container['prepaid'] = $prepaid;
+        $this->container['cycle_executions'] = $cycle_executions;
 
         return $this;
     }
 
     /**
-     * Gets debit
+     * Gets next_billing_time
      * @return string
      */
-    public function getDebit()
+    public function getNextBillingTime()
     {
-        return $this->container['debit'];
+        return $this->container['next_billing_time'];
     }
 
     /**
-     * Sets debit
-     * @param string $debit debit link
+     * Sets next_billing_time
+     * @param string $next_billing_time next billing time
      * @return $this
      */
-    public function setDebit($debit)
+    public function setNextBillingTime($next_billing_time)
     {
-        $this->container['debit'] = $debit;
-
-        return $this;
-    }
-
-    /**
-     * Gets creditcard
-     * @return string
-     */
-    public function getCreditcard()
-    {
-        return $this->container['creditcard'];
-    }
-
-    /**
-     * Sets creditcard
-     * @param string $creditcard creditcard link
-     * @return $this
-     */
-    public function setCreditcard($creditcard)
-    {
-        $this->container['creditcard'] = $creditcard;
-
-        return $this;
-    }
-
-    /**
-     * Gets invoice
-     * @return string
-     */
-    public function getInvoice()
-    {
-        return $this->container['invoice'];
-    }
-
-    /**
-     * Sets invoice
-     * @param string $invoice invoice link
-     * @return $this
-     */
-    public function setInvoice($invoice)
-    {
-        $this->container['invoice'] = $invoice;
-
-        return $this;
-    }
-
-    /**
-     * Gets general
-     * @return string
-     */
-    public function getGeneral()
-    {
-        return $this->container['general'];
-    }
-
-    /**
-     * Sets general
-     * @param string $general general link
-     * @return $this
-     */
-    public function setGeneral($general)
-    {
-        $this->container['general'] = $general;
+        $this->container['next_billing_time'] = $next_billing_time;
 
         return $this;
     }

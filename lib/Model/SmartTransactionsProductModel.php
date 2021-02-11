@@ -61,8 +61,10 @@ class SmartTransactionsProductModel extends BaseProductModel
         'checkout_links' => '\Secuconnect\Client\Model\SmartTransactionsCheckoutLinks',
         'intent' => 'string',
         'iframe_url' => 'string',
+        'prepaid_sales' => '\Secuconnect\Client\Model\SmartTransactionsPrepaidSalesDetails',
         'communications' => '\Secuconnect\Client\Model\SmartTransactionsCommunication',
-        'payment_links' => '\Secuconnect\Client\Model\SmartTransactionsPaymentLinks'
+        'payment_links' => '\Secuconnect\Client\Model\SmartTransactionsPaymentLinks',
+        'application_context' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContext'
     ];
 
     /**
@@ -106,8 +108,10 @@ class SmartTransactionsProductModel extends BaseProductModel
         'checkout_links' => null,
         'intent' => null,
         'iframe_url' => null,
+        'prepaid_sales' => null,
         'communications' => null,
-        'payment_links' => null
+        'payment_links' => null,
+        'application_context' => null
     ];
 
     public static function swaggerTypes()
@@ -161,8 +165,10 @@ class SmartTransactionsProductModel extends BaseProductModel
         'checkout_links' => 'checkout_links',
         'intent' => 'intent',
         'iframe_url' => 'iframe_url',
+        'prepaid_sales' => 'prepaid_sales',
         'communications' => 'communications',
-        'payment_links' => 'payment_links'
+        'payment_links' => 'payment_links',
+        'application_context' => 'application_context'
     ];
 
 
@@ -207,8 +213,10 @@ class SmartTransactionsProductModel extends BaseProductModel
         'checkout_links' => 'setCheckoutLinks',
         'intent' => 'setIntent',
         'iframe_url' => 'setIframeUrl',
+        'prepaid_sales' => 'setPrepaidSales',
         'communications' => 'setCommunications',
-        'payment_links' => 'setPaymentLinks'
+        'payment_links' => 'setPaymentLinks',
+        'application_context' => 'setApplicationContext'
     ];
 
 
@@ -253,8 +261,10 @@ class SmartTransactionsProductModel extends BaseProductModel
         'checkout_links' => 'getCheckoutLinks',
         'intent' => 'getIntent',
         'iframe_url' => 'getIframeUrl',
+        'prepaid_sales' => 'getPrepaidSales',
         'communications' => 'getCommunications',
-        'payment_links' => 'getPaymentLinks'
+        'payment_links' => 'getPaymentLinks',
+        'application_context' => 'getApplicationContext'
     ];
 
     public static function attributeMap()
@@ -316,8 +326,10 @@ class SmartTransactionsProductModel extends BaseProductModel
         $this->container['checkout_links'] = isset($data['checkout_links']) ? $data['checkout_links'] : null;
         $this->container['intent'] = isset($data['intent']) ? $data['intent'] : null;
         $this->container['iframe_url'] = isset($data['iframe_url']) ? $data['iframe_url'] : null;
+        $this->container['prepaid_sales'] = isset($data['prepaid_sales']) ? $data['prepaid_sales'] : null;
         $this->container['communications'] = isset($data['communications']) ? $data['communications'] : null;
         $this->container['payment_links'] = isset($data['payment_links']) ? $data['payment_links'] : null;
+        $this->container['application_context'] = isset($data['application_context']) ? $data['application_context'] : null;
     }
 
     /**
@@ -821,7 +833,7 @@ class SmartTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets tax_rate
-     * @param int $tax_rate Tax rate
+     * @param int $tax_rate tax_rate
      * @return $this
      */
     public function setTaxRate($tax_rate)
@@ -842,7 +854,7 @@ class SmartTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets tax_amount
-     * @param int $tax_amount Tax amount
+     * @param int $tax_amount tax_amount
      * @return $this
      */
     public function setTaxAmount($tax_amount)
@@ -1105,6 +1117,27 @@ class SmartTransactionsProductModel extends BaseProductModel
     }
 
     /**
+     * Gets prepaid_sales
+     * @return \Secuconnect\Client\Model\SmartTransactionsPrepaidSalesDetails
+     */
+    public function getPrepaidSales()
+    {
+        return $this->container['prepaid_sales'];
+    }
+
+    /**
+     * Sets prepaid_sales
+     * @param \Secuconnect\Client\Model\SmartTransactionsPrepaidSalesDetails $prepaid_sales prepaid_sales
+     * @return $this
+     */
+    public function setPrepaidSales($prepaid_sales)
+    {
+        $this->container['prepaid_sales'] = $prepaid_sales;
+
+        return $this;
+    }
+
+    /**
      * Gets communications
      * @return \Secuconnect\Client\Model\SmartTransactionsCommunication
      */
@@ -1142,6 +1175,27 @@ class SmartTransactionsProductModel extends BaseProductModel
     public function setPaymentLinks($payment_links)
     {
         $this->container['payment_links'] = $payment_links;
+
+        return $this;
+    }
+
+    /**
+     * Gets application_context
+     * @return \Secuconnect\Client\Model\SmartTransactionsApplicationContext
+     */
+    public function getApplicationContext()
+    {
+        return $this->container['application_context'];
+    }
+
+    /**
+     * Sets application_context
+     * @param \Secuconnect\Client\Model\SmartTransactionsApplicationContext $application_context application_context
+     * @return $this
+     */
+    public function setApplicationContext($application_context)
+    {
+        $this->container['application_context'] = $application_context;
 
         return $this;
     }

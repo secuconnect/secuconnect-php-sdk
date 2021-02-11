@@ -18,15 +18,15 @@ class SecupayBaseBasketItem implements ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      * @var string
-      */
+     * The original name of the model.
+     * @var string
+     */
     protected static $swaggerModelName = 'SecupayBaseBasketItem';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     * @var string[]
+     */
     protected static $swaggerTypes = [
         'item_type' => 'string',
         'article_number' => 'string',
@@ -38,15 +38,17 @@ class SecupayBaseBasketItem implements ArrayAccess
         'total' => 'int',
         'price' => 'int',
         'apikey' => 'string',
+        'plan_id' => 'string',
+        'start_at' => 'string',
         'transaction_hash' => 'string',
         'contract_id' => 'string',
         'reference_id' => 'string'
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      * @var string[]
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     * @var string[]
+     */
     protected static $swaggerFormats = [
         'item_type' => null,
         'article_number' => null,
@@ -58,6 +60,8 @@ class SecupayBaseBasketItem implements ArrayAccess
         'total' => null,
         'price' => null,
         'apikey' => null,
+        'plan_id' => null,
+        'start_at' => null,
         'transaction_hash' => null,
         'contract_id' => null,
         'reference_id' => null
@@ -88,6 +92,8 @@ class SecupayBaseBasketItem implements ArrayAccess
         'total' => 'total',
         'price' => 'price',
         'apikey' => 'apikey',
+        'plan_id' => 'plan_id',
+        'start_at' => 'start_at',
         'transaction_hash' => 'transaction_hash',
         'contract_id' => 'contract_id',
         'reference_id' => 'reference_id'
@@ -108,6 +114,8 @@ class SecupayBaseBasketItem implements ArrayAccess
         'total' => 'setTotal',
         'price' => 'setPrice',
         'apikey' => 'setApikey',
+        'plan_id' => 'setPlanId',
+        'start_at' => 'setStartAt',
         'transaction_hash' => 'setTransactionHash',
         'contract_id' => 'setContractId',
         'reference_id' => 'setReferenceId'
@@ -128,6 +136,8 @@ class SecupayBaseBasketItem implements ArrayAccess
         'total' => 'getTotal',
         'price' => 'getPrice',
         'apikey' => 'getApikey',
+        'plan_id' => 'getPlanId',
+        'start_at' => 'getStartAt',
         'transaction_hash' => 'getTransactionHash',
         'contract_id' => 'getContractId',
         'reference_id' => 'getReferenceId'
@@ -170,6 +180,8 @@ class SecupayBaseBasketItem implements ArrayAccess
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['apikey'] = isset($data['apikey']) ? $data['apikey'] : null;
+        $this->container['plan_id'] = isset($data['plan_id']) ? $data['plan_id'] : null;
+        $this->container['start_at'] = isset($data['start_at']) ? $data['start_at'] : null;
         $this->container['transaction_hash'] = isset($data['transaction_hash']) ? $data['transaction_hash'] : null;
         $this->container['contract_id'] = isset($data['contract_id']) ? $data['contract_id'] : null;
         $this->container['reference_id'] = isset($data['reference_id']) ? $data['reference_id'] : null;
@@ -210,7 +222,7 @@ class SecupayBaseBasketItem implements ArrayAccess
 
     /**
      * Sets item_type
-     * @param string $item_type Line type {'article', 'sub_transaction', 'stakeholder_payment', 'shipping'}
+     * @param string $item_type Line type {'article', 'sub_transaction', 'stakeholder_payment', 'shipping', 'subscription'}
      * @return $this
      */
     public function setItemType($item_type)
@@ -410,6 +422,48 @@ class SecupayBaseBasketItem implements ArrayAccess
     }
 
     /**
+     * Gets plan_id
+     * @return string
+     */
+    public function getPlanId()
+    {
+        return $this->container['plan_id'];
+    }
+
+    /**
+     * Sets plan_id
+     * @param string $plan_id Subscription plan id
+     * @return $this
+     */
+    public function setPlanId($plan_id)
+    {
+        $this->container['plan_id'] = $plan_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_at
+     * @return string
+     */
+    public function getStartAt()
+    {
+        return $this->container['start_at'];
+    }
+
+    /**
+     * Sets start_at
+     * @param string $start_at Subscription start at date
+     * @return $this
+     */
+    public function setStartAt($start_at)
+    {
+        $this->container['start_at'] = $start_at;
+
+        return $this;
+    }
+
+    /**
      * Gets transaction_hash
      * @return string
      */
@@ -530,4 +584,3 @@ class SecupayBaseBasketItem implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-

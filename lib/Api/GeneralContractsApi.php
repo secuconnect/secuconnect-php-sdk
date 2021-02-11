@@ -183,7 +183,7 @@ class GeneralContractsApi
      * @param string $general_contract_id Contract identifier (required)
      * @param \Secuconnect\Client\Model\GetAvailablePaymentMethodsDTO $body options 
      * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\StringList
+     * @return string[]
      */
     public function getAvailablePaymentMethods($general_contract_id, $body)
     {
@@ -199,7 +199,7 @@ class GeneralContractsApi
      * @param string $general_contract_id Contract identifier (required)
      * @param \Secuconnect\Client\Model\GetAvailablePaymentMethodsDTO $body options 
      * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\StringList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getAvailablePaymentMethodsWithHttpInfo($general_contract_id, $body)
     {
@@ -256,15 +256,15 @@ class GeneralContractsApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    '\Secuconnect\Client\Model\StringList',
+                    'string[]',
                     '/General/Contracts/{generalContractId}/getAvailablePaymentMethods'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\StringList', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, 'string[]', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\StringList', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string[]', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:

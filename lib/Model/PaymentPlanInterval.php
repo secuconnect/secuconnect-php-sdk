@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SmartTransactionsPaymentLinks
+ * PaymentPlanInterval
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsPaymentLinks implements ArrayAccess
+class PaymentPlanInterval implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,18 +20,15 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTransactionsPaymentLinks';
+    protected static $swaggerModelName = 'PaymentPlanInterval';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'prepaid' => 'string',
-        'debit' => 'string',
-        'creditcard' => 'string',
-        'invoice' => 'string',
-        'general' => 'string'
+        'unit' => 'string',
+        'count' => 'int'
     ];
 
     /**
@@ -39,11 +36,8 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'prepaid' => null,
-        'debit' => null,
-        'creditcard' => null,
-        'invoice' => null,
-        'general' => null
+        'unit' => null,
+        'count' => null
     ];
 
     public static function swaggerTypes()
@@ -61,11 +55,8 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'prepaid' => 'prepaid',
-        'debit' => 'debit',
-        'creditcard' => 'creditcard',
-        'invoice' => 'invoice',
-        'general' => 'general'
+        'unit' => 'unit',
+        'count' => 'count'
     ];
 
     /**
@@ -73,11 +64,8 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'prepaid' => 'setPrepaid',
-        'debit' => 'setDebit',
-        'creditcard' => 'setCreditcard',
-        'invoice' => 'setInvoice',
-        'general' => 'setGeneral'
+        'unit' => 'setUnit',
+        'count' => 'setCount'
     ];
 
     /**
@@ -85,11 +73,8 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'prepaid' => 'getPrepaid',
-        'debit' => 'getDebit',
-        'creditcard' => 'getCreditcard',
-        'invoice' => 'getInvoice',
-        'general' => 'getGeneral'
+        'unit' => 'getUnit',
+        'count' => 'getCount'
     ];
 
     public static function attributeMap()
@@ -119,11 +104,8 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['prepaid'] = isset($data['prepaid']) ? $data['prepaid'] : null;
-        $this->container['debit'] = isset($data['debit']) ? $data['debit'] : null;
-        $this->container['creditcard'] = isset($data['creditcard']) ? $data['creditcard'] : null;
-        $this->container['invoice'] = isset($data['invoice']) ? $data['invoice'] : null;
-        $this->container['general'] = isset($data['general']) ? $data['general'] : null;
+        $this->container['unit'] = isset($data['unit']) ? $data['unit'] : null;
+        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
     }
 
     /**
@@ -149,107 +131,45 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
         return true;
     }
 
+
     /**
-     * Gets prepaid
+     * Gets unit
      * @return string
      */
-    public function getPrepaid()
+    public function getUnit()
     {
-        return $this->container['prepaid'];
+        return $this->container['unit'];
     }
 
     /**
-     * Sets prepaid
-     * @param string $prepaid prepaid link
+     * Sets unit
+     * @param string $unit Unit
      * @return $this
      */
-    public function setPrepaid($prepaid)
+    public function setUnit($unit)
     {
-        $this->container['prepaid'] = $prepaid;
+        $this->container['unit'] = $unit;
 
         return $this;
     }
 
     /**
-     * Gets debit
-     * @return string
+     * Gets count
+     * @return int
      */
-    public function getDebit()
+    public function getCount()
     {
-        return $this->container['debit'];
+        return $this->container['count'];
     }
 
     /**
-     * Sets debit
-     * @param string $debit debit link
+     * Sets count
+     * @param int $count Count
      * @return $this
      */
-    public function setDebit($debit)
+    public function setCount($count)
     {
-        $this->container['debit'] = $debit;
-
-        return $this;
-    }
-
-    /**
-     * Gets creditcard
-     * @return string
-     */
-    public function getCreditcard()
-    {
-        return $this->container['creditcard'];
-    }
-
-    /**
-     * Sets creditcard
-     * @param string $creditcard creditcard link
-     * @return $this
-     */
-    public function setCreditcard($creditcard)
-    {
-        $this->container['creditcard'] = $creditcard;
-
-        return $this;
-    }
-
-    /**
-     * Gets invoice
-     * @return string
-     */
-    public function getInvoice()
-    {
-        return $this->container['invoice'];
-    }
-
-    /**
-     * Sets invoice
-     * @param string $invoice invoice link
-     * @return $this
-     */
-    public function setInvoice($invoice)
-    {
-        $this->container['invoice'] = $invoice;
-
-        return $this;
-    }
-
-    /**
-     * Gets general
-     * @return string
-     */
-    public function getGeneral()
-    {
-        return $this->container['general'];
-    }
-
-    /**
-     * Sets general
-     * @param string $general general link
-     * @return $this
-     */
-    public function setGeneral($general)
-    {
-        $this->container['general'] = $general;
+        $this->container['count'] = $count;
 
         return $this;
     }

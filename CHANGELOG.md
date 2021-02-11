@@ -19,19 +19,57 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
-## [2.4.0] - 2020-12-09
+## [2.5.0] - 2021-MM-DD
+
+### Security
+
+### Deprecated
+
+### Added
+
+- `Api.GeneralMerchantsApi.getPublicData()`
+- `Model.GeneralMerchantsPublicDataCompany`
+- `Model.GeneralMerchantsPublicDataModel`
+- `Model.SecupayTransactionCaptureDTO` element `shipping_information`
+
+### Changed
+
+- `Api.GeneralContractsApi.getAvailablePaymentMethods()` returns now a list of `string` instead of `StringList`
+
+### Fixed
+
+- `Model.GeoAddress` element `address_components` is a List of `AddressComponents`
+- `Model.PaymentCancelResult` element `result` is now an instance of `PaymentCancelResultDetails` instead of `object`
+- `Model.SecupayTransactionCancelDTO` element `contract` is now an instance of `PaymentContractsProductModel` instead of `object`
+- `Model.SecupayTransactionCaptureDTO` element `contract` is now an instance of `PaymentContractsProductModel` instead of `object`
+- `Model.SecupayTransactionUpdateBasketDTO` element `contract` is now an instance of `PaymentContractsProductModel` instead of `object`
+
+### Removed
+
+
+## [2.4.0] - 2020-12-11
 
 ### Added
 
 - `Api.PaymentTransactionsApi.getPaymentTransactionsOldFormat()`
+- `Model.SmartTransactionsDTO` element `application_context`
 - `Model.SmartTransactionsDTO` element `communications`
+- `Model.SmartTransactionsProductModel` element `application_context`
 - `Model.SmartTransactionsProductModel` element `communications`
+- `Model.SmartTransactionsProductModel` element `payment_links`
+- `Model.SmartTransactionsProductModel` element `prepaid_sales`
+- `Model.PaymentContractsDTORequestId` element `payout_purpose`
 
 ### Fixed
 
 - `Model.GeneralMerchantsProductModel` element `id_old` is an instance of `Integer` instead of `String`
 - `Model.GeneralMerchantsProductModel` element `legal_details` is a List of `GeneralMerchantsLegalDetails`
 - `Model.GeneralMerchantsProductModel` element `urls` is a List of `GeneralMerchantsUrls`
+
+### Removed
+
+- `Model.SmartTransactionsDTO` element `status`, `receipt` and `receipt_number`
+- `Model.SmartTransactionsCheckoutLinks` element `url_success`, `url_failure`, `url_abort` and `url_error` (moved to `application_context.return_urls`)
 
 
 ## [2.3.0] - 2020-09-14
@@ -48,7 +86,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 
-- `Model.SmartTransactionsDTO` element `device_source` is now a instance of `ProductInstanceUID` instead of `string`
+- `Model.SmartTransactionsDTO` element `device_source` is now an instance of `ProductInstanceUID` instead of `string`
 
 
 ## [2.2.0] - 2020-09-04
@@ -447,3 +485,4 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 [2.2.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.1.0...2.2.0
 [2.3.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.2.0...2.3.0
 [2.4.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.3.0...2.4.0
+[2.5.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.4.0...2.5.0

@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SmartTransactionsPaymentLinks
+ * SmartTransactionsApplicationContextReturnUrls
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsPaymentLinks implements ArrayAccess
+class SmartTransactionsApplicationContextReturnUrls implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,18 +20,16 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTransactionsPaymentLinks';
+    protected static $swaggerModelName = 'SmartTransactionsApplicationContextReturnUrls';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'prepaid' => 'string',
-        'debit' => 'string',
-        'creditcard' => 'string',
-        'invoice' => 'string',
-        'general' => 'string'
+        'url_success' => 'string',
+        'url_abort' => 'string',
+        'url_error' => 'string'
     ];
 
     /**
@@ -39,11 +37,9 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'prepaid' => null,
-        'debit' => null,
-        'creditcard' => null,
-        'invoice' => null,
-        'general' => null
+        'url_success' => null,
+        'url_abort' => null,
+        'url_error' => null
     ];
 
     public static function swaggerTypes()
@@ -61,11 +57,9 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'prepaid' => 'prepaid',
-        'debit' => 'debit',
-        'creditcard' => 'creditcard',
-        'invoice' => 'invoice',
-        'general' => 'general'
+        'url_success' => 'url_success',
+        'url_abort' => 'url_abort',
+        'url_error' => 'url_error'
     ];
 
     /**
@@ -73,11 +67,9 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'prepaid' => 'setPrepaid',
-        'debit' => 'setDebit',
-        'creditcard' => 'setCreditcard',
-        'invoice' => 'setInvoice',
-        'general' => 'setGeneral'
+        'url_success' => 'setUrlSuccess',
+        'url_abort' => 'setUrlAbort',
+        'url_error' => 'setUrlError'
     ];
 
     /**
@@ -85,11 +77,9 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'prepaid' => 'getPrepaid',
-        'debit' => 'getDebit',
-        'creditcard' => 'getCreditcard',
-        'invoice' => 'getInvoice',
-        'general' => 'getGeneral'
+        'url_success' => 'getUrlSuccess',
+        'url_abort' => 'getUrlAbort',
+        'url_error' => 'getUrlError'
     ];
 
     public static function attributeMap()
@@ -119,11 +109,9 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['prepaid'] = isset($data['prepaid']) ? $data['prepaid'] : null;
-        $this->container['debit'] = isset($data['debit']) ? $data['debit'] : null;
-        $this->container['creditcard'] = isset($data['creditcard']) ? $data['creditcard'] : null;
-        $this->container['invoice'] = isset($data['invoice']) ? $data['invoice'] : null;
-        $this->container['general'] = isset($data['general']) ? $data['general'] : null;
+        $this->container['url_success'] = isset($data['url_success']) ? $data['url_success'] : null;
+        $this->container['url_abort'] = isset($data['url_abort']) ? $data['url_abort'] : null;
+        $this->container['url_error'] = isset($data['url_error']) ? $data['url_error'] : null;
     }
 
     /**
@@ -149,107 +137,66 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
         return true;
     }
 
+
     /**
-     * Gets prepaid
+     * Gets url_success
      * @return string
      */
-    public function getPrepaid()
+    public function getUrlSuccess()
     {
-        return $this->container['prepaid'];
+        return $this->container['url_success'];
     }
 
     /**
-     * Sets prepaid
-     * @param string $prepaid prepaid link
+     * Sets url_success
+     * @param string $url_success Success URL
      * @return $this
      */
-    public function setPrepaid($prepaid)
+    public function setUrlSuccess($url_success)
     {
-        $this->container['prepaid'] = $prepaid;
+        $this->container['url_success'] = $url_success;
 
         return $this;
     }
 
     /**
-     * Gets debit
+     * Gets url_abort
      * @return string
      */
-    public function getDebit()
+    public function getUrlAbort()
     {
-        return $this->container['debit'];
+        return $this->container['url_abort'];
     }
 
     /**
-     * Sets debit
-     * @param string $debit debit link
+     * Sets url_abort
+     * @param string $url_abort Abort URL
      * @return $this
      */
-    public function setDebit($debit)
+    public function setUrlAbort($url_abort)
     {
-        $this->container['debit'] = $debit;
+        $this->container['url_abort'] = $url_abort;
 
         return $this;
     }
 
     /**
-     * Gets creditcard
+     * Gets url_error
      * @return string
      */
-    public function getCreditcard()
+    public function getUrlError()
     {
-        return $this->container['creditcard'];
+        return $this->container['url_error'];
     }
 
     /**
-     * Sets creditcard
-     * @param string $creditcard creditcard link
+     * Sets url_error
+     * @param string $url_error Error URL
      * @return $this
      */
-    public function setCreditcard($creditcard)
+    public function setUrlError($url_error)
     {
-        $this->container['creditcard'] = $creditcard;
-
-        return $this;
-    }
-
-    /**
-     * Gets invoice
-     * @return string
-     */
-    public function getInvoice()
-    {
-        return $this->container['invoice'];
-    }
-
-    /**
-     * Sets invoice
-     * @param string $invoice invoice link
-     * @return $this
-     */
-    public function setInvoice($invoice)
-    {
-        $this->container['invoice'] = $invoice;
-
-        return $this;
-    }
-
-    /**
-     * Gets general
-     * @return string
-     */
-    public function getGeneral()
-    {
-        return $this->container['general'];
-    }
-
-    /**
-     * Sets general
-     * @param string $general general link
-     * @return $this
-     */
-    public function setGeneral($general)
-    {
-        $this->container['general'] = $general;
+        $this->container['url_error'] = $url_error;
 
         return $this;
     }

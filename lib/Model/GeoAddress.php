@@ -28,7 +28,7 @@ class GeoAddress implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'type' => 'string',
-        'address_components' => '\Secuconnect\Client\Model\AddressComponents',
+        'address_components' => '\Secuconnect\Client\Model\AddressComponents[]',
         'address_formatted' => 'string',
         'geometry' => '\Secuconnect\Client\Model\GeoAddressGeometry'
     ];
@@ -167,7 +167,7 @@ class GeoAddress implements ArrayAccess
 
     /**
      * Gets address_components
-     * @return \Secuconnect\Client\Model\AddressComponents
+     * @return \Secuconnect\Client\Model\AddressComponents[]
      */
     public function getAddressComponents()
     {
@@ -176,7 +176,7 @@ class GeoAddress implements ArrayAccess
 
     /**
      * Sets address_components
-     * @param \Secuconnect\Client\Model\AddressComponents $address_components address_components
+     * @param \Secuconnect\Client\Model\AddressComponents[] $address_components Address components
      * @return $this
      */
     public function setAddressComponents($address_components)

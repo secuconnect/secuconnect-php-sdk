@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SmartTransactionsPaymentLinks
+ * SmartTransactionsApplicationContextLocks
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsPaymentLinks implements ArrayAccess
+class SmartTransactionsApplicationContextLocks implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,18 +20,15 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTransactionsPaymentLinks';
+    protected static $swaggerModelName = 'SmartTransactionsApplicationContextLocks';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'prepaid' => 'string',
-        'debit' => 'string',
-        'creditcard' => 'string',
-        'invoice' => 'string',
-        'general' => 'string'
+        'customer' => 'bool',
+        'shipping_address' => 'bool'
     ];
 
     /**
@@ -39,11 +36,8 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'prepaid' => null,
-        'debit' => null,
-        'creditcard' => null,
-        'invoice' => null,
-        'general' => null
+        'customer' => null,
+        'shipping_address' => null
     ];
 
     public static function swaggerTypes()
@@ -61,11 +55,8 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'prepaid' => 'prepaid',
-        'debit' => 'debit',
-        'creditcard' => 'creditcard',
-        'invoice' => 'invoice',
-        'general' => 'general'
+        'customer' => 'customer',
+        'shipping_address' => 'shipping_address'
     ];
 
     /**
@@ -73,11 +64,8 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'prepaid' => 'setPrepaid',
-        'debit' => 'setDebit',
-        'creditcard' => 'setCreditcard',
-        'invoice' => 'setInvoice',
-        'general' => 'setGeneral'
+        'customer' => 'setCustomer',
+        'shipping_address' => 'setShippingAddress'
     ];
 
     /**
@@ -85,11 +73,8 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'prepaid' => 'getPrepaid',
-        'debit' => 'getDebit',
-        'creditcard' => 'getCreditcard',
-        'invoice' => 'getInvoice',
-        'general' => 'getGeneral'
+        'customer' => 'getCustomer',
+        'shipping_address' => 'getShippingAddress'
     ];
 
     public static function attributeMap()
@@ -119,11 +104,8 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['prepaid'] = isset($data['prepaid']) ? $data['prepaid'] : null;
-        $this->container['debit'] = isset($data['debit']) ? $data['debit'] : null;
-        $this->container['creditcard'] = isset($data['creditcard']) ? $data['creditcard'] : null;
-        $this->container['invoice'] = isset($data['invoice']) ? $data['invoice'] : null;
-        $this->container['general'] = isset($data['general']) ? $data['general'] : null;
+        $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
+        $this->container['shipping_address'] = isset($data['shipping_address']) ? $data['shipping_address'] : null;
     }
 
     /**
@@ -149,107 +131,45 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
         return true;
     }
 
+
     /**
-     * Gets prepaid
-     * @return string
+     * Gets customer
+     * @return bool
      */
-    public function getPrepaid()
+    public function getCustomer()
     {
-        return $this->container['prepaid'];
+        return $this->container['customer'];
     }
 
     /**
-     * Sets prepaid
-     * @param string $prepaid prepaid link
+     * Sets customer
+     * @param bool $customer look customer data
      * @return $this
      */
-    public function setPrepaid($prepaid)
+    public function setCustomer($customer)
     {
-        $this->container['prepaid'] = $prepaid;
+        $this->container['customer'] = $customer;
 
         return $this;
     }
 
     /**
-     * Gets debit
-     * @return string
+     * Gets shipping_address
+     * @return bool
      */
-    public function getDebit()
+    public function getShippingAddress()
     {
-        return $this->container['debit'];
+        return $this->container['shipping_address'];
     }
 
     /**
-     * Sets debit
-     * @param string $debit debit link
+     * Sets shipping_address
+     * @param bool $shipping_address look shipping address data
      * @return $this
      */
-    public function setDebit($debit)
+    public function setShippingAddress($shipping_address)
     {
-        $this->container['debit'] = $debit;
-
-        return $this;
-    }
-
-    /**
-     * Gets creditcard
-     * @return string
-     */
-    public function getCreditcard()
-    {
-        return $this->container['creditcard'];
-    }
-
-    /**
-     * Sets creditcard
-     * @param string $creditcard creditcard link
-     * @return $this
-     */
-    public function setCreditcard($creditcard)
-    {
-        $this->container['creditcard'] = $creditcard;
-
-        return $this;
-    }
-
-    /**
-     * Gets invoice
-     * @return string
-     */
-    public function getInvoice()
-    {
-        return $this->container['invoice'];
-    }
-
-    /**
-     * Sets invoice
-     * @param string $invoice invoice link
-     * @return $this
-     */
-    public function setInvoice($invoice)
-    {
-        $this->container['invoice'] = $invoice;
-
-        return $this;
-    }
-
-    /**
-     * Gets general
-     * @return string
-     */
-    public function getGeneral()
-    {
-        return $this->container['general'];
-    }
-
-    /**
-     * Sets general
-     * @param string $general general link
-     * @return $this
-     */
-    public function setGeneral($general)
-    {
-        $this->container['general'] = $general;
+        $this->container['shipping_address'] = $shipping_address;
 
         return $this;
     }
