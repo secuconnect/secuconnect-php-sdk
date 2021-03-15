@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * GeneralMerchantsPublicDataCompany
+ * BillingCyclesItem
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GeneralMerchantsPublicDataCompany implements ArrayAccess
+class BillingCyclesItem implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,15 +20,18 @@ class GeneralMerchantsPublicDataCompany implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'GeneralMerchantsPublicDataCompany';
+    protected static $swaggerModelName = 'BillingCyclesItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'companyname' => 'string',
-        'address' => '\Secuconnect\Client\Model\GeoAddress[]'
+        'sequence' => 'int',
+        'interval' => '\Secuconnect\Client\Model\PaymentPlanInterval',
+        'tenure_type' => 'string',
+        'total_cycles' => 'int',
+        'price' => 'int'
     ];
 
     /**
@@ -36,8 +39,11 @@ class GeneralMerchantsPublicDataCompany implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'companyname' => null,
-        'address' => null
+        'sequence' => null,
+        'interval' => null,
+        'tenure_type' => null,
+        'total_cycles' => null,
+        'price' => null
     ];
 
     public static function swaggerTypes()
@@ -55,8 +61,11 @@ class GeneralMerchantsPublicDataCompany implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'companyname' => 'companyname',
-        'address' => 'address'
+        'sequence' => 'sequence',
+        'interval' => 'interval',
+        'tenure_type' => 'tenure_type',
+        'total_cycles' => 'total_cycles',
+        'price' => 'price'
     ];
 
     /**
@@ -64,8 +73,11 @@ class GeneralMerchantsPublicDataCompany implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'companyname' => 'setCompanyname',
-        'address' => 'setAddress'
+        'sequence' => 'setSequence',
+        'interval' => 'setInterval',
+        'tenure_type' => 'setTenureType',
+        'total_cycles' => 'setTotalCycles',
+        'price' => 'setPrice'
     ];
 
     /**
@@ -73,8 +85,11 @@ class GeneralMerchantsPublicDataCompany implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'companyname' => 'getCompanyname',
-        'address' => 'getAddress'
+        'sequence' => 'getSequence',
+        'interval' => 'getInterval',
+        'tenure_type' => 'getTenureType',
+        'total_cycles' => 'getTotalCycles',
+        'price' => 'getPrice'
     ];
 
     public static function attributeMap()
@@ -104,8 +119,11 @@ class GeneralMerchantsPublicDataCompany implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['companyname'] = isset($data['companyname']) ? $data['companyname'] : null;
-        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
+        $this->container['sequence'] = isset($data['sequence']) ? $data['sequence'] : null;
+        $this->container['interval'] = isset($data['interval']) ? $data['interval'] : null;
+        $this->container['tenure_type'] = isset($data['tenure_type']) ? $data['tenure_type'] : null;
+        $this->container['total_cycles'] = isset($data['total_cycles']) ? $data['total_cycles'] : null;
+        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
     }
 
     /**
@@ -133,43 +151,106 @@ class GeneralMerchantsPublicDataCompany implements ArrayAccess
 
 
     /**
-     * Gets companyname
-     * @return string
+     * Gets sequence
+     * @return int
      */
-    public function getCompanyname()
+    public function getSequence()
     {
-        return $this->container['companyname'];
+        return $this->container['sequence'];
     }
 
     /**
-     * Sets companyname
-     * @param string $companyname Company name of General Merchant user
+     * Sets sequence
+     * @param int $sequence sequence
      * @return $this
      */
-    public function setCompanyname($companyname)
+    public function setSequence($sequence)
     {
-        $this->container['companyname'] = $companyname;
+        $this->container['sequence'] = $sequence;
 
         return $this;
     }
 
     /**
-     * Gets address
-     * @return \Secuconnect\Client\Model\GeoAddress[]
+     * Gets interval
+     * @return \Secuconnect\Client\Model\PaymentPlanInterval
      */
-    public function getAddress()
+    public function getInterval()
     {
-        return $this->container['address'];
+        return $this->container['interval'];
     }
 
     /**
-     * Sets address
-     * @param \Secuconnect\Client\Model\GeoAddress[] $address Address of General Merchant user
+     * Sets interval
+     * @param \Secuconnect\Client\Model\PaymentPlanInterval $interval interval
      * @return $this
      */
-    public function setAddress($address)
+    public function setInterval($interval)
     {
-        $this->container['address'] = $address;
+        $this->container['interval'] = $interval;
+
+        return $this;
+    }
+
+    /**
+     * Gets tenure_type
+     * @return string
+     */
+    public function getTenureType()
+    {
+        return $this->container['tenure_type'];
+    }
+
+    /**
+     * Sets tenure_type
+     * @param string $tenure_type Tenure type
+     * @return $this
+     */
+    public function setTenureType($tenure_type)
+    {
+        $this->container['tenure_type'] = $tenure_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_cycles
+     * @return int
+     */
+    public function getTotalCycles()
+    {
+        return $this->container['total_cycles'];
+    }
+
+    /**
+     * Sets total_cycles
+     * @param int $total_cycles Total cycles
+     * @return $this
+     */
+    public function setTotalCycles($total_cycles)
+    {
+        $this->container['total_cycles'] = $total_cycles;
+
+        return $this;
+    }
+
+    /**
+     * Gets price
+     * @return int
+     */
+    public function getPrice()
+    {
+        return $this->container['price'];
+    }
+
+    /**
+     * Sets price
+     * @param int $price Price
+     * @return $this
+     */
+    public function setPrice($price)
+    {
+        $this->container['price'] = $price;
 
         return $this;
     }

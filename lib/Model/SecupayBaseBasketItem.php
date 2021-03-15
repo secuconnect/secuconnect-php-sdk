@@ -18,15 +18,15 @@ class SecupayBaseBasketItem implements ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     * @var string
-     */
+      * The original name of the model.
+      * @var string
+      */
     protected static $swaggerModelName = 'SecupayBaseBasketItem';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      * @var string[]
+      */
     protected static $swaggerTypes = [
         'item_type' => 'string',
         'article_number' => 'string',
@@ -46,9 +46,9 @@ class SecupayBaseBasketItem implements ArrayAccess
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     * @var string[]
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
     protected static $swaggerFormats = [
         'item_type' => null,
         'article_number' => null,
@@ -584,3 +584,4 @@ class SecupayBaseBasketItem implements ArrayAccess
         return json_encode(\Secuconnect\Client\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+

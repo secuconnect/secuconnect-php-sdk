@@ -29,7 +29,8 @@ class SmartTransactionsApplicationContext implements ArrayAccess
     protected static $swaggerTypes = [
         'locks' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContextLocks',
         'return_urls' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContextReturnUrls',
-        'iframe_opts' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContextIframeOpts'
+        'iframe_opts' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContextIframeOpts',
+        'checkout_template' => 'string'
     ];
 
     /**
@@ -39,7 +40,8 @@ class SmartTransactionsApplicationContext implements ArrayAccess
     protected static $swaggerFormats = [
         'locks' => null,
         'return_urls' => null,
-        'iframe_opts' => null
+        'iframe_opts' => null,
+        'checkout_template' => null
     ];
 
     public static function swaggerTypes()
@@ -59,7 +61,8 @@ class SmartTransactionsApplicationContext implements ArrayAccess
     protected static $attributeMap = [
         'locks' => 'locks',
         'return_urls' => 'return_urls',
-        'iframe_opts' => 'iframe_opts'
+        'iframe_opts' => 'iframe_opts',
+        'checkout_template' => 'checkout_template'
     ];
 
     /**
@@ -69,7 +72,8 @@ class SmartTransactionsApplicationContext implements ArrayAccess
     protected static $setters = [
         'locks' => 'setLocks',
         'return_urls' => 'setReturnUrls',
-        'iframe_opts' => 'setIframeOpts'
+        'iframe_opts' => 'setIframeOpts',
+        'checkout_template' => 'setCheckoutTemplate'
     ];
 
     /**
@@ -79,7 +83,8 @@ class SmartTransactionsApplicationContext implements ArrayAccess
     protected static $getters = [
         'locks' => 'getLocks',
         'return_urls' => 'getReturnUrls',
-        'iframe_opts' => 'getIframeOpts'
+        'iframe_opts' => 'getIframeOpts',
+        'checkout_template' => 'getCheckoutTemplate'
     ];
 
     public static function attributeMap()
@@ -112,6 +117,7 @@ class SmartTransactionsApplicationContext implements ArrayAccess
         $this->container['locks'] = isset($data['locks']) ? $data['locks'] : null;
         $this->container['return_urls'] = isset($data['return_urls']) ? $data['return_urls'] : null;
         $this->container['iframe_opts'] = isset($data['iframe_opts']) ? $data['iframe_opts'] : null;
+        $this->container['checkout_template'] = isset($data['checkout_template']) ? $data['checkout_template'] : null;
     }
 
     /**
@@ -197,6 +203,27 @@ class SmartTransactionsApplicationContext implements ArrayAccess
     public function setIframeOpts($iframe_opts)
     {
         $this->container['iframe_opts'] = $iframe_opts;
+
+        return $this;
+    }
+
+    /**
+     * Gets checkout_template
+     * @return string
+     */
+    public function getCheckoutTemplate()
+    {
+        return $this->container['checkout_template'];
+    }
+
+    /**
+     * Sets checkout_template
+     * @param string $checkout_template Smart Checkout Template ID
+     * @return $this
+     */
+    public function setCheckoutTemplate($checkout_template)
+    {
+        $this->container['checkout_template'] = $checkout_template;
 
         return $this;
     }

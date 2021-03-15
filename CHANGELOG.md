@@ -19,32 +19,35 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
-## [2.5.0] - 2021-MM-DD
+## [2.5.0] - 2021-03-15
 
-### Security
-
-### Deprecated
 
 ### Added
-
-- `Api.GeneralMerchantsApi.getPublicData()`
-- `Model.GeneralMerchantsPublicDataCompany`
-- `Model.GeneralMerchantsPublicDataModel`
+- `Api.PaymentPlansApi`
+- `Api.PaymentSubscriptionsApi`
+- `Model.BillingCyclesItem`
+- `Model.PaymentPlanInterval`
+- `Model.PaymentPlansDTO`
+- `Model.PaymentPlansList`
+- `Model.PaymentPlansProductModel`
+- `Model.PaymentSubscriptionsList`
+- `Model.PaymentSubscriptionsProductModel`
+- `Model.PaymentSubscriptionsProductModelBillingCycles`
+- `Model.SmartTransactionsContainer`
+- `Model.SecupayBaseBasketItem` element `plan_id` and `start_at`
 - `Model.SecupayTransactionCaptureDTO` element `shipping_information`
+- `Model.SmartTransactionsApplicationContext` element `checkout_template`
 
 ### Changed
-
-- `Api.GeneralContractsApi.getAvailablePaymentMethods()` returns now a list of `string` instead of `StringList`
+- `Api.GeneralContractsApi` method `getAvailablePaymentMethods` returns a list of `string`
+- `Model.PaymentCancelResult` element `result` is an instance of `PaymentCancelResultDetails`
+- `Model.SecupayTransactionUpdateBasketDTO` element `contract` is an instance of `PaymentContractsProductModel`
+- `Model.SecupayTransactionCancelDTO` element `contract` is an instance of `PaymentContractsProductModel`
+- `Model.SecupayTransactionCaptureDTO` element `contract` is an instance of `PaymentContractsProductModel`
+- `Model.SmartTransactionsProductModel` element `container` is an instance of `SmartTransactionsContainer`
 
 ### Fixed
-
 - `Model.GeoAddress` element `address_components` is a List of `AddressComponents`
-- `Model.PaymentCancelResult` element `result` is now an instance of `PaymentCancelResultDetails` instead of `object`
-- `Model.SecupayTransactionCancelDTO` element `contract` is now an instance of `PaymentContractsProductModel` instead of `object`
-- `Model.SecupayTransactionCaptureDTO` element `contract` is now an instance of `PaymentContractsProductModel` instead of `object`
-- `Model.SecupayTransactionUpdateBasketDTO` element `contract` is now an instance of `PaymentContractsProductModel` instead of `object`
-
-### Removed
 
 
 ## [2.4.0] - 2020-12-11

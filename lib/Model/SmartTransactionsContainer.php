@@ -3,14 +3,14 @@
 namespace Secuconnect\Client\Model;
 
 /**
- * GeneralMerchantsPublicDataModel
+ * SmartTransactionsContainer
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GeneralMerchantsPublicDataModel extends BaseProductModel
+class SmartTransactionsContainer extends ProductInstanceUID
 {
     const DISCRIMINATOR = null;
 
@@ -18,16 +18,14 @@ class GeneralMerchantsPublicDataModel extends BaseProductModel
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'GeneralMerchantsPublicDataModel';
+    protected static $swaggerModelName = 'SmartTransactionsContainer';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'legal_details' => '\Secuconnect\Client\Model\GeneralMerchantsLegalDetails[]',
-        'company' => '\Secuconnect\Client\Model\GeneralMerchantsPublicDataCompany',
-        'merchant_urls' => '\Secuconnect\Client\Model\GeneralMerchantsUrls[]'
+        'type' => 'string'
     ];
 
     /**
@@ -35,9 +33,7 @@ class GeneralMerchantsPublicDataModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'legal_details' => null,
-        'company' => null,
-        'merchant_urls' => null
+        'type' => null
     ];
 
     public static function swaggerTypes()
@@ -55,9 +51,7 @@ class GeneralMerchantsPublicDataModel extends BaseProductModel
      * @var string[]
      */
     protected static $attributeMap = [
-        'legal_details' => 'legal_details',
-        'company' => 'company',
-        'merchant_urls' => 'merchant_urls'
+        'type' => 'type'
     ];
 
     /**
@@ -65,9 +59,7 @@ class GeneralMerchantsPublicDataModel extends BaseProductModel
      * @var string[]
      */
     protected static $setters = [
-        'legal_details' => 'setLegalDetails',
-        'company' => 'setCompany',
-        'merchant_urls' => 'setMerchantUrls'
+        'type' => 'setType'
     ];
 
     /**
@@ -75,9 +67,7 @@ class GeneralMerchantsPublicDataModel extends BaseProductModel
      * @var string[]
      */
     protected static $getters = [
-        'legal_details' => 'getLegalDetails',
-        'company' => 'getCompany',
-        'merchant_urls' => 'getMerchantUrls'
+        'type' => 'getType'
     ];
 
     public static function attributeMap()
@@ -103,9 +93,7 @@ class GeneralMerchantsPublicDataModel extends BaseProductModel
     {
         parent::__construct($data);
 
-        $this->container['legal_details'] = isset($data['legal_details']) ? $data['legal_details'] : null;
-        $this->container['company'] = isset($data['company']) ? $data['company'] : null;
-        $this->container['merchant_urls'] = isset($data['merchant_urls']) ? $data['merchant_urls'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -133,64 +121,22 @@ class GeneralMerchantsPublicDataModel extends BaseProductModel
 
 
     /**
-     * Gets legal_details
-     * @return \Secuconnect\Client\Model\GeneralMerchantsLegalDetails[]
+     * Gets type
+     * @return string
      */
-    public function getLegalDetails()
+    public function getType()
     {
-        return $this->container['legal_details'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets legal_details
-     * @param \Secuconnect\Client\Model\GeneralMerchantsLegalDetails[] $legal_details Legal details like terms of use, privacy policy, or imprint
+     * Sets type
+     * @param string $type The container type
      * @return $this
      */
-    public function setLegalDetails($legal_details)
+    public function setType($type)
     {
-        $this->container['legal_details'] = $legal_details;
-
-        return $this;
-    }
-
-    /**
-     * Gets company
-     * @return \Secuconnect\Client\Model\GeneralMerchantsPublicDataCompany
-     */
-    public function getCompany()
-    {
-        return $this->container['company'];
-    }
-
-    /**
-     * Sets company
-     * @param \Secuconnect\Client\Model\GeneralMerchantsPublicDataCompany $company company
-     * @return $this
-     */
-    public function setCompany($company)
-    {
-        $this->container['company'] = $company;
-
-        return $this;
-    }
-
-    /**
-     * Gets merchant_urls
-     * @return \Secuconnect\Client\Model\GeneralMerchantsUrls[]
-     */
-    public function getMerchantUrls()
-    {
-        return $this->container['merchant_urls'];
-    }
-
-    /**
-     * Sets merchant_urls
-     * @param \Secuconnect\Client\Model\GeneralMerchantsUrls[] $merchant_urls URLs
-     * @return $this
-     */
-    public function setMerchantUrls($merchant_urls)
-    {
-        $this->container['merchant_urls'] = $merchant_urls;
+        $this->container['type'] = $type;
 
         return $this;
     }

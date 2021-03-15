@@ -33,7 +33,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         'provider_contract' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'customer' => '\Secuconnect\Client\Model\PaymentCustomersProductModel',
         'shipping_address' => '\Secuconnect\Client\Model\PaymentCustomersProductModel',
-        'container' => '\Secuconnect\Client\Model\ProductInstanceUID',
+        'container' => '\Secuconnect\Client\Model\SmartTransactionsContainer',
         'checkin' => '\Secuconnect\Client\Model\SmartTransactionsCheckin',
         'merchant_ref' => 'string',
         'transaction_ref' => 'string',
@@ -524,7 +524,7 @@ class SmartTransactionsProductModel extends BaseProductModel
 
     /**
      * Gets container
-     * @return \Secuconnect\Client\Model\ProductInstanceUID
+     * @return \Secuconnect\Client\Model\SmartTransactionsContainer
      */
     public function getContainer()
     {
@@ -533,7 +533,7 @@ class SmartTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets container
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $container container
+     * @param \Secuconnect\Client\Model\SmartTransactionsContainer $container container
      * @return $this
      */
     public function setContainer($container)
