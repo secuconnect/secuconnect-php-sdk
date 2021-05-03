@@ -53,7 +53,8 @@ class SmartTransactionsDTO implements ArrayAccess
         'checkout_links' => '\Secuconnect\Client\Model\SmartTransactionsCheckoutLinks',
         'delivery_options' => '\Secuconnect\Client\Model\OneOfSmartTransactionsDeliveryOptionsModel',
         'communications' => '\Secuconnect\Client\Model\SmartTransactionsCommunication',
-        'application_context' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContext'
+        'application_context' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContext',
+        'payment_context' => '\Secuconnect\Client\Model\PaymentContext'
     ];
 
     /**
@@ -87,7 +88,8 @@ class SmartTransactionsDTO implements ArrayAccess
         'checkout_links' => null,
         'delivery_options' => null,
         'communications' => null,
-        'application_context' => null
+        'application_context' => null,
+        'payment_context' => null
     ];
 
     public static function swaggerTypes()
@@ -131,7 +133,8 @@ class SmartTransactionsDTO implements ArrayAccess
         'checkout_links' => 'checkout_links',
         'delivery_options' => 'delivery_options',
         'communications' => 'communications',
-        'application_context' => 'application_context'
+        'application_context' => 'application_context',
+        'payment_context' => 'payment_context'
     ];
 
     /**
@@ -165,7 +168,8 @@ class SmartTransactionsDTO implements ArrayAccess
         'checkout_links' => 'setCheckoutLinks',
         'delivery_options' => 'setDeliveryOptions',
         'communications' => 'setCommunications',
-        'application_context' => 'setApplicationContext'
+        'application_context' => 'setApplicationContext',
+        'payment_context' => 'setPaymentContext'
     ];
 
     /**
@@ -199,7 +203,8 @@ class SmartTransactionsDTO implements ArrayAccess
         'checkout_links' => 'getCheckoutLinks',
         'delivery_options' => 'getDeliveryOptions',
         'communications' => 'getCommunications',
-        'application_context' => 'getApplicationContext'
+        'application_context' => 'getApplicationContext',
+        'payment_context' => 'getPaymentContext'
     ];
 
     public static function attributeMap()
@@ -256,6 +261,7 @@ class SmartTransactionsDTO implements ArrayAccess
         $this->container['delivery_options'] = isset($data['delivery_options']) ? $data['delivery_options'] : null;
         $this->container['communications'] = isset($data['communications']) ? $data['communications'] : null;
         $this->container['application_context'] = isset($data['application_context']) ? $data['application_context'] : null;
+        $this->container['payment_context'] = isset($data['payment_context']) ? $data['payment_context'] : null;
     }
 
     /**
@@ -845,6 +851,27 @@ class SmartTransactionsDTO implements ArrayAccess
     public function setApplicationContext($application_context)
     {
         $this->container['application_context'] = $application_context;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_context
+     * @return \Secuconnect\Client\Model\PaymentContext
+     */
+    public function getPaymentContext()
+    {
+        return $this->container['payment_context'];
+    }
+
+    /**
+     * Sets payment_context
+     * @param \Secuconnect\Client\Model\PaymentContext $payment_context payment_context
+     * @return $this
+     */
+    public function setPaymentContext($payment_context)
+    {
+        $this->container['payment_context'] = $payment_context;
 
         return $this;
     }

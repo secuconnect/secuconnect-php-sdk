@@ -3,14 +3,14 @@
 namespace Secuconnect\Client\Model;
 
 /**
- * GeneralContractsProductModel
+ * GeneralMerchantsPublicDataModel
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GeneralContractsProductModel extends BaseProductModel
+class GeneralMerchantsPublicDataModel extends BaseProductModel
 {
     const DISCRIMINATOR = null;
 
@@ -18,17 +18,16 @@ class GeneralContractsProductModel extends BaseProductModel
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'GeneralContractsProductModel';
+    protected static $swaggerModelName = 'GeneralMerchantsPublicDataModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'parent' => '\Secuconnect\Client\Model\ParentModel',
-        'merchant' => '\Secuconnect\Client\Model\ProductInstanceUID',
-        'pay_in_advance_account' => '\Secuconnect\Client\Model\BankAccountDescriptor',
-        'payment_link_options' => '\Secuconnect\Client\Model\PaymentLinkOptions'
+        'legal_details' => '\Secuconnect\Client\Model\GeneralMerchantsLegalDetails[]',
+        'company' => '\Secuconnect\Client\Model\GeneralMerchantsPublicDataCompany',
+        'merchant_urls' => '\Secuconnect\Client\Model\GeneralMerchantsUrls[]'
     ];
 
     /**
@@ -36,10 +35,9 @@ class GeneralContractsProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'parent' => null,
-        'merchant' => null,
-        'pay_in_advance_account' => null,
-        'payment_link_options' => null
+        'legal_details' => null,
+        'company' => null,
+        'merchant_urls' => null
     ];
 
     public static function swaggerTypes()
@@ -57,10 +55,9 @@ class GeneralContractsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $attributeMap = [
-        'parent' => 'parent',
-        'merchant' => 'merchant',
-        'pay_in_advance_account' => 'pay_in_advance_account',
-        'payment_link_options' => 'payment_link_options'
+        'legal_details' => 'legal_details',
+        'company' => 'company',
+        'merchant_urls' => 'merchant_urls'
     ];
 
     /**
@@ -68,10 +65,9 @@ class GeneralContractsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $setters = [
-        'parent' => 'setParent',
-        'merchant' => 'setMerchant',
-        'pay_in_advance_account' => 'setPayInAdvanceAccount',
-        'payment_link_options' => 'setPaymentLinkOptions'
+        'legal_details' => 'setLegalDetails',
+        'company' => 'setCompany',
+        'merchant_urls' => 'setMerchantUrls'
     ];
 
     /**
@@ -79,10 +75,9 @@ class GeneralContractsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $getters = [
-        'parent' => 'getParent',
-        'merchant' => 'getMerchant',
-        'pay_in_advance_account' => 'getPayInAdvanceAccount',
-        'payment_link_options' => 'getPaymentLinkOptions'
+        'legal_details' => 'getLegalDetails',
+        'company' => 'getCompany',
+        'merchant_urls' => 'getMerchantUrls'
     ];
 
     public static function attributeMap()
@@ -108,10 +103,9 @@ class GeneralContractsProductModel extends BaseProductModel
     {
         parent::__construct($data);
 
-        $this->container['parent'] = isset($data['parent']) ? $data['parent'] : null;
-        $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
-        $this->container['pay_in_advance_account'] = isset($data['pay_in_advance_account']) ? $data['pay_in_advance_account'] : null;
-        $this->container['payment_link_options'] = isset($data['payment_link_options']) ? $data['payment_link_options'] : null;
+        $this->container['legal_details'] = isset($data['legal_details']) ? $data['legal_details'] : null;
+        $this->container['company'] = isset($data['company']) ? $data['company'] : null;
+        $this->container['merchant_urls'] = isset($data['merchant_urls']) ? $data['merchant_urls'] : null;
     }
 
     /**
@@ -139,85 +133,64 @@ class GeneralContractsProductModel extends BaseProductModel
 
 
     /**
-     * Gets parent
-     * @return \Secuconnect\Client\Model\ParentModel
+     * Gets legal_details
+     * @return \Secuconnect\Client\Model\GeneralMerchantsLegalDetails[]
      */
-    public function getParent()
+    public function getLegalDetails()
     {
-        return $this->container['parent'];
+        return $this->container['legal_details'];
     }
 
     /**
-     * Sets parent
-     * @param \Secuconnect\Client\Model\ParentModel $parent parent
+     * Sets legal_details
+     * @param \Secuconnect\Client\Model\GeneralMerchantsLegalDetails[] $legal_details Legal details like terms of use, privacy policy, or imprint
      * @return $this
      */
-    public function setParent($parent)
+    public function setLegalDetails($legal_details)
     {
-        $this->container['parent'] = $parent;
+        $this->container['legal_details'] = $legal_details;
 
         return $this;
     }
 
     /**
-     * Gets merchant
-     * @return \Secuconnect\Client\Model\ProductInstanceUID
+     * Gets company
+     * @return \Secuconnect\Client\Model\GeneralMerchantsPublicDataCompany
      */
-    public function getMerchant()
+    public function getCompany()
     {
-        return $this->container['merchant'];
+        return $this->container['company'];
     }
 
     /**
-     * Sets merchant
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $merchant merchant
+     * Sets company
+     * @param \Secuconnect\Client\Model\GeneralMerchantsPublicDataCompany $company company
      * @return $this
      */
-    public function setMerchant($merchant)
+    public function setCompany($company)
     {
-        $this->container['merchant'] = $merchant;
+        $this->container['company'] = $company;
 
         return $this;
     }
 
     /**
-     * Gets pay_in_advance_account
-     * @return \Secuconnect\Client\Model\BankAccountDescriptor
+     * Gets merchant_urls
+     * @return \Secuconnect\Client\Model\GeneralMerchantsUrls[]
      */
-    public function getPayInAdvanceAccount()
+    public function getMerchantUrls()
     {
-        return $this->container['pay_in_advance_account'];
+        return $this->container['merchant_urls'];
     }
 
     /**
-     * Sets pay_in_advance_account
-     * @param \Secuconnect\Client\Model\BankAccountDescriptor $pay_in_advance_account pay_in_advance_account
+     * Sets merchant_urls
+     * @param \Secuconnect\Client\Model\GeneralMerchantsUrls[] $merchant_urls URLs
      * @return $this
      */
-    public function setPayInAdvanceAccount($pay_in_advance_account)
+    public function setMerchantUrls($merchant_urls)
     {
-        $this->container['pay_in_advance_account'] = $pay_in_advance_account;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_link_options
-     * @return \Secuconnect\Client\Model\PaymentLinkOptions
-     */
-    public function getPaymentLinkOptions()
-    {
-        return $this->container['payment_link_options'];
-    }
-
-    /**
-     * Sets payment_link_options
-     * @param \Secuconnect\Client\Model\PaymentLinkOptions $payment_link_options payment_link_options
-     * @return $this
-     */
-    public function setPaymentLinkOptions($payment_link_options)
-    {
-        $this->container['payment_link_options'] = $payment_link_options;
+        $this->container['merchant_urls'] = $merchant_urls;
 
         return $this;
     }

@@ -2,15 +2,17 @@
 
 namespace Secuconnect\Client\Model;
 
+use \ArrayAccess;
+
 /**
- * GeneralContractsProductModel
+ * PaymentContext
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GeneralContractsProductModel extends BaseProductModel
+class PaymentContext implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -18,17 +20,16 @@ class GeneralContractsProductModel extends BaseProductModel
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'GeneralContractsProductModel';
+    protected static $swaggerModelName = 'PaymentContext';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'parent' => '\Secuconnect\Client\Model\ParentModel',
-        'merchant' => '\Secuconnect\Client\Model\ProductInstanceUID',
-        'pay_in_advance_account' => '\Secuconnect\Client\Model\BankAccountDescriptor',
-        'payment_link_options' => '\Secuconnect\Client\Model\PaymentLinkOptions'
+        'auto_capture' => 'bool',
+        'payment_methods' => 'string[]',
+        'merchant_initiated' => 'bool'
     ];
 
     /**
@@ -36,20 +37,19 @@ class GeneralContractsProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'parent' => null,
-        'merchant' => null,
-        'pay_in_advance_account' => null,
-        'payment_link_options' => null
+        'auto_capture' => null,
+        'payment_methods' => null,
+        'merchant_initiated' => null
     ];
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /**
@@ -57,10 +57,9 @@ class GeneralContractsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $attributeMap = [
-        'parent' => 'parent',
-        'merchant' => 'merchant',
-        'pay_in_advance_account' => 'pay_in_advance_account',
-        'payment_link_options' => 'payment_link_options'
+        'auto_capture' => 'auto_capture',
+        'payment_methods' => 'payment_methods',
+        'merchant_initiated' => 'merchant_initiated'
     ];
 
     /**
@@ -68,10 +67,9 @@ class GeneralContractsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $setters = [
-        'parent' => 'setParent',
-        'merchant' => 'setMerchant',
-        'pay_in_advance_account' => 'setPayInAdvanceAccount',
-        'payment_link_options' => 'setPaymentLinkOptions'
+        'auto_capture' => 'setAutoCapture',
+        'payment_methods' => 'setPaymentMethods',
+        'merchant_initiated' => 'setMerchantInitiated'
     ];
 
     /**
@@ -79,26 +77,31 @@ class GeneralContractsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $getters = [
-        'parent' => 'getParent',
-        'merchant' => 'getMerchant',
-        'pay_in_advance_account' => 'getPayInAdvanceAccount',
-        'payment_link_options' => 'getPaymentLinkOptions'
+        'auto_capture' => 'getAutoCapture',
+        'payment_methods' => 'getPaymentMethods',
+        'merchant_initiated' => 'getMerchantInitiated'
     ];
 
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
+
+    /**
+     * Associative array for storing property values
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -106,12 +109,9 @@ class GeneralContractsProductModel extends BaseProductModel
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['parent'] = isset($data['parent']) ? $data['parent'] : null;
-        $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
-        $this->container['pay_in_advance_account'] = isset($data['pay_in_advance_account']) ? $data['pay_in_advance_account'] : null;
-        $this->container['payment_link_options'] = isset($data['payment_link_options']) ? $data['payment_link_options'] : null;
+        $this->container['auto_capture'] = isset($data['auto_capture']) ? $data['auto_capture'] : false;
+        $this->container['payment_methods'] = isset($data['payment_methods']) ? $data['payment_methods'] : null;
+        $this->container['merchant_initiated'] = isset($data['merchant_initiated']) ? $data['merchant_initiated'] : false;
     }
 
     /**
@@ -121,7 +121,7 @@ class GeneralContractsProductModel extends BaseProductModel
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = parent::listInvalidProperties();
+        $invalid_properties = [];
 
         return $invalid_properties;
     }
@@ -139,85 +139,64 @@ class GeneralContractsProductModel extends BaseProductModel
 
 
     /**
-     * Gets parent
-     * @return \Secuconnect\Client\Model\ParentModel
+     * Gets auto_capture
+     * @return bool
      */
-    public function getParent()
+    public function getAutoCapture()
     {
-        return $this->container['parent'];
+        return $this->container['auto_capture'];
     }
 
     /**
-     * Sets parent
-     * @param \Secuconnect\Client\Model\ParentModel $parent parent
+     * Sets auto_capture
+     * @param bool $auto_capture auto capture the smart transaction
      * @return $this
      */
-    public function setParent($parent)
+    public function setAutoCapture($auto_capture)
     {
-        $this->container['parent'] = $parent;
+        $this->container['auto_capture'] = $auto_capture;
 
         return $this;
     }
 
     /**
-     * Gets merchant
-     * @return \Secuconnect\Client\Model\ProductInstanceUID
+     * Gets payment_methods
+     * @return string[]
      */
-    public function getMerchant()
+    public function getPaymentMethods()
     {
-        return $this->container['merchant'];
+        return $this->container['payment_methods'];
     }
 
     /**
-     * Sets merchant
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $merchant merchant
+     * Sets payment_methods
+     * @param string[] $payment_methods PaymentContext
      * @return $this
      */
-    public function setMerchant($merchant)
+    public function setPaymentMethods($payment_methods)
     {
-        $this->container['merchant'] = $merchant;
+        $this->container['payment_methods'] = $payment_methods;
 
         return $this;
     }
 
     /**
-     * Gets pay_in_advance_account
-     * @return \Secuconnect\Client\Model\BankAccountDescriptor
+     * Gets merchant_initiated
+     * @return bool
      */
-    public function getPayInAdvanceAccount()
+    public function getMerchantInitiated()
     {
-        return $this->container['pay_in_advance_account'];
+        return $this->container['merchant_initiated'];
     }
 
     /**
-     * Sets pay_in_advance_account
-     * @param \Secuconnect\Client\Model\BankAccountDescriptor $pay_in_advance_account pay_in_advance_account
+     * Sets merchant_initiated
+     * @param bool $merchant_initiated is this smart transaction created automatically by the merchant (process without customer interaction)
      * @return $this
      */
-    public function setPayInAdvanceAccount($pay_in_advance_account)
+    public function setMerchantInitiated($merchant_initiated)
     {
-        $this->container['pay_in_advance_account'] = $pay_in_advance_account;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_link_options
-     * @return \Secuconnect\Client\Model\PaymentLinkOptions
-     */
-    public function getPaymentLinkOptions()
-    {
-        return $this->container['payment_link_options'];
-    }
-
-    /**
-     * Sets payment_link_options
-     * @param \Secuconnect\Client\Model\PaymentLinkOptions $payment_link_options payment_link_options
-     * @return $this
-     */
-    public function setPaymentLinkOptions($payment_link_options)
-    {
-        $this->container['payment_link_options'] = $payment_link_options;
+        $this->container['merchant_initiated'] = $merchant_initiated;
 
         return $this;
     }

@@ -18,9 +18,34 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.6.0] - 2021-05-03
+
+### Added
+
+- `Api.GeneralMerchantsApi.getPublicData()`
+- `Api.SmartTemplatesApi`
+- `Model.BackgroundImageOption`
+- `Model.GeneralContractsProductModel` element `payment_link_options`
+- `Model.GeneralMerchantsPublicDataCompany`
+- `Model.GeneralMerchantsPublicDataModel`
+- `Model.PaymentContext`
+- `Model.PaymentInstructions`
+- `Model.PaymentLinkOptions`
+- `Model.SmartTemplatesAccordionItemModel`
+- `Model.SmartTemplatesComponentModel`
+- `Model.SmartTemplatesElementModel`
+- `Model.SmartTemplatesList`
+- `Model.SmartTemplatesProductModel`
+- `Model.SmartTransactionsDTO` element `payment_context`
+- `Model.SmartTransactionsPaymentLinks` element `paypal` and `sofort`
+- `Model.SmartTransactionsProductModel` element `payment_instructions` and `payment_context`
+
+### Fixed
+
+- `ObjectSerializer` to convert `OneOfSmartTransactionsDeliveryOptionsModel` and `PaymentInstructions` correctly
+
 
 ## [2.5.0] - 2021-03-15
-
 
 ### Added
 - `Api.PaymentPlansApi`
@@ -489,3 +514,4 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 [2.3.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.2.0...2.3.0
 [2.4.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.3.0...2.4.0
 [2.5.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.4.0...2.5.0
+[2.6.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.5.0...2.6.0

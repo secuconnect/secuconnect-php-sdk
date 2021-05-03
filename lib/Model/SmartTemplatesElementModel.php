@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SmartTransactionsPaymentLinks
+ * SmartTemplatesElementModel
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsPaymentLinks implements ArrayAccess
+class SmartTemplatesElementModel implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,20 +20,18 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTransactionsPaymentLinks';
+    protected static $swaggerModelName = 'SmartTemplatesElementModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'prepaid' => 'string',
-        'debit' => 'string',
-        'creditcard' => 'string',
-        'invoice' => 'string',
-        'paypal' => 'string',
-        'sofort' => 'string',
-        'general' => 'string'
+        'id' => 'int',
+        'type' => 'string',
+        'config' => 'object',
+        'condition' => 'object',
+        'accordion_elements' => '\Secuconnect\Client\Model\SmartTemplatesAccordionItemModel[]'
     ];
 
     /**
@@ -41,13 +39,11 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'prepaid' => null,
-        'debit' => null,
-        'creditcard' => null,
-        'invoice' => null,
-        'paypal' => null,
-        'sofort' => null,
-        'general' => null
+        'id' => null,
+        'type' => null,
+        'config' => null,
+        'condition' => null,
+        'accordion_elements' => null
     ];
 
     public static function swaggerTypes()
@@ -65,13 +61,11 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'prepaid' => 'prepaid',
-        'debit' => 'debit',
-        'creditcard' => 'creditcard',
-        'invoice' => 'invoice',
-        'paypal' => 'paypal',
-        'sofort' => 'sofort',
-        'general' => 'general'
+        'id' => 'id',
+        'type' => 'type',
+        'config' => 'config',
+        'condition' => 'condition',
+        'accordion_elements' => 'accordion_elements'
     ];
 
     /**
@@ -79,13 +73,11 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'prepaid' => 'setPrepaid',
-        'debit' => 'setDebit',
-        'creditcard' => 'setCreditcard',
-        'invoice' => 'setInvoice',
-        'paypal' => 'setPaypal',
-        'sofort' => 'setSofort',
-        'general' => 'setGeneral'
+        'id' => 'setId',
+        'type' => 'setType',
+        'config' => 'setConfig',
+        'condition' => 'setCondition',
+        'accordion_elements' => 'setAccordionElements'
     ];
 
     /**
@@ -93,13 +85,11 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'prepaid' => 'getPrepaid',
-        'debit' => 'getDebit',
-        'creditcard' => 'getCreditcard',
-        'invoice' => 'getInvoice',
-        'paypal' => 'getPaypal',
-        'sofort' => 'getSofort',
-        'general' => 'getGeneral'
+        'id' => 'getId',
+        'type' => 'getType',
+        'config' => 'getConfig',
+        'condition' => 'getCondition',
+        'accordion_elements' => 'getAccordionElements'
     ];
 
     public static function attributeMap()
@@ -129,13 +119,11 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['prepaid'] = isset($data['prepaid']) ? $data['prepaid'] : null;
-        $this->container['debit'] = isset($data['debit']) ? $data['debit'] : null;
-        $this->container['creditcard'] = isset($data['creditcard']) ? $data['creditcard'] : null;
-        $this->container['invoice'] = isset($data['invoice']) ? $data['invoice'] : null;
-        $this->container['paypal'] = isset($data['paypal']) ? $data['paypal'] : null;
-        $this->container['sofort'] = isset($data['sofort']) ? $data['sofort'] : null;
-        $this->container['general'] = isset($data['general']) ? $data['general'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['config'] = isset($data['config']) ? $data['config'] : null;
+        $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
+        $this->container['accordion_elements'] = isset($data['accordion_elements']) ? $data['accordion_elements'] : null;
     }
 
     /**
@@ -163,148 +151,106 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
 
 
     /**
-     * Gets prepaid
-     * @return string
+     * Gets id
+     * @return int
      */
-    public function getPrepaid()
+    public function getId()
     {
-        return $this->container['prepaid'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets prepaid
-     * @param string $prepaid process with pay in advance
+     * Sets id
+     * @param int $id Id of element item of the component
      * @return $this
      */
-    public function setPrepaid($prepaid)
+    public function setId($id)
     {
-        $this->container['prepaid'] = $prepaid;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets debit
+     * Gets type
      * @return string
      */
-    public function getDebit()
+    public function getType()
     {
-        return $this->container['debit'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets debit
-     * @param string $debit process with SEAP direct debit
+     * Sets type
+     * @param string $type The element type
      * @return $this
      */
-    public function setDebit($debit)
+    public function setType($type)
     {
-        $this->container['debit'] = $debit;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets creditcard
-     * @return string
+     * Gets config
+     * @return object
      */
-    public function getCreditcard()
+    public function getConfig()
     {
-        return $this->container['creditcard'];
+        return $this->container['config'];
     }
 
     /**
-     * Sets creditcard
-     * @param string $creditcard process with credit card
+     * Sets config
+     * @param object $config The element configuration
      * @return $this
      */
-    public function setCreditcard($creditcard)
+    public function setConfig($config)
     {
-        $this->container['creditcard'] = $creditcard;
+        $this->container['config'] = $config;
 
         return $this;
     }
 
     /**
-     * Gets invoice
-     * @return string
+     * Gets condition
+     * @return object
      */
-    public function getInvoice()
+    public function getCondition()
     {
-        return $this->container['invoice'];
+        return $this->container['condition'];
     }
 
     /**
-     * Sets invoice
-     * @param string $invoice process with pay on invoice
+     * Sets condition
+     * @param object $condition The element conditions to determine when this element should be shown
      * @return $this
      */
-    public function setInvoice($invoice)
+    public function setCondition($condition)
     {
-        $this->container['invoice'] = $invoice;
+        $this->container['condition'] = $condition;
 
         return $this;
     }
 
     /**
-     * Gets paypal
-     * @return string
+     * Gets accordion_elements
+     * @return \Secuconnect\Client\Model\SmartTemplatesAccordionItemModel[]
      */
-    public function getPaypal()
+    public function getAccordionElements()
     {
-        return $this->container['paypal'];
+        return $this->container['accordion_elements'];
     }
 
     /**
-     * Sets paypal
-     * @param string $paypal process with PayPal
+     * Sets accordion_elements
+     * @param \Secuconnect\Client\Model\SmartTemplatesAccordionItemModel[] $accordion_elements The accordion items to be shown in accordion element
      * @return $this
      */
-    public function setPaypal($paypal)
+    public function setAccordionElements($accordion_elements)
     {
-        $this->container['paypal'] = $paypal;
-
-        return $this;
-    }
-
-    /**
-     * Gets sofort
-     * @return string
-     */
-    public function getSofort()
-    {
-        return $this->container['sofort'];
-    }
-
-    /**
-     * Sets sofort
-     * @param string $sofort process with Sofort
-     * @return $this
-     */
-    public function setSofort($sofort)
-    {
-        $this->container['sofort'] = $sofort;
-
-        return $this;
-    }
-
-    /**
-     * Gets general
-     * @return string
-     */
-    public function getGeneral()
-    {
-        return $this->container['general'];
-    }
-
-    /**
-     * Sets general
-     * @param string $general process with selecting a payment method
-     * @return $this
-     */
-    public function setGeneral($general)
-    {
-        $this->container['general'] = $general;
+        $this->container['accordion_elements'] = $accordion_elements;
 
         return $this;
     }

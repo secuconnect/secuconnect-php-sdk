@@ -64,7 +64,9 @@ class SmartTransactionsProductModel extends BaseProductModel
         'prepaid_sales' => '\Secuconnect\Client\Model\SmartTransactionsPrepaidSalesDetails',
         'communications' => '\Secuconnect\Client\Model\SmartTransactionsCommunication',
         'payment_links' => '\Secuconnect\Client\Model\SmartTransactionsPaymentLinks',
-        'application_context' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContext'
+        'application_context' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContext',
+        'payment_instructions' => '\Secuconnect\Client\Model\PaymentInstructions',
+        'payment_context' => '\Secuconnect\Client\Model\PaymentContext'
     ];
 
     /**
@@ -111,7 +113,9 @@ class SmartTransactionsProductModel extends BaseProductModel
         'prepaid_sales' => null,
         'communications' => null,
         'payment_links' => null,
-        'application_context' => null
+        'application_context' => null,
+        'payment_instructions' => null,
+        'payment_context' => null
     ];
 
     public static function swaggerTypes()
@@ -168,7 +172,9 @@ class SmartTransactionsProductModel extends BaseProductModel
         'prepaid_sales' => 'prepaid_sales',
         'communications' => 'communications',
         'payment_links' => 'payment_links',
-        'application_context' => 'application_context'
+        'application_context' => 'application_context',
+        'payment_instructions' => 'payment_instructions',
+        'payment_context' => 'payment_context'
     ];
 
     /**
@@ -215,7 +221,9 @@ class SmartTransactionsProductModel extends BaseProductModel
         'prepaid_sales' => 'setPrepaidSales',
         'communications' => 'setCommunications',
         'payment_links' => 'setPaymentLinks',
-        'application_context' => 'setApplicationContext'
+        'application_context' => 'setApplicationContext',
+        'payment_instructions' => 'setPaymentInstructions',
+        'payment_context' => 'setPaymentContext'
     ];
 
     /**
@@ -262,7 +270,9 @@ class SmartTransactionsProductModel extends BaseProductModel
         'prepaid_sales' => 'getPrepaidSales',
         'communications' => 'getCommunications',
         'payment_links' => 'getPaymentLinks',
-        'application_context' => 'getApplicationContext'
+        'application_context' => 'getApplicationContext',
+        'payment_instructions' => 'getPaymentInstructions',
+        'payment_context' => 'getPaymentContext'
     ];
 
     public static function attributeMap()
@@ -328,6 +338,8 @@ class SmartTransactionsProductModel extends BaseProductModel
         $this->container['communications'] = isset($data['communications']) ? $data['communications'] : null;
         $this->container['payment_links'] = isset($data['payment_links']) ? $data['payment_links'] : null;
         $this->container['application_context'] = isset($data['application_context']) ? $data['application_context'] : null;
+        $this->container['payment_instructions'] = isset($data['payment_instructions']) ? $data['payment_instructions'] : null;
+        $this->container['payment_context'] = isset($data['payment_context']) ? $data['payment_context'] : null;
     }
 
     /**
@@ -1190,6 +1202,48 @@ class SmartTransactionsProductModel extends BaseProductModel
     public function setApplicationContext($application_context)
     {
         $this->container['application_context'] = $application_context;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_instructions
+     * @return \Secuconnect\Client\Model\PaymentInstructions
+     */
+    public function getPaymentInstructions()
+    {
+        return $this->container['payment_instructions'];
+    }
+
+    /**
+     * Sets payment_instructions
+     * @param \Secuconnect\Client\Model\PaymentInstructions $payment_instructions payment_instructions
+     * @return $this
+     */
+    public function setPaymentInstructions($payment_instructions)
+    {
+        $this->container['payment_instructions'] = $payment_instructions;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_context
+     * @return \Secuconnect\Client\Model\PaymentContext
+     */
+    public function getPaymentContext()
+    {
+        return $this->container['payment_context'];
+    }
+
+    /**
+     * Sets payment_context
+     * @param \Secuconnect\Client\Model\PaymentContext $payment_context payment_context
+     * @return $this
+     */
+    public function setPaymentContext($payment_context)
+    {
+        $this->container['payment_context'] = $payment_context;
 
         return $this;
     }

@@ -3,14 +3,14 @@
 namespace Secuconnect\Client\Model;
 
 /**
- * GeneralContractsProductModel
+ * PaymentInstructions
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GeneralContractsProductModel extends BaseProductModel
+class PaymentInstructions extends BankAccountDescriptor
 {
     const DISCRIMINATOR = null;
 
@@ -18,17 +18,14 @@ class GeneralContractsProductModel extends BaseProductModel
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'GeneralContractsProductModel';
+    protected static $swaggerModelName = 'PaymentInstructions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'parent' => '\Secuconnect\Client\Model\ParentModel',
-        'merchant' => '\Secuconnect\Client\Model\ProductInstanceUID',
-        'pay_in_advance_account' => '\Secuconnect\Client\Model\BankAccountDescriptor',
-        'payment_link_options' => '\Secuconnect\Client\Model\PaymentLinkOptions'
+        'girocode_url' => 'string'
     ];
 
     /**
@@ -36,10 +33,7 @@ class GeneralContractsProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'parent' => null,
-        'merchant' => null,
-        'pay_in_advance_account' => null,
-        'payment_link_options' => null
+        'girocode_url' => null
     ];
 
     public static function swaggerTypes()
@@ -57,10 +51,7 @@ class GeneralContractsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $attributeMap = [
-        'parent' => 'parent',
-        'merchant' => 'merchant',
-        'pay_in_advance_account' => 'pay_in_advance_account',
-        'payment_link_options' => 'payment_link_options'
+        'girocode_url' => 'girocode_url'
     ];
 
     /**
@@ -68,10 +59,7 @@ class GeneralContractsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $setters = [
-        'parent' => 'setParent',
-        'merchant' => 'setMerchant',
-        'pay_in_advance_account' => 'setPayInAdvanceAccount',
-        'payment_link_options' => 'setPaymentLinkOptions'
+        'girocode_url' => 'setGirocodeUrl'
     ];
 
     /**
@@ -79,10 +67,7 @@ class GeneralContractsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $getters = [
-        'parent' => 'getParent',
-        'merchant' => 'getMerchant',
-        'pay_in_advance_account' => 'getPayInAdvanceAccount',
-        'payment_link_options' => 'getPaymentLinkOptions'
+        'girocode_url' => 'getGirocodeUrl'
     ];
 
     public static function attributeMap()
@@ -108,10 +93,7 @@ class GeneralContractsProductModel extends BaseProductModel
     {
         parent::__construct($data);
 
-        $this->container['parent'] = isset($data['parent']) ? $data['parent'] : null;
-        $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
-        $this->container['pay_in_advance_account'] = isset($data['pay_in_advance_account']) ? $data['pay_in_advance_account'] : null;
-        $this->container['payment_link_options'] = isset($data['payment_link_options']) ? $data['payment_link_options'] : null;
+        $this->container['girocode_url'] = isset($data['girocode_url']) ? $data['girocode_url'] : null;
     }
 
     /**
@@ -139,85 +121,22 @@ class GeneralContractsProductModel extends BaseProductModel
 
 
     /**
-     * Gets parent
-     * @return \Secuconnect\Client\Model\ParentModel
+     * Gets girocode_url
+     * @return string
      */
-    public function getParent()
+    public function getGirocodeUrl()
     {
-        return $this->container['parent'];
+        return $this->container['girocode_url'];
     }
 
     /**
-     * Sets parent
-     * @param \Secuconnect\Client\Model\ParentModel $parent parent
+     * Sets girocode_url
+     * @param string $girocode_url Url to generated GiroCode
      * @return $this
      */
-    public function setParent($parent)
+    public function setGirocodeUrl($girocode_url)
     {
-        $this->container['parent'] = $parent;
-
-        return $this;
-    }
-
-    /**
-     * Gets merchant
-     * @return \Secuconnect\Client\Model\ProductInstanceUID
-     */
-    public function getMerchant()
-    {
-        return $this->container['merchant'];
-    }
-
-    /**
-     * Sets merchant
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $merchant merchant
-     * @return $this
-     */
-    public function setMerchant($merchant)
-    {
-        $this->container['merchant'] = $merchant;
-
-        return $this;
-    }
-
-    /**
-     * Gets pay_in_advance_account
-     * @return \Secuconnect\Client\Model\BankAccountDescriptor
-     */
-    public function getPayInAdvanceAccount()
-    {
-        return $this->container['pay_in_advance_account'];
-    }
-
-    /**
-     * Sets pay_in_advance_account
-     * @param \Secuconnect\Client\Model\BankAccountDescriptor $pay_in_advance_account pay_in_advance_account
-     * @return $this
-     */
-    public function setPayInAdvanceAccount($pay_in_advance_account)
-    {
-        $this->container['pay_in_advance_account'] = $pay_in_advance_account;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_link_options
-     * @return \Secuconnect\Client\Model\PaymentLinkOptions
-     */
-    public function getPaymentLinkOptions()
-    {
-        return $this->container['payment_link_options'];
-    }
-
-    /**
-     * Sets payment_link_options
-     * @param \Secuconnect\Client\Model\PaymentLinkOptions $payment_link_options payment_link_options
-     * @return $this
-     */
-    public function setPaymentLinkOptions($payment_link_options)
-    {
-        $this->container['payment_link_options'] = $payment_link_options;
+        $this->container['girocode_url'] = $girocode_url;
 
         return $this;
     }
