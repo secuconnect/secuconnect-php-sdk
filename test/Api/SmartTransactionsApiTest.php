@@ -654,6 +654,7 @@ class SmartTransactionsApiTest extends TestCase
      */
     public function testPreTransaction()
     {
+        $this->markTestSkipped();
         Authenticator::authenticateByRefreshToken(...array_values(Globals::OAuthRefreshCredentials));
 
         self::$api = new SmartTransactionsApi();
@@ -692,6 +693,7 @@ class SmartTransactionsApiTest extends TestCase
         $transactionDTO = new SmartTransactionsDTO();
         $transactionDTO->setBasket(self::$SmartTransactionsProductModel->getBasket());
         $transactionDTO->setBasketInfo(self::$SmartTransactionsProductModel->getBasketInfo());
+        $transactionDTO->setMerchant('MRC_WVHJQFQ4JNVYNG5B55TYK748ZCHQP8');
 
         try {
             $smartTransaction = self::$api->addTransaction($transactionDTO);

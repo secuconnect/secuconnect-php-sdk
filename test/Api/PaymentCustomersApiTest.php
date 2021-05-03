@@ -76,7 +76,7 @@ class PaymentCustomersApiTest extends TestCase
             ->setStreetNumber('6a')
             ->setPostalCode('01234')
             ->setCity('Examplecity')
-            ->setCountry('Germany');
+            ->setCountry('DE');
 
         self::$contact = new Contact();
         self::$contact
@@ -161,7 +161,7 @@ class PaymentCustomersApiTest extends TestCase
         $this->assertEquals('6a', $response->getContact()->getAddress()->getStreetNumber());
         $this->assertEquals('01234', $response->getContact()->getAddress()->getPostalCode());
         $this->assertEquals('Examplecity', $response->getContact()->getAddress()->getCity());
-        $this->assertEquals('Germany', $response->getContact()->getAddress()->getCountry());
+        $this->assertEquals('DE', $response->getContact()->getAddress()->getCountry());
         $this->assertNotEmpty($response->getCreated());
 
         self::$created = $response->getCreated();
@@ -176,11 +176,11 @@ class PaymentCustomersApiTest extends TestCase
     {
         $customer = new PaymentCustomersDTO();
         self::$contactAddress
-            ->setStreet('Example 2 Street')
+            ->setStreet('Example Street')
             ->setStreetNumber('125b')
             ->setPostalCode('75432')
             ->setCity('Examplecity2')
-            ->setCountry('Austria');
+            ->setCountry('AT');
 
         self::$contact
             ->setSalutation('Mrs.')
@@ -220,11 +220,11 @@ class PaymentCustomersApiTest extends TestCase
         $this->assertEquals('new.email@my-email.com', $response->getContact()->getEmail());
         $this->assertEquals('004932131701', $response->getContact()->getPhone());
         $this->assertEquals('0049537144093', $response->getContact()->getMobile());
-        $this->assertEquals('Example 2 Street', $response->getContact()->getAddress()->getStreet());
+        $this->assertEquals('Example Street', $response->getContact()->getAddress()->getStreet());
         $this->assertEquals('125b', $response->getContact()->getAddress()->getStreetNumber());
         $this->assertEquals('75432', $response->getContact()->getAddress()->getPostalCode());
         $this->assertEquals('Examplecity2', $response->getContact()->getAddress()->getCity());
-        $this->assertEquals('Austria', $response->getContact()->getAddress()->getCountry());
+        $this->assertEquals('AT', $response->getContact()->getAddress()->getCountry());
 
         $this->assertNotEmpty($response->getCreated());
         $this->assertEquals(self::$created, $response->getCreated());
@@ -261,12 +261,11 @@ class PaymentCustomersApiTest extends TestCase
         $this->assertEquals('1902-03-04T00:00:00+01:00', $response->getContact()->getDob());
         $this->assertEquals('new.email@my-email.com', $response->getContact()->getEmail());
         $this->assertEquals('004932131701', $response->getContact()->getPhone());
-        $this->assertEquals('0049537144093', $response->getContact()->getMobile());
-        $this->assertEquals('Example 2 Street', $response->getContact()->getAddress()->getStreet());
+        $this->assertEquals('Example Street', $response->getContact()->getAddress()->getStreet());
         $this->assertEquals('125b', $response->getContact()->getAddress()->getStreetNumber());
         $this->assertEquals('75432', $response->getContact()->getAddress()->getPostalCode());
         $this->assertEquals('Examplecity2', $response->getContact()->getAddress()->getCity());
-        $this->assertEquals('Austria', $response->getContact()->getAddress()->getCountry());
+        $this->assertEquals('AT', $response->getContact()->getAddress()->getCountry());
         $this->assertEquals(self::$created, $response->getCreated());
         $this->assertEquals(self::$updated, $response->getUpdated());
     }
@@ -303,11 +302,11 @@ class PaymentCustomersApiTest extends TestCase
         $this->assertEquals('new.email@my-email.com', $response[0]->getContact()->getEmail());
         $this->assertEquals('004932131701', $response[0]->getContact()->getPhone());
         $this->assertEquals('0049537144093', $response[0]->getContact()->getMobile());
-        $this->assertEquals('Example 2 Street', $response[0]->getContact()->getAddress()->getStreet());
+        $this->assertEquals('Example Street', $response[0]->getContact()->getAddress()->getStreet());
         $this->assertEquals('125b', $response[0]->getContact()->getAddress()->getStreetNumber());
         $this->assertEquals('75432', $response[0]->getContact()->getAddress()->getPostalCode());
         $this->assertEquals('Examplecity2', $response[0]->getContact()->getAddress()->getCity());
-        $this->assertEquals('Austria', $response[0]->getContact()->getAddress()->getCountry());
+        $this->assertEquals('AT', $response[0]->getContact()->getAddress()->getCountry());
         $this->assertEquals(self::$created, $response[0]->getCreated());
         $this->assertEquals(self::$updated, $response[0]->getUpdated());
     }

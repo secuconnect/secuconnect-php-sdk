@@ -138,8 +138,8 @@ class GeneralMerchantsApiTest extends TestCase
                     for ($i = 0; $i < sizeof($addresses); $i++) {
                         $this->assertEquals($addresses[$i], $receivedAddresses[$i]);
 
-                        $addressComponents = $addresses[$i]->getAddressComponents();
-                        $receivedAddressComponents = $receivedAddresses[$i]->getAddressComponents();
+                        $addressComponents = $addresses[$i]->getAddressComponents()[0];
+                        $receivedAddressComponents = $receivedAddresses[$i]->getAddressComponents()[0];
 
                         $this->assertEquals($addressComponents, $receivedAddressComponents);
                         $this->assertEquals(
