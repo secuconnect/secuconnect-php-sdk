@@ -693,7 +693,7 @@ class SmartTransactionsApiTest extends TestCase
         $transactionDTO = new SmartTransactionsDTO();
         $transactionDTO->setBasket(self::$SmartTransactionsProductModel->getBasket());
         $transactionDTO->setBasketInfo(self::$SmartTransactionsProductModel->getBasketInfo());
-        $transactionDTO->setMerchant('MRC_WVHJQFQ4JNVYNG5B55TYK748ZCHQP8');
+        $transactionDTO->setMerchant(self::$SmartTransactionsProductModel->getMerchant());
 
         try {
             $smartTransaction = self::$api->addTransaction($transactionDTO);

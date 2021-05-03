@@ -18,7 +18,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
-## [2.6.0] - 2021-05-03
+
+## [2.7.0] - 2021-05-03
 
 ### Added
 
@@ -43,6 +44,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 
 - `ObjectSerializer` to convert `OneOfSmartTransactionsDeliveryOptionsModel` and `PaymentInstructions` correctly
+
+
+## 2.6.0 - SKIPPED
 
 
 ## [2.5.0] - 2021-03-15
@@ -514,4 +518,4 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 [2.3.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.2.0...2.3.0
 [2.4.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.3.0...2.4.0
 [2.5.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.4.0...2.5.0
-[2.6.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.5.0...2.6.0
+[2.7.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.5.0...2.7.0
