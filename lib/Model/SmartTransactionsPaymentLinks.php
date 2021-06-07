@@ -194,7 +194,7 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
 
     /**
      * Sets debit
-     * @param string $debit process with SEAP direct debit
+     * @param string $debit process with SEPA direct debit
      * @return $this
      */
     public function setDebit($debit)

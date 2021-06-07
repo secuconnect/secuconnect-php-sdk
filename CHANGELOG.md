@@ -19,6 +19,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [2.8.0] - 2021-06-04
+
+### Security
+
+- Update dependencies to the latest versions.
+
+### Added
+
+- `Api.GeneralContractsApi.revokeAccrualCall()`
+- `Api.PaymentContractsApi.revokeAccrualCall()`
+- `Model.GeneralContractsProductModel` element `id_old`
+
 ## [2.7.0] - 2021-05-03
 
 ### Added
@@ -519,3 +531,4 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 [2.4.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.3.0...2.4.0
 [2.5.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.4.0...2.5.0
 [2.7.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.5.0...2.7.0
+[2.8.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.7.0...2.8.0

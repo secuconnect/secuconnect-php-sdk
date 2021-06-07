@@ -25,6 +25,7 @@ class GeneralContractsProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'id_old' => 'int',
         'parent' => '\Secuconnect\Client\Model\ParentModel',
         'merchant' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'pay_in_advance_account' => '\Secuconnect\Client\Model\BankAccountDescriptor',
@@ -36,6 +37,7 @@ class GeneralContractsProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'id_old' => 'id',
         'parent' => null,
         'merchant' => null,
         'pay_in_advance_account' => null,
@@ -57,6 +59,7 @@ class GeneralContractsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $attributeMap = [
+        'id_old' => 'id_old',
         'parent' => 'parent',
         'merchant' => 'merchant',
         'pay_in_advance_account' => 'pay_in_advance_account',
@@ -68,6 +71,7 @@ class GeneralContractsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $setters = [
+        'id_old' => 'setIdOld',
         'parent' => 'setParent',
         'merchant' => 'setMerchant',
         'pay_in_advance_account' => 'setPayInAdvanceAccount',
@@ -79,6 +83,7 @@ class GeneralContractsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $getters = [
+        'id_old' => 'getIdOld',
         'parent' => 'getParent',
         'merchant' => 'getMerchant',
         'pay_in_advance_account' => 'getPayInAdvanceAccount',
@@ -108,6 +113,7 @@ class GeneralContractsProductModel extends BaseProductModel
     {
         parent::__construct($data);
 
+        $this->container['id_old'] = isset($data['id_old']) ? $data['id_old'] : null;
         $this->container['parent'] = isset($data['parent']) ? $data['parent'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['pay_in_advance_account'] = isset($data['pay_in_advance_account']) ? $data['pay_in_advance_account'] : null;
@@ -137,6 +143,27 @@ class GeneralContractsProductModel extends BaseProductModel
         return true;
     }
 
+
+    /**
+     * Gets id_old
+     * @return int
+     */
+    public function getIdOld()
+    {
+        return $this->container['id_old'];
+    }
+
+    /**
+     * Sets id_old
+     * @param int $id_old ID in secupay Frontend
+     * @return $this
+     */
+    public function setIdOld($id_old)
+    {
+        $this->container['id_old'] = $id_old;
+
+        return $this;
+    }
 
     /**
      * Gets parent
