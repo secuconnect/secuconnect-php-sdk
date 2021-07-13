@@ -6,6 +6,7 @@ namespace Secuconnect\Client\Model;
  * PaymentContractsProductModel
  *
  * @category Class
+ * @description PaymentContractsProductModel
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -29,7 +30,8 @@ class PaymentContractsProductModel extends BaseProductModel
         'updated' => 'string',
         'parent' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'pay_in_account' => '\Secuconnect\Client\Model\PaymentInformation',
-        'demo' => 'bool'
+        'demo' => 'bool',
+        'approved' => 'bool'
     ];
 
     /**
@@ -41,7 +43,8 @@ class PaymentContractsProductModel extends BaseProductModel
         'updated' => null,
         'parent' => null,
         'pay_in_account' => null,
-        'demo' => null
+        'demo' => null,
+        'approved' => null
     ];
 
     public static function swaggerTypes()
@@ -63,7 +66,8 @@ class PaymentContractsProductModel extends BaseProductModel
         'updated' => 'updated',
         'parent' => 'parent',
         'pay_in_account' => 'pay_in_account',
-        'demo' => 'demo'
+        'demo' => 'demo',
+        'approved' => 'approved'
     ];
 
     /**
@@ -75,7 +79,8 @@ class PaymentContractsProductModel extends BaseProductModel
         'updated' => 'setUpdated',
         'parent' => 'setParent',
         'pay_in_account' => 'setPayInAccount',
-        'demo' => 'setDemo'
+        'demo' => 'setDemo',
+        'approved' => 'setApproved'
     ];
 
     /**
@@ -87,7 +92,8 @@ class PaymentContractsProductModel extends BaseProductModel
         'updated' => 'getUpdated',
         'parent' => 'getParent',
         'pay_in_account' => 'getPayInAccount',
-        'demo' => 'getDemo'
+        'demo' => 'getDemo',
+        'approved' => 'getApproved'
     ];
 
     public static function attributeMap()
@@ -118,6 +124,7 @@ class PaymentContractsProductModel extends BaseProductModel
         $this->container['parent'] = isset($data['parent']) ? $data['parent'] : null;
         $this->container['pay_in_account'] = isset($data['pay_in_account']) ? $data['pay_in_account'] : null;
         $this->container['demo'] = isset($data['demo']) ? $data['demo'] : null;
+        $this->container['approved'] = isset($data['approved']) ? $data['approved'] : null;
     }
 
     /**
@@ -245,6 +252,27 @@ class PaymentContractsProductModel extends BaseProductModel
     public function setDemo($demo)
     {
         $this->container['demo'] = $demo;
+
+        return $this;
+    }
+
+    /**
+     * Gets approved
+     * @return bool
+     */
+    public function getApproved()
+    {
+        return $this->container['approved'];
+    }
+
+    /**
+     * Sets approved
+     * @param bool $approved Indicates if the payout lock was removed
+     * @return $this
+     */
+    public function setApproved($approved)
+    {
+        $this->container['approved'] = $approved;
 
         return $this;
     }

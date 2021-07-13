@@ -6,6 +6,7 @@ namespace Secuconnect\Client\Model;
  * GeneralContractsProductModel
  *
  * @category Class
+ * @description GeneralContractsProductModel
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -29,7 +30,8 @@ class GeneralContractsProductModel extends BaseProductModel
         'parent' => '\Secuconnect\Client\Model\ParentModel',
         'merchant' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'pay_in_advance_account' => '\Secuconnect\Client\Model\BankAccountDescriptor',
-        'payment_link_options' => '\Secuconnect\Client\Model\PaymentLinkOptions'
+        'payment_link_options' => '\Secuconnect\Client\Model\PaymentLinkOptions',
+        'approved' => 'bool'
     ];
 
     /**
@@ -41,7 +43,8 @@ class GeneralContractsProductModel extends BaseProductModel
         'parent' => null,
         'merchant' => null,
         'pay_in_advance_account' => null,
-        'payment_link_options' => null
+        'payment_link_options' => null,
+        'approved' => null
     ];
 
     public static function swaggerTypes()
@@ -63,7 +66,8 @@ class GeneralContractsProductModel extends BaseProductModel
         'parent' => 'parent',
         'merchant' => 'merchant',
         'pay_in_advance_account' => 'pay_in_advance_account',
-        'payment_link_options' => 'payment_link_options'
+        'payment_link_options' => 'payment_link_options',
+        'approved' => 'approved'
     ];
 
     /**
@@ -75,7 +79,8 @@ class GeneralContractsProductModel extends BaseProductModel
         'parent' => 'setParent',
         'merchant' => 'setMerchant',
         'pay_in_advance_account' => 'setPayInAdvanceAccount',
-        'payment_link_options' => 'setPaymentLinkOptions'
+        'payment_link_options' => 'setPaymentLinkOptions',
+        'approved' => 'setApproved'
     ];
 
     /**
@@ -87,7 +92,8 @@ class GeneralContractsProductModel extends BaseProductModel
         'parent' => 'getParent',
         'merchant' => 'getMerchant',
         'pay_in_advance_account' => 'getPayInAdvanceAccount',
-        'payment_link_options' => 'getPaymentLinkOptions'
+        'payment_link_options' => 'getPaymentLinkOptions',
+        'approved' => 'getApproved'
     ];
 
     public static function attributeMap()
@@ -118,6 +124,7 @@ class GeneralContractsProductModel extends BaseProductModel
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['pay_in_advance_account'] = isset($data['pay_in_advance_account']) ? $data['pay_in_advance_account'] : null;
         $this->container['payment_link_options'] = isset($data['payment_link_options']) ? $data['payment_link_options'] : null;
+        $this->container['approved'] = isset($data['approved']) ? $data['approved'] : null;
     }
 
     /**
@@ -245,6 +252,27 @@ class GeneralContractsProductModel extends BaseProductModel
     public function setPaymentLinkOptions($payment_link_options)
     {
         $this->container['payment_link_options'] = $payment_link_options;
+
+        return $this;
+    }
+
+    /**
+     * Gets approved
+     * @return bool
+     */
+    public function getApproved()
+    {
+        return $this->container['approved'];
+    }
+
+    /**
+     * Sets approved
+     * @param bool $approved Indicates if the payout lock was removed
+     * @return $this
+     */
+    public function setApproved($approved)
+    {
+        $this->container['approved'] = $approved;
 
         return $this;
     }

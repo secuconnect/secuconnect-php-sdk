@@ -19,6 +19,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [2.8.1] - 2021-07-12
+
+### Added
+- `Model.GeneralContractsProductModel` element `approved`
+- `Model.PaymentContractsProductModel` element `approved`
+
+
 ## [2.8.0] - 2021-06-04
 
 ### Security
