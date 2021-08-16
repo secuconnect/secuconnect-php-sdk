@@ -545,3 +545,5 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 [2.5.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.4.0...2.5.0
 [2.7.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.5.0...2.7.0
 [2.8.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.7.0...2.8.0
+[2.8.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.8.0...2.8.1
+[2.8.2]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.8.1...2.8.2
