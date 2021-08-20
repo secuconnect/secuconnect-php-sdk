@@ -8,6 +8,7 @@ use \ArrayAccess;
  * LoyaltyTransactionsDTOCardgroup
  *
  * @category Class
+ * @description LoyaltyTransactionsDTOCardgroup
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

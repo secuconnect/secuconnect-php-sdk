@@ -164,7 +164,7 @@ class LoyaltyTransactionsList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\LoyaltyTransactionsProductModel[] $data data
+     * @param \Secuconnect\Client\Model\LoyaltyTransactionsProductModel[] $data List of LoyaltyTransactions
      * @return $this
      */
     public function setData($data)

@@ -8,6 +8,7 @@ use \ArrayAccess;
  * PaymentContractsDTOIFrameOpts
  *
  * @category Class
+ * @description PaymentContractsDTOIFrameOpts
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

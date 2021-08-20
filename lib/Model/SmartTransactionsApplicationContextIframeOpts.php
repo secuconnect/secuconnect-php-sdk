@@ -8,6 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsApplicationContextIframeOpts
  *
  * @category Class
+ * @description SmartTransactionsApplicationContextIframeOpts
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

@@ -8,6 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsReceiptValue
  *
  * @category Class
+ * @description SmartTransactionsReceiptValue
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

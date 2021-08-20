@@ -8,6 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsPreTransactionModel
  *
  * @category Class
+ * @description SmartTransactionsPreTransactionModel
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -164,7 +165,7 @@ class SmartTransactionsPreTransactionModel implements ArrayAccess
 
     /**
      * Sets bonus_products
-     * @param \Secuconnect\Client\Model\SmartTransactionsBonusProducts[] $bonus_products SmartTransactionsPreTransactionModel
+     * @param \Secuconnect\Client\Model\SmartTransactionsBonusProducts[] $bonus_products bonus_products
      * @return $this
      */
     public function setBonusProducts($bonus_products)

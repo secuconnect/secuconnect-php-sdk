@@ -8,6 +8,7 @@ use \ArrayAccess;
  * PrepaidSalesProductDTO
  *
  * @category Class
+ * @description PrepaidSalesProductDTO
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

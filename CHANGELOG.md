@@ -18,7 +18,36 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+
+## [2.9.0] - 2021-09-13
+[2.9.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.8.2...2.9.0
+
+### Added
+- Support for PHP 8.0 and 8.1:
+  - the required dependency `psr/cache` is now supported up to the upcoming version `3.*`
+  - the required dependency `psr/log` is now supported up to the upcoming version `3.*`
+  - the required dev-dependency `phpunit/phpunit` is now supported up to the upcoming version `10.*`
+
+### Changed
+- `Api.PaymentPlansApi.paymentPlansApiInterfacePatchPlans()` was renamed to `paymentPlansPatch()`
+- `Api.PaymentPlansApi.paymentPlansApiInterfaceUpdatePlans()` was renamed to `paymentPlansPut()`
+
+### Removed
+- `Api.GeneralStoresApi.assignGoogleKey()`
+- `Api.LoyaltyCustomersApi.checkForDuplicates()`
+- `Api.LoyaltyCustomersApi.removeCustomer()`
+- `Api.LoyaltyMerchantcardsApi.addMerchantCard()`
+- `Api.LoyaltyMerchantcardsApi.removeMerchantCard()`
+- `Api.PaymentContractsApi.paymentContractsIdDelete()`
+- `Api.PaymentContractsApi.paymentContractsIdPut()`
+- `Api.PaymentContractsApi.paymentContractsPost()`
+- `Model.CustomersWithoutMerchantcardAndDuplicatedCustomers`
+- `Model.LoyaltyCustomersRemoved`
+- `Model.PaymentContractsDTO`
+
+
 ## [2.8.2] - 2021-08-13
+[2.8.2]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.8.1...2.8.2
 
 ### Added
 - `Api.GeneralContractsApi.updateBankAccount()`
@@ -26,6 +55,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [2.8.1] - 2021-07-12
+[2.8.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.8.0...2.8.1
 
 ### Added
 - `Model.GeneralContractsProductModel` element `approved`
@@ -33,6 +63,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [2.8.0] - 2021-06-04
+[2.8.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.7.0...2.8.0
 
 ### Security
 
@@ -45,6 +76,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - `Model.GeneralContractsProductModel` element `id_old`
 
 ## [2.7.0] - 2021-05-03
+[2.7.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.5.0...2.7.0
 
 ### Added
 
@@ -75,6 +107,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [2.5.0] - 2021-03-15
+[2.5.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.4.0...2.5.0
 
 ### Added
 - `Api.PaymentPlansApi`
@@ -105,6 +138,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [2.4.0] - 2020-12-11
+[2.4.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.3.0...2.4.0
 
 ### Added
 
@@ -130,6 +164,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [2.3.0] - 2020-09-14
+[2.3.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.2.0...2.3.0
 
 ### Added
 
@@ -147,6 +182,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [2.2.0] - 2020-09-04
+[2.2.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.1.0...2.2.0
 
 ### Added
 
@@ -209,6 +245,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [2.1.0] - 2020-05-12
+[2.1.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.0.0...2.1.0
 
 ### Added
 
@@ -224,6 +261,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [2.0.0] - 2020-05-11
+[2.0.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.3.0...2.0.0
 
 ### Added
 
@@ -277,6 +315,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [1.3.0] - 2020-03-04
+[1.3.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.2.0...1.3.0
 
 ### Changed
 
@@ -284,6 +323,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [1.2.0] - 2019-10-01
+[1.2.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.1.0...1.2.0
 
 ### Added
 
@@ -295,6 +335,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [1.1.0] - 2019-09-26
+[1.1.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.0.1...1.1.0
 
 ### Added
 
@@ -302,6 +343,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [1.0.1] - 2019-09-23
+[1.0.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.0.0...1.0.1
 
 ### Fixed
 
@@ -309,6 +351,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [1.0.0] - 2019-09-09
+[1.0.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.8.0...1.0.0
 
 ### Added
 
@@ -335,6 +378,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [0.8.0] - 2019-08-14
+[0.8.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.7.2...0.8.0
 
 ### Added
 
@@ -347,6 +391,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [0.7.2] - 2019-06-28
+[0.7.2]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.7.1...0.7.2
 
 ### Added
 
@@ -354,6 +399,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [0.7.1] - 2019-05-21
+[0.7.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.7.0...0.7.1
 
 ### Fixed
 
@@ -361,6 +407,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [0.7.0] - 2019-05-15
+[0.7.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.6.2...0.7.0
 
 ### Added
 
@@ -373,6 +420,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [0.6.2] - 2019-04-17
+[0.6.2]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.6.1...0.6.2
 
 ### Added
 
@@ -381,6 +429,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [0.6.1] - 2019-04-04
+[0.6.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.6.0...0.6.1
 
 ### Fixed
 
@@ -388,6 +437,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [0.6.0] - 2019-04-01
+[0.6.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.7.1...0.6.0
 
 ### Changed
 
@@ -416,6 +466,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [0.5.7.1] - 2019-03-29
+[0.5.7.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.6...0.5.7.1
 
 ### Fixed
 
@@ -423,6 +474,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [0.5.6] - 2019-03-25
+[0.5.6]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.5...0.5.6
 
 ### Fixed
 
@@ -438,33 +490,39 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [0.5.5] - 2019-03-21
+[0.5.5]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.4...0.5.5
 
 - Fix SmartTransactionsProductModel and there relations
 
 
 ## [0.5.4] - 2019-03-13
+[0.5.4]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.3...0.5.4
 
 - Fix SmartTransactionsProductModel
 
 
 ## [0.5.3] - 2019-03-12
+[0.5.3]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.2...0.5.3
 
 - Fix STOMP (autoload, connection, ...)
 - Fix links in "docs/README.md"
 
 
 ## [0.5.2] - 2019-03-11
+[0.5.2]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.1...0.5.2
 
 - Fix STOMP
 
 
 ## [0.5.1] - 2019-03-01
+[0.5.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.0...0.5.1
 
 - Cosmetics
 - Bug fix for Authenticator::authenticateByDevice()
 
 
 ## [0.5.0] - 2019-02-28
+[0.5.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.4.0...0.5.0
 
 - Authenticator was refactored: Please use on of the following methods to authenticate:
     - Authenticator::authenticateByApplicationUser()
@@ -477,6 +535,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [0.4.0] - 2019-02-18
+[0.4.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.3.0...0.4.0
 
 **Developer Preview**
 
@@ -489,6 +548,7 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 
 
 ## [0.3.0] - 2018-11-08
+[0.3.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.2.0...0.3.0
 
 **Developer Preview**
 
@@ -498,6 +558,7 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 
 
 ## [0.2.0] - 2018-10-26
+[0.2.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.1.0...0.2.0
 
 **Developer Preview**
 
@@ -505,45 +566,8 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 
 
 ## [0.1.0] - 2018-04-23
+[0.1.0]:https://github.com/secuconnect/secuconnect-php-sdk/releases/tag/v0.1.0
 
 **Developer Preview**
 
 Beta version of the swagger generated PHP-SDK for the secuconnect API.
-
-
-
-
-[0.1.0]:https://github.com/secuconnect/secuconnect-php-sdk/releases/tag/v0.1.0
-[0.2.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.1.0...0.2.0
-[0.3.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.2.0...0.3.0
-[0.4.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.3.0...0.4.0
-[0.5.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.4.0...0.5.0
-[0.5.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.0...0.5.1
-[0.5.2]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.1...0.5.2
-[0.5.3]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.2...0.5.3
-[0.5.4]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.3...0.5.4
-[0.5.5]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.4...0.5.5
-[0.5.6]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.5...0.5.6
-[0.5.7.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.6...0.5.7.1
-[0.6.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.5.7.1...0.6.0
-[0.6.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.6.0...0.6.1
-[0.6.2]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.6.1...0.6.2
-[0.7.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.6.2...0.7.0
-[0.7.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.7.0...0.7.1
-[0.7.2]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.7.1...0.7.2
-[0.8.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.7.2...0.8.0
-[1.0.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/0.8.0...1.0.0
-[1.0.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.0.0...1.0.1
-[1.1.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.0.1...1.1.0
-[1.2.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.1.0...1.2.0
-[1.3.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.2.0...1.3.0
-[2.0.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.3.0...2.0.0
-[2.1.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.0.0...2.1.0
-[2.2.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.1.0...2.2.0
-[2.3.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.2.0...2.3.0
-[2.4.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.3.0...2.4.0
-[2.5.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.4.0...2.5.0
-[2.7.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.5.0...2.7.0
-[2.8.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.7.0...2.8.0
-[2.8.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.8.0...2.8.1
-[2.8.2]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.8.1...2.8.2

@@ -8,6 +8,7 @@ use \ArrayAccess;
  * GeneralMerchantsPublicDataCompany
  *
  * @category Class
+ * @description GeneralMerchantsPublicDataCompany
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

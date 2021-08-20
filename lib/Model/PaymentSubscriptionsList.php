@@ -164,7 +164,7 @@ class PaymentSubscriptionsList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\PaymentSubscriptionsProductModel[] $data data
+     * @param \Secuconnect\Client\Model\PaymentSubscriptionsProductModel[] $data List of PaymentSubscriptions
      * @return $this
      */
     public function setData($data)

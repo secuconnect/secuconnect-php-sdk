@@ -6,6 +6,7 @@ namespace Secuconnect\Client\Model;
  * GeneralStoresProductModel
  *
  * @category Class
+ * @description GeneralStoresProductModel
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

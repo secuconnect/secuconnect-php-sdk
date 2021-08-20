@@ -164,7 +164,7 @@ class PrepaidItemsList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\PrepaidItemsProductModel[] $data data
+     * @param \Secuconnect\Client\Model\PrepaidItemsProductModel[] $data List of PrepaidItems
      * @return $this
      */
     public function setData($data)

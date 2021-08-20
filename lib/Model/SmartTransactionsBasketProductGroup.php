@@ -8,6 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsBasketProductGroup
  *
  * @category Class
+ * @description SmartTransactionsBasketProductGroup
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

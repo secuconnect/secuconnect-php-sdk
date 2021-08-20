@@ -164,7 +164,7 @@ class LoyaltyMerchantcardsList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel[] $data data
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel[] $data List of LoyaltyMerchantcards
      * @return $this
      */
     public function setData($data)

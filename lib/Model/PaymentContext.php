@@ -8,6 +8,7 @@ use \ArrayAccess;
  * PaymentContext
  *
  * @category Class
+ * @description PaymentContext
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -170,7 +171,7 @@ class PaymentContext implements ArrayAccess
 
     /**
      * Sets payment_methods
-     * @param string[] $payment_methods PaymentContext
+     * @param string[] $payment_methods payment_methods
      * @return $this
      */
     public function setPaymentMethods($payment_methods)

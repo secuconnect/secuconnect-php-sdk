@@ -8,6 +8,7 @@ use \ArrayAccess;
  * SecupayTransactionUpdateBasketDTO
  *
  * @category Class
+ * @description SecupayTransactionUpdateBasketDTO
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

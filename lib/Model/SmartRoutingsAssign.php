@@ -8,6 +8,7 @@ use \ArrayAccess;
  * SmartRoutingsAssign
  *
  * @category Class
+ * @description SmartRoutingsAssign
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

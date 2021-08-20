@@ -164,7 +164,7 @@ class PaymentPlansList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\PaymentPlansProductModel[] $data data
+     * @param \Secuconnect\Client\Model\PaymentPlansProductModel[] $data List of PaymentPlans
      * @return $this
      */
     public function setData($data)

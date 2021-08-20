@@ -8,6 +8,7 @@ use \ArrayAccess;
  * LoyaltyCardsDTOAccount
  *
  * @category Class
+ * @description LoyaltyCardsDTOAccount
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -143,7 +144,7 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
 
     /**
      * Sets object
-     * @param string $object LoyaltyCardsDTOAccount
+     * @param string $object object
      * @return $this
      */
     public function setObject($object)
@@ -164,7 +165,7 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id LoyaltyCardsDTOAccount
+     * @param string $id id
      * @return $this
      */
     public function setId($id)

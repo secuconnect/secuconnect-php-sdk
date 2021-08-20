@@ -164,7 +164,7 @@ class SmartRoutingsList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\SmartRoutingsProductModel[] $data data
+     * @param \Secuconnect\Client\Model\SmartRoutingsProductModel[] $data List of SmartRoutings
      * @return $this
      */
     public function setData($data)

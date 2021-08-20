@@ -8,6 +8,7 @@ use \ArrayAccess;
  * SmartDevicesList
  *
  * @category Class
+ * @description SmartDevicesList
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -164,7 +165,7 @@ class SmartDevicesList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\SmartDevicesProductModel[] $data SmartDevicesList
+     * @param \Secuconnect\Client\Model\SmartDevicesProductModel[] $data List of SmartDevices
      * @return $this
      */
     public function setData($data)

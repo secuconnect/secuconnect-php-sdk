@@ -8,6 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsList
  *
  * @category Class
+ * @description SmartTransactionsList
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -164,7 +165,7 @@ class SmartTransactionsList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\SmartTransactionsProductModel[] $data SmartTransactionsList
+     * @param \Secuconnect\Client\Model\SmartTransactionsProductModel[] $data List of SmartTransactions
      * @return $this
      */
     public function setData($data)

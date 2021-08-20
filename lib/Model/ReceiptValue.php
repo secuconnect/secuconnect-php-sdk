@@ -8,6 +8,7 @@ use \ArrayAccess;
  * ReceiptValue
  *
  * @category Class
+ * @description ReceiptValue
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

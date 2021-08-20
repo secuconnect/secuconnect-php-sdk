@@ -8,6 +8,7 @@ use \ArrayAccess;
  * BaseProductModel
  *
  * @category Class
+ * @description BaseProductModel
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
