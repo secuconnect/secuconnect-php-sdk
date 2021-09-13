@@ -8,6 +8,7 @@ use \ArrayAccess;
  * GeneralMerchantsList
  *
  * @category Class
+ * @description GeneralMerchantsList
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -164,7 +165,7 @@ class GeneralMerchantsList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\GeneralMerchantsProductModel[] $data GeneralMerchantsList
+     * @param \Secuconnect\Client\Model\GeneralMerchantsProductModel[] $data List of GeneralMerchants
      * @return $this
      */
     public function setData($data)

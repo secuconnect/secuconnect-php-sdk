@@ -8,6 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsShippingModel
  *
  * @category Class
+ * @description SmartTransactionsShippingModel
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

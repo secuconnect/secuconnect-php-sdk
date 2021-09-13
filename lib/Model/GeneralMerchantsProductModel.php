@@ -6,6 +6,7 @@ namespace Secuconnect\Client\Model;
  * GeneralMerchantsProductModel
  *
  * @category Class
+ * @description GeneralMerchantsProductModel
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -200,7 +201,7 @@ class GeneralMerchantsProductModel extends BaseProductModel
 
     /**
      * Sets type
-     * @param string $type User type ID - unverified shop (1); internet  shop (11); kaufmännischer Netzbetrieb (KNB, 45); secucard merchant (46);  App Center user (63), checkout provider (64)
+     * @param string $type User type ID - unverified shop (1); internet shop (11); kaufmännischer Netzbetrieb (KNB, 45); secucard merchant (46); App Center user (63), checkout provider (64)
      * @return $this
      */
     public function setType($type)

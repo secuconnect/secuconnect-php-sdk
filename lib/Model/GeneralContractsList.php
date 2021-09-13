@@ -8,6 +8,7 @@ use \ArrayAccess;
  * GeneralContractsList
  *
  * @category Class
+ * @description GeneralContractsList
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -164,7 +165,7 @@ class GeneralContractsList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\GeneralContractsProductModel[] $data GeneralContractsList
+     * @param \Secuconnect\Client\Model\GeneralContractsProductModel[] $data List of GeneralContracts
      * @return $this
      */
     public function setData($data)

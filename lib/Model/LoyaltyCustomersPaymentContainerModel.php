@@ -8,6 +8,7 @@ use \ArrayAccess;
  * LoyaltyCustomersPaymentContainerModel
  *
  * @category Class
+ * @description LoyaltyCustomersPaymentContainerModel
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -161,7 +162,7 @@ class LoyaltyCustomersPaymentContainerModel implements ArrayAccess
 
     /**
      * Sets object
-     * @param string $object LoyaltyCustomersPaymentContainerModel
+     * @param string $object object
      * @return $this
      */
     public function setObject($object)
@@ -182,7 +183,7 @@ class LoyaltyCustomersPaymentContainerModel implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id LoyaltyCustomersPaymentContainerModel
+     * @param string $id id
      * @return $this
      */
     public function setId($id)
@@ -203,7 +204,7 @@ class LoyaltyCustomersPaymentContainerModel implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type LoyaltyCustomersPaymentContainerModel
+     * @param string $type type
      * @return $this
      */
     public function setType($type)

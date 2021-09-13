@@ -8,6 +8,7 @@ use \ArrayAccess;
  * SecupayTransactionSetShippingInformationDTO
  *
  * @category Class
+ * @description SecupayTransactionSetShippingInformationDTO
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

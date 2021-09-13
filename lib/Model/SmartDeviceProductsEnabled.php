@@ -8,6 +8,7 @@ use \ArrayAccess;
  * SmartDeviceProductsEnabled
  *
  * @category Class
+ * @description SmartDeviceProductEnabled
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

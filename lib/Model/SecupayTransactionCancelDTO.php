@@ -8,6 +8,7 @@ use \ArrayAccess;
  * SecupayTransactionCancelDTO
  *
  * @category Class
+ * @description SecupayTransactionCancelDTO
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

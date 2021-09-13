@@ -8,6 +8,7 @@ use \ArrayAccess;
  * BackgroundImageOption
  *
  * @category Class
+ * @description BackgroundImageOption
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

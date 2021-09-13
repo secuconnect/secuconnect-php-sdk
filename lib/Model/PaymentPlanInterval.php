@@ -8,6 +8,7 @@ use \ArrayAccess;
  * PaymentPlanInterval
  *
  * @category Class
+ * @description PaymentPlanInterval
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

@@ -8,6 +8,7 @@ use \ArrayAccess;
  * ResultAlwaysTrue
  *
  * @category Class
+ * @description ResultAlwaysTrue
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

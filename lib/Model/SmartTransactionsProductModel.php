@@ -6,6 +6,7 @@ namespace Secuconnect\Client\Model;
  * SmartTransactionsProductModel
  *
  * @category Class
+ * @description SmartTransactionsProductModel
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

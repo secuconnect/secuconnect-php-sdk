@@ -6,6 +6,7 @@ namespace Secuconnect\Client\Model;
  * LoyaltyTransactionsProductModel
  *
  * @category Class
+ * @description LoyaltyTransactionsProductModel
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -353,7 +354,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets parents
-     * @param \Secuconnect\Client\Model\LoyaltyTransactionsDTORelatedTransactions[] $parents LoyaltyTransactionsProductModel
+     * @param \Secuconnect\Client\Model\LoyaltyTransactionsDTORelatedTransactions[] $parents parents
      * @return $this
      */
     public function setParents($parents)
@@ -374,7 +375,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets children
-     * @param \Secuconnect\Client\Model\LoyaltyTransactionsDTORelatedTransactions[] $children LoyaltyTransactionsProductModel
+     * @param \Secuconnect\Client\Model\LoyaltyTransactionsDTORelatedTransactions[] $children children
      * @return $this
      */
     public function setChildren($children)

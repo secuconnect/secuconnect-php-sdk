@@ -8,6 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsCheckin
  *
  * @category Class
+ * @description SmartTransactionsCheckin
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

@@ -8,6 +8,7 @@ use \ArrayAccess;
  * SmartTemplatesList
  *
  * @category Class
+ * @description SmartTemplatesList
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -164,7 +165,7 @@ class SmartTemplatesList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\SmartTemplatesProductModel[] $data SmartTemplatesList
+     * @param \Secuconnect\Client\Model\SmartTemplatesProductModel[] $data List of SmartTemplates
      * @return $this
      */
     public function setData($data)

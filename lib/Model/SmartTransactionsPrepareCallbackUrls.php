@@ -8,6 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsPrepareCallbackUrls
  *
  * @category Class
+ * @description SmartTransactionsPrepareCallbackUrls
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

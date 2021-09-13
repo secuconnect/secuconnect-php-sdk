@@ -8,6 +8,7 @@ use \ArrayAccess;
  * PaymentContainersDTO
  *
  * @category Class
+ * @description PaymentContainersDTO
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

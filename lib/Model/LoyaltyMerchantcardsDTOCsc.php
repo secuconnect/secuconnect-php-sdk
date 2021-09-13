@@ -8,6 +8,7 @@ use \ArrayAccess;
  * LoyaltyMerchantcardsDTOCsc
  *
  * @category Class
+ * @description LoyaltyMerchantcardsDTOCsc
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

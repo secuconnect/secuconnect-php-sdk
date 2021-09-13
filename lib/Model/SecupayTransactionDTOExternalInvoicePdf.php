@@ -8,6 +8,7 @@ use \ArrayAccess;
  * SecupayTransactionDTOExternalInvoicePdf
  *
  * @category Class
+ * @description SecupayTransactionDTOExternalInvoicePdf
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
