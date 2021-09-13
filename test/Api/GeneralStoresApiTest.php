@@ -171,32 +171,6 @@ class GeneralStoresApiTest extends TestCase
     }
 
     /**
-     * Test of assigning some object to general store.
-     *
-     * @throws ApiException
-     */
-    public function testAssignSomeObjectToGeneralStore()
-    {
-        $numberOfStores = self::$api->getAll()->getCount();
-        $isAssigned = true;
-        $offset = rand(10, $numberOfStores - 1);
-
-        while ($isAssigned || $numberOfStores - 1 < $offset) {
-            try {
-                $store = self::$api->getAll(1, $offset)->getData()[0];
-                $response = self::$api->assignGoogleKey(
-                    $store->getId(),
-                    "abc" . rand(1000, 99999) . "xyz"
-                );
-                $this->assertTrue($response['result']);
-                $isAssigned = false;
-            } catch (ApiException $e) {
-                $offset = rand(10, $numberOfStores - 1);
-            }
-        }
-    }
-
-    /**
      * Test case for check in.
      *
      * @throws ApiException

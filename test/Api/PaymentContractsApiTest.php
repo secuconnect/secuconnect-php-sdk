@@ -4,7 +4,6 @@ namespace Secuconnect\Client\Api;
 
 use PHPUnit\Framework\TestCase;
 use Secuconnect\Client\ApiException;
-use Secuconnect\Client\Model\PaymentContractsDTO;
 use Secuconnect\Client\Model\PaymentContractsDTOClone;
 use Secuconnect\Client\Model\PaymentContractsDTORequestId;
 use Secuconnect\Client\Model\PaymentContractsProductModel;
@@ -19,58 +18,6 @@ class PaymentContractsApiTest extends TestCase
      * @var PaymentContractsApi
      */
     private $api;
-
-    /**
-     * @var string
-     */
-    private static $contractId;
-
-    /**
-     * @var PaymentContractsDTO
-     */
-    private static $contract;
-
-    /**
-     * @var string
-     */
-    private static $created;
-
-    /**
-     * @var string
-     */
-    private static $updated;
-
-    /**
-     * @var PaymentContractsProductModel
-     */
-    private static $testContract1;
-
-    /**
-     * @var PaymentContractsProductModel
-     */
-    private static $testContract2;
-
-    /**
-     * @var PaymentContractsProductModel
-     */
-    private static $testContract3;
-
-    /**
-     * Setup before running any test cases
-     */
-    public static function setUpBeforeClass()
-    {
-        parent::setUpBeforeClass();
-        // TODO remove this merchantID get it from API based on current credentials
-        self::$contract = new PaymentContractsDTO();
-        self::$contract->setMerchant('MRC_WVHJQFQ4JNVYNG5B55TYK748ZCHQP8')
-            ->setInternalReference('181365')
-            ->setContractId(49760)
-            ->setDemo(true)
-            ->setUrlPush('http://requestb.in/xcrbzxxc')
-            ->setUniqueOrderId(false)
-            ->setScoring(true);
-    }
 
     /**
      * Setup before running each test case
@@ -94,82 +41,6 @@ class PaymentContractsApiTest extends TestCase
     }
 
     /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass()
-    {
-        self::$contractId = null;
-        self::$contract = null;
-        self::$created = null;
-        self::$updated = null;
-        parent::tearDownAfterClass();
-    }
-
-    /**
-     * Test case for paymentContractsPost
-     *
-     * @throws ApiException
-     */
-    public function testPaymentContractsPost()
-    {
-        try {
-            $response = $this->api->paymentContractsPost(self::$contract);
-            self::$contractId = $response->getId();
-        } catch (ApiException $e) {
-            print_r($e->getResponseBody());
-            throw $e;
-        }
-
-        $this->assertNotEmpty(self::$contractId);
-        $this->assertInstanceOf(PaymentContractsProductModel::class, $response);
-        $this->assertEquals('payment.contracts', $response->getObject());
-        $this->assertNotNull($response->getId());
-        $this->assertNotEmpty($response->getId());
-        $this->assertNull($response->getParent());
-        $this->assertTrue($response->getDemo());
-        $this->assertNotNull($response->getCreated());
-        $this->assertNotEmpty($response->getCreated());
-        $this->assertNull($response->getUpdated());
-
-        self::$created = $response->getCreated();
-    }
-
-    /**
-     * Test case for paymentContractsIdPut
-     *
-     * @throws ApiException
-     */
-    public function testPaymentContractsIdPut()
-    {
-        self::$contract
-            ->setInternalReference('264748')
-            ->setUrlPush('http://example.com/push_url')
-            ->setScoring(true);
-
-        try {
-            $response = $this->api->paymentContractsIdPut(
-                self::$contractId,
-                self::$contract
-            );
-        } catch (ApiException $e) {
-            print_r($e->getResponseBody());
-            throw $e;
-        }
-
-        $this->assertNotEmpty(self::$contractId);
-        $this->assertInstanceOf(PaymentContractsProductModel::class, $response);
-        $this->assertEquals('payment.contracts', $response->getObject());
-        $this->assertEquals(self::$contractId, $response->getId());
-        $this->assertNull($response->getParent());
-        $this->assertTrue($response->getDemo());
-        $this->assertEquals(self::$created, $response->getCreated());
-        $this->assertNotNull($response->getUpdated());
-        $this->assertNotEmpty($response->getUpdated());
-
-        self::$updated = $response->getUpdated();
-    }
-
-    /**
      * Test case for paymentContractsGetById
      *
      * @throws ApiException
@@ -177,7 +48,7 @@ class PaymentContractsApiTest extends TestCase
     public function testPaymentContractsGetById()
     {
         try {
-            $response = $this->api->paymentContractsGetById(self::$contractId);
+            $response = $this->api->paymentContractsGetById('PCR_WDYMYB6CY2N5WNHTD3H587G20Q8KAH');
         } catch (ApiException $e) {
             print_r($e->getResponseBody());
             throw $e;
@@ -185,11 +56,9 @@ class PaymentContractsApiTest extends TestCase
 
         $this->assertInstanceOf(PaymentContractsProductModel::class, $response);
         $this->assertEquals('payment.contracts', $response->getObject());
-        $this->assertEquals(self::$contractId, $response->getId());
+        $this->assertEquals('PCR_WDYMYB6CY2N5WNHTD3H587G20Q8KAH', $response->getId());
         $this->assertNull($response->getParent());
-        $this->assertTrue($response->getDemo());
-        $this->assertEquals(self::$created, $response->getCreated());
-        $this->assertEquals(self::$updated, $response->getUpdated());
+        $this->assertNotEmpty($response->getCreated());
     }
 
     /**
@@ -228,10 +97,6 @@ class PaymentContractsApiTest extends TestCase
     public function testPaymentContractsGetCountQueryParam()
     {
         try {
-            self::$testContract1 = $this->api->paymentContractsPost(self::$contract);
-            self::$testContract2 = $this->api->paymentContractsPost(self::$contract);
-            self::$testContract3 = $this->api->paymentContractsPost(self::$contract);
-
             $response = $this->api->paymentContractsGet(2);
         } catch (ApiException $e) {
             print_r($e->getResponseBody());
@@ -260,15 +125,6 @@ class PaymentContractsApiTest extends TestCase
         $this->assertNotEmpty($response1);
         $this->assertNotEmpty($response2);
         $this->assertEquals($response1->getData()[1], $response2->getData()[0]);
-
-        try {
-            $this->api->paymentContractsIdDelete(self::$testContract1->getId());
-            $this->api->paymentContractsIdDelete(self::$testContract2->getId());
-            $this->api->paymentContractsIdDelete(self::$testContract3->getId());
-        } catch (ApiException $e) {
-            print_r($e->getResponseBody());
-            throw $e;
-        }
     }
 
     /**
@@ -345,33 +201,5 @@ class PaymentContractsApiTest extends TestCase
             throw $e;
         }
         $this->assertNotEmpty($response);
-    }
-
-    /**
-     * Test case for paymentContractsIdDelete
-     *
-     * @throws ApiException
-     */
-    public function testPaymentContractsIdDelete()
-    {
-        try {
-            /**
-             * @var array
-             */
-            $response = $this->api->paymentContractsIdDelete(self::$contractId);
-        } catch (ApiException $e) {
-            print_r($e->getResponseBody());
-            throw $e;
-        }
-
-        $this->assertNotNull($response);
-        $this->assertInternalType('array', $response);
-        $this->assertContainsOnlyInstancesOf(PaymentContractsProductModel::class, $response);
-        $this->assertEquals('payment.contracts', $response[0]->getObject());
-        $this->assertEquals(self::$contractId, $response[0]->getId());
-        $this->assertNull($response[0]->getParent());
-        $this->assertTrue($response[0]->getDemo());
-        $this->assertEquals(self::$created, $response[0]->getCreated());
-        $this->assertEquals(self::$updated, $response[0]->getUpdated());
     }
 }

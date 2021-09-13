@@ -22,11 +22,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [2.9.0] - 2021-09-13
 [2.9.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.8.2...2.9.0
 
-### Added
-- Support for PHP 8.0 and 8.1:
-  - the required dependency `psr/cache` is now supported up to the upcoming version `3.*`
-  - the required dependency `psr/log` is now supported up to the upcoming version `3.*`
-  - the required dev-dependency `phpunit/phpunit` is now supported up to the upcoming version `10.*`
+**This will be the last version with PHP 5.6 support.**
 
 ### Changed
 - `Api.PaymentPlansApi.paymentPlansApiInterfacePatchPlans()` was renamed to `paymentPlansPatch()`

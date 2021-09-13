@@ -324,33 +324,6 @@ class LoyaltyCustomersApiTest extends TestCase
     }
 
     /**
-     * Test case for loyaltyCustomersLoyaltyCustomerIdCheckDuplicatedPost
-     *
-     * POST Loyalty/Customers/{loyaltyCustomerId}/checkDuplicated/.
-     *
-     * @throws ApiException
-     */
-    public function testCheckDuplicated()
-    {
-        try {
-            $response = self::$api->checkForDuplicates(self::TEST_MERCHANT_ID);
-        } catch (ApiException $e) {
-            print_r($e->getResponseBody());
-            throw $e;
-        }
-
-        $this->assertNotEmpty($response->getCustomersWithoutMerchantcard());
-        $this->assertIsArray($response->getCustomersWithoutMerchantcard());
-        $this->assertCount(2, $response->getCustomersWithoutMerchantcard());
-        $this->assertNotEmpty($response->getCustomersWithoutMerchantcard()[0]);
-        $this->assertNotEmpty($response->getCustomersWithoutMerchantcard()[1]);
-        $this->assertNotEmpty($response->getDuplicatedCustomers());
-        $this->assertIsArray($response->getDuplicatedCustomers());
-        $this->assertGreaterThanOrEqual(1, $response->getDuplicatedCustomers());
-        $this->assertNotEmpty($response->getDuplicatedCustomers()[0]);
-    }
-
-    /**
      * Test case for
      *
      * PUT Loyalty/Customers/{loyaltyCustomerId}.
@@ -373,26 +346,6 @@ class LoyaltyCustomersApiTest extends TestCase
         }
         $this->assertEquals(self::$dumyCustomer->getMerchantContact()->getSurname(), $response->getMerchantContact()->getSurname());
         $this->assertEquals(self::$dumyCustomer->getNote(), $response->getNote());
-    }
-
-    /**
-     * Test case for loyaltyCustomersLoyaltyCustomerIdDelete
-     *
-     * DELETE Loyalty/Customers/{loyaltyCustomerId}.
-     *
-     * @depends testAddCustomer
-     *
-     * @throws ApiException
-     */
-    public function testRemoveCustomer()
-    {
-        try {
-            $response = self::$api->removeCustomer(self::$dumyCustomerId);
-        } catch (ApiException $e) {
-            print_r($e->getResponseBody());
-            throw $e;
-        }
-        $this->assertNotEmpty('deleted', $response->getDeleted());
     }
 
     /**
