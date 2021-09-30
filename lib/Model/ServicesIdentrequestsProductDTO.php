@@ -8,6 +8,7 @@ use \ArrayAccess;
  * ServicesIdentrequestsProductDTO
  *
  * @category Class
+ * @description ServicesIdentrequestsProductDTO
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

@@ -8,6 +8,7 @@ use \ArrayAccess;
  * ServicesIdentresultsList
  *
  * @category Class
+ * @description ServicesIdentresultsList
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -164,7 +165,7 @@ class ServicesIdentresultsList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\ServicesIdentresultsProductModel[] $data ServicesIdentresultsList
+     * @param \Secuconnect\Client\Model\ServicesIdentresultsProductModel[] $data data
      * @return $this
      */
     public function setData($data)
