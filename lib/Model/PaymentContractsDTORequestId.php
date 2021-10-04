@@ -35,7 +35,9 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'payin_account' => 'bool',
         'create_first_store' => 'bool',
         'store_name' => 'string',
-        'payout_purpose' => 'string'
+        'payout_purpose' => 'string',
+        'identrequest' => 'string',
+        'signed_contract' => 'string'
     ];
 
     /**
@@ -50,7 +52,9 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'payin_account' => null,
         'create_first_store' => null,
         'store_name' => null,
-        'payout_purpose' => null
+        'payout_purpose' => null,
+        'identrequest' => null,
+        'signed_contract' => null
     ];
 
     public static function swaggerTypes()
@@ -75,7 +79,9 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'payin_account' => 'payin_account',
         'create_first_store' => 'create_first_store',
         'store_name' => 'store_name',
-        'payout_purpose' => 'payout_purpose'
+        'payout_purpose' => 'payout_purpose',
+        'identrequest' => 'identrequest',
+        'signed_contract' => 'signed_contract'
     ];
 
     /**
@@ -90,7 +96,9 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'payin_account' => 'setPayinAccount',
         'create_first_store' => 'setCreateFirstStore',
         'store_name' => 'setStoreName',
-        'payout_purpose' => 'setPayoutPurpose'
+        'payout_purpose' => 'setPayoutPurpose',
+        'identrequest' => 'setIdentrequest',
+        'signed_contract' => 'setSignedContract'
     ];
 
     /**
@@ -105,7 +113,9 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'payin_account' => 'getPayinAccount',
         'create_first_store' => 'getCreateFirstStore',
         'store_name' => 'getStoreName',
-        'payout_purpose' => 'getPayoutPurpose'
+        'payout_purpose' => 'getPayoutPurpose',
+        'identrequest' => 'getIdentrequest',
+        'signed_contract' => 'getSignedContract'
     ];
 
     public static function attributeMap()
@@ -143,6 +153,8 @@ class PaymentContractsDTORequestId implements ArrayAccess
         $this->container['create_first_store'] = isset($data['create_first_store']) ? $data['create_first_store'] : false;
         $this->container['store_name'] = isset($data['store_name']) ? $data['store_name'] : null;
         $this->container['payout_purpose'] = isset($data['payout_purpose']) ? $data['payout_purpose'] : null;
+        $this->container['identrequest'] = isset($data['identrequest']) ? $data['identrequest'] : null;
+        $this->container['signed_contract'] = isset($data['signed_contract']) ? $data['signed_contract'] : null;
     }
 
     /**
@@ -333,6 +345,48 @@ class PaymentContractsDTORequestId implements ArrayAccess
     public function setPayoutPurpose($payout_purpose)
     {
         $this->container['payout_purpose'] = $payout_purpose;
+
+        return $this;
+    }
+
+    /**
+     * Gets identrequest
+     * @return string
+     */
+    public function getIdentrequest()
+    {
+        return $this->container['identrequest'];
+    }
+
+    /**
+     * Sets identrequest
+     * @param string $identrequest Object ID of Services Identrequest
+     * @return $this
+     */
+    public function setIdentrequest($identrequest)
+    {
+        $this->container['identrequest'] = $identrequest;
+
+        return $this;
+    }
+
+    /**
+     * Gets signed_contract
+     * @return string
+     */
+    public function getSignedContract()
+    {
+        return $this->container['signed_contract'];
+    }
+
+    /**
+     * Sets signed_contract
+     * @param string $signed_contract The document ID of of uploaded signed contract; s. Document service
+     * @return $this
+     */
+    public function setSignedContract($signed_contract)
+    {
+        $this->container['signed_contract'] = $signed_contract;
 
         return $this;
     }

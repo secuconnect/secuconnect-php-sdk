@@ -41,6 +41,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - `Model.UserAddressData`
 - `Model.UserData`
 - `Model.ValueField`
+- `Model.PaymentContractsDTORequestId` element `identrequest`
+- `Model.PaymentContractsDTORequestId` element `signed_contract`
 
 ## [2.9.0] - 2021-09-13
 [2.9.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.8.2...2.9.0
