@@ -347,30 +347,4 @@ class LoyaltyCustomersApiTest extends TestCase
         $this->assertEquals(self::$dumyCustomer->getMerchantContact()->getSurname(), $response->getMerchantContact()->getSurname());
         $this->assertEquals(self::$dumyCustomer->getNote(), $response->getNote());
     }
-
-    /**
-     * Asserts that a variable is of type array.
-     * @param mixed $value
-     */
-    public static function assertIsInt($value)
-    {
-        if (method_exists(TestCase::class, 'assertIsInt')) {
-            parent::assertIsInt($value);
-        } else {
-            self::assertInternalType('int', $value);
-        }
-    }
-
-    /**
-     * Asserts that a variable is of type array.
-     * @param mixed $value
-     */
-    public static function assertIsArray($value)
-    {
-        if (method_exists(TestCase::class, 'assertIsArray')) {
-            parent::assertIsArray($value);
-        } else {
-            self::assertInternalType('array', $value);
-        }
-    }
 }

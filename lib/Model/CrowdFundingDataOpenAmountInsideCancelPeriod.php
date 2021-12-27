@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SmartTransactionsApplicationContext
+ * CrowdFundingDataOpenAmountInsideCancelPeriod
  *
  * @category Class
- * @description SmartTransactionsApplicationContext
+ * @description Open total of transaction which inside of the cancellation period
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsApplicationContext implements ArrayAccess
+class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,18 +21,19 @@ class SmartTransactionsApplicationContext implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTransactionsApplicationContext';
+    protected static $swaggerModelName = 'CrowdFundingDataOpenAmountInsideCancelPeriod';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'locks' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContextLocks',
-        'return_urls' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContextReturnUrls',
-        'iframe_opts' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContextIframeOpts',
-        'checkout_template' => 'string',
-        'language' => 'string'
+        'total' => 'int',
+        'debit' => 'int',
+        'credit_card' => 'int',
+        'prepay' => 'int',
+        'sofort' => 'int',
+        'twint' => 'int'
     ];
 
     /**
@@ -40,11 +41,12 @@ class SmartTransactionsApplicationContext implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'locks' => null,
-        'return_urls' => null,
-        'iframe_opts' => null,
-        'checkout_template' => null,
-        'language' => null
+        'total' => null,
+        'debit' => null,
+        'credit_card' => null,
+        'prepay' => null,
+        'sofort' => null,
+        'twint' => null
     ];
 
     public static function swaggerTypes()
@@ -62,11 +64,12 @@ class SmartTransactionsApplicationContext implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'locks' => 'locks',
-        'return_urls' => 'return_urls',
-        'iframe_opts' => 'iframe_opts',
-        'checkout_template' => 'checkout_template',
-        'language' => 'language'
+        'total' => 'total',
+        'debit' => 'debit',
+        'credit_card' => 'credit_card',
+        'prepay' => 'prepay',
+        'sofort' => 'sofort',
+        'twint' => 'twint'
     ];
 
     /**
@@ -74,11 +77,12 @@ class SmartTransactionsApplicationContext implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'locks' => 'setLocks',
-        'return_urls' => 'setReturnUrls',
-        'iframe_opts' => 'setIframeOpts',
-        'checkout_template' => 'setCheckoutTemplate',
-        'language' => 'setLanguage'
+        'total' => 'setTotal',
+        'debit' => 'setDebit',
+        'credit_card' => 'setCreditCard',
+        'prepay' => 'setPrepay',
+        'sofort' => 'setSofort',
+        'twint' => 'setTwint'
     ];
 
     /**
@@ -86,11 +90,12 @@ class SmartTransactionsApplicationContext implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'locks' => 'getLocks',
-        'return_urls' => 'getReturnUrls',
-        'iframe_opts' => 'getIframeOpts',
-        'checkout_template' => 'getCheckoutTemplate',
-        'language' => 'getLanguage'
+        'total' => 'getTotal',
+        'debit' => 'getDebit',
+        'credit_card' => 'getCreditCard',
+        'prepay' => 'getPrepay',
+        'sofort' => 'getSofort',
+        'twint' => 'getTwint'
     ];
 
     public static function attributeMap()
@@ -120,11 +125,12 @@ class SmartTransactionsApplicationContext implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['locks'] = isset($data['locks']) ? $data['locks'] : null;
-        $this->container['return_urls'] = isset($data['return_urls']) ? $data['return_urls'] : null;
-        $this->container['iframe_opts'] = isset($data['iframe_opts']) ? $data['iframe_opts'] : null;
-        $this->container['checkout_template'] = isset($data['checkout_template']) ? $data['checkout_template'] : null;
-        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['debit'] = isset($data['debit']) ? $data['debit'] : null;
+        $this->container['credit_card'] = isset($data['credit_card']) ? $data['credit_card'] : null;
+        $this->container['prepay'] = isset($data['prepay']) ? $data['prepay'] : null;
+        $this->container['sofort'] = isset($data['sofort']) ? $data['sofort'] : null;
+        $this->container['twint'] = isset($data['twint']) ? $data['twint'] : null;
     }
 
     /**
@@ -152,106 +158,127 @@ class SmartTransactionsApplicationContext implements ArrayAccess
 
 
     /**
-     * Gets locks
-     * @return \Secuconnect\Client\Model\SmartTransactionsApplicationContextLocks
+     * Gets total
+     * @return int
      */
-    public function getLocks()
+    public function getTotal()
     {
-        return $this->container['locks'];
+        return $this->container['total'];
     }
 
     /**
-     * Sets locks
-     * @param \Secuconnect\Client\Model\SmartTransactionsApplicationContextLocks $locks locks
+     * Sets total
+     * @param int $total Total of all open amounts
      * @return $this
      */
-    public function setLocks($locks)
+    public function setTotal($total)
     {
-        $this->container['locks'] = $locks;
+        $this->container['total'] = $total;
 
         return $this;
     }
 
     /**
-     * Gets return_urls
-     * @return \Secuconnect\Client\Model\SmartTransactionsApplicationContextReturnUrls
+     * Gets debit
+     * @return int
      */
-    public function getReturnUrls()
+    public function getDebit()
     {
-        return $this->container['return_urls'];
+        return $this->container['debit'];
     }
 
     /**
-     * Sets return_urls
-     * @param \Secuconnect\Client\Model\SmartTransactionsApplicationContextReturnUrls $return_urls return_urls
+     * Sets debit
+     * @param int $debit Total of debit open amounts
      * @return $this
      */
-    public function setReturnUrls($return_urls)
+    public function setDebit($debit)
     {
-        $this->container['return_urls'] = $return_urls;
+        $this->container['debit'] = $debit;
 
         return $this;
     }
 
     /**
-     * Gets iframe_opts
-     * @return \Secuconnect\Client\Model\SmartTransactionsApplicationContextIframeOpts
+     * Gets credit_card
+     * @return int
      */
-    public function getIframeOpts()
+    public function getCreditCard()
     {
-        return $this->container['iframe_opts'];
+        return $this->container['credit_card'];
     }
 
     /**
-     * Sets iframe_opts
-     * @param \Secuconnect\Client\Model\SmartTransactionsApplicationContextIframeOpts $iframe_opts iframe_opts
+     * Sets credit_card
+     * @param int $credit_card Total of credit card open amounts
      * @return $this
      */
-    public function setIframeOpts($iframe_opts)
+    public function setCreditCard($credit_card)
     {
-        $this->container['iframe_opts'] = $iframe_opts;
+        $this->container['credit_card'] = $credit_card;
 
         return $this;
     }
 
     /**
-     * Gets checkout_template
-     * @return string
+     * Gets prepay
+     * @return int
      */
-    public function getCheckoutTemplate()
+    public function getPrepay()
     {
-        return $this->container['checkout_template'];
+        return $this->container['prepay'];
     }
 
     /**
-     * Sets checkout_template
-     * @param string $checkout_template Smart Checkout Template ID
+     * Sets prepay
+     * @param int $prepay Total of prepay open amounts
      * @return $this
      */
-    public function setCheckoutTemplate($checkout_template)
+    public function setPrepay($prepay)
     {
-        $this->container['checkout_template'] = $checkout_template;
+        $this->container['prepay'] = $prepay;
 
         return $this;
     }
 
     /**
-     * Gets language
-     * @return string
+     * Gets sofort
+     * @return int
      */
-    public function getLanguage()
+    public function getSofort()
     {
-        return $this->container['language'];
+        return $this->container['sofort'];
     }
 
     /**
-     * Sets language
-     * @param string $language The language Smart Checkout is starting with
+     * Sets sofort
+     * @param int $sofort Total of sofort open amounts
      * @return $this
      */
-    public function setLanguage($language)
+    public function setSofort($sofort)
     {
-        $this->container['language'] = $language;
+        $this->container['sofort'] = $sofort;
+
+        return $this;
+    }
+
+    /**
+     * Gets twint
+     * @return int
+     */
+    public function getTwint()
+    {
+        return $this->container['twint'];
+    }
+
+    /**
+     * Sets twint
+     * @param int $twint Total of twint open amounts
+     * @return $this
+     */
+    public function setTwint($twint)
+    {
+        $this->container['twint'] = $twint;
 
         return $this;
     }

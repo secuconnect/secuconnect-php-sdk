@@ -266,17 +266,4 @@ class SmartDevicesApiTest extends TestCase
         $this->assertNotEmpty(self::$smartDevicesProductModel->getType());
         $this->assertNotEmpty(self::$smartDevicesProductModel->getCreated());
     }
-
-    /**
-     * Asserts that a variable is of type integer.
-     * @param mixed $value
-     */
-    public static function assertIsInt($value)
-    {
-        if (method_exists(TestCase::class, 'assertIsInt')) {
-            parent::assertIsInt($value);
-        } else {
-            self::assertInternalType('int', $value);
-        }
-    }
 }

@@ -444,17 +444,4 @@ class PaymentContainersApiTest extends TestCase
         $this->assertEquals('bank_account', $response[0]->getType());
         $this->assertEquals(self::$created, $response[0]->getCreated());
     }
-
-    /**
-     * Asserts that a variable is of type array.
-     * @param mixed $value
-     */
-    public static function assertIsArray($value)
-    {
-        if (method_exists(TestCase::class, 'assertIsArray')) {
-            parent::assertIsArray($value);
-        } else {
-            self::assertInternalType('array', $value);
-        }
-    }
 }

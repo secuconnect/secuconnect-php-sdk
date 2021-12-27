@@ -55,9 +55,8 @@ class PaymentContractsApiTest extends TestCase
         }
 
         $this->assertInstanceOf(PaymentContractsProductModel::class, $response);
-        $this->assertEquals('payment.contracts', $response->getObject());
-        $this->assertEquals('PCR_WDYMYB6CY2N5WNHTD3H587G20Q8KAH', $response->getId());
-        $this->assertNull($response->getParent());
+        $this->assertEquals('general.contracts', $response->getObject());
+        $this->assertEquals('GCR_2H69XY35227V2VKP9WRA3SJ0W95RP0', $response->getId());
         $this->assertNotEmpty($response->getCreated());
     }
 
@@ -83,7 +82,6 @@ class PaymentContractsApiTest extends TestCase
             $this->assertEquals('payment.contracts', $contract->getObject());
             $this->assertNotNull($contract->getId());
             $this->assertNotEmpty($contract->getId());
-            $this->assertNotNull($contract->getDemo());
             $this->assertNotNull($contract->getCreated());
             $this->assertNotEmpty($contract->getCreated());
         }

@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * PaymentContext
+ * CrowdFundingDataOpenAmountOutsideCancellationPeriod
  *
  * @category Class
- * @description PaymentContext
+ * @description Open total of transaction which outside of the cancellation period
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PaymentContext implements ArrayAccess
+class CrowdFundingDataOpenAmountOutsideCancellationPeriod implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,17 +21,14 @@ class PaymentContext implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'PaymentContext';
+    protected static $swaggerModelName = 'CrowdFundingDataOpenAmount_outside_cancellation_period';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auto_capture' => 'bool',
-        'payment_methods' => 'string[]',
-        'merchant_initiated' => 'bool',
-        'creditcard_schemes' => 'string[]'
+        'total' => 'int'
     ];
 
     /**
@@ -39,10 +36,7 @@ class PaymentContext implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auto_capture' => null,
-        'payment_methods' => null,
-        'merchant_initiated' => null,
-        'creditcard_schemes' => null
+        'total' => null
     ];
 
     public static function swaggerTypes()
@@ -60,10 +54,7 @@ class PaymentContext implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'auto_capture' => 'auto_capture',
-        'payment_methods' => 'payment_methods',
-        'merchant_initiated' => 'merchant_initiated',
-        'creditcard_schemes' => 'creditcard_schemes'
+        'total' => 'total'
     ];
 
     /**
@@ -71,10 +62,7 @@ class PaymentContext implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'auto_capture' => 'setAutoCapture',
-        'payment_methods' => 'setPaymentMethods',
-        'merchant_initiated' => 'setMerchantInitiated',
-        'creditcard_schemes' => 'setCreditcardSchemes'
+        'total' => 'setTotal'
     ];
 
     /**
@@ -82,10 +70,7 @@ class PaymentContext implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'auto_capture' => 'getAutoCapture',
-        'payment_methods' => 'getPaymentMethods',
-        'merchant_initiated' => 'getMerchantInitiated',
-        'creditcard_schemes' => 'getCreditcardSchemes'
+        'total' => 'getTotal'
     ];
 
     public static function attributeMap()
@@ -115,10 +100,7 @@ class PaymentContext implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['auto_capture'] = isset($data['auto_capture']) ? $data['auto_capture'] : false;
-        $this->container['payment_methods'] = isset($data['payment_methods']) ? $data['payment_methods'] : null;
-        $this->container['merchant_initiated'] = isset($data['merchant_initiated']) ? $data['merchant_initiated'] : false;
-        $this->container['creditcard_schemes'] = isset($data['creditcard_schemes']) ? $data['creditcard_schemes'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
     /**
@@ -146,85 +128,22 @@ class PaymentContext implements ArrayAccess
 
 
     /**
-     * Gets auto_capture
-     * @return bool
+     * Gets total
+     * @return int
      */
-    public function getAutoCapture()
+    public function getTotal()
     {
-        return $this->container['auto_capture'];
+        return $this->container['total'];
     }
 
     /**
-     * Sets auto_capture
-     * @param bool $auto_capture auto capture the smart transaction
+     * Sets total
+     * @param int $total Open transaction amount
      * @return $this
      */
-    public function setAutoCapture($auto_capture)
+    public function setTotal($total)
     {
-        $this->container['auto_capture'] = $auto_capture;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_methods
-     * @return string[]
-     */
-    public function getPaymentMethods()
-    {
-        return $this->container['payment_methods'];
-    }
-
-    /**
-     * Sets payment_methods
-     * @param string[] $payment_methods payment_methods
-     * @return $this
-     */
-    public function setPaymentMethods($payment_methods)
-    {
-        $this->container['payment_methods'] = $payment_methods;
-
-        return $this;
-    }
-
-    /**
-     * Gets merchant_initiated
-     * @return bool
-     */
-    public function getMerchantInitiated()
-    {
-        return $this->container['merchant_initiated'];
-    }
-
-    /**
-     * Sets merchant_initiated
-     * @param bool $merchant_initiated is this smart transaction created automatically by the merchant (process without customer interaction)
-     * @return $this
-     */
-    public function setMerchantInitiated($merchant_initiated)
-    {
-        $this->container['merchant_initiated'] = $merchant_initiated;
-
-        return $this;
-    }
-
-    /**
-     * Gets creditcard_schemes
-     * @return string[]
-     */
-    public function getCreditcardSchemes()
-    {
-        return $this->container['creditcard_schemes'];
-    }
-
-    /**
-     * Sets creditcard_schemes
-     * @param string[] $creditcard_schemes The supported credit card schemes with given contract
-     * @return $this
-     */
-    public function setCreditcardSchemes($creditcard_schemes)
-    {
-        $this->container['creditcard_schemes'] = $creditcard_schemes;
+        $this->container['total'] = $total;
 
         return $this;
     }

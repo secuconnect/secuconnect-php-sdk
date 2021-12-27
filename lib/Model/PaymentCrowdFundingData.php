@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SmartTransactionsApplicationContext
+ * PaymentCrowdFundingData
  *
  * @category Class
- * @description SmartTransactionsApplicationContext
+ * @description PaymentCrowdFundingData
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsApplicationContext implements ArrayAccess
+class PaymentCrowdFundingData implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,18 +21,16 @@ class SmartTransactionsApplicationContext implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTransactionsApplicationContext';
+    protected static $swaggerModelName = 'PaymentCrowdFundingData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'locks' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContextLocks',
-        'return_urls' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContextReturnUrls',
-        'iframe_opts' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContextIframeOpts',
-        'checkout_template' => 'string',
-        'language' => 'string'
+        'project' => '\Secuconnect\Client\Model\CrowdFundingDataDetails',
+        'paid_out' => 'int',
+        'open' => '\Secuconnect\Client\Model\CrowdFundingDataOpenAmount'
     ];
 
     /**
@@ -40,11 +38,9 @@ class SmartTransactionsApplicationContext implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'locks' => null,
-        'return_urls' => null,
-        'iframe_opts' => null,
-        'checkout_template' => null,
-        'language' => null
+        'project' => null,
+        'paid_out' => null,
+        'open' => null
     ];
 
     public static function swaggerTypes()
@@ -62,11 +58,9 @@ class SmartTransactionsApplicationContext implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'locks' => 'locks',
-        'return_urls' => 'return_urls',
-        'iframe_opts' => 'iframe_opts',
-        'checkout_template' => 'checkout_template',
-        'language' => 'language'
+        'project' => 'project',
+        'paid_out' => 'paid_out',
+        'open' => 'open'
     ];
 
     /**
@@ -74,11 +68,9 @@ class SmartTransactionsApplicationContext implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'locks' => 'setLocks',
-        'return_urls' => 'setReturnUrls',
-        'iframe_opts' => 'setIframeOpts',
-        'checkout_template' => 'setCheckoutTemplate',
-        'language' => 'setLanguage'
+        'project' => 'setProject',
+        'paid_out' => 'setPaidOut',
+        'open' => 'setOpen'
     ];
 
     /**
@@ -86,11 +78,9 @@ class SmartTransactionsApplicationContext implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'locks' => 'getLocks',
-        'return_urls' => 'getReturnUrls',
-        'iframe_opts' => 'getIframeOpts',
-        'checkout_template' => 'getCheckoutTemplate',
-        'language' => 'getLanguage'
+        'project' => 'getProject',
+        'paid_out' => 'getPaidOut',
+        'open' => 'getOpen'
     ];
 
     public static function attributeMap()
@@ -120,11 +110,9 @@ class SmartTransactionsApplicationContext implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['locks'] = isset($data['locks']) ? $data['locks'] : null;
-        $this->container['return_urls'] = isset($data['return_urls']) ? $data['return_urls'] : null;
-        $this->container['iframe_opts'] = isset($data['iframe_opts']) ? $data['iframe_opts'] : null;
-        $this->container['checkout_template'] = isset($data['checkout_template']) ? $data['checkout_template'] : null;
-        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
+        $this->container['project'] = isset($data['project']) ? $data['project'] : null;
+        $this->container['paid_out'] = isset($data['paid_out']) ? $data['paid_out'] : null;
+        $this->container['open'] = isset($data['open']) ? $data['open'] : null;
     }
 
     /**
@@ -152,106 +140,64 @@ class SmartTransactionsApplicationContext implements ArrayAccess
 
 
     /**
-     * Gets locks
-     * @return \Secuconnect\Client\Model\SmartTransactionsApplicationContextLocks
+     * Gets project
+     * @return \Secuconnect\Client\Model\CrowdFundingDataDetails
      */
-    public function getLocks()
+    public function getProject()
     {
-        return $this->container['locks'];
+        return $this->container['project'];
     }
 
     /**
-     * Sets locks
-     * @param \Secuconnect\Client\Model\SmartTransactionsApplicationContextLocks $locks locks
+     * Sets project
+     * @param \Secuconnect\Client\Model\CrowdFundingDataDetails $project project
      * @return $this
      */
-    public function setLocks($locks)
+    public function setProject($project)
     {
-        $this->container['locks'] = $locks;
+        $this->container['project'] = $project;
 
         return $this;
     }
 
     /**
-     * Gets return_urls
-     * @return \Secuconnect\Client\Model\SmartTransactionsApplicationContextReturnUrls
+     * Gets paid_out
+     * @return int
      */
-    public function getReturnUrls()
+    public function getPaidOut()
     {
-        return $this->container['return_urls'];
+        return $this->container['paid_out'];
     }
 
     /**
-     * Sets return_urls
-     * @param \Secuconnect\Client\Model\SmartTransactionsApplicationContextReturnUrls $return_urls return_urls
+     * Sets paid_out
+     * @param int $paid_out Total transaction amount of all transactions for this merchant
      * @return $this
      */
-    public function setReturnUrls($return_urls)
+    public function setPaidOut($paid_out)
     {
-        $this->container['return_urls'] = $return_urls;
+        $this->container['paid_out'] = $paid_out;
 
         return $this;
     }
 
     /**
-     * Gets iframe_opts
-     * @return \Secuconnect\Client\Model\SmartTransactionsApplicationContextIframeOpts
+     * Gets open
+     * @return \Secuconnect\Client\Model\CrowdFundingDataOpenAmount
      */
-    public function getIframeOpts()
+    public function getOpen()
     {
-        return $this->container['iframe_opts'];
+        return $this->container['open'];
     }
 
     /**
-     * Sets iframe_opts
-     * @param \Secuconnect\Client\Model\SmartTransactionsApplicationContextIframeOpts $iframe_opts iframe_opts
+     * Sets open
+     * @param \Secuconnect\Client\Model\CrowdFundingDataOpenAmount $open open
      * @return $this
      */
-    public function setIframeOpts($iframe_opts)
+    public function setOpen($open)
     {
-        $this->container['iframe_opts'] = $iframe_opts;
-
-        return $this;
-    }
-
-    /**
-     * Gets checkout_template
-     * @return string
-     */
-    public function getCheckoutTemplate()
-    {
-        return $this->container['checkout_template'];
-    }
-
-    /**
-     * Sets checkout_template
-     * @param string $checkout_template Smart Checkout Template ID
-     * @return $this
-     */
-    public function setCheckoutTemplate($checkout_template)
-    {
-        $this->container['checkout_template'] = $checkout_template;
-
-        return $this;
-    }
-
-    /**
-     * Gets language
-     * @return string
-     */
-    public function getLanguage()
-    {
-        return $this->container['language'];
-    }
-
-    /**
-     * Sets language
-     * @param string $language The language Smart Checkout is starting with
-     * @return $this
-     */
-    public function setLanguage($language)
-    {
-        $this->container['language'] = $language;
+        $this->container['open'] = $open;
 
         return $this;
     }
