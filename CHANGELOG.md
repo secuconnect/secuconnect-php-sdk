@@ -18,24 +18,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
-## [2.11.0] - NOT YET RELEASED
-[2.11.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.10.2...2.11.0
+
+## [2.11.0] - 2022-01-25
+[2.11.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.10.0...2.11.0
 
 ### Added
-- `Api.PaymentTransactionsApi.getPaymentTransactionsCrowdFundingData()`
-
-
-## [2.10.2] - 2021-11-25
-[2.10.2]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.10.1...2.10.2
-
-### Added
+- `Api.PaymentTransactionsApi.getCrowdFundingData()`
+- `Api.PaymentTransactionsApi.updateShippingInformation()`
+- `Api.PublicWebsiteApi.availableCountries()`
+- `Model.AvailableCountry`
+- `Model.SmartTemplatesElementModel` element `form_elements`
+- `Model.SmartTemplatesFormElementModel`
 - `Model.SmartTransactionsApplicationContext` element `creditcard_schemes`
-
-
-## [2.10.1] - 2021-10-12
-[2.10.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.10.0...2.10.1
-
-### Added
 - `Model.SmartTransactionsApplicationContext` element `language`
 
 

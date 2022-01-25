@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SecupayTransactionSetShippingInformationDTO
+ * AvailableCountry
  *
  * @category Class
- * @description SecupayTransactionSetShippingInformationDTO
+ * @description AvailableCountry
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SecupayTransactionSetShippingInformationDTO implements ArrayAccess
+class AvailableCountry implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,18 +21,16 @@ class SecupayTransactionSetShippingInformationDTO implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SecupayTransactionSetShippingInformationDTO';
+    protected static $swaggerModelName = 'AvailableCountry';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'carrier' => 'string',
-        'tracking_id' => 'string',
-        'invoice_number' => 'string',
-        'shipped_at' => 'string',
-        'order_id' => 'string'
+        'en' => 'string',
+        'iso_code' => 'string',
+        'de' => 'string'
     ];
 
     /**
@@ -40,11 +38,9 @@ class SecupayTransactionSetShippingInformationDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'carrier' => null,
-        'tracking_id' => null,
-        'invoice_number' => null,
-        'shipped_at' => null,
-        'order_id' => null
+        'en' => null,
+        'iso_code' => null,
+        'de' => null
     ];
 
     public static function swaggerTypes()
@@ -62,11 +58,9 @@ class SecupayTransactionSetShippingInformationDTO implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'carrier' => 'carrier',
-        'tracking_id' => 'tracking_id',
-        'invoice_number' => 'invoice_number',
-        'shipped_at' => 'shipped_at',
-        'order_id' => 'order_id'
+        'en' => 'en',
+        'iso_code' => 'iso_code',
+        'de' => 'de'
     ];
 
     /**
@@ -74,11 +68,9 @@ class SecupayTransactionSetShippingInformationDTO implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'carrier' => 'setCarrier',
-        'tracking_id' => 'setTrackingId',
-        'invoice_number' => 'setInvoiceNumber',
-        'shipped_at' => 'setShippedAt',
-        'order_id' => 'setOrderId'
+        'en' => 'setEn',
+        'iso_code' => 'setIsoCode',
+        'de' => 'setDe'
     ];
 
     /**
@@ -86,11 +78,9 @@ class SecupayTransactionSetShippingInformationDTO implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'carrier' => 'getCarrier',
-        'tracking_id' => 'getTrackingId',
-        'invoice_number' => 'getInvoiceNumber',
-        'shipped_at' => 'getShippedAt',
-        'order_id' => 'getOrderId'
+        'en' => 'getEn',
+        'iso_code' => 'getIsoCode',
+        'de' => 'getDe'
     ];
 
     public static function attributeMap()
@@ -120,11 +110,9 @@ class SecupayTransactionSetShippingInformationDTO implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['carrier'] = isset($data['carrier']) ? $data['carrier'] : null;
-        $this->container['tracking_id'] = isset($data['tracking_id']) ? $data['tracking_id'] : null;
-        $this->container['invoice_number'] = isset($data['invoice_number']) ? $data['invoice_number'] : null;
-        $this->container['shipped_at'] = isset($data['shipped_at']) ? $data['shipped_at'] : null;
-        $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
+        $this->container['en'] = isset($data['en']) ? $data['en'] : null;
+        $this->container['iso_code'] = isset($data['iso_code']) ? $data['iso_code'] : null;
+        $this->container['de'] = isset($data['de']) ? $data['de'] : null;
     }
 
     /**
@@ -152,106 +140,64 @@ class SecupayTransactionSetShippingInformationDTO implements ArrayAccess
 
 
     /**
-     * Gets carrier
+     * Gets en
      * @return string
      */
-    public function getCarrier()
+    public function getEn()
     {
-        return $this->container['carrier'];
+        return $this->container['en'];
     }
 
     /**
-     * Sets carrier
-     * @param string $carrier Shipping provider name
+     * Sets en
+     * @param string $en English Translation for Country
      * @return $this
      */
-    public function setCarrier($carrier)
+    public function setEn($en)
     {
-        $this->container['carrier'] = $carrier;
+        $this->container['en'] = $en;
 
         return $this;
     }
 
     /**
-     * Gets tracking_id
+     * Gets iso_code
      * @return string
      */
-    public function getTrackingId()
+    public function getIsoCode()
     {
-        return $this->container['tracking_id'];
+        return $this->container['iso_code'];
     }
 
     /**
-     * Sets tracking_id
-     * @param string $tracking_id Tracking-ID
+     * Sets iso_code
+     * @param string $iso_code The Iso Code for Country
      * @return $this
      */
-    public function setTrackingId($tracking_id)
+    public function setIsoCode($iso_code)
     {
-        $this->container['tracking_id'] = $tracking_id;
+        $this->container['iso_code'] = $iso_code;
 
         return $this;
     }
 
     /**
-     * Gets invoice_number
+     * Gets de
      * @return string
      */
-    public function getInvoiceNumber()
+    public function getDe()
     {
-        return $this->container['invoice_number'];
+        return $this->container['de'];
     }
 
     /**
-     * Sets invoice_number
-     * @param string $invoice_number Merchants invoice number
+     * Sets de
+     * @param string $de German Translation for Country
      * @return $this
      */
-    public function setInvoiceNumber($invoice_number)
+    public function setDe($de)
     {
-        $this->container['invoice_number'] = $invoice_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets shipped_at
-     * @return string
-     */
-    public function getShippedAt()
-    {
-        return $this->container['shipped_at'];
-    }
-
-    /**
-     * Sets shipped_at
-     * @param string $shipped_at Timestamp of the shipping date
-     * @return $this
-     */
-    public function setShippedAt($shipped_at)
-    {
-        $this->container['shipped_at'] = $shipped_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets order_id
-     * @return string
-     */
-    public function getOrderId()
-    {
-        return $this->container['order_id'];
-    }
-
-    /**
-     * Sets order_id
-     * @param string $order_id Order-ID
-     * @return $this
-     */
-    public function setOrderId($order_id)
-    {
-        $this->container['order_id'] = $order_id;
+        $this->container['de'] = $de;
 
         return $this;
     }

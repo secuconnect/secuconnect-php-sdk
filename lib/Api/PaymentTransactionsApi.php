@@ -376,6 +376,107 @@ class PaymentTransactionsApi
     }
 
     /**
+     * Operation getCrowdFundingData
+     *
+     * GET Payment/Transactions/me/CrowdFundingData/{generalMerchantId}
+     *
+     * @param string $general_merchant_id Merchant ID (MRC_...) (required)
+     * @throws ApiException on non-2xx response
+     * @return \Secuconnect\Client\Model\PaymentCrowdFundingData
+     */
+    public function getCrowdFundingData($general_merchant_id)
+    {
+        list($response) = $this->getCrowdFundingDataWithHttpInfo($general_merchant_id);
+        return $response;
+    }
+
+    /**
+     * Operation getCrowdFundingDataWithHttpInfo
+     *
+     * GET Payment/Transactions/me/CrowdFundingData/{generalMerchantId}
+     *
+     * @param string $general_merchant_id Merchant ID (MRC_...) (required)
+     * @throws ApiException on non-2xx response
+     * @return array of \Secuconnect\Client\Model\PaymentCrowdFundingData, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCrowdFundingDataWithHttpInfo($general_merchant_id)
+    {
+        // verify the required parameter 'general_merchant_id' is set
+        if ($general_merchant_id === null || (is_array($general_merchant_id) && count($general_merchant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $general_merchant_id when calling getCrowdFundingData'
+            );
+        }
+        // parse inputs
+        $resourcePath = "/Payment/Transactions/me/CrowdFundingData/{generalMerchantId}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($general_merchant_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "generalMerchantId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($general_merchant_id),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        for ($retries = 0; ; $retries++) {
+
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+            }
+
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'GET',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\PaymentCrowdFundingData',
+                    '/Payment/Transactions/me/CrowdFundingData/{generalMerchantId}'
+                );
+
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentCrowdFundingData', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentCrowdFundingData', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue 2;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
+        }
+    }
+
+    /**
      * Operation getOne
      *
      * GET Payment/Transactions/{paymentTransactionId}
@@ -458,107 +559,6 @@ class PaymentTransactionsApi
                 switch ($e->getCode()) {
                     case 200:
                         $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentTransactionsProductModel', $e->getResponseHeaders());
-                        $e->setResponseObject($data);
-                        break;
-                    case 401:
-                        if ($retries < 1) {
-                            Authenticator::reauthenticate();
-                            continue 2;
-                        }
-                    default:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
-                        $e->setResponseObject($data);
-                        break;
-                }
-
-                throw $e;
-            }
-        }
-    }
-
-    /**
-     * Operation getPaymentTransactionsCrowdFundingData
-     *
-     * GET Payment/Transactions/me/CrowdFundingData/{generalMerchantId}
-     *
-     * @param string $general_merchant_id Merchant ID (MRC_...) (required)
-     * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\PaymentCrowdFundingData
-     */
-    public function getPaymentTransactionsCrowdFundingData($general_merchant_id)
-    {
-        list($response) = $this->getPaymentTransactionsCrowdFundingDataWithHttpInfo($general_merchant_id);
-        return $response;
-    }
-
-    /**
-     * Operation getPaymentTransactionsCrowdFundingDataWithHttpInfo
-     *
-     * GET Payment/Transactions/me/CrowdFundingData/{generalMerchantId}
-     *
-     * @param string $general_merchant_id Merchant ID (MRC_...) (required)
-     * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\PaymentCrowdFundingData, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getPaymentTransactionsCrowdFundingDataWithHttpInfo($general_merchant_id)
-    {
-        // verify the required parameter 'general_merchant_id' is set
-        if ($general_merchant_id === null || (is_array($general_merchant_id) && count($general_merchant_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $general_merchant_id when calling getPaymentTransactionsCrowdFundingData'
-            );
-        }
-        // parse inputs
-        $resourcePath = "/Payment/Transactions/me/CrowdFundingData/{generalMerchantId}";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
-
-        // path params
-        if ($general_merchant_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "generalMerchantId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($general_merchant_id),
-                $resourcePath
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        for ($retries = 0; ; $retries++) {
-
-            // this endpoint requires OAuth (access token)
-            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-            }
-
-            // make the API Call
-            try {
-                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                    $resourcePath,
-                    'GET',
-                    $queryParams,
-                    $httpBody,
-                    $headerParams,
-                    '\Secuconnect\Client\Model\PaymentCrowdFundingData',
-                    '/Payment/Transactions/me/CrowdFundingData/{generalMerchantId}'
-                );
-
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentCrowdFundingData', $httpHeader), $statusCode, $httpHeader];
-            } catch (ApiException $e) {
-                switch ($e->getCode()) {
-                    case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentCrowdFundingData', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:
@@ -862,6 +862,107 @@ class PaymentTransactionsApi
                 switch ($e->getCode()) {
                     case 200:
                         $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentTransactionsProductModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue 2;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
+        }
+    }
+
+    /**
+     * Operation updateShippingInformation
+     *
+     * PUT Payment/Transactions/{paymentTransactionId}/ShippingInformation
+     *
+     * @param string $payment_transaction_id Payment ID (PCI_...) or hash (required)
+     * @throws ApiException on non-2xx response
+     * @return \Secuconnect\Client\Model\ResultBoolean
+     */
+    public function updateShippingInformation($payment_transaction_id)
+    {
+        list($response) = $this->updateShippingInformationWithHttpInfo($payment_transaction_id);
+        return $response;
+    }
+
+    /**
+     * Operation updateShippingInformationWithHttpInfo
+     *
+     * PUT Payment/Transactions/{paymentTransactionId}/ShippingInformation
+     *
+     * @param string $payment_transaction_id Payment ID (PCI_...) or hash (required)
+     * @throws ApiException on non-2xx response
+     * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateShippingInformationWithHttpInfo($payment_transaction_id)
+    {
+        // verify the required parameter 'payment_transaction_id' is set
+        if ($payment_transaction_id === null || (is_array($payment_transaction_id) && count($payment_transaction_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $payment_transaction_id when calling updateShippingInformation'
+            );
+        }
+        // parse inputs
+        $resourcePath = "/Payment/Transactions/{paymentTransactionId}/ShippingInformation";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($payment_transaction_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "paymentTransactionId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($payment_transaction_id),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        for ($retries = 0; ; $retries++) {
+
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+            }
+
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'PUT',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\ResultBoolean',
+                    '/Payment/Transactions/{paymentTransactionId}/ShippingInformation'
+                );
+
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\ResultBoolean', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ResultBoolean', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:

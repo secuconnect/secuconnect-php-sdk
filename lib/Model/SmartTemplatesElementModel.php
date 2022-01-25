@@ -32,7 +32,8 @@ class SmartTemplatesElementModel implements ArrayAccess
         'type' => 'string',
         'config' => 'object',
         'condition' => 'object',
-        'accordion_elements' => '\Secuconnect\Client\Model\SmartTemplatesAccordionItemModel[]'
+        'accordion_elements' => '\Secuconnect\Client\Model\SmartTemplatesAccordionItemModel[]',
+        'form_elements' => '\Secuconnect\Client\Model\SmartTemplatesFormElementModel[]'
     ];
 
     /**
@@ -44,7 +45,8 @@ class SmartTemplatesElementModel implements ArrayAccess
         'type' => null,
         'config' => null,
         'condition' => null,
-        'accordion_elements' => null
+        'accordion_elements' => null,
+        'form_elements' => null
     ];
 
     public static function swaggerTypes()
@@ -66,7 +68,8 @@ class SmartTemplatesElementModel implements ArrayAccess
         'type' => 'type',
         'config' => 'config',
         'condition' => 'condition',
-        'accordion_elements' => 'accordion_elements'
+        'accordion_elements' => 'accordion_elements',
+        'form_elements' => 'form_elements'
     ];
 
     /**
@@ -78,7 +81,8 @@ class SmartTemplatesElementModel implements ArrayAccess
         'type' => 'setType',
         'config' => 'setConfig',
         'condition' => 'setCondition',
-        'accordion_elements' => 'setAccordionElements'
+        'accordion_elements' => 'setAccordionElements',
+        'form_elements' => 'setFormElements'
     ];
 
     /**
@@ -90,7 +94,8 @@ class SmartTemplatesElementModel implements ArrayAccess
         'type' => 'getType',
         'config' => 'getConfig',
         'condition' => 'getCondition',
-        'accordion_elements' => 'getAccordionElements'
+        'accordion_elements' => 'getAccordionElements',
+        'form_elements' => 'getFormElements'
     ];
 
     public static function attributeMap()
@@ -125,6 +130,7 @@ class SmartTemplatesElementModel implements ArrayAccess
         $this->container['config'] = isset($data['config']) ? $data['config'] : null;
         $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
         $this->container['accordion_elements'] = isset($data['accordion_elements']) ? $data['accordion_elements'] : null;
+        $this->container['form_elements'] = isset($data['form_elements']) ? $data['form_elements'] : null;
     }
 
     /**
@@ -252,6 +258,27 @@ class SmartTemplatesElementModel implements ArrayAccess
     public function setAccordionElements($accordion_elements)
     {
         $this->container['accordion_elements'] = $accordion_elements;
+
+        return $this;
+    }
+
+    /**
+     * Gets form_elements
+     * @return \Secuconnect\Client\Model\SmartTemplatesFormElementModel[]
+     */
+    public function getFormElements()
+    {
+        return $this->container['form_elements'];
+    }
+
+    /**
+     * Sets form_elements
+     * @param \Secuconnect\Client\Model\SmartTemplatesFormElementModel[] $form_elements The Form items to be shown in dynamic form element
+     * @return $this
+     */
+    public function setFormElements($form_elements)
+    {
+        $this->container['form_elements'] = $form_elements;
 
         return $this;
     }
