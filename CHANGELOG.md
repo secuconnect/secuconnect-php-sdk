@@ -27,10 +27,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - `Api.PaymentTransactionsApi.updateShippingInformation()`
 - `Api.PublicWebsiteApi.availableCountries()`
 - `Model.AvailableCountry`
+- `Model.CrowdFundingDataDetails`
+- `Model.CrowdFundingDataOpenAmount`
+- `Model.CrowdFundingDataOpenAmountInsideCancelPeriod`
+- `Model.CrowdFundingDataOpenAmountOutsideCancellationPeriod`
+- `Model.PaymentContext` element `creditcard_schemes`
+- `Model.PaymentCrowdFundingData`
+- `Model.PaymentMethodBreakdown`
+- `Model.SecupayTransactionSetShippingInformationDTO` element `shipped_at` and `order_id`
 - `Model.SmartTemplatesElementModel` element `form_elements`
 - `Model.SmartTemplatesFormElementModel`
-- `Model.SmartTransactionsApplicationContext` element `creditcard_schemes`
 - `Model.SmartTransactionsApplicationContext` element `language`
+
+### Fixed
+- Some broken tests
 
 
 ## [2.10.0] - 2021-09-29
