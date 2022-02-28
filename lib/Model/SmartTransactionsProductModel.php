@@ -67,7 +67,8 @@ class SmartTransactionsProductModel extends BaseProductModel
         'payment_links' => '\Secuconnect\Client\Model\SmartTransactionsPaymentLinks',
         'application_context' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContext',
         'payment_instructions' => '\Secuconnect\Client\Model\PaymentInstructions',
-        'payment_context' => '\Secuconnect\Client\Model\PaymentContext'
+        'payment_context' => '\Secuconnect\Client\Model\PaymentContext',
+        'subscription' => '\Secuconnect\Client\Model\ProductInstanceUID'
     ];
 
     /**
@@ -116,7 +117,8 @@ class SmartTransactionsProductModel extends BaseProductModel
         'payment_links' => null,
         'application_context' => null,
         'payment_instructions' => null,
-        'payment_context' => null
+        'payment_context' => null,
+        'subscription' => null
     ];
 
     public static function swaggerTypes()
@@ -175,7 +177,8 @@ class SmartTransactionsProductModel extends BaseProductModel
         'payment_links' => 'payment_links',
         'application_context' => 'application_context',
         'payment_instructions' => 'payment_instructions',
-        'payment_context' => 'payment_context'
+        'payment_context' => 'payment_context',
+        'subscription' => 'subscription'
     ];
 
     /**
@@ -224,7 +227,8 @@ class SmartTransactionsProductModel extends BaseProductModel
         'payment_links' => 'setPaymentLinks',
         'application_context' => 'setApplicationContext',
         'payment_instructions' => 'setPaymentInstructions',
-        'payment_context' => 'setPaymentContext'
+        'payment_context' => 'setPaymentContext',
+        'subscription' => 'setSubscription'
     ];
 
     /**
@@ -273,7 +277,8 @@ class SmartTransactionsProductModel extends BaseProductModel
         'payment_links' => 'getPaymentLinks',
         'application_context' => 'getApplicationContext',
         'payment_instructions' => 'getPaymentInstructions',
-        'payment_context' => 'getPaymentContext'
+        'payment_context' => 'getPaymentContext',
+        'subscription' => 'getSubscription'
     ];
 
     public static function attributeMap()
@@ -341,6 +346,7 @@ class SmartTransactionsProductModel extends BaseProductModel
         $this->container['application_context'] = isset($data['application_context']) ? $data['application_context'] : null;
         $this->container['payment_instructions'] = isset($data['payment_instructions']) ? $data['payment_instructions'] : null;
         $this->container['payment_context'] = isset($data['payment_context']) ? $data['payment_context'] : null;
+        $this->container['subscription'] = isset($data['subscription']) ? $data['subscription'] : null;
     }
 
     /**
@@ -1245,6 +1251,27 @@ class SmartTransactionsProductModel extends BaseProductModel
     public function setPaymentContext($payment_context)
     {
         $this->container['payment_context'] = $payment_context;
+
+        return $this;
+    }
+
+    /**
+     * Gets subscription
+     * @return \Secuconnect\Client\Model\ProductInstanceUID
+     */
+    public function getSubscription()
+    {
+        return $this->container['subscription'];
+    }
+
+    /**
+     * Sets subscription
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $subscription subscription
+     * @return $this
+     */
+    public function setSubscription($subscription)
+    {
+        $this->container['subscription'] = $subscription;
 
         return $this;
     }

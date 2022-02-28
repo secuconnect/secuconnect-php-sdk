@@ -5,15 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SmartTransactionsApplicationContextReturnUrls
+ * PaymentTransactionsIncreaseAmountDTO
  *
  * @category Class
- * @description SmartTransactionsApplicationContextReturnUrls
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsApplicationContextReturnUrls implements ArrayAccess
+class PaymentTransactionsIncreaseAmountDTO implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,17 +20,14 @@ class SmartTransactionsApplicationContextReturnUrls implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTransactionsApplicationContextReturnUrls';
+    protected static $swaggerModelName = 'PaymentTransactionsIncreaseAmountDTO';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'url_success' => 'string',
-        'url_abort' => 'string',
-        'url_error' => 'string',
-        'url_push' => 'string'
+        'amount' => 'int'
     ];
 
     /**
@@ -39,10 +35,7 @@ class SmartTransactionsApplicationContextReturnUrls implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'url_success' => null,
-        'url_abort' => null,
-        'url_error' => null,
-        'url_push' => null
+        'amount' => null
     ];
 
     public static function swaggerTypes()
@@ -60,10 +53,7 @@ class SmartTransactionsApplicationContextReturnUrls implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'url_success' => 'url_success',
-        'url_abort' => 'url_abort',
-        'url_error' => 'url_error',
-        'url_push' => 'url_push'
+        'amount' => 'amount'
     ];
 
     /**
@@ -71,10 +61,7 @@ class SmartTransactionsApplicationContextReturnUrls implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'url_success' => 'setUrlSuccess',
-        'url_abort' => 'setUrlAbort',
-        'url_error' => 'setUrlError',
-        'url_push' => 'setUrlPush'
+        'amount' => 'setAmount'
     ];
 
     /**
@@ -82,10 +69,7 @@ class SmartTransactionsApplicationContextReturnUrls implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'url_success' => 'getUrlSuccess',
-        'url_abort' => 'getUrlAbort',
-        'url_error' => 'getUrlError',
-        'url_push' => 'getUrlPush'
+        'amount' => 'getAmount'
     ];
 
     public static function attributeMap()
@@ -115,10 +99,7 @@ class SmartTransactionsApplicationContextReturnUrls implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['url_success'] = isset($data['url_success']) ? $data['url_success'] : null;
-        $this->container['url_abort'] = isset($data['url_abort']) ? $data['url_abort'] : null;
-        $this->container['url_error'] = isset($data['url_error']) ? $data['url_error'] : null;
-        $this->container['url_push'] = isset($data['url_push']) ? $data['url_push'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
     }
 
     /**
@@ -146,85 +127,22 @@ class SmartTransactionsApplicationContextReturnUrls implements ArrayAccess
 
 
     /**
-     * Gets url_success
-     * @return string
+     * Gets amount
+     * @return int
      */
-    public function getUrlSuccess()
+    public function getAmount()
     {
-        return $this->container['url_success'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets url_success
-     * @param string $url_success Success URL
+     * Sets amount
+     * @param int $amount The raised amount of the transaction
      * @return $this
      */
-    public function setUrlSuccess($url_success)
+    public function setAmount($amount)
     {
-        $this->container['url_success'] = $url_success;
-
-        return $this;
-    }
-
-    /**
-     * Gets url_abort
-     * @return string
-     */
-    public function getUrlAbort()
-    {
-        return $this->container['url_abort'];
-    }
-
-    /**
-     * Sets url_abort
-     * @param string $url_abort Abort URL
-     * @return $this
-     */
-    public function setUrlAbort($url_abort)
-    {
-        $this->container['url_abort'] = $url_abort;
-
-        return $this;
-    }
-
-    /**
-     * Gets url_error
-     * @return string
-     */
-    public function getUrlError()
-    {
-        return $this->container['url_error'];
-    }
-
-    /**
-     * Sets url_error
-     * @param string $url_error Error URL
-     * @return $this
-     */
-    public function setUrlError($url_error)
-    {
-        $this->container['url_error'] = $url_error;
-
-        return $this;
-    }
-
-    /**
-     * Gets url_push
-     * @return string
-     */
-    public function getUrlPush()
-    {
-        return $this->container['url_push'];
-    }
-
-    /**
-     * Sets url_push
-     * @param string $url_push Push URL
-     * @return $this
-     */
-    public function setUrlPush($url_push)
-    {
-        $this->container['url_push'] = $url_push;
+        $this->container['amount'] = $amount;
 
         return $this;
     }

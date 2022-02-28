@@ -42,7 +42,9 @@ class SmartTransactionsBasketProduct implements ArrayAccess
         'reference_id' => 'string',
         'contract_id' => 'string',
         'group' => '\Secuconnect\Client\Model\SmartTransactionsBasketProductGroup[]',
-        'sub_basket' => '\Secuconnect\Client\Model\SmartTransactionsSubBasketProduct[]'
+        'sub_basket' => '\Secuconnect\Client\Model\SmartTransactionsSubBasketProduct[]',
+        'plan_id' => 'string',
+        'start_at' => 'string'
     ];
 
     /**
@@ -64,7 +66,9 @@ class SmartTransactionsBasketProduct implements ArrayAccess
         'reference_id' => null,
         'contract_id' => null,
         'group' => null,
-        'sub_basket' => null
+        'sub_basket' => null,
+        'plan_id' => null,
+        'start_at' => null
     ];
 
     public static function swaggerTypes()
@@ -96,7 +100,9 @@ class SmartTransactionsBasketProduct implements ArrayAccess
         'reference_id' => 'reference_id',
         'contract_id' => 'contract_id',
         'group' => 'group',
-        'sub_basket' => 'sub_basket'
+        'sub_basket' => 'sub_basket',
+        'plan_id' => 'plan_id',
+        'start_at' => 'start_at'
     ];
 
     /**
@@ -118,7 +124,9 @@ class SmartTransactionsBasketProduct implements ArrayAccess
         'reference_id' => 'setReferenceId',
         'contract_id' => 'setContractId',
         'group' => 'setGroup',
-        'sub_basket' => 'setSubBasket'
+        'sub_basket' => 'setSubBasket',
+        'plan_id' => 'setPlanId',
+        'start_at' => 'setStartAt'
     ];
 
     /**
@@ -140,7 +148,9 @@ class SmartTransactionsBasketProduct implements ArrayAccess
         'reference_id' => 'getReferenceId',
         'contract_id' => 'getContractId',
         'group' => 'getGroup',
-        'sub_basket' => 'getSubBasket'
+        'sub_basket' => 'getSubBasket',
+        'plan_id' => 'getPlanId',
+        'start_at' => 'getStartAt'
     ];
 
     public static function attributeMap()
@@ -185,6 +195,8 @@ class SmartTransactionsBasketProduct implements ArrayAccess
         $this->container['contract_id'] = isset($data['contract_id']) ? $data['contract_id'] : null;
         $this->container['group'] = isset($data['group']) ? $data['group'] : null;
         $this->container['sub_basket'] = isset($data['sub_basket']) ? $data['sub_basket'] : null;
+        $this->container['plan_id'] = isset($data['plan_id']) ? $data['plan_id'] : null;
+        $this->container['start_at'] = isset($data['start_at']) ? $data['start_at'] : null;
     }
 
     /**
@@ -522,6 +534,48 @@ class SmartTransactionsBasketProduct implements ArrayAccess
     public function setSubBasket($sub_basket)
     {
         $this->container['sub_basket'] = $sub_basket;
+
+        return $this;
+    }
+
+    /**
+     * Gets plan_id
+     * @return string
+     */
+    public function getPlanId()
+    {
+        return $this->container['plan_id'];
+    }
+
+    /**
+     * Sets plan_id
+     * @param string $plan_id subscription item plan_id
+     * @return $this
+     */
+    public function setPlanId($plan_id)
+    {
+        $this->container['plan_id'] = $plan_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_at
+     * @return string
+     */
+    public function getStartAt()
+    {
+        return $this->container['start_at'];
+    }
+
+    /**
+     * Sets start_at
+     * @param string $start_at timestamp when the subscription should start
+     * @return $this
+     */
+    public function setStartAt($start_at)
+    {
+        $this->container['start_at'] = $start_at;
 
         return $this;
     }
