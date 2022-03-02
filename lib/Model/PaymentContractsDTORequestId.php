@@ -141,7 +141,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
         $this->container['iframe_opts'] = isset($data['iframe_opts']) ? $data['iframe_opts'] : null;
         $this->container['payin_account'] = isset($data['payin_account']) ? $data['payin_account'] : false;
         $this->container['create_first_store'] = isset($data['create_first_store']) ? $data['create_first_store'] : null;
-        $this->container['store_name'] = isset($data['store_name']) ? $data['store_name'] : false;
+        $this->container['store_name'] = isset($data['store_name']) ? $data['store_name'] : null;
     }
 
     /**
