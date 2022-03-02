@@ -19,6 +19,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [1.3.1] - 2022-03-02
+
+### Fixed
+- default value for store_name 
+
+
 ## [1.3.0] - 2020-03-04
 
 ### Changed
@@ -280,3 +286,4 @@ Beta version of the swagger generated PHP-SDK for the secuconnect API.
 [1.1.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.0.1...1.1.0
 [1.2.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.1.0...1.2.0
 [1.3.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.2.0...1.3.0
+[1.3.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/1.3.0...1.3.1
