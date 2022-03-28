@@ -994,12 +994,13 @@ class PaymentTransactionsApi
      * PUT Payment/Transactions/{paymentTransactionId}/ShippingInformation
      *
      * @param string $payment_transaction_id Payment ID (PCI_...) or hash (required)
+     * @param \Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO $body Update shipping information input properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ResultBoolean
      */
-    public function updateShippingInformation($payment_transaction_id)
+    public function updateShippingInformation($payment_transaction_id, $body)
     {
-        list($response) = $this->updateShippingInformationWithHttpInfo($payment_transaction_id);
+        list($response) = $this->updateShippingInformationWithHttpInfo($payment_transaction_id, $body);
         return $response;
     }
 
@@ -1009,10 +1010,11 @@ class PaymentTransactionsApi
      * PUT Payment/Transactions/{paymentTransactionId}/ShippingInformation
      *
      * @param string $payment_transaction_id Payment ID (PCI_...) or hash (required)
+     * @param \Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO $body Update shipping information input properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateShippingInformationWithHttpInfo($payment_transaction_id)
+    public function updateShippingInformationWithHttpInfo($payment_transaction_id, $body)
     {
         // verify the required parameter 'payment_transaction_id' is set
         if ($payment_transaction_id === null || (is_array($payment_transaction_id) && count($payment_transaction_id) === 0)) {
@@ -1030,7 +1032,7 @@ class PaymentTransactionsApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
         // path params
         if ($payment_transaction_id !== null) {
@@ -1039,6 +1041,11 @@ class PaymentTransactionsApi
                 $this->apiClient->getSerializer()->toPathValue($payment_transaction_id),
                 $resourcePath
             );
+        }
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)
