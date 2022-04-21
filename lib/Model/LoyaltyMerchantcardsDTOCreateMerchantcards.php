@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * LoyaltyMerchantcardsDTOCardsAmount
+ * LoyaltyMerchantcardsDTOCreateMerchantcards
  *
  * @category Class
- * @description LoyaltyMerchantcardsDTOCardsAmount
+ * @description LoyaltyMerchantcardsDTOCreateMerchantcards
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LoyaltyMerchantcardsDTOCardsAmount implements ArrayAccess
+class LoyaltyMerchantcardsDTOCreateMerchantcards implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,14 +21,15 @@ class LoyaltyMerchantcardsDTOCardsAmount implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'LoyaltyMerchantcardsDTOCardsAmount';
+    protected static $swaggerModelName = 'LoyaltyMerchantcardsDTOCreateMerchantcards';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cards_amount' => 'int'
+        'cards_amount' => 'int',
+        'customer' => '\Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCustomer'
     ];
 
     /**
@@ -36,7 +37,8 @@ class LoyaltyMerchantcardsDTOCardsAmount implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cards_amount' => null
+        'cards_amount' => null,
+        'customer' => null
     ];
 
     public static function swaggerTypes()
@@ -54,7 +56,8 @@ class LoyaltyMerchantcardsDTOCardsAmount implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cards_amount' => 'cards_amount'
+        'cards_amount' => 'cards_amount',
+        'customer' => 'customer'
     ];
 
     /**
@@ -62,7 +65,8 @@ class LoyaltyMerchantcardsDTOCardsAmount implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cards_amount' => 'setCardsAmount'
+        'cards_amount' => 'setCardsAmount',
+        'customer' => 'setCustomer'
     ];
 
     /**
@@ -70,7 +74,8 @@ class LoyaltyMerchantcardsDTOCardsAmount implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cards_amount' => 'getCardsAmount'
+        'cards_amount' => 'getCardsAmount',
+        'customer' => 'getCustomer'
     ];
 
     public static function attributeMap()
@@ -101,6 +106,7 @@ class LoyaltyMerchantcardsDTOCardsAmount implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['cards_amount'] = isset($data['cards_amount']) ? $data['cards_amount'] : null;
+        $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
     }
 
     /**
@@ -144,6 +150,27 @@ class LoyaltyMerchantcardsDTOCardsAmount implements ArrayAccess
     public function setCardsAmount($cards_amount)
     {
         $this->container['cards_amount'] = $cards_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer
+     * @return \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCustomer
+     */
+    public function getCustomer()
+    {
+        return $this->container['customer'];
+    }
+
+    /**
+     * Sets customer
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCustomer $customer customer
+     * @return $this
+     */
+    public function setCustomer($customer)
+    {
+        $this->container['customer'] = $customer;
 
         return $this;
     }

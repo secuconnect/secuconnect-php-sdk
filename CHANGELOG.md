@@ -18,12 +18,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.13.0] - 2022-04-21
+[2.13.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.12.1...2.13.0
+
+### Changed
+- `Model.LoyaltyMerchantcardsDTOCardsAmount` renamed to `Model.LoyaltyMerchantcardsDTOCreateMerchantcards`
+
+### Added
+- `Model.LoyaltyMerchantcardsDTOCustomer`
+- `Model.LoyaltyMerchantcardsDTOCreateMerchantcards` element `customer`
+
 ## [2.12.1] - 2022-03-28
 [2.12.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.12.0...2.12.1
 
 ### Fixed
 
-- Api.PaymentTransactionsApi.updateShippingInformation() missing body parameter
+- `Api.PaymentTransactionsApi.updateShippingInformation()` missing body parameter
 
 
 ## [2.12.0] - 2022-02-28
