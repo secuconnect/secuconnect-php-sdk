@@ -2,18 +2,16 @@
 
 namespace Secuconnect\Client\Model;
 
-use \ArrayAccess;
-
 /**
- * SmartTransactionPreparePayloadDataModel
+ * SmartTransactionPaymentCustomerDTO
  *
  * @category Class
- * @description SmartTransactionPreparePayloadDataModel
+ * @description SmartTransactionPaymentCustomerDTO
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionPreparePayloadDataModel implements ArrayAccess
+class SmartTransactionPaymentCustomerDTO extends ProductInstanceUID
 {
     const DISCRIMINATOR = null;
 
@@ -21,17 +19,14 @@ class SmartTransactionPreparePayloadDataModel implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTransactionPreparePayloadDataModel';
+    protected static $swaggerModelName = 'SmartTransactionPaymentCustomerDTO';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'callback_urls' => 'string[]',
-        'email' => 'string',
-        'customer' => '\Secuconnect\Client\Model\SmartTransactionPaymentCustomerDTO',
-        'container' => '\Secuconnect\Client\Model\SmartTransactionPaymentContainerDTO'
+        'contact' => '\Secuconnect\Client\Model\Contact'
     ];
 
     /**
@@ -39,20 +34,17 @@ class SmartTransactionPreparePayloadDataModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'callback_urls' => null,
-        'email' => null,
-        'customer' => null,
-        'container' => null
+        'contact' => null
     ];
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -60,10 +52,7 @@ class SmartTransactionPreparePayloadDataModel implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'callback_urls' => 'callback_urls',
-        'email' => 'email',
-        'customer' => 'customer',
-        'container' => 'container'
+        'contact' => 'contact'
     ];
 
     /**
@@ -71,10 +60,7 @@ class SmartTransactionPreparePayloadDataModel implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'callback_urls' => 'setCallbackUrls',
-        'email' => 'setEmail',
-        'customer' => 'setCustomer',
-        'container' => 'setContainer'
+        'contact' => 'setContact'
     ];
 
     /**
@@ -82,32 +68,23 @@ class SmartTransactionPreparePayloadDataModel implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'callback_urls' => 'getCallbackUrls',
-        'email' => 'getEmail',
-        'customer' => 'getCustomer',
-        'container' => 'getContainer'
+        'contact' => 'getContact'
     ];
 
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
-
-    /**
-     * Associative array for storing property values
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -115,10 +92,9 @@ class SmartTransactionPreparePayloadDataModel implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['callback_urls'] = isset($data['callback_urls']) ? $data['callback_urls'] : null;
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
-        $this->container['container'] = isset($data['container']) ? $data['container'] : null;
+        parent::__construct($data);
+
+        $this->container['contact'] = isset($data['contact']) ? $data['contact'] : null;
     }
 
     /**
@@ -128,7 +104,7 @@ class SmartTransactionPreparePayloadDataModel implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalid_properties = parent::listInvalidProperties();
 
         return $invalid_properties;
     }
@@ -146,85 +122,22 @@ class SmartTransactionPreparePayloadDataModel implements ArrayAccess
 
 
     /**
-     * Gets callback_urls
-     * @return string[]
+     * Gets contact
+     * @return \Secuconnect\Client\Model\Contact
      */
-    public function getCallbackUrls()
+    public function getContact()
     {
-        return $this->container['callback_urls'];
+        return $this->container['contact'];
     }
 
     /**
-     * Sets callback_urls
-     * @param string[] $callback_urls Callback urls
+     * Sets contact
+     * @param \Secuconnect\Client\Model\Contact $contact contact
      * @return $this
      */
-    public function setCallbackUrls($callback_urls)
+    public function setContact($contact)
     {
-        $this->container['callback_urls'] = $callback_urls;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     * @param string $email Email
-     * @return $this
-     */
-    public function setEmail($email)
-    {
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets customer
-     * @return \Secuconnect\Client\Model\SmartTransactionPaymentCustomerDTO
-     */
-    public function getCustomer()
-    {
-        return $this->container['customer'];
-    }
-
-    /**
-     * Sets customer
-     * @param \Secuconnect\Client\Model\SmartTransactionPaymentCustomerDTO $customer customer
-     * @return $this
-     */
-    public function setCustomer($customer)
-    {
-        $this->container['customer'] = $customer;
-
-        return $this;
-    }
-
-    /**
-     * Gets container
-     * @return \Secuconnect\Client\Model\SmartTransactionPaymentContainerDTO
-     */
-    public function getContainer()
-    {
-        return $this->container['container'];
-    }
-
-    /**
-     * Sets container
-     * @param \Secuconnect\Client\Model\SmartTransactionPaymentContainerDTO $container container
-     * @return $this
-     */
-    public function setContainer($container)
-    {
-        $this->container['container'] = $container;
+        $this->container['contact'] = $contact;
 
         return $this;
     }

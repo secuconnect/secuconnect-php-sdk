@@ -21,12 +21,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [2.13.0] - 2022-04-21
 [2.13.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.12.1...2.13.0
 
+### Removed
+- `Model.SmartTransactionPreparePayloadDataModel` element `mode`
+- `Model.SmartTransactionPreparePayloadDataModel` element `is_paypal_basic`
+
 ### Changed
 - `Model.LoyaltyMerchantcardsDTOCardsAmount` renamed to `Model.LoyaltyMerchantcardsDTOCreateMerchantcards`
+- `Model.SmartTransactionsDTO` element `customer` from `Model.PaymentCustomersProductModel` to `Model.SmartTransactionPaymentCustomerDTO`
+- `Model.SmartTransactionsDTO` element `container` from `Model.ProductInstanceUID` to `Model.SmartTransactionPaymentContainerDTO`
 
 ### Added
+- `Model.SmartTransactionPaymentContainerDTO`
+- `Model.SmartTransactionPaymentCustomerDTO`
 - `Model.LoyaltyMerchantcardsDTOCustomer`
 - `Model.LoyaltyMerchantcardsDTOCreateMerchantcards` element `customer`
+- `Model.SmartTransactionPreparePayloadDataModel` element `customer`
+- `Model.SmartTransactionPreparePayloadDataModel` element `container`
 
 ## [2.12.1] - 2022-03-28
 [2.12.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.12.0...2.12.1

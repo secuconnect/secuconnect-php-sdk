@@ -44,9 +44,9 @@ class SmartTransactionsDTO implements ArrayAccess
         'trans_id' => 'int',
         'contract' => '\Secuconnect\Client\Model\ProductInstanceID',
         'last_visited_page' => 'string',
-        'customer' => '\Secuconnect\Client\Model\PaymentCustomersProductModel',
+        'customer' => '\Secuconnect\Client\Model\SmartTransactionPaymentCustomerDTO',
         'shipping_address' => '\Secuconnect\Client\Model\PaymentCustomersProductModel',
-        'container' => '\Secuconnect\Client\Model\ProductInstanceUID',
+        'container' => '\Secuconnect\Client\Model\SmartTransactionPaymentContainerDTO',
         'checkin' => '\Secuconnect\Client\Model\SmartTransactionsCheckin',
         'payment_method' => 'string',
         'is_demo' => 'bool',
@@ -627,7 +627,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Gets customer
-     * @return \Secuconnect\Client\Model\PaymentCustomersProductModel
+     * @return \Secuconnect\Client\Model\SmartTransactionPaymentCustomerDTO
      */
     public function getCustomer()
     {
@@ -636,7 +636,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets customer
-     * @param \Secuconnect\Client\Model\PaymentCustomersProductModel $customer customer
+     * @param \Secuconnect\Client\Model\SmartTransactionPaymentCustomerDTO $customer customer
      * @return $this
      */
     public function setCustomer($customer)
@@ -669,7 +669,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Gets container
-     * @return \Secuconnect\Client\Model\ProductInstanceUID
+     * @return \Secuconnect\Client\Model\SmartTransactionPaymentContainerDTO
      */
     public function getContainer()
     {
@@ -678,7 +678,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets container
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $container container
+     * @param \Secuconnect\Client\Model\SmartTransactionPaymentContainerDTO $container container
      * @return $this
      */
     public function setContainer($container)
