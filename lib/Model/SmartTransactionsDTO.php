@@ -45,7 +45,7 @@ class SmartTransactionsDTO implements ArrayAccess
         'contract' => '\Secuconnect\Client\Model\ProductInstanceID',
         'last_visited_page' => 'string',
         'customer' => '\Secuconnect\Client\Model\SmartTransactionPaymentCustomerDTO',
-        'shipping_address' => '\Secuconnect\Client\Model\PaymentCustomersProductModel',
+        'shipping_address' => '\Secuconnect\Client\Model\SmartTransactionPaymentCustomerDTO',
         'container' => '\Secuconnect\Client\Model\SmartTransactionPaymentContainerDTO',
         'checkin' => '\Secuconnect\Client\Model\SmartTransactionsCheckin',
         'payment_method' => 'string',
@@ -648,7 +648,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Gets shipping_address
-     * @return \Secuconnect\Client\Model\PaymentCustomersProductModel
+     * @return \Secuconnect\Client\Model\SmartTransactionPaymentCustomerDTO
      */
     public function getShippingAddress()
     {
@@ -657,7 +657,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets shipping_address
-     * @param \Secuconnect\Client\Model\PaymentCustomersProductModel $shipping_address shipping_address
+     * @param \Secuconnect\Client\Model\SmartTransactionPaymentCustomerDTO $shipping_address shipping_address
      * @return $this
      */
     public function setShippingAddress($shipping_address)

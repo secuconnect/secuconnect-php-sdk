@@ -40,7 +40,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
         'currency' => 'string',
         'balance' => 'int',
         'description' => 'string',
-        'last_changee' => 'string',
+        'last_change' => 'string',
         'receipt' => '\Secuconnect\Client\Model\ReceiptTypeValue[]',
         'is_cancelling' => 'int'
     ];
@@ -64,7 +64,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
         'currency' => null,
         'balance' => null,
         'description' => null,
-        'last_changee' => null,
+        'last_change' => null,
         'receipt' => null,
         'is_cancelling' => null
     ];
@@ -98,7 +98,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
         'currency' => 'currency',
         'balance' => 'balance',
         'description' => 'description',
-        'last_changee' => 'last_changee',
+        'last_change' => 'last_change',
         'receipt' => 'receipt',
         'is_cancelling' => 'is_cancelling'
     ];
@@ -122,7 +122,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
         'currency' => 'setCurrency',
         'balance' => 'setBalance',
         'description' => 'setDescription',
-        'last_changee' => 'setLastChangee',
+        'last_change' => 'setLastChange',
         'receipt' => 'setReceipt',
         'is_cancelling' => 'setIsCancelling'
     ];
@@ -146,7 +146,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
         'currency' => 'getCurrency',
         'balance' => 'getBalance',
         'description' => 'getDescription',
-        'last_changee' => 'getLastChangee',
+        'last_change' => 'getLastChange',
         'receipt' => 'getReceipt',
         'is_cancelling' => 'getIsCancelling'
     ];
@@ -188,7 +188,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['balance'] = isset($data['balance']) ? $data['balance'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['last_changee'] = isset($data['last_changee']) ? $data['last_changee'] : null;
+        $this->container['last_change'] = isset($data['last_change']) ? $data['last_change'] : null;
         $this->container['receipt'] = isset($data['receipt']) ? $data['receipt'] : null;
         $this->container['is_cancelling'] = isset($data['is_cancelling']) ? $data['is_cancelling'] : null;
     }
@@ -512,22 +512,22 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
     }
 
     /**
-     * Gets last_changee
+     * Gets last_change
      * @return string
      */
-    public function getLastChangee()
+    public function getLastChange()
     {
-        return $this->container['last_changee'];
+        return $this->container['last_change'];
     }
 
     /**
-     * Sets last_changee
-     * @param string $last_changee Last change oif this transaction, most like a status change
+     * Sets last_change
+     * @param string $last_change Last change oif this transaction, most like a status change
      * @return $this
      */
-    public function setLastChangee($last_changee)
+    public function setLastChange($last_change)
     {
-        $this->container['last_changee'] = $last_changee;
+        $this->container['last_change'] = $last_change;
 
         return $this;
     }

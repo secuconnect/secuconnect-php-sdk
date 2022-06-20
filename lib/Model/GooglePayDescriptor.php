@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * AddressComponents
+ * GooglePayDescriptor
  *
  * @category Class
- * @description Address component like street, postal code, or country
+ * @description GooglePay details
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class AddressComponents implements ArrayAccess
+class GooglePayDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModelPrivate 
 {
     const DISCRIMINATOR = null;
 
@@ -21,16 +21,16 @@ class AddressComponents implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'AddressComponents';
+    protected static $swaggerModelName = 'GooglePayDescriptor';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'long_name' => 'string',
-        'short_name' => 'string',
-        'types' => 'string[]'
+        'signature' => 'string',
+        'protocol_version' => 'string',
+        'signed_message' => 'string'
     ];
 
     /**
@@ -38,9 +38,9 @@ class AddressComponents implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'long_name' => null,
-        'short_name' => null,
-        'types' => null
+        'signature' => null,
+        'protocol_version' => null,
+        'signed_message' => null
     ];
 
     public static function swaggerTypes()
@@ -58,9 +58,9 @@ class AddressComponents implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'long_name' => 'long_name',
-        'short_name' => 'short_name',
-        'types' => 'types'
+        'signature' => 'signature',
+        'protocol_version' => 'protocolVersion',
+        'signed_message' => 'signedMessage'
     ];
 
     /**
@@ -68,9 +68,9 @@ class AddressComponents implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'long_name' => 'setLongName',
-        'short_name' => 'setShortName',
-        'types' => 'setTypes'
+        'signature' => 'setSignature',
+        'protocol_version' => 'setProtocolVersion',
+        'signed_message' => 'setSignedMessage'
     ];
 
     /**
@@ -78,9 +78,9 @@ class AddressComponents implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'long_name' => 'getLongName',
-        'short_name' => 'getShortName',
-        'types' => 'getTypes'
+        'signature' => 'getSignature',
+        'protocol_version' => 'getProtocolVersion',
+        'signed_message' => 'getSignedMessage'
     ];
 
     public static function attributeMap()
@@ -110,9 +110,9 @@ class AddressComponents implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['long_name'] = isset($data['long_name']) ? $data['long_name'] : null;
-        $this->container['short_name'] = isset($data['short_name']) ? $data['short_name'] : null;
-        $this->container['types'] = isset($data['types']) ? $data['types'] : null;
+        $this->container['signature'] = isset($data['signature']) ? $data['signature'] : null;
+        $this->container['protocol_version'] = isset($data['protocol_version']) ? $data['protocol_version'] : 'ECv1';
+        $this->container['signed_message'] = isset($data['signed_message']) ? $data['signed_message'] : null;
     }
 
     /**
@@ -140,64 +140,64 @@ class AddressComponents implements ArrayAccess
 
 
     /**
-     * Gets long_name
+     * Gets signature
      * @return string
      */
-    public function getLongName()
+    public function getSignature()
     {
-        return $this->container['long_name'];
+        return $this->container['signature'];
     }
 
     /**
-     * Sets long_name
-     * @param string $long_name Long name
+     * Sets signature
+     * @param string $signature Base64 encoded signature of the signedMessage data.
      * @return $this
      */
-    public function setLongName($long_name)
+    public function setSignature($signature)
     {
-        $this->container['long_name'] = $long_name;
+        $this->container['signature'] = $signature;
 
         return $this;
     }
 
     /**
-     * Gets short_name
+     * Gets protocol_version
      * @return string
      */
-    public function getShortName()
+    public function getProtocolVersion()
     {
-        return $this->container['short_name'];
+        return $this->container['protocol_version'];
     }
 
     /**
-     * Sets short_name
-     * @param string $short_name Short name
+     * Sets protocol_version
+     * @param string $protocol_version Version information about the payment token.
      * @return $this
      */
-    public function setShortName($short_name)
+    public function setProtocolVersion($protocol_version)
     {
-        $this->container['short_name'] = $short_name;
+        $this->container['protocol_version'] = $protocol_version;
 
         return $this;
     }
 
     /**
-     * Gets types
-     * @return string[]
+     * Gets signed_message
+     * @return string
      */
-    public function getTypes()
+    public function getSignedMessage()
     {
-        return $this->container['types'];
+        return $this->container['signed_message'];
     }
 
     /**
-     * Sets types
-     * @param string[] $types Types
+     * Sets signed_message
+     * @param string $signed_message A JSON object serialized as an HTML-safe string that contains the encryptedMessage, ephemeralPublicKey, and tag.
      * @return $this
      */
-    public function setTypes($types)
+    public function setSignedMessage($signed_message)
     {
-        $this->container['types'] = $types;
+        $this->container['signed_message'] = $signed_message;
 
         return $this;
     }

@@ -300,7 +300,7 @@ class Address implements ArrayAccess
 
     /**
      * Sets additional_address_data
-     * @param string $additional_address_data Additional address line, like c/o, or an appartment number
+     * @param string $additional_address_data Additional address line, like c/o, or an apartment number
      * @return $this
      */
     public function setAdditionalAddressData($additional_address_data)

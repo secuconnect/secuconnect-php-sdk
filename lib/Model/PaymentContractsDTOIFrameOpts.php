@@ -225,7 +225,7 @@ class PaymentContractsDTOIFrameOpts implements ArrayAccess
 
     /**
      * Sets logo_base64
-     * @param string $logo_base64 Logo base64-enconded
+     * @param string $logo_base64 Logo base64-encoded
      * @return $this
      */
     public function setLogoBase64($logo_base64)
