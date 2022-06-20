@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * AddressComponents
+ * LoyaltyMerchantcardsDTOCustomer
  *
  * @category Class
- * @description Address component like street, postal code, or country
+ * @description LoyaltyMerchantcardsDTOCustomer
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class AddressComponents implements ArrayAccess
+class LoyaltyMerchantcardsDTOCustomer implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,16 +21,18 @@ class AddressComponents implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'AddressComponents';
+    protected static $swaggerModelName = 'LoyaltyMerchantcardsDTOCustomer';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'long_name' => 'string',
-        'short_name' => 'string',
-        'types' => 'string[]'
+        'merchant_contact' => '\Secuconnect\Client\Model\Contact',
+        'customernumber' => 'string',
+        'note' => 'string',
+        'consent_for_communication' => 'string',
+        'additional_data' => 'object'
     ];
 
     /**
@@ -38,9 +40,11 @@ class AddressComponents implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'long_name' => null,
-        'short_name' => null,
-        'types' => null
+        'merchant_contact' => null,
+        'customernumber' => null,
+        'note' => null,
+        'consent_for_communication' => null,
+        'additional_data' => null
     ];
 
     public static function swaggerTypes()
@@ -58,9 +62,11 @@ class AddressComponents implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'long_name' => 'long_name',
-        'short_name' => 'short_name',
-        'types' => 'types'
+        'merchant_contact' => 'merchant_contact',
+        'customernumber' => 'customernumber',
+        'note' => 'note',
+        'consent_for_communication' => 'consent_for_communication',
+        'additional_data' => 'additional_data'
     ];
 
     /**
@@ -68,9 +74,11 @@ class AddressComponents implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'long_name' => 'setLongName',
-        'short_name' => 'setShortName',
-        'types' => 'setTypes'
+        'merchant_contact' => 'setMerchantContact',
+        'customernumber' => 'setCustomernumber',
+        'note' => 'setNote',
+        'consent_for_communication' => 'setConsentForCommunication',
+        'additional_data' => 'setAdditionalData'
     ];
 
     /**
@@ -78,9 +86,11 @@ class AddressComponents implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'long_name' => 'getLongName',
-        'short_name' => 'getShortName',
-        'types' => 'getTypes'
+        'merchant_contact' => 'getMerchantContact',
+        'customernumber' => 'getCustomernumber',
+        'note' => 'getNote',
+        'consent_for_communication' => 'getConsentForCommunication',
+        'additional_data' => 'getAdditionalData'
     ];
 
     public static function attributeMap()
@@ -110,9 +120,11 @@ class AddressComponents implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['long_name'] = isset($data['long_name']) ? $data['long_name'] : null;
-        $this->container['short_name'] = isset($data['short_name']) ? $data['short_name'] : null;
-        $this->container['types'] = isset($data['types']) ? $data['types'] : null;
+        $this->container['merchant_contact'] = isset($data['merchant_contact']) ? $data['merchant_contact'] : null;
+        $this->container['customernumber'] = isset($data['customernumber']) ? $data['customernumber'] : null;
+        $this->container['note'] = isset($data['note']) ? $data['note'] : null;
+        $this->container['consent_for_communication'] = isset($data['consent_for_communication']) ? $data['consent_for_communication'] : null;
+        $this->container['additional_data'] = isset($data['additional_data']) ? $data['additional_data'] : null;
     }
 
     /**
@@ -140,64 +152,106 @@ class AddressComponents implements ArrayAccess
 
 
     /**
-     * Gets long_name
-     * @return string
+     * Gets merchant_contact
+     * @return \Secuconnect\Client\Model\Contact
      */
-    public function getLongName()
+    public function getMerchantContact()
     {
-        return $this->container['long_name'];
+        return $this->container['merchant_contact'];
     }
 
     /**
-     * Sets long_name
-     * @param string $long_name Long name
+     * Sets merchant_contact
+     * @param \Secuconnect\Client\Model\Contact $merchant_contact merchant_contact
      * @return $this
      */
-    public function setLongName($long_name)
+    public function setMerchantContact($merchant_contact)
     {
-        $this->container['long_name'] = $long_name;
+        $this->container['merchant_contact'] = $merchant_contact;
 
         return $this;
     }
 
     /**
-     * Gets short_name
+     * Gets customernumber
      * @return string
      */
-    public function getShortName()
+    public function getCustomernumber()
     {
-        return $this->container['short_name'];
+        return $this->container['customernumber'];
     }
 
     /**
-     * Sets short_name
-     * @param string $short_name Short name
+     * Sets customernumber
+     * @param string $customernumber Customer number
      * @return $this
      */
-    public function setShortName($short_name)
+    public function setCustomernumber($customernumber)
     {
-        $this->container['short_name'] = $short_name;
+        $this->container['customernumber'] = $customernumber;
 
         return $this;
     }
 
     /**
-     * Gets types
-     * @return string[]
+     * Gets note
+     * @return string
      */
-    public function getTypes()
+    public function getNote()
     {
-        return $this->container['types'];
+        return $this->container['note'];
     }
 
     /**
-     * Sets types
-     * @param string[] $types Types
+     * Sets note
+     * @param string $note Note for customer
      * @return $this
      */
-    public function setTypes($types)
+    public function setNote($note)
     {
-        $this->container['types'] = $types;
+        $this->container['note'] = $note;
+
+        return $this;
+    }
+
+    /**
+     * Gets consent_for_communication
+     * @return string
+     */
+    public function getConsentForCommunication()
+    {
+        return $this->container['consent_for_communication'];
+    }
+
+    /**
+     * Sets consent_for_communication
+     * @param string $consent_for_communication Consent for communication setting
+     * @return $this
+     */
+    public function setConsentForCommunication($consent_for_communication)
+    {
+        $this->container['consent_for_communication'] = $consent_for_communication;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_data
+     * @return object
+     */
+    public function getAdditionalData()
+    {
+        return $this->container['additional_data'];
+    }
+
+    /**
+     * Sets additional_data
+     * @param object $additional_data additional data properties
+     * @return $this
+     */
+    public function setAdditionalData($additional_data)
+    {
+        $this->container['additional_data'] = $additional_data;
 
         return $this;
     }

@@ -2,18 +2,16 @@
 
 namespace Secuconnect\Client\Model;
 
-use \ArrayAccess;
-
 /**
- * LoyaltyMerchantcardsDTOCardsAmount
+ * SmartTransactionPaymentCustomerDTO
  *
  * @category Class
- * @description LoyaltyMerchantcardsDTOCardsAmount
+ * @description SmartTransactionPaymentCustomerDTO
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LoyaltyMerchantcardsDTOCardsAmount implements ArrayAccess
+class SmartTransactionPaymentCustomerDTO extends ProductInstanceUID
 {
     const DISCRIMINATOR = null;
 
@@ -21,14 +19,14 @@ class LoyaltyMerchantcardsDTOCardsAmount implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'LoyaltyMerchantcardsDTOCardsAmount';
+    protected static $swaggerModelName = 'SmartTransactionPaymentCustomerDTO';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cards_amount' => 'int'
+        'contact' => '\Secuconnect\Client\Model\Contact'
     ];
 
     /**
@@ -36,17 +34,17 @@ class LoyaltyMerchantcardsDTOCardsAmount implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cards_amount' => null
+        'contact' => null
     ];
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -54,7 +52,7 @@ class LoyaltyMerchantcardsDTOCardsAmount implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cards_amount' => 'cards_amount'
+        'contact' => 'contact'
     ];
 
     /**
@@ -62,7 +60,7 @@ class LoyaltyMerchantcardsDTOCardsAmount implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cards_amount' => 'setCardsAmount'
+        'contact' => 'setContact'
     ];
 
     /**
@@ -70,29 +68,23 @@ class LoyaltyMerchantcardsDTOCardsAmount implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cards_amount' => 'getCardsAmount'
+        'contact' => 'getContact'
     ];
 
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
-
-    /**
-     * Associative array for storing property values
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -100,7 +92,9 @@ class LoyaltyMerchantcardsDTOCardsAmount implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['cards_amount'] = isset($data['cards_amount']) ? $data['cards_amount'] : null;
+        parent::__construct($data);
+
+        $this->container['contact'] = isset($data['contact']) ? $data['contact'] : null;
     }
 
     /**
@@ -110,7 +104,7 @@ class LoyaltyMerchantcardsDTOCardsAmount implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalid_properties = parent::listInvalidProperties();
 
         return $invalid_properties;
     }
@@ -128,22 +122,22 @@ class LoyaltyMerchantcardsDTOCardsAmount implements ArrayAccess
 
 
     /**
-     * Gets cards_amount
-     * @return int
+     * Gets contact
+     * @return \Secuconnect\Client\Model\Contact
      */
-    public function getCardsAmount()
+    public function getContact()
     {
-        return $this->container['cards_amount'];
+        return $this->container['contact'];
     }
 
     /**
-     * Sets cards_amount
-     * @param int $cards_amount Cards amount
+     * Sets contact
+     * @param \Secuconnect\Client\Model\Contact $contact contact
      * @return $this
      */
-    public function setCardsAmount($cards_amount)
+    public function setContact($contact)
     {
-        $this->container['cards_amount'] = $cards_amount;
+        $this->container['contact'] = $contact;
 
         return $this;
     }

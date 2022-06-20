@@ -28,6 +28,7 @@ class PaymentContainersProductModel extends BaseProductModel
     protected static $swaggerTypes = [
         'created' => 'string',
         'updated' => 'string',
+        'merchant' => '\Secuconnect\Client\Model\GeneralMerchantsProductModel',
         'contract' => '\Secuconnect\Client\Model\PaymentContractsProductModel',
         'customer' => '\Secuconnect\Client\Model\PaymentCustomersProductModel',
         'assign' => '\Secuconnect\Client\Model\ProductInstanceUID',
@@ -44,6 +45,7 @@ class PaymentContainersProductModel extends BaseProductModel
     protected static $swaggerFormats = [
         'created' => null,
         'updated' => null,
+        'merchant' => null,
         'contract' => null,
         'customer' => null,
         'assign' => null,
@@ -70,6 +72,7 @@ class PaymentContainersProductModel extends BaseProductModel
     protected static $attributeMap = [
         'created' => 'created',
         'updated' => 'updated',
+        'merchant' => 'merchant',
         'contract' => 'contract',
         'customer' => 'customer',
         'assign' => 'assign',
@@ -86,6 +89,7 @@ class PaymentContainersProductModel extends BaseProductModel
     protected static $setters = [
         'created' => 'setCreated',
         'updated' => 'setUpdated',
+        'merchant' => 'setMerchant',
         'contract' => 'setContract',
         'customer' => 'setCustomer',
         'assign' => 'setAssign',
@@ -102,6 +106,7 @@ class PaymentContainersProductModel extends BaseProductModel
     protected static $getters = [
         'created' => 'getCreated',
         'updated' => 'getUpdated',
+        'merchant' => 'getMerchant',
         'contract' => 'getContract',
         'customer' => 'getCustomer',
         'assign' => 'getAssign',
@@ -136,6 +141,7 @@ class PaymentContainersProductModel extends BaseProductModel
 
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
+        $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
         $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
         $this->container['assign'] = isset($data['assign']) ? $data['assign'] : null;
@@ -207,6 +213,27 @@ class PaymentContainersProductModel extends BaseProductModel
     public function setUpdated($updated)
     {
         $this->container['updated'] = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant
+     * @return \Secuconnect\Client\Model\GeneralMerchantsProductModel
+     */
+    public function getMerchant()
+    {
+        return $this->container['merchant'];
+    }
+
+    /**
+     * Sets merchant
+     * @param \Secuconnect\Client\Model\GeneralMerchantsProductModel $merchant merchant
+     * @return $this
+     */
+    public function setMerchant($merchant)
+    {
+        $this->container['merchant'] = $merchant;
 
         return $this;
     }

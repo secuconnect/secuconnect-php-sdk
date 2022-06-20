@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * AddressComponents
+ * PayPalDescriptor
  *
  * @category Class
- * @description Address component like street, postal code, or country
+ * @description PayPal details
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class AddressComponents implements ArrayAccess
+class PayPalDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModelPrivate 
 {
     const DISCRIMINATOR = null;
 
@@ -21,16 +21,15 @@ class AddressComponents implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'AddressComponents';
+    protected static $swaggerModelName = 'PayPalDescriptor';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'long_name' => 'string',
-        'short_name' => 'string',
-        'types' => 'string[]'
+        'email' => 'string',
+        'payer_id' => 'string'
     ];
 
     /**
@@ -38,9 +37,8 @@ class AddressComponents implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'long_name' => null,
-        'short_name' => null,
-        'types' => null
+        'email' => null,
+        'payer_id' => null
     ];
 
     public static function swaggerTypes()
@@ -58,9 +56,8 @@ class AddressComponents implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'long_name' => 'long_name',
-        'short_name' => 'short_name',
-        'types' => 'types'
+        'email' => 'email',
+        'payer_id' => 'payer_id'
     ];
 
     /**
@@ -68,9 +65,8 @@ class AddressComponents implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'long_name' => 'setLongName',
-        'short_name' => 'setShortName',
-        'types' => 'setTypes'
+        'email' => 'setEmail',
+        'payer_id' => 'setPayerId'
     ];
 
     /**
@@ -78,9 +74,8 @@ class AddressComponents implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'long_name' => 'getLongName',
-        'short_name' => 'getShortName',
-        'types' => 'getTypes'
+        'email' => 'getEmail',
+        'payer_id' => 'getPayerId'
     ];
 
     public static function attributeMap()
@@ -110,9 +105,8 @@ class AddressComponents implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['long_name'] = isset($data['long_name']) ? $data['long_name'] : null;
-        $this->container['short_name'] = isset($data['short_name']) ? $data['short_name'] : null;
-        $this->container['types'] = isset($data['types']) ? $data['types'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['payer_id'] = isset($data['payer_id']) ? $data['payer_id'] : null;
     }
 
     /**
@@ -140,64 +134,43 @@ class AddressComponents implements ArrayAccess
 
 
     /**
-     * Gets long_name
+     * Gets email
      * @return string
      */
-    public function getLongName()
+    public function getEmail()
     {
-        return $this->container['long_name'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets long_name
-     * @param string $long_name Long name
+     * Sets email
+     * @param string $email Account owner mail
      * @return $this
      */
-    public function setLongName($long_name)
+    public function setEmail($email)
     {
-        $this->container['long_name'] = $long_name;
+        $this->container['email'] = $email;
 
         return $this;
     }
 
     /**
-     * Gets short_name
+     * Gets payer_id
      * @return string
      */
-    public function getShortName()
+    public function getPayerId()
     {
-        return $this->container['short_name'];
+        return $this->container['payer_id'];
     }
 
     /**
-     * Sets short_name
-     * @param string $short_name Short name
+     * Sets payer_id
+     * @param string $payer_id Account owner ID
      * @return $this
      */
-    public function setShortName($short_name)
+    public function setPayerId($payer_id)
     {
-        $this->container['short_name'] = $short_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets types
-     * @return string[]
-     */
-    public function getTypes()
-    {
-        return $this->container['types'];
-    }
-
-    /**
-     * Sets types
-     * @param string[] $types Types
-     * @return $this
-     */
-    public function setTypes($types)
-    {
-        $this->container['types'] = $types;
+        $this->container['payer_id'] = $payer_id;
 
         return $this;
     }

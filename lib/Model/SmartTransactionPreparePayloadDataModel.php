@@ -30,8 +30,8 @@ class SmartTransactionPreparePayloadDataModel implements ArrayAccess
     protected static $swaggerTypes = [
         'callback_urls' => 'string[]',
         'email' => 'string',
-        'mode' => 'string',
-        'is_paypal_basic' => 'bool'
+        'customer' => '\Secuconnect\Client\Model\SmartTransactionPaymentCustomerDTO',
+        'container' => '\Secuconnect\Client\Model\SmartTransactionPaymentContainerDTO'
     ];
 
     /**
@@ -41,8 +41,8 @@ class SmartTransactionPreparePayloadDataModel implements ArrayAccess
     protected static $swaggerFormats = [
         'callback_urls' => null,
         'email' => null,
-        'mode' => null,
-        'is_paypal_basic' => null
+        'customer' => null,
+        'container' => null
     ];
 
     public static function swaggerTypes()
@@ -62,8 +62,8 @@ class SmartTransactionPreparePayloadDataModel implements ArrayAccess
     protected static $attributeMap = [
         'callback_urls' => 'callback_urls',
         'email' => 'email',
-        'mode' => 'mode',
-        'is_paypal_basic' => 'is_paypal_basic'
+        'customer' => 'customer',
+        'container' => 'container'
     ];
 
     /**
@@ -73,8 +73,8 @@ class SmartTransactionPreparePayloadDataModel implements ArrayAccess
     protected static $setters = [
         'callback_urls' => 'setCallbackUrls',
         'email' => 'setEmail',
-        'mode' => 'setMode',
-        'is_paypal_basic' => 'setIsPaypalBasic'
+        'customer' => 'setCustomer',
+        'container' => 'setContainer'
     ];
 
     /**
@@ -84,8 +84,8 @@ class SmartTransactionPreparePayloadDataModel implements ArrayAccess
     protected static $getters = [
         'callback_urls' => 'getCallbackUrls',
         'email' => 'getEmail',
-        'mode' => 'getMode',
-        'is_paypal_basic' => 'getIsPaypalBasic'
+        'customer' => 'getCustomer',
+        'container' => 'getContainer'
     ];
 
     public static function attributeMap()
@@ -117,8 +117,8 @@ class SmartTransactionPreparePayloadDataModel implements ArrayAccess
     {
         $this->container['callback_urls'] = isset($data['callback_urls']) ? $data['callback_urls'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
-        $this->container['is_paypal_basic'] = isset($data['is_paypal_basic']) ? $data['is_paypal_basic'] : null;
+        $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
+        $this->container['container'] = isset($data['container']) ? $data['container'] : null;
     }
 
     /**
@@ -188,43 +188,43 @@ class SmartTransactionPreparePayloadDataModel implements ArrayAccess
     }
 
     /**
-     * Gets mode
-     * @return string
+     * Gets customer
+     * @return \Secuconnect\Client\Model\SmartTransactionPaymentCustomerDTO
      */
-    public function getMode()
+    public function getCustomer()
     {
-        return $this->container['mode'];
+        return $this->container['customer'];
     }
 
     /**
-     * Sets mode
-     * @param string $mode Mode
+     * Sets customer
+     * @param \Secuconnect\Client\Model\SmartTransactionPaymentCustomerDTO $customer customer
      * @return $this
      */
-    public function setMode($mode)
+    public function setCustomer($customer)
     {
-        $this->container['mode'] = $mode;
+        $this->container['customer'] = $customer;
 
         return $this;
     }
 
     /**
-     * Gets is_paypal_basic
-     * @return bool
+     * Gets container
+     * @return \Secuconnect\Client\Model\SmartTransactionPaymentContainerDTO
      */
-    public function getIsPaypalBasic()
+    public function getContainer()
     {
-        return $this->container['is_paypal_basic'];
+        return $this->container['container'];
     }
 
     /**
-     * Sets is_paypal_basic
-     * @param bool $is_paypal_basic Information whether a smart transaction is PayPal basic or not
+     * Sets container
+     * @param \Secuconnect\Client\Model\SmartTransactionPaymentContainerDTO $container container
      * @return $this
      */
-    public function setIsPaypalBasic($is_paypal_basic)
+    public function setContainer($container)
     {
-        $this->container['is_paypal_basic'] = $is_paypal_basic;
+        $this->container['container'] = $container;
 
         return $this;
     }

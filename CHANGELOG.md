@@ -18,12 +18,54 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+
+## [2.13.0] - 2022-06-20
+[2.13.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.12.1...2.13.0
+
+### Security
+- Update dependencies to the latest versions.
+
+### Deprecated
+- `Model.LoyaltyMerchantcardsDTOCreateMerchantcards` element `assign` and `contract` 
+
+### Added
+- `Model.ApplePayDescriptor`
+- `Model.GooglePayDescriptor`
+- `Model.LoyaltyMerchantcardsDTOCustomer`
+- `Model.LoyaltyMerchantcardsDTOCreateMerchantcards` element `customer`
+- `Model.PaymentContainersProductModel` element `merchant`
+- `Model.PayPalDescriptor`
+- `Model.SmartTransactionPaymentContainerDTO`
+- `Model.SmartTransactionPaymentCustomerDTO`
+
+### Changed
+- `Model.LoyaltyMerchantcardsDTOCardsAmount` renamed to `Model.LoyaltyMerchantcardsDTOCreateMerchantcards`
+- `Model.SmartTransactionsDTO` element `customer` from `Model.PaymentCustomersProductModel` to `Model.SmartTransactionPaymentCustomerDTO`
+- `Model.SmartTransactionsDTO` element `container` from `Model.ProductInstanceUID` to `Model.SmartTransactionPaymentContainerDTO`
+- `Model.SmartTransactionsDTO` element `shipping_address` from `Model.PaymentCustomersProductModel` to `Model.SmartTransactionPaymentCustomerDTO`
+- `Model.SmartTransactionsPrepare` element `customer` from `Model.ProductInstanceUID` to `Model.SmartTransactionPaymentCustomerDTO`
+- `Model.SmartTransactionsPrepare` element `container` from `Model.ProductInstanceUID` to `Model.SmartTransactionPaymentContainerDTO`
+
+### Fixed
+- `Model.LoyaltyTransactionsProductModel` element `last_changee` renamed to `last_change`
+- typos in descriptions
+
+### Removed
+- `Model.GeneralMerchantsDTO`
+- `Model.LoyaltyCustomersContactDTO`
+- `Model.PaymentTransactionsCancelList`
+- `Model.ResultAlwaysTrue`
+- `Model.ResultTrueOrFalse`
+- `Model.SmartTransactionsPrepare` element `device_source`, `is_demo`, `is_paypal_basic`, `mode` and `method` 
+- `Model.SmartTransactionPreparePayloadDataModel`
+
+
 ## [2.12.1] - 2022-03-28
 [2.12.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.12.0...2.12.1
 
 ### Fixed
 
-- Api.PaymentTransactionsApi.updateShippingInformation() missing body parameter
+- `Api.PaymentTransactionsApi.updateShippingInformation()` missing body parameter
 
 
 ## [2.12.0] - 2022-02-28

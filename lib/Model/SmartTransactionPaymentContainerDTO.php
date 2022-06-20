@@ -2,18 +2,16 @@
 
 namespace Secuconnect\Client\Model;
 
-use \ArrayAccess;
-
 /**
- * AddressComponents
+ * SmartTransactionPaymentContainerDTO
  *
  * @category Class
- * @description Address component like street, postal code, or country
+ * @description SmartTransactionPaymentContainerDTO
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class AddressComponents implements ArrayAccess
+class SmartTransactionPaymentContainerDTO extends ProductInstanceUID
 {
     const DISCRIMINATOR = null;
 
@@ -21,16 +19,17 @@ class AddressComponents implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'AddressComponents';
+    protected static $swaggerModelName = 'SmartTransactionPaymentContainerDTO';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'long_name' => 'string',
-        'short_name' => 'string',
-        'types' => 'string[]'
+        'customer' => '\Secuconnect\Client\Model\PaymentContainersDTOCustomer',
+        'customer_id' => 'string',
+        'type' => 'string',
+        'private' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate'
     ];
 
     /**
@@ -38,19 +37,20 @@ class AddressComponents implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'long_name' => null,
-        'short_name' => null,
-        'types' => null
+        'customer' => null,
+        'customer_id' => null,
+        'type' => null,
+        'private' => null
     ];
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -58,9 +58,10 @@ class AddressComponents implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'long_name' => 'long_name',
-        'short_name' => 'short_name',
-        'types' => 'types'
+        'customer' => 'customer',
+        'customer_id' => 'customer_id',
+        'type' => 'type',
+        'private' => 'private'
     ];
 
     /**
@@ -68,9 +69,10 @@ class AddressComponents implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'long_name' => 'setLongName',
-        'short_name' => 'setShortName',
-        'types' => 'setTypes'
+        'customer' => 'setCustomer',
+        'customer_id' => 'setCustomerId',
+        'type' => 'setType',
+        'private' => 'setPrivate'
     ];
 
     /**
@@ -78,31 +80,26 @@ class AddressComponents implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'long_name' => 'getLongName',
-        'short_name' => 'getShortName',
-        'types' => 'getTypes'
+        'customer' => 'getCustomer',
+        'customer_id' => 'getCustomerId',
+        'type' => 'getType',
+        'private' => 'getPrivate'
     ];
 
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
-
-    /**
-     * Associative array for storing property values
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -110,9 +107,12 @@ class AddressComponents implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['long_name'] = isset($data['long_name']) ? $data['long_name'] : null;
-        $this->container['short_name'] = isset($data['short_name']) ? $data['short_name'] : null;
-        $this->container['types'] = isset($data['types']) ? $data['types'] : null;
+        parent::__construct($data);
+
+        $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
+        $this->container['customer_id'] = isset($data['customer_id']) ? $data['customer_id'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['private'] = isset($data['private']) ? $data['private'] : null;
     }
 
     /**
@@ -122,7 +122,7 @@ class AddressComponents implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalid_properties = parent::listInvalidProperties();
 
         return $invalid_properties;
     }
@@ -140,64 +140,85 @@ class AddressComponents implements ArrayAccess
 
 
     /**
-     * Gets long_name
-     * @return string
+     * Gets customer
+     * @return \Secuconnect\Client\Model\PaymentContainersDTOCustomer
      */
-    public function getLongName()
+    public function getCustomer()
     {
-        return $this->container['long_name'];
+        return $this->container['customer'];
     }
 
     /**
-     * Sets long_name
-     * @param string $long_name Long name
+     * Sets customer
+     * @param \Secuconnect\Client\Model\PaymentContainersDTOCustomer $customer customer
      * @return $this
      */
-    public function setLongName($long_name)
+    public function setCustomer($customer)
     {
-        $this->container['long_name'] = $long_name;
+        $this->container['customer'] = $customer;
 
         return $this;
     }
 
     /**
-     * Gets short_name
+     * Gets customer_id
      * @return string
      */
-    public function getShortName()
+    public function getCustomerId()
     {
-        return $this->container['short_name'];
+        return $this->container['customer_id'];
     }
 
     /**
-     * Sets short_name
-     * @param string $short_name Short name
+     * Sets customer_id
+     * @param string $customer_id Payment-Customer-ID
      * @return $this
      */
-    public function setShortName($short_name)
+    public function setCustomerId($customer_id)
     {
-        $this->container['short_name'] = $short_name;
+        $this->container['customer_id'] = $customer_id;
 
         return $this;
     }
 
     /**
-     * Gets types
-     * @return string[]
+     * Gets type
+     * @return string
      */
-    public function getTypes()
+    public function getType()
     {
-        return $this->container['types'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets types
-     * @param string[] $types Types
+     * Sets type
+     * @param string $type Type of Payment Containers
      * @return $this
      */
-    public function setTypes($types)
+    public function setType($type)
     {
-        $this->container['types'] = $types;
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets private
+     * @return \Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate
+     */
+    public function getPrivate()
+    {
+        return $this->container['private'];
+    }
+
+    /**
+     * Sets private
+     * @param \Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate $private private
+     * @return $this
+     */
+    public function setPrivate($private)
+    {
+        $this->container['private'] = $private;
 
         return $this;
     }

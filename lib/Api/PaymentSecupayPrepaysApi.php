@@ -772,7 +772,7 @@ class PaymentSecupayPrepaysApi
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
-     * @param \Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO $body Shipping information propertie 
+     * @param \Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO $body Shipping information properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SecupayTransactionProductModel
      */
@@ -789,7 +789,7 @@ class PaymentSecupayPrepaysApi
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
-     * @param \Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO $body Shipping information propertie 
+     * @param \Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO $body Shipping information properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SecupayTransactionProductModel, HTTP status code, HTTP response headers (array of strings)
      */

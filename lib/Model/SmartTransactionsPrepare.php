@@ -28,15 +28,10 @@ class SmartTransactionsPrepare implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'customer' => '\Secuconnect\Client\Model\ProductInstanceUID',
-        'container' => '\Secuconnect\Client\Model\ProductInstanceUID',
-        'method' => 'string',
+        'customer' => '\Secuconnect\Client\Model\SmartTransactionPaymentCustomerDTO',
+        'container' => '\Secuconnect\Client\Model\SmartTransactionPaymentContainerDTO',
         'callback_urls' => '\Secuconnect\Client\Model\SmartTransactionsPrepareCallbackUrls',
-        'email' => 'string',
-        'device_source' => '\Secuconnect\Client\Model\ProductInstanceUID',
-        'mode' => 'string',
-        'is_paypal_basic' => 'bool',
-        'is_demo' => 'bool'
+        'email' => 'string'
     ];
 
     /**
@@ -46,13 +41,8 @@ class SmartTransactionsPrepare implements ArrayAccess
     protected static $swaggerFormats = [
         'customer' => null,
         'container' => null,
-        'method' => null,
         'callback_urls' => null,
-        'email' => null,
-        'device_source' => null,
-        'mode' => null,
-        'is_paypal_basic' => null,
-        'is_demo' => null
+        'email' => null
     ];
 
     public static function swaggerTypes()
@@ -72,13 +62,8 @@ class SmartTransactionsPrepare implements ArrayAccess
     protected static $attributeMap = [
         'customer' => 'customer',
         'container' => 'container',
-        'method' => 'method',
         'callback_urls' => 'callback_urls',
-        'email' => 'email',
-        'device_source' => 'device_source',
-        'mode' => 'mode',
-        'is_paypal_basic' => 'is_paypal_basic',
-        'is_demo' => 'is_demo'
+        'email' => 'email'
     ];
 
     /**
@@ -88,13 +73,8 @@ class SmartTransactionsPrepare implements ArrayAccess
     protected static $setters = [
         'customer' => 'setCustomer',
         'container' => 'setContainer',
-        'method' => 'setMethod',
         'callback_urls' => 'setCallbackUrls',
-        'email' => 'setEmail',
-        'device_source' => 'setDeviceSource',
-        'mode' => 'setMode',
-        'is_paypal_basic' => 'setIsPaypalBasic',
-        'is_demo' => 'setIsDemo'
+        'email' => 'setEmail'
     ];
 
     /**
@@ -104,13 +84,8 @@ class SmartTransactionsPrepare implements ArrayAccess
     protected static $getters = [
         'customer' => 'getCustomer',
         'container' => 'getContainer',
-        'method' => 'getMethod',
         'callback_urls' => 'getCallbackUrls',
-        'email' => 'getEmail',
-        'device_source' => 'getDeviceSource',
-        'mode' => 'getMode',
-        'is_paypal_basic' => 'getIsPaypalBasic',
-        'is_demo' => 'getIsDemo'
+        'email' => 'getEmail'
     ];
 
     public static function attributeMap()
@@ -142,13 +117,8 @@ class SmartTransactionsPrepare implements ArrayAccess
     {
         $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
         $this->container['container'] = isset($data['container']) ? $data['container'] : null;
-        $this->container['method'] = isset($data['method']) ? $data['method'] : null;
         $this->container['callback_urls'] = isset($data['callback_urls']) ? $data['callback_urls'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['device_source'] = isset($data['device_source']) ? $data['device_source'] : null;
-        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
-        $this->container['is_paypal_basic'] = isset($data['is_paypal_basic']) ? $data['is_paypal_basic'] : null;
-        $this->container['is_demo'] = isset($data['is_demo']) ? $data['is_demo'] : null;
     }
 
     /**
@@ -177,7 +147,7 @@ class SmartTransactionsPrepare implements ArrayAccess
 
     /**
      * Gets customer
-     * @return \Secuconnect\Client\Model\ProductInstanceUID
+     * @return \Secuconnect\Client\Model\SmartTransactionPaymentCustomerDTO
      */
     public function getCustomer()
     {
@@ -186,7 +156,7 @@ class SmartTransactionsPrepare implements ArrayAccess
 
     /**
      * Sets customer
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $customer customer
+     * @param \Secuconnect\Client\Model\SmartTransactionPaymentCustomerDTO $customer customer
      * @return $this
      */
     public function setCustomer($customer)
@@ -198,7 +168,7 @@ class SmartTransactionsPrepare implements ArrayAccess
 
     /**
      * Gets container
-     * @return \Secuconnect\Client\Model\ProductInstanceUID
+     * @return \Secuconnect\Client\Model\SmartTransactionPaymentContainerDTO
      */
     public function getContainer()
     {
@@ -207,33 +177,12 @@ class SmartTransactionsPrepare implements ArrayAccess
 
     /**
      * Sets container
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $container container
+     * @param \Secuconnect\Client\Model\SmartTransactionPaymentContainerDTO $container container
      * @return $this
      */
     public function setContainer($container)
     {
         $this->container['container'] = $container;
-
-        return $this;
-    }
-
-    /**
-     * Gets method
-     * @return string
-     */
-    public function getMethod()
-    {
-        return $this->container['method'];
-    }
-
-    /**
-     * Sets method
-     * @param string $method Method
-     * @return $this
-     */
-    public function setMethod($method)
-    {
-        $this->container['method'] = $method;
 
         return $this;
     }
@@ -276,90 +225,6 @@ class SmartTransactionsPrepare implements ArrayAccess
     public function setEmail($email)
     {
         $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets device_source
-     * @return \Secuconnect\Client\Model\ProductInstanceUID
-     */
-    public function getDeviceSource()
-    {
-        return $this->container['device_source'];
-    }
-
-    /**
-     * Sets device_source
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $device_source device_source
-     * @return $this
-     */
-    public function setDeviceSource($device_source)
-    {
-        $this->container['device_source'] = $device_source;
-
-        return $this;
-    }
-
-    /**
-     * Gets mode
-     * @return string
-     */
-    public function getMode()
-    {
-        return $this->container['mode'];
-    }
-
-    /**
-     * Sets mode
-     * @param string $mode Mode
-     * @return $this
-     */
-    public function setMode($mode)
-    {
-        $this->container['mode'] = $mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_paypal_basic
-     * @return bool
-     */
-    public function getIsPaypalBasic()
-    {
-        return $this->container['is_paypal_basic'];
-    }
-
-    /**
-     * Sets is_paypal_basic
-     * @param bool $is_paypal_basic Is paypal basic or not
-     * @return $this
-     */
-    public function setIsPaypalBasic($is_paypal_basic)
-    {
-        $this->container['is_paypal_basic'] = $is_paypal_basic;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_demo
-     * @return bool
-     */
-    public function getIsDemo()
-    {
-        return $this->container['is_demo'];
-    }
-
-    /**
-     * Sets is_demo
-     * @param bool $is_demo Is demo or not
-     * @return $this
-     */
-    public function setIsDemo($is_demo)
-    {
-        $this->container['is_demo'] = $is_demo;
 
         return $this;
     }

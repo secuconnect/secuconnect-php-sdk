@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * AddressComponents
+ * ApplePayDescriptor
  *
  * @category Class
- * @description Address component like street, postal code, or country
+ * @description ApplePay details
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class AddressComponents implements ArrayAccess
+class ApplePayDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModelPrivate 
 {
     const DISCRIMINATOR = null;
 
@@ -21,16 +21,17 @@ class AddressComponents implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'AddressComponents';
+    protected static $swaggerModelName = 'ApplePayDescriptor';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'long_name' => 'string',
-        'short_name' => 'string',
-        'types' => 'string[]'
+        'signature' => 'string',
+        'version' => 'string',
+        'data' => 'string',
+        'header' => 'object'
     ];
 
     /**
@@ -38,9 +39,10 @@ class AddressComponents implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'long_name' => null,
-        'short_name' => null,
-        'types' => null
+        'signature' => null,
+        'version' => null,
+        'data' => null,
+        'header' => null
     ];
 
     public static function swaggerTypes()
@@ -58,9 +60,10 @@ class AddressComponents implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'long_name' => 'long_name',
-        'short_name' => 'short_name',
-        'types' => 'types'
+        'signature' => 'signature',
+        'version' => 'version',
+        'data' => 'data',
+        'header' => 'header'
     ];
 
     /**
@@ -68,9 +71,10 @@ class AddressComponents implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'long_name' => 'setLongName',
-        'short_name' => 'setShortName',
-        'types' => 'setTypes'
+        'signature' => 'setSignature',
+        'version' => 'setVersion',
+        'data' => 'setData',
+        'header' => 'setHeader'
     ];
 
     /**
@@ -78,9 +82,10 @@ class AddressComponents implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'long_name' => 'getLongName',
-        'short_name' => 'getShortName',
-        'types' => 'getTypes'
+        'signature' => 'getSignature',
+        'version' => 'getVersion',
+        'data' => 'getData',
+        'header' => 'getHeader'
     ];
 
     public static function attributeMap()
@@ -110,9 +115,10 @@ class AddressComponents implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['long_name'] = isset($data['long_name']) ? $data['long_name'] : null;
-        $this->container['short_name'] = isset($data['short_name']) ? $data['short_name'] : null;
-        $this->container['types'] = isset($data['types']) ? $data['types'] : null;
+        $this->container['signature'] = isset($data['signature']) ? $data['signature'] : null;
+        $this->container['version'] = isset($data['version']) ? $data['version'] : 'EC_v1';
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['header'] = isset($data['header']) ? $data['header'] : null;
     }
 
     /**
@@ -140,64 +146,85 @@ class AddressComponents implements ArrayAccess
 
 
     /**
-     * Gets long_name
+     * Gets signature
      * @return string
      */
-    public function getLongName()
+    public function getSignature()
     {
-        return $this->container['long_name'];
+        return $this->container['signature'];
     }
 
     /**
-     * Sets long_name
-     * @param string $long_name Long name
+     * Sets signature
+     * @param string $signature Base64 encoded signature of the payment and header data.
      * @return $this
      */
-    public function setLongName($long_name)
+    public function setSignature($signature)
     {
-        $this->container['long_name'] = $long_name;
+        $this->container['signature'] = $signature;
 
         return $this;
     }
 
     /**
-     * Gets short_name
+     * Gets version
      * @return string
      */
-    public function getShortName()
+    public function getVersion()
     {
-        return $this->container['short_name'];
+        return $this->container['version'];
     }
 
     /**
-     * Sets short_name
-     * @param string $short_name Short name
+     * Sets version
+     * @param string $version Version information about the payment token.
      * @return $this
      */
-    public function setShortName($short_name)
+    public function setVersion($version)
     {
-        $this->container['short_name'] = $short_name;
+        $this->container['version'] = $version;
 
         return $this;
     }
 
     /**
-     * Gets types
-     * @return string[]
+     * Gets data
+     * @return string
      */
-    public function getTypes()
+    public function getData()
     {
-        return $this->container['types'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets types
-     * @param string[] $types Types
+     * Sets data
+     * @param string $data Base64 encoded encrypted payment data.
      * @return $this
      */
-    public function setTypes($types)
+    public function setData($data)
     {
-        $this->container['types'] = $types;
+        $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets header
+     * @return object
+     */
+    public function getHeader()
+    {
+        return $this->container['header'];
+    }
+
+    /**
+     * Sets header
+     * @param object $header Additional version-dependent information you use to decrypt and verify the payment
+     * @return $this
+     */
+    public function setHeader($header)
+    {
+        $this->container['header'] = $header;
 
         return $this;
     }

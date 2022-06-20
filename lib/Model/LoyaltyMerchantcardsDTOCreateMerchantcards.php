@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * AddressComponents
+ * LoyaltyMerchantcardsDTOCreateMerchantcards
  *
  * @category Class
- * @description Address component like street, postal code, or country
+ * @description LoyaltyMerchantcardsDTOCreateMerchantcards
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class AddressComponents implements ArrayAccess
+class LoyaltyMerchantcardsDTOCreateMerchantcards implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,16 +21,15 @@ class AddressComponents implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'AddressComponents';
+    protected static $swaggerModelName = 'LoyaltyMerchantcardsDTOCreateMerchantcards';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'long_name' => 'string',
-        'short_name' => 'string',
-        'types' => 'string[]'
+        'cards_amount' => 'int',
+        'customer' => '\Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCustomer'
     ];
 
     /**
@@ -38,9 +37,8 @@ class AddressComponents implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'long_name' => null,
-        'short_name' => null,
-        'types' => null
+        'cards_amount' => null,
+        'customer' => null
     ];
 
     public static function swaggerTypes()
@@ -58,9 +56,8 @@ class AddressComponents implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'long_name' => 'long_name',
-        'short_name' => 'short_name',
-        'types' => 'types'
+        'cards_amount' => 'cards_amount',
+        'customer' => 'customer'
     ];
 
     /**
@@ -68,9 +65,8 @@ class AddressComponents implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'long_name' => 'setLongName',
-        'short_name' => 'setShortName',
-        'types' => 'setTypes'
+        'cards_amount' => 'setCardsAmount',
+        'customer' => 'setCustomer'
     ];
 
     /**
@@ -78,9 +74,8 @@ class AddressComponents implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'long_name' => 'getLongName',
-        'short_name' => 'getShortName',
-        'types' => 'getTypes'
+        'cards_amount' => 'getCardsAmount',
+        'customer' => 'getCustomer'
     ];
 
     public static function attributeMap()
@@ -110,9 +105,8 @@ class AddressComponents implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['long_name'] = isset($data['long_name']) ? $data['long_name'] : null;
-        $this->container['short_name'] = isset($data['short_name']) ? $data['short_name'] : null;
-        $this->container['types'] = isset($data['types']) ? $data['types'] : null;
+        $this->container['cards_amount'] = isset($data['cards_amount']) ? $data['cards_amount'] : null;
+        $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
     }
 
     /**
@@ -140,64 +134,43 @@ class AddressComponents implements ArrayAccess
 
 
     /**
-     * Gets long_name
-     * @return string
+     * Gets cards_amount
+     * @return int
      */
-    public function getLongName()
+    public function getCardsAmount()
     {
-        return $this->container['long_name'];
+        return $this->container['cards_amount'];
     }
 
     /**
-     * Sets long_name
-     * @param string $long_name Long name
+     * Sets cards_amount
+     * @param int $cards_amount Cards amount
      * @return $this
      */
-    public function setLongName($long_name)
+    public function setCardsAmount($cards_amount)
     {
-        $this->container['long_name'] = $long_name;
+        $this->container['cards_amount'] = $cards_amount;
 
         return $this;
     }
 
     /**
-     * Gets short_name
-     * @return string
+     * Gets customer
+     * @return \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCustomer
      */
-    public function getShortName()
+    public function getCustomer()
     {
-        return $this->container['short_name'];
+        return $this->container['customer'];
     }
 
     /**
-     * Sets short_name
-     * @param string $short_name Short name
+     * Sets customer
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCustomer $customer customer
      * @return $this
      */
-    public function setShortName($short_name)
+    public function setCustomer($customer)
     {
-        $this->container['short_name'] = $short_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets types
-     * @return string[]
-     */
-    public function getTypes()
-    {
-        return $this->container['types'];
-    }
-
-    /**
-     * Sets types
-     * @param string[] $types Types
-     * @return $this
-     */
-    public function setTypes($types)
-    {
-        $this->container['types'] = $types;
+        $this->container['customer'] = $customer;
 
         return $this;
     }
