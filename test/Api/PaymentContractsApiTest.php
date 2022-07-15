@@ -24,7 +24,7 @@ class PaymentContractsApiTest extends TestCase
      *
      * @throws ApiException
      */
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         SecuconnectObjects::getInstance()->authenticateByApplicationUser();
@@ -34,7 +34,7 @@ class PaymentContractsApiTest extends TestCase
     /**
      * Clean up after running each test case
      */
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->api = null;
         parent::tearDown();
@@ -75,11 +75,11 @@ class PaymentContractsApiTest extends TestCase
         }
 
         $this->assertNotEmpty($response);
-        $this->assertInternalType('int', $response->getCount());
+        $this->assertIsInt($response->getCount());
 
         foreach ($response->getData() as $contract) {
             $this->assertInstanceOf(PaymentContractsProductModel::class, $contract);
-            $this->assertEquals('payment.contracts', $contract->getObject());
+            $this->assertEquals('general.contracts', $contract->getObject());
             $this->assertNotNull($contract->getId());
             $this->assertNotEmpty($contract->getId());
             $this->assertNotNull($contract->getCreated());
@@ -121,7 +121,11 @@ class PaymentContractsApiTest extends TestCase
         }
 
         $this->assertNotEmpty($response1);
+        $this->assertNotEmpty($response1->getData());
         $this->assertNotEmpty($response2);
+        $this->assertNotEmpty($response2->getData());
+        $response1->getData()[1]->setCreated(null); // do not compare the dates
+        $response2->getData()[0]->setCreated(null);
         $this->assertEquals($response1->getData()[1], $response2->getData()[0]);
     }
 

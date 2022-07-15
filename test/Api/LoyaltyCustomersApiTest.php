@@ -78,7 +78,7 @@ class LoyaltyCustomersApiTest extends TestCase
      *
      * @throws ApiException
      */
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         parent::setUpBeforeClass();
         self::$instance = SecuconnectObjects::getInstance();
@@ -90,6 +90,7 @@ class LoyaltyCustomersApiTest extends TestCase
         self::$dumyCustomer->setAge('30');
         self::$dumyCustomer->setDaysUntilBirthday('23');
         self::$dumyCustomer->setMerchant(self::TEST_MERCHANT_ID);
+        self::$dumyCustomer->setConsentForCommunication('declined');
 
         $oAddress = new Address();
         $oAddress->setStreet('Example Street');
@@ -120,7 +121,7 @@ class LoyaltyCustomersApiTest extends TestCase
     /**
      * Clean up after running all test cases
      */
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
         self::$receivedCustomer = null;
         self::$idPaymentContainer = null;
@@ -252,75 +253,6 @@ class LoyaltyCustomersApiTest extends TestCase
         $this->assertNotEmpty($response);
         $this->assertInstanceOf(LoyaltyCustomersProductModel::class, $response);
         $this->assertEquals(self::$receivedCustomer, $response);
-    }
-
-
-    /**
-     * Test case for loyaltyCustomersLoyaltyCustomerIdAssignPaymentcontainerLoyaltyPaymentcontainerIdDelete
-     *
-     * DELETE Loyalty/Customers/{loyaltyCustomerId}/assignPaymentcontainer/{loyaltyPaymentcontainerId}.
-     *
-     * @depends testLoyaltyCustomersGet
-     *
-     * @throws ApiException
-     */
-    public function testRemoveAssignPaymentContainer()
-    {
-        $this->markTestSkipped('Should be activated when it\'s possible to create a loyalty payment container.');
-
-        $this->assertNotEmpty(self::$receivedCustomer);
-        $this->assertNotEmpty(self::$idPaymentContainer);
-
-        try {
-            $response = self::$api->removeAssignedPaymentContainer(self::$receivedCustomer->getId(), self::$idPaymentContainer);
-        } catch (ApiException $e) {
-            print_r($e->getResponseBody());
-            throw $e;
-        }
-        $aPaymentContainers = $response->getPaymentContainer();
-        $paymentcontainerExist = false;
-        if (!empty($aPaymentContainers)) {
-            foreach ($aPaymentContainers as $aPaymentContainer) {
-                if ($aPaymentContainer->getId() === self::$idPaymentContainer) {
-                    $paymentcontainerExist = true;
-                }
-            }
-        }
-        $this->assertFalse($paymentcontainerExist);
-    }
-
-    /**
-     * Test case for loyaltyCustomersLoyaltyCustomerIdAssignPaymentcontainerLoyaltyPaymentcontainerIdPost
-     *
-     * POST Loyalty/Customers/{loyaltyCustomerId}/assignPaymentcontainer/{loyaltyPaymentcontainerId}.
-     *
-     * @depends testLoyaltyCustomersGet
-     *
-     * @throws ApiException
-     */
-    public function testAddAssignPaymentContainer()
-    {
-        $this->markTestSkipped('Should be activated when it\'s possible to create a loyalty payment container.');
-
-        $this->assertNotEmpty(self::$receivedCustomer);
-        $this->assertNotEmpty(self::$idPaymentContainer);
-
-        try {
-            $response = self::$api->assignPaymentContainer(self::$receivedCustomer->getId(), self::$idPaymentContainer);
-        } catch (ApiException $e) {
-            print_r($e->getResponseBody());
-            throw $e;
-        }
-        $aPaymentContainers = $response->getPaymentContainer();
-        $paymentcontainerExist = false;
-        if (!empty($aPaymentContainers)) {
-            foreach ($aPaymentContainers as $aPaymentContainer) {
-                if ($aPaymentContainer->getId() === self::$idPaymentContainer) {
-                    $paymentcontainerExist = true;
-                }
-            }
-        }
-        $this->assertTrue($paymentcontainerExist);
     }
 
     /**

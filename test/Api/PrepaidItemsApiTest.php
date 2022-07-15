@@ -62,7 +62,7 @@ class PrepaidItemsApiTest extends TestCase
      * Setup before running any test cases
      * @throws ApiException
      */
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         parent::setUpBeforeClass();
         self::$secuconnectObjects = SecuconnectObjects::getInstance();

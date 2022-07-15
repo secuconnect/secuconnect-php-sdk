@@ -79,7 +79,7 @@ class PaymentContainersApiTest extends TestCase
      *
      * @throws ApiException
      */
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         parent::setUpBeforeClass();
         self::$containerId = '';
@@ -107,7 +107,7 @@ class PaymentContainersApiTest extends TestCase
      * Setup before running each test case
      * @throws ApiException
      */
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $instance = SecuconnectObjects::getInstance();
@@ -118,7 +118,7 @@ class PaymentContainersApiTest extends TestCase
     /**
      * Clean up after running each test case
      */
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->api = null;
         parent::tearDown();
@@ -127,7 +127,7 @@ class PaymentContainersApiTest extends TestCase
     /**
      * Clean up after running all test cases
      */
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
         self::$containerId = null;
         self::$container = null;
@@ -305,7 +305,7 @@ class PaymentContainersApiTest extends TestCase
 
         $this->assertNotEmpty($response);
         $this->assertInstanceOf(PaymentContainersList::class, $response);
-        $this->assertInternalType('int', $response->getCount());
+        $this->assertIsInt($response->getCount());
 
         foreach ($response->getData() as $container) {
             $this->assertInstanceOf(PaymentContainersProductModel::class, $container);
@@ -346,16 +346,19 @@ class PaymentContainersApiTest extends TestCase
     {
         try {
             self::$privateData->setIban('DK5750510001322617');
+            self::$privateData->setBic('JYBADKKK');
             self::$container->setPrivate(self::$privateData);
             self::$testContainer1 = $this->api->paymentContainersPost(self::$container);
             $this->assertNotEmpty(self::$testContainer1->getId());
 
             self::$privateData->setIban('EE342200221034126658');
+            self::$privateData->setBic('HABAEE2X');
             self::$container->setPrivate(self::$privateData);
             self::$testContainer2 = $this->api->paymentContainersPost(self::$container);
             $this->assertNotEmpty(self::$testContainer2->getId());
 
             self::$privateData->setIban('FI9814283500171141');
+            self::$privateData->setBic('NDEAFIHH');
             self::$container->setPrivate(self::$privateData);
             self::$testContainer3 = $this->api->paymentContainersPost(self::$container);
             $this->assertNotEmpty(self::$testContainer3->getId());

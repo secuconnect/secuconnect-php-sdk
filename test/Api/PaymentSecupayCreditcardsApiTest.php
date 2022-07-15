@@ -64,7 +64,7 @@ class PaymentSecupayCreditcardsApiTest extends TestCase
      *
      * @throws ApiException
      */
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         parent::setUpBeforeClass();
         self::$secuconnectObjects = SecuconnectObjects::getInstance();
@@ -79,7 +79,7 @@ class PaymentSecupayCreditcardsApiTest extends TestCase
     /**
      * Setup before running each test case
      */
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->api = new PaymentSecupayCreditcardsApi();
@@ -88,7 +88,7 @@ class PaymentSecupayCreditcardsApiTest extends TestCase
     /**
      * Clean up after running each test case
      */
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->api = null;
         parent::tearDown();
@@ -97,7 +97,7 @@ class PaymentSecupayCreditcardsApiTest extends TestCase
     /**
      * Clean up after running all test cases
      */
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
         self::$secuconnectObjects = null;
         self::$creditCardTransactionId = null;

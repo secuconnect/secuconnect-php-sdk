@@ -47,7 +47,7 @@ class SmartTransactionsApiTest extends TestCase
      *
      * @throws ApiException
      */
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         parent::setUpBeforeClass();
         Authenticator::authenticateByClientCredentials(...array_values(Globals::OAuthClientCredentials));
@@ -185,7 +185,7 @@ class SmartTransactionsApiTest extends TestCase
     /**
      * Clean up after running all test cases
      */
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
         self::$api = null;
         parent::tearDownAfterClass();
@@ -474,7 +474,6 @@ class SmartTransactionsApiTest extends TestCase
         $smartTransactionPrepareModel = new SmartTransactionsPrepare();
         $smartTransactionPrepareModel->setCustomer($customerUid);
         $smartTransactionPrepareModel->setContainer($containerUid);
-        $smartTransactionPrepareModel->getIsDemo();
 
         try {
             $prepare_response = self::$api->prepare($smartTransaction->getId(), 'debit', $smartTransactionPrepareModel);
@@ -641,43 +640,6 @@ class SmartTransactionsApiTest extends TestCase
              */
             $delivery_options = $set_delivery_response->getDeliveryOptions();
             $this->assertEquals('2020-07-19T12:18:18+02:00', $delivery_options->getDeliveredAt());
-        } catch (ApiException $e) {
-            print_r($e->getResponseBody());
-            throw $e;
-        }
-    }
-
-    /**
-     * Test case for preTransaction.
-     *
-     * @throws ApiException
-     */
-    public function testPreTransaction()
-    {
-        $this->markTestSkipped();
-        Authenticator::authenticateByRefreshToken(...array_values(Globals::OAuthRefreshCredentials));
-
-        self::$api = new SmartTransactionsApi();
-
-        $transactionDTO = new SmartTransactionsDTO();
-        $transactionDTO->setBasket(self::$SmartTransactionsProductModel->getBasket());
-        $transactionDTO->setBasketInfo(self::$SmartTransactionsProductModel->getBasketInfo());
-        $SmartTransactionsIdent = new SmartTransactionsIdent();
-        $SmartTransactionsIdent->setType('card');
-        $SmartTransactionsIdent->setValue('9276004427483018');
-        $transactionDTO->setIdents([$SmartTransactionsIdent]);
-
-        try {
-            $smartTransaction = self::$api->addTransaction($transactionDTO);
-        } catch (ApiException $e) {
-            print_r($e->getResponseBody());
-            throw $e;
-        }
-
-        try {
-            $preTransaction = self::$api->preTransaction($smartTransaction->getId());
-            $this->assertInstanceOf(SmartTransactionsPreTransactionModel::class, $preTransaction);
-            $this->assertTrue(is_numeric($preTransaction->getMissingSum()));
         } catch (ApiException $e) {
             print_r($e->getResponseBody());
             throw $e;

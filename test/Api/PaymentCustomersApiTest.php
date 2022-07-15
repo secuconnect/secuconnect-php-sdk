@@ -63,7 +63,7 @@ class PaymentCustomersApiTest extends TestCase
     /**
      * Setup before running any test cases
      */
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         parent::setUpBeforeClass();
         self::$customerId = '';
@@ -97,7 +97,7 @@ class PaymentCustomersApiTest extends TestCase
      *
      * @throws ApiException
      */
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         SecuconnectObjects::getInstance()->authenticateByClientCredentials();
@@ -107,7 +107,7 @@ class PaymentCustomersApiTest extends TestCase
     /**
      * Clean up after running each test case
      */
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->api = null;
         parent::tearDown();
@@ -116,7 +116,7 @@ class PaymentCustomersApiTest extends TestCase
     /**
      * Clean up after running all test cases
      */
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
         self::$customerId = null;
         self::$contact = null;
@@ -153,7 +153,7 @@ class PaymentCustomersApiTest extends TestCase
         $this->assertEquals('John', $response->getContact()->getForename());
         $this->assertEquals('DOe', $response->getContact()->getSurname());
         $this->assertEquals('Example Inc.', $response->getContact()->getCompanyname());
-        $this->assertEquals('1991-02-03T00:00:00+01:00', $response->getContact()->getDob());
+        $this->assertEquals('1991-02-03T00:00:00+00:00', $response->getContact()->getDob());
         $this->assertEquals('example@example.com', $response->getContact()->getEmail());
         $this->assertEquals('0049123456789', $response->getContact()->getPhone());
         $this->assertEquals('0049987654321', $response->getContact()->getMobile());
@@ -216,7 +216,7 @@ class PaymentCustomersApiTest extends TestCase
         $this->assertEquals('Anna', $response->getContact()->getForename());
         $this->assertEquals('Smith', $response->getContact()->getSurname());
         $this->assertEquals('Example2 Inc.', $response->getContact()->getCompanyname());
-        $this->assertEquals('1902-03-04T00:00:00+01:00', $response->getContact()->getDob());
+        $this->assertEquals('1902-03-04T00:00:00+00:00', $response->getContact()->getDob());
         $this->assertEquals('new.email@my-email.com', $response->getContact()->getEmail());
         $this->assertEquals('004932131701', $response->getContact()->getPhone());
         $this->assertEquals('0049537144093', $response->getContact()->getMobile());
@@ -258,7 +258,7 @@ class PaymentCustomersApiTest extends TestCase
         $this->assertEquals('Anna', $response->getContact()->getForename());
         $this->assertEquals('Smith', $response->getContact()->getSurname());
         $this->assertEquals('Example2 Inc.', $response->getContact()->getCompanyname());
-        $this->assertEquals('1902-03-04T00:00:00+01:00', $response->getContact()->getDob());
+        $this->assertEquals('1902-03-04T00:00:00+00:00', $response->getContact()->getDob());
         $this->assertEquals('new.email@my-email.com', $response->getContact()->getEmail());
         $this->assertEquals('004932131701', $response->getContact()->getPhone());
         $this->assertEquals('Example Street', $response->getContact()->getAddress()->getStreet());
@@ -288,7 +288,7 @@ class PaymentCustomersApiTest extends TestCase
         }
 
         $this->assertNotEmpty($response);
-        $this->assertInternalType('array', $response);
+        $this->assertIsArray($response);
         $this->assertContainsOnlyInstancesOf(PaymentCustomersProductModel::class, $response);
         $this->assertEquals('payment.customers', $response[0]->getObject());
         $this->assertEquals(self::$customerId, $response[0]->getId());
@@ -298,7 +298,7 @@ class PaymentCustomersApiTest extends TestCase
         $this->assertEquals('Anna', $response[0]->getContact()->getForename());
         $this->assertEquals('Smith', $response[0]->getContact()->getSurname());
         $this->assertEquals('Example2 Inc.', $response[0]->getContact()->getCompanyname());
-        $this->assertEquals('1902-03-04T00:00:00+01:00', $response[0]->getContact()->getDob());
+        $this->assertEquals('1902-03-04T00:00:00+00:00', $response[0]->getContact()->getDob());
         $this->assertEquals('new.email@my-email.com', $response[0]->getContact()->getEmail());
         $this->assertEquals('004932131701', $response[0]->getContact()->getPhone());
         $this->assertEquals('0049537144093', $response[0]->getContact()->getMobile());
@@ -327,7 +327,7 @@ class PaymentCustomersApiTest extends TestCase
 
         $this->assertNotEmpty($response);
         $this->assertInstanceOf(PaymentCustomersList::class, $response);
-        $this->assertInternalType('int', $response->getCount());
+        $this->assertIsInt($response->getCount());
 
         if (is_int($response->getCount()) && $response->getCount() > 0) {
             foreach ($response->getData() as $customer) {

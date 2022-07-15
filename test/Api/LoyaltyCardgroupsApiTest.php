@@ -58,7 +58,7 @@ class LoyaltyCardgroupsApiTest extends TestCase
      * Setup before running any test cases
      * @throws ApiException
      */
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         parent::setUpBeforeClass();
         self::$instance = SecuconnectObjects::getInstance();
@@ -84,7 +84,7 @@ class LoyaltyCardgroupsApiTest extends TestCase
 
         $this->assertNotEmpty($response);
         $this->assertInstanceOf(LoyaltyCardgroupsList::class, $response);
-        $this->assertInternalType('int', $response->getCount());
+        $this->assertIsInt($response->getCount());
 
         self::$cardgroupsList = $response; // save data for next tests
 

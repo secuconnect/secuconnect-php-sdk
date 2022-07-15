@@ -73,7 +73,7 @@ class SmartDevicesApiTest extends TestCase
      * Setup before running any test cases
      * @throws ApiException
      */
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         parent::setUpBeforeClass();
         self::$instance = SecuconnectObjects::getInstance();
@@ -105,7 +105,7 @@ class SmartDevicesApiTest extends TestCase
 
         $this->assertNotEmpty(self::$smartDevicesList);
         $this->assertInstanceOf(SmartDevicesList::class, self::$smartDevicesList);
-        $this->assertInternalType('int', self::$smartDevicesList->getCount());
+        $this->assertIsInt(self::$smartDevicesList->getCount());
 
         foreach (self::$smartDevicesList->getData() as $smartDevice) {
             $this->assertInstanceOf(SmartDevicesProductModel::class, $smartDevice);
@@ -154,83 +154,6 @@ class SmartDevicesApiTest extends TestCase
         $this->assertNotEmpty($response->getType());
         $this->assertNotEmpty($response->getCreated());
     }
-
-    /**
-     * Test case for getRouting
-     *
-     * GET Smart/Devices/{smartDeviceId}/routing/type/{type}.
-     *
-     * @depends testGetAll
-     *
-     * @throws ApiException
-     */
-    public function testGetRouting()
-    {
-        $this->markTestIncomplete('Needs to be fixed.');
-
-        try {
-            $smartDevice = self::$api->getRouting(self::$smartDevicesList->getData()[0]->getId(), self::$smartDevicesList->getData()[0]->getType());
-        } catch (ApiException $e) {
-            print_r($e->getResponseBody());
-            throw $e;
-        }
-
-        // print_r($response);
-        $this->assertInstanceOf(SmartDevicesProductModel::class, $smartDevice);
-        $this->assertEquals('smart.devices', $smartDevice->getObject());
-        $this->assertNotEmpty($smartDevice->getId());
-        $this->assertNotEmpty($smartDevice->getMerchant());
-        $this->assertNotEmpty($smartDevice->getMerchant()->getId());
-        $this->assertNotEmpty($smartDevice->getStore());
-        $this->assertNotEmpty($smartDevice->getStore()->getId());
-        $this->assertNotEmpty($smartDevice->getVendor());
-        $this->assertNotEmpty($smartDevice->getVendorUid());
-        $this->assertNotEmpty($smartDevice->getType());
-        $this->assertNotEmpty($smartDevice->getCreated());
-    }
-
-    /**
-     * Test case for addDevice
-     *
-     * POST Smart/Devices.
-     *
-     * @depends testGetAll
-     *
-     * @throws ApiException
-     */
-    public function testAddDevice()
-    {
-        $this->markTestIncomplete('Needs to be fixed.');
-
-        self::$smartDevicesDTO = new SmartDevicesDTO();
-        self::$smartDevicesDTO->setMerchant(self::$smartDevicesList->getData()[0]->getMerchant()->getId());
-        self::$smartDevicesDTO->setStore(self::$smartDevicesList->getData()[0]->getStore()->getId());
-        self::$smartDevicesDTO->setVendor("shopware");
-        self::$smartDevicesDTO->setVendorUid(rand(100000000, 999999999)); // FIXME: in real life this should be a unique UId
-        self::$smartDevicesDTO->setType("cashier");
-
-        try {
-            self::$smartDevicesProductModel = self::$api->addDevice(self::$smartDevicesDTO);
-        } catch (ApiException $e) {
-            print_r($e->getResponseBody());
-            throw $e;
-        }
-
-        $this->assertNotEmpty(self::$smartDevicesProductModel);
-        $this->assertInstanceOf(SmartDevicesProductModel::class, self::$smartDevicesProductModel);
-
-        $this->assertEquals('smart.devices', self::$smartDevicesProductModel->getObject());
-        $this->assertNotEmpty(self::$smartDevicesProductModel->getId());
-        $this->assertNotEmpty(self::$smartDevicesProductModel->getMerchant());
-        $this->assertNotEmpty(self::$smartDevicesProductModel->getMerchant()->getId());
-        $this->assertNotEmpty(self::$smartDevicesProductModel->getStore());
-        $this->assertNotEmpty(self::$smartDevicesProductModel->getStore()->getId());
-        $this->assertNotEmpty(self::$smartDevicesProductModel->getVendor());
-        $this->assertNotEmpty(self::$smartDevicesProductModel->getVendorUid());
-        $this->assertNotEmpty(self::$smartDevicesProductModel->getType());
-        $this->assertNotEmpty(self::$smartDevicesProductModel->getCreated());
-    }
-
     /**
      * Test case for updateDevice
      *

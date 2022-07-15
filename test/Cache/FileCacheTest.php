@@ -19,13 +19,13 @@ class FileCacheTest extends TestCase
      */
     private static $fileCache;
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         parent::setUpBeforeClass();
         self::$fileCache = new FileCache();
     }
 
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
         self::$fileCache = null;
         parent::tearDownAfterClass();
@@ -57,7 +57,7 @@ class FileCacheTest extends TestCase
         $tomorrow = $now->modify('+1 day');
         $cacheItem->expiresAt($tomorrow);
 
-        $this->assertEquals($cacheItem, self::$fileCache->getItem('simpleKey'));
+        $this->assertEqualsWithDelta($cacheItem, self::$fileCache->getItem('simpleKey'), 0.1);
     }
 
     /**

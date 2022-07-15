@@ -39,7 +39,7 @@ class SmartRoutingsApiTest extends TestCase
      *
      * @throws ApiException
      */
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         parent::setUpBeforeClass();
         self::$instance = SecuconnectObjects::getInstance();
@@ -50,7 +50,7 @@ class SmartRoutingsApiTest extends TestCase
     /**
      * Clean up after running all test cases
      */
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
         self::$instance = null;
         self::$api = null;

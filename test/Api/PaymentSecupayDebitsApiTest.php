@@ -77,7 +77,7 @@ class PaymentSecupayDebitsApiTest extends TestCase
      *
      * @throws ApiException
      */
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         parent::setUpBeforeClass();
         self::$secuconnectObjects = SecuconnectObjects::getInstance();
@@ -94,7 +94,7 @@ class PaymentSecupayDebitsApiTest extends TestCase
     /**
      * Setup before running each test case
      */
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->api = new PaymentSecupayDebitsApi();
@@ -103,7 +103,7 @@ class PaymentSecupayDebitsApiTest extends TestCase
     /**
      * Clean up after running each test case
      */
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->api = null;
         parent::tearDown();
@@ -112,7 +112,7 @@ class PaymentSecupayDebitsApiTest extends TestCase
     /**
      * Clean up after running all test cases
      */
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
         self::$secuconnectObjects = null;
         self::$containerId = null;
