@@ -28,6 +28,7 @@ class Contact implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'name' => 'string',
         'forename' => 'string',
         'surname' => 'string',
         'companyname' => 'string',
@@ -51,6 +52,7 @@ class Contact implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'name' => null,
         'forename' => null,
         'surname' => null,
         'companyname' => null,
@@ -84,6 +86,7 @@ class Contact implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'name' => 'name',
         'forename' => 'forename',
         'surname' => 'surname',
         'companyname' => 'companyname',
@@ -107,6 +110,7 @@ class Contact implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'name' => 'setName',
         'forename' => 'setForename',
         'surname' => 'setSurname',
         'companyname' => 'setCompanyname',
@@ -130,6 +134,7 @@ class Contact implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'name' => 'getName',
         'forename' => 'getForename',
         'surname' => 'getSurname',
         'companyname' => 'getCompanyname',
@@ -175,6 +180,7 @@ class Contact implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['forename'] = isset($data['forename']) ? $data['forename'] : null;
         $this->container['surname'] = isset($data['surname']) ? $data['surname'] : null;
         $this->container['companyname'] = isset($data['companyname']) ? $data['companyname'] : null;
@@ -216,6 +222,27 @@ class Contact implements ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets name
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     * @param string $name First and last name
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
 
     /**
      * Gets forename

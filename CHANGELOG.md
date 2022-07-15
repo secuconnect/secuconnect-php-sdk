@@ -19,6 +19,39 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [2.14.0] - 2022-07-15
+[2.14.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.13.0...2.14.0
+
+### Added
+- `Model.Contact` element `name`
+- `Model.LoyaltyCustomersDTO` element `consent_for_communication`
+- `Model.PrepaidItemsBaseProductModel`
+- `Model.MRC_ID`
+- `Model.MRC_Object`
+- `Model.PCO_ID`
+- `Model.PCO_Object`
+- `Model.PIG_ID`
+- `Model.PIG_Object`
+- `Model.PrepaidItemsBaseProductModel`
+- `Model.PrepaidItemsProductModel` element `enabled`
+
+### Changed
+- removed support for PHP 5.6 and PHP 7.0
+- renamed class `PrepaidContractsProductApi` to `PrepaidContractsApi` to unify the namings
+- renamed class `PrepaidSalesProductApi` to `PrepaidSalesApi` to unify the namings
+- renamed class `ServicesUploadidentsProductApi` to `ServicesUploadidentsApi` to unify the namings
+- `Model.PrepaidItemsProductModel` extends `PrepaidItemsBaseProductModel`
+
+### Fixed
+- fixed and cleaned up tests
+- removed models from changelog of a previous release wasn't removed
+
+### Removed
+- `Model.Disabled`
+- `Model.PaymentTransactionsInstructions`
+- `Model.RawMerchantcardId`
+
+
 ## [2.13.0] - 2022-06-20
 [2.13.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.12.1...2.13.0
 

@@ -7,14 +7,14 @@ use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Authentication\Authenticator;
 
 /**
- * PrepaidContractsProductApi
+ * ServicesUploadidentsApi
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PrepaidContractsProductApi
+class ServicesUploadidentsApi
 {
     /**
      * API Client
@@ -52,7 +52,7 @@ class PrepaidContractsProductApi
      *
      * @param ApiClient $apiClient set the API client
      *
-     * @return PrepaidContractsProductApi
+     * @return ServicesUploadidentsApi
      */
     public function setApiClient(ApiClient $apiClient)
     {
@@ -61,41 +61,33 @@ class PrepaidContractsProductApi
     }
 
     /**
-     * Operation mappingZvt
+     * Operation addUploadidents
      *
-     * POST Prepaid/Contracts/me/mappingZvt
+     * POST Services/Uploadidents
      *
-     * @param string $prepaid_contract_id Prepaid contract id (required)
-     * @param \Secuconnect\Client\Model\PrepaidZvtDTO $body Prepaid transaction input properties 
+     * @param \Secuconnect\Client\Model\UploadidentsProductDTO $body Upload idents input properties 
      * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\PrepaidMappingZvt
+     * @return \Secuconnect\Client\Model\UploadidentsProductModel
      */
-    public function mappingZvt($prepaid_contract_id, $body)
+    public function addUploadidents($body)
     {
-        list($response) = $this->mappingZvtWithHttpInfo($prepaid_contract_id, $body);
+        list($response) = $this->addUploadidentsWithHttpInfo($body);
         return $response;
     }
 
     /**
-     * Operation mappingZvtWithHttpInfo
+     * Operation addUploadidentsWithHttpInfo
      *
-     * POST Prepaid/Contracts/me/mappingZvt
+     * POST Services/Uploadidents
      *
-     * @param string $prepaid_contract_id Prepaid contract id (required)
-     * @param \Secuconnect\Client\Model\PrepaidZvtDTO $body Prepaid transaction input properties 
+     * @param \Secuconnect\Client\Model\UploadidentsProductDTO $body Upload idents input properties 
      * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\PrepaidMappingZvt, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Secuconnect\Client\Model\UploadidentsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function mappingZvtWithHttpInfo($prepaid_contract_id, $body)
+    public function addUploadidentsWithHttpInfo($body)
     {
-        // verify the required parameter 'prepaid_contract_id' is set
-        if ($prepaid_contract_id === null || (is_array($prepaid_contract_id) && count($prepaid_contract_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $prepaid_contract_id when calling mappingZvt'
-            );
-        }
         // parse inputs
-        $resourcePath = "/Prepaid/Contracts/{prepaidContractId}/mappingZvt";
+        $resourcePath = "/Services/Uploadidents";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -106,14 +98,6 @@ class PrepaidContractsProductApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
-        // path params
-        if ($prepaid_contract_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "prepaidContractId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($prepaid_contract_id),
-                $resourcePath
-            );
-        }
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -141,15 +125,15 @@ class PrepaidContractsProductApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    '\Secuconnect\Client\Model\PrepaidMappingZvt',
-                    '/Prepaid/Contracts/{prepaidContractId}/mappingZvt'
+                    '\Secuconnect\Client\Model\UploadidentsProductModel',
+                    '/Services/Uploadidents'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PrepaidMappingZvt', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\UploadidentsProductModel', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PrepaidMappingZvt', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\UploadidentsProductModel', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:

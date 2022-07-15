@@ -34,6 +34,7 @@ class LoyaltyCustomersDTO implements ArrayAccess
         'days_until_birthday' => 'int',
         'customernumber' => 'string',
         'note' => 'string',
+        'consent_for_communication' => 'string',
         'additional_data' => 'object'
     ];
 
@@ -48,6 +49,7 @@ class LoyaltyCustomersDTO implements ArrayAccess
         'days_until_birthday' => null,
         'customernumber' => null,
         'note' => null,
+        'consent_for_communication' => null,
         'additional_data' => null
     ];
 
@@ -72,6 +74,7 @@ class LoyaltyCustomersDTO implements ArrayAccess
         'days_until_birthday' => 'days_until_birthday',
         'customernumber' => 'customernumber',
         'note' => 'note',
+        'consent_for_communication' => 'consent_for_communication',
         'additional_data' => 'additional_data'
     ];
 
@@ -86,6 +89,7 @@ class LoyaltyCustomersDTO implements ArrayAccess
         'days_until_birthday' => 'setDaysUntilBirthday',
         'customernumber' => 'setCustomernumber',
         'note' => 'setNote',
+        'consent_for_communication' => 'setConsentForCommunication',
         'additional_data' => 'setAdditionalData'
     ];
 
@@ -100,6 +104,7 @@ class LoyaltyCustomersDTO implements ArrayAccess
         'days_until_birthday' => 'getDaysUntilBirthday',
         'customernumber' => 'getCustomernumber',
         'note' => 'getNote',
+        'consent_for_communication' => 'getConsentForCommunication',
         'additional_data' => 'getAdditionalData'
     ];
 
@@ -136,6 +141,7 @@ class LoyaltyCustomersDTO implements ArrayAccess
         $this->container['days_until_birthday'] = isset($data['days_until_birthday']) ? $data['days_until_birthday'] : null;
         $this->container['customernumber'] = isset($data['customernumber']) ? $data['customernumber'] : null;
         $this->container['note'] = isset($data['note']) ? $data['note'] : null;
+        $this->container['consent_for_communication'] = isset($data['consent_for_communication']) ? $data['consent_for_communication'] : null;
         $this->container['additional_data'] = isset($data['additional_data']) ? $data['additional_data'] : null;
     }
 
@@ -290,6 +296,27 @@ class LoyaltyCustomersDTO implements ArrayAccess
     }
 
     /**
+     * Gets consent_for_communication
+     * @return string
+     */
+    public function getConsentForCommunication()
+    {
+        return $this->container['consent_for_communication'];
+    }
+
+    /**
+     * Sets consent_for_communication
+     * @param string $consent_for_communication Consent for communication setting
+     * @return $this
+     */
+    public function setConsentForCommunication($consent_for_communication)
+    {
+        $this->container['consent_for_communication'] = $consent_for_communication;
+
+        return $this;
+    }
+
+    /**
      * Gets additional_data
      * @return object
      */
@@ -300,7 +327,7 @@ class LoyaltyCustomersDTO implements ArrayAccess
 
     /**
      * Sets additional_data
-     * @param object $additional_data Consent for communication
+     * @param object $additional_data additional data properties
      * @return $this
      */
     public function setAdditionalData($additional_data)

@@ -7,14 +7,14 @@ use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Authentication\Authenticator;
 
 /**
- * PrepaidSalesProductApi
+ * PrepaidSalesApi
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PrepaidSalesProductApi
+class PrepaidSalesApi
 {
     /**
      * API Client
@@ -52,7 +52,7 @@ class PrepaidSalesProductApi
      *
      * @param ApiClient $apiClient set the API client
      *
-     * @return PrepaidSalesProductApi
+     * @return PrepaidSalesApi
      */
     public function setApiClient(ApiClient $apiClient)
     {

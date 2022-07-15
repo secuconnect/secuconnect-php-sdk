@@ -53,7 +53,7 @@ class ServicesUploadidentsApiTest extends TestCase
         /*
          * Part 2
          */
-        $api = new ServicesUploadidentsProductApi();
+        $api = new ServicesUploadidentsApi();
         $data = new UploadidentsProductDTO();
         $data->setApikey("37373c132df0299c5bdcf7c7638dd47aa41a2fe2");
         $data->setDocumentIds([$dup_id]);

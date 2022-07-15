@@ -3,15 +3,15 @@
 namespace Secuconnect\Client\Model;
 
 /**
- * PrepaidItemsProductModel
+ * PrepaidItemsBaseProductModel
  *
  * @category Class
- * @description PrepaidItemsProductModel
+ * @description PrepaidItemsBaseProductModel
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PrepaidItemsProductModel extends PrepaidItemsBaseProductModel
+class PrepaidItemsBaseProductModel extends BaseProductModel
 {
     const DISCRIMINATOR = null;
 
@@ -19,20 +19,21 @@ class PrepaidItemsProductModel extends PrepaidItemsBaseProductModel
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'PrepaidItemsProductModel';
+    protected static $swaggerModelName = 'PrepaidItemsBaseProductModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'commission' => 'int',
+        'retail_price' => 'int',
+        'currency' => 'string',
+        'description' => 'string',
+        'displaytext' => 'string',
+        'logo' => 'string',
+        'vtc_config' => 'string[]',
         'vtc_id' => 'string',
-        'itemgroup' => '\Secuconnect\Client\Model\ItemGroup',
-        'stock_limit_max' => 'int',
-        'stock_limit_min' => 'int',
-        'taxable' => 'bool',
-        'enabled' => 'bool'
+        'type' => 'string'
     ];
 
     /**
@@ -40,13 +41,14 @@ class PrepaidItemsProductModel extends PrepaidItemsBaseProductModel
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'commission' => null,
+        'retail_price' => null,
+        'currency' => null,
+        'description' => null,
+        'displaytext' => null,
+        'logo' => null,
+        'vtc_config' => null,
         'vtc_id' => null,
-        'itemgroup' => null,
-        'stock_limit_max' => null,
-        'stock_limit_min' => null,
-        'taxable' => null,
-        'enabled' => null
+        'type' => null
     ];
 
     public static function swaggerTypes()
@@ -64,13 +66,14 @@ class PrepaidItemsProductModel extends PrepaidItemsBaseProductModel
      * @var string[]
      */
     protected static $attributeMap = [
-        'commission' => 'commission',
+        'retail_price' => 'retail_price',
+        'currency' => 'currency',
+        'description' => 'description',
+        'displaytext' => 'displaytext',
+        'logo' => 'logo',
+        'vtc_config' => 'vtc_config',
         'vtc_id' => 'vtc_id',
-        'itemgroup' => 'itemgroup',
-        'stock_limit_max' => 'stock_limit_max',
-        'stock_limit_min' => 'stock_limit_min',
-        'taxable' => 'taxable',
-        'enabled' => 'enabled'
+        'type' => 'type'
     ];
 
     /**
@@ -78,13 +81,14 @@ class PrepaidItemsProductModel extends PrepaidItemsBaseProductModel
      * @var string[]
      */
     protected static $setters = [
-        'commission' => 'setCommission',
+        'retail_price' => 'setRetailPrice',
+        'currency' => 'setCurrency',
+        'description' => 'setDescription',
+        'displaytext' => 'setDisplaytext',
+        'logo' => 'setLogo',
+        'vtc_config' => 'setVtcConfig',
         'vtc_id' => 'setVtcId',
-        'itemgroup' => 'setItemgroup',
-        'stock_limit_max' => 'setStockLimitMax',
-        'stock_limit_min' => 'setStockLimitMin',
-        'taxable' => 'setTaxable',
-        'enabled' => 'setEnabled'
+        'type' => 'setType'
     ];
 
     /**
@@ -92,13 +96,14 @@ class PrepaidItemsProductModel extends PrepaidItemsBaseProductModel
      * @var string[]
      */
     protected static $getters = [
-        'commission' => 'getCommission',
+        'retail_price' => 'getRetailPrice',
+        'currency' => 'getCurrency',
+        'description' => 'getDescription',
+        'displaytext' => 'getDisplaytext',
+        'logo' => 'getLogo',
+        'vtc_config' => 'getVtcConfig',
         'vtc_id' => 'getVtcId',
-        'itemgroup' => 'getItemgroup',
-        'stock_limit_max' => 'getStockLimitMax',
-        'stock_limit_min' => 'getStockLimitMin',
-        'taxable' => 'getTaxable',
-        'enabled' => 'getEnabled'
+        'type' => 'getType'
     ];
 
     public static function attributeMap()
@@ -124,13 +129,14 @@ class PrepaidItemsProductModel extends PrepaidItemsBaseProductModel
     {
         parent::__construct($data);
 
-        $this->container['commission'] = isset($data['commission']) ? $data['commission'] : null;
+        $this->container['retail_price'] = isset($data['retail_price']) ? $data['retail_price'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['displaytext'] = isset($data['displaytext']) ? $data['displaytext'] : null;
+        $this->container['logo'] = isset($data['logo']) ? $data['logo'] : null;
+        $this->container['vtc_config'] = isset($data['vtc_config']) ? $data['vtc_config'] : null;
         $this->container['vtc_id'] = isset($data['vtc_id']) ? $data['vtc_id'] : null;
-        $this->container['itemgroup'] = isset($data['itemgroup']) ? $data['itemgroup'] : null;
-        $this->container['stock_limit_max'] = isset($data['stock_limit_max']) ? $data['stock_limit_max'] : null;
-        $this->container['stock_limit_min'] = isset($data['stock_limit_min']) ? $data['stock_limit_min'] : null;
-        $this->container['taxable'] = isset($data['taxable']) ? $data['taxable'] : null;
-        $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -158,22 +164,127 @@ class PrepaidItemsProductModel extends PrepaidItemsBaseProductModel
 
 
     /**
-     * Gets commission
+     * Gets retail_price
      * @return int
      */
-    public function getCommission()
+    public function getRetailPrice()
     {
-        return $this->container['commission'];
+        return $this->container['retail_price'];
     }
 
     /**
-     * Sets commission
-     * @param int $commission Commission
+     * Sets retail_price
+     * @param int $retail_price Retail price
      * @return $this
      */
-    public function setCommission($commission)
+    public function setRetailPrice($retail_price)
     {
-        $this->container['commission'] = $commission;
+        $this->container['retail_price'] = $retail_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     * @param string $currency currency
+     * @return $this
+     */
+    public function setCurrency($currency)
+    {
+        $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     * @param string $description Description
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets displaytext
+     * @return string
+     */
+    public function getDisplaytext()
+    {
+        return $this->container['displaytext'];
+    }
+
+    /**
+     * Sets displaytext
+     * @param string $displaytext Short text
+     * @return $this
+     */
+    public function setDisplaytext($displaytext)
+    {
+        $this->container['displaytext'] = $displaytext;
+
+        return $this;
+    }
+
+    /**
+     * Gets logo
+     * @return string
+     */
+    public function getLogo()
+    {
+        return $this->container['logo'];
+    }
+
+    /**
+     * Sets logo
+     * @param string $logo Logo
+     * @return $this
+     */
+    public function setLogo($logo)
+    {
+        $this->container['logo'] = $logo;
+
+        return $this;
+    }
+
+    /**
+     * Gets vtc_config
+     * @return string[]
+     */
+    public function getVtcConfig()
+    {
+        return $this->container['vtc_config'];
+    }
+
+    /**
+     * Sets vtc_config
+     * @param string[] $vtc_config List of article numbers for adding it to a smart transaction
+     * @return $this
+     */
+    public function setVtcConfig($vtc_config)
+    {
+        $this->container['vtc_config'] = $vtc_config;
 
         return $this;
     }
@@ -200,106 +311,22 @@ class PrepaidItemsProductModel extends PrepaidItemsBaseProductModel
     }
 
     /**
-     * Gets itemgroup
-     * @return \Secuconnect\Client\Model\ItemGroup
+     * Gets type
+     * @return string
      */
-    public function getItemgroup()
+    public function getType()
     {
-        return $this->container['itemgroup'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets itemgroup
-     * @param \Secuconnect\Client\Model\ItemGroup $itemgroup itemgroup
+     * Sets type
+     * @param string $type Type
      * @return $this
      */
-    public function setItemgroup($itemgroup)
+    public function setType($type)
     {
-        $this->container['itemgroup'] = $itemgroup;
-
-        return $this;
-    }
-
-    /**
-     * Gets stock_limit_max
-     * @return int
-     */
-    public function getStockLimitMax()
-    {
-        return $this->container['stock_limit_max'];
-    }
-
-    /**
-     * Sets stock_limit_max
-     * @param int $stock_limit_max Stock limit max
-     * @return $this
-     */
-    public function setStockLimitMax($stock_limit_max)
-    {
-        $this->container['stock_limit_max'] = $stock_limit_max;
-
-        return $this;
-    }
-
-    /**
-     * Gets stock_limit_min
-     * @return int
-     */
-    public function getStockLimitMin()
-    {
-        return $this->container['stock_limit_min'];
-    }
-
-    /**
-     * Sets stock_limit_min
-     * @param int $stock_limit_min Stock limit min
-     * @return $this
-     */
-    public function setStockLimitMin($stock_limit_min)
-    {
-        $this->container['stock_limit_min'] = $stock_limit_min;
-
-        return $this;
-    }
-
-    /**
-     * Gets taxable
-     * @return bool
-     */
-    public function getTaxable()
-    {
-        return $this->container['taxable'];
-    }
-
-    /**
-     * Sets taxable
-     * @param bool $taxable Taxable
-     * @return $this
-     */
-    public function setTaxable($taxable)
-    {
-        $this->container['taxable'] = $taxable;
-
-        return $this;
-    }
-
-    /**
-     * Gets enabled
-     * @return bool
-     */
-    public function getEnabled()
-    {
-        return $this->container['enabled'];
-    }
-
-    /**
-     * Sets enabled
-     * @param bool $enabled enabled
-     * @return $this
-     */
-    public function setEnabled($enabled)
-    {
-        $this->container['enabled'] = $enabled;
+        $this->container['type'] = $type;
 
         return $this;
     }
