@@ -55,9 +55,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [2.13.0] - 2022-06-20
 [2.13.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.12.1...2.13.0
 
-### Security
-- Update dependencies to the latest versions.
-
 ### Deprecated
 - `Model.LoyaltyMerchantcardsDTOCreateMerchantcards` element `assign` and `contract` 
 
