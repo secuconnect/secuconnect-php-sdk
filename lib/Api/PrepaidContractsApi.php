@@ -63,7 +63,7 @@ class PrepaidContractsApi
     /**
      * Operation mappingZvt
      *
-     * POST Prepaid/Contracts/me/mappingZvtmappingZvt
+     * POST Prepaid/Contracts/me/mappingZvt
      *
      * @param string $prepaid_contract_id Prepaid contract id (required)
      * @param \Secuconnect\Client\Model\PrepaidZvtDTO $body Prepaid transaction input properties 
@@ -79,7 +79,7 @@ class PrepaidContractsApi
     /**
      * Operation mappingZvtWithHttpInfo
      *
-     * POST Prepaid/Contracts/me/mappingZvtmappingZvt
+     * POST Prepaid/Contracts/me/mappingZvt
      *
      * @param string $prepaid_contract_id Prepaid contract id (required)
      * @param \Secuconnect\Client\Model\PrepaidZvtDTO $body Prepaid transaction input properties 

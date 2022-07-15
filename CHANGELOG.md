@@ -25,7 +25,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - `Model.Contact` element `name`
 - `Model.LoyaltyCustomersDTO` element `consent_for_communication`
-- `Model.PrepaidItemsBaseProductModel`
 - `Model.MRC_ID`
 - `Model.MRC_Object`
 - `Model.PCO_ID`
