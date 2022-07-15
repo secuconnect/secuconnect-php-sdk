@@ -31,7 +31,8 @@ class PaymentContext implements ArrayAccess
         'auto_capture' => 'bool',
         'payment_methods' => 'string[]',
         'merchant_initiated' => 'bool',
-        'creditcard_schemes' => 'string[]'
+        'creditcard_schemes' => 'string[]',
+        'accrual' => 'bool'
     ];
 
     /**
@@ -42,7 +43,8 @@ class PaymentContext implements ArrayAccess
         'auto_capture' => null,
         'payment_methods' => null,
         'merchant_initiated' => null,
-        'creditcard_schemes' => null
+        'creditcard_schemes' => null,
+        'accrual' => null
     ];
 
     public static function swaggerTypes()
@@ -63,7 +65,8 @@ class PaymentContext implements ArrayAccess
         'auto_capture' => 'auto_capture',
         'payment_methods' => 'payment_methods',
         'merchant_initiated' => 'merchant_initiated',
-        'creditcard_schemes' => 'creditcard_schemes'
+        'creditcard_schemes' => 'creditcard_schemes',
+        'accrual' => 'accrual'
     ];
 
     /**
@@ -74,7 +77,8 @@ class PaymentContext implements ArrayAccess
         'auto_capture' => 'setAutoCapture',
         'payment_methods' => 'setPaymentMethods',
         'merchant_initiated' => 'setMerchantInitiated',
-        'creditcard_schemes' => 'setCreditcardSchemes'
+        'creditcard_schemes' => 'setCreditcardSchemes',
+        'accrual' => 'setAccrual'
     ];
 
     /**
@@ -85,7 +89,8 @@ class PaymentContext implements ArrayAccess
         'auto_capture' => 'getAutoCapture',
         'payment_methods' => 'getPaymentMethods',
         'merchant_initiated' => 'getMerchantInitiated',
-        'creditcard_schemes' => 'getCreditcardSchemes'
+        'creditcard_schemes' => 'getCreditcardSchemes',
+        'accrual' => 'getAccrual'
     ];
 
     public static function attributeMap()
@@ -119,6 +124,7 @@ class PaymentContext implements ArrayAccess
         $this->container['payment_methods'] = isset($data['payment_methods']) ? $data['payment_methods'] : null;
         $this->container['merchant_initiated'] = isset($data['merchant_initiated']) ? $data['merchant_initiated'] : false;
         $this->container['creditcard_schemes'] = isset($data['creditcard_schemes']) ? $data['creditcard_schemes'] : null;
+        $this->container['accrual'] = isset($data['accrual']) ? $data['accrual'] : false;
     }
 
     /**
@@ -225,6 +231,27 @@ class PaymentContext implements ArrayAccess
     public function setCreditcardSchemes($creditcard_schemes)
     {
         $this->container['creditcard_schemes'] = $creditcard_schemes;
+
+        return $this;
+    }
+
+    /**
+     * Gets accrual
+     * @return bool
+     */
+    public function getAccrual()
+    {
+        return $this->container['accrual'];
+    }
+
+    /**
+     * Sets accrual
+     * @param bool $accrual sets accrual flag to payment transaction when created
+     * @return $this
+     */
+    public function setAccrual($accrual)
+    {
+        $this->container['accrual'] = $accrual;
 
         return $this;
     }
