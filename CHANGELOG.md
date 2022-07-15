@@ -23,6 +23,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [2.14.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.13.0...2.14.0
 
 ### Added
+- `Api.GeneralContractsApi.terminate()`
+- `Model.PaymentContext` element `accrual`
 - `Model.Contact` element `name`
 - `Model.LoyaltyCustomersDTO` element `consent_for_communication`
 - `Model.MRC_ID`
