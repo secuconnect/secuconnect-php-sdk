@@ -21,7 +21,7 @@ class SecupayTransactionProductModelUsedPaymentInstrument implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SecupayTransactionProductModel_used_payment_instrument';
+    protected static $swaggerModelName = 'SecupayTransactionProductModelUsedPaymentInstrument';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

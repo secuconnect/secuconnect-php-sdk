@@ -21,7 +21,7 @@ class PaymentSubscriptionsProductModelBillingCycles implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'PaymentSubscriptionsProductModel_billing_cycles';
+    protected static $swaggerModelName = 'PaymentSubscriptionsProductModelBillingCycles';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
