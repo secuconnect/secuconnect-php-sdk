@@ -26,7 +26,12 @@ class PaymentInstructions extends BankAccountDescriptor
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'girocode_url' => 'string'
+        'girocode_url' => 'string',
+        'interest' => 'int',
+        'total_value' => 'int',
+        'number_of_installments' => 'int',
+        'installment' => 'int',
+        'last_installment' => 'int'
     ];
 
     /**
@@ -34,7 +39,12 @@ class PaymentInstructions extends BankAccountDescriptor
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'girocode_url' => null
+        'girocode_url' => null,
+        'interest' => null,
+        'total_value' => null,
+        'number_of_installments' => null,
+        'installment' => null,
+        'last_installment' => null
     ];
 
     public static function swaggerTypes()
@@ -52,7 +62,12 @@ class PaymentInstructions extends BankAccountDescriptor
      * @var string[]
      */
     protected static $attributeMap = [
-        'girocode_url' => 'girocode_url'
+        'girocode_url' => 'girocode_url',
+        'interest' => 'interest',
+        'total_value' => 'total_value',
+        'number_of_installments' => 'number_of_installments',
+        'installment' => 'installment',
+        'last_installment' => 'last_installment'
     ];
 
     /**
@@ -60,7 +75,12 @@ class PaymentInstructions extends BankAccountDescriptor
      * @var string[]
      */
     protected static $setters = [
-        'girocode_url' => 'setGirocodeUrl'
+        'girocode_url' => 'setGirocodeUrl',
+        'interest' => 'setInterest',
+        'total_value' => 'setTotalValue',
+        'number_of_installments' => 'setNumberOfInstallments',
+        'installment' => 'setInstallment',
+        'last_installment' => 'setLastInstallment'
     ];
 
     /**
@@ -68,7 +88,12 @@ class PaymentInstructions extends BankAccountDescriptor
      * @var string[]
      */
     protected static $getters = [
-        'girocode_url' => 'getGirocodeUrl'
+        'girocode_url' => 'getGirocodeUrl',
+        'interest' => 'getInterest',
+        'total_value' => 'getTotalValue',
+        'number_of_installments' => 'getNumberOfInstallments',
+        'installment' => 'getInstallment',
+        'last_installment' => 'getLastInstallment'
     ];
 
     public static function attributeMap()
@@ -95,6 +120,11 @@ class PaymentInstructions extends BankAccountDescriptor
         parent::__construct($data);
 
         $this->container['girocode_url'] = isset($data['girocode_url']) ? $data['girocode_url'] : null;
+        $this->container['interest'] = isset($data['interest']) ? $data['interest'] : null;
+        $this->container['total_value'] = isset($data['total_value']) ? $data['total_value'] : null;
+        $this->container['number_of_installments'] = isset($data['number_of_installments']) ? $data['number_of_installments'] : null;
+        $this->container['installment'] = isset($data['installment']) ? $data['installment'] : null;
+        $this->container['last_installment'] = isset($data['last_installment']) ? $data['last_installment'] : null;
     }
 
     /**
@@ -138,6 +168,111 @@ class PaymentInstructions extends BankAccountDescriptor
     public function setGirocodeUrl($girocode_url)
     {
         $this->container['girocode_url'] = $girocode_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets interest
+     * @return int
+     */
+    public function getInterest()
+    {
+        return $this->container['interest'];
+    }
+
+    /**
+     * Sets interest
+     * @param int $interest Total amount of interest for easyCredit transaction
+     * @return $this
+     */
+    public function setInterest($interest)
+    {
+        $this->container['interest'] = $interest;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_value
+     * @return int
+     */
+    public function getTotalValue()
+    {
+        return $this->container['total_value'];
+    }
+
+    /**
+     * Sets total_value
+     * @param int $total_value Total amount of basket & interest for easyCredit transaction
+     * @return $this
+     */
+    public function setTotalValue($total_value)
+    {
+        $this->container['total_value'] = $total_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets number_of_installments
+     * @return int
+     */
+    public function getNumberOfInstallments()
+    {
+        return $this->container['number_of_installments'];
+    }
+
+    /**
+     * Sets number_of_installments
+     * @param int $number_of_installments Number of installments for easyCredit transaction
+     * @return $this
+     */
+    public function setNumberOfInstallments($number_of_installments)
+    {
+        $this->container['number_of_installments'] = $number_of_installments;
+
+        return $this;
+    }
+
+    /**
+     * Gets installment
+     * @return int
+     */
+    public function getInstallment()
+    {
+        return $this->container['installment'];
+    }
+
+    /**
+     * Sets installment
+     * @param int $installment The monthly payment for easyCredit transaction
+     * @return $this
+     */
+    public function setInstallment($installment)
+    {
+        $this->container['installment'] = $installment;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_installment
+     * @return int
+     */
+    public function getLastInstallment()
+    {
+        return $this->container['last_installment'];
+    }
+
+    /**
+     * Sets last_installment
+     * @param int $last_installment The last installment payment for easyCredit transaction
+     * @return $this
+     */
+    public function setLastInstallment($last_installment)
+    {
+        $this->container['last_installment'] = $last_installment;
 
         return $this;
     }

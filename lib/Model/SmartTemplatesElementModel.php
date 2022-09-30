@@ -28,12 +28,13 @@ class SmartTemplatesElementModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'int',
+        'order' => 'int',
         'type' => 'string',
         'config' => 'object',
         'condition' => 'object',
-        'accordion_elements' => '\Secuconnect\Client\Model\SmartTemplatesAccordionItemModel[]',
-        'form_elements' => '\Secuconnect\Client\Model\SmartTemplatesFormElementModel[]'
+        'name' => 'string',
+        'property' => 'string',
+        'elements' => '\Secuconnect\Client\Model\SmartTemplatesElementModel[]'
     ];
 
     /**
@@ -41,12 +42,13 @@ class SmartTemplatesElementModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
+        'order' => null,
         'type' => null,
         'config' => null,
         'condition' => null,
-        'accordion_elements' => null,
-        'form_elements' => null
+        'name' => null,
+        'property' => null,
+        'elements' => null
     ];
 
     public static function swaggerTypes()
@@ -64,12 +66,13 @@ class SmartTemplatesElementModel implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
+        'order' => 'order',
         'type' => 'type',
         'config' => 'config',
         'condition' => 'condition',
-        'accordion_elements' => 'accordion_elements',
-        'form_elements' => 'form_elements'
+        'name' => 'name',
+        'property' => 'property',
+        'elements' => 'elements'
     ];
 
     /**
@@ -77,12 +80,13 @@ class SmartTemplatesElementModel implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
+        'order' => 'setOrder',
         'type' => 'setType',
         'config' => 'setConfig',
         'condition' => 'setCondition',
-        'accordion_elements' => 'setAccordionElements',
-        'form_elements' => 'setFormElements'
+        'name' => 'setName',
+        'property' => 'setProperty',
+        'elements' => 'setElements'
     ];
 
     /**
@@ -90,12 +94,13 @@ class SmartTemplatesElementModel implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
+        'order' => 'getOrder',
         'type' => 'getType',
         'config' => 'getConfig',
         'condition' => 'getCondition',
-        'accordion_elements' => 'getAccordionElements',
-        'form_elements' => 'getFormElements'
+        'name' => 'getName',
+        'property' => 'getProperty',
+        'elements' => 'getElements'
     ];
 
     public static function attributeMap()
@@ -125,12 +130,13 @@ class SmartTemplatesElementModel implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['order'] = isset($data['order']) ? $data['order'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['config'] = isset($data['config']) ? $data['config'] : null;
         $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
-        $this->container['accordion_elements'] = isset($data['accordion_elements']) ? $data['accordion_elements'] : null;
-        $this->container['form_elements'] = isset($data['form_elements']) ? $data['form_elements'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['property'] = isset($data['property']) ? $data['property'] : null;
+        $this->container['elements'] = isset($data['elements']) ? $data['elements'] : null;
     }
 
     /**
@@ -158,22 +164,22 @@ class SmartTemplatesElementModel implements ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets order
      * @return int
      */
-    public function getId()
+    public function getOrder()
     {
-        return $this->container['id'];
+        return $this->container['order'];
     }
 
     /**
-     * Sets id
-     * @param int $id Id of element item of the component
+     * Sets order
+     * @param int $order The order in which the elements are getting parsed for matching conditions, the first matching will be taken
      * @return $this
      */
-    public function setId($id)
+    public function setOrder($order)
     {
-        $this->container['id'] = $id;
+        $this->container['order'] = $order;
 
         return $this;
     }
@@ -242,43 +248,64 @@ class SmartTemplatesElementModel implements ArrayAccess
     }
 
     /**
-     * Gets accordion_elements
-     * @return \Secuconnect\Client\Model\SmartTemplatesAccordionItemModel[]
+     * Gets name
+     * @return string
      */
-    public function getAccordionElements()
+    public function getName()
     {
-        return $this->container['accordion_elements'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets accordion_elements
-     * @param \Secuconnect\Client\Model\SmartTemplatesAccordionItemModel[] $accordion_elements The accordion items to be shown in accordion element
+     * Sets name
+     * @param string $name Name of the element
      * @return $this
      */
-    public function setAccordionElements($accordion_elements)
+    public function setName($name)
     {
-        $this->container['accordion_elements'] = $accordion_elements;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets form_elements
-     * @return \Secuconnect\Client\Model\SmartTemplatesFormElementModel[]
+     * Gets property
+     * @return string
      */
-    public function getFormElements()
+    public function getProperty()
     {
-        return $this->container['form_elements'];
+        return $this->container['property'];
     }
 
     /**
-     * Sets form_elements
-     * @param \Secuconnect\Client\Model\SmartTemplatesFormElementModel[] $form_elements The Form items to be shown in dynamic form element
+     * Sets property
+     * @param string $property Special property for 'loop' elements to configure on which data to loop on
      * @return $this
      */
-    public function setFormElements($form_elements)
+    public function setProperty($property)
     {
-        $this->container['form_elements'] = $form_elements;
+        $this->container['property'] = $property;
+
+        return $this;
+    }
+
+    /**
+     * Gets elements
+     * @return \Secuconnect\Client\Model\SmartTemplatesElementModel[]
+     */
+    public function getElements()
+    {
+        return $this->container['elements'];
+    }
+
+    /**
+     * Sets elements
+     * @param \Secuconnect\Client\Model\SmartTemplatesElementModel[] $elements The child elements to be shown inside an the current element
+     * @return $this
+     */
+    public function setElements($elements)
+    {
+        $this->container['elements'] = $elements;
 
         return $this;
     }

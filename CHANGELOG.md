@@ -18,6 +18,29 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.15.0] - 2022-09-30
+[2.15.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.14.0...2.15.0
+
+### Added
+- `Model.SmartTemplatesElementModel` element `order`
+- `Model.SmartTemplatesComponentModel` element `order`
+- `Model.SmartTemplatesElementModel` element `name`
+- `Model.SmartTemplatesElementModel` element `property`
+- `Model.SmartTemplatesElementModel` element `elements`
+- `Model.PaymentInstructions` element `interest`
+- `Model.PaymentInstructions` element `total_value`
+- `Model.PaymentInstructions` element `number_of_installments`
+- `Model.PaymentInstructions` element `installment`
+- `Model.PaymentInstructions` element `last_installment`
+
+
+### Removed
+- `Model.SmartTemplatesElementModel` element `id`
+- `Model.SmartTemplatesElementModel` element `accordion_elements`
+- `Model.SmartTemplatesElementModel` element `form_elements`
+- `Model.SmartTemplatesComponentModel` element `id`
+- `Model.SmartTemplatesAccordionModel`
+- `Model.SmartTemplatesFormModel`
 
 ## [2.14.0] - 2022-07-15
 [2.14.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.13.0...2.14.0
