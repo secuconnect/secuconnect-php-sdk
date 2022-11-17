@@ -18,12 +18,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+
 ## [2.16.0] - 2022-11-17
 [2.16.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.15.0...2.16.0
 
 ### Added
 - `Api.CardprocessingInvoicesApi`
 - `Api.CardprocessingTransactionsApi`
+- `Api.GeneralContractsApi.getAvailablePaymentMethodsForTransaction()`
 - `Api.PaymentInvoicesApi`
 - `Api.PaymentPayoutsApi`
 - `Model.ACC_ID`
@@ -33,10 +35,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - `Model.CardprocessingTransactionsList`
 - `Model.CardprocessingTransactionsProductModel`
 - `Model.DocumentLink`
+- `Model.ParentObj` element `ref_type_raw` and `hierarchy`
 - `Model.PaymentInvoicesList`
 - `Model.PaymentInvoicesProductModel`
 - `Model.PaymentPayoutsList`
 - `Model.PaymentPayoutsProductModel`
+- `Model.PaymentTransactionsProductModel` element `related_transactions`, `subscription`, `completion_date`, `incoming_payment_purpose`, `incoming_payment_iban`, `incoming_payment_bic`, `order_id`
+- `Model.SecupayPayoutProductModel` element `payment_id`
 - `Model.SmartDeviceProductsCollect`
 - `Model.SmartDeviceProductsEasycredit`
 - `Model.SmartDeviceProductsEnabledWithTid`
@@ -44,18 +49,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - `Model.SmartDeviceProductsVtm`
 - `Model.SmartDeviceProductsWebterminalConfig`
 - `Model.SmartDeviceProductsWebterminalConfigAllowedActions`
+- `Model.SmartDeviceProductsPrepaid` element `endofday`, `password` and `simulate`
+- `Model.SmartDevicesProductModel` element `updated` and `connection_type`
+- `Model.SmartDevicesProducts` element `support`, `bonroll`, `bvb` and `easycredit`
 
 ### Changed
-- `Api.GeneralContractsApi`
-- `Model.IdentificationProcess`
-- `Model.ParentObj`
-- `Model.PaymentTransactionsProductModel`
-- `Model.SecupayPayoutProductModel`
-- `Model.SmartDeviceProductsPrepaid`
-- `Model.SmartDevicesProductModel`
-- `Model.SmartDevicesProducts`
+- `Model.IdentificationProcess` element `identificatontime` renamed to `identificationtime`
+- `Model.SmartDeviceProductsPrepaid` extends now from `Model.SmartDeviceProductsEnabledWithTid`
+- `Model.SmartDevicesProducts` element `collect` from `Model.SmartDeviceProductsEnabled` to `Model.SmartDeviceProductsCollect`
+- `Model.SmartDevicesProducts` element `loyalty` from `Model.SmartDeviceProductsEnabled` to `Model.SmartDeviceProductsLoyalty`
+- `Model.SmartDevicesProducts` element `smart` and `cashreg` from `Model.SmartDeviceProductsEnabled` to `Model.SmartDeviceProductsEnabledWithTid`
+- `Model.SmartDevicesProducts` element `vtm` from `Model.SmartDeviceProductsEnabled` to `Model.SmartDeviceProductsVtm`
 
 ### Removed
+- `Model.ParentObj` element `relation_type`
+- `Model.SmartDeviceProductsPrepaid` element `simulate_force`
+- `Model.SmartDevicesProducts` element `showcase`
 - .swagger-codegen/VERSION
 
 
@@ -82,6 +91,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - `Model.SmartTemplatesComponentModel` element `id`
 - `Model.SmartTemplatesAccordionModel`
 - `Model.SmartTemplatesFormModel`
+
 
 ## [2.14.0] - 2022-07-15
 [2.14.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.13.0...2.14.0
