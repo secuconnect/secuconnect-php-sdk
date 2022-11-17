@@ -32,7 +32,8 @@ class ParentObj implements ArrayAccess
         'id' => 'string',
         'trans_id' => 'int',
         'ref_type_id' => 'int',
-        'relation_type' => 'string'
+        'ref_type_raw' => 'string',
+        'hierarchy' => 'string'
     ];
 
     /**
@@ -44,7 +45,8 @@ class ParentObj implements ArrayAccess
         'id' => 'id',
         'trans_id' => null,
         'ref_type_id' => null,
-        'relation_type' => null
+        'ref_type_raw' => null,
+        'hierarchy' => null
     ];
 
     public static function swaggerTypes()
@@ -66,7 +68,8 @@ class ParentObj implements ArrayAccess
         'id' => 'id',
         'trans_id' => 'trans_id',
         'ref_type_id' => 'ref_type_id',
-        'relation_type' => 'relation_type'
+        'ref_type_raw' => 'ref_type_raw',
+        'hierarchy' => 'hierarchy'
     ];
 
     /**
@@ -78,7 +81,8 @@ class ParentObj implements ArrayAccess
         'id' => 'setId',
         'trans_id' => 'setTransId',
         'ref_type_id' => 'setRefTypeId',
-        'relation_type' => 'setRelationType'
+        'ref_type_raw' => 'setRefTypeRaw',
+        'hierarchy' => 'setHierarchy'
     ];
 
     /**
@@ -90,7 +94,8 @@ class ParentObj implements ArrayAccess
         'id' => 'getId',
         'trans_id' => 'getTransId',
         'ref_type_id' => 'getRefTypeId',
-        'relation_type' => 'getRelationType'
+        'ref_type_raw' => 'getRefTypeRaw',
+        'hierarchy' => 'getHierarchy'
     ];
 
     public static function attributeMap()
@@ -124,7 +129,8 @@ class ParentObj implements ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['trans_id'] = isset($data['trans_id']) ? $data['trans_id'] : null;
         $this->container['ref_type_id'] = isset($data['ref_type_id']) ? $data['ref_type_id'] : null;
-        $this->container['relation_type'] = isset($data['relation_type']) ? $data['relation_type'] : null;
+        $this->container['ref_type_raw'] = isset($data['ref_type_raw']) ? $data['ref_type_raw'] : null;
+        $this->container['hierarchy'] = isset($data['hierarchy']) ? $data['hierarchy'] : null;
     }
 
     /**
@@ -236,22 +242,43 @@ class ParentObj implements ArrayAccess
     }
 
     /**
-     * Gets relation_type
+     * Gets ref_type_raw
      * @return string
      */
-    public function getRelationType()
+    public function getRefTypeRaw()
     {
-        return $this->container['relation_type'];
+        return $this->container['ref_type_raw'];
     }
 
     /**
-     * Sets relation_type
-     * @param string $relation_type Relation type
+     * Sets ref_type_raw
+     * @param string $ref_type_raw Ref type name (DE)
      * @return $this
      */
-    public function setRelationType($relation_type)
+    public function setRefTypeRaw($ref_type_raw)
     {
-        $this->container['relation_type'] = $relation_type;
+        $this->container['ref_type_raw'] = $ref_type_raw;
+
+        return $this;
+    }
+
+    /**
+     * Gets hierarchy
+     * @return string
+     */
+    public function getHierarchy()
+    {
+        return $this->container['hierarchy'];
+    }
+
+    /**
+     * Sets hierarchy
+     * @param string $hierarchy Relation direction type ('child' or 'parent')
+     * @return $this
+     */
+    public function setHierarchy($hierarchy)
+    {
+        $this->container['hierarchy'] = $hierarchy;
 
         return $this;
     }
