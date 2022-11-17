@@ -28,7 +28,7 @@ class SmartTemplatesComponentModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'int',
+        'order' => 'int',
         'name' => 'string',
         'config' => 'object',
         'condition' => 'object',
@@ -40,7 +40,7 @@ class SmartTemplatesComponentModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
+        'order' => null,
         'name' => null,
         'config' => null,
         'condition' => null,
@@ -62,7 +62,7 @@ class SmartTemplatesComponentModel implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
+        'order' => 'order',
         'name' => 'name',
         'config' => 'config',
         'condition' => 'condition',
@@ -74,7 +74,7 @@ class SmartTemplatesComponentModel implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
+        'order' => 'setOrder',
         'name' => 'setName',
         'config' => 'setConfig',
         'condition' => 'setCondition',
@@ -86,7 +86,7 @@ class SmartTemplatesComponentModel implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
+        'order' => 'getOrder',
         'name' => 'getName',
         'config' => 'getConfig',
         'condition' => 'getCondition',
@@ -120,7 +120,7 @@ class SmartTemplatesComponentModel implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['order'] = isset($data['order']) ? $data['order'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['config'] = isset($data['config']) ? $data['config'] : null;
         $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
@@ -152,22 +152,22 @@ class SmartTemplatesComponentModel implements ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets order
      * @return int
      */
-    public function getId()
+    public function getOrder()
     {
-        return $this->container['id'];
+        return $this->container['order'];
     }
 
     /**
-     * Sets id
-     * @param int $id Id of component item of the page
+     * Sets order
+     * @param int $order The order in which the pages are getting parsed for matching conditions, the first matching will be taken
      * @return $this
      */
-    public function setId($id)
+    public function setOrder($order)
     {
-        $this->container['id'] = $id;
+        $this->container['order'] = $order;
 
         return $this;
     }
