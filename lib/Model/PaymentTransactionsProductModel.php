@@ -33,6 +33,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'store' => '\Secuconnect\Client\Model\GeneralStoresProductModel',
         'trans_id' => 'int',
         'parents' => '\Secuconnect\Client\Model\ParentObj[]',
+        'related_transactions' => '\Secuconnect\Client\Model\ParentObj[]',
+        'subscription' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'product_id' => 'int',
         'product' => 'string',
         'product_raw' => 'string',
@@ -40,6 +42,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'contract_id' => 'int',
         'amount' => 'int',
         'currency' => 'string',
+        'completion_date' => 'string',
         'status' => 'int',
         'status_text' => 'string',
         'incoming_payment_date' => 'string',
@@ -52,8 +55,12 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'invoice_number' => 'string',
         'transaction_hash' => 'string',
         'reference_id' => 'string',
+        'incoming_payment_purpose' => 'string',
+        'incoming_payment_iban' => 'string',
+        'incoming_payment_bic' => 'string',
         'account_owner' => 'string',
-        'accrual' => 'bool'
+        'accrual' => 'bool',
+        'order_id' => 'string'
     ];
 
     /**
@@ -68,6 +75,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'store' => null,
         'trans_id' => null,
         'parents' => null,
+        'related_transactions' => null,
+        'subscription' => null,
         'product_id' => null,
         'product' => null,
         'product_raw' => null,
@@ -75,6 +84,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'contract_id' => null,
         'amount' => null,
         'currency' => null,
+        'completion_date' => null,
         'status' => null,
         'status_text' => null,
         'incoming_payment_date' => null,
@@ -87,8 +97,12 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'invoice_number' => null,
         'transaction_hash' => null,
         'reference_id' => null,
+        'incoming_payment_purpose' => null,
+        'incoming_payment_iban' => null,
+        'incoming_payment_bic' => null,
         'account_owner' => null,
-        'accrual' => null
+        'accrual' => null,
+        'order_id' => null
     ];
 
     public static function swaggerTypes()
@@ -113,6 +127,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'store' => 'store',
         'trans_id' => 'trans_id',
         'parents' => 'parents',
+        'related_transactions' => 'related_transactions',
+        'subscription' => 'subscription',
         'product_id' => 'product_id',
         'product' => 'product',
         'product_raw' => 'product_raw',
@@ -120,6 +136,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'contract_id' => 'contract_id',
         'amount' => 'amount',
         'currency' => 'currency',
+        'completion_date' => 'completion_date',
         'status' => 'status',
         'status_text' => 'status_text',
         'incoming_payment_date' => 'incoming_payment_date',
@@ -132,8 +149,12 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'invoice_number' => 'invoice_number',
         'transaction_hash' => 'transaction_hash',
         'reference_id' => 'reference_id',
+        'incoming_payment_purpose' => 'incoming_payment_purpose',
+        'incoming_payment_iban' => 'incoming_payment_iban',
+        'incoming_payment_bic' => 'incoming_payment_bic',
         'account_owner' => 'account_owner',
-        'accrual' => 'accrual'
+        'accrual' => 'accrual',
+        'order_id' => 'order_id'
     ];
 
     /**
@@ -148,6 +169,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'store' => 'setStore',
         'trans_id' => 'setTransId',
         'parents' => 'setParents',
+        'related_transactions' => 'setRelatedTransactions',
+        'subscription' => 'setSubscription',
         'product_id' => 'setProductId',
         'product' => 'setProduct',
         'product_raw' => 'setProductRaw',
@@ -155,6 +178,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'contract_id' => 'setContractId',
         'amount' => 'setAmount',
         'currency' => 'setCurrency',
+        'completion_date' => 'setCompletionDate',
         'status' => 'setStatus',
         'status_text' => 'setStatusText',
         'incoming_payment_date' => 'setIncomingPaymentDate',
@@ -167,8 +191,12 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'invoice_number' => 'setInvoiceNumber',
         'transaction_hash' => 'setTransactionHash',
         'reference_id' => 'setReferenceId',
+        'incoming_payment_purpose' => 'setIncomingPaymentPurpose',
+        'incoming_payment_iban' => 'setIncomingPaymentIban',
+        'incoming_payment_bic' => 'setIncomingPaymentBic',
         'account_owner' => 'setAccountOwner',
-        'accrual' => 'setAccrual'
+        'accrual' => 'setAccrual',
+        'order_id' => 'setOrderId'
     ];
 
     /**
@@ -183,6 +211,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'store' => 'getStore',
         'trans_id' => 'getTransId',
         'parents' => 'getParents',
+        'related_transactions' => 'getRelatedTransactions',
+        'subscription' => 'getSubscription',
         'product_id' => 'getProductId',
         'product' => 'getProduct',
         'product_raw' => 'getProductRaw',
@@ -190,6 +220,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'contract_id' => 'getContractId',
         'amount' => 'getAmount',
         'currency' => 'getCurrency',
+        'completion_date' => 'getCompletionDate',
         'status' => 'getStatus',
         'status_text' => 'getStatusText',
         'incoming_payment_date' => 'getIncomingPaymentDate',
@@ -202,8 +233,12 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'invoice_number' => 'getInvoiceNumber',
         'transaction_hash' => 'getTransactionHash',
         'reference_id' => 'getReferenceId',
+        'incoming_payment_purpose' => 'getIncomingPaymentPurpose',
+        'incoming_payment_iban' => 'getIncomingPaymentIban',
+        'incoming_payment_bic' => 'getIncomingPaymentBic',
         'account_owner' => 'getAccountOwner',
-        'accrual' => 'getAccrual'
+        'accrual' => 'getAccrual',
+        'order_id' => 'getOrderId'
     ];
 
     public static function attributeMap()
@@ -236,6 +271,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
         $this->container['store'] = isset($data['store']) ? $data['store'] : null;
         $this->container['trans_id'] = isset($data['trans_id']) ? $data['trans_id'] : null;
         $this->container['parents'] = isset($data['parents']) ? $data['parents'] : null;
+        $this->container['related_transactions'] = isset($data['related_transactions']) ? $data['related_transactions'] : null;
+        $this->container['subscription'] = isset($data['subscription']) ? $data['subscription'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
         $this->container['product_raw'] = isset($data['product_raw']) ? $data['product_raw'] : null;
@@ -243,6 +280,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
         $this->container['contract_id'] = isset($data['contract_id']) ? $data['contract_id'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['completion_date'] = isset($data['completion_date']) ? $data['completion_date'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['status_text'] = isset($data['status_text']) ? $data['status_text'] : null;
         $this->container['incoming_payment_date'] = isset($data['incoming_payment_date']) ? $data['incoming_payment_date'] : null;
@@ -255,8 +293,12 @@ class PaymentTransactionsProductModel extends BaseProductModel
         $this->container['invoice_number'] = isset($data['invoice_number']) ? $data['invoice_number'] : null;
         $this->container['transaction_hash'] = isset($data['transaction_hash']) ? $data['transaction_hash'] : null;
         $this->container['reference_id'] = isset($data['reference_id']) ? $data['reference_id'] : null;
+        $this->container['incoming_payment_purpose'] = isset($data['incoming_payment_purpose']) ? $data['incoming_payment_purpose'] : null;
+        $this->container['incoming_payment_iban'] = isset($data['incoming_payment_iban']) ? $data['incoming_payment_iban'] : null;
+        $this->container['incoming_payment_bic'] = isset($data['incoming_payment_bic']) ? $data['incoming_payment_bic'] : null;
         $this->container['account_owner'] = isset($data['account_owner']) ? $data['account_owner'] : null;
         $this->container['accrual'] = isset($data['accrual']) ? $data['accrual'] : null;
+        $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
     }
 
     /**
@@ -399,7 +441,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets trans_id
-     * @param int $trans_id Transaction ID in secupay Frontend
+     * @param int $trans_id Transaction ID
      * @return $this
      */
     public function setTransId($trans_id)
@@ -426,6 +468,48 @@ class PaymentTransactionsProductModel extends BaseProductModel
     public function setParents($parents)
     {
         $this->container['parents'] = $parents;
+
+        return $this;
+    }
+
+    /**
+     * Gets related_transactions
+     * @return \Secuconnect\Client\Model\ParentObj[]
+     */
+    public function getRelatedTransactions()
+    {
+        return $this->container['related_transactions'];
+    }
+
+    /**
+     * Sets related_transactions
+     * @param \Secuconnect\Client\Model\ParentObj[] $related_transactions Related transactions
+     * @return $this
+     */
+    public function setRelatedTransactions($related_transactions)
+    {
+        $this->container['related_transactions'] = $related_transactions;
+
+        return $this;
+    }
+
+    /**
+     * Gets subscription
+     * @return \Secuconnect\Client\Model\ProductInstanceUID
+     */
+    public function getSubscription()
+    {
+        return $this->container['subscription'];
+    }
+
+    /**
+     * Sets subscription
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $subscription subscription
+     * @return $this
+     */
+    public function setSubscription($subscription)
+    {
+        $this->container['subscription'] = $subscription;
 
         return $this;
     }
@@ -573,6 +657,27 @@ class PaymentTransactionsProductModel extends BaseProductModel
     public function setCurrency($currency)
     {
         $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets completion_date
+     * @return string
+     */
+    public function getCompletionDate()
+    {
+        return $this->container['completion_date'];
+    }
+
+    /**
+     * Sets completion_date
+     * @param string $completion_date completion_date
+     * @return $this
+     */
+    public function setCompletionDate($completion_date)
+    {
+        $this->container['completion_date'] = $completion_date;
 
         return $this;
     }
@@ -830,6 +935,69 @@ class PaymentTransactionsProductModel extends BaseProductModel
     }
 
     /**
+     * Gets incoming_payment_purpose
+     * @return string
+     */
+    public function getIncomingPaymentPurpose()
+    {
+        return $this->container['incoming_payment_purpose'];
+    }
+
+    /**
+     * Sets incoming_payment_purpose
+     * @param string $incoming_payment_purpose Purpose from the received payment
+     * @return $this
+     */
+    public function setIncomingPaymentPurpose($incoming_payment_purpose)
+    {
+        $this->container['incoming_payment_purpose'] = $incoming_payment_purpose;
+
+        return $this;
+    }
+
+    /**
+     * Gets incoming_payment_iban
+     * @return string
+     */
+    public function getIncomingPaymentIban()
+    {
+        return $this->container['incoming_payment_iban'];
+    }
+
+    /**
+     * Sets incoming_payment_iban
+     * @param string $incoming_payment_iban IBAN from the received payment
+     * @return $this
+     */
+    public function setIncomingPaymentIban($incoming_payment_iban)
+    {
+        $this->container['incoming_payment_iban'] = $incoming_payment_iban;
+
+        return $this;
+    }
+
+    /**
+     * Gets incoming_payment_bic
+     * @return string
+     */
+    public function getIncomingPaymentBic()
+    {
+        return $this->container['incoming_payment_bic'];
+    }
+
+    /**
+     * Sets incoming_payment_bic
+     * @param string $incoming_payment_bic BIC from the received payment
+     * @return $this
+     */
+    public function setIncomingPaymentBic($incoming_payment_bic)
+    {
+        $this->container['incoming_payment_bic'] = $incoming_payment_bic;
+
+        return $this;
+    }
+
+    /**
      * Gets account_owner
      * @return string
      */
@@ -867,6 +1035,27 @@ class PaymentTransactionsProductModel extends BaseProductModel
     public function setAccrual($accrual)
     {
         $this->container['accrual'] = $accrual;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_id
+     * @return string
+     */
+    public function getOrderId()
+    {
+        return $this->container['order_id'];
+    }
+
+    /**
+     * Sets order_id
+     * @param string $order_id Order ID
+     * @return $this
+     */
+    public function setOrderId($order_id)
+    {
+        $this->container['order_id'] = $order_id;
 
         return $this;
     }

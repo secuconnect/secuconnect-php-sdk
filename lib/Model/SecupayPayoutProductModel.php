@@ -27,6 +27,7 @@ class SecupayPayoutProductModel extends BaseProductModel
       */
     protected static $swaggerTypes = [
         'trans_id' => 'int',
+        'payment_id' => 'string',
         'status' => 'string',
         'amount' => 'int',
         'currency' => 'string',
@@ -44,6 +45,7 @@ class SecupayPayoutProductModel extends BaseProductModel
       */
     protected static $swaggerFormats = [
         'trans_id' => null,
+        'payment_id' => null,
         'status' => null,
         'amount' => null,
         'currency' => null,
@@ -71,6 +73,7 @@ class SecupayPayoutProductModel extends BaseProductModel
      */
     protected static $attributeMap = [
         'trans_id' => 'trans_id',
+        'payment_id' => 'payment_id',
         'status' => 'status',
         'amount' => 'amount',
         'currency' => 'currency',
@@ -88,6 +91,7 @@ class SecupayPayoutProductModel extends BaseProductModel
      */
     protected static $setters = [
         'trans_id' => 'setTransId',
+        'payment_id' => 'setPaymentId',
         'status' => 'setStatus',
         'amount' => 'setAmount',
         'currency' => 'setCurrency',
@@ -105,6 +109,7 @@ class SecupayPayoutProductModel extends BaseProductModel
      */
     protected static $getters = [
         'trans_id' => 'getTransId',
+        'payment_id' => 'getPaymentId',
         'status' => 'getStatus',
         'amount' => 'getAmount',
         'currency' => 'getCurrency',
@@ -140,6 +145,7 @@ class SecupayPayoutProductModel extends BaseProductModel
         parent::__construct($data);
 
         $this->container['trans_id'] = isset($data['trans_id']) ? $data['trans_id'] : null;
+        $this->container['payment_id'] = isset($data['payment_id']) ? $data['payment_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
@@ -192,6 +198,27 @@ class SecupayPayoutProductModel extends BaseProductModel
     public function setTransId($trans_id)
     {
         $this->container['trans_id'] = $trans_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_id
+     * @return string
+     */
+    public function getPaymentId()
+    {
+        return $this->container['payment_id'];
+    }
+
+    /**
+     * Sets payment_id
+     * @param string $payment_id Payment ID
+     * @return $this
+     */
+    public function setPaymentId($payment_id)
+    {
+        $this->container['payment_id'] = $payment_id;
 
         return $this;
     }

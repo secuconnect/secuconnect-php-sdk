@@ -2,16 +2,18 @@
 
 namespace Secuconnect\Client\Model;
 
+use \ArrayAccess;
+
 /**
- * SmartDeviceProductsPrepaid
+ * DocumentLink
  *
  * @category Class
- * @description SmartDeviceProductsPrepaid
+ * @description Document link object
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartDeviceProductsPrepaid extends SmartDeviceProductsEnabledWithTid
+class DocumentLink implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -19,18 +21,15 @@ class SmartDeviceProductsPrepaid extends SmartDeviceProductsEnabledWithTid
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartDeviceProductsPrepaid';
+    protected static $swaggerModelName = 'DocumentLink';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'demo_force' => 'bool',
-        'vtc_tid' => 'string',
-        'endofday' => 'bool',
-        'password' => 'string[]',
-        'simulate' => 'bool'
+        'url' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -38,21 +37,18 @@ class SmartDeviceProductsPrepaid extends SmartDeviceProductsEnabledWithTid
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'demo_force' => null,
-        'vtc_tid' => null,
-        'endofday' => null,
-        'password' => null,
-        'simulate' => null
+        'url' => null,
+        'type' => null
     ];
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /**
@@ -60,11 +56,8 @@ class SmartDeviceProductsPrepaid extends SmartDeviceProductsEnabledWithTid
      * @var string[]
      */
     protected static $attributeMap = [
-        'demo_force' => 'demo_force',
-        'vtc_tid' => 'vtc_tid',
-        'endofday' => 'endofday',
-        'password' => 'password',
-        'simulate' => 'simulate'
+        'url' => 'url',
+        'type' => 'type'
     ];
 
     /**
@@ -72,11 +65,8 @@ class SmartDeviceProductsPrepaid extends SmartDeviceProductsEnabledWithTid
      * @var string[]
      */
     protected static $setters = [
-        'demo_force' => 'setDemoForce',
-        'vtc_tid' => 'setVtcTid',
-        'endofday' => 'setEndofday',
-        'password' => 'setPassword',
-        'simulate' => 'setSimulate'
+        'url' => 'setUrl',
+        'type' => 'setType'
     ];
 
     /**
@@ -84,27 +74,30 @@ class SmartDeviceProductsPrepaid extends SmartDeviceProductsEnabledWithTid
      * @var string[]
      */
     protected static $getters = [
-        'demo_force' => 'getDemoForce',
-        'vtc_tid' => 'getVtcTid',
-        'endofday' => 'getEndofday',
-        'password' => 'getPassword',
-        'simulate' => 'getSimulate'
+        'url' => 'getUrl',
+        'type' => 'getType'
     ];
 
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
+
+    /**
+     * Associative array for storing property values
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -112,13 +105,8 @@ class SmartDeviceProductsPrepaid extends SmartDeviceProductsEnabledWithTid
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['demo_force'] = isset($data['demo_force']) ? $data['demo_force'] : null;
-        $this->container['vtc_tid'] = isset($data['vtc_tid']) ? $data['vtc_tid'] : null;
-        $this->container['endofday'] = isset($data['endofday']) ? $data['endofday'] : null;
-        $this->container['password'] = isset($data['password']) ? $data['password'] : null;
-        $this->container['simulate'] = isset($data['simulate']) ? $data['simulate'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -128,7 +116,7 @@ class SmartDeviceProductsPrepaid extends SmartDeviceProductsEnabledWithTid
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = parent::listInvalidProperties();
+        $invalid_properties = [];
 
         return $invalid_properties;
     }
@@ -146,106 +134,43 @@ class SmartDeviceProductsPrepaid extends SmartDeviceProductsEnabledWithTid
 
 
     /**
-     * Gets demo_force
-     * @return bool
-     */
-    public function getDemoForce()
-    {
-        return $this->container['demo_force'];
-    }
-
-    /**
-     * Sets demo_force
-     * @param bool $demo_force Demo force
-     * @return $this
-     */
-    public function setDemoForce($demo_force)
-    {
-        $this->container['demo_force'] = $demo_force;
-
-        return $this;
-    }
-
-    /**
-     * Gets vtc_tid
+     * Gets url
      * @return string
      */
-    public function getVtcTid()
+    public function getUrl()
     {
-        return $this->container['vtc_tid'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets vtc_tid
-     * @param string $vtc_tid Vtc tid
+     * Sets url
+     * @param string $url URL to the document
      * @return $this
      */
-    public function setVtcTid($vtc_tid)
+    public function setUrl($url)
     {
-        $this->container['vtc_tid'] = $vtc_tid;
+        $this->container['url'] = $url;
 
         return $this;
     }
 
     /**
-     * Gets endofday
-     * @return bool
+     * Gets type
+     * @return string
      */
-    public function getEndofday()
+    public function getType()
     {
-        return $this->container['endofday'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets endofday
-     * @param bool $endofday EndOfDay
+     * Sets type
+     * @param string $type Document type
      * @return $this
      */
-    public function setEndofday($endofday)
+    public function setType($type)
     {
-        $this->container['endofday'] = $endofday;
-
-        return $this;
-    }
-
-    /**
-     * Gets password
-     * @return string[]
-     */
-    public function getPassword()
-    {
-        return $this->container['password'];
-    }
-
-    /**
-     * Sets password
-     * @param string[] $password List of passwords which are allowed to run the terminal app
-     * @return $this
-     */
-    public function setPassword($password)
-    {
-        $this->container['password'] = $password;
-
-        return $this;
-    }
-
-    /**
-     * Gets simulate
-     * @return bool
-     */
-    public function getSimulate()
-    {
-        return $this->container['simulate'];
-    }
-
-    /**
-     * Sets simulate
-     * @param bool $simulate Simulate
-     * @return $this
-     */
-    public function setSimulate($simulate)
-    {
-        $this->container['simulate'] = $simulate;
+        $this->container['type'] = $type;
 
         return $this;
     }

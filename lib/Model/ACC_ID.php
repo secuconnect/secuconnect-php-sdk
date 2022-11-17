@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * IdentificationProcess
+ * ACC_ID
  *
  * @category Class
- * @description IdentificationProcess
+ * @description General Account ID
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class IdentificationProcess implements ArrayAccess
+class ACC_ID implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,16 +21,13 @@ class IdentificationProcess implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'IdentificationProcess';
+    protected static $swaggerModelName = 'ACC_ID';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'status' => 'string',
-        'identificationtime' => 'string',
-        'transactionnumber' => 'string'
     ];
 
     /**
@@ -38,9 +35,6 @@ class IdentificationProcess implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'status' => null,
-        'identificationtime' => null,
-        'transactionnumber' => null
     ];
 
     public static function swaggerTypes()
@@ -58,9 +52,6 @@ class IdentificationProcess implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'status' => 'status',
-        'identificationtime' => 'identificationtime',
-        'transactionnumber' => 'transactionnumber'
     ];
 
     /**
@@ -68,9 +59,6 @@ class IdentificationProcess implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'status' => 'setStatus',
-        'identificationtime' => 'setIdentificationtime',
-        'transactionnumber' => 'setTransactionnumber'
     ];
 
     /**
@@ -78,9 +66,6 @@ class IdentificationProcess implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'status' => 'getStatus',
-        'identificationtime' => 'getIdentificationtime',
-        'transactionnumber' => 'getTransactionnumber'
     ];
 
     public static function attributeMap()
@@ -110,9 +95,6 @@ class IdentificationProcess implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['identificationtime'] = isset($data['identificationtime']) ? $data['identificationtime'] : null;
-        $this->container['transactionnumber'] = isset($data['transactionnumber']) ? $data['transactionnumber'] : null;
     }
 
     /**
@@ -138,69 +120,6 @@ class IdentificationProcess implements ArrayAccess
         return true;
     }
 
-
-    /**
-     * Gets status
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     * @param string $status The status from identification provider
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets identificationtime
-     * @return string
-     */
-    public function getIdentificationtime()
-    {
-        return $this->container['identificationtime'];
-    }
-
-    /**
-     * Sets identificationtime
-     * @param string $identificationtime identificationtime
-     * @return $this
-     */
-    public function setIdentificationtime($identificationtime)
-    {
-        $this->container['identificationtime'] = $identificationtime;
-
-        return $this;
-    }
-
-    /**
-     * Gets transactionnumber
-     * @return string
-     */
-    public function getTransactionnumber()
-    {
-        return $this->container['transactionnumber'];
-    }
-
-    /**
-     * Sets transactionnumber
-     * @param string $transactionnumber The person transaction_id from identrequest
-     * @return $this
-     */
-    public function setTransactionnumber($transactionnumber)
-    {
-        $this->container['transactionnumber'] = $transactionnumber;
-
-        return $this;
-    }
 
     /**
      * Returns true if offset exists. False otherwise.

@@ -28,13 +28,16 @@ class SmartDevicesProducts implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'loyalty' => '\Secuconnect\Client\Model\SmartDeviceProductsEnabled',
-        'smart' => '\Secuconnect\Client\Model\SmartDeviceProductsEnabled',
-        'cashreg' => '\Secuconnect\Client\Model\SmartDeviceProductsEnabled',
-        'collect' => '\Secuconnect\Client\Model\SmartDeviceProductsEnabled',
-        'showcase' => '\Secuconnect\Client\Model\SmartDeviceProductsEnabled',
-        'vtm' => '\Secuconnect\Client\Model\SmartDeviceProductsEnabled',
-        'prepaid' => '\Secuconnect\Client\Model\SmartDeviceProductsPrepaid'
+        'loyalty' => '\Secuconnect\Client\Model\SmartDeviceProductsLoyalty',
+        'smart' => '\Secuconnect\Client\Model\SmartDeviceProductsEnabledWithTid',
+        'cashreg' => '\Secuconnect\Client\Model\SmartDeviceProductsEnabledWithTid',
+        'collect' => '\Secuconnect\Client\Model\SmartDeviceProductsCollect',
+        'vtm' => '\Secuconnect\Client\Model\SmartDeviceProductsVtm',
+        'prepaid' => '\Secuconnect\Client\Model\SmartDeviceProductsPrepaid',
+        'support' => '\Secuconnect\Client\Model\SmartDeviceProductsEnabled',
+        'bonroll' => '\Secuconnect\Client\Model\SmartDeviceProductsEnabledWithTid',
+        'bvb' => '\Secuconnect\Client\Model\SmartDeviceProductsEnabled',
+        'easycredit' => '\Secuconnect\Client\Model\SmartDeviceProductsEasycredit'
     ];
 
     /**
@@ -46,9 +49,12 @@ class SmartDevicesProducts implements ArrayAccess
         'smart' => null,
         'cashreg' => null,
         'collect' => null,
-        'showcase' => null,
         'vtm' => null,
-        'prepaid' => null
+        'prepaid' => null,
+        'support' => null,
+        'bonroll' => null,
+        'bvb' => null,
+        'easycredit' => null
     ];
 
     public static function swaggerTypes()
@@ -70,9 +76,12 @@ class SmartDevicesProducts implements ArrayAccess
         'smart' => 'smart',
         'cashreg' => 'cashreg',
         'collect' => 'collect',
-        'showcase' => 'showcase',
         'vtm' => 'vtm',
-        'prepaid' => 'prepaid'
+        'prepaid' => 'prepaid',
+        'support' => 'support',
+        'bonroll' => 'bonroll',
+        'bvb' => 'bvb',
+        'easycredit' => 'easycredit'
     ];
 
     /**
@@ -84,9 +93,12 @@ class SmartDevicesProducts implements ArrayAccess
         'smart' => 'setSmart',
         'cashreg' => 'setCashreg',
         'collect' => 'setCollect',
-        'showcase' => 'setShowcase',
         'vtm' => 'setVtm',
-        'prepaid' => 'setPrepaid'
+        'prepaid' => 'setPrepaid',
+        'support' => 'setSupport',
+        'bonroll' => 'setBonroll',
+        'bvb' => 'setBvb',
+        'easycredit' => 'setEasycredit'
     ];
 
     /**
@@ -98,9 +110,12 @@ class SmartDevicesProducts implements ArrayAccess
         'smart' => 'getSmart',
         'cashreg' => 'getCashreg',
         'collect' => 'getCollect',
-        'showcase' => 'getShowcase',
         'vtm' => 'getVtm',
-        'prepaid' => 'getPrepaid'
+        'prepaid' => 'getPrepaid',
+        'support' => 'getSupport',
+        'bonroll' => 'getBonroll',
+        'bvb' => 'getBvb',
+        'easycredit' => 'getEasycredit'
     ];
 
     public static function attributeMap()
@@ -134,9 +149,12 @@ class SmartDevicesProducts implements ArrayAccess
         $this->container['smart'] = isset($data['smart']) ? $data['smart'] : null;
         $this->container['cashreg'] = isset($data['cashreg']) ? $data['cashreg'] : null;
         $this->container['collect'] = isset($data['collect']) ? $data['collect'] : null;
-        $this->container['showcase'] = isset($data['showcase']) ? $data['showcase'] : null;
         $this->container['vtm'] = isset($data['vtm']) ? $data['vtm'] : null;
         $this->container['prepaid'] = isset($data['prepaid']) ? $data['prepaid'] : null;
+        $this->container['support'] = isset($data['support']) ? $data['support'] : null;
+        $this->container['bonroll'] = isset($data['bonroll']) ? $data['bonroll'] : null;
+        $this->container['bvb'] = isset($data['bvb']) ? $data['bvb'] : null;
+        $this->container['easycredit'] = isset($data['easycredit']) ? $data['easycredit'] : null;
     }
 
     /**
@@ -165,7 +183,7 @@ class SmartDevicesProducts implements ArrayAccess
 
     /**
      * Gets loyalty
-     * @return \Secuconnect\Client\Model\SmartDeviceProductsEnabled
+     * @return \Secuconnect\Client\Model\SmartDeviceProductsLoyalty
      */
     public function getLoyalty()
     {
@@ -174,7 +192,7 @@ class SmartDevicesProducts implements ArrayAccess
 
     /**
      * Sets loyalty
-     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabled $loyalty loyalty
+     * @param \Secuconnect\Client\Model\SmartDeviceProductsLoyalty $loyalty loyalty
      * @return $this
      */
     public function setLoyalty($loyalty)
@@ -186,7 +204,7 @@ class SmartDevicesProducts implements ArrayAccess
 
     /**
      * Gets smart
-     * @return \Secuconnect\Client\Model\SmartDeviceProductsEnabled
+     * @return \Secuconnect\Client\Model\SmartDeviceProductsEnabledWithTid
      */
     public function getSmart()
     {
@@ -195,7 +213,7 @@ class SmartDevicesProducts implements ArrayAccess
 
     /**
      * Sets smart
-     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabled $smart smart
+     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabledWithTid $smart smart
      * @return $this
      */
     public function setSmart($smart)
@@ -207,7 +225,7 @@ class SmartDevicesProducts implements ArrayAccess
 
     /**
      * Gets cashreg
-     * @return \Secuconnect\Client\Model\SmartDeviceProductsEnabled
+     * @return \Secuconnect\Client\Model\SmartDeviceProductsEnabledWithTid
      */
     public function getCashreg()
     {
@@ -216,7 +234,7 @@ class SmartDevicesProducts implements ArrayAccess
 
     /**
      * Sets cashreg
-     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabled $cashreg cashreg
+     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabledWithTid $cashreg cashreg
      * @return $this
      */
     public function setCashreg($cashreg)
@@ -228,7 +246,7 @@ class SmartDevicesProducts implements ArrayAccess
 
     /**
      * Gets collect
-     * @return \Secuconnect\Client\Model\SmartDeviceProductsEnabled
+     * @return \Secuconnect\Client\Model\SmartDeviceProductsCollect
      */
     public function getCollect()
     {
@@ -237,7 +255,7 @@ class SmartDevicesProducts implements ArrayAccess
 
     /**
      * Sets collect
-     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabled $collect collect
+     * @param \Secuconnect\Client\Model\SmartDeviceProductsCollect $collect collect
      * @return $this
      */
     public function setCollect($collect)
@@ -248,29 +266,8 @@ class SmartDevicesProducts implements ArrayAccess
     }
 
     /**
-     * Gets showcase
-     * @return \Secuconnect\Client\Model\SmartDeviceProductsEnabled
-     */
-    public function getShowcase()
-    {
-        return $this->container['showcase'];
-    }
-
-    /**
-     * Sets showcase
-     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabled $showcase showcase
-     * @return $this
-     */
-    public function setShowcase($showcase)
-    {
-        $this->container['showcase'] = $showcase;
-
-        return $this;
-    }
-
-    /**
      * Gets vtm
-     * @return \Secuconnect\Client\Model\SmartDeviceProductsEnabled
+     * @return \Secuconnect\Client\Model\SmartDeviceProductsVtm
      */
     public function getVtm()
     {
@@ -279,7 +276,7 @@ class SmartDevicesProducts implements ArrayAccess
 
     /**
      * Sets vtm
-     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabled $vtm vtm
+     * @param \Secuconnect\Client\Model\SmartDeviceProductsVtm $vtm vtm
      * @return $this
      */
     public function setVtm($vtm)
@@ -306,6 +303,90 @@ class SmartDevicesProducts implements ArrayAccess
     public function setPrepaid($prepaid)
     {
         $this->container['prepaid'] = $prepaid;
+
+        return $this;
+    }
+
+    /**
+     * Gets support
+     * @return \Secuconnect\Client\Model\SmartDeviceProductsEnabled
+     */
+    public function getSupport()
+    {
+        return $this->container['support'];
+    }
+
+    /**
+     * Sets support
+     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabled $support support
+     * @return $this
+     */
+    public function setSupport($support)
+    {
+        $this->container['support'] = $support;
+
+        return $this;
+    }
+
+    /**
+     * Gets bonroll
+     * @return \Secuconnect\Client\Model\SmartDeviceProductsEnabledWithTid
+     */
+    public function getBonroll()
+    {
+        return $this->container['bonroll'];
+    }
+
+    /**
+     * Sets bonroll
+     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabledWithTid $bonroll bonroll
+     * @return $this
+     */
+    public function setBonroll($bonroll)
+    {
+        $this->container['bonroll'] = $bonroll;
+
+        return $this;
+    }
+
+    /**
+     * Gets bvb
+     * @return \Secuconnect\Client\Model\SmartDeviceProductsEnabled
+     */
+    public function getBvb()
+    {
+        return $this->container['bvb'];
+    }
+
+    /**
+     * Sets bvb
+     * @param \Secuconnect\Client\Model\SmartDeviceProductsEnabled $bvb bvb
+     * @return $this
+     */
+    public function setBvb($bvb)
+    {
+        $this->container['bvb'] = $bvb;
+
+        return $this;
+    }
+
+    /**
+     * Gets easycredit
+     * @return \Secuconnect\Client\Model\SmartDeviceProductsEasycredit
+     */
+    public function getEasycredit()
+    {
+        return $this->container['easycredit'];
+    }
+
+    /**
+     * Sets easycredit
+     * @param \Secuconnect\Client\Model\SmartDeviceProductsEasycredit $easycredit easycredit
+     * @return $this
+     */
+    public function setEasycredit($easycredit)
+    {
+        $this->container['easycredit'] = $easycredit;
 
         return $this;
     }
