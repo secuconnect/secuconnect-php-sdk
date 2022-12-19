@@ -178,12 +178,18 @@ class PaymentContainersApi
      * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: &#x60;prop1.prop2&#x60;. 
      * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form &#x60;property:condition&#x60;. Property names can be nested like &#x60;property.property&#x60;.  Example: &#x60;customer.name:Meier&#x60;  A condition may contain:  * &#x60;?&#x60; as wildcard for one character;  * &#x60;*&#x60; as wildcard for any number of characters.  You can also use value ranges in the form &#x60;[min TO max]&#x60;.  Example: &#x60;customer.age:[30 TO 40]&#x60;  You can combine expressions logically by &#x60;expr AND expr&#x60; and &#x60;{expr} OR {expr}&#x60;. You can also negate an expression using &#x60;NOT {expr}&#x60;. Parenthesis &#x60;(...)&#x60; can be used to control precedence.  Example: &#x60;(NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])&#x60; 
      * @param string $sort String with comma separated pairs of &#x60;field:order&#x60;.  Options for order:  * &#x60;asc&#x60; ascending;  * &#x60;dsc&#x60; descending. 
+     * @param \Secuconnect\Client\Model\Aggregate $aggregate Aggregation summarizes your data. 
+     * @param string $meta return field definitions 
+     * @param float $validate Check syntax of a query string 
+     * @param string $scroll_expire How long it should keep the “search context” alive? 
+     * @param string $scroll_id Identifier of a previous search context 
+     * @param string $preset Query presets 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentContainersList
      */
-    public function paymentContainersGet($count = null, $offset = null, $fields = null, $q = null, $sort = null)
+    public function paymentContainersGet($count = null, $offset = null, $fields = null, $q = null, $sort = null, $aggregate = null, $meta = null, $validate = null, $scroll_expire = null, $scroll_id = null, $preset = null)
     {
-        list($response) = $this->paymentContainersGetWithHttpInfo($count, $offset, $fields, $q, $sort);
+        list($response) = $this->paymentContainersGetWithHttpInfo($count, $offset, $fields, $q, $sort, $aggregate, $meta, $validate, $scroll_expire, $scroll_id, $preset);
         return $response;
     }
 
@@ -197,10 +203,16 @@ class PaymentContainersApi
      * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: &#x60;prop1.prop2&#x60;. 
      * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form &#x60;property:condition&#x60;. Property names can be nested like &#x60;property.property&#x60;.  Example: &#x60;customer.name:Meier&#x60;  A condition may contain:  * &#x60;?&#x60; as wildcard for one character;  * &#x60;*&#x60; as wildcard for any number of characters.  You can also use value ranges in the form &#x60;[min TO max]&#x60;.  Example: &#x60;customer.age:[30 TO 40]&#x60;  You can combine expressions logically by &#x60;expr AND expr&#x60; and &#x60;{expr} OR {expr}&#x60;. You can also negate an expression using &#x60;NOT {expr}&#x60;. Parenthesis &#x60;(...)&#x60; can be used to control precedence.  Example: &#x60;(NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])&#x60; 
      * @param string $sort String with comma separated pairs of &#x60;field:order&#x60;.  Options for order:  * &#x60;asc&#x60; ascending;  * &#x60;dsc&#x60; descending. 
+     * @param \Secuconnect\Client\Model\Aggregate $aggregate Aggregation summarizes your data. 
+     * @param string $meta return field definitions 
+     * @param float $validate Check syntax of a query string 
+     * @param string $scroll_expire How long it should keep the “search context” alive? 
+     * @param string $scroll_id Identifier of a previous search context 
+     * @param string $preset Query presets 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentContainersList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function paymentContainersGetWithHttpInfo($count = null, $offset = null, $fields = null, $q = null, $sort = null)
+    public function paymentContainersGetWithHttpInfo($count = null, $offset = null, $fields = null, $q = null, $sort = null, $aggregate = null, $meta = null, $validate = null, $scroll_expire = null, $scroll_id = null, $preset = null)
     {
         // parse inputs
         $resourcePath = "/Payment/Containers";
@@ -233,6 +245,30 @@ class PaymentContainersApi
         // query params
         if ($sort !== null) {
             $queryParams['sort'] = $this->apiClient->getSerializer()->toQueryValue($sort);
+        }
+        // query params
+        if ($aggregate !== null) {
+            $queryParams['aggregate'] = $this->apiClient->getSerializer()->toQueryValue($aggregate);
+        }
+        // query params
+        if ($meta !== null) {
+            $queryParams['meta'] = $this->apiClient->getSerializer()->toQueryValue($meta);
+        }
+        // query params
+        if ($validate !== null) {
+            $queryParams['validate'] = $this->apiClient->getSerializer()->toQueryValue($validate);
+        }
+        // query params
+        if ($scroll_expire !== null) {
+            $queryParams['scroll_expire'] = $this->apiClient->getSerializer()->toQueryValue($scroll_expire);
+        }
+        // query params
+        if ($scroll_id !== null) {
+            $queryParams['scroll_id'] = $this->apiClient->getSerializer()->toQueryValue($scroll_id);
+        }
+        // query params
+        if ($preset !== null) {
+            $queryParams['preset'] = $this->apiClient->getSerializer()->toQueryValue($preset);
         }
 
         // for model (json/xml)
@@ -359,240 +395,6 @@ class PaymentContainersApi
                     $headerParams,
                     '\Secuconnect\Client\Model\PaymentContainersProductModel',
                     '/Payment/Containers/{paymentContainerId}'
-                );
-
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentContainersProductModel', $httpHeader), $statusCode, $httpHeader];
-            } catch (ApiException $e) {
-                switch ($e->getCode()) {
-                    case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentContainersProductModel', $e->getResponseHeaders());
-                        $e->setResponseObject($data);
-                        break;
-                    case 401:
-                        if ($retries < 1) {
-                            Authenticator::reauthenticate();
-                            continue 2;
-                        }
-                    default:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
-                        $e->setResponseObject($data);
-                        break;
-                }
-
-                throw $e;
-            }
-        }
-    }
-
-    /**
-     * Operation paymentContainersIdAssignSecondaryIdDelete
-     *
-     * DELETE Payment/Containers/{paymentContainerId}/assign/{secondaryPaymentContainerId}
-     *
-     * @param string $payment_container_id Payment container id (required)
-     * @param string $secondary_payment_container_id Id for which container is currently assigned to (required)
-     * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\PaymentContainersProductModel[]
-     */
-    public function paymentContainersIdAssignSecondaryIdDelete($payment_container_id, $secondary_payment_container_id)
-    {
-        list($response) = $this->paymentContainersIdAssignSecondaryIdDeleteWithHttpInfo($payment_container_id, $secondary_payment_container_id);
-        return $response;
-    }
-
-    /**
-     * Operation paymentContainersIdAssignSecondaryIdDeleteWithHttpInfo
-     *
-     * DELETE Payment/Containers/{paymentContainerId}/assign/{secondaryPaymentContainerId}
-     *
-     * @param string $payment_container_id Payment container id (required)
-     * @param string $secondary_payment_container_id Id for which container is currently assigned to (required)
-     * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\PaymentContainersProductModel[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function paymentContainersIdAssignSecondaryIdDeleteWithHttpInfo($payment_container_id, $secondary_payment_container_id)
-    {
-        // verify the required parameter 'payment_container_id' is set
-        if ($payment_container_id === null || (is_array($payment_container_id) && count($payment_container_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $payment_container_id when calling paymentContainersIdAssignSecondaryIdDelete'
-            );
-        }
-        // verify the required parameter 'secondary_payment_container_id' is set
-        if ($secondary_payment_container_id === null || (is_array($secondary_payment_container_id) && count($secondary_payment_container_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $secondary_payment_container_id when calling paymentContainersIdAssignSecondaryIdDelete'
-            );
-        }
-        // parse inputs
-        $resourcePath = "/Payment/Containers/{paymentContainerId}/assign/{secondaryPaymentContainerId}";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
-
-        // path params
-        if ($payment_container_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "paymentContainerId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($payment_container_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($secondary_payment_container_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "secondaryPaymentContainerId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($secondary_payment_container_id),
-                $resourcePath
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        for ($retries = 0; ; $retries++) {
-
-            // this endpoint requires OAuth (access token)
-            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-            }
-
-            // make the API Call
-            try {
-                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                    $resourcePath,
-                    'DELETE',
-                    $queryParams,
-                    $httpBody,
-                    $headerParams,
-                    '\Secuconnect\Client\Model\PaymentContainersProductModel[]',
-                    '/Payment/Containers/{paymentContainerId}/assign/{secondaryPaymentContainerId}'
-                );
-
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentContainersProductModel[]', $httpHeader), $statusCode, $httpHeader];
-            } catch (ApiException $e) {
-                switch ($e->getCode()) {
-                    case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentContainersProductModel[]', $e->getResponseHeaders());
-                        $e->setResponseObject($data);
-                        break;
-                    case 401:
-                        if ($retries < 1) {
-                            Authenticator::reauthenticate();
-                            continue 2;
-                        }
-                    default:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
-                        $e->setResponseObject($data);
-                        break;
-                }
-
-                throw $e;
-            }
-        }
-    }
-
-    /**
-     * Operation paymentContainersIdAssignSecondaryIdPost
-     *
-     * POST Payment/Containers/{paymentContainerId}/assign/{secondaryPaymentContainerId}
-     *
-     * @param string $payment_container_id Payment container id (required)
-     * @param string $secondary_payment_container_id Id to which container will be assigned (required)
-     * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\PaymentContainersProductModel
-     */
-    public function paymentContainersIdAssignSecondaryIdPost($payment_container_id, $secondary_payment_container_id)
-    {
-        list($response) = $this->paymentContainersIdAssignSecondaryIdPostWithHttpInfo($payment_container_id, $secondary_payment_container_id);
-        return $response;
-    }
-
-    /**
-     * Operation paymentContainersIdAssignSecondaryIdPostWithHttpInfo
-     *
-     * POST Payment/Containers/{paymentContainerId}/assign/{secondaryPaymentContainerId}
-     *
-     * @param string $payment_container_id Payment container id (required)
-     * @param string $secondary_payment_container_id Id to which container will be assigned (required)
-     * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\PaymentContainersProductModel, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function paymentContainersIdAssignSecondaryIdPostWithHttpInfo($payment_container_id, $secondary_payment_container_id)
-    {
-        // verify the required parameter 'payment_container_id' is set
-        if ($payment_container_id === null || (is_array($payment_container_id) && count($payment_container_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $payment_container_id when calling paymentContainersIdAssignSecondaryIdPost'
-            );
-        }
-        // verify the required parameter 'secondary_payment_container_id' is set
-        if ($secondary_payment_container_id === null || (is_array($secondary_payment_container_id) && count($secondary_payment_container_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $secondary_payment_container_id when calling paymentContainersIdAssignSecondaryIdPost'
-            );
-        }
-        // parse inputs
-        $resourcePath = "/Payment/Containers/{paymentContainerId}/assign/{secondaryPaymentContainerId}";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
-
-        // path params
-        if ($payment_container_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "paymentContainerId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($payment_container_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($secondary_payment_container_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "secondaryPaymentContainerId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($secondary_payment_container_id),
-                $resourcePath
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        for ($retries = 0; ; $retries++) {
-
-            // this endpoint requires OAuth (access token)
-            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-            }
-
-            // make the API Call
-            try {
-                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                    $resourcePath,
-                    'POST',
-                    $queryParams,
-                    $httpBody,
-                    $headerParams,
-                    '\Secuconnect\Client\Model\PaymentContainersProductModel',
-                    '/Payment/Containers/{paymentContainerId}/assign/{secondaryPaymentContainerId}'
                 );
 
                 return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentContainersProductModel', $httpHeader), $statusCode, $httpHeader];

@@ -5,14 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * PaymentPayoutsList
+ * Aggregate
  *
  * @category Class
+ * @description Aggregation options
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PaymentPayoutsList implements ArrayAccess
+class Aggregate implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,21 +21,19 @@ class PaymentPayoutsList implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'PaymentPayoutsList';
+    protected static $swaggerModelName = 'Aggregate';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'count' => 'int',
-        'data' => '\Secuconnect\Client\Model\PaymentPayoutsProductModel[]',
-        'scroll_id' => 'string',
-        'result' => 'bool',
-        'meta' => 'object',
-        'type' => 'string',
-        'sum' => 'bool',
-        'lookup' => 'string[]'
+        'timestamp_prop' => 'string',
+        'interval' => 'string',
+        'min' => 'int',
+        'max' => 'int',
+        'group_by_prop' => 'string',
+        'sum_by_prop' => 'string'
     ];
 
     /**
@@ -42,14 +41,12 @@ class PaymentPayoutsList implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'count' => null,
-        'data' => null,
-        'scroll_id' => null,
-        'result' => null,
-        'meta' => null,
-        'type' => null,
-        'sum' => null,
-        'lookup' => null
+        'timestamp_prop' => null,
+        'interval' => null,
+        'min' => null,
+        'max' => null,
+        'group_by_prop' => null,
+        'sum_by_prop' => null
     ];
 
     public static function swaggerTypes()
@@ -67,14 +64,12 @@ class PaymentPayoutsList implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'count' => 'count',
-        'data' => 'data',
-        'scroll_id' => 'scroll_id',
-        'result' => 'result',
-        'meta' => 'meta',
-        'type' => 'type',
-        'sum' => 'sum',
-        'lookup' => 'lookup'
+        'timestamp_prop' => 'timestamp_prop',
+        'interval' => 'interval',
+        'min' => 'min',
+        'max' => 'max',
+        'group_by_prop' => 'group_by_prop',
+        'sum_by_prop' => 'sum_by_prop'
     ];
 
     /**
@@ -82,14 +77,12 @@ class PaymentPayoutsList implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'count' => 'setCount',
-        'data' => 'setData',
-        'scroll_id' => 'setScrollId',
-        'result' => 'setResult',
-        'meta' => 'setMeta',
-        'type' => 'setType',
-        'sum' => 'setSum',
-        'lookup' => 'setLookup'
+        'timestamp_prop' => 'setTimestampProp',
+        'interval' => 'setInterval',
+        'min' => 'setMin',
+        'max' => 'setMax',
+        'group_by_prop' => 'setGroupByProp',
+        'sum_by_prop' => 'setSumByProp'
     ];
 
     /**
@@ -97,14 +90,12 @@ class PaymentPayoutsList implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'count' => 'getCount',
-        'data' => 'getData',
-        'scroll_id' => 'getScrollId',
-        'result' => 'getResult',
-        'meta' => 'getMeta',
-        'type' => 'getType',
-        'sum' => 'getSum',
-        'lookup' => 'getLookup'
+        'timestamp_prop' => 'getTimestampProp',
+        'interval' => 'getInterval',
+        'min' => 'getMin',
+        'max' => 'getMax',
+        'group_by_prop' => 'getGroupByProp',
+        'sum_by_prop' => 'getSumByProp'
     ];
 
     public static function attributeMap()
@@ -134,14 +125,12 @@ class PaymentPayoutsList implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['scroll_id'] = isset($data['scroll_id']) ? $data['scroll_id'] : null;
-        $this->container['result'] = isset($data['result']) ? $data['result'] : null;
-        $this->container['meta'] = isset($data['meta']) ? $data['meta'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['sum'] = isset($data['sum']) ? $data['sum'] : null;
-        $this->container['lookup'] = isset($data['lookup']) ? $data['lookup'] : null;
+        $this->container['timestamp_prop'] = isset($data['timestamp_prop']) ? $data['timestamp_prop'] : null;
+        $this->container['interval'] = isset($data['interval']) ? $data['interval'] : 'week';
+        $this->container['min'] = isset($data['min']) ? $data['min'] : null;
+        $this->container['max'] = isset($data['max']) ? $data['max'] : null;
+        $this->container['group_by_prop'] = isset($data['group_by_prop']) ? $data['group_by_prop'] : null;
+        $this->container['sum_by_prop'] = isset($data['sum_by_prop']) ? $data['sum_by_prop'] : null;
     }
 
     /**
@@ -169,169 +158,127 @@ class PaymentPayoutsList implements ArrayAccess
 
 
     /**
-     * Gets count
+     * Gets timestamp_prop
+     * @return string
+     */
+    public function getTimestampProp()
+    {
+        return $this->container['timestamp_prop'];
+    }
+
+    /**
+     * Sets timestamp_prop
+     * @param string $timestamp_prop The name of the field on which to perform the date aggregation.
+     * @return $this
+     */
+    public function setTimestampProp($timestamp_prop)
+    {
+        $this->container['timestamp_prop'] = $timestamp_prop;
+
+        return $this;
+    }
+
+    /**
+     * Gets interval
+     * @return string
+     */
+    public function getInterval()
+    {
+        return $this->container['interval'];
+    }
+
+    /**
+     * Sets interval
+     * @param string $interval The interval by which documents will be bucketed (calendar interval or fixed).
+     * @return $this
+     */
+    public function setInterval($interval)
+    {
+        $this->container['interval'] = $interval;
+
+        return $this;
+    }
+
+    /**
+     * Gets min
      * @return int
      */
-    public function getCount()
+    public function getMin()
     {
-        return $this->container['count'];
+        return $this->container['min'];
     }
 
     /**
-     * Sets count
-     * @param int $count Number of existing payment payouts
+     * Sets min
+     * @param int $min Enables extending the bounds of the histogram beyond the data itself.
      * @return $this
      */
-    public function setCount($count)
+    public function setMin($min)
     {
-        $this->container['count'] = $count;
+        $this->container['min'] = $min;
 
         return $this;
     }
 
     /**
-     * Gets data
-     * @return \Secuconnect\Client\Model\PaymentPayoutsProductModel[]
+     * Gets max
+     * @return int
      */
-    public function getData()
+    public function getMax()
     {
-        return $this->container['data'];
+        return $this->container['max'];
     }
 
     /**
-     * Sets data
-     * @param \Secuconnect\Client\Model\PaymentPayoutsProductModel[] $data List of PaymentPayouts
+     * Sets max
+     * @param int $max Enables extending the bounds of the histogram beyond the data itself.
      * @return $this
      */
-    public function setData($data)
+    public function setMax($max)
     {
-        $this->container['data'] = $data;
+        $this->container['max'] = $max;
 
         return $this;
     }
 
     /**
-     * Gets scroll_id
+     * Gets group_by_prop
      * @return string
      */
-    public function getScrollId()
+    public function getGroupByProp()
     {
-        return $this->container['scroll_id'];
+        return $this->container['group_by_prop'];
     }
 
     /**
-     * Sets scroll_id
-     * @param string $scroll_id Identifier of a previous search context
+     * Sets group_by_prop
+     * @param string $group_by_prop The name of the field on which to perform the group aggregation.
      * @return $this
      */
-    public function setScrollId($scroll_id)
+    public function setGroupByProp($group_by_prop)
     {
-        $this->container['scroll_id'] = $scroll_id;
+        $this->container['group_by_prop'] = $group_by_prop;
 
         return $this;
     }
 
     /**
-     * Gets result
-     * @return bool
-     */
-    public function getResult()
-    {
-        return $this->container['result'];
-    }
-
-    /**
-     * Sets result
-     * @param bool $result In case the product model function returns only scalar value (f.e. for the query validation)
-     * @return $this
-     */
-    public function setResult($result)
-    {
-        $this->container['result'] = $result;
-
-        return $this;
-    }
-
-    /**
-     * Gets meta
-     * @return object
-     */
-    public function getMeta()
-    {
-        return $this->container['meta'];
-    }
-
-    /**
-     * Sets meta
-     * @param object $meta Meta definition of the product model
-     * @return $this
-     */
-    public function setMeta($meta)
-    {
-        $this->container['meta'] = $meta;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
+     * Gets sum_by_prop
      * @return string
      */
-    public function getType()
+    public function getSumByProp()
     {
-        return $this->container['type'];
+        return $this->container['sum_by_prop'];
     }
 
     /**
-     * Sets type
-     * @param string $type Aggregation type
+     * Sets sum_by_prop
+     * @param string $sum_by_prop The name of the field on which to perform the sum aggregation.
      * @return $this
      */
-    public function setType($type)
+    public function setSumByProp($sum_by_prop)
     {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets sum
-     * @return bool
-     */
-    public function getSum()
-    {
-        return $this->container['sum'];
-    }
-
-    /**
-     * Sets sum
-     * @param bool $sum Aggregation result is summarized?
-     * @return $this
-     */
-    public function setSum($sum)
-    {
-        $this->container['sum'] = $sum;
-
-        return $this;
-    }
-
-    /**
-     * Gets lookup
-     * @return string[]
-     */
-    public function getLookup()
-    {
-        return $this->container['lookup'];
-    }
-
-    /**
-     * Sets lookup
-     * @param string[] $lookup Aggregation lookup table
-     * @return $this
-     */
-    public function setLookup($lookup)
-    {
-        $this->container['lookup'] = $lookup;
+        $this->container['sum_by_prop'] = $sum_by_prop;
 
         return $this;
     }

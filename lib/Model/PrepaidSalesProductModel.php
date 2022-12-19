@@ -28,6 +28,7 @@ class PrepaidSalesProductModel extends BaseProductModel
     protected static $swaggerTypes = [
         'created' => 'string',
         'status' => 'string',
+        'type' => 'string',
         'stock' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'item' => '\Secuconnect\Client\Model\PrepaidSalesItem',
         'itemgroup' => '\Secuconnect\Client\Model\ItemGroup',
@@ -50,7 +51,9 @@ class PrepaidSalesProductModel extends BaseProductModel
         'receipt_customer' => 'string',
         'receipt_zvt' => 'string',
         'receipt_dealer' => 'string',
-        'vtc_tid' => 'string'
+        'vtc_tid' => 'string',
+        'vtc_id' => 'string',
+        'password' => 'string'
     ];
 
     /**
@@ -60,6 +63,7 @@ class PrepaidSalesProductModel extends BaseProductModel
     protected static $swaggerFormats = [
         'created' => null,
         'status' => null,
+        'type' => null,
         'stock' => null,
         'item' => null,
         'itemgroup' => null,
@@ -82,7 +86,9 @@ class PrepaidSalesProductModel extends BaseProductModel
         'receipt_customer' => null,
         'receipt_zvt' => null,
         'receipt_dealer' => null,
-        'vtc_tid' => null
+        'vtc_tid' => null,
+        'vtc_id' => null,
+        'password' => null
     ];
 
     public static function swaggerTypes()
@@ -102,6 +108,7 @@ class PrepaidSalesProductModel extends BaseProductModel
     protected static $attributeMap = [
         'created' => 'created',
         'status' => 'status',
+        'type' => 'type',
         'stock' => 'stock',
         'item' => 'item',
         'itemgroup' => 'itemgroup',
@@ -124,7 +131,9 @@ class PrepaidSalesProductModel extends BaseProductModel
         'receipt_customer' => 'receipt_customer',
         'receipt_zvt' => 'receipt_zvt',
         'receipt_dealer' => 'receipt_dealer',
-        'vtc_tid' => 'vtc_tid'
+        'vtc_tid' => 'vtc_tid',
+        'vtc_id' => 'vtc_id',
+        'password' => 'password'
     ];
 
     /**
@@ -134,6 +143,7 @@ class PrepaidSalesProductModel extends BaseProductModel
     protected static $setters = [
         'created' => 'setCreated',
         'status' => 'setStatus',
+        'type' => 'setType',
         'stock' => 'setStock',
         'item' => 'setItem',
         'itemgroup' => 'setItemgroup',
@@ -156,7 +166,9 @@ class PrepaidSalesProductModel extends BaseProductModel
         'receipt_customer' => 'setReceiptCustomer',
         'receipt_zvt' => 'setReceiptZvt',
         'receipt_dealer' => 'setReceiptDealer',
-        'vtc_tid' => 'setVtcTid'
+        'vtc_tid' => 'setVtcTid',
+        'vtc_id' => 'setVtcId',
+        'password' => 'setPassword'
     ];
 
     /**
@@ -166,6 +178,7 @@ class PrepaidSalesProductModel extends BaseProductModel
     protected static $getters = [
         'created' => 'getCreated',
         'status' => 'getStatus',
+        'type' => 'getType',
         'stock' => 'getStock',
         'item' => 'getItem',
         'itemgroup' => 'getItemgroup',
@@ -188,7 +201,9 @@ class PrepaidSalesProductModel extends BaseProductModel
         'receipt_customer' => 'getReceiptCustomer',
         'receipt_zvt' => 'getReceiptZvt',
         'receipt_dealer' => 'getReceiptDealer',
-        'vtc_tid' => 'getVtcTid'
+        'vtc_tid' => 'getVtcTid',
+        'vtc_id' => 'getVtcId',
+        'password' => 'getPassword'
     ];
 
     public static function attributeMap()
@@ -216,6 +231,7 @@ class PrepaidSalesProductModel extends BaseProductModel
 
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['stock'] = isset($data['stock']) ? $data['stock'] : null;
         $this->container['item'] = isset($data['item']) ? $data['item'] : null;
         $this->container['itemgroup'] = isset($data['itemgroup']) ? $data['itemgroup'] : null;
@@ -239,6 +255,8 @@ class PrepaidSalesProductModel extends BaseProductModel
         $this->container['receipt_zvt'] = isset($data['receipt_zvt']) ? $data['receipt_zvt'] : null;
         $this->container['receipt_dealer'] = isset($data['receipt_dealer']) ? $data['receipt_dealer'] : null;
         $this->container['vtc_tid'] = isset($data['vtc_tid']) ? $data['vtc_tid'] : null;
+        $this->container['vtc_id'] = isset($data['vtc_id']) ? $data['vtc_id'] : null;
+        $this->container['password'] = isset($data['password']) ? $data['password'] : null;
     }
 
     /**
@@ -303,6 +321,27 @@ class PrepaidSalesProductModel extends BaseProductModel
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     * @param string $type Type
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }
@@ -786,6 +825,48 @@ class PrepaidSalesProductModel extends BaseProductModel
     public function setVtcTid($vtc_tid)
     {
         $this->container['vtc_tid'] = $vtc_tid;
+
+        return $this;
+    }
+
+    /**
+     * Gets vtc_id
+     * @return string
+     */
+    public function getVtcId()
+    {
+        return $this->container['vtc_id'];
+    }
+
+    /**
+     * Sets vtc_id
+     * @param string $vtc_id Vtc id
+     * @return $this
+     */
+    public function setVtcId($vtc_id)
+    {
+        $this->container['vtc_id'] = $vtc_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets password
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->container['password'];
+    }
+
+    /**
+     * Sets password
+     * @param string $password Password
+     * @return $this
+     */
+    public function setPassword($password)
+    {
+        $this->container['password'] = $password;
 
         return $this;
     }

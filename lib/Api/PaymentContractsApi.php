@@ -178,12 +178,18 @@ class PaymentContractsApi
      * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: &#x60;prop1.prop2&#x60;. 
      * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form &#x60;property:condition&#x60;. Property names can be nested like &#x60;property.property&#x60;.  Example: &#x60;customer.name:Meier&#x60;  A condition may contain:  * &#x60;?&#x60; as wildcard for one character;  * &#x60;*&#x60; as wildcard for any number of characters.  You can also use value ranges in the form &#x60;[min TO max]&#x60;.  Example: &#x60;customer.age:[30 TO 40]&#x60;  You can combine expressions logically by &#x60;expr AND expr&#x60; and &#x60;{expr} OR {expr}&#x60;. You can also negate an expression using &#x60;NOT {expr}&#x60;. Parenthesis &#x60;(...)&#x60; can be used to control precedence.  Example: &#x60;(NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])&#x60; 
      * @param string $sort String with comma separated pairs of &#x60;field:order&#x60;.  Options for order:  * &#x60;asc&#x60; ascending;  * &#x60;dsc&#x60; descending. 
+     * @param \Secuconnect\Client\Model\Aggregate $aggregate Aggregation summarizes your data. 
+     * @param string $meta return field definitions 
+     * @param float $validate Check syntax of a query string 
+     * @param string $scroll_expire How long it should keep the “search context” alive? 
+     * @param string $scroll_id Identifier of a previous search context 
+     * @param string $preset Query presets 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentContractsList
      */
-    public function paymentContractsGet($count = null, $offset = null, $fields = null, $q = null, $sort = null)
+    public function paymentContractsGet($count = null, $offset = null, $fields = null, $q = null, $sort = null, $aggregate = null, $meta = null, $validate = null, $scroll_expire = null, $scroll_id = null, $preset = null)
     {
-        list($response) = $this->paymentContractsGetWithHttpInfo($count, $offset, $fields, $q, $sort);
+        list($response) = $this->paymentContractsGetWithHttpInfo($count, $offset, $fields, $q, $sort, $aggregate, $meta, $validate, $scroll_expire, $scroll_id, $preset);
         return $response;
     }
 
@@ -197,10 +203,16 @@ class PaymentContractsApi
      * @param string $fields List of fields to include in the result. Nested properties can be accessed with this notation: &#x60;prop1.prop2&#x60;. 
      * @param string $q A query string to restrict the returned items to given conditions. The query string must consist of any combination of single expressions in the form &#x60;property:condition&#x60;. Property names can be nested like &#x60;property.property&#x60;.  Example: &#x60;customer.name:Meier&#x60;  A condition may contain:  * &#x60;?&#x60; as wildcard for one character;  * &#x60;*&#x60; as wildcard for any number of characters.  You can also use value ranges in the form &#x60;[min TO max]&#x60;.  Example: &#x60;customer.age:[30 TO 40]&#x60;  You can combine expressions logically by &#x60;expr AND expr&#x60; and &#x60;{expr} OR {expr}&#x60;. You can also negate an expression using &#x60;NOT {expr}&#x60;. Parenthesis &#x60;(...)&#x60; can be used to control precedence.  Example: &#x60;(NOT customer.name:meier*) AND (customer.age:[30 TO 40] OR customer.age:[50 TO 60])&#x60; 
      * @param string $sort String with comma separated pairs of &#x60;field:order&#x60;.  Options for order:  * &#x60;asc&#x60; ascending;  * &#x60;dsc&#x60; descending. 
+     * @param \Secuconnect\Client\Model\Aggregate $aggregate Aggregation summarizes your data. 
+     * @param string $meta return field definitions 
+     * @param float $validate Check syntax of a query string 
+     * @param string $scroll_expire How long it should keep the “search context” alive? 
+     * @param string $scroll_id Identifier of a previous search context 
+     * @param string $preset Query presets 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentContractsList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function paymentContractsGetWithHttpInfo($count = null, $offset = null, $fields = null, $q = null, $sort = null)
+    public function paymentContractsGetWithHttpInfo($count = null, $offset = null, $fields = null, $q = null, $sort = null, $aggregate = null, $meta = null, $validate = null, $scroll_expire = null, $scroll_id = null, $preset = null)
     {
         // parse inputs
         $resourcePath = "/Payment/Contracts";
@@ -233,6 +245,30 @@ class PaymentContractsApi
         // query params
         if ($sort !== null) {
             $queryParams['sort'] = $this->apiClient->getSerializer()->toQueryValue($sort);
+        }
+        // query params
+        if ($aggregate !== null) {
+            $queryParams['aggregate'] = $this->apiClient->getSerializer()->toQueryValue($aggregate);
+        }
+        // query params
+        if ($meta !== null) {
+            $queryParams['meta'] = $this->apiClient->getSerializer()->toQueryValue($meta);
+        }
+        // query params
+        if ($validate !== null) {
+            $queryParams['validate'] = $this->apiClient->getSerializer()->toQueryValue($validate);
+        }
+        // query params
+        if ($scroll_expire !== null) {
+            $queryParams['scroll_expire'] = $this->apiClient->getSerializer()->toQueryValue($scroll_expire);
+        }
+        // query params
+        if ($scroll_id !== null) {
+            $queryParams['scroll_id'] = $this->apiClient->getSerializer()->toQueryValue($scroll_id);
+        }
+        // query params
+        if ($preset !== null) {
+            $queryParams['preset'] = $this->apiClient->getSerializer()->toQueryValue($preset);
         }
 
         // for model (json/xml)

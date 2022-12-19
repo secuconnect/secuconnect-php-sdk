@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * CardprocessingInvoicesList
+ * PrepaidSalesList
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CardprocessingInvoicesList implements ArrayAccess
+class PrepaidSalesList implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class CardprocessingInvoicesList implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'CardprocessingInvoicesList';
+    protected static $swaggerModelName = 'PrepaidSalesList';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -28,7 +28,7 @@ class CardprocessingInvoicesList implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'count' => 'int',
-        'data' => '\Secuconnect\Client\Model\CardprocessingInvoicesProductModel[]',
+        'data' => '\Secuconnect\Client\Model\PrepaidSalesProductModel[]',
         'scroll_id' => 'string',
         'result' => 'bool',
         'meta' => 'object',
@@ -179,7 +179,7 @@ class CardprocessingInvoicesList implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Number of existing cardprocessing invoices
+     * @param int $count Number of existing prepaid contracts
      * @return $this
      */
     public function setCount($count)
@@ -191,7 +191,7 @@ class CardprocessingInvoicesList implements ArrayAccess
 
     /**
      * Gets data
-     * @return \Secuconnect\Client\Model\CardprocessingInvoicesProductModel[]
+     * @return \Secuconnect\Client\Model\PrepaidSalesProductModel[]
      */
     public function getData()
     {
@@ -200,7 +200,7 @@ class CardprocessingInvoicesList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\CardprocessingInvoicesProductModel[] $data List of CardprocessingInvoices
+     * @param \Secuconnect\Client\Model\PrepaidSalesProductModel[] $data List of Prepaid Sales
      * @return $this
      */
     public function setData($data)

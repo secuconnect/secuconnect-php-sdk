@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * ACC_ID
+ * ApplePayDescriptorHeader
  *
  * @category Class
- * @description General Account ID
+ * @description The header element is a required child of the applepay element. Its child elements provides information required to process the Apple Pay transaction.
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ACC_ID implements ArrayAccess
+class ApplePayDescriptorHeader implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,13 +21,16 @@ class ACC_ID implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ACC_ID';
+    protected static $swaggerModelName = 'ApplePayDescriptorHeader';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'ephemeral_public_key' => 'string',
+        'public_key_hash' => 'string',
+        'transaction_id' => 'string'
     ];
 
     /**
@@ -35,6 +38,9 @@ class ACC_ID implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'ephemeral_public_key' => null,
+        'public_key_hash' => null,
+        'transaction_id' => null
     ];
 
     public static function swaggerTypes()
@@ -52,6 +58,9 @@ class ACC_ID implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'ephemeral_public_key' => 'ephemeralPublicKey',
+        'public_key_hash' => 'publicKeyHash',
+        'transaction_id' => 'transactionId'
     ];
 
     /**
@@ -59,6 +68,9 @@ class ACC_ID implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'ephemeral_public_key' => 'setEphemeralPublicKey',
+        'public_key_hash' => 'setPublicKeyHash',
+        'transaction_id' => 'setTransactionId'
     ];
 
     /**
@@ -66,6 +78,9 @@ class ACC_ID implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'ephemeral_public_key' => 'getEphemeralPublicKey',
+        'public_key_hash' => 'getPublicKeyHash',
+        'transaction_id' => 'getTransactionId'
     ];
 
     public static function attributeMap()
@@ -95,6 +110,9 @@ class ACC_ID implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['ephemeral_public_key'] = isset($data['ephemeral_public_key']) ? $data['ephemeral_public_key'] : null;
+        $this->container['public_key_hash'] = isset($data['public_key_hash']) ? $data['public_key_hash'] : null;
+        $this->container['transaction_id'] = isset($data['transaction_id']) ? $data['transaction_id'] : null;
     }
 
     /**
@@ -120,6 +138,69 @@ class ACC_ID implements ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets ephemeral_public_key
+     * @return string
+     */
+    public function getEphemeralPublicKey()
+    {
+        return $this->container['ephemeral_public_key'];
+    }
+
+    /**
+     * Sets ephemeral_public_key
+     * @param string $ephemeral_public_key Base64 encoded ephemeral public key
+     * @return $this
+     */
+    public function setEphemeralPublicKey($ephemeral_public_key)
+    {
+        $this->container['ephemeral_public_key'] = $ephemeral_public_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets public_key_hash
+     * @return string
+     */
+    public function getPublicKeyHash()
+    {
+        return $this->container['public_key_hash'];
+    }
+
+    /**
+     * Sets public_key_hash
+     * @param string $public_key_hash Base64 hash of public merchant key cert
+     * @return $this
+     */
+    public function setPublicKeyHash($public_key_hash)
+    {
+        $this->container['public_key_hash'] = $public_key_hash;
+
+        return $this;
+    }
+
+    /**
+     * Gets transaction_id
+     * @return string
+     */
+    public function getTransactionId()
+    {
+        return $this->container['transaction_id'];
+    }
+
+    /**
+     * Sets transaction_id
+     * @param string $transaction_id Hex transaction ID
+     * @return $this
+     */
+    public function setTransactionId($transaction_id)
+    {
+        $this->container['transaction_id'] = $transaction_id;
+
+        return $this;
+    }
 
     /**
      * Returns true if offset exists. False otherwise.

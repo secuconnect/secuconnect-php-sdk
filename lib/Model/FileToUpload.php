@@ -21,7 +21,7 @@ class FileToUpload implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'fileToUpload';
+    protected static $swaggerModelName = 'FileToUpload';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

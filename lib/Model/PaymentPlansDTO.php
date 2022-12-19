@@ -34,6 +34,7 @@ class PaymentPlansDTO implements ArrayAccess
         'status' => 'string',
         'payment_methods' => 'string[]',
         'merchant' => '\Secuconnect\Client\Model\GeneralMerchantsProductModel',
+        'merchant_id' => 'string',
         'billing_cycles' => '\Secuconnect\Client\Model\BillingCyclesItem[]'
     ];
 
@@ -48,6 +49,7 @@ class PaymentPlansDTO implements ArrayAccess
         'status' => null,
         'payment_methods' => null,
         'merchant' => null,
+        'merchant_id' => null,
         'billing_cycles' => null
     ];
 
@@ -72,6 +74,7 @@ class PaymentPlansDTO implements ArrayAccess
         'status' => 'status',
         'payment_methods' => 'payment_methods',
         'merchant' => 'merchant',
+        'merchant_id' => 'merchant_id',
         'billing_cycles' => 'billing_cycles'
     ];
 
@@ -86,6 +89,7 @@ class PaymentPlansDTO implements ArrayAccess
         'status' => 'setStatus',
         'payment_methods' => 'setPaymentMethods',
         'merchant' => 'setMerchant',
+        'merchant_id' => 'setMerchantId',
         'billing_cycles' => 'setBillingCycles'
     ];
 
@@ -100,6 +104,7 @@ class PaymentPlansDTO implements ArrayAccess
         'status' => 'getStatus',
         'payment_methods' => 'getPaymentMethods',
         'merchant' => 'getMerchant',
+        'merchant_id' => 'getMerchantId',
         'billing_cycles' => 'getBillingCycles'
     ];
 
@@ -133,9 +138,10 @@ class PaymentPlansDTO implements ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['paypal_plan_id'] = isset($data['paypal_plan_id']) ? $data['paypal_plan_id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : 'active';
         $this->container['payment_methods'] = isset($data['payment_methods']) ? $data['payment_methods'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
+        $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['billing_cycles'] = isset($data['billing_cycles']) ? $data['billing_cycles'] : null;
     }
 
@@ -195,7 +201,7 @@ class PaymentPlansDTO implements ArrayAccess
 
     /**
      * Sets currency
-     * @param string $currency ISO currency code
+     * @param string $currency currency
      * @return $this
      */
     public function setCurrency($currency)
@@ -285,6 +291,27 @@ class PaymentPlansDTO implements ArrayAccess
     public function setMerchant($merchant)
     {
         $this->container['merchant'] = $merchant;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant_id
+     * @return string
+     */
+    public function getMerchantId()
+    {
+        return $this->container['merchant_id'];
+    }
+
+    /**
+     * Sets merchant_id
+     * @param string $merchant_id General Merchant ID
+     * @return $this
+     */
+    public function setMerchantId($merchant_id)
+    {
+        $this->container['merchant_id'] = $merchant_id;
 
         return $this;
     }

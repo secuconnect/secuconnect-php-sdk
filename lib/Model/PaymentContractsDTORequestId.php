@@ -28,16 +28,20 @@ class PaymentContractsDTORequestId implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'contract_id' => 'string',
         'contact' => '\Secuconnect\Client\Model\Contact',
         'project' => 'string',
         'payout_account' => '\Secuconnect\Client\Model\PaymentInformation',
+        'payment_data' => '\Secuconnect\Client\Model\PaymentInformation',
         'iframe_opts' => '\Secuconnect\Client\Model\PaymentContractsDTOIFrameOpts',
+        'url_push' => 'string',
         'payin_account' => 'bool',
         'create_first_store' => 'bool',
         'store_name' => 'string',
         'payout_purpose' => 'string',
         'identrequest' => 'string',
-        'signed_contract' => 'string'
+        'signed_contract' => 'string',
+        'additional_data' => '\Secuconnect\Client\Model\PaymentContractsDTORequestIdAdditionalData'
     ];
 
     /**
@@ -45,16 +49,20 @@ class PaymentContractsDTORequestId implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'contract_id' => null,
         'contact' => null,
         'project' => null,
         'payout_account' => null,
+        'payment_data' => null,
         'iframe_opts' => null,
+        'url_push' => null,
         'payin_account' => null,
         'create_first_store' => null,
         'store_name' => null,
         'payout_purpose' => null,
         'identrequest' => null,
-        'signed_contract' => null
+        'signed_contract' => null,
+        'additional_data' => null
     ];
 
     public static function swaggerTypes()
@@ -72,16 +80,20 @@ class PaymentContractsDTORequestId implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'contract_id' => 'contract_id',
         'contact' => 'contact',
         'project' => 'project',
         'payout_account' => 'payout_account',
+        'payment_data' => 'payment_data',
         'iframe_opts' => 'iframe_opts',
+        'url_push' => 'url_push',
         'payin_account' => 'payin_account',
         'create_first_store' => 'create_first_store',
         'store_name' => 'store_name',
         'payout_purpose' => 'payout_purpose',
         'identrequest' => 'identrequest',
-        'signed_contract' => 'signed_contract'
+        'signed_contract' => 'signed_contract',
+        'additional_data' => 'additional_data'
     ];
 
     /**
@@ -89,16 +101,20 @@ class PaymentContractsDTORequestId implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'contract_id' => 'setContractId',
         'contact' => 'setContact',
         'project' => 'setProject',
         'payout_account' => 'setPayoutAccount',
+        'payment_data' => 'setPaymentData',
         'iframe_opts' => 'setIframeOpts',
+        'url_push' => 'setUrlPush',
         'payin_account' => 'setPayinAccount',
         'create_first_store' => 'setCreateFirstStore',
         'store_name' => 'setStoreName',
         'payout_purpose' => 'setPayoutPurpose',
         'identrequest' => 'setIdentrequest',
-        'signed_contract' => 'setSignedContract'
+        'signed_contract' => 'setSignedContract',
+        'additional_data' => 'setAdditionalData'
     ];
 
     /**
@@ -106,16 +122,20 @@ class PaymentContractsDTORequestId implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'contract_id' => 'getContractId',
         'contact' => 'getContact',
         'project' => 'getProject',
         'payout_account' => 'getPayoutAccount',
+        'payment_data' => 'getPaymentData',
         'iframe_opts' => 'getIframeOpts',
+        'url_push' => 'getUrlPush',
         'payin_account' => 'getPayinAccount',
         'create_first_store' => 'getCreateFirstStore',
         'store_name' => 'getStoreName',
         'payout_purpose' => 'getPayoutPurpose',
         'identrequest' => 'getIdentrequest',
-        'signed_contract' => 'getSignedContract'
+        'signed_contract' => 'getSignedContract',
+        'additional_data' => 'getAdditionalData'
     ];
 
     public static function attributeMap()
@@ -145,16 +165,20 @@ class PaymentContractsDTORequestId implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['contract_id'] = isset($data['contract_id']) ? $data['contract_id'] : null;
         $this->container['contact'] = isset($data['contact']) ? $data['contact'] : null;
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
         $this->container['payout_account'] = isset($data['payout_account']) ? $data['payout_account'] : null;
+        $this->container['payment_data'] = isset($data['payment_data']) ? $data['payment_data'] : null;
         $this->container['iframe_opts'] = isset($data['iframe_opts']) ? $data['iframe_opts'] : null;
+        $this->container['url_push'] = isset($data['url_push']) ? $data['url_push'] : null;
         $this->container['payin_account'] = isset($data['payin_account']) ? $data['payin_account'] : false;
         $this->container['create_first_store'] = isset($data['create_first_store']) ? $data['create_first_store'] : false;
         $this->container['store_name'] = isset($data['store_name']) ? $data['store_name'] : null;
         $this->container['payout_purpose'] = isset($data['payout_purpose']) ? $data['payout_purpose'] : null;
         $this->container['identrequest'] = isset($data['identrequest']) ? $data['identrequest'] : null;
         $this->container['signed_contract'] = isset($data['signed_contract']) ? $data['signed_contract'] : null;
+        $this->container['additional_data'] = isset($data['additional_data']) ? $data['additional_data'] : null;
     }
 
     /**
@@ -180,6 +204,27 @@ class PaymentContractsDTORequestId implements ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets contract_id
+     * @return string
+     */
+    public function getContractId()
+    {
+        return $this->container['contract_id'];
+    }
+
+    /**
+     * Sets contract_id
+     * @param string $contract_id Parent General Contract ID
+     * @return $this
+     */
+    public function setContractId($contract_id)
+    {
+        $this->container['contract_id'] = $contract_id;
+
+        return $this;
+    }
 
     /**
      * Gets contact
@@ -245,6 +290,27 @@ class PaymentContractsDTORequestId implements ArrayAccess
     }
 
     /**
+     * Gets payment_data
+     * @return \Secuconnect\Client\Model\PaymentInformation
+     */
+    public function getPaymentData()
+    {
+        return $this->container['payment_data'];
+    }
+
+    /**
+     * Sets payment_data
+     * @param \Secuconnect\Client\Model\PaymentInformation $payment_data payment_data
+     * @return $this
+     */
+    public function setPaymentData($payment_data)
+    {
+        $this->container['payment_data'] = $payment_data;
+
+        return $this;
+    }
+
+    /**
      * Gets iframe_opts
      * @return \Secuconnect\Client\Model\PaymentContractsDTOIFrameOpts
      */
@@ -261,6 +327,27 @@ class PaymentContractsDTORequestId implements ArrayAccess
     public function setIframeOpts($iframe_opts)
     {
         $this->container['iframe_opts'] = $iframe_opts;
+
+        return $this;
+    }
+
+    /**
+     * Gets url_push
+     * @return string
+     */
+    public function getUrlPush()
+    {
+        return $this->container['url_push'];
+    }
+
+    /**
+     * Sets url_push
+     * @param string $url_push Default push url
+     * @return $this
+     */
+    public function setUrlPush($url_push)
+    {
+        $this->container['url_push'] = $url_push;
 
         return $this;
     }
@@ -387,6 +474,27 @@ class PaymentContractsDTORequestId implements ArrayAccess
     public function setSignedContract($signed_contract)
     {
         $this->container['signed_contract'] = $signed_contract;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_data
+     * @return \Secuconnect\Client\Model\PaymentContractsDTORequestIdAdditionalData
+     */
+    public function getAdditionalData()
+    {
+        return $this->container['additional_data'];
+    }
+
+    /**
+     * Sets additional_data
+     * @param \Secuconnect\Client\Model\PaymentContractsDTORequestIdAdditionalData $additional_data additional_data
+     * @return $this
+     */
+    public function setAdditionalData($additional_data)
+    {
+        $this->container['additional_data'] = $additional_data;
 
         return $this;
     }

@@ -2,16 +2,18 @@
 
 namespace Secuconnect\Client\Model;
 
+use \ArrayAccess;
+
 /**
- * PIG_Object
+ * PaymentContractsDTORequestIdAdditionalData
  *
  * @category Class
- * @description Prepaid Item Group Identifier
+ * @description Additional data input
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PIG_Object extends BaseProductModel
+class PaymentContractsDTORequestIdAdditionalData implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -19,15 +21,14 @@ class PIG_Object extends BaseProductModel
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'PIG_Object';
+    protected static $swaggerModelName = 'PaymentContractsDTORequestIdAdditionalData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'object' => 'string',
-        'id' => 'string'
+        'create_card' => '\Secuconnect\Client\Model\PaymentContractsDTORequestIdAdditionalDataCreateCard'
     ];
 
     /**
@@ -35,18 +36,17 @@ class PIG_Object extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'object' => null,
-        'id' => null
+        'create_card' => null
     ];
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /**
@@ -54,8 +54,7 @@ class PIG_Object extends BaseProductModel
      * @var string[]
      */
     protected static $attributeMap = [
-        'object' => 'object',
-        'id' => 'id'
+        'create_card' => 'create_card'
     ];
 
     /**
@@ -63,8 +62,7 @@ class PIG_Object extends BaseProductModel
      * @var string[]
      */
     protected static $setters = [
-        'object' => 'setObject',
-        'id' => 'setId'
+        'create_card' => 'setCreateCard'
     ];
 
     /**
@@ -72,24 +70,29 @@ class PIG_Object extends BaseProductModel
      * @var string[]
      */
     protected static $getters = [
-        'object' => 'getObject',
-        'id' => 'getId'
+        'create_card' => 'getCreateCard'
     ];
 
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
+
+    /**
+     * Associative array for storing property values
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -97,10 +100,7 @@ class PIG_Object extends BaseProductModel
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['object'] = isset($data['object']) ? $data['object'] : 'prepaid.itemgroups';
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['create_card'] = isset($data['create_card']) ? $data['create_card'] : null;
     }
 
     /**
@@ -110,7 +110,7 @@ class PIG_Object extends BaseProductModel
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = parent::listInvalidProperties();
+        $invalid_properties = [];
 
         return $invalid_properties;
     }
@@ -128,43 +128,22 @@ class PIG_Object extends BaseProductModel
 
 
     /**
-     * Gets object
-     * @return string
+     * Gets create_card
+     * @return \Secuconnect\Client\Model\PaymentContractsDTORequestIdAdditionalDataCreateCard
      */
-    public function getObject()
+    public function getCreateCard()
     {
-        return $this->container['object'];
+        return $this->container['create_card'];
     }
 
     /**
-     * Sets object
-     * @param string $object object
+     * Sets create_card
+     * @param \Secuconnect\Client\Model\PaymentContractsDTORequestIdAdditionalDataCreateCard $create_card create_card
      * @return $this
      */
-    public function setObject($object)
+    public function setCreateCard($create_card)
     {
-        $this->container['object'] = $object;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     * @param string $id id
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
+        $this->container['create_card'] = $create_card;
 
         return $this;
     }
