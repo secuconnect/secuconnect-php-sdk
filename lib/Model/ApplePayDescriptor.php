@@ -31,7 +31,7 @@ class ApplePayDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModelP
         'signature' => 'string',
         'version' => 'string',
         'data' => 'string',
-        'header' => 'object'
+        'header' => '\Secuconnect\Client\Model\ApplePayDescriptorHeader'
     ];
 
     /**
@@ -210,7 +210,7 @@ class ApplePayDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModelP
 
     /**
      * Gets header
-     * @return object
+     * @return \Secuconnect\Client\Model\ApplePayDescriptorHeader
      */
     public function getHeader()
     {
@@ -219,7 +219,7 @@ class ApplePayDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModelP
 
     /**
      * Sets header
-     * @param object $header Additional version-dependent information you use to decrypt and verify the payment
+     * @param \Secuconnect\Client\Model\ApplePayDescriptorHeader $header header
      * @return $this
      */
     public function setHeader($header)

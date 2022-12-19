@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * MRC_ID
+ * PaymentContractsDTORequestIdAdditionalDataCreateCard
  *
  * @category Class
- * @description General Merchants ID
+ * @description Create card input
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class MRC_ID implements ArrayAccess
+class PaymentContractsDTORequestIdAdditionalDataCreateCard implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,13 +21,16 @@ class MRC_ID implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'MRC_ID';
+    protected static $swaggerModelName = 'PaymentContractsDTORequestIdAdditionalData_create_card';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'card_scheme' => 'CARD_SCHEME',
+        'app_language' => 'string',
+        'passport_id' => 'string'
     ];
 
     /**
@@ -35,6 +38,9 @@ class MRC_ID implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'card_scheme' => null,
+        'app_language' => null,
+        'passport_id' => null
     ];
 
     public static function swaggerTypes()
@@ -52,6 +58,9 @@ class MRC_ID implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'card_scheme' => 'card_scheme',
+        'app_language' => 'app_language',
+        'passport_id' => 'passport_id'
     ];
 
     /**
@@ -59,6 +68,9 @@ class MRC_ID implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'card_scheme' => 'setCardScheme',
+        'app_language' => 'setAppLanguage',
+        'passport_id' => 'setPassportId'
     ];
 
     /**
@@ -66,6 +78,9 @@ class MRC_ID implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'card_scheme' => 'getCardScheme',
+        'app_language' => 'getAppLanguage',
+        'passport_id' => 'getPassportId'
     ];
 
     public static function attributeMap()
@@ -82,6 +97,18 @@ class MRC_ID implements ArrayAccess
     {
         return self::$getters;
     }
+    const CARD_SCHEME_VI = 'VI';    const CARD_SCHEME_MC = 'MC';
+
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getCardSchemeAllowableValues()
+    {
+        return [
+            self::CARD_SCHEME_VI,
+self::CARD_SCHEME_MC,        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -95,6 +122,9 @@ class MRC_ID implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['card_scheme'] = isset($data['card_scheme']) ? $data['card_scheme'] : null;
+        $this->container['app_language'] = isset($data['app_language']) ? $data['app_language'] : null;
+        $this->container['passport_id'] = isset($data['passport_id']) ? $data['passport_id'] : null;
     }
 
     /**
@@ -105,6 +135,14 @@ class MRC_ID implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = [];
+
+        $allowed_values = $this->getCardSchemeAllowableValues();
+        if (!is_null($this->container['card_scheme']) && !in_array($this->container['card_scheme'], $allowed_values, true)) {
+            $invalid_properties[] = sprintf(
+                "invalid value for 'card_scheme', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalid_properties;
     }
@@ -120,6 +158,78 @@ class MRC_ID implements ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets card_scheme
+     * @return string
+     */
+    public function getCardScheme()
+    {
+        return $this->container['card_scheme'];
+    }
+
+    /**
+     * Sets card_scheme
+     * @param string $card_scheme Credit card schema
+     * @return $this
+     */
+    public function setCardScheme($card_scheme)
+    {
+        $allowed_values = $this->getCardSchemeAllowableValues();
+        if (!is_null($card_scheme) && !in_array($card_scheme, $allowed_values, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'card_scheme', must be one of '%s'",
+                    implode("', '", $allowed_values)
+                )
+            );
+        }
+        $this->container['card_scheme'] = $card_scheme;
+
+        return $this;
+    }
+
+    /**
+     * Gets app_language
+     * @return string
+     */
+    public function getAppLanguage()
+    {
+        return $this->container['app_language'];
+    }
+
+    /**
+     * Sets app_language
+     * @param string $app_language app_language
+     * @return $this
+     */
+    public function setAppLanguage($app_language)
+    {
+        $this->container['app_language'] = $app_language;
+
+        return $this;
+    }
+
+    /**
+     * Gets passport_id
+     * @return string
+     */
+    public function getPassportId()
+    {
+        return $this->container['passport_id'];
+    }
+
+    /**
+     * Sets passport_id
+     * @param string $passport_id Passport ID
+     * @return $this
+     */
+    public function setPassportId($passport_id)
+    {
+        $this->container['passport_id'] = $passport_id;
+
+        return $this;
+    }
 
     /**
      * Returns true if offset exists. False otherwise.

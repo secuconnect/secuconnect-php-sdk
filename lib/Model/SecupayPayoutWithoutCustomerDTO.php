@@ -5,14 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * PaymentPayoutsList
+ * SecupayPayoutWithoutCustomerDTO
  *
  * @category Class
+ * @description SecupayPayoutWithoutCustomerDTO
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PaymentPayoutsList implements ArrayAccess
+class SecupayPayoutWithoutCustomerDTO implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,21 +21,19 @@ class PaymentPayoutsList implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'PaymentPayoutsList';
+    protected static $swaggerModelName = 'SecupayPayoutWithoutCustomerDTO';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'count' => 'int',
-        'data' => '\Secuconnect\Client\Model\PaymentPayoutsProductModel[]',
-        'scroll_id' => 'string',
-        'result' => 'bool',
-        'meta' => 'object',
-        'type' => 'string',
-        'sum' => 'bool',
-        'lookup' => 'string[]'
+        'amount' => 'int',
+        'currency' => 'string',
+        'contract_id' => 'string',
+        'payout_list' => '\Secuconnect\Client\Model\SecupayPayoutListItem[]',
+        'purpose' => 'string',
+        'execution_date' => 'string'
     ];
 
     /**
@@ -42,14 +41,12 @@ class PaymentPayoutsList implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'count' => null,
-        'data' => null,
-        'scroll_id' => null,
-        'result' => null,
-        'meta' => null,
-        'type' => null,
-        'sum' => null,
-        'lookup' => null
+        'amount' => null,
+        'currency' => null,
+        'contract_id' => null,
+        'payout_list' => null,
+        'purpose' => null,
+        'execution_date' => null
     ];
 
     public static function swaggerTypes()
@@ -67,14 +64,12 @@ class PaymentPayoutsList implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'count' => 'count',
-        'data' => 'data',
-        'scroll_id' => 'scroll_id',
-        'result' => 'result',
-        'meta' => 'meta',
-        'type' => 'type',
-        'sum' => 'sum',
-        'lookup' => 'lookup'
+        'amount' => 'amount',
+        'currency' => 'currency',
+        'contract_id' => 'contract_id',
+        'payout_list' => 'Payout_list',
+        'purpose' => 'purpose',
+        'execution_date' => 'execution_date'
     ];
 
     /**
@@ -82,14 +77,12 @@ class PaymentPayoutsList implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'count' => 'setCount',
-        'data' => 'setData',
-        'scroll_id' => 'setScrollId',
-        'result' => 'setResult',
-        'meta' => 'setMeta',
-        'type' => 'setType',
-        'sum' => 'setSum',
-        'lookup' => 'setLookup'
+        'amount' => 'setAmount',
+        'currency' => 'setCurrency',
+        'contract_id' => 'setContractId',
+        'payout_list' => 'setPayoutList',
+        'purpose' => 'setPurpose',
+        'execution_date' => 'setExecutionDate'
     ];
 
     /**
@@ -97,14 +90,12 @@ class PaymentPayoutsList implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'count' => 'getCount',
-        'data' => 'getData',
-        'scroll_id' => 'getScrollId',
-        'result' => 'getResult',
-        'meta' => 'getMeta',
-        'type' => 'getType',
-        'sum' => 'getSum',
-        'lookup' => 'getLookup'
+        'amount' => 'getAmount',
+        'currency' => 'getCurrency',
+        'contract_id' => 'getContractId',
+        'payout_list' => 'getPayoutList',
+        'purpose' => 'getPurpose',
+        'execution_date' => 'getExecutionDate'
     ];
 
     public static function attributeMap()
@@ -134,14 +125,12 @@ class PaymentPayoutsList implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['count'] = isset($data['count']) ? $data['count'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['scroll_id'] = isset($data['scroll_id']) ? $data['scroll_id'] : null;
-        $this->container['result'] = isset($data['result']) ? $data['result'] : null;
-        $this->container['meta'] = isset($data['meta']) ? $data['meta'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['sum'] = isset($data['sum']) ? $data['sum'] : null;
-        $this->container['lookup'] = isset($data['lookup']) ? $data['lookup'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['contract_id'] = isset($data['contract_id']) ? $data['contract_id'] : null;
+        $this->container['payout_list'] = isset($data['payout_list']) ? $data['payout_list'] : null;
+        $this->container['purpose'] = isset($data['purpose']) ? $data['purpose'] : null;
+        $this->container['execution_date'] = isset($data['execution_date']) ? $data['execution_date'] : null;
     }
 
     /**
@@ -169,169 +158,127 @@ class PaymentPayoutsList implements ArrayAccess
 
 
     /**
-     * Gets count
+     * Gets amount
      * @return int
      */
-    public function getCount()
+    public function getAmount()
     {
-        return $this->container['count'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets count
-     * @param int $count Number of existing payment payouts
+     * Sets amount
+     * @param int $amount amount
      * @return $this
      */
-    public function setCount($count)
+    public function setAmount($amount)
     {
-        $this->container['count'] = $count;
+        $this->container['amount'] = $amount;
 
         return $this;
     }
 
     /**
-     * Gets data
-     * @return \Secuconnect\Client\Model\PaymentPayoutsProductModel[]
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     * @param \Secuconnect\Client\Model\PaymentPayoutsProductModel[] $data List of PaymentPayouts
-     * @return $this
-     */
-    public function setData($data)
-    {
-        $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
-     * Gets scroll_id
+     * Gets currency
      * @return string
      */
-    public function getScrollId()
+    public function getCurrency()
     {
-        return $this->container['scroll_id'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets scroll_id
-     * @param string $scroll_id Identifier of a previous search context
+     * Sets currency
+     * @param string $currency currency
      * @return $this
      */
-    public function setScrollId($scroll_id)
+    public function setCurrency($currency)
     {
-        $this->container['scroll_id'] = $scroll_id;
+        $this->container['currency'] = $currency;
 
         return $this;
     }
 
     /**
-     * Gets result
-     * @return bool
-     */
-    public function getResult()
-    {
-        return $this->container['result'];
-    }
-
-    /**
-     * Sets result
-     * @param bool $result In case the product model function returns only scalar value (f.e. for the query validation)
-     * @return $this
-     */
-    public function setResult($result)
-    {
-        $this->container['result'] = $result;
-
-        return $this;
-    }
-
-    /**
-     * Gets meta
-     * @return object
-     */
-    public function getMeta()
-    {
-        return $this->container['meta'];
-    }
-
-    /**
-     * Sets meta
-     * @param object $meta Meta definition of the product model
-     * @return $this
-     */
-    public function setMeta($meta)
-    {
-        $this->container['meta'] = $meta;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
+     * Gets contract_id
      * @return string
      */
-    public function getType()
+    public function getContractId()
     {
-        return $this->container['type'];
+        return $this->container['contract_id'];
     }
 
     /**
-     * Sets type
-     * @param string $type Aggregation type
+     * Sets contract_id
+     * @param string $contract_id The contract ID
      * @return $this
      */
-    public function setType($type)
+    public function setContractId($contract_id)
     {
-        $this->container['type'] = $type;
+        $this->container['contract_id'] = $contract_id;
 
         return $this;
     }
 
     /**
-     * Gets sum
-     * @return bool
+     * Gets payout_list
+     * @return \Secuconnect\Client\Model\SecupayPayoutListItem[]
      */
-    public function getSum()
+    public function getPayoutList()
     {
-        return $this->container['sum'];
+        return $this->container['payout_list'];
     }
 
     /**
-     * Sets sum
-     * @param bool $sum Aggregation result is summarized?
+     * Sets payout_list
+     * @param \Secuconnect\Client\Model\SecupayPayoutListItem[] $payout_list A list of payout items
      * @return $this
      */
-    public function setSum($sum)
+    public function setPayoutList($payout_list)
     {
-        $this->container['sum'] = $sum;
+        $this->container['payout_list'] = $payout_list;
 
         return $this;
     }
 
     /**
-     * Gets lookup
-     * @return string[]
+     * Gets purpose
+     * @return string
      */
-    public function getLookup()
+    public function getPurpose()
     {
-        return $this->container['lookup'];
+        return $this->container['purpose'];
     }
 
     /**
-     * Sets lookup
-     * @param string[] $lookup Aggregation lookup table
+     * Sets purpose
+     * @param string $purpose The purpose of the payment. This is the later assignment of the payment is for example on the account statement of the buyer.
      * @return $this
      */
-    public function setLookup($lookup)
+    public function setPurpose($purpose)
     {
-        $this->container['lookup'] = $lookup;
+        $this->container['purpose'] = $purpose;
+
+        return $this;
+    }
+
+    /**
+     * Gets execution_date
+     * @return string
+     */
+    public function getExecutionDate()
+    {
+        return $this->container['execution_date'];
+    }
+
+    /**
+     * Sets execution_date
+     * @param string $execution_date Date when the payout should be started
+     * @return $this
+     */
+    public function setExecutionDate($execution_date)
+    {
+        $this->container['execution_date'] = $execution_date;
 
         return $this;
     }

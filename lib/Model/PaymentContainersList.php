@@ -29,7 +29,13 @@ class PaymentContainersList implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'count' => 'int',
-        'data' => '\Secuconnect\Client\Model\PaymentContainersProductModel[]'
+        'data' => '\Secuconnect\Client\Model\PaymentContainersProductModel[]',
+        'scroll_id' => 'string',
+        'result' => 'bool',
+        'meta' => 'object',
+        'type' => 'string',
+        'sum' => 'bool',
+        'lookup' => 'string[]'
     ];
 
     /**
@@ -38,7 +44,13 @@ class PaymentContainersList implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'count' => null,
-        'data' => null
+        'data' => null,
+        'scroll_id' => null,
+        'result' => null,
+        'meta' => null,
+        'type' => null,
+        'sum' => null,
+        'lookup' => null
     ];
 
     public static function swaggerTypes()
@@ -57,7 +69,13 @@ class PaymentContainersList implements ArrayAccess
      */
     protected static $attributeMap = [
         'count' => 'count',
-        'data' => 'data'
+        'data' => 'data',
+        'scroll_id' => 'scroll_id',
+        'result' => 'result',
+        'meta' => 'meta',
+        'type' => 'type',
+        'sum' => 'sum',
+        'lookup' => 'lookup'
     ];
 
     /**
@@ -66,7 +84,13 @@ class PaymentContainersList implements ArrayAccess
      */
     protected static $setters = [
         'count' => 'setCount',
-        'data' => 'setData'
+        'data' => 'setData',
+        'scroll_id' => 'setScrollId',
+        'result' => 'setResult',
+        'meta' => 'setMeta',
+        'type' => 'setType',
+        'sum' => 'setSum',
+        'lookup' => 'setLookup'
     ];
 
     /**
@@ -75,7 +99,13 @@ class PaymentContainersList implements ArrayAccess
      */
     protected static $getters = [
         'count' => 'getCount',
-        'data' => 'getData'
+        'data' => 'getData',
+        'scroll_id' => 'getScrollId',
+        'result' => 'getResult',
+        'meta' => 'getMeta',
+        'type' => 'getType',
+        'sum' => 'getSum',
+        'lookup' => 'getLookup'
     ];
 
     public static function attributeMap()
@@ -107,6 +137,12 @@ class PaymentContainersList implements ArrayAccess
     {
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['scroll_id'] = isset($data['scroll_id']) ? $data['scroll_id'] : null;
+        $this->container['result'] = isset($data['result']) ? $data['result'] : null;
+        $this->container['meta'] = isset($data['meta']) ? $data['meta'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['sum'] = isset($data['sum']) ? $data['sum'] : null;
+        $this->container['lookup'] = isset($data['lookup']) ? $data['lookup'] : null;
     }
 
     /**
@@ -171,6 +207,132 @@ class PaymentContainersList implements ArrayAccess
     public function setData($data)
     {
         $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets scroll_id
+     * @return string
+     */
+    public function getScrollId()
+    {
+        return $this->container['scroll_id'];
+    }
+
+    /**
+     * Sets scroll_id
+     * @param string $scroll_id Identifier of a previous search context
+     * @return $this
+     */
+    public function setScrollId($scroll_id)
+    {
+        $this->container['scroll_id'] = $scroll_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets result
+     * @return bool
+     */
+    public function getResult()
+    {
+        return $this->container['result'];
+    }
+
+    /**
+     * Sets result
+     * @param bool $result In case the product model function returns only scalar value (f.e. for the query validation)
+     * @return $this
+     */
+    public function setResult($result)
+    {
+        $this->container['result'] = $result;
+
+        return $this;
+    }
+
+    /**
+     * Gets meta
+     * @return object
+     */
+    public function getMeta()
+    {
+        return $this->container['meta'];
+    }
+
+    /**
+     * Sets meta
+     * @param object $meta Meta definition of the product model
+     * @return $this
+     */
+    public function setMeta($meta)
+    {
+        $this->container['meta'] = $meta;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     * @param string $type Aggregation type
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets sum
+     * @return bool
+     */
+    public function getSum()
+    {
+        return $this->container['sum'];
+    }
+
+    /**
+     * Sets sum
+     * @param bool $sum Aggregation result is summarized?
+     * @return $this
+     */
+    public function setSum($sum)
+    {
+        $this->container['sum'] = $sum;
+
+        return $this;
+    }
+
+    /**
+     * Gets lookup
+     * @return string[]
+     */
+    public function getLookup()
+    {
+        return $this->container['lookup'];
+    }
+
+    /**
+     * Sets lookup
+     * @param string[] $lookup Aggregation lookup table
+     * @return $this
+     */
+    public function setLookup($lookup)
+    {
+        $this->container['lookup'] = $lookup;
 
         return $this;
     }

@@ -28,6 +28,7 @@ class PaymentContractsDTOClone implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'contract_id' => 'string',
         'project' => 'string',
         'payment_data' => '\Secuconnect\Client\Model\PaymentInformation',
         'payin_account' => 'bool',
@@ -39,6 +40,7 @@ class PaymentContractsDTOClone implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'contract_id' => null,
         'project' => null,
         'payment_data' => null,
         'payin_account' => null,
@@ -60,6 +62,7 @@ class PaymentContractsDTOClone implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'contract_id' => 'contract_id',
         'project' => 'project',
         'payment_data' => 'payment_data',
         'payin_account' => 'payin_account',
@@ -71,6 +74,7 @@ class PaymentContractsDTOClone implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'contract_id' => 'setContractId',
         'project' => 'setProject',
         'payment_data' => 'setPaymentData',
         'payin_account' => 'setPayinAccount',
@@ -82,6 +86,7 @@ class PaymentContractsDTOClone implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'contract_id' => 'getContractId',
         'project' => 'getProject',
         'payment_data' => 'getPaymentData',
         'payin_account' => 'getPayinAccount',
@@ -115,6 +120,7 @@ class PaymentContractsDTOClone implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['contract_id'] = isset($data['contract_id']) ? $data['contract_id'] : null;
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
         $this->container['payment_data'] = isset($data['payment_data']) ? $data['payment_data'] : null;
         $this->container['payin_account'] = isset($data['payin_account']) ? $data['payin_account'] : false;
@@ -144,6 +150,27 @@ class PaymentContractsDTOClone implements ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets contract_id
+     * @return string
+     */
+    public function getContractId()
+    {
+        return $this->container['contract_id'];
+    }
+
+    /**
+     * Sets contract_id
+     * @param string $contract_id Parent General Contract ID
+     * @return $this
+     */
+    public function setContractId($contract_id)
+    {
+        $this->container['contract_id'] = $contract_id;
+
+        return $this;
+    }
 
     /**
      * Gets project

@@ -26,6 +26,12 @@ class PaymentPlansProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'l' => 'int',
+        'k' => 'int',
+        'ks' => 'string',
+        'c' => 'int',
+        's' => 'int',
+        't' => '\Secuconnect\Client\Model\AggregationTimeResult',
         'created' => 'string',
         'updated' => 'string',
         'description' => 'string',
@@ -34,7 +40,8 @@ class PaymentPlansProductModel extends BaseProductModel
         'status' => 'string',
         'payment_methods' => 'string[]',
         'merchant' => '\Secuconnect\Client\Model\GeneralMerchantsProductModel',
-        'billing_cycles' => '\Secuconnect\Client\Model\BillingCyclesItem[]'
+        'billing_cycles' => '\Secuconnect\Client\Model\BillingCyclesItem[]',
+        'product_type' => 'string'
     ];
 
     /**
@@ -42,6 +49,12 @@ class PaymentPlansProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'l' => null,
+        'k' => null,
+        'ks' => null,
+        'c' => null,
+        's' => null,
+        't' => null,
         'created' => null,
         'updated' => null,
         'description' => null,
@@ -50,7 +63,8 @@ class PaymentPlansProductModel extends BaseProductModel
         'status' => null,
         'payment_methods' => null,
         'merchant' => null,
-        'billing_cycles' => null
+        'billing_cycles' => null,
+        'product_type' => null
     ];
 
     public static function swaggerTypes()
@@ -68,6 +82,12 @@ class PaymentPlansProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $attributeMap = [
+        'l' => 'l',
+        'k' => 'k',
+        'ks' => 'ks',
+        'c' => 'c',
+        's' => 's',
+        't' => 't',
         'created' => 'created',
         'updated' => 'updated',
         'description' => 'description',
@@ -76,7 +96,8 @@ class PaymentPlansProductModel extends BaseProductModel
         'status' => 'status',
         'payment_methods' => 'payment_methods',
         'merchant' => 'merchant',
-        'billing_cycles' => 'billing_cycles'
+        'billing_cycles' => 'billing_cycles',
+        'product_type' => 'product_type'
     ];
 
     /**
@@ -84,6 +105,12 @@ class PaymentPlansProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $setters = [
+        'l' => 'setL',
+        'k' => 'setK',
+        'ks' => 'setKs',
+        'c' => 'setC',
+        's' => 'setS',
+        't' => 'setT',
         'created' => 'setCreated',
         'updated' => 'setUpdated',
         'description' => 'setDescription',
@@ -92,7 +119,8 @@ class PaymentPlansProductModel extends BaseProductModel
         'status' => 'setStatus',
         'payment_methods' => 'setPaymentMethods',
         'merchant' => 'setMerchant',
-        'billing_cycles' => 'setBillingCycles'
+        'billing_cycles' => 'setBillingCycles',
+        'product_type' => 'setProductType'
     ];
 
     /**
@@ -100,6 +128,12 @@ class PaymentPlansProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $getters = [
+        'l' => 'getL',
+        'k' => 'getK',
+        'ks' => 'getKs',
+        'c' => 'getC',
+        's' => 'getS',
+        't' => 'getT',
         'created' => 'getCreated',
         'updated' => 'getUpdated',
         'description' => 'getDescription',
@@ -108,7 +142,8 @@ class PaymentPlansProductModel extends BaseProductModel
         'status' => 'getStatus',
         'payment_methods' => 'getPaymentMethods',
         'merchant' => 'getMerchant',
-        'billing_cycles' => 'getBillingCycles'
+        'billing_cycles' => 'getBillingCycles',
+        'product_type' => 'getProductType'
     ];
 
     public static function attributeMap()
@@ -134,15 +169,22 @@ class PaymentPlansProductModel extends BaseProductModel
     {
         parent::__construct($data);
 
+        $this->container['l'] = isset($data['l']) ? $data['l'] : null;
+        $this->container['k'] = isset($data['k']) ? $data['k'] : null;
+        $this->container['ks'] = isset($data['ks']) ? $data['ks'] : null;
+        $this->container['c'] = isset($data['c']) ? $data['c'] : null;
+        $this->container['s'] = isset($data['s']) ? $data['s'] : null;
+        $this->container['t'] = isset($data['t']) ? $data['t'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['paypal_plan_id'] = isset($data['paypal_plan_id']) ? $data['paypal_plan_id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : 'active';
         $this->container['payment_methods'] = isset($data['payment_methods']) ? $data['payment_methods'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['billing_cycles'] = isset($data['billing_cycles']) ? $data['billing_cycles'] : null;
+        $this->container['product_type'] = isset($data['product_type']) ? $data['product_type'] : null;
     }
 
     /**
@@ -168,6 +210,132 @@ class PaymentPlansProductModel extends BaseProductModel
         return true;
     }
 
+
+    /**
+     * Gets l
+     * @return int
+     */
+    public function getL()
+    {
+        return $this->container['l'];
+    }
+
+    /**
+     * Sets l
+     * @param int $l lookup index
+     * @return $this
+     */
+    public function setL($l)
+    {
+        $this->container['l'] = $l;
+
+        return $this;
+    }
+
+    /**
+     * Gets k
+     * @return int
+     */
+    public function getK()
+    {
+        return $this->container['k'];
+    }
+
+    /**
+     * Sets k
+     * @param int $k key index
+     * @return $this
+     */
+    public function setK($k)
+    {
+        $this->container['k'] = $k;
+
+        return $this;
+    }
+
+    /**
+     * Gets ks
+     * @return string
+     */
+    public function getKs()
+    {
+        return $this->container['ks'];
+    }
+
+    /**
+     * Sets ks
+     * @param string $ks key name
+     * @return $this
+     */
+    public function setKs($ks)
+    {
+        $this->container['ks'] = $ks;
+
+        return $this;
+    }
+
+    /**
+     * Gets c
+     * @return int
+     */
+    public function getC()
+    {
+        return $this->container['c'];
+    }
+
+    /**
+     * Sets c
+     * @param int $c count (number of items)
+     * @return $this
+     */
+    public function setC($c)
+    {
+        $this->container['c'] = $c;
+
+        return $this;
+    }
+
+    /**
+     * Gets s
+     * @return int
+     */
+    public function getS()
+    {
+        return $this->container['s'];
+    }
+
+    /**
+     * Sets s
+     * @param int $s sum
+     * @return $this
+     */
+    public function setS($s)
+    {
+        $this->container['s'] = $s;
+
+        return $this;
+    }
+
+    /**
+     * Gets t
+     * @return \Secuconnect\Client\Model\AggregationTimeResult
+     */
+    public function getT()
+    {
+        return $this->container['t'];
+    }
+
+    /**
+     * Sets t
+     * @param \Secuconnect\Client\Model\AggregationTimeResult $t t
+     * @return $this
+     */
+    public function setT($t)
+    {
+        $this->container['t'] = $t;
+
+        return $this;
+    }
 
     /**
      * Gets created
@@ -243,7 +411,7 @@ class PaymentPlansProductModel extends BaseProductModel
 
     /**
      * Sets currency
-     * @param string $currency ISO currency code
+     * @param string $currency currency
      * @return $this
      */
     public function setCurrency($currency)
@@ -354,6 +522,27 @@ class PaymentPlansProductModel extends BaseProductModel
     public function setBillingCycles($billing_cycles)
     {
         $this->container['billing_cycles'] = $billing_cycles;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_type
+     * @return string
+     */
+    public function getProductType()
+    {
+        return $this->container['product_type'];
+    }
+
+    /**
+     * Sets product_type
+     * @param string $product_type Product type
+     * @return $this
+     */
+    public function setProductType($product_type)
+    {
+        $this->container['product_type'] = $product_type;
 
         return $this;
     }

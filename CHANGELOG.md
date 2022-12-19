@@ -18,6 +18,127 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.17.0] - 2022-12-19
+[2.17.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.16.0...2.17.0
+
+### Added
+- `Api.PaymentSecupayPayoutApi.paymentSecupaypayoutWithoutCustomerPost()`
+- `Api.PrepaidSalesApi.getAll()`
+- `Api.PrepaidSalesApi.getOne()`
+- `Api.SmartTransactionsApi.abortTransaction()`
+- `Api.SmartTransactionsApi.updatePaymentContainer()`
+- `Model.Aggregate`
+- `Model.AggregationResult`
+- `Model.AggregationTimeResult`
+- `Model.ApplePayDescriptorHeader`
+- `Model.PaymentContainersDTO` element `merchant_id`
+- `Model.PaymentContractsDTOClone` element `contract_id`
+- `Model.PaymentContractsDTORequestId` element `contract_id`, `payment_data`, `url_push`, `additional_data`
+- `Model.PaymentContractsDTORequestIdAdditionalData`
+- `Model.PaymentContractsDTORequestIdAdditionalDataCreateCard`
+- `Model.PaymentPlansDTO` element `merchant_id`
+- `Model.PrepaidSalesList`
+- `Model.SecupayPayoutListItem`
+- `Model.SecupayPayoutWithoutCustomerDTO`
+- `Model.SmartTransactionPaymentContainerDTO` element `merchant_id`
+
+#### element `aggregate`, `meta`, `validate`, `scroll_expire`, `scroll_id` and `preset` added to the `getAll()` methods
+- `Api.CardprocessingInvoicesApi`
+- `Api.CardprocessingTransactionsApi`
+- `Api.GeneralContractsApi`
+- `Api.GeneralMerchantsApi`
+- `Api.GeneralStoresApi`
+- `Api.LoyaltyCardgroupsApi`
+- `Api.LoyaltyCardsApi`
+- `Api.LoyaltyCustomersApi`
+- `Api.LoyaltyMerchantcardsApi`
+- `Api.LoyaltyTransactionsApi`
+- `Api.PaymentContainersApi`
+- `Api.PaymentContractsApi`
+- `Api.PaymentCustomersApi`
+- `Api.PaymentInvoicesApi`
+- `Api.PaymentPayoutsApi`
+- `Api.PaymentPlansApi`
+- `Api.PaymentSecupayPayoutApi`
+- `Api.PaymentSubscriptionsApi`
+- `Api.PaymentTransactionsApi`
+- `Api.PrepaidItemsApi`
+- `Api.PrepaidSalesApi`
+- `Api.ServicesIdentrequestsApi`
+- `Api.ServicesIdentresultsApi`
+- `Api.SmartDevicesApi`
+- `Api.SmartRoutingsApi`
+- `Api.SmartTemplatesApi`
+- `Api.SmartTransactionsApi`
+- `Model.CardprocessingInvoicesList`
+- `Model.CardprocessingInvoicesProductModel`
+- `Model.CardprocessingTransactionsList`
+- `Model.CardprocessingTransactionsProductModel`
+- `Model.GeneralContractsList`
+- `Model.GeneralContractsProductModel`
+- `Model.GeneralMerchantsList`
+- `Model.GeneralMerchantsProductModel`
+- `Model.GeneralStoresList`
+- `Model.GeneralStoresProductModel`
+- `Model.LoyaltyCardgroupsList`
+- `Model.LoyaltyCardgroupsProductModel`
+- `Model.LoyaltyCardsList`
+- `Model.LoyaltyCardsProductModel`
+- `Model.LoyaltyCustomersList`
+- `Model.LoyaltyCustomersProductModel`
+- `Model.LoyaltyMerchantcardsList`
+- `Model.LoyaltyMerchantcardsProductModel`
+- `Model.LoyaltyTransactionsList`
+- `Model.LoyaltyTransactionsProductModel`
+- `Model.PaymentContainersList`
+- `Model.PaymentContainersProductModel`
+- `Model.PaymentContractsList`
+- `Model.PaymentContractsProductModel`
+- `Model.PaymentCustomersList`
+- `Model.PaymentCustomersProductModel`
+- `Model.PaymentInvoicesList`
+- `Model.PaymentInvoicesProductModel`
+- `Model.PaymentPayoutsList`
+- `Model.PaymentPayoutsProductModel`
+- `Model.PaymentPlansList`
+- `Model.PaymentPlansProductModel`
+- `Model.PaymentSubscriptionsList`
+- `Model.PaymentSubscriptionsProductModel`
+- `Model.PaymentTransactionsList`
+- `Model.PaymentTransactionsProductModel`
+- `Model.PrepaidItemsList`
+- `Model.PrepaidItemsProductModel`
+- `Model.PrepaidSalesProductModel`
+- `Model.ServicesIdentrequestsList`
+- `Model.ServicesIdentrequestsProductModel`
+- `Model.ServicesIdentresultsList`
+- `Model.ServicesIdentresultsProductModel`
+- `Model.SmartDevicesList`
+- `Model.SmartDevicesProductModel`
+- `Model.SmartRoutingsList`
+- `Model.SmartRoutingsProductModel`
+- `Model.SmartTemplatesList`
+- `Model.SmartTemplatesProductModel`
+- `Model.SmartTransactionsList`
+- `Model.SmartTransactionsProductModel`
+
+### Changed
+- `Model.ApplePayDescriptor` element `header` from `object` to `ApplePayDescriptorHeader`
+- `Model.SmartTransactionPaymentContainerDTO` element `customer` from `PaymentContainersDTOCustomer` to `BaseProductModel`
+
+### Removed
+- `Api.PaymentContainersApi.paymentContainersIdAssignSecondaryIdDelete()`
+- `Api.PaymentContainersApi.paymentContainersIdAssignSecondaryIdPost()`
+- `Model.ACC_ID`
+- `Model.ACC_Object`
+- `Model.MRC_ID`
+- `Model.MRC_Object`
+- `Model.PCO_ID`
+- `Model.PCO_Object`
+- `Model.PIG_ID`
+- `Model.PIG_Object`
+
+
 
 ## [2.16.0] - 2022-11-17
 [2.16.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.15.0...2.16.0

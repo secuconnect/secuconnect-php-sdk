@@ -246,7 +246,7 @@ class BillingCyclesItem implements ArrayAccess
 
     /**
      * Sets price
-     * @param int $price Price
+     * @param int $price price
      * @return $this
      */
     public function setPrice($price)

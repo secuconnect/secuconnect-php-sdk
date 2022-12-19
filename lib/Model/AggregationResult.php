@@ -2,16 +2,17 @@
 
 namespace Secuconnect\Client\Model;
 
+use \ArrayAccess;
+
 /**
- * ACC_Object
+ * AggregationResult
  *
  * @category Class
- * @description General Account Identifier
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ACC_Object extends BaseProductModel
+class AggregationResult implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -19,15 +20,19 @@ class ACC_Object extends BaseProductModel
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ACC_Object';
+    protected static $swaggerModelName = 'AggregationResult';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'object' => 'string',
-        'id' => 'string'
+        'l' => 'int',
+        'k' => 'int',
+        'ks' => 'string',
+        'c' => 'int',
+        's' => 'int',
+        't' => '\Secuconnect\Client\Model\AggregationTimeResult'
     ];
 
     /**
@@ -35,18 +40,22 @@ class ACC_Object extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'object' => null,
-        'id' => null
+        'l' => null,
+        'k' => null,
+        'ks' => null,
+        'c' => null,
+        's' => null,
+        't' => null
     ];
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /**
@@ -54,8 +63,12 @@ class ACC_Object extends BaseProductModel
      * @var string[]
      */
     protected static $attributeMap = [
-        'object' => 'object',
-        'id' => 'id'
+        'l' => 'l',
+        'k' => 'k',
+        'ks' => 'ks',
+        'c' => 'c',
+        's' => 's',
+        't' => 't'
     ];
 
     /**
@@ -63,8 +76,12 @@ class ACC_Object extends BaseProductModel
      * @var string[]
      */
     protected static $setters = [
-        'object' => 'setObject',
-        'id' => 'setId'
+        'l' => 'setL',
+        'k' => 'setK',
+        'ks' => 'setKs',
+        'c' => 'setC',
+        's' => 'setS',
+        't' => 'setT'
     ];
 
     /**
@@ -72,24 +89,34 @@ class ACC_Object extends BaseProductModel
      * @var string[]
      */
     protected static $getters = [
-        'object' => 'getObject',
-        'id' => 'getId'
+        'l' => 'getL',
+        'k' => 'getK',
+        'ks' => 'getKs',
+        'c' => 'getC',
+        's' => 'getS',
+        't' => 'getT'
     ];
 
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
+
+    /**
+     * Associative array for storing property values
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -97,10 +124,12 @@ class ACC_Object extends BaseProductModel
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['object'] = isset($data['object']) ? $data['object'] : 'general.accounts';
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['l'] = isset($data['l']) ? $data['l'] : null;
+        $this->container['k'] = isset($data['k']) ? $data['k'] : null;
+        $this->container['ks'] = isset($data['ks']) ? $data['ks'] : null;
+        $this->container['c'] = isset($data['c']) ? $data['c'] : null;
+        $this->container['s'] = isset($data['s']) ? $data['s'] : null;
+        $this->container['t'] = isset($data['t']) ? $data['t'] : null;
     }
 
     /**
@@ -110,7 +139,7 @@ class ACC_Object extends BaseProductModel
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = parent::listInvalidProperties();
+        $invalid_properties = [];
 
         return $invalid_properties;
     }
@@ -128,43 +157,127 @@ class ACC_Object extends BaseProductModel
 
 
     /**
-     * Gets object
-     * @return string
+     * Gets l
+     * @return int
      */
-    public function getObject()
+    public function getL()
     {
-        return $this->container['object'];
+        return $this->container['l'];
     }
 
     /**
-     * Sets object
-     * @param string $object object
+     * Sets l
+     * @param int $l lookup index
      * @return $this
      */
-    public function setObject($object)
+    public function setL($l)
     {
-        $this->container['object'] = $object;
+        $this->container['l'] = $l;
 
         return $this;
     }
 
     /**
-     * Gets id
-     * @return string
+     * Gets k
+     * @return int
      */
-    public function getId()
+    public function getK()
     {
-        return $this->container['id'];
+        return $this->container['k'];
     }
 
     /**
-     * Sets id
-     * @param string $id id
+     * Sets k
+     * @param int $k key index
      * @return $this
      */
-    public function setId($id)
+    public function setK($k)
     {
-        $this->container['id'] = $id;
+        $this->container['k'] = $k;
+
+        return $this;
+    }
+
+    /**
+     * Gets ks
+     * @return string
+     */
+    public function getKs()
+    {
+        return $this->container['ks'];
+    }
+
+    /**
+     * Sets ks
+     * @param string $ks key name
+     * @return $this
+     */
+    public function setKs($ks)
+    {
+        $this->container['ks'] = $ks;
+
+        return $this;
+    }
+
+    /**
+     * Gets c
+     * @return int
+     */
+    public function getC()
+    {
+        return $this->container['c'];
+    }
+
+    /**
+     * Sets c
+     * @param int $c count (number of items)
+     * @return $this
+     */
+    public function setC($c)
+    {
+        $this->container['c'] = $c;
+
+        return $this;
+    }
+
+    /**
+     * Gets s
+     * @return int
+     */
+    public function getS()
+    {
+        return $this->container['s'];
+    }
+
+    /**
+     * Sets s
+     * @param int $s sum
+     * @return $this
+     */
+    public function setS($s)
+    {
+        $this->container['s'] = $s;
+
+        return $this;
+    }
+
+    /**
+     * Gets t
+     * @return \Secuconnect\Client\Model\AggregationTimeResult
+     */
+    public function getT()
+    {
+        return $this->container['t'];
+    }
+
+    /**
+     * Sets t
+     * @param \Secuconnect\Client\Model\AggregationTimeResult $t t
+     * @return $this
+     */
+    public function setT($t)
+    {
+        $this->container['t'] = $t;
 
         return $this;
     }

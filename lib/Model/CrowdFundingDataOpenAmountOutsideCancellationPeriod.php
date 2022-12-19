@@ -21,7 +21,7 @@ class CrowdFundingDataOpenAmountOutsideCancellationPeriod implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'CrowdFundingDataOpenAmount_outside_cancellation_period';
+    protected static $swaggerModelName = 'CrowdFundingDataOpenAmountOutsideCancellationPeriod';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

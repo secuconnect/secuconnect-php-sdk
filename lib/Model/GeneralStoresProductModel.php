@@ -26,6 +26,12 @@ class GeneralStoresProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'l' => 'int',
+        'k' => 'int',
+        'ks' => 'string',
+        'c' => 'int',
+        's' => 'int',
+        't' => '\Secuconnect\Client\Model\AggregationTimeResult',
         'id_old' => 'string',
         'merchant' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'store_name' => 'string',
@@ -60,6 +66,12 @@ class GeneralStoresProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'l' => null,
+        'k' => null,
+        'ks' => null,
+        'c' => null,
+        's' => null,
+        't' => null,
         'id_old' => 'id',
         'merchant' => null,
         'store_name' => null,
@@ -104,6 +116,12 @@ class GeneralStoresProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $attributeMap = [
+        'l' => 'l',
+        'k' => 'k',
+        'ks' => 'ks',
+        'c' => 'c',
+        's' => 's',
+        't' => 't',
         'id_old' => 'id_old',
         'merchant' => 'merchant',
         'store_name' => 'store_name',
@@ -138,6 +156,12 @@ class GeneralStoresProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $setters = [
+        'l' => 'setL',
+        'k' => 'setK',
+        'ks' => 'setKs',
+        'c' => 'setC',
+        's' => 'setS',
+        't' => 'setT',
         'id_old' => 'setIdOld',
         'merchant' => 'setMerchant',
         'store_name' => 'setStoreName',
@@ -172,6 +196,12 @@ class GeneralStoresProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $getters = [
+        'l' => 'getL',
+        'k' => 'getK',
+        'ks' => 'getKs',
+        'c' => 'getC',
+        's' => 'getS',
+        't' => 'getT',
         'id_old' => 'getIdOld',
         'merchant' => 'getMerchant',
         'store_name' => 'getStoreName',
@@ -224,6 +254,12 @@ class GeneralStoresProductModel extends BaseProductModel
     {
         parent::__construct($data);
 
+        $this->container['l'] = isset($data['l']) ? $data['l'] : null;
+        $this->container['k'] = isset($data['k']) ? $data['k'] : null;
+        $this->container['ks'] = isset($data['ks']) ? $data['ks'] : null;
+        $this->container['c'] = isset($data['c']) ? $data['c'] : null;
+        $this->container['s'] = isset($data['s']) ? $data['s'] : null;
+        $this->container['t'] = isset($data['t']) ? $data['t'] : null;
         $this->container['id_old'] = isset($data['id_old']) ? $data['id_old'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['store_name'] = isset($data['store_name']) ? $data['store_name'] : null;
@@ -276,6 +312,132 @@ class GeneralStoresProductModel extends BaseProductModel
         return true;
     }
 
+
+    /**
+     * Gets l
+     * @return int
+     */
+    public function getL()
+    {
+        return $this->container['l'];
+    }
+
+    /**
+     * Sets l
+     * @param int $l lookup index
+     * @return $this
+     */
+    public function setL($l)
+    {
+        $this->container['l'] = $l;
+
+        return $this;
+    }
+
+    /**
+     * Gets k
+     * @return int
+     */
+    public function getK()
+    {
+        return $this->container['k'];
+    }
+
+    /**
+     * Sets k
+     * @param int $k key index
+     * @return $this
+     */
+    public function setK($k)
+    {
+        $this->container['k'] = $k;
+
+        return $this;
+    }
+
+    /**
+     * Gets ks
+     * @return string
+     */
+    public function getKs()
+    {
+        return $this->container['ks'];
+    }
+
+    /**
+     * Sets ks
+     * @param string $ks key name
+     * @return $this
+     */
+    public function setKs($ks)
+    {
+        $this->container['ks'] = $ks;
+
+        return $this;
+    }
+
+    /**
+     * Gets c
+     * @return int
+     */
+    public function getC()
+    {
+        return $this->container['c'];
+    }
+
+    /**
+     * Sets c
+     * @param int $c count (number of items)
+     * @return $this
+     */
+    public function setC($c)
+    {
+        $this->container['c'] = $c;
+
+        return $this;
+    }
+
+    /**
+     * Gets s
+     * @return int
+     */
+    public function getS()
+    {
+        return $this->container['s'];
+    }
+
+    /**
+     * Sets s
+     * @param int $s sum
+     * @return $this
+     */
+    public function setS($s)
+    {
+        $this->container['s'] = $s;
+
+        return $this;
+    }
+
+    /**
+     * Gets t
+     * @return \Secuconnect\Client\Model\AggregationTimeResult
+     */
+    public function getT()
+    {
+        return $this->container['t'];
+    }
+
+    /**
+     * Sets t
+     * @param \Secuconnect\Client\Model\AggregationTimeResult $t t
+     * @return $this
+     */
+    public function setT($t)
+    {
+        $this->container['t'] = $t;
+
+        return $this;
+    }
 
     /**
      * Gets id_old

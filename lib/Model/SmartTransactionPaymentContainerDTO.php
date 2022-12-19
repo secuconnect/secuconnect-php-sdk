@@ -26,6 +26,7 @@ class SmartTransactionPaymentContainerDTO extends ProductInstanceUID
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'merchant_id' => 'string',
         'customer' => '\Secuconnect\Client\Model\PaymentContainersDTOCustomer',
         'customer_id' => 'string',
         'type' => 'string',
@@ -37,6 +38,7 @@ class SmartTransactionPaymentContainerDTO extends ProductInstanceUID
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'merchant_id' => null,
         'customer' => null,
         'customer_id' => null,
         'type' => null,
@@ -58,6 +60,7 @@ class SmartTransactionPaymentContainerDTO extends ProductInstanceUID
      * @var string[]
      */
     protected static $attributeMap = [
+        'merchant_id' => 'merchant_id',
         'customer' => 'customer',
         'customer_id' => 'customer_id',
         'type' => 'type',
@@ -69,6 +72,7 @@ class SmartTransactionPaymentContainerDTO extends ProductInstanceUID
      * @var string[]
      */
     protected static $setters = [
+        'merchant_id' => 'setMerchantId',
         'customer' => 'setCustomer',
         'customer_id' => 'setCustomerId',
         'type' => 'setType',
@@ -80,6 +84,7 @@ class SmartTransactionPaymentContainerDTO extends ProductInstanceUID
      * @var string[]
      */
     protected static $getters = [
+        'merchant_id' => 'getMerchantId',
         'customer' => 'getCustomer',
         'customer_id' => 'getCustomerId',
         'type' => 'getType',
@@ -109,6 +114,7 @@ class SmartTransactionPaymentContainerDTO extends ProductInstanceUID
     {
         parent::__construct($data);
 
+        $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
         $this->container['customer_id'] = isset($data['customer_id']) ? $data['customer_id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
@@ -138,6 +144,27 @@ class SmartTransactionPaymentContainerDTO extends ProductInstanceUID
         return true;
     }
 
+
+    /**
+     * Gets merchant_id
+     * @return string
+     */
+    public function getMerchantId()
+    {
+        return $this->container['merchant_id'];
+    }
+
+    /**
+     * Sets merchant_id
+     * @param string $merchant_id General Merchant ID
+     * @return $this
+     */
+    public function setMerchantId($merchant_id)
+    {
+        $this->container['merchant_id'] = $merchant_id;
+
+        return $this;
+    }
 
     /**
      * Gets customer
@@ -171,7 +198,7 @@ class SmartTransactionPaymentContainerDTO extends ProductInstanceUID
 
     /**
      * Sets customer_id
-     * @param string $customer_id Payment-Customer-ID
+     * @param string $customer_id Payment Customer ID
      * @return $this
      */
     public function setCustomerId($customer_id)

@@ -26,6 +26,12 @@ class PaymentSubscriptionsProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'l' => 'int',
+        'k' => 'int',
+        'ks' => 'string',
+        'c' => 'int',
+        's' => 'int',
+        't' => '\Secuconnect\Client\Model\AggregationTimeResult',
         'created' => 'string',
         'updated' => 'string',
         'smart_transaction' => '\Secuconnect\Client\Model\BaseProductModel',
@@ -37,7 +43,8 @@ class PaymentSubscriptionsProductModel extends BaseProductModel
         'start_at' => 'string',
         'status' => 'string',
         'paypal_subscription_id' => 'string',
-        'billing_cycles' => '\Secuconnect\Client\Model\PaymentSubscriptionsProductModelBillingCycles'
+        'billing_cycles' => '\Secuconnect\Client\Model\PaymentSubscriptionsProductModelBillingCycles',
+        'demo' => 'bool'
     ];
 
     /**
@@ -45,6 +52,12 @@ class PaymentSubscriptionsProductModel extends BaseProductModel
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'l' => null,
+        'k' => null,
+        'ks' => null,
+        'c' => null,
+        's' => null,
+        't' => null,
         'created' => null,
         'updated' => null,
         'smart_transaction' => null,
@@ -56,7 +69,8 @@ class PaymentSubscriptionsProductModel extends BaseProductModel
         'start_at' => null,
         'status' => null,
         'paypal_subscription_id' => null,
-        'billing_cycles' => null
+        'billing_cycles' => null,
+        'demo' => null
     ];
 
     public static function swaggerTypes()
@@ -74,6 +88,12 @@ class PaymentSubscriptionsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $attributeMap = [
+        'l' => 'l',
+        'k' => 'k',
+        'ks' => 'ks',
+        'c' => 'c',
+        's' => 's',
+        't' => 't',
         'created' => 'created',
         'updated' => 'updated',
         'smart_transaction' => 'smart_transaction',
@@ -85,7 +105,8 @@ class PaymentSubscriptionsProductModel extends BaseProductModel
         'start_at' => 'start_at',
         'status' => 'status',
         'paypal_subscription_id' => 'paypal_subscription_id',
-        'billing_cycles' => 'billing_cycles'
+        'billing_cycles' => 'billing_cycles',
+        'demo' => 'demo'
     ];
 
     /**
@@ -93,6 +114,12 @@ class PaymentSubscriptionsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $setters = [
+        'l' => 'setL',
+        'k' => 'setK',
+        'ks' => 'setKs',
+        'c' => 'setC',
+        's' => 'setS',
+        't' => 'setT',
         'created' => 'setCreated',
         'updated' => 'setUpdated',
         'smart_transaction' => 'setSmartTransaction',
@@ -104,7 +131,8 @@ class PaymentSubscriptionsProductModel extends BaseProductModel
         'start_at' => 'setStartAt',
         'status' => 'setStatus',
         'paypal_subscription_id' => 'setPaypalSubscriptionId',
-        'billing_cycles' => 'setBillingCycles'
+        'billing_cycles' => 'setBillingCycles',
+        'demo' => 'setDemo'
     ];
 
     /**
@@ -112,6 +140,12 @@ class PaymentSubscriptionsProductModel extends BaseProductModel
      * @var string[]
      */
     protected static $getters = [
+        'l' => 'getL',
+        'k' => 'getK',
+        'ks' => 'getKs',
+        'c' => 'getC',
+        's' => 'getS',
+        't' => 'getT',
         'created' => 'getCreated',
         'updated' => 'getUpdated',
         'smart_transaction' => 'getSmartTransaction',
@@ -123,7 +157,8 @@ class PaymentSubscriptionsProductModel extends BaseProductModel
         'start_at' => 'getStartAt',
         'status' => 'getStatus',
         'paypal_subscription_id' => 'getPaypalSubscriptionId',
-        'billing_cycles' => 'getBillingCycles'
+        'billing_cycles' => 'getBillingCycles',
+        'demo' => 'getDemo'
     ];
 
     public static function attributeMap()
@@ -149,6 +184,12 @@ class PaymentSubscriptionsProductModel extends BaseProductModel
     {
         parent::__construct($data);
 
+        $this->container['l'] = isset($data['l']) ? $data['l'] : null;
+        $this->container['k'] = isset($data['k']) ? $data['k'] : null;
+        $this->container['ks'] = isset($data['ks']) ? $data['ks'] : null;
+        $this->container['c'] = isset($data['c']) ? $data['c'] : null;
+        $this->container['s'] = isset($data['s']) ? $data['s'] : null;
+        $this->container['t'] = isset($data['t']) ? $data['t'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
         $this->container['smart_transaction'] = isset($data['smart_transaction']) ? $data['smart_transaction'] : null;
@@ -161,6 +202,7 @@ class PaymentSubscriptionsProductModel extends BaseProductModel
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['paypal_subscription_id'] = isset($data['paypal_subscription_id']) ? $data['paypal_subscription_id'] : null;
         $this->container['billing_cycles'] = isset($data['billing_cycles']) ? $data['billing_cycles'] : null;
+        $this->container['demo'] = isset($data['demo']) ? $data['demo'] : null;
     }
 
     /**
@@ -186,6 +228,132 @@ class PaymentSubscriptionsProductModel extends BaseProductModel
         return true;
     }
 
+
+    /**
+     * Gets l
+     * @return int
+     */
+    public function getL()
+    {
+        return $this->container['l'];
+    }
+
+    /**
+     * Sets l
+     * @param int $l lookup index
+     * @return $this
+     */
+    public function setL($l)
+    {
+        $this->container['l'] = $l;
+
+        return $this;
+    }
+
+    /**
+     * Gets k
+     * @return int
+     */
+    public function getK()
+    {
+        return $this->container['k'];
+    }
+
+    /**
+     * Sets k
+     * @param int $k key index
+     * @return $this
+     */
+    public function setK($k)
+    {
+        $this->container['k'] = $k;
+
+        return $this;
+    }
+
+    /**
+     * Gets ks
+     * @return string
+     */
+    public function getKs()
+    {
+        return $this->container['ks'];
+    }
+
+    /**
+     * Sets ks
+     * @param string $ks key name
+     * @return $this
+     */
+    public function setKs($ks)
+    {
+        $this->container['ks'] = $ks;
+
+        return $this;
+    }
+
+    /**
+     * Gets c
+     * @return int
+     */
+    public function getC()
+    {
+        return $this->container['c'];
+    }
+
+    /**
+     * Sets c
+     * @param int $c count (number of items)
+     * @return $this
+     */
+    public function setC($c)
+    {
+        $this->container['c'] = $c;
+
+        return $this;
+    }
+
+    /**
+     * Gets s
+     * @return int
+     */
+    public function getS()
+    {
+        return $this->container['s'];
+    }
+
+    /**
+     * Sets s
+     * @param int $s sum
+     * @return $this
+     */
+    public function setS($s)
+    {
+        $this->container['s'] = $s;
+
+        return $this;
+    }
+
+    /**
+     * Gets t
+     * @return \Secuconnect\Client\Model\AggregationTimeResult
+     */
+    public function getT()
+    {
+        return $this->container['t'];
+    }
+
+    /**
+     * Sets t
+     * @param \Secuconnect\Client\Model\AggregationTimeResult $t t
+     * @return $this
+     */
+    public function setT($t)
+    {
+        $this->container['t'] = $t;
+
+        return $this;
+    }
 
     /**
      * Gets created
@@ -435,6 +603,27 @@ class PaymentSubscriptionsProductModel extends BaseProductModel
     public function setBillingCycles($billing_cycles)
     {
         $this->container['billing_cycles'] = $billing_cycles;
+
+        return $this;
+    }
+
+    /**
+     * Gets demo
+     * @return bool
+     */
+    public function getDemo()
+    {
+        return $this->container['demo'];
+    }
+
+    /**
+     * Sets demo
+     * @param bool $demo Demo
+     * @return $this
+     */
+    public function setDemo($demo)
+    {
+        $this->container['demo'] = $demo;
 
         return $this;
     }

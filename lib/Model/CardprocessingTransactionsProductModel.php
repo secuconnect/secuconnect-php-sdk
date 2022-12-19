@@ -41,7 +41,13 @@ class CardprocessingTransactionsProductModel extends BaseProductModel
         'receipt_number' => 'string',
         'product' => 'string',
         'ref_report_id' => 'int',
-        'ref_report_type' => 'int'
+        'ref_report_type' => 'int',
+        'l' => 'int',
+        'k' => 'int',
+        'ks' => 'string',
+        'c' => 'int',
+        's' => 'int',
+        't' => '\Secuconnect\Client\Model\AggregationTimeResult'
     ];
 
     /**
@@ -64,7 +70,13 @@ class CardprocessingTransactionsProductModel extends BaseProductModel
         'receipt_number' => null,
         'product' => null,
         'ref_report_id' => null,
-        'ref_report_type' => null
+        'ref_report_type' => null,
+        'l' => null,
+        'k' => null,
+        'ks' => null,
+        'c' => null,
+        's' => null,
+        't' => null
     ];
 
     public static function swaggerTypes()
@@ -97,7 +109,13 @@ class CardprocessingTransactionsProductModel extends BaseProductModel
         'receipt_number' => 'receipt_number',
         'product' => 'product',
         'ref_report_id' => 'ref_report_id',
-        'ref_report_type' => 'ref_report_type'
+        'ref_report_type' => 'ref_report_type',
+        'l' => 'l',
+        'k' => 'k',
+        'ks' => 'ks',
+        'c' => 'c',
+        's' => 's',
+        't' => 't'
     ];
 
     /**
@@ -120,7 +138,13 @@ class CardprocessingTransactionsProductModel extends BaseProductModel
         'receipt_number' => 'setReceiptNumber',
         'product' => 'setProduct',
         'ref_report_id' => 'setRefReportId',
-        'ref_report_type' => 'setRefReportType'
+        'ref_report_type' => 'setRefReportType',
+        'l' => 'setL',
+        'k' => 'setK',
+        'ks' => 'setKs',
+        'c' => 'setC',
+        's' => 'setS',
+        't' => 'setT'
     ];
 
     /**
@@ -143,7 +167,13 @@ class CardprocessingTransactionsProductModel extends BaseProductModel
         'receipt_number' => 'getReceiptNumber',
         'product' => 'getProduct',
         'ref_report_id' => 'getRefReportId',
-        'ref_report_type' => 'getRefReportType'
+        'ref_report_type' => 'getRefReportType',
+        'l' => 'getL',
+        'k' => 'getK',
+        'ks' => 'getKs',
+        'c' => 'getC',
+        's' => 'getS',
+        't' => 'getT'
     ];
 
     public static function attributeMap()
@@ -185,6 +215,12 @@ class CardprocessingTransactionsProductModel extends BaseProductModel
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
         $this->container['ref_report_id'] = isset($data['ref_report_id']) ? $data['ref_report_id'] : null;
         $this->container['ref_report_type'] = isset($data['ref_report_type']) ? $data['ref_report_type'] : null;
+        $this->container['l'] = isset($data['l']) ? $data['l'] : null;
+        $this->container['k'] = isset($data['k']) ? $data['k'] : null;
+        $this->container['ks'] = isset($data['ks']) ? $data['ks'] : null;
+        $this->container['c'] = isset($data['c']) ? $data['c'] : null;
+        $this->container['s'] = isset($data['s']) ? $data['s'] : null;
+        $this->container['t'] = isset($data['t']) ? $data['t'] : null;
     }
 
     /**
@@ -543,6 +579,132 @@ class CardprocessingTransactionsProductModel extends BaseProductModel
     public function setRefReportType($ref_report_type)
     {
         $this->container['ref_report_type'] = $ref_report_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets l
+     * @return int
+     */
+    public function getL()
+    {
+        return $this->container['l'];
+    }
+
+    /**
+     * Sets l
+     * @param int $l lookup index
+     * @return $this
+     */
+    public function setL($l)
+    {
+        $this->container['l'] = $l;
+
+        return $this;
+    }
+
+    /**
+     * Gets k
+     * @return int
+     */
+    public function getK()
+    {
+        return $this->container['k'];
+    }
+
+    /**
+     * Sets k
+     * @param int $k key index
+     * @return $this
+     */
+    public function setK($k)
+    {
+        $this->container['k'] = $k;
+
+        return $this;
+    }
+
+    /**
+     * Gets ks
+     * @return string
+     */
+    public function getKs()
+    {
+        return $this->container['ks'];
+    }
+
+    /**
+     * Sets ks
+     * @param string $ks key name
+     * @return $this
+     */
+    public function setKs($ks)
+    {
+        $this->container['ks'] = $ks;
+
+        return $this;
+    }
+
+    /**
+     * Gets c
+     * @return int
+     */
+    public function getC()
+    {
+        return $this->container['c'];
+    }
+
+    /**
+     * Sets c
+     * @param int $c count (number of items)
+     * @return $this
+     */
+    public function setC($c)
+    {
+        $this->container['c'] = $c;
+
+        return $this;
+    }
+
+    /**
+     * Gets s
+     * @return int
+     */
+    public function getS()
+    {
+        return $this->container['s'];
+    }
+
+    /**
+     * Sets s
+     * @param int $s sum
+     * @return $this
+     */
+    public function setS($s)
+    {
+        $this->container['s'] = $s;
+
+        return $this;
+    }
+
+    /**
+     * Gets t
+     * @return \Secuconnect\Client\Model\AggregationTimeResult
+     */
+    public function getT()
+    {
+        return $this->container['t'];
+    }
+
+    /**
+     * Sets t
+     * @param \Secuconnect\Client\Model\AggregationTimeResult $t t
+     * @return $this
+     */
+    public function setT($t)
+    {
+        $this->container['t'] = $t;
 
         return $this;
     }
