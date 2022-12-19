@@ -22,17 +22,27 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [2.17.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.16.0...2.17.0
 
 ### Added
+- `Api.PaymentSecupayPayoutApi.paymentSecupaypayoutWithoutCustomerPost()`
+- `Api.PrepaidSalesApi.getAll()`
+- `Api.PrepaidSalesApi.getOne()`
+- `Api.SmartTransactionsApi.abortTransaction()`
+- `Api.SmartTransactionsApi.updatePaymentContainer()`
 - `Model.Aggregate`
 - `Model.AggregationResult`
 - `Model.AggregationTimeResult`
 - `Model.ApplePayDescriptorHeader`
+- `Model.PaymentContainersDTO` element `merchant_id`
+- `Model.PaymentContractsDTOClone` element `contract_id`
+- `Model.PaymentContractsDTORequestId` element `contract_id`, `payment_data`, `url_push`, `additional_data`
 - `Model.PaymentContractsDTORequestIdAdditionalData`
 - `Model.PaymentContractsDTORequestIdAdditionalDataCreateCard`
+- `Model.PaymentPlansDTO` element `merchant_id`
 - `Model.PrepaidSalesList`
 - `Model.SecupayPayoutListItem`
 - `Model.SecupayPayoutWithoutCustomerDTO`
+- `Model.SmartTransactionPaymentContainerDTO` element `merchant_id`
 
-### Changed
+#### element `aggregate`, `meta`, `validate`, `scroll_expire`, `scroll_id` and `preset` added to the `getAll()` methods
 - `Api.CardprocessingInvoicesApi`
 - `Api.CardprocessingTransactionsApi`
 - `Api.GeneralContractsApi`
@@ -60,14 +70,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - `Api.SmartRoutingsApi`
 - `Api.SmartTemplatesApi`
 - `Api.SmartTransactionsApi`
-- `Model.ApplePayDescriptor`
-- `Model.BillingCyclesItem`
 - `Model.CardprocessingInvoicesList`
 - `Model.CardprocessingInvoicesProductModel`
 - `Model.CardprocessingTransactionsList`
 - `Model.CardprocessingTransactionsProductModel`
-- `Model.CrowdFundingDataOpenAmountOutsideCancellationPeriod`
-- `Model.FileToUpload`
 - `Model.GeneralContractsList`
 - `Model.GeneralContractsProductModel`
 - `Model.GeneralMerchantsList`
@@ -84,11 +90,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - `Model.LoyaltyMerchantcardsProductModel`
 - `Model.LoyaltyTransactionsList`
 - `Model.LoyaltyTransactionsProductModel`
-- `Model.PaymentContainersDTO`
 - `Model.PaymentContainersList`
 - `Model.PaymentContainersProductModel`
-- `Model.PaymentContractsDTOClone`
-- `Model.PaymentContractsDTORequestId`
 - `Model.PaymentContractsList`
 - `Model.PaymentContractsProductModel`
 - `Model.PaymentCustomersList`
@@ -97,7 +100,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - `Model.PaymentInvoicesProductModel`
 - `Model.PaymentPayoutsList`
 - `Model.PaymentPayoutsProductModel`
-- `Model.PaymentPlansDTO`
 - `Model.PaymentPlansList`
 - `Model.PaymentPlansProductModel`
 - `Model.PaymentSubscriptionsList`
@@ -117,11 +119,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - `Model.SmartRoutingsProductModel`
 - `Model.SmartTemplatesList`
 - `Model.SmartTemplatesProductModel`
-- `Model.SmartTransactionPaymentContainerDTO`
 - `Model.SmartTransactionsList`
 - `Model.SmartTransactionsProductModel`
 
+### Changed
+- `Model.ApplePayDescriptor` element `header` from `object` to `ApplePayDescriptorHeader`
+- `Model.SmartTransactionPaymentContainerDTO` element `customer` from `PaymentContainersDTOCustomer` to `BaseProductModel`
+
 ### Removed
+- `Api.PaymentContainersApi.paymentContainersIdAssignSecondaryIdDelete()`
+- `Api.PaymentContainersApi.paymentContainersIdAssignSecondaryIdPost()`
 - `Model.ACC_ID`
 - `Model.ACC_Object`
 - `Model.MRC_ID`
