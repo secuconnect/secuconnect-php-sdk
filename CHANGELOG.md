@@ -18,6 +18,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.18.0] - 2023-01-11
+[2.18.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.17.0...2.18.0
+
+### Added
+- `Api.PrepaidReportsApi`
+- `Model.PrepaidReportsList`
+- `Model.PrepaidReportsProductModel`
+
+### Changed
+
+### Removed
+
+
 ## [2.17.0] - 2022-12-19
 [2.17.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.16.0...2.17.0
 
