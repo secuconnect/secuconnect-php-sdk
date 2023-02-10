@@ -30,6 +30,7 @@ class PaymentTransactionCancelDTO implements ArrayAccess
     protected static $swaggerTypes = [
         'reason' => 'string',
         'amount' => 'int',
+        'reduce_amount_by' => 'int',
         'reduce_stakeholder_payment' => 'bool',
         'container_id' => 'string'
     ];
@@ -41,6 +42,7 @@ class PaymentTransactionCancelDTO implements ArrayAccess
     protected static $swaggerFormats = [
         'reason' => null,
         'amount' => null,
+        'reduce_amount_by' => null,
         'reduce_stakeholder_payment' => null,
         'container_id' => null
     ];
@@ -62,6 +64,7 @@ class PaymentTransactionCancelDTO implements ArrayAccess
     protected static $attributeMap = [
         'reason' => 'reason',
         'amount' => 'amount',
+        'reduce_amount_by' => 'reduce_amount_by',
         'reduce_stakeholder_payment' => 'reduce_stakeholder_payment',
         'container_id' => 'container_id'
     ];
@@ -73,6 +76,7 @@ class PaymentTransactionCancelDTO implements ArrayAccess
     protected static $setters = [
         'reason' => 'setReason',
         'amount' => 'setAmount',
+        'reduce_amount_by' => 'setReduceAmountBy',
         'reduce_stakeholder_payment' => 'setReduceStakeholderPayment',
         'container_id' => 'setContainerId'
     ];
@@ -84,6 +88,7 @@ class PaymentTransactionCancelDTO implements ArrayAccess
     protected static $getters = [
         'reason' => 'getReason',
         'amount' => 'getAmount',
+        'reduce_amount_by' => 'getReduceAmountBy',
         'reduce_stakeholder_payment' => 'getReduceStakeholderPayment',
         'container_id' => 'getContainerId'
     ];
@@ -117,6 +122,7 @@ class PaymentTransactionCancelDTO implements ArrayAccess
     {
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['reduce_amount_by'] = isset($data['reduce_amount_by']) ? $data['reduce_amount_by'] : null;
         $this->container['reduce_stakeholder_payment'] = isset($data['reduce_stakeholder_payment']) ? $data['reduce_stakeholder_payment'] : false;
         $this->container['container_id'] = isset($data['container_id']) ? $data['container_id'] : null;
     }
@@ -177,12 +183,33 @@ class PaymentTransactionCancelDTO implements ArrayAccess
 
     /**
      * Sets amount
-     * @param int $amount amount
+     * @param int $amount Amount in minor currency unit (e. g. Euro Cent)
      * @return $this
      */
     public function setAmount($amount)
     {
         $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets reduce_amount_by
+     * @return int
+     */
+    public function getReduceAmountBy()
+    {
+        return $this->container['reduce_amount_by'];
+    }
+
+    /**
+     * Sets reduce_amount_by
+     * @param int $reduce_amount_by reduce_amount_by
+     * @return $this
+     */
+    public function setReduceAmountBy($reduce_amount_by)
+    {
+        $this->container['reduce_amount_by'] = $reduce_amount_by;
 
         return $this;
     }

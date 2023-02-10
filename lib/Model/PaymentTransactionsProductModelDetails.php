@@ -33,7 +33,7 @@ class PaymentTransactionsProductModelDetails implements ArrayAccess
         'status' => 'int',
         'status_text' => 'string',
         'status_simple' => 'int',
-        'status_text_simple' => 'string',
+        'status_simple_text' => 'string',
         'description' => 'string',
         'description_raw' => 'string'
     ];
@@ -48,7 +48,7 @@ class PaymentTransactionsProductModelDetails implements ArrayAccess
         'status' => null,
         'status_text' => null,
         'status_simple' => null,
-        'status_text_simple' => null,
+        'status_simple_text' => null,
         'description' => null,
         'description_raw' => null
     ];
@@ -73,7 +73,7 @@ class PaymentTransactionsProductModelDetails implements ArrayAccess
         'status' => 'status',
         'status_text' => 'status_text',
         'status_simple' => 'status_simple',
-        'status_text_simple' => 'status_text_simple',
+        'status_simple_text' => 'status_simple_text',
         'description' => 'description',
         'description_raw' => 'description_raw'
     ];
@@ -88,7 +88,7 @@ class PaymentTransactionsProductModelDetails implements ArrayAccess
         'status' => 'setStatus',
         'status_text' => 'setStatusText',
         'status_simple' => 'setStatusSimple',
-        'status_text_simple' => 'setStatusTextSimple',
+        'status_simple_text' => 'setStatusSimpleText',
         'description' => 'setDescription',
         'description_raw' => 'setDescriptionRaw'
     ];
@@ -103,7 +103,7 @@ class PaymentTransactionsProductModelDetails implements ArrayAccess
         'status' => 'getStatus',
         'status_text' => 'getStatusText',
         'status_simple' => 'getStatusSimple',
-        'status_text_simple' => 'getStatusTextSimple',
+        'status_simple_text' => 'getStatusSimpleText',
         'description' => 'getDescription',
         'description_raw' => 'getDescriptionRaw'
     ];
@@ -140,7 +140,7 @@ class PaymentTransactionsProductModelDetails implements ArrayAccess
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['status_text'] = isset($data['status_text']) ? $data['status_text'] : null;
         $this->container['status_simple'] = isset($data['status_simple']) ? $data['status_simple'] : null;
-        $this->container['status_text_simple'] = isset($data['status_text_simple']) ? $data['status_text_simple'] : null;
+        $this->container['status_simple_text'] = isset($data['status_simple_text']) ? $data['status_simple_text'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['description_raw'] = isset($data['description_raw']) ? $data['description_raw'] : null;
     }
@@ -275,22 +275,22 @@ class PaymentTransactionsProductModelDetails implements ArrayAccess
     }
 
     /**
-     * Gets status_text_simple
+     * Gets status_simple_text
      * @return string
      */
-    public function getStatusTextSimple()
+    public function getStatusSimpleText()
     {
-        return $this->container['status_text_simple'];
+        return $this->container['status_simple_text'];
     }
 
     /**
-     * Sets status_text_simple
-     * @param string $status_text_simple Transaction simple-status description
+     * Sets status_simple_text
+     * @param string $status_simple_text Transaction simple-status description
      * @return $this
      */
-    public function setStatusTextSimple($status_text_simple)
+    public function setStatusSimpleText($status_simple_text)
     {
-        $this->container['status_text_simple'] = $status_text_simple;
+        $this->container['status_simple_text'] = $status_simple_text;
 
         return $this;
     }

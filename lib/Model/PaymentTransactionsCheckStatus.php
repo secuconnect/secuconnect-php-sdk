@@ -5,15 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SecupayTransactionCancelDTO
+ * PaymentTransactionsCheckStatus
  *
  * @category Class
- * @description SecupayTransactionCancelDTO
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SecupayTransactionCancelDTO implements ArrayAccess
+class PaymentTransactionsCheckStatus implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,17 +20,19 @@ class SecupayTransactionCancelDTO implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SecupayTransactionCancelDTO';
+    protected static $swaggerModelName = 'PaymentTransactionsCheckStatus';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'contract' => '\Secuconnect\Client\Model\PaymentContractsProductModel',
+        'status' => 'int',
+        'status_text' => 'string',
+        'status_simple' => 'int',
+        'status_simple_text' => 'string',
         'amount' => 'int',
-        'reduce_amount_by' => 'int',
-        'reduce_stakeholder_payment' => 'bool'
+        'currency' => 'string'
     ];
 
     /**
@@ -39,10 +40,12 @@ class SecupayTransactionCancelDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'contract' => null,
+        'status' => null,
+        'status_text' => null,
+        'status_simple' => null,
+        'status_simple_text' => null,
         'amount' => null,
-        'reduce_amount_by' => null,
-        'reduce_stakeholder_payment' => null
+        'currency' => null
     ];
 
     public static function swaggerTypes()
@@ -60,10 +63,12 @@ class SecupayTransactionCancelDTO implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'contract' => 'contract',
+        'status' => 'status',
+        'status_text' => 'status_text',
+        'status_simple' => 'status_simple',
+        'status_simple_text' => 'status_simple_text',
         'amount' => 'amount',
-        'reduce_amount_by' => 'reduce_amount_by',
-        'reduce_stakeholder_payment' => 'reduce_stakeholder_payment'
+        'currency' => 'currency'
     ];
 
     /**
@@ -71,10 +76,12 @@ class SecupayTransactionCancelDTO implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'contract' => 'setContract',
+        'status' => 'setStatus',
+        'status_text' => 'setStatusText',
+        'status_simple' => 'setStatusSimple',
+        'status_simple_text' => 'setStatusSimpleText',
         'amount' => 'setAmount',
-        'reduce_amount_by' => 'setReduceAmountBy',
-        'reduce_stakeholder_payment' => 'setReduceStakeholderPayment'
+        'currency' => 'setCurrency'
     ];
 
     /**
@@ -82,10 +89,12 @@ class SecupayTransactionCancelDTO implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'contract' => 'getContract',
+        'status' => 'getStatus',
+        'status_text' => 'getStatusText',
+        'status_simple' => 'getStatusSimple',
+        'status_simple_text' => 'getStatusSimpleText',
         'amount' => 'getAmount',
-        'reduce_amount_by' => 'getReduceAmountBy',
-        'reduce_stakeholder_payment' => 'getReduceStakeholderPayment'
+        'currency' => 'getCurrency'
     ];
 
     public static function attributeMap()
@@ -115,10 +124,12 @@ class SecupayTransactionCancelDTO implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['status_text'] = isset($data['status_text']) ? $data['status_text'] : null;
+        $this->container['status_simple'] = isset($data['status_simple']) ? $data['status_simple'] : null;
+        $this->container['status_simple_text'] = isset($data['status_simple_text']) ? $data['status_simple_text'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['reduce_amount_by'] = isset($data['reduce_amount_by']) ? $data['reduce_amount_by'] : null;
-        $this->container['reduce_stakeholder_payment'] = isset($data['reduce_stakeholder_payment']) ? $data['reduce_stakeholder_payment'] : false;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
     }
 
     /**
@@ -146,22 +157,85 @@ class SecupayTransactionCancelDTO implements ArrayAccess
 
 
     /**
-     * Gets contract
-     * @return \Secuconnect\Client\Model\PaymentContractsProductModel
+     * Gets status
+     * @return int
      */
-    public function getContract()
+    public function getStatus()
     {
-        return $this->container['contract'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets contract
-     * @param \Secuconnect\Client\Model\PaymentContractsProductModel $contract contract
+     * Sets status
+     * @param int $status Transaction status ID
      * @return $this
      */
-    public function setContract($contract)
+    public function setStatus($status)
     {
-        $this->container['contract'] = $contract;
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets status_text
+     * @return string
+     */
+    public function getStatusText()
+    {
+        return $this->container['status_text'];
+    }
+
+    /**
+     * Sets status_text
+     * @param string $status_text Transaction status description
+     * @return $this
+     */
+    public function setStatusText($status_text)
+    {
+        $this->container['status_text'] = $status_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets status_simple
+     * @return int
+     */
+    public function getStatusSimple()
+    {
+        return $this->container['status_simple'];
+    }
+
+    /**
+     * Sets status_simple
+     * @param int $status_simple Transaction simple-status ID
+     * @return $this
+     */
+    public function setStatusSimple($status_simple)
+    {
+        $this->container['status_simple'] = $status_simple;
+
+        return $this;
+    }
+
+    /**
+     * Gets status_simple_text
+     * @return string
+     */
+    public function getStatusSimpleText()
+    {
+        return $this->container['status_simple_text'];
+    }
+
+    /**
+     * Sets status_simple_text
+     * @param string $status_simple_text Transaction simple-status description
+     * @return $this
+     */
+    public function setStatusSimpleText($status_simple_text)
+    {
+        $this->container['status_simple_text'] = $status_simple_text;
 
         return $this;
     }
@@ -177,7 +251,7 @@ class SecupayTransactionCancelDTO implements ArrayAccess
 
     /**
      * Sets amount
-     * @param int $amount Amount in minor currency unit (e. g. Euro Cent)
+     * @param int $amount amount
      * @return $this
      */
     public function setAmount($amount)
@@ -188,43 +262,22 @@ class SecupayTransactionCancelDTO implements ArrayAccess
     }
 
     /**
-     * Gets reduce_amount_by
-     * @return int
+     * Gets currency
+     * @return string
      */
-    public function getReduceAmountBy()
+    public function getCurrency()
     {
-        return $this->container['reduce_amount_by'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets reduce_amount_by
-     * @param int $reduce_amount_by reduce_amount_by
+     * Sets currency
+     * @param string $currency currency
      * @return $this
      */
-    public function setReduceAmountBy($reduce_amount_by)
+    public function setCurrency($currency)
     {
-        $this->container['reduce_amount_by'] = $reduce_amount_by;
-
-        return $this;
-    }
-
-    /**
-     * Gets reduce_stakeholder_payment
-     * @return bool
-     */
-    public function getReduceStakeholderPayment()
-    {
-        return $this->container['reduce_stakeholder_payment'];
-    }
-
-    /**
-     * Sets reduce_stakeholder_payment
-     * @param bool $reduce_stakeholder_payment Mixed-Basket: (percentage) reduce the stakeholder amount too
-     * @return $this
-     */
-    public function setReduceStakeholderPayment($reduce_stakeholder_payment)
-    {
-        $this->container['reduce_stakeholder_payment'] = $reduce_stakeholder_payment;
+        $this->container['currency'] = $currency;
 
         return $this;
     }
