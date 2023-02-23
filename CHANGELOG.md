@@ -22,13 +22,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [2.19.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.18.0...2.19.0
 
 ### Added
+- `Api.PaymentTransactionsApi.checkStatus()`
+- `Model.PaymentTransactionCancelDTO` element `reduce_amount_by`
 - `Model.PaymentTransactionsCheckStatus`
+- `Model.SecupayTransactionCancelDTO` element `reduce_amount_by`
 
-### Changed
-- `Api.PaymentTransactionsApi`
-- `Model.PaymentTransactionCancelDTO`
-- `Model.PaymentTransactionsProductModelDetails`
-- `Model.SecupayTransactionCancelDTO`
+### Fixed
+- `Model.PaymentTransactionsProductModelDetails` renamed element `status_text_simple` to `status_simple_text`
 
 
 ## [2.18.0] - 2023-01-11
