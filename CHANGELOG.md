@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
-## [2.19.0] - 2023-02-10
+## [2.19.0] - 2023-02-23
 [2.19.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.18.0...2.19.0
 
 ### Added
