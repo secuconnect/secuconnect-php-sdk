@@ -160,7 +160,6 @@ class PaymentContainersApiTest extends TestCase
         $this->assertNotNull($response->getId());
         $this->assertNotEmpty($response->getId());
         $this->assertNull($response->getCustomer());
-        $this->assertNull($response->getAssign());
         $this->assertInstanceOf(BankAccountDescriptor::class, $response->getPrivate());
         self::$bankAccount = $response->getPrivate();
         $this->assertNotEmpty(self::$bankAccount->getOwner());

@@ -18,6 +18,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+
+## [2.30.0] - 2023-05-26
+[2.30.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.19.0...2.30.0
+
+This is only a maintenance release. The next release will be a new major version.
+
+### Changed
+- **BREAKING:** require PHP 8.0 or higher
+- **BREAKING:** support ``psr/cache`` version 1.x, 2.x and 3.x
+- **BREAKING:** support ``psr/log`` version 1.x, 2.x and 3.x
+- support ``phpunit/phpunit`` version 10.x too
+
+
 ## [2.19.0] - 2023-02-23
 [2.19.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.18.0...2.19.0
 

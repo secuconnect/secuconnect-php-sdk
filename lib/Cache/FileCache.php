@@ -28,7 +28,7 @@ class FileCache implements CacheItemPoolInterface
      */
     public function __construct($dir = null)
     {
-        if (is_dir($dir)) {
+        if (is_string($dir) && is_dir($dir)) {
             $this->dir = $dir;
         } else {
             $this->dir = __DIR__ . DIRECTORY_SEPARATOR  . '..' . DIRECTORY_SEPARATOR  . '..' . DIRECTORY_SEPARATOR  . self::DEFAULT_FOLDER;
@@ -44,7 +44,7 @@ class FileCache implements CacheItemPoolInterface
     /**
      * @inheritdoc
      */
-    public function getItem($key)
+    public function getItem($key): CacheItemInterface
     {
         if (isset($this->cacheItems[$key])) {
             return clone $this->cacheItems[$key];
@@ -67,7 +67,7 @@ class FileCache implements CacheItemPoolInterface
     /**
      * @inheritdoc
      */
-    public function getItems(array $keys = [])
+    public function getItems(array $keys = []): iterable
     {
         $items = [];
 
@@ -81,7 +81,7 @@ class FileCache implements CacheItemPoolInterface
     /**
      * @inheritdoc
      */
-    public function hasItem($key)
+    public function hasItem($key): bool
     {
         $itemNotExpired = isset($this->cacheItems[$key]) && $this->cacheItems[$key]->isHit();
 
@@ -91,7 +91,7 @@ class FileCache implements CacheItemPoolInterface
     /**
      * @inheritdoc
      */
-    public function clear()
+    public function clear(): bool
     {
         $this->cacheItems = [];
 
@@ -101,7 +101,7 @@ class FileCache implements CacheItemPoolInterface
     /**
      * @inheritdoc
      */
-    public function deleteItem($key)
+    public function deleteItem($key): bool
     {
         if (isset($this->cacheItems[$key])) {
             unset($this->cacheItems[$key]);
@@ -117,7 +117,7 @@ class FileCache implements CacheItemPoolInterface
     /**
      * @inheritdoc
      */
-    public function deleteItems(array $keys)
+    public function deleteItems(array $keys): bool
     {
         foreach ($keys as $key) {
             if ($this->deleteItem($key) === false) {
@@ -131,7 +131,7 @@ class FileCache implements CacheItemPoolInterface
     /**
      * @inheritdoc
      */
-    public function save(CacheItemInterface $item)
+    public function save(CacheItemInterface $item): bool
     {
         if (!$item->isHit()) {
             return false;
@@ -145,7 +145,7 @@ class FileCache implements CacheItemPoolInterface
     /**
      * @inheritdoc
      */
-    public function saveDeferred(CacheItemInterface $item)
+    public function saveDeferred(CacheItemInterface $item): bool
     {
         $this->cacheItems[$item->getKey()] = $item;
 
@@ -155,7 +155,7 @@ class FileCache implements CacheItemPoolInterface
     /**
      * @inheritdoc
      */
-    public function commit()
+    public function commit(): bool
     {
         foreach ($this->cacheItems as $key => $item) {
             $this->save($item);
