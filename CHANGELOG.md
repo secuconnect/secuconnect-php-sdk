@@ -18,6 +18,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.30.1] - 2023-06-01
+[2.30.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.30.0...2.30.1
+
+small fixes and some style changes
+
+### Changed
+- `lib/ApiException.php`
+- `Model.ModelInterface`
+- `Model.OneOfPaymentContainersDTOModelPrivate`
+- `Model.OneOfSmartTransactionsDeliveryOptionsModel`
+- `Model.PaymentContractsDTORequestIdAdditionalDataCreateCard`
+- `Model.ServicesIdentrequestsProductDTO`
+- `Model.ServicesIdentrequestsProductModel`
+- `lib/ObjectSerializer.php`
+
+
 
 ## [2.30.0] - 2023-05-26
 [2.30.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.19.0...2.30.0

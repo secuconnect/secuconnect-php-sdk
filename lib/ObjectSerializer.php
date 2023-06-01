@@ -2,11 +2,14 @@
 
 namespace Secuconnect\Client;
 
+use Secuconnect\Client\Model\ApplePayDescriptor;
 use Secuconnect\Client\Model\BankAccountDescriptor;
 use Secuconnect\Client\Model\CreditCardDescriptor;
+use Secuconnect\Client\Model\GooglePayDescriptor;
 use Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate;
 use Secuconnect\Client\Model\OneOfSmartTransactionsDeliveryOptionsModel;
 use Secuconnect\Client\Model\PaymentInstructions;
+use Secuconnect\Client\Model\PayPalDescriptor;
 use Secuconnect\Client\Model\SmartTransactionsCollectionModel;
 use Secuconnect\Client\Model\SmartTransactionsShippingModel;
 
