@@ -33,7 +33,6 @@ class PrepaidItemsProductModel extends PrepaidItemsBaseProductModel
         's' => 'int',
         't' => '\Secuconnect\Client\Model\AggregationTimeResult',
         'commission' => 'int',
-        'vtc_id' => 'string',
         'itemgroup' => '\Secuconnect\Client\Model\ItemGroup',
         'stock_limit_max' => 'int',
         'stock_limit_min' => 'int',
@@ -53,7 +52,6 @@ class PrepaidItemsProductModel extends PrepaidItemsBaseProductModel
         's' => null,
         't' => null,
         'commission' => null,
-        'vtc_id' => null,
         'itemgroup' => null,
         'stock_limit_max' => null,
         'stock_limit_min' => null,
@@ -83,7 +81,6 @@ class PrepaidItemsProductModel extends PrepaidItemsBaseProductModel
         's' => 's',
         't' => 't',
         'commission' => 'commission',
-        'vtc_id' => 'vtc_id',
         'itemgroup' => 'itemgroup',
         'stock_limit_max' => 'stock_limit_max',
         'stock_limit_min' => 'stock_limit_min',
@@ -103,7 +100,6 @@ class PrepaidItemsProductModel extends PrepaidItemsBaseProductModel
         's' => 'setS',
         't' => 'setT',
         'commission' => 'setCommission',
-        'vtc_id' => 'setVtcId',
         'itemgroup' => 'setItemgroup',
         'stock_limit_max' => 'setStockLimitMax',
         'stock_limit_min' => 'setStockLimitMin',
@@ -123,7 +119,6 @@ class PrepaidItemsProductModel extends PrepaidItemsBaseProductModel
         's' => 'getS',
         't' => 'getT',
         'commission' => 'getCommission',
-        'vtc_id' => 'getVtcId',
         'itemgroup' => 'getItemgroup',
         'stock_limit_max' => 'getStockLimitMax',
         'stock_limit_min' => 'getStockLimitMin',
@@ -161,7 +156,6 @@ class PrepaidItemsProductModel extends PrepaidItemsBaseProductModel
         $this->container['s'] = isset($data['s']) ? $data['s'] : null;
         $this->container['t'] = isset($data['t']) ? $data['t'] : null;
         $this->container['commission'] = isset($data['commission']) ? $data['commission'] : null;
-        $this->container['vtc_id'] = isset($data['vtc_id']) ? $data['vtc_id'] : null;
         $this->container['itemgroup'] = isset($data['itemgroup']) ? $data['itemgroup'] : null;
         $this->container['stock_limit_max'] = isset($data['stock_limit_max']) ? $data['stock_limit_max'] : null;
         $this->container['stock_limit_min'] = isset($data['stock_limit_min']) ? $data['stock_limit_min'] : null;
@@ -336,27 +330,6 @@ class PrepaidItemsProductModel extends PrepaidItemsBaseProductModel
     public function setCommission($commission)
     {
         $this->container['commission'] = $commission;
-
-        return $this;
-    }
-
-    /**
-     * Gets vtc_id
-     * @return string
-     */
-    public function getVtcId()
-    {
-        return $this->container['vtc_id'];
-    }
-
-    /**
-     * Sets vtc_id
-     * @param string $vtc_id Vtc id
-     * @return $this
-     */
-    public function setVtcId($vtc_id)
-    {
-        $this->container['vtc_id'] = $vtc_id;
 
         return $this;
     }

@@ -18,6 +18,43 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.30.2] - 2023-06-01
+[2.30.2]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.30.1...2.30.2
+
+documentation fixes
+
+### Changed
+- ``Api.CardprocessingInvoicesApi``
+- ``Api.CardprocessingTransactionsApi``
+- ``Api.GeneralContractsApi``
+- ``Api.GeneralMerchantsApi``
+- ``Api.GeneralStoresApi``
+- ``Api.LoyaltyCardgroupsApi``
+- ``Api.LoyaltyCardsApi``
+- ``Api.LoyaltyCustomersApi``
+- ``Api.LoyaltyMerchantcardsApi``
+- ``Api.LoyaltyTransactionsApi``
+- ``Api.PaymentContainersApi``
+- ``Api.PaymentContractsApi``
+- ``Api.PaymentCustomersApi``
+- ``Api.PaymentInvoicesApi``
+- ``Api.PaymentPayoutsApi``
+- ``Api.PaymentPlansApi``
+- ``Api.PaymentSubscriptionsApi``
+- ``Api.PaymentTransactionsApi``
+- ``Api.PrepaidItemsApi``
+- ``Api.PrepaidReportsApi``
+- ``Api.PrepaidSalesApi``
+- ``Api.ServicesIdentrequestsApi``
+- ``Api.ServicesIdentresultsApi``
+- ``Api.SmartDevicesApi``
+- ``Api.SmartRoutingsApi``
+- ``Api.SmartTemplatesApi``
+- ``Api.SmartTransactionsApi``
+- ``Model.ModelInterface``
+- ``Model.PrepaidItemsProductModel``
+
+
 ## [2.30.1] - 2023-06-01
 [2.30.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.30.0...2.30.1
 
