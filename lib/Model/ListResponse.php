@@ -5,15 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * ServicesIdentrequestsProductDTO
+ * ListResponse
  *
  * @category Class
- * @description ServicesIdentrequestsProductDTO
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ServicesIdentrequestsProductDTO implements ArrayAccess
+class ListResponse implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,19 +20,19 @@ class ServicesIdentrequestsProductDTO implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ServicesIdentrequestsProductDTO';
+    protected static $swaggerModelName = 'ListResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'provider' => 'string',
+        'scroll_id' => 'string',
+        'result' => 'bool',
+        'meta' => 'object',
         'type' => 'string',
-        'demo' => 'bool',
-        'person' => '\Secuconnect\Client\Model\IdentrequestPersonDTO[]',
-        'owner_transaction_id' => 'string',
-        'redirect_urls' => '\Secuconnect\Client\Model\IdentrequestRedirectUrls'
+        'sum' => 'bool',
+        'lookup' => 'string[]'
     ];
 
     /**
@@ -41,12 +40,12 @@ class ServicesIdentrequestsProductDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'provider' => null,
+        'scroll_id' => null,
+        'result' => null,
+        'meta' => null,
         'type' => null,
-        'demo' => null,
-        'person' => null,
-        'owner_transaction_id' => null,
-        'redirect_urls' => null
+        'sum' => null,
+        'lookup' => null
     ];
 
     public static function swaggerTypes()
@@ -64,12 +63,12 @@ class ServicesIdentrequestsProductDTO implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'provider' => 'provider',
+        'scroll_id' => 'scroll_id',
+        'result' => 'result',
+        'meta' => 'meta',
         'type' => 'type',
-        'demo' => 'demo',
-        'person' => 'person',
-        'owner_transaction_id' => 'owner_transaction_id',
-        'redirect_urls' => 'redirect_urls'
+        'sum' => 'sum',
+        'lookup' => 'lookup'
     ];
 
     /**
@@ -77,12 +76,12 @@ class ServicesIdentrequestsProductDTO implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'provider' => 'setProvider',
+        'scroll_id' => 'setScrollId',
+        'result' => 'setResult',
+        'meta' => 'setMeta',
         'type' => 'setType',
-        'demo' => 'setDemo',
-        'person' => 'setPerson',
-        'owner_transaction_id' => 'setOwnerTransactionId',
-        'redirect_urls' => 'setRedirectUrls'
+        'sum' => 'setSum',
+        'lookup' => 'setLookup'
     ];
 
     /**
@@ -90,12 +89,12 @@ class ServicesIdentrequestsProductDTO implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'provider' => 'getProvider',
+        'scroll_id' => 'getScrollId',
+        'result' => 'getResult',
+        'meta' => 'getMeta',
         'type' => 'getType',
-        'demo' => 'getDemo',
-        'person' => 'getPerson',
-        'owner_transaction_id' => 'getOwnerTransactionId',
-        'redirect_urls' => 'getRedirectUrls'
+        'sum' => 'getSum',
+        'lookup' => 'getLookup'
     ];
 
     public static function attributeMap()
@@ -125,12 +124,12 @@ class ServicesIdentrequestsProductDTO implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
+        $this->container['scroll_id'] = isset($data['scroll_id']) ? $data['scroll_id'] : null;
+        $this->container['result'] = isset($data['result']) ? $data['result'] : null;
+        $this->container['meta'] = isset($data['meta']) ? $data['meta'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['demo'] = isset($data['demo']) ? $data['demo'] : null;
-        $this->container['person'] = isset($data['person']) ? $data['person'] : null;
-        $this->container['owner_transaction_id'] = isset($data['owner_transaction_id']) ? $data['owner_transaction_id'] : null;
-        $this->container['redirect_urls'] = isset($data['redirect_urls']) ? $data['redirect_urls'] : null;
+        $this->container['sum'] = isset($data['sum']) ? $data['sum'] : null;
+        $this->container['lookup'] = isset($data['lookup']) ? $data['lookup'] : null;
     }
 
     /**
@@ -158,22 +157,64 @@ class ServicesIdentrequestsProductDTO implements ArrayAccess
 
 
     /**
-     * Gets provider
+     * Gets scroll_id
      * @return string
      */
-    public function getProvider()
+    public function getScrollId()
     {
-        return $this->container['provider'];
+        return $this->container['scroll_id'];
     }
 
     /**
-     * Sets provider
-     * @param string $provider provider
+     * Sets scroll_id
+     * @param string $scroll_id Identifier of a previous search context
      * @return $this
      */
-    public function setProvider($provider)
+    public function setScrollId($scroll_id)
     {
-        $this->container['provider'] = $provider;
+        $this->container['scroll_id'] = $scroll_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets result
+     * @return bool
+     */
+    public function getResult()
+    {
+        return $this->container['result'];
+    }
+
+    /**
+     * Sets result
+     * @param bool $result In case the product model function returns only scalar value (f.e. for the query validation)
+     * @return $this
+     */
+    public function setResult($result)
+    {
+        $this->container['result'] = $result;
+
+        return $this;
+    }
+
+    /**
+     * Gets meta
+     * @return object
+     */
+    public function getMeta()
+    {
+        return $this->container['meta'];
+    }
+
+    /**
+     * Sets meta
+     * @param object $meta Meta definition of the product model
+     * @return $this
+     */
+    public function setMeta($meta)
+    {
+        $this->container['meta'] = $meta;
 
         return $this;
     }
@@ -189,7 +230,7 @@ class ServicesIdentrequestsProductDTO implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type type
+     * @param string $type Aggregation type
      * @return $this
      */
     public function setType($type)
@@ -200,85 +241,43 @@ class ServicesIdentrequestsProductDTO implements ArrayAccess
     }
 
     /**
-     * Gets demo
+     * Gets sum
      * @return bool
      */
-    public function getDemo()
+    public function getSum()
     {
-        return $this->container['demo'];
+        return $this->container['sum'];
     }
 
     /**
-     * Sets demo
-     * @param bool $demo Demo Flag
+     * Sets sum
+     * @param bool $sum Aggregation result is summarized?
      * @return $this
      */
-    public function setDemo($demo)
+    public function setSum($sum)
     {
-        $this->container['demo'] = $demo;
+        $this->container['sum'] = $sum;
 
         return $this;
     }
 
     /**
-     * Gets person
-     * @return \Secuconnect\Client\Model\IdentrequestPersonDTO[]
+     * Gets lookup
+     * @return string[]
      */
-    public function getPerson()
+    public function getLookup()
     {
-        return $this->container['person'];
+        return $this->container['lookup'];
     }
 
     /**
-     * Sets person
-     * @param \Secuconnect\Client\Model\IdentrequestPersonDTO[] $person The person which should be identified by third party provider
+     * Sets lookup
+     * @param string[] $lookup Aggregation lookup table
      * @return $this
      */
-    public function setPerson($person)
+    public function setLookup($lookup)
     {
-        $this->container['person'] = $person;
-
-        return $this;
-    }
-
-    /**
-     * Gets owner_transaction_id
-     * @return string
-     */
-    public function getOwnerTransactionId()
-    {
-        return $this->container['owner_transaction_id'];
-    }
-
-    /**
-     * Sets owner_transaction_id
-     * @param string $owner_transaction_id Arbitrary ID to identify identrequest on merchant
-     * @return $this
-     */
-    public function setOwnerTransactionId($owner_transaction_id)
-    {
-        $this->container['owner_transaction_id'] = $owner_transaction_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets redirect_urls
-     * @return \Secuconnect\Client\Model\IdentrequestRedirectUrls
-     */
-    public function getRedirectUrls()
-    {
-        return $this->container['redirect_urls'];
-    }
-
-    /**
-     * Sets redirect_urls
-     * @param \Secuconnect\Client\Model\IdentrequestRedirectUrls $redirect_urls redirect_urls
-     * @return $this
-     */
-    public function setRedirectUrls($redirect_urls)
-    {
-        $this->container['redirect_urls'] = $redirect_urls;
+        $this->container['lookup'] = $lookup;
 
         return $this;
     }

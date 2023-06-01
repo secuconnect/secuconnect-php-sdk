@@ -18,6 +18,41 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.31.0] - 2023-06-01
+[2.31.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.30.2...2.31.0
+
+- *new endpoint*: `GeneralContractsApi->getTransferBalance()`
+- *new endpoint*: `PaymentTransactionsApi->assignTransferBalance()`
+- *new element*: `acceptance_points` and `two_fa` in `GeneralMerchantsProductModel`
+- *new element*: `forename`, `surname`, `project_name` and `email` in `GeneralMerchantsUser`
+- *new element*: `identcase` and `assignment` in `ServicesIdentrequestsProductModel`
+- *renamed element*: `provider` to `provider_id` in `IdentrequestPerson`
+- *renamed element*: `redirect_url` to `redirect_urls` in `ServicesIdentrequestsProductDTO` and `ServicesIdentrequestsProductModel`
+- *changed element type*: `provider` and `type` changed from enum to `string` in `ServicesIdentrequestsProductDTO` and `ServicesIdentrequestsProductModel`
+- *changed element type*: `contract` changed from `ProductInstanceUID` to `BaseProductModel`  in `ServicesIdentrequestsProductModel`
+- *removed element*: `object` and `id` in `GeneralMerchantsUser`
+- *removed parent class*: `Contact` from `IdentrequestPersonDTO`
+
+### Added
+- `Model.GeneralContractsTransferBalanceModel`
+- `Model.GeneralContractsTransferBalanceModelBalances`
+- `Model.GeneralMerchantsUserEmail`
+- `Model.IdentProviderValue`
+- `Model.IdentTypeValue`
+- `Model.ListResponse`
+
+### Changed
+- `Api.GeneralContractsApi`
+- `Api.PaymentTransactionsApi`
+- `Model.GeneralMerchantsProductModel`
+- `Model.GeneralMerchantsUser`
+- `Model.IdentrequestPerson`
+- `Model.IdentrequestPersonDTO`
+- `Model.InvitedBy`
+- `Model.ServicesIdentrequestsProductDTO`
+- `Model.ServicesIdentrequestsProductModel`
+
+
 ## [2.30.2] - 2023-06-01
 [2.30.2]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.30.1...2.30.2
 

@@ -34,14 +34,16 @@ class ServicesIdentrequestsProductModel extends BaseProductModel
         't' => '\Secuconnect\Client\Model\AggregationTimeResult',
         'created' => 'string',
         'updated' => 'string',
-        'contract' => '\Secuconnect\Client\Model\ProductInstanceUID',
-        'provider' => 'PROVIDER',
-        'type' => 'TYPE',
+        'contract' => '\Secuconnect\Client\Model\BaseProductModel',
+        'identcase' => '\Secuconnect\Client\Model\BaseProductModel',
+        'assignment' => '\Secuconnect\Client\Model\BaseProductModel[]',
+        'provider' => 'string',
+        'type' => 'string',
         'status' => 'string',
         'demo' => 'bool',
         'person' => '\Secuconnect\Client\Model\IdentrequestPerson[]',
         'owner_transaction_id' => 'string',
-        'redirect_url' => '\Secuconnect\Client\Model\IdentrequestRedirectUrls',
+        'redirect_urls' => '\Secuconnect\Client\Model\IdentrequestRedirectUrls',
         'graduation_date' => 'string',
         'treated' => 'bool'
     ];
@@ -60,13 +62,15 @@ class ServicesIdentrequestsProductModel extends BaseProductModel
         'created' => null,
         'updated' => null,
         'contract' => null,
+        'identcase' => null,
+        'assignment' => null,
         'provider' => null,
         'type' => null,
         'status' => null,
         'demo' => null,
         'person' => null,
         'owner_transaction_id' => null,
-        'redirect_url' => null,
+        'redirect_urls' => null,
         'graduation_date' => null,
         'treated' => null
     ];
@@ -95,13 +99,15 @@ class ServicesIdentrequestsProductModel extends BaseProductModel
         'created' => 'created',
         'updated' => 'updated',
         'contract' => 'contract',
+        'identcase' => 'identcase',
+        'assignment' => 'assignment',
         'provider' => 'provider',
         'type' => 'type',
         'status' => 'status',
         'demo' => 'demo',
         'person' => 'person',
         'owner_transaction_id' => 'owner_transaction_id',
-        'redirect_url' => 'redirect_url',
+        'redirect_urls' => 'redirect_urls',
         'graduation_date' => 'graduation_date',
         'treated' => 'treated'
     ];
@@ -120,13 +126,15 @@ class ServicesIdentrequestsProductModel extends BaseProductModel
         'created' => 'setCreated',
         'updated' => 'setUpdated',
         'contract' => 'setContract',
+        'identcase' => 'setIdentcase',
+        'assignment' => 'setAssignment',
         'provider' => 'setProvider',
         'type' => 'setType',
         'status' => 'setStatus',
         'demo' => 'setDemo',
         'person' => 'setPerson',
         'owner_transaction_id' => 'setOwnerTransactionId',
-        'redirect_url' => 'setRedirectUrl',
+        'redirect_urls' => 'setRedirectUrls',
         'graduation_date' => 'setGraduationDate',
         'treated' => 'setTreated'
     ];
@@ -145,13 +153,15 @@ class ServicesIdentrequestsProductModel extends BaseProductModel
         'created' => 'getCreated',
         'updated' => 'getUpdated',
         'contract' => 'getContract',
+        'identcase' => 'getIdentcase',
+        'assignment' => 'getAssignment',
         'provider' => 'getProvider',
         'type' => 'getType',
         'status' => 'getStatus',
         'demo' => 'getDemo',
         'person' => 'getPerson',
         'owner_transaction_id' => 'getOwnerTransactionId',
-        'redirect_url' => 'getRedirectUrl',
+        'redirect_urls' => 'getRedirectUrls',
         'graduation_date' => 'getGraduationDate',
         'treated' => 'getTreated'
     ];
@@ -169,32 +179,6 @@ class ServicesIdentrequestsProductModel extends BaseProductModel
     public static function getters()
     {
         return parent::getters() + self::$getters;
-    }
-    const PROVIDER_POST_IDENT = 'post_ident';    const PROVIDER_BANK_IDENT = 'bank_ident';    const PROVIDER_WEBID = 'webid';    const TYPE_PERSON = 'person';
-
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getProviderAllowableValues()
-    {
-        return [
-            self::PROVIDER_POST_IDENT,
-            self::PROVIDER_BANK_IDENT,
-            self::PROVIDER_WEBID,
-        ];
-    }
-
-
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_PERSON,
-        ];
     }
 
     /**
@@ -214,13 +198,15 @@ class ServicesIdentrequestsProductModel extends BaseProductModel
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
         $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
+        $this->container['identcase'] = isset($data['identcase']) ? $data['identcase'] : null;
+        $this->container['assignment'] = isset($data['assignment']) ? $data['assignment'] : null;
         $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['demo'] = isset($data['demo']) ? $data['demo'] : null;
         $this->container['person'] = isset($data['person']) ? $data['person'] : null;
         $this->container['owner_transaction_id'] = isset($data['owner_transaction_id']) ? $data['owner_transaction_id'] : null;
-        $this->container['redirect_url'] = isset($data['redirect_url']) ? $data['redirect_url'] : null;
+        $this->container['redirect_urls'] = isset($data['redirect_urls']) ? $data['redirect_urls'] : null;
         $this->container['graduation_date'] = isset($data['graduation_date']) ? $data['graduation_date'] : null;
         $this->container['treated'] = isset($data['treated']) ? $data['treated'] : null;
     }
@@ -233,22 +219,6 @@ class ServicesIdentrequestsProductModel extends BaseProductModel
     public function listInvalidProperties()
     {
         $invalid_properties = parent::listInvalidProperties();
-
-        $allowed_values = $this->getProviderAllowableValues();
-        if (!is_null($this->container['provider']) && !in_array($this->container['provider'], $allowed_values, true)) {
-            $invalid_properties[] = sprintf(
-                "invalid value for 'provider', must be one of '%s'",
-                implode("', '", $allowed_values)
-            );
-        }
-
-        $allowed_values = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowed_values, true)) {
-            $invalid_properties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowed_values)
-            );
-        }
 
         return $invalid_properties;
     }
@@ -435,7 +405,7 @@ class ServicesIdentrequestsProductModel extends BaseProductModel
 
     /**
      * Gets contract
-     * @return \Secuconnect\Client\Model\ProductInstanceUID
+     * @return \Secuconnect\Client\Model\BaseProductModel
      */
     public function getContract()
     {
@@ -444,12 +414,54 @@ class ServicesIdentrequestsProductModel extends BaseProductModel
 
     /**
      * Sets contract
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $contract contract
+     * @param \Secuconnect\Client\Model\BaseProductModel $contract contract
      * @return $this
      */
     public function setContract($contract)
     {
         $this->container['contract'] = $contract;
+
+        return $this;
+    }
+
+    /**
+     * Gets identcase
+     * @return \Secuconnect\Client\Model\BaseProductModel
+     */
+    public function getIdentcase()
+    {
+        return $this->container['identcase'];
+    }
+
+    /**
+     * Sets identcase
+     * @param \Secuconnect\Client\Model\BaseProductModel $identcase identcase
+     * @return $this
+     */
+    public function setIdentcase($identcase)
+    {
+        $this->container['identcase'] = $identcase;
+
+        return $this;
+    }
+
+    /**
+     * Gets assignment
+     * @return \Secuconnect\Client\Model\BaseProductModel[]
+     */
+    public function getAssignment()
+    {
+        return $this->container['assignment'];
+    }
+
+    /**
+     * Sets assignment
+     * @param \Secuconnect\Client\Model\BaseProductModel[] $assignment assignment
+     * @return $this
+     */
+    public function setAssignment($assignment)
+    {
+        $this->container['assignment'] = $assignment;
 
         return $this;
     }
@@ -465,20 +477,11 @@ class ServicesIdentrequestsProductModel extends BaseProductModel
 
     /**
      * Sets provider
-     * @param string $provider Third party identification provider
+     * @param string $provider provider
      * @return $this
      */
     public function setProvider($provider)
     {
-        $allowed_values = $this->getProviderAllowableValues();
-        if (!is_null($provider) && !in_array($provider, $allowed_values, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'provider', must be one of '%s'",
-                    implode("', '", $allowed_values)
-                )
-            );
-        }
         $this->container['provider'] = $provider;
 
         return $this;
@@ -495,20 +498,11 @@ class ServicesIdentrequestsProductModel extends BaseProductModel
 
     /**
      * Sets type
-     * @param string $type Type
+     * @param string $type type
      * @return $this
      */
     public function setType($type)
     {
-        $allowed_values = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowed_values, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowed_values)
-                )
-            );
-        }
         $this->container['type'] = $type;
 
         return $this;
@@ -599,22 +593,22 @@ class ServicesIdentrequestsProductModel extends BaseProductModel
     }
 
     /**
-     * Gets redirect_url
+     * Gets redirect_urls
      * @return \Secuconnect\Client\Model\IdentrequestRedirectUrls
      */
-    public function getRedirectUrl()
+    public function getRedirectUrls()
     {
-        return $this->container['redirect_url'];
+        return $this->container['redirect_urls'];
     }
 
     /**
-     * Sets redirect_url
-     * @param \Secuconnect\Client\Model\IdentrequestRedirectUrls $redirect_url redirect_url
+     * Sets redirect_urls
+     * @param \Secuconnect\Client\Model\IdentrequestRedirectUrls $redirect_urls redirect_urls
      * @return $this
      */
-    public function setRedirectUrl($redirect_url)
+    public function setRedirectUrls($redirect_urls)
     {
-        $this->container['redirect_url'] = $redirect_url;
+        $this->container['redirect_urls'] = $redirect_urls;
 
         return $this;
     }

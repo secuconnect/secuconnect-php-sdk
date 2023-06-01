@@ -2,18 +2,15 @@
 
 namespace Secuconnect\Client\Model;
 
-use \ArrayAccess;
-
 /**
- * InvitedBy
+ * GeneralContractsTransferBalanceModel
  *
  * @category Class
- * @description InvitedBy
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class InvitedBy implements ArrayAccess
+class GeneralContractsTransferBalanceModel extends ProductInstanceID
 {
     const DISCRIMINATOR = null;
 
@@ -21,16 +18,14 @@ class InvitedBy implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'InvitedBy';
+    protected static $swaggerModelName = 'GeneralContractsTransferBalanceModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'object' => 'string',
-        'id' => 'string',
-        'invited' => 'string'
+        'balances' => '\Secuconnect\Client\Model\GeneralContractsTransferBalanceModelBalances[]'
     ];
 
     /**
@@ -38,19 +33,17 @@ class InvitedBy implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'object' => null,
-        'id' => null,
-        'invited' => null
+        'balances' => null
     ];
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -58,9 +51,7 @@ class InvitedBy implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'object' => 'object',
-        'id' => 'id',
-        'invited' => 'invited'
+        'balances' => 'balances'
     ];
 
     /**
@@ -68,9 +59,7 @@ class InvitedBy implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'object' => 'setObject',
-        'id' => 'setId',
-        'invited' => 'setInvited'
+        'balances' => 'setBalances'
     ];
 
     /**
@@ -78,31 +67,23 @@ class InvitedBy implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'object' => 'getObject',
-        'id' => 'getId',
-        'invited' => 'getInvited'
+        'balances' => 'getBalances'
     ];
 
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
-
-    /**
-     * Associative array for storing property values
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -110,9 +91,9 @@ class InvitedBy implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['object'] = isset($data['object']) ? $data['object'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['invited'] = isset($data['invited']) ? $data['invited'] : null;
+        parent::__construct($data);
+
+        $this->container['balances'] = isset($data['balances']) ? $data['balances'] : null;
     }
 
     /**
@@ -122,7 +103,7 @@ class InvitedBy implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalid_properties = parent::listInvalidProperties();
 
         return $invalid_properties;
     }
@@ -140,64 +121,22 @@ class InvitedBy implements ArrayAccess
 
 
     /**
-     * Gets object
-     * @return string
+     * Gets balances
+     * @return \Secuconnect\Client\Model\GeneralContractsTransferBalanceModelBalances[]
      */
-    public function getObject()
+    public function getBalances()
     {
-        return $this->container['object'];
+        return $this->container['balances'];
     }
 
     /**
-     * Sets object
-     * @param string $object object
+     * Sets balances
+     * @param \Secuconnect\Client\Model\GeneralContractsTransferBalanceModelBalances[] $balances balances
      * @return $this
      */
-    public function setObject($object)
+    public function setBalances($balances)
     {
-        $this->container['object'] = $object;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     * @param string $id id
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets invited
-     * @return string
-     */
-    public function getInvited()
-    {
-        return $this->container['invited'];
-    }
-
-    /**
-     * Sets invited
-     * @param string $invited Invited E-Mail address
-     * @return $this
-     */
-    public function setInvited($invited)
-    {
-        $this->container['invited'] = $invited;
+        $this->container['balances'] = $balances;
 
         return $this;
     }

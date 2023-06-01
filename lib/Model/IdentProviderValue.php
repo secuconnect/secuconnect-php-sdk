@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * IdentrequestPersonDTO
+ * IdentProviderValue
  *
  * @category Class
- * @description IdentrequestPersonDTO
+ * @description Third party Identification provider: * &#x60;post_ident&#x60;, * &#x60;bank_ident&#x60;, * &#x60;webid&#x60;, * &#x60;idnow&#x60;, * &#x60;post_ident_extern&#x60;, * &#x60;3rdParty&#x60;
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class IdentrequestPersonDTO implements ArrayAccess
+class IdentProviderValue implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,18 +21,13 @@ class IdentrequestPersonDTO implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'IdentrequestPersonDTO';
+    protected static $swaggerModelName = 'IdentProviderValue';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'custom1' => 'string',
-        'custom2' => 'string',
-        'custom3' => 'string',
-        'custom4' => 'string',
-        'custom5' => 'string'
     ];
 
     /**
@@ -40,11 +35,6 @@ class IdentrequestPersonDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'custom1' => null,
-        'custom2' => null,
-        'custom3' => null,
-        'custom4' => null,
-        'custom5' => null
     ];
 
     public static function swaggerTypes()
@@ -62,11 +52,6 @@ class IdentrequestPersonDTO implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'custom1' => 'custom1',
-        'custom2' => 'custom2',
-        'custom3' => 'custom3',
-        'custom4' => 'custom4',
-        'custom5' => 'custom5'
     ];
 
     /**
@@ -74,11 +59,6 @@ class IdentrequestPersonDTO implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'custom1' => 'setCustom1',
-        'custom2' => 'setCustom2',
-        'custom3' => 'setCustom3',
-        'custom4' => 'setCustom4',
-        'custom5' => 'setCustom5'
     ];
 
     /**
@@ -86,11 +66,6 @@ class IdentrequestPersonDTO implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'custom1' => 'getCustom1',
-        'custom2' => 'getCustom2',
-        'custom3' => 'getCustom3',
-        'custom4' => 'getCustom4',
-        'custom5' => 'getCustom5'
     ];
 
     public static function attributeMap()
@@ -120,11 +95,6 @@ class IdentrequestPersonDTO implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['custom1'] = isset($data['custom1']) ? $data['custom1'] : null;
-        $this->container['custom2'] = isset($data['custom2']) ? $data['custom2'] : null;
-        $this->container['custom3'] = isset($data['custom3']) ? $data['custom3'] : null;
-        $this->container['custom4'] = isset($data['custom4']) ? $data['custom4'] : null;
-        $this->container['custom5'] = isset($data['custom5']) ? $data['custom5'] : null;
     }
 
     /**
@@ -150,111 +120,6 @@ class IdentrequestPersonDTO implements ArrayAccess
         return true;
     }
 
-
-    /**
-     * Gets custom1
-     * @return string
-     */
-    public function getCustom1()
-    {
-        return $this->container['custom1'];
-    }
-
-    /**
-     * Sets custom1
-     * @param string $custom1 Some custom fields which can be individually used to store information
-     * @return $this
-     */
-    public function setCustom1($custom1)
-    {
-        $this->container['custom1'] = $custom1;
-
-        return $this;
-    }
-
-    /**
-     * Gets custom2
-     * @return string
-     */
-    public function getCustom2()
-    {
-        return $this->container['custom2'];
-    }
-
-    /**
-     * Sets custom2
-     * @param string $custom2 Some custom fields which can be individually used to store information
-     * @return $this
-     */
-    public function setCustom2($custom2)
-    {
-        $this->container['custom2'] = $custom2;
-
-        return $this;
-    }
-
-    /**
-     * Gets custom3
-     * @return string
-     */
-    public function getCustom3()
-    {
-        return $this->container['custom3'];
-    }
-
-    /**
-     * Sets custom3
-     * @param string $custom3 Some custom fields which can be individually used to store information
-     * @return $this
-     */
-    public function setCustom3($custom3)
-    {
-        $this->container['custom3'] = $custom3;
-
-        return $this;
-    }
-
-    /**
-     * Gets custom4
-     * @return string
-     */
-    public function getCustom4()
-    {
-        return $this->container['custom4'];
-    }
-
-    /**
-     * Sets custom4
-     * @param string $custom4 Some custom fields which can be individually used to store information
-     * @return $this
-     */
-    public function setCustom4($custom4)
-    {
-        $this->container['custom4'] = $custom4;
-
-        return $this;
-    }
-
-    /**
-     * Gets custom5
-     * @return string
-     */
-    public function getCustom5()
-    {
-        return $this->container['custom5'];
-    }
-
-    /**
-     * Sets custom5
-     * @param string $custom5 Some custom fields which can be individually used to store information
-     * @return $this
-     */
-    public function setCustom5($custom5)
-    {
-        $this->container['custom5'] = $custom5;
-
-        return $this;
-    }
 
     /**
      * Returns true if offset exists. False otherwise.

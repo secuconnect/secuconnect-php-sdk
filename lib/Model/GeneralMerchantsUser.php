@@ -28,11 +28,13 @@ class GeneralMerchantsUser implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'object' => 'string',
-        'id' => 'string',
         'name' => 'string',
+        'forename' => 'string',
+        'surname' => 'string',
         'companyname' => 'string',
-        'address' => '\Secuconnect\Client\Model\GeoAddress[]'
+        'project_name' => 'string',
+        'address' => '\Secuconnect\Client\Model\GeoAddress[]',
+        'email' => '\Secuconnect\Client\Model\GeneralMerchantsUserEmail[]'
     ];
 
     /**
@@ -40,11 +42,13 @@ class GeneralMerchantsUser implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'object' => null,
-        'id' => null,
         'name' => null,
+        'forename' => null,
+        'surname' => null,
         'companyname' => null,
-        'address' => null
+        'project_name' => null,
+        'address' => null,
+        'email' => null
     ];
 
     public static function swaggerTypes()
@@ -62,11 +66,13 @@ class GeneralMerchantsUser implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'object' => 'object',
-        'id' => 'id',
         'name' => 'name',
+        'forename' => 'forename',
+        'surname' => 'surname',
         'companyname' => 'companyname',
-        'address' => 'address'
+        'project_name' => 'project_name',
+        'address' => 'address',
+        'email' => 'email'
     ];
 
     /**
@@ -74,11 +80,13 @@ class GeneralMerchantsUser implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'object' => 'setObject',
-        'id' => 'setId',
         'name' => 'setName',
+        'forename' => 'setForename',
+        'surname' => 'setSurname',
         'companyname' => 'setCompanyname',
-        'address' => 'setAddress'
+        'project_name' => 'setProjectName',
+        'address' => 'setAddress',
+        'email' => 'setEmail'
     ];
 
     /**
@@ -86,11 +94,13 @@ class GeneralMerchantsUser implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'object' => 'getObject',
-        'id' => 'getId',
         'name' => 'getName',
+        'forename' => 'getForename',
+        'surname' => 'getSurname',
         'companyname' => 'getCompanyname',
-        'address' => 'getAddress'
+        'project_name' => 'getProjectName',
+        'address' => 'getAddress',
+        'email' => 'getEmail'
     ];
 
     public static function attributeMap()
@@ -120,11 +130,13 @@ class GeneralMerchantsUser implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['object'] = isset($data['object']) ? $data['object'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['forename'] = isset($data['forename']) ? $data['forename'] : null;
+        $this->container['surname'] = isset($data['surname']) ? $data['surname'] : null;
         $this->container['companyname'] = isset($data['companyname']) ? $data['companyname'] : null;
+        $this->container['project_name'] = isset($data['project_name']) ? $data['project_name'] : null;
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
     }
 
     /**
@@ -152,48 +164,6 @@ class GeneralMerchantsUser implements ArrayAccess
 
 
     /**
-     * Gets object
-     * @return string
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     * @param string $object Object of General Merchant user
-     * @return $this
-     */
-    public function setObject($object)
-    {
-        $this->container['object'] = $object;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     * @param string $id ID of General Merchant user
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
      * Gets name
      * @return string
      */
@@ -204,12 +174,54 @@ class GeneralMerchantsUser implements ArrayAccess
 
     /**
      * Sets name
-     * @param string $name Name of General Merchant user
+     * @param string $name Name
      * @return $this
      */
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets forename
+     * @return string
+     */
+    public function getForename()
+    {
+        return $this->container['forename'];
+    }
+
+    /**
+     * Sets forename
+     * @param string $forename forename
+     * @return $this
+     */
+    public function setForename($forename)
+    {
+        $this->container['forename'] = $forename;
+
+        return $this;
+    }
+
+    /**
+     * Gets surname
+     * @return string
+     */
+    public function getSurname()
+    {
+        return $this->container['surname'];
+    }
+
+    /**
+     * Sets surname
+     * @param string $surname surname
+     * @return $this
+     */
+    public function setSurname($surname)
+    {
+        $this->container['surname'] = $surname;
 
         return $this;
     }
@@ -225,12 +237,33 @@ class GeneralMerchantsUser implements ArrayAccess
 
     /**
      * Sets companyname
-     * @param string $companyname Company name of General Merchant user
+     * @param string $companyname Company name
      * @return $this
      */
     public function setCompanyname($companyname)
     {
         $this->container['companyname'] = $companyname;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_name
+     * @return string
+     */
+    public function getProjectName()
+    {
+        return $this->container['project_name'];
+    }
+
+    /**
+     * Sets project_name
+     * @param string $project_name Project name
+     * @return $this
+     */
+    public function setProjectName($project_name)
+    {
+        $this->container['project_name'] = $project_name;
 
         return $this;
     }
@@ -252,6 +285,27 @@ class GeneralMerchantsUser implements ArrayAccess
     public function setAddress($address)
     {
         $this->container['address'] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     * @return \Secuconnect\Client\Model\GeneralMerchantsUserEmail[]
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     * @param \Secuconnect\Client\Model\GeneralMerchantsUserEmail[] $email E-Mail addresses
+     * @return $this
+     */
+    public function setEmail($email)
+    {
+        $this->container['email'] = $email;
 
         return $this;
     }

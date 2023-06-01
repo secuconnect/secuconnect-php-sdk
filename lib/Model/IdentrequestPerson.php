@@ -29,7 +29,7 @@ class IdentrequestPerson extends IdentrequestPersonDTO
         'transaction_id' => 'string',
         'redirect_url' => 'string',
         'status' => 'string',
-        'provider' => 'string'
+        'provider_id' => 'string'
     ];
 
     /**
@@ -40,7 +40,7 @@ class IdentrequestPerson extends IdentrequestPersonDTO
         'transaction_id' => null,
         'redirect_url' => null,
         'status' => null,
-        'provider' => null
+        'provider_id' => null
     ];
 
     public static function swaggerTypes()
@@ -61,7 +61,7 @@ class IdentrequestPerson extends IdentrequestPersonDTO
         'transaction_id' => 'transaction_id',
         'redirect_url' => 'redirect_url',
         'status' => 'status',
-        'provider' => 'provider'
+        'provider_id' => 'provider_id'
     ];
 
     /**
@@ -72,7 +72,7 @@ class IdentrequestPerson extends IdentrequestPersonDTO
         'transaction_id' => 'setTransactionId',
         'redirect_url' => 'setRedirectUrl',
         'status' => 'setStatus',
-        'provider' => 'setProvider'
+        'provider_id' => 'setProviderId'
     ];
 
     /**
@@ -83,7 +83,7 @@ class IdentrequestPerson extends IdentrequestPersonDTO
         'transaction_id' => 'getTransactionId',
         'redirect_url' => 'getRedirectUrl',
         'status' => 'getStatus',
-        'provider' => 'getProvider'
+        'provider_id' => 'getProviderId'
     ];
 
     public static function attributeMap()
@@ -112,7 +112,7 @@ class IdentrequestPerson extends IdentrequestPersonDTO
         $this->container['transaction_id'] = isset($data['transaction_id']) ? $data['transaction_id'] : null;
         $this->container['redirect_url'] = isset($data['redirect_url']) ? $data['redirect_url'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
+        $this->container['provider_id'] = isset($data['provider_id']) ? $data['provider_id'] : null;
     }
 
     /**
@@ -203,22 +203,22 @@ class IdentrequestPerson extends IdentrequestPersonDTO
     }
 
     /**
-     * Gets provider
+     * Gets provider_id
      * @return string
      */
-    public function getProvider()
+    public function getProviderId()
     {
-        return $this->container['provider'];
+        return $this->container['provider_id'];
     }
 
     /**
-     * Sets provider
-     * @param string $provider The generated ID of the provider for this identrequest - can be null on creation
+     * Sets provider_id
+     * @param string $provider_id The generated ID of the provider for this identrequest - can be null on creation
      * @return $this
      */
-    public function setProvider($provider)
+    public function setProviderId($provider_id)
     {
-        $this->container['provider'] = $provider;
+        $this->container['provider_id'] = $provider_id;
 
         return $this;
     }

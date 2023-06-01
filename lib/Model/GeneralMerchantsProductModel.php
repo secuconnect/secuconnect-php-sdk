@@ -40,7 +40,9 @@ class GeneralMerchantsProductModel extends BaseProductModel
         'invited_by' => '\Secuconnect\Client\Model\InvitedBy[]',
         'legal_details' => '\Secuconnect\Client\Model\GeneralMerchantsLegalDetails[]',
         'urls' => '\Secuconnect\Client\Model\GeneralMerchantsUrls[]',
-        'store_name' => 'string'
+        'store_name' => 'string',
+        'acceptance_points' => '\Secuconnect\Client\Model\BaseProductModel[]',
+        'two_fa' => 'string'
     ];
 
     /**
@@ -62,7 +64,9 @@ class GeneralMerchantsProductModel extends BaseProductModel
         'invited_by' => null,
         'legal_details' => null,
         'urls' => null,
-        'store_name' => null
+        'store_name' => null,
+        'acceptance_points' => null,
+        'two_fa' => null
     ];
 
     public static function swaggerTypes()
@@ -94,7 +98,9 @@ class GeneralMerchantsProductModel extends BaseProductModel
         'invited_by' => 'invited_by',
         'legal_details' => 'legal_details',
         'urls' => 'urls',
-        'store_name' => 'store_name'
+        'store_name' => 'store_name',
+        'acceptance_points' => 'acceptance_points',
+        'two_fa' => 'two_fa'
     ];
 
     /**
@@ -116,7 +122,9 @@ class GeneralMerchantsProductModel extends BaseProductModel
         'invited_by' => 'setInvitedBy',
         'legal_details' => 'setLegalDetails',
         'urls' => 'setUrls',
-        'store_name' => 'setStoreName'
+        'store_name' => 'setStoreName',
+        'acceptance_points' => 'setAcceptancePoints',
+        'two_fa' => 'setTwoFa'
     ];
 
     /**
@@ -138,7 +146,9 @@ class GeneralMerchantsProductModel extends BaseProductModel
         'invited_by' => 'getInvitedBy',
         'legal_details' => 'getLegalDetails',
         'urls' => 'getUrls',
-        'store_name' => 'getStoreName'
+        'store_name' => 'getStoreName',
+        'acceptance_points' => 'getAcceptancePoints',
+        'two_fa' => 'getTwoFa'
     ];
 
     public static function attributeMap()
@@ -179,6 +189,8 @@ class GeneralMerchantsProductModel extends BaseProductModel
         $this->container['legal_details'] = isset($data['legal_details']) ? $data['legal_details'] : null;
         $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
         $this->container['store_name'] = isset($data['store_name']) ? $data['store_name'] : null;
+        $this->container['acceptance_points'] = isset($data['acceptance_points']) ? $data['acceptance_points'] : null;
+        $this->container['two_fa'] = isset($data['two_fa']) ? $data['two_fa'] : null;
     }
 
     /**
@@ -516,6 +528,48 @@ class GeneralMerchantsProductModel extends BaseProductModel
     public function setStoreName($store_name)
     {
         $this->container['store_name'] = $store_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets acceptance_points
+     * @return \Secuconnect\Client\Model\BaseProductModel[]
+     */
+    public function getAcceptancePoints()
+    {
+        return $this->container['acceptance_points'];
+    }
+
+    /**
+     * Sets acceptance_points
+     * @param \Secuconnect\Client\Model\BaseProductModel[] $acceptance_points Acceptance Points (partners)
+     * @return $this
+     */
+    public function setAcceptancePoints($acceptance_points)
+    {
+        $this->container['acceptance_points'] = $acceptance_points;
+
+        return $this;
+    }
+
+    /**
+     * Gets two_fa
+     * @return string
+     */
+    public function getTwoFa()
+    {
+        return $this->container['two_fa'];
+    }
+
+    /**
+     * Sets two_fa
+     * @param string $two_fa two-factor authentication type
+     * @return $this
+     */
+    public function setTwoFa($two_fa)
+    {
+        $this->container['two_fa'] = $two_fa;
 
         return $this;
     }
