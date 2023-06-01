@@ -122,8 +122,9 @@ class ServicesIdentrequestsProductDTO implements ArrayAccess
     {
         return [
             self::PROVIDER_POST_IDENT,
-self::PROVIDER_BANK_IDENT,
-self::PROVIDER_WEBID,        ];
+            self::PROVIDER_BANK_IDENT,
+            self::PROVIDER_WEBID,
+        ];
     }
 
 
@@ -134,7 +135,8 @@ self::PROVIDER_WEBID,        ];
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE_PERSON,        ];
+            self::TYPE_PERSON,
+        ];
     }
 
     /**
@@ -170,7 +172,7 @@ self::PROVIDER_WEBID,        ];
         if (!is_null($this->container['provider']) && !in_array($this->container['provider'], $allowed_values, true)) {
             $invalid_properties[] = sprintf(
                 "invalid value for 'provider', must be one of '%s'",
-                implode("', '", $allowedValues)
+                implode("', '", $allowed_values)
             );
         }
 
@@ -178,7 +180,7 @@ self::PROVIDER_WEBID,        ];
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowed_values, true)) {
             $invalid_properties[] = sprintf(
                 "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
+                implode("', '", $allowed_values)
             );
         }
 

@@ -107,7 +107,8 @@ class PaymentContractsDTORequestIdAdditionalDataCreateCard implements ArrayAcces
     {
         return [
             self::CARD_SCHEME_VI,
-self::CARD_SCHEME_MC,        ];
+            self::CARD_SCHEME_MC,
+        ];
     }
 
     /**
@@ -140,7 +141,7 @@ self::CARD_SCHEME_MC,        ];
         if (!is_null($this->container['card_scheme']) && !in_array($this->container['card_scheme'], $allowed_values, true)) {
             $invalid_properties[] = sprintf(
                 "invalid value for 'card_scheme', must be one of '%s'",
-                implode("', '", $allowedValues)
+                implode("', '", $allowed_values)
             );
         }
 

@@ -3,7 +3,7 @@
 namespace Secuconnect\Client\Model;
 
 /**
- * OneOfPaymentContainersDTOModelPrivate
+ * Payment instrument data
  */
 interface OneOfPaymentContainersDTOModelPrivate {
 
