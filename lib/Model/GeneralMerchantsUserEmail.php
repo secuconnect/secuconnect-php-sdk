@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * ServicesIdentrequestsProductDTO
+ * GeneralMerchantsUserEmail
  *
  * @category Class
- * @description ServicesIdentrequestsProductDTO
+ * @description E-Mail object
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ServicesIdentrequestsProductDTO implements ArrayAccess
+class GeneralMerchantsUserEmail implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,19 +21,15 @@ class ServicesIdentrequestsProductDTO implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ServicesIdentrequestsProductDTO';
+    protected static $swaggerModelName = 'GeneralMerchantsUserEmail';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'provider' => 'string',
         'type' => 'string',
-        'demo' => 'bool',
-        'person' => '\Secuconnect\Client\Model\IdentrequestPersonDTO[]',
-        'owner_transaction_id' => 'string',
-        'redirect_urls' => '\Secuconnect\Client\Model\IdentrequestRedirectUrls'
+        'email_formatted' => 'string'
     ];
 
     /**
@@ -41,12 +37,8 @@ class ServicesIdentrequestsProductDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'provider' => null,
         'type' => null,
-        'demo' => null,
-        'person' => null,
-        'owner_transaction_id' => null,
-        'redirect_urls' => null
+        'email_formatted' => null
     ];
 
     public static function swaggerTypes()
@@ -64,12 +56,8 @@ class ServicesIdentrequestsProductDTO implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'provider' => 'provider',
         'type' => 'type',
-        'demo' => 'demo',
-        'person' => 'person',
-        'owner_transaction_id' => 'owner_transaction_id',
-        'redirect_urls' => 'redirect_urls'
+        'email_formatted' => 'email_formatted'
     ];
 
     /**
@@ -77,12 +65,8 @@ class ServicesIdentrequestsProductDTO implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'provider' => 'setProvider',
         'type' => 'setType',
-        'demo' => 'setDemo',
-        'person' => 'setPerson',
-        'owner_transaction_id' => 'setOwnerTransactionId',
-        'redirect_urls' => 'setRedirectUrls'
+        'email_formatted' => 'setEmailFormatted'
     ];
 
     /**
@@ -90,12 +74,8 @@ class ServicesIdentrequestsProductDTO implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'provider' => 'getProvider',
         'type' => 'getType',
-        'demo' => 'getDemo',
-        'person' => 'getPerson',
-        'owner_transaction_id' => 'getOwnerTransactionId',
-        'redirect_urls' => 'getRedirectUrls'
+        'email_formatted' => 'getEmailFormatted'
     ];
 
     public static function attributeMap()
@@ -125,12 +105,8 @@ class ServicesIdentrequestsProductDTO implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['demo'] = isset($data['demo']) ? $data['demo'] : null;
-        $this->container['person'] = isset($data['person']) ? $data['person'] : null;
-        $this->container['owner_transaction_id'] = isset($data['owner_transaction_id']) ? $data['owner_transaction_id'] : null;
-        $this->container['redirect_urls'] = isset($data['redirect_urls']) ? $data['redirect_urls'] : null;
+        $this->container['email_formatted'] = isset($data['email_formatted']) ? $data['email_formatted'] : null;
     }
 
     /**
@@ -158,27 +134,6 @@ class ServicesIdentrequestsProductDTO implements ArrayAccess
 
 
     /**
-     * Gets provider
-     * @return string
-     */
-    public function getProvider()
-    {
-        return $this->container['provider'];
-    }
-
-    /**
-     * Sets provider
-     * @param string $provider provider
-     * @return $this
-     */
-    public function setProvider($provider)
-    {
-        $this->container['provider'] = $provider;
-
-        return $this;
-    }
-
-    /**
      * Gets type
      * @return string
      */
@@ -189,7 +144,7 @@ class ServicesIdentrequestsProductDTO implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type type
+     * @param string $type Kind of E-Mail address
      * @return $this
      */
     public function setType($type)
@@ -200,85 +155,22 @@ class ServicesIdentrequestsProductDTO implements ArrayAccess
     }
 
     /**
-     * Gets demo
-     * @return bool
-     */
-    public function getDemo()
-    {
-        return $this->container['demo'];
-    }
-
-    /**
-     * Sets demo
-     * @param bool $demo Demo Flag
-     * @return $this
-     */
-    public function setDemo($demo)
-    {
-        $this->container['demo'] = $demo;
-
-        return $this;
-    }
-
-    /**
-     * Gets person
-     * @return \Secuconnect\Client\Model\IdentrequestPersonDTO[]
-     */
-    public function getPerson()
-    {
-        return $this->container['person'];
-    }
-
-    /**
-     * Sets person
-     * @param \Secuconnect\Client\Model\IdentrequestPersonDTO[] $person The person which should be identified by third party provider
-     * @return $this
-     */
-    public function setPerson($person)
-    {
-        $this->container['person'] = $person;
-
-        return $this;
-    }
-
-    /**
-     * Gets owner_transaction_id
+     * Gets email_formatted
      * @return string
      */
-    public function getOwnerTransactionId()
+    public function getEmailFormatted()
     {
-        return $this->container['owner_transaction_id'];
+        return $this->container['email_formatted'];
     }
 
     /**
-     * Sets owner_transaction_id
-     * @param string $owner_transaction_id Arbitrary ID to identify identrequest on merchant
+     * Sets email_formatted
+     * @param string $email_formatted E-Mail address
      * @return $this
      */
-    public function setOwnerTransactionId($owner_transaction_id)
+    public function setEmailFormatted($email_formatted)
     {
-        $this->container['owner_transaction_id'] = $owner_transaction_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets redirect_urls
-     * @return \Secuconnect\Client\Model\IdentrequestRedirectUrls
-     */
-    public function getRedirectUrls()
-    {
-        return $this->container['redirect_urls'];
-    }
-
-    /**
-     * Sets redirect_urls
-     * @param \Secuconnect\Client\Model\IdentrequestRedirectUrls $redirect_urls redirect_urls
-     * @return $this
-     */
-    public function setRedirectUrls($redirect_urls)
-    {
-        $this->container['redirect_urls'] = $redirect_urls;
+        $this->container['email_formatted'] = $email_formatted;
 
         return $this;
     }
