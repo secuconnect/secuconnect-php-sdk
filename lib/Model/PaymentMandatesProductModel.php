@@ -3,15 +3,15 @@
 namespace Secuconnect\Client\Model;
 
 /**
- * GeneralContractsProductModel
+ * PaymentMandatesProductModel
  *
  * @category Class
- * @description GeneralContractsProductModel
+ * @description PaymentMandatesProductModel
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GeneralContractsProductModel extends BaseProductModel
+class PaymentMandatesProductModel extends BaseProductModel
 {
     const DISCRIMINATOR = null;
 
@@ -19,7 +19,7 @@ class GeneralContractsProductModel extends BaseProductModel
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'GeneralContractsProductModel';
+    protected static $swaggerModelName = 'PaymentMandatesProductModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -32,15 +32,14 @@ class GeneralContractsProductModel extends BaseProductModel
         'c' => 'int',
         's' => 'int',
         't' => '\Secuconnect\Client\Model\AggregationTimeResult',
-        'id_old' => 'int',
-        'parent' => '\Secuconnect\Client\Model\ParentModel',
-        'merchant' => '\Secuconnect\Client\Model\GeneralMerchantsProductModel',
-        'pay_in_advance_account' => '\Secuconnect\Client\Model\BankAccountDescriptor',
-        'paypal_configuration' => '\Secuconnect\Client\Model\ThirdPartyEnvironment',
-        'easycredit_configuration' => '\Secuconnect\Client\Model\ThirdPartyEnvironment',
-        'checkout_configuration' => '\Secuconnect\Client\Model\CheckoutConfiguration',
-        'payment_link_options' => '\Secuconnect\Client\Model\PaymentLinkOptions',
-        'approved' => 'bool'
+        'created' => 'string',
+        'iban' => 'string',
+        'bic' => 'string',
+        'type' => 'string',
+        'date_of_signature' => 'string',
+        'status' => 'int',
+        'identification' => 'string',
+        'merchant' => '\Secuconnect\Client\Model\GeneralMerchantsProductModel'
     ];
 
     /**
@@ -54,15 +53,14 @@ class GeneralContractsProductModel extends BaseProductModel
         'c' => null,
         's' => null,
         't' => null,
-        'id_old' => 'id',
-        'parent' => null,
-        'merchant' => null,
-        'pay_in_advance_account' => null,
-        'paypal_configuration' => null,
-        'easycredit_configuration' => null,
-        'checkout_configuration' => null,
-        'payment_link_options' => null,
-        'approved' => null
+        'created' => null,
+        'iban' => null,
+        'bic' => null,
+        'type' => null,
+        'date_of_signature' => null,
+        'status' => null,
+        'identification' => null,
+        'merchant' => null
     ];
 
     public static function swaggerTypes()
@@ -86,15 +84,14 @@ class GeneralContractsProductModel extends BaseProductModel
         'c' => 'c',
         's' => 's',
         't' => 't',
-        'id_old' => 'id_old',
-        'parent' => 'parent',
-        'merchant' => 'merchant',
-        'pay_in_advance_account' => 'pay_in_advance_account',
-        'paypal_configuration' => 'paypal_configuration',
-        'easycredit_configuration' => 'easycredit_configuration',
-        'checkout_configuration' => 'checkout_configuration',
-        'payment_link_options' => 'payment_link_options',
-        'approved' => 'approved'
+        'created' => 'created',
+        'iban' => 'iban',
+        'bic' => 'bic',
+        'type' => 'type',
+        'date_of_signature' => 'date_of_signature',
+        'status' => 'status',
+        'identification' => 'identification',
+        'merchant' => 'merchant'
     ];
 
     /**
@@ -108,15 +105,14 @@ class GeneralContractsProductModel extends BaseProductModel
         'c' => 'setC',
         's' => 'setS',
         't' => 'setT',
-        'id_old' => 'setIdOld',
-        'parent' => 'setParent',
-        'merchant' => 'setMerchant',
-        'pay_in_advance_account' => 'setPayInAdvanceAccount',
-        'paypal_configuration' => 'setPaypalConfiguration',
-        'easycredit_configuration' => 'setEasycreditConfiguration',
-        'checkout_configuration' => 'setCheckoutConfiguration',
-        'payment_link_options' => 'setPaymentLinkOptions',
-        'approved' => 'setApproved'
+        'created' => 'setCreated',
+        'iban' => 'setIban',
+        'bic' => 'setBic',
+        'type' => 'setType',
+        'date_of_signature' => 'setDateOfSignature',
+        'status' => 'setStatus',
+        'identification' => 'setIdentification',
+        'merchant' => 'setMerchant'
     ];
 
     /**
@@ -130,15 +126,14 @@ class GeneralContractsProductModel extends BaseProductModel
         'c' => 'getC',
         's' => 'getS',
         't' => 'getT',
-        'id_old' => 'getIdOld',
-        'parent' => 'getParent',
-        'merchant' => 'getMerchant',
-        'pay_in_advance_account' => 'getPayInAdvanceAccount',
-        'paypal_configuration' => 'getPaypalConfiguration',
-        'easycredit_configuration' => 'getEasycreditConfiguration',
-        'checkout_configuration' => 'getCheckoutConfiguration',
-        'payment_link_options' => 'getPaymentLinkOptions',
-        'approved' => 'getApproved'
+        'created' => 'getCreated',
+        'iban' => 'getIban',
+        'bic' => 'getBic',
+        'type' => 'getType',
+        'date_of_signature' => 'getDateOfSignature',
+        'status' => 'getStatus',
+        'identification' => 'getIdentification',
+        'merchant' => 'getMerchant'
     ];
 
     public static function attributeMap()
@@ -170,15 +165,14 @@ class GeneralContractsProductModel extends BaseProductModel
         $this->container['c'] = isset($data['c']) ? $data['c'] : null;
         $this->container['s'] = isset($data['s']) ? $data['s'] : null;
         $this->container['t'] = isset($data['t']) ? $data['t'] : null;
-        $this->container['id_old'] = isset($data['id_old']) ? $data['id_old'] : null;
-        $this->container['parent'] = isset($data['parent']) ? $data['parent'] : null;
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['iban'] = isset($data['iban']) ? $data['iban'] : null;
+        $this->container['bic'] = isset($data['bic']) ? $data['bic'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['date_of_signature'] = isset($data['date_of_signature']) ? $data['date_of_signature'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['identification'] = isset($data['identification']) ? $data['identification'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
-        $this->container['pay_in_advance_account'] = isset($data['pay_in_advance_account']) ? $data['pay_in_advance_account'] : null;
-        $this->container['paypal_configuration'] = isset($data['paypal_configuration']) ? $data['paypal_configuration'] : null;
-        $this->container['easycredit_configuration'] = isset($data['easycredit_configuration']) ? $data['easycredit_configuration'] : null;
-        $this->container['checkout_configuration'] = isset($data['checkout_configuration']) ? $data['checkout_configuration'] : null;
-        $this->container['payment_link_options'] = isset($data['payment_link_options']) ? $data['payment_link_options'] : null;
-        $this->container['approved'] = isset($data['approved']) ? $data['approved'] : null;
     }
 
     /**
@@ -332,43 +326,148 @@ class GeneralContractsProductModel extends BaseProductModel
     }
 
     /**
-     * Gets id_old
-     * @return int
+     * Gets created
+     * @return string
      */
-    public function getIdOld()
+    public function getCreated()
     {
-        return $this->container['id_old'];
+        return $this->container['created'];
     }
 
     /**
-     * Sets id_old
-     * @param int $id_old ID in secupay Frontend
+     * Sets created
+     * @param string $created created
      * @return $this
      */
-    public function setIdOld($id_old)
+    public function setCreated($created)
     {
-        $this->container['id_old'] = $id_old;
+        $this->container['created'] = $created;
 
         return $this;
     }
 
     /**
-     * Gets parent
-     * @return \Secuconnect\Client\Model\ParentModel
+     * Gets iban
+     * @return string
      */
-    public function getParent()
+    public function getIban()
     {
-        return $this->container['parent'];
+        return $this->container['iban'];
     }
 
     /**
-     * Sets parent
-     * @param \Secuconnect\Client\Model\ParentModel $parent parent
+     * Sets iban
+     * @param string $iban International Bank Account Number (IBAN)
      * @return $this
      */
-    public function setParent($parent)
+    public function setIban($iban)
     {
-        $this->container['parent'] = $parent;
+        $this->container['iban'] = $iban;
+
+        return $this;
+    }
+
+    /**
+     * Gets bic
+     * @return string
+     */
+    public function getBic()
+    {
+        return $this->container['bic'];
+    }
+
+    /**
+     * Sets bic
+     * @param string $bic Bank Identifier Code (BIC), or formerly SWIFT code
+     * @return $this
+     */
+    public function setBic($bic)
+    {
+        $this->container['bic'] = $bic;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     * @param string $type SEPA mandate type: `COR1`, `CORE`, `B2B`
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets date_of_signature
+     * @return string
+     */
+    public function getDateOfSignature()
+    {
+        return $this->container['date_of_signature'];
+    }
+
+    /**
+     * Sets date_of_signature
+     * @param string $date_of_signature date_of_signature
+     * @return $this
+     */
+    public function setDateOfSignature($date_of_signature)
+    {
+        $this->container['date_of_signature'] = $date_of_signature;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     * @return int
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     * @param int $status Status [`10`: COR1 request, `11`: COR1 ok, `12`: COR1 cancelled, `20`: B2B request, `21`: B2B ok, `22`: B2B cancelled, ...]
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets identification
+     * @return string
+     */
+    public function getIdentification()
+    {
+        return $this->container['identification'];
+    }
+
+    /**
+     * Sets identification
+     * @param string $identification SEPA Payment Identification
+     * @return $this
+     */
+    public function setIdentification($identification)
+    {
+        $this->container['identification'] = $identification;
 
         return $this;
     }
@@ -390,132 +489,6 @@ class GeneralContractsProductModel extends BaseProductModel
     public function setMerchant($merchant)
     {
         $this->container['merchant'] = $merchant;
-
-        return $this;
-    }
-
-    /**
-     * Gets pay_in_advance_account
-     * @return \Secuconnect\Client\Model\BankAccountDescriptor
-     */
-    public function getPayInAdvanceAccount()
-    {
-        return $this->container['pay_in_advance_account'];
-    }
-
-    /**
-     * Sets pay_in_advance_account
-     * @param \Secuconnect\Client\Model\BankAccountDescriptor $pay_in_advance_account pay_in_advance_account
-     * @return $this
-     */
-    public function setPayInAdvanceAccount($pay_in_advance_account)
-    {
-        $this->container['pay_in_advance_account'] = $pay_in_advance_account;
-
-        return $this;
-    }
-
-    /**
-     * Gets paypal_configuration
-     * @return \Secuconnect\Client\Model\ThirdPartyEnvironment
-     */
-    public function getPaypalConfiguration()
-    {
-        return $this->container['paypal_configuration'];
-    }
-
-    /**
-     * Sets paypal_configuration
-     * @param \Secuconnect\Client\Model\ThirdPartyEnvironment $paypal_configuration paypal_configuration
-     * @return $this
-     */
-    public function setPaypalConfiguration($paypal_configuration)
-    {
-        $this->container['paypal_configuration'] = $paypal_configuration;
-
-        return $this;
-    }
-
-    /**
-     * Gets easycredit_configuration
-     * @return \Secuconnect\Client\Model\ThirdPartyEnvironment
-     */
-    public function getEasycreditConfiguration()
-    {
-        return $this->container['easycredit_configuration'];
-    }
-
-    /**
-     * Sets easycredit_configuration
-     * @param \Secuconnect\Client\Model\ThirdPartyEnvironment $easycredit_configuration easycredit_configuration
-     * @return $this
-     */
-    public function setEasycreditConfiguration($easycredit_configuration)
-    {
-        $this->container['easycredit_configuration'] = $easycredit_configuration;
-
-        return $this;
-    }
-
-    /**
-     * Gets checkout_configuration
-     * @return \Secuconnect\Client\Model\CheckoutConfiguration
-     */
-    public function getCheckoutConfiguration()
-    {
-        return $this->container['checkout_configuration'];
-    }
-
-    /**
-     * Sets checkout_configuration
-     * @param \Secuconnect\Client\Model\CheckoutConfiguration $checkout_configuration checkout_configuration
-     * @return $this
-     */
-    public function setCheckoutConfiguration($checkout_configuration)
-    {
-        $this->container['checkout_configuration'] = $checkout_configuration;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_link_options
-     * @return \Secuconnect\Client\Model\PaymentLinkOptions
-     */
-    public function getPaymentLinkOptions()
-    {
-        return $this->container['payment_link_options'];
-    }
-
-    /**
-     * Sets payment_link_options
-     * @param \Secuconnect\Client\Model\PaymentLinkOptions $payment_link_options payment_link_options
-     * @return $this
-     */
-    public function setPaymentLinkOptions($payment_link_options)
-    {
-        $this->container['payment_link_options'] = $payment_link_options;
-
-        return $this;
-    }
-
-    /**
-     * Gets approved
-     * @return bool
-     */
-    public function getApproved()
-    {
-        return $this->container['approved'];
-    }
-
-    /**
-     * Sets approved
-     * @param bool $approved Indicates if the payout lock was removed
-     * @return $this
-     */
-    public function setApproved($approved)
-    {
-        $this->container['approved'] = $approved;
 
         return $this;
     }

@@ -5,15 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * PaymentLinkOptions
+ * ThirdPartyEnvironment
  *
  * @category Class
- * @description PaymentLink settings
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PaymentLinkOptions implements ArrayAccess
+class ThirdPartyEnvironment implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,14 +20,15 @@ class PaymentLinkOptions implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'PaymentLinkOptions';
+    protected static $swaggerModelName = 'ThirdPartyEnvironment';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'background' => '\Secuconnect\Client\Model\BackgroundImageOption'
+        'live' => '\Secuconnect\Client\Model\ThirdPartyEnvironmentSettings',
+        'sandbox' => '\Secuconnect\Client\Model\ThirdPartyEnvironmentSettings'
     ];
 
     /**
@@ -36,7 +36,8 @@ class PaymentLinkOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'background' => null
+        'live' => null,
+        'sandbox' => null
     ];
 
     public static function swaggerTypes()
@@ -54,7 +55,8 @@ class PaymentLinkOptions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'background' => 'background'
+        'live' => 'live',
+        'sandbox' => 'sandbox'
     ];
 
     /**
@@ -62,7 +64,8 @@ class PaymentLinkOptions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'background' => 'setBackground'
+        'live' => 'setLive',
+        'sandbox' => 'setSandbox'
     ];
 
     /**
@@ -70,7 +73,8 @@ class PaymentLinkOptions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'background' => 'getBackground'
+        'live' => 'getLive',
+        'sandbox' => 'getSandbox'
     ];
 
     public static function attributeMap()
@@ -100,7 +104,8 @@ class PaymentLinkOptions implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['background'] = isset($data['background']) ? $data['background'] : null;
+        $this->container['live'] = isset($data['live']) ? $data['live'] : null;
+        $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
     }
 
     /**
@@ -128,22 +133,43 @@ class PaymentLinkOptions implements ArrayAccess
 
 
     /**
-     * Gets background
-     * @return \Secuconnect\Client\Model\BackgroundImageOption
+     * Gets live
+     * @return \Secuconnect\Client\Model\ThirdPartyEnvironmentSettings
      */
-    public function getBackground()
+    public function getLive()
     {
-        return $this->container['background'];
+        return $this->container['live'];
     }
 
     /**
-     * Sets background
-     * @param \Secuconnect\Client\Model\BackgroundImageOption $background background
+     * Sets live
+     * @param \Secuconnect\Client\Model\ThirdPartyEnvironmentSettings $live live
      * @return $this
      */
-    public function setBackground($background)
+    public function setLive($live)
     {
-        $this->container['background'] = $background;
+        $this->container['live'] = $live;
+
+        return $this;
+    }
+
+    /**
+     * Gets sandbox
+     * @return \Secuconnect\Client\Model\ThirdPartyEnvironmentSettings
+     */
+    public function getSandbox()
+    {
+        return $this->container['sandbox'];
+    }
+
+    /**
+     * Sets sandbox
+     * @param \Secuconnect\Client\Model\ThirdPartyEnvironmentSettings $sandbox sandbox
+     * @return $this
+     */
+    public function setSandbox($sandbox)
+    {
+        $this->container['sandbox'] = $sandbox;
 
         return $this;
     }

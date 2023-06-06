@@ -6,6 +6,7 @@ namespace Secuconnect\Client\Model;
  * GeneralContractsTransferBalanceModel
  *
  * @category Class
+ * @description GeneralContractsTransferBalanceModel
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

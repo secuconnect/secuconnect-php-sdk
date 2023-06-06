@@ -61,6 +61,222 @@ class GeneralContractsApi
     }
 
     /**
+     * Operation addPaymentLinkConfiguration
+     *
+     * POST General/Contracts/{generalContractId}/SavePaymentLinkConfiguration
+     *
+     * @param string $general_contract_id Contract identifier (required)
+     * @param \Secuconnect\Client\Model\PaymentLinkOptions $body body 
+     * @throws ApiException on non-2xx response
+     * @return \Secuconnect\Client\Model\GeneralContractsProductModel
+     */
+    public function addPaymentLinkConfiguration($general_contract_id, $body)
+    {
+        list($response) = $this->addPaymentLinkConfigurationWithHttpInfo($general_contract_id, $body);
+        return $response;
+    }
+
+    /**
+     * Operation addPaymentLinkConfigurationWithHttpInfo
+     *
+     * POST General/Contracts/{generalContractId}/SavePaymentLinkConfiguration
+     *
+     * @param string $general_contract_id Contract identifier (required)
+     * @param \Secuconnect\Client\Model\PaymentLinkOptions $body 
+     * @throws ApiException on non-2xx response
+     * @return array of \Secuconnect\Client\Model\GeneralContractsProductModel, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function addPaymentLinkConfigurationWithHttpInfo($general_contract_id, $body)
+    {
+        // verify the required parameter 'general_contract_id' is set
+        if ($general_contract_id === null || (is_array($general_contract_id) && count($general_contract_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $general_contract_id when calling addPaymentLinkConfiguration'
+            );
+        }
+        // parse inputs
+        $resourcePath = "/General/Contracts/{generalContractId}/savePaymentLinkConfiguration";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // path params
+        if ($general_contract_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "generalContractId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($general_contract_id),
+                $resourcePath
+            );
+        }
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        for ($retries = 0; ; $retries++) {
+
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+            }
+
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'POST',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\GeneralContractsProductModel',
+                    '/General/Contracts/{generalContractId}/savePaymentLinkConfiguration'
+                );
+
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\GeneralContractsProductModel', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\GeneralContractsProductModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue 2;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
+        }
+    }
+
+    /**
+     * Operation addThirdPartyConfiguration
+     *
+     * POST General/Contracts/{generalContractId}/ThirdPartyConfiguration
+     *
+     * @param string $general_contract_id General contract id (required)
+     * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body body 
+     * @throws ApiException on non-2xx response
+     * @return \Secuconnect\Client\Model\ThirdPartyConfigurationProductModel
+     */
+    public function addThirdPartyConfiguration($general_contract_id, $body)
+    {
+        list($response) = $this->addThirdPartyConfigurationWithHttpInfo($general_contract_id, $body);
+        return $response;
+    }
+
+    /**
+     * Operation addThirdPartyConfigurationWithHttpInfo
+     *
+     * POST General/Contracts/{generalContractId}/ThirdPartyConfiguration
+     *
+     * @param string $general_contract_id General contract id (required)
+     * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body 
+     * @throws ApiException on non-2xx response
+     * @return array of \Secuconnect\Client\Model\ThirdPartyConfigurationProductModel, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function addThirdPartyConfigurationWithHttpInfo($general_contract_id, $body)
+    {
+        // verify the required parameter 'general_contract_id' is set
+        if ($general_contract_id === null || (is_array($general_contract_id) && count($general_contract_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $general_contract_id when calling addThirdPartyConfiguration'
+            );
+        }
+        // parse inputs
+        $resourcePath = "/General/Contracts/{generalContractId}/ThirdPartyConfiguration";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // path params
+        if ($general_contract_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "generalContractId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($general_contract_id),
+                $resourcePath
+            );
+        }
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        for ($retries = 0; ; $retries++) {
+
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+            }
+
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'POST',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\ThirdPartyConfigurationProductModel',
+                    '/General/Contracts/{generalContractId}/ThirdPartyConfiguration'
+                );
+
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\ThirdPartyConfigurationProductModel', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ThirdPartyConfigurationProductModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue 2;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
+        }
+    }
+
+    /**
      * Operation getAll
      *
      * GET General/Contracts
@@ -212,12 +428,113 @@ class GeneralContractsApi
     }
 
     /**
+     * Operation getAvailableCurrencies
+     *
+     * GET General/Contracts/{generalContractId}/AvailableCurrencies
+     *
+     * @param string $general_contract_id Contract identifier (required)
+     * @throws ApiException on non-2xx response
+     * @return \Secuconnect\Client\Model\AvailableCurrencies
+     */
+    public function getAvailableCurrencies($general_contract_id)
+    {
+        list($response) = $this->getAvailableCurrenciesWithHttpInfo($general_contract_id);
+        return $response;
+    }
+
+    /**
+     * Operation getAvailableCurrenciesWithHttpInfo
+     *
+     * GET General/Contracts/{generalContractId}/AvailableCurrencies
+     *
+     * @param string $general_contract_id Contract identifier (required)
+     * @throws ApiException on non-2xx response
+     * @return array of \Secuconnect\Client\Model\AvailableCurrencies, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAvailableCurrenciesWithHttpInfo($general_contract_id)
+    {
+        // verify the required parameter 'general_contract_id' is set
+        if ($general_contract_id === null || (is_array($general_contract_id) && count($general_contract_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $general_contract_id when calling getAvailableCurrencies'
+            );
+        }
+        // parse inputs
+        $resourcePath = "/General/Contracts/{generalContractId}/AvailableCurrencies";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($general_contract_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "generalContractId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($general_contract_id),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        for ($retries = 0; ; $retries++) {
+
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+            }
+
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'GET',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\AvailableCurrencies',
+                    '/General/Contracts/{generalContractId}/AvailableCurrencies'
+                );
+
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\AvailableCurrencies', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\AvailableCurrencies', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue 2;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
+        }
+    }
+
+    /**
      * Operation getAvailablePaymentMethods
      *
      * POST General/Contracts/{generalContractId}/getAvailablePaymentMethods
      *
      * @param string $general_contract_id Contract identifier (required)
-     * @param \Secuconnect\Client\Model\GetAvailablePaymentMethodsDTO $body options 
+     * @param \Secuconnect\Client\Model\GetAvailablePaymentMethodsDTO $body body 
      * @throws ApiException on non-2xx response
      * @return string[]
      */
@@ -233,7 +550,7 @@ class GeneralContractsApi
      * POST General/Contracts/{generalContractId}/getAvailablePaymentMethods
      *
      * @param string $general_contract_id Contract identifier (required)
-     * @param \Secuconnect\Client\Model\GetAvailablePaymentMethodsDTO $body options 
+     * @param \Secuconnect\Client\Model\GetAvailablePaymentMethodsDTO $body 
      * @throws ApiException on non-2xx response
      * @return array of string[], HTTP status code, HTTP response headers (array of strings)
      */
@@ -326,7 +643,7 @@ class GeneralContractsApi
      *
      * @param string $general_contract_id Contract identifier (required)
      * @param string $smart_transaction_id Smart Transaction identifier (required)
-     * @param \Secuconnect\Client\Model\GetAvailablePaymentMethodsDTO $body options 
+     * @param \Secuconnect\Client\Model\GetAvailablePaymentMethodsDTO $body body 
      * @throws ApiException on non-2xx response
      * @return string[]
      */
@@ -343,7 +660,7 @@ class GeneralContractsApi
      *
      * @param string $general_contract_id Contract identifier (required)
      * @param string $smart_transaction_id Smart Transaction identifier (required)
-     * @param \Secuconnect\Client\Model\GetAvailablePaymentMethodsDTO $body options 
+     * @param \Secuconnect\Client\Model\GetAvailablePaymentMethodsDTO $body 
      * @throws ApiException on non-2xx response
      * @return array of string[], HTTP status code, HTTP response headers (array of strings)
      */
@@ -425,6 +742,107 @@ class GeneralContractsApi
                 switch ($e->getCode()) {
                     case 200:
                         $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string[]', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue 2;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
+        }
+    }
+
+    /**
+     * Operation getIframeOptions
+     *
+     * GET General/Contracts/{generalContractId}/IframeOptions
+     *
+     * @param string $general_contract_id Contract identifier (required)
+     * @throws ApiException on non-2xx response
+     * @return \Secuconnect\Client\Model\IframeOptions
+     */
+    public function getIframeOptions($general_contract_id)
+    {
+        list($response) = $this->getIframeOptionsWithHttpInfo($general_contract_id);
+        return $response;
+    }
+
+    /**
+     * Operation getIframeOptionsWithHttpInfo
+     *
+     * GET General/Contracts/{generalContractId}/IframeOptions
+     *
+     * @param string $general_contract_id Contract identifier (required)
+     * @throws ApiException on non-2xx response
+     * @return array of \Secuconnect\Client\Model\IframeOptions, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getIframeOptionsWithHttpInfo($general_contract_id)
+    {
+        // verify the required parameter 'general_contract_id' is set
+        if ($general_contract_id === null || (is_array($general_contract_id) && count($general_contract_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $general_contract_id when calling getIframeOptions'
+            );
+        }
+        // parse inputs
+        $resourcePath = "/General/Contracts/{generalContractId}/IframeOptions";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($general_contract_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "generalContractId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($general_contract_id),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        for ($retries = 0; ; $retries++) {
+
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+            }
+
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'GET',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\IframeOptions',
+                    '/General/Contracts/{generalContractId}/IframeOptions'
+                );
+
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\IframeOptions', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\IframeOptions', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:
@@ -545,6 +963,107 @@ class GeneralContractsApi
     }
 
     /**
+     * Operation getThirdPartyConfiguration
+     *
+     * GET General/Contracts/{generalContractId}/ThirdPartyConfiguration
+     *
+     * @param string $general_contract_id General contract id (required)
+     * @throws ApiException on non-2xx response
+     * @return \Secuconnect\Client\Model\ThirdPartyConfigurationProductModel
+     */
+    public function getThirdPartyConfiguration($general_contract_id)
+    {
+        list($response) = $this->getThirdPartyConfigurationWithHttpInfo($general_contract_id);
+        return $response;
+    }
+
+    /**
+     * Operation getThirdPartyConfigurationWithHttpInfo
+     *
+     * GET General/Contracts/{generalContractId}/ThirdPartyConfiguration
+     *
+     * @param string $general_contract_id General contract id (required)
+     * @throws ApiException on non-2xx response
+     * @return array of \Secuconnect\Client\Model\ThirdPartyConfigurationProductModel, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getThirdPartyConfigurationWithHttpInfo($general_contract_id)
+    {
+        // verify the required parameter 'general_contract_id' is set
+        if ($general_contract_id === null || (is_array($general_contract_id) && count($general_contract_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $general_contract_id when calling getThirdPartyConfiguration'
+            );
+        }
+        // parse inputs
+        $resourcePath = "/General/Contracts/{generalContractId}/ThirdPartyConfiguration";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($general_contract_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "generalContractId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($general_contract_id),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        for ($retries = 0; ; $retries++) {
+
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+            }
+
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'GET',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\ThirdPartyConfigurationProductModel',
+                    '/General/Contracts/{generalContractId}/ThirdPartyConfiguration'
+                );
+
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\ThirdPartyConfigurationProductModel', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ThirdPartyConfigurationProductModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue 2;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
+        }
+    }
+
+    /**
      * Operation getTransferBalance
      *
      * GET General/Contracts/{generalContractId}/transferBalance
@@ -627,6 +1146,339 @@ class GeneralContractsApi
                 switch ($e->getCode()) {
                     case 200:
                         $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\GeneralContractsTransferBalanceModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue 2;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
+        }
+    }
+
+    /**
+     * Operation patchContract
+     *
+     * PATCH General/Contracts/{generalContractId}
+     *
+     * @param string $general_contract_id General contract id (required)
+     * @param \Secuconnect\Client\Model\GeneralContractsDTO $body body 
+     * @throws ApiException on non-2xx response
+     * @return \Secuconnect\Client\Model\GeneralContractsProductModel
+     */
+    public function patchContract($general_contract_id, $body)
+    {
+        list($response) = $this->patchContractWithHttpInfo($general_contract_id, $body);
+        return $response;
+    }
+
+    /**
+     * Operation patchContractWithHttpInfo
+     *
+     * PATCH General/Contracts/{generalContractId}
+     *
+     * @param string $general_contract_id General contract id (required)
+     * @param \Secuconnect\Client\Model\GeneralContractsDTO $body 
+     * @throws ApiException on non-2xx response
+     * @return array of \Secuconnect\Client\Model\GeneralContractsProductModel, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function patchContractWithHttpInfo($general_contract_id, $body)
+    {
+        // verify the required parameter 'general_contract_id' is set
+        if ($general_contract_id === null || (is_array($general_contract_id) && count($general_contract_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $general_contract_id when calling patchContract'
+            );
+        }
+        // parse inputs
+        $resourcePath = "/General/Contracts/{generalContractId}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // path params
+        if ($general_contract_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "generalContractId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($general_contract_id),
+                $resourcePath
+            );
+        }
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        for ($retries = 0; ; $retries++) {
+
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+            }
+
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'PATCH',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\GeneralContractsProductModel',
+                    '/General/Contracts/{generalContractId}'
+                );
+
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\GeneralContractsProductModel', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\GeneralContractsProductModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue 2;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
+        }
+    }
+
+    /**
+     * Operation patchThirdPartyConfiguration
+     *
+     * PATCH General/Contracts/{generalContractId}/ThirdPartyConfiguration
+     *
+     * @param string $general_contract_id General contract id (required)
+     * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body body 
+     * @throws ApiException on non-2xx response
+     * @return \Secuconnect\Client\Model\ThirdPartyConfigurationProductModel
+     */
+    public function patchThirdPartyConfiguration($general_contract_id, $body)
+    {
+        list($response) = $this->patchThirdPartyConfigurationWithHttpInfo($general_contract_id, $body);
+        return $response;
+    }
+
+    /**
+     * Operation patchThirdPartyConfigurationWithHttpInfo
+     *
+     * PATCH General/Contracts/{generalContractId}/ThirdPartyConfiguration
+     *
+     * @param string $general_contract_id General contract id (required)
+     * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body 
+     * @throws ApiException on non-2xx response
+     * @return array of \Secuconnect\Client\Model\ThirdPartyConfigurationProductModel, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function patchThirdPartyConfigurationWithHttpInfo($general_contract_id, $body)
+    {
+        // verify the required parameter 'general_contract_id' is set
+        if ($general_contract_id === null || (is_array($general_contract_id) && count($general_contract_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $general_contract_id when calling patchThirdPartyConfiguration'
+            );
+        }
+        // parse inputs
+        $resourcePath = "/General/Contracts/{generalContractId}/ThirdPartyConfiguration";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // path params
+        if ($general_contract_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "generalContractId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($general_contract_id),
+                $resourcePath
+            );
+        }
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        for ($retries = 0; ; $retries++) {
+
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+            }
+
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'PATCH',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\ThirdPartyConfigurationProductModel',
+                    '/General/Contracts/{generalContractId}/ThirdPartyConfiguration'
+                );
+
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\ThirdPartyConfigurationProductModel', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ThirdPartyConfigurationProductModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue 2;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
+        }
+    }
+
+    /**
+     * Operation removeThirdPartyConfiguration
+     *
+     * DELETE General/Contracts/{generalContractId}/ThirdPartyConfiguration
+     *
+     * @param string $general_contract_id General contract id (required)
+     * @param string $third_party_name Third party name (required)
+     * @throws ApiException on non-2xx response
+     * @return \Secuconnect\Client\Model\ThirdPartyConfigurationProductModel
+     */
+    public function removeThirdPartyConfiguration($general_contract_id, $third_party_name)
+    {
+        list($response) = $this->removeThirdPartyConfigurationWithHttpInfo($general_contract_id, $third_party_name);
+        return $response;
+    }
+
+    /**
+     * Operation removeThirdPartyConfigurationWithHttpInfo
+     *
+     * DELETE General/Contracts/{generalContractId}/ThirdPartyConfiguration
+     *
+     * @param string $general_contract_id General contract id (required)
+     * @param string $third_party_name Third party name (required)
+     * @throws ApiException on non-2xx response
+     * @return array of \Secuconnect\Client\Model\ThirdPartyConfigurationProductModel, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function removeThirdPartyConfigurationWithHttpInfo($general_contract_id, $third_party_name)
+    {
+        // verify the required parameter 'general_contract_id' is set
+        if ($general_contract_id === null || (is_array($general_contract_id) && count($general_contract_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $general_contract_id when calling removeThirdPartyConfiguration'
+            );
+        }
+        // verify the required parameter 'third_party_name' is set
+        if ($third_party_name === null || (is_array($third_party_name) && count($third_party_name) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $third_party_name when calling removeThirdPartyConfiguration'
+            );
+        }
+        // parse inputs
+        $resourcePath = "/General/Contracts/{generalContractId}/ThirdPartyConfiguration/{thirdPartyName}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($general_contract_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "generalContractId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($general_contract_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($third_party_name !== null) {
+            $resourcePath = str_replace(
+                "{" . "thirdPartyName" . "}",
+                $this->apiClient->getSerializer()->toPathValue($third_party_name),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        for ($retries = 0; ; $retries++) {
+
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+            }
+
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'DELETE',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\ThirdPartyConfigurationProductModel',
+                    '/General/Contracts/{generalContractId}/ThirdPartyConfiguration/{thirdPartyName}'
+                );
+
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\ThirdPartyConfigurationProductModel', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ThirdPartyConfigurationProductModel', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:
@@ -848,7 +1700,7 @@ class GeneralContractsApi
      * POST General/Contracts/{generalContractId}/updateBankAccount
      *
      * @param string $general_contract_id Contract identifier (required)
-     * @param \Secuconnect\Client\Model\BankAccountDescriptor $body options 
+     * @param \Secuconnect\Client\Model\BankAccountDescriptor $body body 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ResultBoolean
      */
@@ -864,7 +1716,7 @@ class GeneralContractsApi
      * POST General/Contracts/{generalContractId}/updateBankAccount
      *
      * @param string $general_contract_id Contract identifier (required)
-     * @param \Secuconnect\Client\Model\BankAccountDescriptor $body options 
+     * @param \Secuconnect\Client\Model\BankAccountDescriptor $body 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
      */
@@ -932,6 +1784,222 @@ class GeneralContractsApi
                 switch ($e->getCode()) {
                     case 200:
                         $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ResultBoolean', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue 2;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
+        }
+    }
+
+    /**
+     * Operation updateContract
+     *
+     * PUT General/Contracts/{generalContractId}
+     *
+     * @param string $general_contract_id General contract id (required)
+     * @param \Secuconnect\Client\Model\GeneralContractsDTO $body body 
+     * @throws ApiException on non-2xx response
+     * @return \Secuconnect\Client\Model\GeneralContractsProductModel
+     */
+    public function updateContract($general_contract_id, $body)
+    {
+        list($response) = $this->updateContractWithHttpInfo($general_contract_id, $body);
+        return $response;
+    }
+
+    /**
+     * Operation updateContractWithHttpInfo
+     *
+     * PUT General/Contracts/{generalContractId}
+     *
+     * @param string $general_contract_id General contract id (required)
+     * @param \Secuconnect\Client\Model\GeneralContractsDTO $body 
+     * @throws ApiException on non-2xx response
+     * @return array of \Secuconnect\Client\Model\GeneralContractsProductModel, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateContractWithHttpInfo($general_contract_id, $body)
+    {
+        // verify the required parameter 'general_contract_id' is set
+        if ($general_contract_id === null || (is_array($general_contract_id) && count($general_contract_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $general_contract_id when calling updateContract'
+            );
+        }
+        // parse inputs
+        $resourcePath = "/General/Contracts/{generalContractId}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // path params
+        if ($general_contract_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "generalContractId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($general_contract_id),
+                $resourcePath
+            );
+        }
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        for ($retries = 0; ; $retries++) {
+
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+            }
+
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'PUT',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\GeneralContractsProductModel',
+                    '/General/Contracts/{generalContractId}'
+                );
+
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\GeneralContractsProductModel', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\GeneralContractsProductModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue 2;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
+        }
+    }
+
+    /**
+     * Operation updateThirdPartyConfiguration
+     *
+     * PUT General/Contracts/{generalContractId}/ThirdPartyConfiguration
+     *
+     * @param string $general_contract_id General contract id (required)
+     * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body body 
+     * @throws ApiException on non-2xx response
+     * @return \Secuconnect\Client\Model\ThirdPartyConfigurationProductModel
+     */
+    public function updateThirdPartyConfiguration($general_contract_id, $body)
+    {
+        list($response) = $this->updateThirdPartyConfigurationWithHttpInfo($general_contract_id, $body);
+        return $response;
+    }
+
+    /**
+     * Operation updateThirdPartyConfigurationWithHttpInfo
+     *
+     * PUT General/Contracts/{generalContractId}/ThirdPartyConfiguration
+     *
+     * @param string $general_contract_id General contract id (required)
+     * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body 
+     * @throws ApiException on non-2xx response
+     * @return array of \Secuconnect\Client\Model\ThirdPartyConfigurationProductModel, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateThirdPartyConfigurationWithHttpInfo($general_contract_id, $body)
+    {
+        // verify the required parameter 'general_contract_id' is set
+        if ($general_contract_id === null || (is_array($general_contract_id) && count($general_contract_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $general_contract_id when calling updateThirdPartyConfiguration'
+            );
+        }
+        // parse inputs
+        $resourcePath = "/General/Contracts/{generalContractId}/ThirdPartyConfiguration";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // path params
+        if ($general_contract_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "generalContractId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($general_contract_id),
+                $resourcePath
+            );
+        }
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        for ($retries = 0; ; $retries++) {
+
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+            }
+
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'PUT',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\ThirdPartyConfigurationProductModel',
+                    '/General/Contracts/{generalContractId}/ThirdPartyConfiguration'
+                );
+
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\ThirdPartyConfigurationProductModel', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ThirdPartyConfigurationProductModel', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:

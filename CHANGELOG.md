@@ -18,6 +18,52 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.32.0] - 2023-06-06
+[2.32.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.31.0...2.32.0
+
+- *new endpoint*: `GeneralContractsApi->addPaymentLinkConfiguration()`
+- *new endpoint*: `GeneralContractsApi->addThirdPartyConfiguration()`
+- *new endpoint*: `GeneralContractsApi->getAvailableCurrencies()`
+- *new endpoint*: `GeneralContractsApi->getIframeOptions()`
+- *new endpoint*: `GeneralContractsApi->getThirdPartyConfiguration()`
+- *new endpoint*: `GeneralContractsApi->patchContract()`
+- *new endpoint*: `GeneralContractsApi->patchThirdPartyConfiguration()`
+- *new endpoint*: `GeneralContractsApi->removeThirdPartyConfiguration()`
+- *new endpoint*: `GeneralContractsApi->updateContract()`
+- *new endpoint*: `GeneralContractsApi->updateThirdPartyConfiguration()`
+- *new endpoint*: `PaymentMandatesApi`
+- *new element*: `paypal_configuration`, `easycredit_configuration` and `checkout_configuration` in `GeneralContractsProductModel`
+- *changed element type*: `merchant` changed from `ProductInstanceUID` to `GeneralMerchantsProductModel` in `GeneralContractsProductModel`
+
+### Added
+- `Api.PaymentMandatesApi`
+- `Model.AvailableCurrencies`
+- `Model.CheckoutConfiguration`
+- `Model.CheckoutConfigurationNotifications`
+- `Model.ClientIdValue`
+- `Model.ClientSecretValue`
+- `Model.GeneralContractsDTO`
+- `Model.IframeOptions`
+- `Model.IsoDate`
+- `Model.PaymentMandatesDTO`
+- `Model.PaymentMandatesList`
+- `Model.PaymentMandatesProductModel`
+- `Model.ThirdPartyConfigurationDTO`
+- `Model.ThirdPartyConfigurationProductModel`
+- `Model.ThirdPartyEnvironment`
+- `Model.ThirdPartyEnvironmentDTO`
+- `Model.ThirdPartyEnvironmentSettings`
+- `Model.ThirdPartyEnvironmentSettingsDTO`
+
+### Changed
+- `Api.GeneralContractsApi`
+- `Api.PaymentContractsApi`
+- `Model.GeneralContractsProductModel`
+- `Model.GeneralContractsTransferBalanceModel`
+- `Model.GeneralContractsTransferBalanceModelBalances`
+- `Model.PaymentLinkOptions`
+
+
 ## [2.31.0] - 2023-06-01
 [2.31.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.30.2...2.31.0
 

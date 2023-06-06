@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * PaymentLinkOptions
+ * ThirdPartyEnvironmentSettings
  *
  * @category Class
- * @description PaymentLink settings
+ * @description Third-Party environment settings
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PaymentLinkOptions implements ArrayAccess
+class ThirdPartyEnvironmentSettings implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,14 +21,14 @@ class PaymentLinkOptions implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'PaymentLinkOptions';
+    protected static $swaggerModelName = 'ThirdPartyEnvironmentSettings';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'background' => '\Secuconnect\Client\Model\BackgroundImageOption'
+        'client_id' => 'string'
     ];
 
     /**
@@ -36,7 +36,7 @@ class PaymentLinkOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'background' => null
+        'client_id' => null
     ];
 
     public static function swaggerTypes()
@@ -54,7 +54,7 @@ class PaymentLinkOptions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'background' => 'background'
+        'client_id' => 'client_id'
     ];
 
     /**
@@ -62,7 +62,7 @@ class PaymentLinkOptions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'background' => 'setBackground'
+        'client_id' => 'setClientId'
     ];
 
     /**
@@ -70,7 +70,7 @@ class PaymentLinkOptions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'background' => 'getBackground'
+        'client_id' => 'getClientId'
     ];
 
     public static function attributeMap()
@@ -100,7 +100,7 @@ class PaymentLinkOptions implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['background'] = isset($data['background']) ? $data['background'] : null;
+        $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
     }
 
     /**
@@ -112,6 +112,9 @@ class PaymentLinkOptions implements ArrayAccess
     {
         $invalid_properties = [];
 
+        if ($this->container['client_id'] === null) {
+            $invalid_properties[] = "'client_id' can't be null";
+        }
         return $invalid_properties;
     }
 
@@ -128,22 +131,22 @@ class PaymentLinkOptions implements ArrayAccess
 
 
     /**
-     * Gets background
-     * @return \Secuconnect\Client\Model\BackgroundImageOption
+     * Gets client_id
+     * @return string
      */
-    public function getBackground()
+    public function getClientId()
     {
-        return $this->container['background'];
+        return $this->container['client_id'];
     }
 
     /**
-     * Sets background
-     * @param \Secuconnect\Client\Model\BackgroundImageOption $background background
+     * Sets client_id
+     * @param string $client_id client_id
      * @return $this
      */
-    public function setBackground($background)
+    public function setClientId($client_id)
     {
-        $this->container['background'] = $background;
+        $this->container['client_id'] = $client_id;
 
         return $this;
     }

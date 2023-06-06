@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * PaymentLinkOptions
+ * ClientSecretValue
  *
  * @category Class
- * @description PaymentLink settings
+ * @description Client-secret
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PaymentLinkOptions implements ArrayAccess
+class ClientSecretValue implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,14 +21,13 @@ class PaymentLinkOptions implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'PaymentLinkOptions';
+    protected static $swaggerModelName = 'ClientSecretValue';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'background' => '\Secuconnect\Client\Model\BackgroundImageOption'
     ];
 
     /**
@@ -36,7 +35,6 @@ class PaymentLinkOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'background' => null
     ];
 
     public static function swaggerTypes()
@@ -54,7 +52,6 @@ class PaymentLinkOptions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'background' => 'background'
     ];
 
     /**
@@ -62,7 +59,6 @@ class PaymentLinkOptions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'background' => 'setBackground'
     ];
 
     /**
@@ -70,7 +66,6 @@ class PaymentLinkOptions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'background' => 'getBackground'
     ];
 
     public static function attributeMap()
@@ -100,7 +95,6 @@ class PaymentLinkOptions implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['background'] = isset($data['background']) ? $data['background'] : null;
     }
 
     /**
@@ -126,27 +120,6 @@ class PaymentLinkOptions implements ArrayAccess
         return true;
     }
 
-
-    /**
-     * Gets background
-     * @return \Secuconnect\Client\Model\BackgroundImageOption
-     */
-    public function getBackground()
-    {
-        return $this->container['background'];
-    }
-
-    /**
-     * Sets background
-     * @param \Secuconnect\Client\Model\BackgroundImageOption $background background
-     * @return $this
-     */
-    public function setBackground($background)
-    {
-        $this->container['background'] = $background;
-
-        return $this;
-    }
 
     /**
      * Returns true if offset exists. False otherwise.
