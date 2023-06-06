@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * PaymentLinkOptions
+ * ThirdPartyConfigurationDTO
  *
  * @category Class
- * @description PaymentLink settings
+ * @description Third-Party settings
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PaymentLinkOptions implements ArrayAccess
+class ThirdPartyConfigurationDTO implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,14 +21,16 @@ class PaymentLinkOptions implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'PaymentLinkOptions';
+    protected static $swaggerModelName = 'ThirdPartyConfigurationDTO';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'background' => '\Secuconnect\Client\Model\BackgroundImageOption'
+        'paypal' => '\Secuconnect\Client\Model\ThirdPartyEnvironmentDTO',
+        'easycredit' => '\Secuconnect\Client\Model\ThirdPartyEnvironmentDTO',
+        'saferpay' => '\Secuconnect\Client\Model\ThirdPartyEnvironmentDTO'
     ];
 
     /**
@@ -36,7 +38,9 @@ class PaymentLinkOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'background' => null
+        'paypal' => null,
+        'easycredit' => null,
+        'saferpay' => null
     ];
 
     public static function swaggerTypes()
@@ -54,7 +58,9 @@ class PaymentLinkOptions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'background' => 'background'
+        'paypal' => 'paypal',
+        'easycredit' => 'easycredit',
+        'saferpay' => 'saferpay'
     ];
 
     /**
@@ -62,7 +68,9 @@ class PaymentLinkOptions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'background' => 'setBackground'
+        'paypal' => 'setPaypal',
+        'easycredit' => 'setEasycredit',
+        'saferpay' => 'setSaferpay'
     ];
 
     /**
@@ -70,7 +78,9 @@ class PaymentLinkOptions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'background' => 'getBackground'
+        'paypal' => 'getPaypal',
+        'easycredit' => 'getEasycredit',
+        'saferpay' => 'getSaferpay'
     ];
 
     public static function attributeMap()
@@ -100,7 +110,9 @@ class PaymentLinkOptions implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['background'] = isset($data['background']) ? $data['background'] : null;
+        $this->container['paypal'] = isset($data['paypal']) ? $data['paypal'] : null;
+        $this->container['easycredit'] = isset($data['easycredit']) ? $data['easycredit'] : null;
+        $this->container['saferpay'] = isset($data['saferpay']) ? $data['saferpay'] : null;
     }
 
     /**
@@ -128,22 +140,64 @@ class PaymentLinkOptions implements ArrayAccess
 
 
     /**
-     * Gets background
-     * @return \Secuconnect\Client\Model\BackgroundImageOption
+     * Gets paypal
+     * @return \Secuconnect\Client\Model\ThirdPartyEnvironmentDTO
      */
-    public function getBackground()
+    public function getPaypal()
     {
-        return $this->container['background'];
+        return $this->container['paypal'];
     }
 
     /**
-     * Sets background
-     * @param \Secuconnect\Client\Model\BackgroundImageOption $background background
+     * Sets paypal
+     * @param \Secuconnect\Client\Model\ThirdPartyEnvironmentDTO $paypal paypal
      * @return $this
      */
-    public function setBackground($background)
+    public function setPaypal($paypal)
     {
-        $this->container['background'] = $background;
+        $this->container['paypal'] = $paypal;
+
+        return $this;
+    }
+
+    /**
+     * Gets easycredit
+     * @return \Secuconnect\Client\Model\ThirdPartyEnvironmentDTO
+     */
+    public function getEasycredit()
+    {
+        return $this->container['easycredit'];
+    }
+
+    /**
+     * Sets easycredit
+     * @param \Secuconnect\Client\Model\ThirdPartyEnvironmentDTO $easycredit easycredit
+     * @return $this
+     */
+    public function setEasycredit($easycredit)
+    {
+        $this->container['easycredit'] = $easycredit;
+
+        return $this;
+    }
+
+    /**
+     * Gets saferpay
+     * @return \Secuconnect\Client\Model\ThirdPartyEnvironmentDTO
+     */
+    public function getSaferpay()
+    {
+        return $this->container['saferpay'];
+    }
+
+    /**
+     * Sets saferpay
+     * @param \Secuconnect\Client\Model\ThirdPartyEnvironmentDTO $saferpay saferpay
+     * @return $this
+     */
+    public function setSaferpay($saferpay)
+    {
+        $this->container['saferpay'] = $saferpay;
 
         return $this;
     }

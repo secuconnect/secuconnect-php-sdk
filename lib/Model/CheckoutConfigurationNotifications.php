@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * PaymentLinkOptions
+ * CheckoutConfigurationNotifications
  *
  * @category Class
- * @description PaymentLink settings
+ * @description Checkout notification settings
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PaymentLinkOptions implements ArrayAccess
+class CheckoutConfigurationNotifications implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,14 +21,15 @@ class PaymentLinkOptions implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'PaymentLinkOptions';
+    protected static $swaggerModelName = 'CheckoutConfigurationNotifications';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'background' => '\Secuconnect\Client\Model\BackgroundImageOption'
+        'merchant_order_mail' => 'bool',
+        'customer_order_mail' => 'bool'
     ];
 
     /**
@@ -36,7 +37,8 @@ class PaymentLinkOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'background' => null
+        'merchant_order_mail' => null,
+        'customer_order_mail' => null
     ];
 
     public static function swaggerTypes()
@@ -54,7 +56,8 @@ class PaymentLinkOptions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'background' => 'background'
+        'merchant_order_mail' => 'merchant_order_mail',
+        'customer_order_mail' => 'customer_order_mail'
     ];
 
     /**
@@ -62,7 +65,8 @@ class PaymentLinkOptions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'background' => 'setBackground'
+        'merchant_order_mail' => 'setMerchantOrderMail',
+        'customer_order_mail' => 'setCustomerOrderMail'
     ];
 
     /**
@@ -70,7 +74,8 @@ class PaymentLinkOptions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'background' => 'getBackground'
+        'merchant_order_mail' => 'getMerchantOrderMail',
+        'customer_order_mail' => 'getCustomerOrderMail'
     ];
 
     public static function attributeMap()
@@ -100,7 +105,8 @@ class PaymentLinkOptions implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['background'] = isset($data['background']) ? $data['background'] : null;
+        $this->container['merchant_order_mail'] = isset($data['merchant_order_mail']) ? $data['merchant_order_mail'] : true;
+        $this->container['customer_order_mail'] = isset($data['customer_order_mail']) ? $data['customer_order_mail'] : true;
     }
 
     /**
@@ -128,22 +134,43 @@ class PaymentLinkOptions implements ArrayAccess
 
 
     /**
-     * Gets background
-     * @return \Secuconnect\Client\Model\BackgroundImageOption
+     * Gets merchant_order_mail
+     * @return bool
      */
-    public function getBackground()
+    public function getMerchantOrderMail()
     {
-        return $this->container['background'];
+        return $this->container['merchant_order_mail'];
     }
 
     /**
-     * Sets background
-     * @param \Secuconnect\Client\Model\BackgroundImageOption $background background
+     * Sets merchant_order_mail
+     * @param bool $merchant_order_mail If enabled an order confirmation mail will be send to the seller
      * @return $this
      */
-    public function setBackground($background)
+    public function setMerchantOrderMail($merchant_order_mail)
     {
-        $this->container['background'] = $background;
+        $this->container['merchant_order_mail'] = $merchant_order_mail;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_order_mail
+     * @return bool
+     */
+    public function getCustomerOrderMail()
+    {
+        return $this->container['customer_order_mail'];
+    }
+
+    /**
+     * Sets customer_order_mail
+     * @param bool $customer_order_mail If enabled an order confirmation mail will be send to the payer
+     * @return $this
+     */
+    public function setCustomerOrderMail($customer_order_mail)
+    {
+        $this->container['customer_order_mail'] = $customer_order_mail;
 
         return $this;
     }

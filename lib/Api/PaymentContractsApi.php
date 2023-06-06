@@ -731,7 +731,7 @@ class PaymentContractsApi
      * POST Payment/Contracts/{paymentContractId}/updateBankAccount
      *
      * @param string $payment_contract_id Contract identifier (required)
-     * @param \Secuconnect\Client\Model\BankAccountDescriptor $body options 
+     * @param \Secuconnect\Client\Model\BankAccountDescriptor $body body 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ResultBoolean
      */
@@ -747,7 +747,7 @@ class PaymentContractsApi
      * POST Payment/Contracts/{paymentContractId}/updateBankAccount
      *
      * @param string $payment_contract_id Contract identifier (required)
-     * @param \Secuconnect\Client\Model\BankAccountDescriptor $body options 
+     * @param \Secuconnect\Client\Model\BankAccountDescriptor $body 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
      */

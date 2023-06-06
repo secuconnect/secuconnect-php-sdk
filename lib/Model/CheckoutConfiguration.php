@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * PaymentLinkOptions
+ * CheckoutConfiguration
  *
  * @category Class
- * @description PaymentLink settings
+ * @description General checkout settings
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PaymentLinkOptions implements ArrayAccess
+class CheckoutConfiguration implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,14 +21,14 @@ class PaymentLinkOptions implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'PaymentLinkOptions';
+    protected static $swaggerModelName = 'CheckoutConfiguration';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'background' => '\Secuconnect\Client\Model\BackgroundImageOption'
+        'notifications' => '\Secuconnect\Client\Model\CheckoutConfigurationNotifications'
     ];
 
     /**
@@ -36,7 +36,7 @@ class PaymentLinkOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'background' => null
+        'notifications' => null
     ];
 
     public static function swaggerTypes()
@@ -54,7 +54,7 @@ class PaymentLinkOptions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'background' => 'background'
+        'notifications' => 'notifications'
     ];
 
     /**
@@ -62,7 +62,7 @@ class PaymentLinkOptions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'background' => 'setBackground'
+        'notifications' => 'setNotifications'
     ];
 
     /**
@@ -70,7 +70,7 @@ class PaymentLinkOptions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'background' => 'getBackground'
+        'notifications' => 'getNotifications'
     ];
 
     public static function attributeMap()
@@ -100,7 +100,7 @@ class PaymentLinkOptions implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['background'] = isset($data['background']) ? $data['background'] : null;
+        $this->container['notifications'] = isset($data['notifications']) ? $data['notifications'] : null;
     }
 
     /**
@@ -128,22 +128,22 @@ class PaymentLinkOptions implements ArrayAccess
 
 
     /**
-     * Gets background
-     * @return \Secuconnect\Client\Model\BackgroundImageOption
+     * Gets notifications
+     * @return \Secuconnect\Client\Model\CheckoutConfigurationNotifications
      */
-    public function getBackground()
+    public function getNotifications()
     {
-        return $this->container['background'];
+        return $this->container['notifications'];
     }
 
     /**
-     * Sets background
-     * @param \Secuconnect\Client\Model\BackgroundImageOption $background background
+     * Sets notifications
+     * @param \Secuconnect\Client\Model\CheckoutConfigurationNotifications $notifications notifications
      * @return $this
      */
-    public function setBackground($background)
+    public function setNotifications($notifications)
     {
-        $this->container['background'] = $background;
+        $this->container['notifications'] = $notifications;
 
         return $this;
     }

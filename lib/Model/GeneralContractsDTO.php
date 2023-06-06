@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * PaymentLinkOptions
+ * GeneralContractsDTO
  *
  * @category Class
- * @description PaymentLink settings
+ * @description GeneralContractsDTO
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PaymentLinkOptions implements ArrayAccess
+class GeneralContractsDTO implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,14 +21,14 @@ class PaymentLinkOptions implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'PaymentLinkOptions';
+    protected static $swaggerModelName = 'GeneralContractsDTO';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'background' => '\Secuconnect\Client\Model\BackgroundImageOption'
+        'checkout_configuration' => '\Secuconnect\Client\Model\CheckoutConfiguration'
     ];
 
     /**
@@ -36,7 +36,7 @@ class PaymentLinkOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'background' => null
+        'checkout_configuration' => null
     ];
 
     public static function swaggerTypes()
@@ -54,7 +54,7 @@ class PaymentLinkOptions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'background' => 'background'
+        'checkout_configuration' => 'checkout_configuration'
     ];
 
     /**
@@ -62,7 +62,7 @@ class PaymentLinkOptions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'background' => 'setBackground'
+        'checkout_configuration' => 'setCheckoutConfiguration'
     ];
 
     /**
@@ -70,7 +70,7 @@ class PaymentLinkOptions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'background' => 'getBackground'
+        'checkout_configuration' => 'getCheckoutConfiguration'
     ];
 
     public static function attributeMap()
@@ -100,7 +100,7 @@ class PaymentLinkOptions implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['background'] = isset($data['background']) ? $data['background'] : null;
+        $this->container['checkout_configuration'] = isset($data['checkout_configuration']) ? $data['checkout_configuration'] : null;
     }
 
     /**
@@ -128,22 +128,22 @@ class PaymentLinkOptions implements ArrayAccess
 
 
     /**
-     * Gets background
-     * @return \Secuconnect\Client\Model\BackgroundImageOption
+     * Gets checkout_configuration
+     * @return \Secuconnect\Client\Model\CheckoutConfiguration
      */
-    public function getBackground()
+    public function getCheckoutConfiguration()
     {
-        return $this->container['background'];
+        return $this->container['checkout_configuration'];
     }
 
     /**
-     * Sets background
-     * @param \Secuconnect\Client\Model\BackgroundImageOption $background background
+     * Sets checkout_configuration
+     * @param \Secuconnect\Client\Model\CheckoutConfiguration $checkout_configuration checkout_configuration
      * @return $this
      */
-    public function setBackground($background)
+    public function setCheckoutConfiguration($checkout_configuration)
     {
-        $this->container['background'] = $background;
+        $this->container['checkout_configuration'] = $checkout_configuration;
 
         return $this;
     }
