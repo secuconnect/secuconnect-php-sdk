@@ -18,6 +18,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.32.1] - 2023-07-13
+[2.32.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.32.0...2.32.1
+
+### Added
+- `Model.GooglePayDescriptorIntermediateSigningKey`
+
+### Changed
+- `Model.GooglePayDescriptor`
+- `Model.OneOfPaymentContainersDTOModelPrivate`
+
+
 ## [2.32.0] - 2023-06-06
 [2.32.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.31.0...2.32.0
 
