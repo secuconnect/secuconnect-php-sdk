@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * GooglePayDescriptor
+ * GooglePayDescriptorIntermediateSigningKey
  *
  * @category Class
- * @description GooglePay details
+ * @description A object that contains the intermediate signing key from Google. It contains the signedKey with keyValue, keyExpiration, and signatures.
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GooglePayDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModelPrivate 
+class GooglePayDescriptorIntermediateSigningKey implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,17 +21,15 @@ class GooglePayDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModel
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'GooglePayDescriptor';
+    protected static $swaggerModelName = 'GooglePayDescriptorIntermediateSigningKey';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'signature' => 'string',
-        'intermediate_signing_key' => '\Secuconnect\Client\Model\GooglePayDescriptorIntermediateSigningKey',
-        'protocol_version' => 'string',
-        'signed_message' => 'string'
+        'signed_key' => 'string',
+        'signatures' => 'string[]'
     ];
 
     /**
@@ -39,10 +37,8 @@ class GooglePayDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModel
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'signature' => null,
-        'intermediate_signing_key' => null,
-        'protocol_version' => null,
-        'signed_message' => null
+        'signed_key' => null,
+        'signatures' => null
     ];
 
     public static function swaggerTypes()
@@ -60,10 +56,8 @@ class GooglePayDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModel
      * @var string[]
      */
     protected static $attributeMap = [
-        'signature' => 'signature',
-        'intermediate_signing_key' => 'intermediateSigningKey',
-        'protocol_version' => 'protocolVersion',
-        'signed_message' => 'signedMessage'
+        'signed_key' => 'signedKey',
+        'signatures' => 'signatures'
     ];
 
     /**
@@ -71,10 +65,8 @@ class GooglePayDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModel
      * @var string[]
      */
     protected static $setters = [
-        'signature' => 'setSignature',
-        'intermediate_signing_key' => 'setIntermediateSigningKey',
-        'protocol_version' => 'setProtocolVersion',
-        'signed_message' => 'setSignedMessage'
+        'signed_key' => 'setSignedKey',
+        'signatures' => 'setSignatures'
     ];
 
     /**
@@ -82,10 +74,8 @@ class GooglePayDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModel
      * @var string[]
      */
     protected static $getters = [
-        'signature' => 'getSignature',
-        'intermediate_signing_key' => 'getIntermediateSigningKey',
-        'protocol_version' => 'getProtocolVersion',
-        'signed_message' => 'getSignedMessage'
+        'signed_key' => 'getSignedKey',
+        'signatures' => 'getSignatures'
     ];
 
     public static function attributeMap()
@@ -115,10 +105,8 @@ class GooglePayDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModel
      */
     public function __construct(array $data = null)
     {
-        $this->container['signature'] = isset($data['signature']) ? $data['signature'] : null;
-        $this->container['intermediate_signing_key'] = isset($data['intermediate_signing_key']) ? $data['intermediate_signing_key'] : null;
-        $this->container['protocol_version'] = isset($data['protocol_version']) ? $data['protocol_version'] : 'ECv2';
-        $this->container['signed_message'] = isset($data['signed_message']) ? $data['signed_message'] : null;
+        $this->container['signed_key'] = isset($data['signed_key']) ? $data['signed_key'] : null;
+        $this->container['signatures'] = isset($data['signatures']) ? $data['signatures'] : null;
     }
 
     /**
@@ -146,85 +134,43 @@ class GooglePayDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModel
 
 
     /**
-     * Gets signature
+     * Gets signed_key
      * @return string
      */
-    public function getSignature()
+    public function getSignedKey()
     {
-        return $this->container['signature'];
+        return $this->container['signed_key'];
     }
 
     /**
-     * Sets signature
-     * @param string $signature Base64 encoded signature of the signedMessage data.
+     * Sets signed_key
+     * @param string $signed_key A base64-encoded message that contains payment description of the key.
      * @return $this
      */
-    public function setSignature($signature)
+    public function setSignedKey($signed_key)
     {
-        $this->container['signature'] = $signature;
+        $this->container['signed_key'] = $signed_key;
 
         return $this;
     }
 
     /**
-     * Gets intermediate_signing_key
-     * @return \Secuconnect\Client\Model\GooglePayDescriptorIntermediateSigningKey
+     * Gets signatures
+     * @return string[]
      */
-    public function getIntermediateSigningKey()
+    public function getSignatures()
     {
-        return $this->container['intermediate_signing_key'];
+        return $this->container['signatures'];
     }
 
     /**
-     * Sets intermediate_signing_key
-     * @param \Secuconnect\Client\Model\GooglePayDescriptorIntermediateSigningKey $intermediate_signing_key intermediate_signing_key
+     * Sets signatures
+     * @param string[] $signatures A list of used singing keys from Google.
      * @return $this
      */
-    public function setIntermediateSigningKey($intermediate_signing_key)
+    public function setSignatures($signatures)
     {
-        $this->container['intermediate_signing_key'] = $intermediate_signing_key;
-
-        return $this;
-    }
-
-    /**
-     * Gets protocol_version
-     * @return string
-     */
-    public function getProtocolVersion()
-    {
-        return $this->container['protocol_version'];
-    }
-
-    /**
-     * Sets protocol_version
-     * @param string $protocol_version Version information about the payment token.
-     * @return $this
-     */
-    public function setProtocolVersion($protocol_version)
-    {
-        $this->container['protocol_version'] = $protocol_version;
-
-        return $this;
-    }
-
-    /**
-     * Gets signed_message
-     * @return string
-     */
-    public function getSignedMessage()
-    {
-        return $this->container['signed_message'];
-    }
-
-    /**
-     * Sets signed_message
-     * @param string $signed_message A JSON object serialized as an HTML-safe string that contains the encryptedMessage, ephemeralPublicKey, and tag.
-     * @return $this
-     */
-    public function setSignedMessage($signed_message)
-    {
-        $this->container['signed_message'] = $signed_message;
+        $this->container['signatures'] = $signatures;
 
         return $this;
     }
