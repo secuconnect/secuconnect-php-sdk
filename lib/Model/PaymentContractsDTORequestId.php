@@ -41,7 +41,12 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'payout_purpose' => 'string',
         'identrequest' => 'string',
         'signed_contract' => 'string',
-        'additional_data' => '\Secuconnect\Client\Model\PaymentContractsDTORequestIdAdditionalData'
+        'additional_data' => '\Secuconnect\Client\Model\PaymentContractsDTORequestIdAdditionalData',
+        'notes' => 'string',
+        'invoice_reference' => 'string',
+        'tid' => 'string',
+        'merchant_category' => 'int',
+        'account_statement_text' => 'string'
     ];
 
     /**
@@ -62,7 +67,12 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'payout_purpose' => null,
         'identrequest' => null,
         'signed_contract' => null,
-        'additional_data' => null
+        'additional_data' => null,
+        'notes' => null,
+        'invoice_reference' => null,
+        'tid' => null,
+        'merchant_category' => null,
+        'account_statement_text' => null
     ];
 
     public static function swaggerTypes()
@@ -93,7 +103,12 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'payout_purpose' => 'payout_purpose',
         'identrequest' => 'identrequest',
         'signed_contract' => 'signed_contract',
-        'additional_data' => 'additional_data'
+        'additional_data' => 'additional_data',
+        'notes' => 'notes',
+        'invoice_reference' => 'invoice_reference',
+        'tid' => 'tid',
+        'merchant_category' => 'merchant_category',
+        'account_statement_text' => 'account_statement_text'
     ];
 
     /**
@@ -114,7 +129,12 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'payout_purpose' => 'setPayoutPurpose',
         'identrequest' => 'setIdentrequest',
         'signed_contract' => 'setSignedContract',
-        'additional_data' => 'setAdditionalData'
+        'additional_data' => 'setAdditionalData',
+        'notes' => 'setNotes',
+        'invoice_reference' => 'setInvoiceReference',
+        'tid' => 'setTid',
+        'merchant_category' => 'setMerchantCategory',
+        'account_statement_text' => 'setAccountStatementText'
     ];
 
     /**
@@ -135,7 +155,12 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'payout_purpose' => 'getPayoutPurpose',
         'identrequest' => 'getIdentrequest',
         'signed_contract' => 'getSignedContract',
-        'additional_data' => 'getAdditionalData'
+        'additional_data' => 'getAdditionalData',
+        'notes' => 'getNotes',
+        'invoice_reference' => 'getInvoiceReference',
+        'tid' => 'getTid',
+        'merchant_category' => 'getMerchantCategory',
+        'account_statement_text' => 'getAccountStatementText'
     ];
 
     public static function attributeMap()
@@ -179,6 +204,11 @@ class PaymentContractsDTORequestId implements ArrayAccess
         $this->container['identrequest'] = isset($data['identrequest']) ? $data['identrequest'] : null;
         $this->container['signed_contract'] = isset($data['signed_contract']) ? $data['signed_contract'] : null;
         $this->container['additional_data'] = isset($data['additional_data']) ? $data['additional_data'] : null;
+        $this->container['notes'] = isset($data['notes']) ? $data['notes'] : null;
+        $this->container['invoice_reference'] = isset($data['invoice_reference']) ? $data['invoice_reference'] : null;
+        $this->container['tid'] = isset($data['tid']) ? $data['tid'] : null;
+        $this->container['merchant_category'] = isset($data['merchant_category']) ? $data['merchant_category'] : null;
+        $this->container['account_statement_text'] = isset($data['account_statement_text']) ? $data['account_statement_text'] : null;
     }
 
     /**
@@ -495,6 +525,111 @@ class PaymentContractsDTORequestId implements ArrayAccess
     public function setAdditionalData($additional_data)
     {
         $this->container['additional_data'] = $additional_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets notes
+     * @return string
+     */
+    public function getNotes()
+    {
+        return $this->container['notes'];
+    }
+
+    /**
+     * Sets notes
+     * @param string $notes Adds a note.
+     * @return $this
+     */
+    public function setNotes($notes)
+    {
+        $this->container['notes'] = $notes;
+
+        return $this;
+    }
+
+    /**
+     * Gets invoice_reference
+     * @return string
+     */
+    public function getInvoiceReference()
+    {
+        return $this->container['invoice_reference'];
+    }
+
+    /**
+     * Sets invoice_reference
+     * @param string $invoice_reference Reference-Text from Inputfield
+     * @return $this
+     */
+    public function setInvoiceReference($invoice_reference)
+    {
+        $this->container['invoice_reference'] = $invoice_reference;
+
+        return $this;
+    }
+
+    /**
+     * Gets tid
+     * @return string
+     */
+    public function getTid()
+    {
+        return $this->container['tid'];
+    }
+
+    /**
+     * Sets tid
+     * @param string $tid tid
+     * @return $this
+     */
+    public function setTid($tid)
+    {
+        $this->container['tid'] = $tid;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant_category
+     * @return int
+     */
+    public function getMerchantCategory()
+    {
+        return $this->container['merchant_category'];
+    }
+
+    /**
+     * Sets merchant_category
+     * @param int $merchant_category merchant_category
+     * @return $this
+     */
+    public function setMerchantCategory($merchant_category)
+    {
+        $this->container['merchant_category'] = $merchant_category;
+
+        return $this;
+    }
+
+    /**
+     * Gets account_statement_text
+     * @return string
+     */
+    public function getAccountStatementText()
+    {
+        return $this->container['account_statement_text'];
+    }
+
+    /**
+     * Sets account_statement_text
+     * @param string $account_statement_text account_statement_text
+     * @return $this
+     */
+    public function setAccountStatementText($account_statement_text)
+    {
+        $this->container['account_statement_text'] = $account_statement_text;
 
         return $this;
     }
