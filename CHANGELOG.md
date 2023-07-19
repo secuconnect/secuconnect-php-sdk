@@ -18,6 +18,24 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.33.0] - 2023-07-19
+[2.33.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.32.1...2.33.0
+
+- *new endpoint*: `DocumentUploadsApi->download()`
+- *new endpoint*: `DocumentUploadsApi->getOne()`
+- *new endpoint*: `GeneralMerchantsApi->updatePublicData()`
+
+### Added
+- `Model.DocumentUploadsProductModelWithContent`
+- `Model.GeneralMerchantsPublicDataDTO`
+
+### Changed
+- `Api.DocumentUploadsApi`
+- `Api.GeneralMerchantsApi`
+- `Model.DocumentUploadsDTOContent`
+- `Model.DocumentUploadsProductModel`
+
+
 ## [2.32.1] - 2023-07-13
 [2.32.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.32.0...2.32.1
 

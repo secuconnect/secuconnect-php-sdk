@@ -3,15 +3,15 @@
 namespace Secuconnect\Client\Model;
 
 /**
- * DocumentUploadsProductModel
+ * DocumentUploadsProductModelWithContent
  *
  * @category Class
- * @description DocumentUploadsProductModel
+ * @description extended DocumentUploadsProductModel
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class DocumentUploadsProductModel extends DocumentUploadsBaseProductModel
+class DocumentUploadsProductModelWithContent extends DocumentUploadsProductModel
 {
     const DISCRIMINATOR = null;
 
@@ -19,16 +19,14 @@ class DocumentUploadsProductModel extends DocumentUploadsBaseProductModel
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'DocumentUploadsProductModel';
+    protected static $swaggerModelName = 'DocumentUploadsProductModelWithContent';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string',
-        'name' => 'string',
-        'size' => 'int'
+        'content' => 'string'
     ];
 
     /**
@@ -36,9 +34,7 @@ class DocumentUploadsProductModel extends DocumentUploadsBaseProductModel
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null,
-        'name' => null,
-        'size' => null
+        'content' => null
     ];
 
     public static function swaggerTypes()
@@ -56,9 +52,7 @@ class DocumentUploadsProductModel extends DocumentUploadsBaseProductModel
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'name' => 'name',
-        'size' => 'size'
+        'content' => 'content'
     ];
 
     /**
@@ -66,9 +60,7 @@ class DocumentUploadsProductModel extends DocumentUploadsBaseProductModel
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'name' => 'setName',
-        'size' => 'setSize'
+        'content' => 'setContent'
     ];
 
     /**
@@ -76,9 +68,7 @@ class DocumentUploadsProductModel extends DocumentUploadsBaseProductModel
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'name' => 'getName',
-        'size' => 'getSize'
+        'content' => 'getContent'
     ];
 
     public static function attributeMap()
@@ -104,9 +94,7 @@ class DocumentUploadsProductModel extends DocumentUploadsBaseProductModel
     {
         parent::__construct($data);
 
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
+        $this->container['content'] = isset($data['content']) ? $data['content'] : null;
     }
 
     /**
@@ -134,64 +122,22 @@ class DocumentUploadsProductModel extends DocumentUploadsBaseProductModel
 
 
     /**
-     * Gets type
+     * Gets content
      * @return string
      */
-    public function getType()
+    public function getContent()
     {
-        return $this->container['type'];
+        return $this->container['content'];
     }
 
     /**
-     * Sets type
-     * @param string $type MIME Type
+     * Sets content
+     * @param string $content File content as Base64 encoded string
      * @return $this
      */
-    public function setType($type)
+    public function setContent($content)
     {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     * @param string $name Original filename
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets size
-     * @return int
-     */
-    public function getSize()
-    {
-        return $this->container['size'];
-    }
-
-    /**
-     * Sets size
-     * @param int $size Filesize
-     * @return $this
-     */
-    public function setSize($size)
-    {
-        $this->container['size'] = $size;
+        $this->container['content'] = $content;
 
         return $this;
     }
