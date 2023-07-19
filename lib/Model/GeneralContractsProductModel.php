@@ -32,6 +32,7 @@ class GeneralContractsProductModel extends BaseProductModel
         'c' => 'int',
         's' => 'int',
         't' => '\Secuconnect\Client\Model\AggregationTimeResult',
+        'description' => 'string',
         'id_old' => 'int',
         'parent' => '\Secuconnect\Client\Model\ParentModel',
         'merchant' => '\Secuconnect\Client\Model\GeneralMerchantsProductModel',
@@ -54,6 +55,7 @@ class GeneralContractsProductModel extends BaseProductModel
         'c' => null,
         's' => null,
         't' => null,
+        'description' => null,
         'id_old' => 'id',
         'parent' => null,
         'merchant' => null,
@@ -86,6 +88,7 @@ class GeneralContractsProductModel extends BaseProductModel
         'c' => 'c',
         's' => 's',
         't' => 't',
+        'description' => 'description',
         'id_old' => 'id_old',
         'parent' => 'parent',
         'merchant' => 'merchant',
@@ -108,6 +111,7 @@ class GeneralContractsProductModel extends BaseProductModel
         'c' => 'setC',
         's' => 'setS',
         't' => 'setT',
+        'description' => 'setDescription',
         'id_old' => 'setIdOld',
         'parent' => 'setParent',
         'merchant' => 'setMerchant',
@@ -130,6 +134,7 @@ class GeneralContractsProductModel extends BaseProductModel
         'c' => 'getC',
         's' => 'getS',
         't' => 'getT',
+        'description' => 'getDescription',
         'id_old' => 'getIdOld',
         'parent' => 'getParent',
         'merchant' => 'getMerchant',
@@ -170,6 +175,7 @@ class GeneralContractsProductModel extends BaseProductModel
         $this->container['c'] = isset($data['c']) ? $data['c'] : null;
         $this->container['s'] = isset($data['s']) ? $data['s'] : null;
         $this->container['t'] = isset($data['t']) ? $data['t'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['id_old'] = isset($data['id_old']) ? $data['id_old'] : null;
         $this->container['parent'] = isset($data['parent']) ? $data['parent'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
@@ -327,6 +333,27 @@ class GeneralContractsProductModel extends BaseProductModel
     public function setT($t)
     {
         $this->container['t'] = $t;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     * @param string $description description
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
 
         return $this;
     }

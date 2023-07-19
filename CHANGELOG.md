@@ -18,6 +18,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.34.0] - 2023-07-19
+[2.34.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.33.0...2.34.0
+
+- *new element*: `description` in `GeneralContractsProductModel`
+- *new element*: `notes`, `invoice_reference`, `tid`, `merchant_category` and `account_statement_text` in `PaymentContractsDTORequestId`
+
+### Changed
+- `Model.GeneralContractsProductModel`
+- `Model.PaymentContractsDTORequestId`
+
+
 ## [2.33.0] - 2023-07-19
 [2.33.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.32.1...2.33.0
 
