@@ -138,7 +138,7 @@ class DocumentUploadsDTOContent implements ArrayAccess
 
     /**
      * Sets content
-     * @param string $content Content
+     * @param string $content File content as Base64 encoded string
      * @return $this
      */
     public function setContent($content)

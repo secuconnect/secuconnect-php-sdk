@@ -2,16 +2,18 @@
 
 namespace Secuconnect\Client\Model;
 
+use \ArrayAccess;
+
 /**
- * DocumentUploadsProductModel
+ * GeneralMerchantsPublicDataDTO
  *
  * @category Class
- * @description DocumentUploadsProductModel
+ * @description GeneralMerchantsPublicDataDTO
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class DocumentUploadsProductModel extends DocumentUploadsBaseProductModel
+class GeneralMerchantsPublicDataDTO implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -19,16 +21,15 @@ class DocumentUploadsProductModel extends DocumentUploadsBaseProductModel
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'DocumentUploadsProductModel';
+    protected static $swaggerModelName = 'GeneralMerchantsPublicDataDTO';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string',
-        'name' => 'string',
-        'size' => 'int'
+        'legal_details' => '\Secuconnect\Client\Model\GeneralMerchantsLegalDetails[]',
+        'merchant_urls' => '\Secuconnect\Client\Model\GeneralMerchantsUrls[]'
     ];
 
     /**
@@ -36,19 +37,18 @@ class DocumentUploadsProductModel extends DocumentUploadsBaseProductModel
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null,
-        'name' => null,
-        'size' => null
+        'legal_details' => null,
+        'merchant_urls' => null
     ];
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /**
@@ -56,9 +56,8 @@ class DocumentUploadsProductModel extends DocumentUploadsBaseProductModel
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'name' => 'name',
-        'size' => 'size'
+        'legal_details' => 'legal_details',
+        'merchant_urls' => 'merchant_urls'
     ];
 
     /**
@@ -66,9 +65,8 @@ class DocumentUploadsProductModel extends DocumentUploadsBaseProductModel
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'name' => 'setName',
-        'size' => 'setSize'
+        'legal_details' => 'setLegalDetails',
+        'merchant_urls' => 'setMerchantUrls'
     ];
 
     /**
@@ -76,25 +74,30 @@ class DocumentUploadsProductModel extends DocumentUploadsBaseProductModel
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'name' => 'getName',
-        'size' => 'getSize'
+        'legal_details' => 'getLegalDetails',
+        'merchant_urls' => 'getMerchantUrls'
     ];
 
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
+
+    /**
+     * Associative array for storing property values
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -102,11 +105,8 @@ class DocumentUploadsProductModel extends DocumentUploadsBaseProductModel
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
+        $this->container['legal_details'] = isset($data['legal_details']) ? $data['legal_details'] : null;
+        $this->container['merchant_urls'] = isset($data['merchant_urls']) ? $data['merchant_urls'] : null;
     }
 
     /**
@@ -116,7 +116,7 @@ class DocumentUploadsProductModel extends DocumentUploadsBaseProductModel
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = parent::listInvalidProperties();
+        $invalid_properties = [];
 
         return $invalid_properties;
     }
@@ -134,64 +134,43 @@ class DocumentUploadsProductModel extends DocumentUploadsBaseProductModel
 
 
     /**
-     * Gets type
-     * @return string
+     * Gets legal_details
+     * @return \Secuconnect\Client\Model\GeneralMerchantsLegalDetails[]
      */
-    public function getType()
+    public function getLegalDetails()
     {
-        return $this->container['type'];
+        return $this->container['legal_details'];
     }
 
     /**
-     * Sets type
-     * @param string $type MIME Type
+     * Sets legal_details
+     * @param \Secuconnect\Client\Model\GeneralMerchantsLegalDetails[] $legal_details Legal details like terms of use, privacy policy, or imprint
      * @return $this
      */
-    public function setType($type)
+    public function setLegalDetails($legal_details)
     {
-        $this->container['type'] = $type;
+        $this->container['legal_details'] = $legal_details;
 
         return $this;
     }
 
     /**
-     * Gets name
-     * @return string
+     * Gets merchant_urls
+     * @return \Secuconnect\Client\Model\GeneralMerchantsUrls[]
      */
-    public function getName()
+    public function getMerchantUrls()
     {
-        return $this->container['name'];
+        return $this->container['merchant_urls'];
     }
 
     /**
-     * Sets name
-     * @param string $name Original filename
+     * Sets merchant_urls
+     * @param \Secuconnect\Client\Model\GeneralMerchantsUrls[] $merchant_urls URLs
      * @return $this
      */
-    public function setName($name)
+    public function setMerchantUrls($merchant_urls)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets size
-     * @return int
-     */
-    public function getSize()
-    {
-        return $this->container['size'];
-    }
-
-    /**
-     * Sets size
-     * @param int $size Filesize
-     * @return $this
-     */
-    public function setSize($size)
-    {
-        $this->container['size'] = $size;
+        $this->container['merchant_urls'] = $merchant_urls;
 
         return $this;
     }
