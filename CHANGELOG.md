@@ -18,6 +18,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.35.0] - 2023-07-27
+[2.35.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.34.0...2.35.0
+
+- *fixed endpoint*: `SmartDevicesApi->getRouting()` used a wrong url 
+
+### Changed
+- `Api.SmartDevicesApi`
+
+
 ## [2.34.0] - 2023-07-19
 [2.34.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.33.0...2.34.0
 

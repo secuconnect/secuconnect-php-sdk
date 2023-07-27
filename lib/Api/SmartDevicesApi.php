@@ -407,7 +407,7 @@ class SmartDevicesApi
     /**
      * Operation getRouting
      *
-     * GET Smart/Devices/{smartDeviceId}/routing/type/{type}
+     * GET Smart/Devices/{smartDeviceId}/routing/{type}
      *
      * @param string $smart_device_id Smart device id (required)
      * @param string $type Smart Device Type (required)
@@ -423,7 +423,7 @@ class SmartDevicesApi
     /**
      * Operation getRoutingWithHttpInfo
      *
-     * GET Smart/Devices/{smartDeviceId}/routing/type/{type}
+     * GET Smart/Devices/{smartDeviceId}/routing/{type}
      *
      * @param string $smart_device_id Smart device id (required)
      * @param string $type Smart Device Type (required)
@@ -445,7 +445,7 @@ class SmartDevicesApi
             );
         }
         // parse inputs
-        $resourcePath = "/Smart/Devices/{smartDeviceId}/routing/type/{type}";
+        $resourcePath = "/Smart/Devices/{smartDeviceId}/routing/{type}";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -495,7 +495,7 @@ class SmartDevicesApi
                     $httpBody,
                     $headerParams,
                     '\Secuconnect\Client\Model\SmartDevicesProductModel',
-                    '/Smart/Devices/{smartDeviceId}/routing/type/{type}'
+                    '/Smart/Devices/{smartDeviceId}/routing/{type}'
                 );
 
                 return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\SmartDevicesProductModel', $httpHeader), $statusCode, $httpHeader];
