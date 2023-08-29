@@ -13,7 +13,7 @@ use \ArrayAccess;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PayPalDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModelPrivate 
+class PayPalDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModelPrivate
 {
     const DISCRIMINATOR = null;
 
@@ -180,6 +180,7 @@ class PayPalDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModelPri
      * @param integer $offset Offset
      * @return boolean
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -190,6 +191,7 @@ class PayPalDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModelPri
      * @param integer $offset Offset
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -201,6 +203,7 @@ class PayPalDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModelPri
      * @param mixed   $value  Value to be set
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -215,6 +218,7 @@ class PayPalDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModelPri
      * @param integer $offset Offset
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);

@@ -816,6 +816,208 @@ class PaymentTransactionsApi
     }
 
     /**
+     * Operation getPaymentInstructionsForPaymentTransaction
+     *
+     * Get payment instructions for Payment Transaction
+     *
+     * @param string $payment_transaction_id Payment Transaction ID (required)
+     * @throws ApiException on non-2xx response
+     * @return \Secuconnect\Client\Model\PaymentTransactionsInstructionsModel
+     */
+    public function getPaymentInstructionsForPaymentTransaction($payment_transaction_id)
+    {
+        list($response) = $this->getPaymentInstructionsForPaymentTransactionWithHttpInfo($payment_transaction_id);
+        return $response;
+    }
+
+    /**
+     * Operation getPaymentInstructionsForPaymentTransactionWithHttpInfo
+     *
+     * Get payment instructions for Payment Transaction
+     *
+     * @param string $payment_transaction_id Payment Transaction ID (required)
+     * @throws ApiException on non-2xx response
+     * @return array of \Secuconnect\Client\Model\PaymentTransactionsInstructionsModel, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPaymentInstructionsForPaymentTransactionWithHttpInfo($payment_transaction_id)
+    {
+        // verify the required parameter 'payment_transaction_id' is set
+        if ($payment_transaction_id === null || (is_array($payment_transaction_id) && count($payment_transaction_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $payment_transaction_id when calling getPaymentInstructionsForPaymentTransaction'
+            );
+        }
+        // parse inputs
+        $resourcePath = "/Payment/Transactions/{paymentTransactionId}/getPaymentInstructions";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($payment_transaction_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "paymentTransactionId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($payment_transaction_id),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        for ($retries = 0; ; $retries++) {
+
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+            }
+
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'POST',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\PaymentTransactionsInstructionsModel',
+                    '/Payment/Transactions/{paymentTransactionId}/getPaymentInstructions'
+                );
+
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentTransactionsInstructionsModel', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentTransactionsInstructionsModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue 2;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
+        }
+    }
+
+    /**
+     * Operation getPaymentInstructionsForSmartTransaction
+     *
+     * Get payment instructions for Smart Transaction
+     *
+     * @param string $smart_transaction_id Smart Transaction ID (required)
+     * @throws ApiException on non-2xx response
+     * @return \Secuconnect\Client\Model\PaymentTransactionsInstructionsModel
+     */
+    public function getPaymentInstructionsForSmartTransaction($smart_transaction_id)
+    {
+        list($response) = $this->getPaymentInstructionsForSmartTransactionWithHttpInfo($smart_transaction_id);
+        return $response;
+    }
+
+    /**
+     * Operation getPaymentInstructionsForSmartTransactionWithHttpInfo
+     *
+     * Get payment instructions for Smart Transaction
+     *
+     * @param string $smart_transaction_id Smart Transaction ID (required)
+     * @throws ApiException on non-2xx response
+     * @return array of \Secuconnect\Client\Model\PaymentTransactionsInstructionsModel, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPaymentInstructionsForSmartTransactionWithHttpInfo($smart_transaction_id)
+    {
+        // verify the required parameter 'smart_transaction_id' is set
+        if ($smart_transaction_id === null || (is_array($smart_transaction_id) && count($smart_transaction_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $smart_transaction_id when calling getPaymentInstructionsForSmartTransaction'
+            );
+        }
+        // parse inputs
+        $resourcePath = "/Payment/Transactions/me/getPaymentInstructions/{smartTransactionId}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($smart_transaction_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "smartTransactionId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($smart_transaction_id),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        for ($retries = 0; ; $retries++) {
+
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+            }
+
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'POST',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\PaymentTransactionsInstructionsModel',
+                    '/Payment/Transactions/me/getPaymentInstructions/{smartTransactionId}'
+                );
+
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentTransactionsInstructionsModel', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentTransactionsInstructionsModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue 2;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
+        }
+    }
+
+    /**
      * Operation getPaymentTransactionsOldFormat
      *
      * GET Payment/Transactions/{paymentTransactionId}/OldFormat
