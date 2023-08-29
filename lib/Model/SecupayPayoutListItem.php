@@ -33,7 +33,8 @@ class SecupayPayoutListItem implements ArrayAccess
         'reference' => 'string',
         'recipient' => 'string',
         'bank_account' => '\Secuconnect\Client\Model\BankAccountDescriptor',
-        'origin_transaction' => 'int'
+        'origin_transaction' => 'int',
+        'trans_id' => 'int'
     ];
 
     /**
@@ -46,7 +47,8 @@ class SecupayPayoutListItem implements ArrayAccess
         'reference' => null,
         'recipient' => null,
         'bank_account' => null,
-        'origin_transaction' => null
+        'origin_transaction' => null,
+        'trans_id' => null
     ];
 
     public static function swaggerTypes()
@@ -69,7 +71,8 @@ class SecupayPayoutListItem implements ArrayAccess
         'reference' => 'reference',
         'recipient' => 'recipient',
         'bank_account' => 'bank_account',
-        'origin_transaction' => 'origin_transaction'
+        'origin_transaction' => 'origin_transaction',
+        'trans_id' => 'trans_id'
     ];
 
     /**
@@ -82,7 +85,8 @@ class SecupayPayoutListItem implements ArrayAccess
         'reference' => 'setReference',
         'recipient' => 'setRecipient',
         'bank_account' => 'setBankAccount',
-        'origin_transaction' => 'setOriginTransaction'
+        'origin_transaction' => 'setOriginTransaction',
+        'trans_id' => 'setTransId'
     ];
 
     /**
@@ -95,7 +99,8 @@ class SecupayPayoutListItem implements ArrayAccess
         'reference' => 'getReference',
         'recipient' => 'getRecipient',
         'bank_account' => 'getBankAccount',
-        'origin_transaction' => 'getOriginTransaction'
+        'origin_transaction' => 'getOriginTransaction',
+        'trans_id' => 'getTransId'
     ];
 
     public static function attributeMap()
@@ -131,6 +136,7 @@ class SecupayPayoutListItem implements ArrayAccess
         $this->container['recipient'] = isset($data['recipient']) ? $data['recipient'] : null;
         $this->container['bank_account'] = isset($data['bank_account']) ? $data['bank_account'] : null;
         $this->container['origin_transaction'] = isset($data['origin_transaction']) ? $data['origin_transaction'] : null;
+        $this->container['trans_id'] = isset($data['trans_id']) ? $data['trans_id'] : null;
     }
 
     /**
@@ -284,10 +290,32 @@ class SecupayPayoutListItem implements ArrayAccess
     }
 
     /**
+     * Gets trans_id
+     * @return int
+     */
+    public function getTransId()
+    {
+        return $this->container['trans_id'];
+    }
+
+    /**
+     * Sets trans_id
+     * @param int $trans_id ID of created transaction
+     * @return $this
+     */
+    public function setTransId($trans_id)
+    {
+        $this->container['trans_id'] = $trans_id;
+
+        return $this;
+    }
+
+    /**
      * Returns true if offset exists. False otherwise.
      * @param integer $offset Offset
      * @return boolean
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -298,6 +326,7 @@ class SecupayPayoutListItem implements ArrayAccess
      * @param integer $offset Offset
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -309,6 +338,7 @@ class SecupayPayoutListItem implements ArrayAccess
      * @param mixed   $value  Value to be set
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -323,6 +353,7 @@ class SecupayPayoutListItem implements ArrayAccess
      * @param integer $offset Offset
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);

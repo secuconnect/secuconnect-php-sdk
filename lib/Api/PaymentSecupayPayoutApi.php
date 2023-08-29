@@ -260,7 +260,7 @@ class PaymentSecupayPayoutApi
      *
      * @param \Secuconnect\Client\Model\SecupayPayoutWithoutCustomerDTO $body Payout payment transaction input properties 
      * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\SecupayPayoutProductModel
+     * @return \Secuconnect\Client\Model\SecupayPayoutWithoutCustomerResponse
      */
     public function paymentSecupaypayoutWithoutCustomerPost($body)
     {
@@ -275,7 +275,7 @@ class PaymentSecupayPayoutApi
      *
      * @param \Secuconnect\Client\Model\SecupayPayoutWithoutCustomerDTO $body Payout payment transaction input properties 
      * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\SecupayPayoutProductModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Secuconnect\Client\Model\SecupayPayoutWithoutCustomerResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function paymentSecupaypayoutWithoutCustomerPostWithHttpInfo($body)
     {
@@ -318,15 +318,15 @@ class PaymentSecupayPayoutApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    '\Secuconnect\Client\Model\SecupayPayoutProductModel',
+                    '\Secuconnect\Client\Model\SecupayPayoutWithoutCustomerResponse',
                     '/Payment/Secupaypayout/me/PayoutWithoutCustomer'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\SecupayPayoutProductModel', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\SecupayPayoutWithoutCustomerResponse', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\SecupayPayoutProductModel', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\SecupayPayoutWithoutCustomerResponse', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:

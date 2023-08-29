@@ -153,6 +153,107 @@ class PrepaidSalesApi
     }
 
     /**
+     * Operation confirm
+     *
+     * GET Prepaid/Sales/{prepaidSaleId}/Confirm
+     *
+     * @param string $prepaid_sale_id Prepaid Sale ID (required)
+     * @throws ApiException on non-2xx response
+     * @return \Secuconnect\Client\Model\PrepaidSalesProductModel
+     */
+    public function confirm($prepaid_sale_id)
+    {
+        list($response) = $this->confirmWithHttpInfo($prepaid_sale_id);
+        return $response;
+    }
+
+    /**
+     * Operation confirmWithHttpInfo
+     *
+     * GET Prepaid/Sales/{prepaidSaleId}/Confirm
+     *
+     * @param string $prepaid_sale_id Prepaid Sale ID (required)
+     * @throws ApiException on non-2xx response
+     * @return array of \Secuconnect\Client\Model\PrepaidSalesProductModel, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function confirmWithHttpInfo($prepaid_sale_id)
+    {
+        // verify the required parameter 'prepaid_sale_id' is set
+        if ($prepaid_sale_id === null || (is_array($prepaid_sale_id) && count($prepaid_sale_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $prepaid_sale_id when calling confirm'
+            );
+        }
+        // parse inputs
+        $resourcePath = "/Prepaid/Sales/{prepaidSaleId}/Confirm";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($prepaid_sale_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "prepaidSaleId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($prepaid_sale_id),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        for ($retries = 0; ; $retries++) {
+
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+            }
+
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'POST',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\PrepaidSalesProductModel',
+                    '/Prepaid/Sales/{prepaidSaleId}/Confirm'
+                );
+
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PrepaidSalesProductModel', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PrepaidSalesProductModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue 2;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
+        }
+    }
+
+    /**
      * Operation getAll
      *
      * GET Prepaid/Sales/
