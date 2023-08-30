@@ -13,7 +13,7 @@ use Secuconnect\Client\Printer\Printer;
 class Configuration
 {
     const DEFAULT_HOST = 'connect-testing.secupay-ag.de'; // For live use: connect.secucard.com
-    const SDK_VERSION = '2.36.0';
+    const SDK_VERSION = '2.37.0';
 
     const BASE_URL = 'https://' . self::DEFAULT_HOST . '/';
     const API_URL = self::BASE_URL . 'api/v2';
@@ -760,7 +760,7 @@ class Configuration
     }
 
     /**
-     * Sets the detault configuration instance
+     * Sets the default configuration instance
      *
      * @param Configuration $config An instance of the Configuration Object
      *

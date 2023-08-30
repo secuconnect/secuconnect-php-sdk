@@ -36,7 +36,8 @@ class IframeOptions implements ArrayAccess
         'language' => 'string',
         'basket_title' => 'string',
         'is_basket_shown' => 'bool',
-        'language_formality' => 'string'
+        'language_formality' => 'string',
+        'payment_config' => '\Secuconnect\Client\Model\IframeOptionsPaymentConfig'
     ];
 
     /**
@@ -52,7 +53,8 @@ class IframeOptions implements ArrayAccess
         'language' => null,
         'basket_title' => null,
         'is_basket_shown' => null,
-        'language_formality' => null
+        'language_formality' => null,
+        'payment_config' => null
     ];
 
     public static function swaggerTypes()
@@ -78,7 +80,8 @@ class IframeOptions implements ArrayAccess
         'language' => 'language',
         'basket_title' => 'basket_title',
         'is_basket_shown' => 'is_basket_shown',
-        'language_formality' => 'language_formality'
+        'language_formality' => 'language_formality',
+        'payment_config' => 'payment_config'
     ];
 
     /**
@@ -94,7 +97,8 @@ class IframeOptions implements ArrayAccess
         'language' => 'setLanguage',
         'basket_title' => 'setBasketTitle',
         'is_basket_shown' => 'setIsBasketShown',
-        'language_formality' => 'setLanguageFormality'
+        'language_formality' => 'setLanguageFormality',
+        'payment_config' => 'setPaymentConfig'
     ];
 
     /**
@@ -110,7 +114,8 @@ class IframeOptions implements ArrayAccess
         'language' => 'getLanguage',
         'basket_title' => 'getBasketTitle',
         'is_basket_shown' => 'getIsBasketShown',
-        'language_formality' => 'getLanguageFormality'
+        'language_formality' => 'getLanguageFormality',
+        'payment_config' => 'getPaymentConfig'
     ];
 
     public static function attributeMap()
@@ -149,6 +154,7 @@ class IframeOptions implements ArrayAccess
         $this->container['basket_title'] = isset($data['basket_title']) ? $data['basket_title'] : null;
         $this->container['is_basket_shown'] = isset($data['is_basket_shown']) ? $data['is_basket_shown'] : null;
         $this->container['language_formality'] = isset($data['language_formality']) ? $data['language_formality'] : null;
+        $this->container['payment_config'] = isset($data['payment_config']) ? $data['payment_config'] : null;
     }
 
     /**
@@ -360,6 +366,27 @@ class IframeOptions implements ArrayAccess
     public function setLanguageFormality($language_formality)
     {
         $this->container['language_formality'] = $language_formality;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_config
+     * @return \Secuconnect\Client\Model\IframeOptionsPaymentConfig
+     */
+    public function getPaymentConfig()
+    {
+        return $this->container['payment_config'];
+    }
+
+    /**
+     * Sets payment_config
+     * @param \Secuconnect\Client\Model\IframeOptionsPaymentConfig $payment_config payment_config
+     * @return $this
+     */
+    public function setPaymentConfig($payment_config)
+    {
+        $this->container['payment_config'] = $payment_config;
 
         return $this;
     }

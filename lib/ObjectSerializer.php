@@ -23,6 +23,16 @@ use Secuconnect\Client\Model\SmartTransactionsShippingModel;
  */
 class ObjectSerializer
 {
+    const INTERFACES = [
+        '\Secuconnect\Client\Model\ApplePayDescriptor' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate',
+        '\Secuconnect\Client\Model\BankAccountDescriptor' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate',
+        '\Secuconnect\Client\Model\CreditCardDescriptor' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate',
+        '\Secuconnect\Client\Model\GooglePayDescriptor' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate',
+        '\Secuconnect\Client\Model\PayPalDescriptor' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate',
+        '\Secuconnect\Client\Model\SmartTransactionsCollectionModel' => '\Secuconnect\Client\Model\OneOfSmartTransactionsDeliveryOptionsModel',
+        '\Secuconnect\Client\Model\SmartTransactionsShippingModel' => '\Secuconnect\Client\Model\OneOfSmartTransactionsDeliveryOptionsModel',
+    ];
+
     /**
      * Serialize data
      *
@@ -311,13 +321,40 @@ class ObjectSerializer
                 if (class_exists($class) && defined($class.'::DISCRIMINATOR')) {
                     $discriminator = $class::DISCRIMINATOR;
                     if (!empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
-                        $subclass = '\\' . 'Secuconnect\Client\\Model\\' . $data->{$discriminator};
+                        $subclass = '\Secuconnect\Client\Model\\' . $data->{$discriminator};
                         if (is_subclass_of($subclass, $class)) {
                             $class = $subclass;
                         }
                     }
                 }
             }
+
+            // handle "oneOf"
+            if (interface_exists($class) && in_array($class, self::INTERFACES)) {
+                $subclass = null;
+                $class_list = array_keys(array_intersect(self::INTERFACES, [$class]));
+                if (count($class_list) > 1) {
+                    $previous_matches = 0;
+                    foreach ($class_list as $current_subclass) {
+                        $current_matches = count(array_intersect(
+                            array_keys((array)$data),
+                            array_keys($current_subclass::attributeMap())
+                        ));
+
+                        if ($current_matches > $previous_matches) {
+                            $previous_matches = $current_matches;
+                            $subclass = $current_subclass;
+                        }
+                    }
+                } else {
+                    $subclass = reset($class_list);
+                }
+
+                if ($subclass !== null && is_subclass_of($subclass, $class)) {
+                    $class = $subclass;
+                }
+            }
+
             $instance = new $class();
             foreach ($instance::swaggerTypes() as $property => $type) {
                 $propertySetter = $instance::setters()[$property];

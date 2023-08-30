@@ -209,7 +209,7 @@ class Authenticator
         }
 
         if (!self::$apiClient) {
-            $config = new Configuration();
+            $config = clone Configuration::getDefaultConfiguration();
             $config->setHost(Configuration::getDefaultConfiguration()->getAuthHost());
 
             self::setApiClient(new ApiClient($config));

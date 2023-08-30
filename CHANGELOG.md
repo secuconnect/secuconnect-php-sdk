@@ -18,6 +18,27 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.37.0] - 2023-08-30
+[2.37.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.36.0...2.37.0
+
+- *new element*: `payment_config` in `IframeOptions`
+- *fix*: loading `DefaultConfiguration` was incorrect in the `Authenticator` class
+- *improvement*: generic handling of multiple response formats (oneOf) in `ObjectSerializer` 
+
+### Added
+- `Model.ApplepayPaymentConfig`
+- `Model.GooglepayPaymentConfig`
+- `Model.IframeOptionsPaymentConfig`
+
+### Changed
+- `.gitignore`
+- `lib/ApiClient.php`
+- `lib/Authentication/Authenticator.php`
+- `lib/HeaderSelector.php`
+- `Model.IframeOptions`
+- `lib/ObjectSerializer.php`
+
+
 ## [2.36.0] - 2023-08-29
 [2.36.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.35.0...2.36.0
 
