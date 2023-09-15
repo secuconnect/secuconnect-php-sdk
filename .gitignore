@@ -4,5 +4,4 @@ vendor
 !/tmp/.gitkeep
 composer.lock
 /.php_cs
-
 .phpunit.result.cache
