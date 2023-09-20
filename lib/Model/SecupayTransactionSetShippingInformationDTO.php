@@ -183,7 +183,7 @@ class SecupayTransactionSetShippingInformationDTO implements ArrayAccess
 
     /**
      * Sets tracking_id
-     * @param string $tracking_id Tracking-ID
+     * @param string $tracking_id Tracking code
      * @return $this
      */
     public function setTrackingId($tracking_id)
@@ -204,7 +204,7 @@ class SecupayTransactionSetShippingInformationDTO implements ArrayAccess
 
     /**
      * Sets invoice_number
-     * @param string $invoice_number Merchants invoice number
+     * @param string $invoice_number Merchant's invoice number
      * @return $this
      */
     public function setInvoiceNumber($invoice_number)
@@ -225,7 +225,7 @@ class SecupayTransactionSetShippingInformationDTO implements ArrayAccess
 
     /**
      * Sets shipped_at
-     * @param string $shipped_at Timestamp of the shipping date
+     * @param string $shipped_at Shipping date and time, if not in the very moment; ISO 8601 date and time including timezone, like \"2023-02-28T10:55:27+02:00\"
      * @return $this
      */
     public function setShippedAt($shipped_at)
@@ -246,7 +246,7 @@ class SecupayTransactionSetShippingInformationDTO implements ArrayAccess
 
     /**
      * Sets order_id
-     * @param string $order_id Order-ID
+     * @param string $order_id Merchant's order number
      * @return $this
      */
     public function setOrderId($order_id)

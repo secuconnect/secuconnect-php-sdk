@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsPrepareCallbackUrls
  *
  * @category Class
- * @description SmartTransactionsPrepareCallbackUrls
+ * @description Return URLs for external payment authorization.  _Note: Please don&#x27;t mix them up with the return URLs for Smart Checkout. These here are intended for custom checkout implementations to catch the user when he returns from 3-D Secure, PayPal, Sofort, and the like._
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -144,7 +144,7 @@ class SmartTransactionsPrepareCallbackUrls implements ArrayAccess
 
     /**
      * Sets success_url
-     * @param string $success_url Success URL
+     * @param string $success_url Shop URL for successful external authorization or payment
      * @return $this
      */
     public function setSuccessUrl($success_url)
@@ -165,7 +165,7 @@ class SmartTransactionsPrepareCallbackUrls implements ArrayAccess
 
     /**
      * Sets failure_url
-     * @param string $failure_url Failure URL
+     * @param string $failure_url Shop URL for failed external authorization or payment
      * @return $this
      */
     public function setFailureUrl($failure_url)

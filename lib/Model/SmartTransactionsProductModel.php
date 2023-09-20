@@ -588,7 +588,7 @@ class SmartTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets status
-     * @param string $status Status of smart transaction
+     * @param string $status Status of the Smart Transaction
      * @return $this
      */
     public function setStatus($status)
@@ -756,7 +756,7 @@ class SmartTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets merchant_ref
-     * @param string $merchant_ref Merchant reference
+     * @param string $merchant_ref Merchant reference, e.g. merchant customer ID
      * @return $this
      */
     public function setMerchantRef($merchant_ref)
@@ -777,7 +777,7 @@ class SmartTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets transaction_ref
-     * @param string $transaction_ref Transaction reference
+     * @param string $transaction_ref Merchant reference, e.g. merchant customer ID
      * @return $this
      */
     public function setTransactionRef($transaction_ref)
@@ -882,7 +882,7 @@ class SmartTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets receipt
-     * @param \Secuconnect\Client\Model\SmartTransactionsReceipt[] $receipt Receipt
+     * @param \Secuconnect\Client\Model\SmartTransactionsReceipt[] $receipt Receipt for both, the customer and the merchant
      * @return $this
      */
     public function setReceipt($receipt)
@@ -903,7 +903,7 @@ class SmartTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets receipt_merchant
-     * @param \Secuconnect\Client\Model\SmartTransactionsReceipt[] $receipt_merchant Receipt merchant
+     * @param \Secuconnect\Client\Model\SmartTransactionsReceipt[] $receipt_merchant Receipt for the merchant
      * @return $this
      */
     public function setReceiptMerchant($receipt_merchant)
@@ -924,7 +924,7 @@ class SmartTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets receipt_merchant_print
-     * @param bool $receipt_merchant_print Receipt merchant print
+     * @param bool $receipt_merchant_print Whether the receipt for the merchant was printed
      * @return $this
      */
     public function setReceiptMerchantPrint($receipt_merchant_print)
@@ -987,7 +987,7 @@ class SmartTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets idents
-     * @param \Secuconnect\Client\Model\SmartTransactionsIdent[] $idents Idents
+     * @param \Secuconnect\Client\Model\SmartTransactionsIdent[] $idents secucard customer card or voucher, or request to create it
      * @return $this
      */
     public function setIdents($idents)
@@ -1134,7 +1134,7 @@ class SmartTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets trans_id
-     * @param int $trans_id Transaction id
+     * @param int $trans_id Transaction ID (TA code)
      * @return $this
      */
     public function setTransId($trans_id)
@@ -1155,7 +1155,7 @@ class SmartTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets payment_method
-     * @param string $payment_method Payment method
+     * @param string $payment_method Payment method, as passed with `/prepare/{method}` or `/start/{method}`
      * @return $this
      */
     public function setPaymentMethod($payment_method)
@@ -1260,7 +1260,7 @@ class SmartTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets intent
-     * @param string $intent intent of transaction
+     * @param string $intent Intent:  - `\"sale\"` - `\"order\"`
      * @return $this
      */
     public function setIntent($intent)
@@ -1281,7 +1281,7 @@ class SmartTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets iframe_url
-     * @param string $iframe_url IFrame URL
+     * @param string $iframe_url URL for external authorization (credit with card 3-D Secure, PayPal, Sofort, etc.)
      * @return $this
      */
     public function setIframeUrl($iframe_url)

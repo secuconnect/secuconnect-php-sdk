@@ -6,7 +6,7 @@ namespace Secuconnect\Client\Model;
  * LoyaltyMerchantcardsProductModel
  *
  * @category Class
- * @description Loyalty merchant card
+ * @description A secucard customer card or voucher in relation to a merchant.  The credit balances are always managed separately for each merchant. Thus one secucard Loyalty Card can have several Merchant Cards. This means that the same card can be used for different merchants at the same time.  In the case of acceptance points, the credit balance is managed for the very merchant the card was issued for. An example for this is a voucher purchased for a shopping center and accepted by its merchants. The balances are accounted in relation to the shopping center.
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -537,7 +537,7 @@ class LoyaltyMerchantcardsProductModel extends BaseProductModel
 
     /**
      * Sets balance
-     * @param int $balance Loyalty merchant card balance
+     * @param int $balance Total money balance; in the smallest currency unit (e. g. Euro Cent)
      * @return $this
      */
     public function setBalance($balance)
@@ -579,7 +579,7 @@ class LoyaltyMerchantcardsProductModel extends BaseProductModel
 
     /**
      * Sets bonus_balance
-     * @param int $bonus_balance Loyalty merchant card bonus balance
+     * @param int $bonus_balance Money balance collected as bonus for former transactions; in the smallest currency unit (e. g. Euro Cent)
      * @return $this
      */
     public function setBonusBalance($bonus_balance)
@@ -600,7 +600,7 @@ class LoyaltyMerchantcardsProductModel extends BaseProductModel
 
     /**
      * Sets cash_balance
-     * @param int $cash_balance Loyalty merchant card cash balance
+     * @param int $cash_balance Money balance loaded with money; in the smallest currency unit (e. g. Euro Cent)
      * @return $this
      */
     public function setCashBalance($cash_balance)
@@ -621,7 +621,7 @@ class LoyaltyMerchantcardsProductModel extends BaseProductModel
 
     /**
      * Sets stock_status
-     * @param string $stock_status Loyalty merchant card stock status
+     * @param string $stock_status Stock status
      * @return $this
      */
     public function setStockStatus($stock_status)
@@ -642,7 +642,7 @@ class LoyaltyMerchantcardsProductModel extends BaseProductModel
 
     /**
      * Sets lock_status
-     * @param string $lock_status Loyalty merchant card lock status
+     * @param string $lock_status Lock status
      * @return $this
      */
     public function setLockStatus($lock_status)
@@ -663,7 +663,7 @@ class LoyaltyMerchantcardsProductModel extends BaseProductModel
 
     /**
      * Sets last_usage
-     * @param string $last_usage Loyalty merchant card last usage
+     * @param string $last_usage Last used at (ISO 8601 date and time)
      * @return $this
      */
     public function setLastUsage($last_usage)
@@ -684,7 +684,7 @@ class LoyaltyMerchantcardsProductModel extends BaseProductModel
 
     /**
      * Sets last_charge
-     * @param string $last_charge Loyalty merchant card last charge
+     * @param string $last_charge Last loaded at (ISO 8601 date and time)
      * @return $this
      */
     public function setLastCharge($last_charge)
@@ -705,7 +705,7 @@ class LoyaltyMerchantcardsProductModel extends BaseProductModel
 
     /**
      * Sets is_base_card
-     * @param bool $is_base_card Information whether loyalty merchant card is base card
+     * @param bool $is_base_card Whether the card is base card
      * @return $this
      */
     public function setIsBaseCard($is_base_card)
@@ -726,7 +726,7 @@ class LoyaltyMerchantcardsProductModel extends BaseProductModel
 
     /**
      * Sets passcode
-     * @param int $passcode Loyalty merchant card passcode
+     * @param int $passcode Whether the card has a passcode set (1) or not (0)
      * @return $this
      */
     public function setPasscode($passcode)

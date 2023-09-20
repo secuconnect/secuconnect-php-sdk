@@ -29,7 +29,8 @@ class GetAvailablePaymentMethodsDTO implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'currency' => 'string',
-        'is_demo' => 'bool'
+        'is_demo' => 'bool',
+        'apiv2_products' => 'bool'
     ];
 
     /**
@@ -38,7 +39,8 @@ class GetAvailablePaymentMethodsDTO implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'currency' => null,
-        'is_demo' => null
+        'is_demo' => null,
+        'apiv2_products' => null
     ];
 
     public static function swaggerTypes()
@@ -57,7 +59,8 @@ class GetAvailablePaymentMethodsDTO implements ArrayAccess
      */
     protected static $attributeMap = [
         'currency' => 'currency',
-        'is_demo' => 'is_demo'
+        'is_demo' => 'is_demo',
+        'apiv2_products' => 'apiv2_products'
     ];
 
     /**
@@ -66,7 +69,8 @@ class GetAvailablePaymentMethodsDTO implements ArrayAccess
      */
     protected static $setters = [
         'currency' => 'setCurrency',
-        'is_demo' => 'setIsDemo'
+        'is_demo' => 'setIsDemo',
+        'apiv2_products' => 'setApiv2Products'
     ];
 
     /**
@@ -75,7 +79,8 @@ class GetAvailablePaymentMethodsDTO implements ArrayAccess
      */
     protected static $getters = [
         'currency' => 'getCurrency',
-        'is_demo' => 'getIsDemo'
+        'is_demo' => 'getIsDemo',
+        'apiv2_products' => 'getApiv2Products'
     ];
 
     public static function attributeMap()
@@ -107,6 +112,7 @@ class GetAvailablePaymentMethodsDTO implements ArrayAccess
     {
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['is_demo'] = isset($data['is_demo']) ? $data['is_demo'] : null;
+        $this->container['apiv2_products'] = isset($data['apiv2_products']) ? $data['apiv2_products'] : null;
     }
 
     /**
@@ -177,6 +183,27 @@ class GetAvailablePaymentMethodsDTO implements ArrayAccess
     public function setIsDemo($is_demo)
     {
         $this->container['is_demo'] = $is_demo;
+
+        return $this;
+    }
+
+    /**
+     * Gets apiv2_products
+     * @return bool
+     */
+    public function getApiv2Products()
+    {
+        return $this->container['apiv2_products'];
+    }
+
+    /**
+     * Sets apiv2_products
+     * @param bool $apiv2_products If TRUE, the response will use the flex.API/APIv2 product names, and the other parameters will be ignored.
+     * @return $this
+     */
+    public function setApiv2Products($apiv2_products)
+    {
+        $this->container['apiv2_products'] = $apiv2_products;
 
         return $this;
     }

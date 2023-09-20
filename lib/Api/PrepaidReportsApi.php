@@ -155,7 +155,7 @@ class PrepaidReportsApi
     /**
      * Operation getAll
      *
-     * GET Prepaid/Reports/
+     * Find Prepaid Reports
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -180,7 +180,7 @@ class PrepaidReportsApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * GET Prepaid/Reports/
+     * Find Prepaid Reports
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -306,7 +306,7 @@ class PrepaidReportsApi
     /**
      * Operation getOne
      *
-     * GET Prepaid/Reports/{prepaidReportsId}
+     * Read Prepaid Report
      *
      * @param \Secuconnect\Client\Model\ProductInstanceUID $prepaid_reports_id Prepaid Reports id (required)
      * @throws ApiException on non-2xx response
@@ -321,7 +321,7 @@ class PrepaidReportsApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * GET Prepaid/Reports/{prepaidReportsId}
+     * Read Prepaid Report
      *
      * @param \Secuconnect\Client\Model\ProductInstanceUID $prepaid_reports_id Prepaid Reports id (required)
      * @throws ApiException on non-2xx response

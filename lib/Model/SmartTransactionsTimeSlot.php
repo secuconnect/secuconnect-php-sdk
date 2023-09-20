@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsTimeSlot
  *
  * @category Class
- * @description SmartTransactionsTimeSlot
+ * @description Time slot
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -144,7 +144,7 @@ class SmartTransactionsTimeSlot implements ArrayAccess
 
     /**
      * Sets start_date
-     * @param string $start_date Start Date
+     * @param string $start_date Start Date (ISO 8601 date and time)
      * @return $this
      */
     public function setStartDate($start_date)
@@ -165,7 +165,7 @@ class SmartTransactionsTimeSlot implements ArrayAccess
 
     /**
      * Sets end_date
-     * @param string $end_date End Date
+     * @param string $end_date End Date (ISO 8601 date and time)
      * @return $this
      */
     public function setEndDate($end_date)

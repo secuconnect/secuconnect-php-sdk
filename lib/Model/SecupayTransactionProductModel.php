@@ -252,7 +252,7 @@ class SecupayTransactionProductModel extends BaseProductModel
 
     /**
      * Sets trans_id
-     * @param int $trans_id Transaction identifier
+     * @param int $trans_id Transaction ID (TA code)
      * @return $this
      */
     public function setTransId($trans_id)
@@ -336,7 +336,7 @@ class SecupayTransactionProductModel extends BaseProductModel
 
     /**
      * Sets purpose
-     * @param string $purpose The purpose of the payment. This is the later assignment of the payment is for example on the account statement of the buyer.
+     * @param string $purpose The purpose of the payment, for the account statement for example.
      * @return $this
      */
     public function setPurpose($purpose)
@@ -357,7 +357,7 @@ class SecupayTransactionProductModel extends BaseProductModel
 
     /**
      * Sets order_id
-     * @param string $order_id Specifying an order number. Depending on the contract setting, this must be unique for each payment.
+     * @param string $order_id Your order number. If set for the contract, there must be a unique number for each payment.
      * @return $this
      */
     public function setOrderId($order_id)
@@ -399,7 +399,7 @@ class SecupayTransactionProductModel extends BaseProductModel
 
     /**
      * Sets basket
-     * @param \Secuconnect\Client\Model\SecupayBasketItem[] $basket A list of items that are being purchased.
+     * @param \Secuconnect\Client\Model\SecupayBasketItem[] $basket Basket items, several sub-baskets or subscription details
      * @return $this
      */
     public function setBasket($basket)
@@ -420,7 +420,7 @@ class SecupayTransactionProductModel extends BaseProductModel
 
     /**
      * Sets transaction_status
-     * @param string $transaction_status Transaction status (number)
+     * @param string $transaction_status Transaction status code
      * @return $this
      */
     public function setTransactionStatus($transaction_status)
@@ -441,7 +441,7 @@ class SecupayTransactionProductModel extends BaseProductModel
 
     /**
      * Sets accrual
-     * @param bool $accrual Indicates whether the payment is locked for pay-out (TRUE) or not (FALSE). Standard value here is FALSE.
+     * @param bool $accrual Whether the transaction is locked for payout.
      * @return $this
      */
     public function setAccrual($accrual)
@@ -462,7 +462,7 @@ class SecupayTransactionProductModel extends BaseProductModel
 
     /**
      * Sets payment_action
-     * @param string $payment_action Specifies whether a pre-authorization (\"authorization\") or instant payment ( \"sale\") is to be performed. Standard value here is \"sale\". The collection of the pre-authorized payment is made with the \"capture\" command.
+     * @param string $payment_action Specifies whether to authorize only (`\"authorization\"`), or to pay immediately (`\"sale\"`). The capture of the pre-authorized payment is made with a call to `/capture`.
      * @return $this
      */
     public function setPaymentAction($payment_action)
@@ -483,7 +483,7 @@ class SecupayTransactionProductModel extends BaseProductModel
 
     /**
      * Sets transfer_purpose
-     * @param string $transfer_purpose The purpose the payer needs to use for his transfer
+     * @param string $transfer_purpose The purpose the payer needs to use for his bank transfer.
      * @return $this
      */
     public function setTransferPurpose($transfer_purpose)
@@ -609,7 +609,7 @@ class SecupayTransactionProductModel extends BaseProductModel
 
     /**
      * Sets iframe_url
-     * @param string $iframe_url The url of the payment checkout iframe
+     * @param string $iframe_url URL of the secupay payment iframe
      * @return $this
      */
     public function setIframeUrl($iframe_url)
@@ -651,7 +651,7 @@ class SecupayTransactionProductModel extends BaseProductModel
 
     /**
      * Sets sub_transactions
-     * @param \Secuconnect\Client\Model\SecupaySubTransactionProductModel[] $sub_transactions A list of sub transactions (for mixed basket)
+     * @param \Secuconnect\Client\Model\SecupaySubTransactionProductModel[] $sub_transactions Transactions generated for the sub-baskets of a mixed basket transaction
      * @return $this
      */
     public function setSubTransactions($sub_transactions)

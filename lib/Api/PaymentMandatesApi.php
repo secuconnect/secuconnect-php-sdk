@@ -63,7 +63,7 @@ class PaymentMandatesApi
     /**
      * Operation addMandates
      *
-     * POST Payment/Mandates
+     * Create Payment Mandate
      *
      * @param \Secuconnect\Client\Model\PaymentMandatesDTO $body Payment mandate properties 
      * @throws ApiException on non-2xx response
@@ -78,7 +78,7 @@ class PaymentMandatesApi
     /**
      * Operation addMandatesWithHttpInfo
      *
-     * POST Payment/Mandates
+     * Create Payment Mandate
      *
      * @param \Secuconnect\Client\Model\PaymentMandatesDTO $body Payment mandate properties 
      * @throws ApiException on non-2xx response
@@ -155,7 +155,7 @@ class PaymentMandatesApi
     /**
      * Operation execBulk
      *
-     * POST Payment/Mandates/me/bulk
+     * Create Payment Mandates as bulk
      *
      * @param \Secuconnect\Client\Model\PaymentMandatesDTO[] $body Array of payment mandates 
      * @throws ApiException on non-2xx response
@@ -169,7 +169,7 @@ class PaymentMandatesApi
     /**
      * Operation execBulkWithHttpInfo
      *
-     * POST Payment/Mandates/me/bulk
+     * Create Payment Mandates as bulk
      *
      * @param \Secuconnect\Client\Model\PaymentMandatesDTO[] $body Array of payment mandates 
      * @throws ApiException on non-2xx response
@@ -242,7 +242,7 @@ class PaymentMandatesApi
     /**
      * Operation getAll
      *
-     * GET Payment/Mandates
+     * Find Payment Mandates
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -267,7 +267,7 @@ class PaymentMandatesApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * GET Payment/Mandates
+     * Find Payment Mandates
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -393,7 +393,7 @@ class PaymentMandatesApi
     /**
      * Operation getOne
      *
-     * GET Payment/Mandates/{paymentMandatesId}
+     * Read Payment Mandate
      *
      * @param string $payment_mandates_id Search one payment mandate by provided id (required)
      * @throws ApiException on non-2xx response
@@ -408,7 +408,7 @@ class PaymentMandatesApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * GET Payment/Mandates/{paymentMandatesId}
+     * Read Payment Mandate
      *
      * @param string $payment_mandates_id Search one payment mandate by provided id (required)
      * @throws ApiException on non-2xx response

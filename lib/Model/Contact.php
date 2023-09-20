@@ -8,7 +8,7 @@ use \ArrayAccess;
  * Contact
  *
  * @category Class
- * @description Contact
+ * @description Contact details
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -381,7 +381,7 @@ class Contact implements ArrayAccess
 
     /**
      * Sets email
-     * @param string $email E-mail address
+     * @param string $email Email address
      * @return $this
      */
     public function setEmail($email)
@@ -465,7 +465,7 @@ class Contact implements ArrayAccess
 
     /**
      * Sets dob
-     * @param string $dob Date of birth
+     * @param string $dob Date of birth, ISO 8601 formatted
      * @return $this
      */
     public function setDob($dob)
@@ -486,7 +486,7 @@ class Contact implements ArrayAccess
 
     /**
      * Sets picture
-     * @param string $picture The document ID of an user picture; s. Document service
+     * @param string $picture The document ID (or URL) of an user picture; s. Document service
      * @return $this
      */
     public function setPicture($picture)

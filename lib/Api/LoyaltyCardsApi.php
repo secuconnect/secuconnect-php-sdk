@@ -63,7 +63,7 @@ class LoyaltyCardsApi
     /**
      * Operation assignUser
      *
-     * POST Loyalty/Cards/{loyaltyCardId}/assignUser/{generalAccountId}
+     * Assign card to user
      *
      * @param string $loyalty_card_id Loyalty card id (required)
      * @param string $general_account_id General account id (required)
@@ -80,7 +80,7 @@ class LoyaltyCardsApi
     /**
      * Operation assignUserWithHttpInfo
      *
-     * POST Loyalty/Cards/{loyaltyCardId}/assignUser/{generalAccountId}
+     * Assign card to user
      *
      * @param string $loyalty_card_id Loyalty card id (required)
      * @param string $general_account_id General account id (required)
@@ -187,7 +187,7 @@ class LoyaltyCardsApi
     /**
      * Operation getAll
      *
-     * GET Loyalty/Cards
+     * Find Loyalty Cards
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -212,7 +212,7 @@ class LoyaltyCardsApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * GET Loyalty/Cards
+     * Find Loyalty Cards
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -338,7 +338,7 @@ class LoyaltyCardsApi
     /**
      * Operation getOne
      *
-     * GET Loyalty/Cards/{loyaltyCardId}
+     * Read Loyalty Card
      *
      * @param string $loyalty_card_id Search one loyalty card by provided id (required)
      * @throws ApiException on non-2xx response
@@ -353,7 +353,7 @@ class LoyaltyCardsApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * GET Loyalty/Cards/{loyaltyCardId}
+     * Read Loyalty Card
      *
      * @param string $loyalty_card_id Search one loyalty card by provided id (required)
      * @throws ApiException on non-2xx response
@@ -439,7 +439,7 @@ class LoyaltyCardsApi
     /**
      * Operation removeAssignedUser
      *
-     * DELETE Loyalty/Cards/{loyaltyCardId}/assignUser/{generalAccountId}
+     * Unassign card from user
      *
      * @param string $loyalty_card_id Loyalty card id (required)
      * @param string $general_account_id General account id (required)
@@ -455,7 +455,7 @@ class LoyaltyCardsApi
     /**
      * Operation removeAssignedUserWithHttpInfo
      *
-     * DELETE Loyalty/Cards/{loyaltyCardId}/assignUser/{generalAccountId}
+     * Unassign card from user
      *
      * @param string $loyalty_card_id Loyalty card id (required)
      * @param string $general_account_id General account id (required)

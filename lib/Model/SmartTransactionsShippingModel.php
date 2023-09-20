@@ -162,7 +162,7 @@ class SmartTransactionsShippingModel implements ArrayAccess, OneOfSmartTransacti
 
     /**
      * Sets type
-     * @param string $type Type of delivery option
+     * @param string $type Delivery type:  - `\"shipping\"` - `\"collection\"`
      * @return $this
      */
     public function setType($type)
@@ -183,7 +183,7 @@ class SmartTransactionsShippingModel implements ArrayAccess, OneOfSmartTransacti
 
     /**
      * Sets shipped_at
-     * @param string $shipped_at Shipment Date
+     * @param string $shipped_at Shipping date (ISO 8601 date and time)
      * @return $this
      */
     public function setShippedAt($shipped_at)
@@ -204,7 +204,7 @@ class SmartTransactionsShippingModel implements ArrayAccess, OneOfSmartTransacti
 
     /**
      * Sets shipped_by
-     * @param string $shipped_by Parcel Provider
+     * @param string $shipped_by Shipping service provider
      * @return $this
      */
     public function setShippedBy($shipped_by)
@@ -225,7 +225,7 @@ class SmartTransactionsShippingModel implements ArrayAccess, OneOfSmartTransacti
 
     /**
      * Sets tracking_code
-     * @param string $tracking_code Tracking Code
+     * @param string $tracking_code Tracking code
      * @return $this
      */
     public function setTrackingCode($tracking_code)
@@ -246,7 +246,7 @@ class SmartTransactionsShippingModel implements ArrayAccess, OneOfSmartTransacti
 
     /**
      * Sets invoice_number
-     * @param string $invoice_number Invoice Number
+     * @param string $invoice_number Invoice number of the merchant
      * @return $this
      */
     public function setInvoiceNumber($invoice_number)

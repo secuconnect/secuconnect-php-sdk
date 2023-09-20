@@ -8,7 +8,7 @@ use \ArrayAccess;
  * ProductExceptionPayload
  *
  * @category Class
- * @description Payload of exceptions returned by API
+ * @description Detailed error information
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -168,7 +168,7 @@ class ProductExceptionPayload implements ArrayAccess
 
     /**
      * Sets status
-     * @param string $status Request status (always equals to 'error')
+     * @param string $status Request status (always \"error\")
      * @return $this
      */
     public function setStatus($status)
@@ -273,7 +273,7 @@ class ProductExceptionPayload implements ArrayAccess
 
     /**
      * Sets support_id
-     * @param string $support_id ID by which support team can relate error with action(s) that caused it
+     * @param string $support_id Support ID to be communicated to our help desk for problem analysis
      * @return $this
      */
     public function setSupportId($support_id)

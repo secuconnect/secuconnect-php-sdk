@@ -156,7 +156,7 @@ class SecupayRedirectUrl implements ArrayAccess
 
     /**
      * Sets iframe_url
-     * @param string $iframe_url The url of the payment checkout iframe
+     * @param string $iframe_url URL of the secupay payment iframe.
      * @return $this
      */
     public function setIframeUrl($iframe_url)
@@ -177,7 +177,7 @@ class SecupayRedirectUrl implements ArrayAccess
 
     /**
      * Sets url_success
-     * @param string $url_success After successfully entering the cash data of the payer is returned to this page.
+     * @param string $url_success URL of the shop to receive the payer after successful payment.
      * @return $this
      */
     public function setUrlSuccess($url_success)
@@ -198,7 +198,7 @@ class SecupayRedirectUrl implements ArrayAccess
 
     /**
      * Sets url_failure
-     * @param string $url_failure After canceling or on errors the payer will be redirected to this page and can select there an another payment method.
+     * @param string $url_failure URL of the shop to receive the payer after failed or abandoned payment.
      * @return $this
      */
     public function setUrlFailure($url_failure)
@@ -219,7 +219,7 @@ class SecupayRedirectUrl implements ArrayAccess
 
     /**
      * Sets url_push
-     * @param string $url_push The secupay system will be send status change notifications to this URL.
+     * @param string $url_push URL of the shop to receive the push notifications.
      * @return $this
      */
     public function setUrlPush($url_push)

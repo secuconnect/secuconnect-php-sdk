@@ -63,7 +63,7 @@ class LoyaltyTransactionsApi
     /**
      * Operation getAll
      *
-     * GET Loyalty/Transactions
+     * Find Loyalty Transactions
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -88,7 +88,7 @@ class LoyaltyTransactionsApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * GET Loyalty/Transactions
+     * Find Loyalty Transactions
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -214,7 +214,7 @@ class LoyaltyTransactionsApi
     /**
      * Operation getOne
      *
-     * GET Loyalty/Transactions/{loyaltyTransactionId}
+     * Read Loyalty Transaction
      *
      * @param string $loyalty_transaction_id Search one by provided id (required)
      * @throws ApiException on non-2xx response
@@ -229,7 +229,7 @@ class LoyaltyTransactionsApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * GET Loyalty/Transactions/{loyaltyTransactionId}
+     * Read Loyalty Transaction
      *
      * @param string $loyalty_transaction_id Search one by provided id (required)
      * @throws ApiException on non-2xx response

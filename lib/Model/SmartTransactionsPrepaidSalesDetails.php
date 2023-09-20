@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsPrepaidSalesDetails
  *
  * @category Class
- * @description SmartTransactionsPrepaidSalesDetails
+ * @description Prepaid sales details
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -192,7 +192,7 @@ class SmartTransactionsPrepaidSalesDetails implements ArrayAccess
 
     /**
      * Sets error_details
-     * @param string $error_details Error Details
+     * @param string $error_details Error details
      * @return $this
      */
     public function setErrorDetails($error_details)

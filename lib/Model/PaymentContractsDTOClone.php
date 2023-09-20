@@ -162,7 +162,7 @@ class PaymentContractsDTOClone implements ArrayAccess
 
     /**
      * Sets contract_id
-     * @param string $contract_id Parent General Contract ID
+     * @param string $contract_id General Contract ID of the parent contract
      * @return $this
      */
     public function setContractId($contract_id)
@@ -183,7 +183,7 @@ class PaymentContractsDTOClone implements ArrayAccess
 
     /**
      * Sets project
-     * @param string $project Name of the project (must be unique)
+     * @param string $project Project name (must be unique)
      * @return $this
      */
     public function setProject($project)
@@ -225,7 +225,7 @@ class PaymentContractsDTOClone implements ArrayAccess
 
     /**
      * Sets payin_account
-     * @param bool $payin_account Pay in account
+     * @param bool $payin_account Pay-in account
      * @return $this
      */
     public function setPayinAccount($payin_account)
@@ -246,7 +246,7 @@ class PaymentContractsDTOClone implements ArrayAccess
 
     /**
      * Sets url_push
-     * @param string $url_push The default URL where your service listen for push notifications of the secuconnect service
+     * @param string $url_push Default URL for push notifications; this is where your service listens for callbacks of the secuconnect service
      * @return $this
      */
     public function setUrlPush($url_push)

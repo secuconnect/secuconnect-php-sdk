@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsCommunication
  *
  * @category Class
- * @description SmartTransactionsCommunication
+ * @description Send an email with execution of the Smart Transaction; loyalty card only
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -144,7 +144,7 @@ class SmartTransactionsCommunication implements ArrayAccess
 
     /**
      * Sets action_type
-     * @param string $action_type action type
+     * @param string $action_type On which action the email shall be sent
      * @return $this
      */
     public function setActionType($action_type)
@@ -165,7 +165,7 @@ class SmartTransactionsCommunication implements ArrayAccess
 
     /**
      * Sets template_id
-     * @param string $template_id template id
+     * @param string $template_id Template ID
      * @return $this
      */
     public function setTemplateId($template_id)

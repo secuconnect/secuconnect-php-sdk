@@ -408,7 +408,7 @@ class PaymentContractsProductModel extends BaseProductModel
 
     /**
      * Sets demo
-     * @param bool $demo Is this a demo contract
+     * @param bool $demo Whether this is a demo contract
      * @return $this
      */
     public function setDemo($demo)
@@ -429,7 +429,7 @@ class PaymentContractsProductModel extends BaseProductModel
 
     /**
      * Sets approved
-     * @param bool $approved Indicates if the payout lock was removed
+     * @param bool $approved Whether the contract has been approved, and is eligible for payout now
      * @return $this
      */
     public function setApproved($approved)

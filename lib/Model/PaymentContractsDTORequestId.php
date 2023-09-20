@@ -246,7 +246,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets contract_id
-     * @param string $contract_id Parent General Contract ID
+     * @param string $contract_id General Contract ID of the parent contract
      * @return $this
      */
     public function setContractId($contract_id)
@@ -288,7 +288,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets project
-     * @param string $project Name of the project (must be unique)
+     * @param string $project Project name (must be unique)
      * @return $this
      */
     public function setProject($project)
@@ -372,7 +372,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets url_push
-     * @param string $url_push Default push url
+     * @param string $url_push Default URL for push notifications; this is where your service listens for callbacks of the secuconnect service
      * @return $this
      */
     public function setUrlPush($url_push)
@@ -393,7 +393,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets payin_account
-     * @param bool $payin_account Pay in account
+     * @param bool $payin_account Pay-in account
      * @return $this
      */
     public function setPayinAccount($payin_account)
@@ -414,7 +414,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets create_first_store
-     * @param bool $create_first_store Create first store
+     * @param bool $create_first_store Whether to create a first store at the same location
      * @return $this
      */
     public function setCreateFirstStore($create_first_store)
@@ -435,7 +435,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets store_name
-     * @param string $store_name Store name
+     * @param string $store_name Store name of the first store
      * @return $this
      */
     public function setStoreName($store_name)
@@ -456,7 +456,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets payout_purpose
-     * @param string $payout_purpose Payout purpose
+     * @param string $payout_purpose Purpose for payouts that appears at the bank statement
      * @return $this
      */
     public function setPayoutPurpose($payout_purpose)
@@ -477,7 +477,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets identrequest
-     * @param string $identrequest Object ID of Services Identrequest
+     * @param string $identrequest Object ID of Services Identrequest (`SIR_...`)
      * @return $this
      */
     public function setIdentrequest($identrequest)
@@ -498,7 +498,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets signed_contract
-     * @param string $signed_contract The document ID of of uploaded signed contract; s. Document service
+     * @param string $signed_contract The document ID of of uploaded signed contract; s. Document service (`DUP_...`)
      * @return $this
      */
     public function setSignedContract($signed_contract)
@@ -540,7 +540,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets notes
-     * @param string $notes Adds a note.
+     * @param string $notes Additional notes
      * @return $this
      */
     public function setNotes($notes)
@@ -582,7 +582,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets tid
-     * @param string $tid tid
+     * @param string $tid Third party terminal ID
      * @return $this
      */
     public function setTid($tid)
@@ -603,7 +603,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets merchant_category
-     * @param int $merchant_category merchant_category
+     * @param int $merchant_category Merchant category  This is _not_ the ISO Merchant Category Code (MCC). The list can be obtained at `GET /pai/v2/General/Merchants/me/MerchantCategories.
      * @return $this
      */
     public function setMerchantCategory($merchant_category)
@@ -624,7 +624,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets account_statement_text
-     * @param string $account_statement_text account_statement_text
+     * @param string $account_statement_text Descriptor that appears at the credit card statements
      * @return $this
      */
     public function setAccountStatementText($account_statement_text)

@@ -63,7 +63,7 @@ class ServicesIdentresultsApi
     /**
      * Operation getAll
      *
-     * GET Services/Identresults
+     * Find IdentResults
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -88,7 +88,7 @@ class ServicesIdentresultsApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * GET Services/Identresults
+     * Find IdentResults
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -214,7 +214,7 @@ class ServicesIdentresultsApi
     /**
      * Operation getOne
      *
-     * GET Services/Identresults/{identresultId}
+     * Read IdentResult
      *
      * @param string $identrequest_id Identresult Id (required)
      * @throws ApiException on non-2xx response
@@ -229,7 +229,7 @@ class ServicesIdentresultsApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * GET Services/Identresults/{identresultId}
+     * Read IdentResult
      *
      * @param string $identrequest_id Identresult Id (required)
      * @throws ApiException on non-2xx response

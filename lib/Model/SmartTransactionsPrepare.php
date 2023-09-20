@@ -219,7 +219,7 @@ class SmartTransactionsPrepare implements ArrayAccess
 
     /**
      * Sets email
-     * @param string $email Email
+     * @param string $email Email address
      * @return $this
      */
     public function setEmail($email)

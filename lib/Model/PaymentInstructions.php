@@ -6,7 +6,7 @@ namespace Secuconnect\Client\Model;
  * PaymentInstructions
  *
  * @category Class
- * @description PaymentInstructions
+ * @description Payment instructions for prepayment, invoice payment or easyCredit
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -162,7 +162,7 @@ class PaymentInstructions extends BankAccountDescriptor
 
     /**
      * Sets girocode_url
-     * @param string $girocode_url Url to generated GiroCode
+     * @param string $girocode_url URL to generated GiroCode
      * @return $this
      */
     public function setGirocodeUrl($girocode_url)
@@ -204,7 +204,7 @@ class PaymentInstructions extends BankAccountDescriptor
 
     /**
      * Sets total_value
-     * @param int $total_value Total amount of basket & interest for easyCredit transaction
+     * @param int $total_value Total amount of basket and interest for easyCredit transaction
      * @return $this
      */
     public function setTotalValue($total_value)

@@ -63,7 +63,7 @@ class PaymentSubscriptionsApi
     /**
      * Operation paymentSubscriptionGetById
      *
-     * GET Payment/Subscriptions/{paymentSubscriptionId}
+     * Read Payment Subscription
      *
      * @param string $payment_subscription_id Payment subscription id (required)
      * @throws ApiException on non-2xx response
@@ -78,7 +78,7 @@ class PaymentSubscriptionsApi
     /**
      * Operation paymentSubscriptionGetByIdWithHttpInfo
      *
-     * GET Payment/Subscriptions/{paymentSubscriptionId}
+     * Read Payment Subscription
      *
      * @param string $payment_subscription_id Payment subscription id (required)
      * @throws ApiException on non-2xx response
@@ -164,7 +164,7 @@ class PaymentSubscriptionsApi
     /**
      * Operation paymentSubscriptionsGet
      *
-     * GET Payment/Subscriptions
+     * Find Payment Subscriptions
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -189,7 +189,7 @@ class PaymentSubscriptionsApi
     /**
      * Operation paymentSubscriptionsGetWithHttpInfo
      *
-     * GET Payment/Subscriptions
+     * Find Payment Subscriptions
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 

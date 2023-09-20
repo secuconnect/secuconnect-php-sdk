@@ -8,7 +8,7 @@ use \ArrayAccess;
  * MoneyAmount
  *
  * @category Class
- * @description Amount in minor currency unit (e. g. Euro Cent)
+ * @description Amount in smallest currency unit (e. g. Euro Cent)
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

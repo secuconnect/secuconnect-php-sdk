@@ -8,7 +8,7 @@ use \ArrayAccess;
  * CrowdFundingDataOpenAmountOutsideCancellationPeriod
  *
  * @category Class
- * @description Open total of transaction which outside of the cancellation period
+ * @description Total amount outside the cancellation period, in the smallest currency unit (e. g. Euro Cent)
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

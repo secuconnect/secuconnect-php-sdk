@@ -63,7 +63,7 @@ class DocumentUploadsApi
     /**
      * Operation documentUploadsMultipartPost
      *
-     * Upload File
+     * Upload File / multipart MIME
      *
      * @param \Secuconnect\Client\Model\FileToUpload $body Input data format 
      * @param string $multipart multipart 
@@ -79,7 +79,7 @@ class DocumentUploadsApi
     /**
      * Operation documentUploadsMultipartPostWithHttpInfo
      *
-     * Upload File
+     * Upload File / multipart MIME
      *
      * @param \Secuconnect\Client\Model\FileToUpload $body Input data format 
      * @param string $multipart 
@@ -161,7 +161,7 @@ class DocumentUploadsApi
     /**
      * Operation documentUploadsPost
      *
-     * Upload File content
+     * Upload File / JSON
      *
      * @param \Secuconnect\Client\Model\DocumentUploadsDTOContent $body Content 
      * @throws ApiException on non-2xx response
@@ -176,7 +176,7 @@ class DocumentUploadsApi
     /**
      * Operation documentUploadsPostWithHttpInfo
      *
-     * Upload File content
+     * Upload File / JSON
      *
      * @param \Secuconnect\Client\Model\DocumentUploadsDTOContent $body Content 
      * @throws ApiException on non-2xx response
@@ -354,7 +354,7 @@ class DocumentUploadsApi
     /**
      * Operation getOne
      *
-     * Get info about the uploaded file
+     * Read Document Upload
      *
      * @param string $document_uploads_id Document Uploads ID (required)
      * @throws ApiException on non-2xx response
@@ -369,7 +369,7 @@ class DocumentUploadsApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * Get info about the uploaded file
+     * Read Document Upload
      *
      * @param string $document_uploads_id Document Uploads ID (required)
      * @throws ApiException on non-2xx response

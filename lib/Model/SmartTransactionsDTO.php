@@ -342,7 +342,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets transaction_ref
-     * @param string $transaction_ref Transaction reference
+     * @param string $transaction_ref Transaction reference, e.g. merchant order ID
      * @return $this
      */
     public function setTransactionRef($transaction_ref)
@@ -363,7 +363,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets merchant_ref
-     * @param string $merchant_ref Merchant reference
+     * @param string $merchant_ref Merchant reference, e.g. merchant customer ID
      * @return $this
      */
     public function setMerchantRef($merchant_ref)
@@ -426,7 +426,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets idents
-     * @param \Secuconnect\Client\Model\SmartTransactionsIdent[] $idents Idents
+     * @param \Secuconnect\Client\Model\SmartTransactionsIdent[] $idents secucard customer card or voucher, or request to create it
      * @return $this
      */
     public function setIdents($idents)
@@ -573,7 +573,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets trans_id
-     * @param int $trans_id Transaction id
+     * @param int $trans_id Transaction ID (TA code)
      * @return $this
      */
     public function setTransId($trans_id)
@@ -720,7 +720,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets payment_method
-     * @param string $payment_method Payment method
+     * @param string $payment_method Payment method, as passed with `/prepare/{method}` or `/start/{method}`
      * @return $this
      */
     public function setPaymentMethod($payment_method)
@@ -741,7 +741,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets is_demo
-     * @param bool $is_demo Demo payment
+     * @param bool $is_demo Whether the transaction is in demo mode (payment not executed)
      * @return $this
      */
     public function setIsDemo($is_demo)
@@ -762,7 +762,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets intent
-     * @param string $intent intent of transaction
+     * @param string $intent Intent:  - `\"sale\"` - `\"order\"`
      * @return $this
      */
     public function setIntent($intent)

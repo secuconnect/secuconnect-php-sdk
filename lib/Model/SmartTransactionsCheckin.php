@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsCheckin
  *
  * @category Class
- * @description SmartTransactionsCheckin
+ * @description Check-in
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -150,7 +150,7 @@ class SmartTransactionsCheckin implements ArrayAccess
 
     /**
      * Sets object
-     * @param string $object Object of smart transaction check in
+     * @param string $object Object type
      * @return $this
      */
     public function setObject($object)
@@ -171,7 +171,7 @@ class SmartTransactionsCheckin implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Id of smart transaction check in
+     * @param string $id Object ID
      * @return $this
      */
     public function setId($id)
@@ -192,7 +192,7 @@ class SmartTransactionsCheckin implements ArrayAccess
 
     /**
      * Sets email
-     * @param string $email Email
+     * @param string $email Email address
      * @return $this
      */
     public function setEmail($email)

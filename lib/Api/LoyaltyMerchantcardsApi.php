@@ -63,7 +63,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation cardBalanceReceipt
      *
-     * POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/getCardBalanceReceipt
+     * Get card balance receipt
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCardBalanceReceipt $body Information about card &amp; current terminal 
@@ -79,7 +79,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation cardBalanceReceiptWithHttpInfo
      *
-     * POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/getCardBalanceReceipt
+     * Get card balance receipt
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCardBalanceReceipt $body Information about card &amp; current terminal 
@@ -171,7 +171,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation checkCsc
      *
-     * POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/checkCsc
+     * Check CSC
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCsc $body Information about card 
@@ -187,7 +187,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation checkCscWithHttpInfo
      *
-     * POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/checkCsc
+     * Check CSC
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCsc $body Information about card 
@@ -279,7 +279,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation checkPassCode
      *
-     * POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/checkPasscode
+     * Check passcode
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCheckPasscode $body Information about card 
@@ -295,7 +295,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation checkPassCodeWithHttpInfo
      *
-     * POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/checkPasscode
+     * Check passcode
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCheckPasscode $body Information about card 
@@ -387,7 +387,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation createMerchantcards
      *
-     * POST Loyalty/MerchantCards/{generalMerchantId}/createMerchantcards/{loyaltyCardgroupId}
+     * Create multiple merchant cards
      *
      * @param string $general_merchant_id General merchant id (required)
      * @param string $loyalty_cardgroup_id Loyalty card group id (required)
@@ -404,7 +404,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation createMerchantcardsWithHttpInfo
      *
-     * POST Loyalty/MerchantCards/{generalMerchantId}/createMerchantcards/{loyaltyCardgroupId}
+     * Create multiple merchant cards
      *
      * @param string $general_merchant_id General merchant id (required)
      * @param string $loyalty_cardgroup_id Loyalty card group id (required)
@@ -511,7 +511,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation executeTransaction
      *
-     * POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/transaction
+     * Execute transaction from SDK
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOTransaction $body Transaction properties 
@@ -527,7 +527,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation executeTransactionWithHttpInfo
      *
-     * POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/transaction
+     * Execute transaction from SDK
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOTransaction $body Transaction properties 
@@ -619,7 +619,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation getAll
      *
-     * GET Loyalty/MerchantCards
+     * Find Loyalty MerchantCard
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -644,7 +644,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * GET Loyalty/MerchantCards
+     * Find Loyalty MerchantCard
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -770,7 +770,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation getLock
      *
-     * GET Loyalty/MerchantCards/{loyaltyMerchantCardId}/lock
+     * Read lock details
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @throws ApiException on non-2xx response
@@ -785,7 +785,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation getLockWithHttpInfo
      *
-     * GET Loyalty/MerchantCards/{loyaltyMerchantCardId}/lock
+     * Read lock details
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @throws ApiException on non-2xx response
@@ -871,7 +871,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation getOne
      *
-     * GET Loyalty/MerchantCards/{loyaltyMerchantCardId}
+     * Read Loyalty MerchantCard
      *
      * @param string $loyalty_merchant_card_id Search one by provided id (required)
      * @throws ApiException on non-2xx response
@@ -886,7 +886,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * GET Loyalty/MerchantCards/{loyaltyMerchantCardId}
+     * Read Loyalty MerchantCard
      *
      * @param string $loyalty_merchant_card_id Search one by provided id (required)
      * @throws ApiException on non-2xx response
@@ -972,7 +972,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation getVirtualTerminalData
      *
-     * GET Loyalty/MerchantCards/{loyaltyMerchantCardId}/virtualTerminalData/{loyaltyMerchantId}
+     * Get virtual terminal data
      *
      * @param string $loyalty_merchant_card_id Merchant card id (required)
      * @param string $loyalty_merchant_id Merchant id (required)
@@ -988,7 +988,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation getVirtualTerminalDataWithHttpInfo
      *
-     * GET Loyalty/MerchantCards/{loyaltyMerchantCardId}/virtualTerminalData/{loyaltyMerchantId}
+     * Get virtual terminal data
      *
      * @param string $loyalty_merchant_card_id Merchant card id (required)
      * @param string $loyalty_merchant_id Merchant id (required)
@@ -1093,7 +1093,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation lock
      *
-     * POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/lock
+     * Lock card
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOLock $body Information about lock 
@@ -1109,7 +1109,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation lockWithHttpInfo
      *
-     * POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/lock
+     * Lock card
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOLock $body Information about lock 
@@ -1201,7 +1201,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation newPassCode
      *
-     * POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/newPasscode
+     * Set new passcode
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTONewPasscode $body Information about card 
@@ -1217,7 +1217,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation newPassCodeWithHttpInfo
      *
-     * POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/newPasscode
+     * Set new passcode
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTONewPasscode $body Information about card 
@@ -1309,7 +1309,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation registerCustomer
      *
-     * POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/registerCustomer
+     * Register customer
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param \Secuconnect\Client\Model\LoyaltyCustomersDTO $body Loyalty customer properties 
@@ -1325,7 +1325,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation registerCustomerWithHttpInfo
      *
-     * POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/registerCustomer
+     * Register customer
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param \Secuconnect\Client\Model\LoyaltyCustomersDTO $body Loyalty customer properties 
@@ -1417,7 +1417,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation resetPassCode
      *
-     * POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/resetPasscode
+     * Reset passcode
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOResetPasscode $body Information about card 
@@ -1433,7 +1433,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation resetPassCodeWithHttpInfo
      *
-     * POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/resetPasscode
+     * Reset passcode
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOResetPasscode $body Information about card 
@@ -1525,7 +1525,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation setCustomer
      *
-     * POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/setCustomer/{loyaltyCustomerId}
+     * Set customer
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param string $loyalty_customer_id Loyalty customer id (required)
@@ -1541,7 +1541,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation setCustomerWithHttpInfo
      *
-     * POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/setCustomer/{loyaltyCustomerId}
+     * Set customer
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param string $loyalty_customer_id Loyalty customer id (required)
@@ -1642,7 +1642,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation unlock
      *
-     * POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/unlock
+     * Unlock card
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOLock $body Information about unlock 
@@ -1658,7 +1658,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation unlockWithHttpInfo
      *
-     * POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/unlock
+     * Unlock card
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOLock $body Information about unlock 
@@ -1750,7 +1750,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation updateCardGroupOfMerchantCard
      *
-     * PUT Loyalty/MerchantCards/{loyaltyMerchantCardId}/cardgroup/{loyaltyCardGroupId}
+     * Update loyalty card group
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param string $loyalty_card_group_id Loyalty card group id (required)
@@ -1766,7 +1766,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation updateCardGroupOfMerchantCardWithHttpInfo
      *
-     * PUT Loyalty/MerchantCards/{loyaltyMerchantCardId}/cardgroup/{loyaltyCardGroupId}
+     * Update loyalty card group
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param string $loyalty_card_group_id Loyalty card group id (required)
@@ -1867,7 +1867,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation updateMerchantCard
      *
-     * PUT Loyalty/MerchantCards/{loyaltyMerchantCardId}
+     * Update Loyalty MerchantCard
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTO $body Loyalty merchant card properties 
@@ -1883,7 +1883,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation updateMerchantCardWithHttpInfo
      *
-     * PUT Loyalty/MerchantCards/{loyaltyMerchantCardId}
+     * Update Loyalty MerchantCard
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTO $body Loyalty merchant card properties 
@@ -1975,7 +1975,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation validateMerchantCard
      *
-     * POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/validateMerchantcard
+     * Check the merchant card
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOValidateMerchantCard $body Information about card 
@@ -1991,7 +1991,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation validateMerchantCardWithHttpInfo
      *
-     * POST Loyalty/MerchantCards/{loyaltyMerchantCardId}/validateMerchantcard
+     * Check the merchant card
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOValidateMerchantCard $body Information about card 

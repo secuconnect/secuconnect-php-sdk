@@ -63,7 +63,7 @@ class GeneralMerchantsApi
     /**
      * Operation getAll
      *
-     * GET General/Merchants
+     * Find General Merchants
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -88,7 +88,7 @@ class GeneralMerchantsApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * GET General/Merchants
+     * Find General Merchants
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -214,7 +214,7 @@ class GeneralMerchantsApi
     /**
      * Operation getMerchantCategories
      *
-     * GET General/Merchants/me/getMerchantCategories/
+     * Get my merchant categories
      *
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\MerchantCategoryDataModel[]
@@ -228,7 +228,7 @@ class GeneralMerchantsApi
     /**
      * Operation getMerchantCategoriesWithHttpInfo
      *
-     * GET General/Merchants/me/getMerchantCategories/
+     * Get my merchant categories
      *
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\MerchantCategoryDataModel[], HTTP status code, HTTP response headers (array of strings)
@@ -236,7 +236,7 @@ class GeneralMerchantsApi
     public function getMerchantCategoriesWithHttpInfo()
     {
         // parse inputs
-        $resourcePath = "/General/Merchants/me/getMerchantCategories";
+        $resourcePath = "/General/Merchants/me/MerchantCategories";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -270,7 +270,7 @@ class GeneralMerchantsApi
                     $httpBody,
                     $headerParams,
                     '\Secuconnect\Client\Model\MerchantCategoryDataModel[]',
-                    '/General/Merchants/me/getMerchantCategories'
+                    '/General/Merchants/me/MerchantCategories'
                 );
 
                 return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\MerchantCategoryDataModel[]', $httpHeader), $statusCode, $httpHeader];
@@ -299,7 +299,7 @@ class GeneralMerchantsApi
     /**
      * Operation getOne
      *
-     * GET General/Merchants/{generalMerchantId}
+     * Read General Merchant
      *
      * @param string $general_merchant_id General Merchant id (required)
      * @throws ApiException on non-2xx response
@@ -314,7 +314,7 @@ class GeneralMerchantsApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * GET General/Merchants/{generalMerchantId}
+     * Read General Merchant
      *
      * @param string $general_merchant_id General Merchant id (required)
      * @throws ApiException on non-2xx response
@@ -400,7 +400,7 @@ class GeneralMerchantsApi
     /**
      * Operation getPublicData
      *
-     * POST General/Merchants/{generalMerchantId}/getPublicData/{generalContractId}
+     * Get public data
      *
      * @param string $general_merchant_id Merchant identifier (required)
      * @param string $general_contract_id Contract identifier (required)
@@ -416,7 +416,7 @@ class GeneralMerchantsApi
     /**
      * Operation getPublicDataWithHttpInfo
      *
-     * POST General/Merchants/{generalMerchantId}/getPublicData/{generalContractId}
+     * Get public data
      *
      * @param string $general_merchant_id Merchant identifier (required)
      * @param string $general_contract_id Contract identifier (required)
@@ -517,7 +517,7 @@ class GeneralMerchantsApi
     /**
      * Operation updatePublicData
      *
-     * updatePublicData
+     * Update public data
      *
      * @param string $general_merchant_id Merchant identifier (required)
      * @param \Secuconnect\Client\Model\GeneralMerchantsPublicDataDTO $body body 
@@ -533,7 +533,7 @@ class GeneralMerchantsApi
     /**
      * Operation updatePublicDataWithHttpInfo
      *
-     * updatePublicData
+     * Update public data
      *
      * @param string $general_merchant_id Merchant identifier (required)
      * @param \Secuconnect\Client\Model\GeneralMerchantsPublicDataDTO $body 

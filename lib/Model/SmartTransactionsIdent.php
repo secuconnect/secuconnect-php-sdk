@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsIdent
  *
  * @category Class
- * @description SmartTransactionsIdent
+ * @description secucard customer card or voucher, or request to create it
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -180,7 +180,7 @@ class SmartTransactionsIdent implements ArrayAccess
 
     /**
      * Sets object
-     * @param string $object Object of smart transaction ident
+     * @param string $object Object type
      * @return $this
      */
     public function setObject($object)
@@ -201,7 +201,7 @@ class SmartTransactionsIdent implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Id of smart transaction ident
+     * @param string $id Object ID
      * @return $this
      */
     public function setId($id)
@@ -222,7 +222,7 @@ class SmartTransactionsIdent implements ArrayAccess
 
     /**
      * Sets prefix
-     * @param string $prefix Prefix
+     * @param string $prefix Card number prefix
      * @return $this
      */
     public function setPrefix($prefix)
@@ -243,7 +243,7 @@ class SmartTransactionsIdent implements ArrayAccess
 
     /**
      * Sets name
-     * @param string $name Name
+     * @param string $name Card group name
      * @return $this
      */
     public function setName($name)
@@ -264,7 +264,7 @@ class SmartTransactionsIdent implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type Type
+     * @param string $type Ident type:  - `\"card\"` to use a card - `\"create_card\"` to create a card on-the-fly
      * @return $this
      */
     public function setType($type)
@@ -285,7 +285,7 @@ class SmartTransactionsIdent implements ArrayAccess
 
     /**
      * Sets value
-     * @param string $value Value
+     * @param string $value Card number or Card Group ID  When you create a card on-the-fly, you must pass the Card Group ID (like `\"CRG_TFRXSKL91C4UNYC4ND79P7ZBZBQ0MZ\"`). When you use an existing card, you must pass its card number (like `\"9276999999999999\"`).
      * @return $this
      */
     public function setValue($value)
@@ -306,7 +306,7 @@ class SmartTransactionsIdent implements ArrayAccess
 
     /**
      * Sets valid
-     * @param bool $valid Valid
+     * @param bool $valid Whether the card is valid for the merchant or acceptance point
      * @return $this
      */
     public function setValid($valid)

@@ -8,7 +8,7 @@ use \ArrayAccess;
  * CrowdFundingDataOpenAmount
  *
  * @category Class
- * @description Information about the open amount which is not yet paid out
+ * @description Open amount which is not yet paid out
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -150,7 +150,7 @@ class CrowdFundingDataOpenAmount implements ArrayAccess
 
     /**
      * Sets total
-     * @param int $total Total of all open transactions amounts
+     * @param int $total Total amount in the smallest currency unit (e. g. Euro Cent)
      * @return $this
      */
     public function setTotal($total)

@@ -8,7 +8,7 @@ use \ArrayAccess;
  * CrowdFundingDataOpenAmountInsideCancelPeriod
  *
  * @category Class
- * @description Open total of transaction which inside of the cancellation period
+ * @description Total amount within the cancellation period, in the smallest currency unit (e. g. Euro Cent)
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -168,7 +168,7 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
 
     /**
      * Sets total
-     * @param int $total Total of all open amounts
+     * @param int $total Total amount in the smallest currency unit (e. g. Euro Cent)
      * @return $this
      */
     public function setTotal($total)
@@ -189,7 +189,7 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
 
     /**
      * Sets debit
-     * @param int $debit Total of debit open amounts
+     * @param int $debit Total amount for debit transactions, in the smallest currency unit (e. g. Euro Cent)
      * @return $this
      */
     public function setDebit($debit)
@@ -210,7 +210,7 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
 
     /**
      * Sets credit_card
-     * @param int $credit_card Total of credit card open amounts
+     * @param int $credit_card Total amount for credit card transactions, in the smallest currency unit (e. g. Euro Cent)
      * @return $this
      */
     public function setCreditCard($credit_card)
@@ -231,7 +231,7 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
 
     /**
      * Sets prepay
-     * @param int $prepay Total of prepay open amounts
+     * @param int $prepay Total amount for prepayment transactions, in the smallest currency unit (e. g. Euro Cent)
      * @return $this
      */
     public function setPrepay($prepay)
@@ -252,7 +252,7 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
 
     /**
      * Sets sofort
-     * @param int $sofort Total of sofort open amounts
+     * @param int $sofort Total amount for klarna Sofort transactions, in the smallest currency unit (e. g. Euro Cent)
      * @return $this
      */
     public function setSofort($sofort)
@@ -273,7 +273,7 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
 
     /**
      * Sets twint
-     * @param int $twint Total of twint open amounts
+     * @param int $twint Total amount for Twint transactions, in the smallest currency unit (e. g. Euro Cent)
      * @return $this
      */
     public function setTwint($twint)

@@ -29,8 +29,11 @@ class PaymentCrowdFundingData implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'project' => '\Secuconnect\Client\Model\CrowdFundingDataDetails',
+        'deposited_amount' => 'int',
         'paid_out' => 'int',
-        'open' => '\Secuconnect\Client\Model\CrowdFundingDataOpenAmount'
+        'deducted_amount' => 'int',
+        'open' => '\Secuconnect\Client\Model\CrowdFundingDataOpenAmount',
+        'result' => 'Null'
     ];
 
     /**
@@ -39,8 +42,11 @@ class PaymentCrowdFundingData implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'project' => null,
+        'deposited_amount' => null,
         'paid_out' => null,
-        'open' => null
+        'deducted_amount' => null,
+        'open' => null,
+        'result' => null
     ];
 
     public static function swaggerTypes()
@@ -59,8 +65,11 @@ class PaymentCrowdFundingData implements ArrayAccess
      */
     protected static $attributeMap = [
         'project' => 'project',
+        'deposited_amount' => 'deposited_amount',
         'paid_out' => 'paid_out',
-        'open' => 'open'
+        'deducted_amount' => 'deducted_amount',
+        'open' => 'open',
+        'result' => 'result'
     ];
 
     /**
@@ -69,8 +78,11 @@ class PaymentCrowdFundingData implements ArrayAccess
      */
     protected static $setters = [
         'project' => 'setProject',
+        'deposited_amount' => 'setDepositedAmount',
         'paid_out' => 'setPaidOut',
-        'open' => 'setOpen'
+        'deducted_amount' => 'setDeductedAmount',
+        'open' => 'setOpen',
+        'result' => 'setResult'
     ];
 
     /**
@@ -79,8 +91,11 @@ class PaymentCrowdFundingData implements ArrayAccess
      */
     protected static $getters = [
         'project' => 'getProject',
+        'deposited_amount' => 'getDepositedAmount',
         'paid_out' => 'getPaidOut',
-        'open' => 'getOpen'
+        'deducted_amount' => 'getDeductedAmount',
+        'open' => 'getOpen',
+        'result' => 'getResult'
     ];
 
     public static function attributeMap()
@@ -111,8 +126,11 @@ class PaymentCrowdFundingData implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
+        $this->container['deposited_amount'] = isset($data['deposited_amount']) ? $data['deposited_amount'] : null;
         $this->container['paid_out'] = isset($data['paid_out']) ? $data['paid_out'] : null;
+        $this->container['deducted_amount'] = isset($data['deducted_amount']) ? $data['deducted_amount'] : null;
         $this->container['open'] = isset($data['open']) ? $data['open'] : null;
+        $this->container['result'] = isset($data['result']) ? $data['result'] : null;
     }
 
     /**
@@ -161,6 +179,27 @@ class PaymentCrowdFundingData implements ArrayAccess
     }
 
     /**
+     * Gets deposited_amount
+     * @return int
+     */
+    public function getDepositedAmount()
+    {
+        return $this->container['deposited_amount'];
+    }
+
+    /**
+     * Sets deposited_amount
+     * @param int $deposited_amount Total deposited amount of all transactions for this merchant
+     * @return $this
+     */
+    public function setDepositedAmount($deposited_amount)
+    {
+        $this->container['deposited_amount'] = $deposited_amount;
+
+        return $this;
+    }
+
+    /**
      * Gets paid_out
      * @return int
      */
@@ -171,12 +210,33 @@ class PaymentCrowdFundingData implements ArrayAccess
 
     /**
      * Sets paid_out
-     * @param int $paid_out Total transaction amount of all transactions for this merchant
+     * @param int $paid_out Total paid out amount of all transactions for this merchant
      * @return $this
      */
     public function setPaidOut($paid_out)
     {
         $this->container['paid_out'] = $paid_out;
+
+        return $this;
+    }
+
+    /**
+     * Gets deducted_amount
+     * @return int
+     */
+    public function getDeductedAmount()
+    {
+        return $this->container['deducted_amount'];
+    }
+
+    /**
+     * Sets deducted_amount
+     * @param int $deducted_amount Total deducted amount of all transactions for this merchant
+     * @return $this
+     */
+    public function setDeductedAmount($deducted_amount)
+    {
+        $this->container['deducted_amount'] = $deducted_amount;
 
         return $this;
     }
@@ -198,6 +258,27 @@ class PaymentCrowdFundingData implements ArrayAccess
     public function setOpen($open)
     {
         $this->container['open'] = $open;
+
+        return $this;
+    }
+
+    /**
+     * Gets result
+     * @return Null
+     */
+    public function getResult()
+    {
+        return $this->container['result'];
+    }
+
+    /**
+     * Sets result
+     * @param Null $result This field is returned if the contract doesn't have crowdfunding contract condition
+     * @return $this
+     */
+    public function setResult($result)
+    {
+        $this->container['result'] = $result;
 
         return $this;
     }

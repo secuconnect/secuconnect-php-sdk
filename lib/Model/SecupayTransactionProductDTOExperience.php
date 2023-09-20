@@ -144,7 +144,7 @@ class SecupayTransactionProductDTOExperience implements ArrayAccess
 
     /**
      * Sets positive
-     * @param int $positive Score of positive experience (paid orders)
+     * @param int $positive Number of paid orders
      * @return $this
      */
     public function setPositive($positive)
@@ -165,7 +165,7 @@ class SecupayTransactionProductDTOExperience implements ArrayAccess
 
     /**
      * Sets negative
-     * @param int $negative Score of negative experience (open/unpaid orders)
+     * @param int $negative Number of open or unpaid orders
      * @return $this
      */
     public function setNegative($negative)

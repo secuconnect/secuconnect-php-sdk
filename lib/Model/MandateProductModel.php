@@ -138,7 +138,7 @@ class MandateProductModel implements ArrayAccess
 
     /**
      * Sets mandate_url
-     * @param string $mandate_url Link to sepamandate B2B doc
+     * @param string $mandate_url Link to document with B2B mandate
      * @return $this
      */
     public function setMandateUrl($mandate_url)

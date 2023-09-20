@@ -3,7 +3,7 @@
 namespace Secuconnect\Client\Model;
 
 /**
- * SmartTransactionsBaseDeliveryOptionsModel
+ * Delivery options, either for shipping or collection
  */
 interface OneOfSmartTransactionsDeliveryOptionsModel {
 

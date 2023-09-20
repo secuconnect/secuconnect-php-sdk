@@ -18,6 +18,148 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.38.0] - 2023-09-20
+[2.38.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.37.0...2.38.0
+
+- documentation updates
+- *new element*: `apiv2_products` in `GetAvailablePaymentMethodsDTO`
+- *new element*: `deposited_amount`, `deducted_amount` and `result` in `PaymentCrowdFundingData`
+- *new element*: `description` and `description_raw` in `PaymentTransactionsProductModel
+- *fixed endpoint*: wrong endpoint url in `GeneralMerchantsApi.getMerchantCategories()`
+- *changed response type*: `GeneralContractsApi.getAvailableCurrencies()` changed from `AvailableCurrencies` to `string[]`
+- *changed response type*: `PaymentContractsApi.paymentContractsIdPaymentMethodsGet()` changed from `StringList` to `string[]`
+- *removed element*: `total_amount` and `total_count` in `CrowdFundingDataDetails`
+- *removed model*: `AvailableCurrencies`
+- *removed model*: `StringList`
+
+### Changed
+- `Api.CardprocessingInvoicesApi`
+- `Api.CardprocessingTransactionsApi`
+- `Api.DocumentUploadsApi`
+- `Api.GeneralContractsApi`
+- `Api.GeneralMerchantsApi`
+- `Api.GeneralStoresApi`
+- `Api.LoyaltyCardgroupsApi`
+- `Api.LoyaltyCardsApi`
+- `Api.LoyaltyCustomersApi`
+- `Api.LoyaltyMerchantcardsApi`
+- `Api.LoyaltyTransactionsApi`
+- `Api.PaymentContainersApi`
+- `Api.PaymentContractsApi`
+- `Api.PaymentCustomersApi`
+- `Api.PaymentInvoicesApi`
+- `Api.PaymentMandatesApi`
+- `Api.PaymentPayoutsApi`
+- `Api.PaymentPlansApi`
+- `Api.PaymentSecupayCreditcardsApi`
+- `Api.PaymentSecupayDebitsApi`
+- `Api.PaymentSecupayInvoicesApi`
+- `Api.PaymentSecupayPayoutApi`
+- `Api.PaymentSecupayPrepaysApi`
+- `Api.PaymentSecupaySofortApi`
+- `Api.PaymentSubscriptionsApi`
+- `Api.PaymentTransactionsApi`
+- `Api.PrepaidContractsApi`
+- `Api.PrepaidItemsApi`
+- `Api.PrepaidReportsApi`
+- `Api.PrepaidSalesApi`
+- `Api.PublicWebsiteApi`
+- `Api.ServicesIdentrequestsApi`
+- `Api.ServicesIdentresultsApi`
+- `Api.ServicesUploadidentsApi`
+- `Api.SmartDevicesApi`
+- `Api.SmartRoutingsApi`
+- `Api.SmartTemplatesApi`
+- `Api.SmartTransactionsApi`
+- `Model.BankAccountDescriptor`
+- `Model.Contact`
+- `Model.CreditCardDescriptor`
+- `Model.CrowdFundingDataDetails`
+- `Model.CrowdFundingDataOpenAmount`
+- `Model.CrowdFundingDataOpenAmountInsideCancelPeriod`
+- `Model.CrowdFundingDataOpenAmountOutsideCancellationPeriod`
+- `Model.GetAvailablePaymentMethodsDTO`
+- `Model.InvitedBy`
+- `Model.LoyaltyMerchantcardsProductModel`
+- `Model.MandateDTO`
+- `Model.MandateProductModel`
+- `Model.MoneyAmount`
+- `Model.OneOfPaymentContainersDTOModelPrivate`
+- `Model.OneOfSmartTransactionsDeliveryOptionsModel`
+- `Model.PayPalDescriptor`
+- `Model.PaymentCancelResultDetails`
+- `Model.PaymentContainerMandate`
+- `Model.PaymentContainersDTO`
+- `Model.PaymentContainersDTOCustomer`
+- `Model.PaymentContainersList`
+- `Model.PaymentContainersProductModel`
+- `Model.PaymentContext`
+- `Model.PaymentContractsDTOClone`
+- `Model.PaymentContractsDTOIFrameOpts`
+- `Model.PaymentContractsDTORequestId`
+- `Model.PaymentContractsProductModel`
+- `Model.PaymentCrowdFundingData`
+- `Model.PaymentCustomersDTO`
+- `Model.PaymentCustomersList`
+- `Model.PaymentCustomersProductModel`
+- `Model.PaymentInformation`
+- `Model.PaymentInstructions`
+- `Model.PaymentMethodBreakdown`
+- `Model.PaymentTransactionCancelDTO`
+- `Model.PaymentTransactionsCheckStatus`
+- `Model.PaymentTransactionsIncreaseAmountDTO`
+- `Model.PaymentTransactionsProductModel`
+- `Model.PaymentTransactionsShippingUrl`
+- `Model.ProductExceptionPayload`
+- `Model.ProductInstanceID`
+- `Model.SecupayBaseBasketItem`
+- `Model.SecupayBasketItem`
+- `Model.SecupayRedirectUrl`
+- `Model.SecupayTransactionProductDTO`
+- `Model.SecupayTransactionProductDTOExperience`
+- `Model.SecupayTransactionProductDTOSubscription`
+- `Model.SecupayTransactionProductModel`
+- `Model.SecupayTransactionProductModelUsedPaymentInstrument`
+- `Model.SecupayTransactionSetShippingInformationDTO`
+- `Model.SmartTransactionPaymentContainerDTO`
+- `Model.SmartTransactionPaymentCustomerDTO`
+- `Model.SmartTransactionsApplicationContext`
+- `Model.SmartTransactionsApplicationContextIframeOpts`
+- `Model.SmartTransactionsApplicationContextLocks`
+- `Model.SmartTransactionsApplicationContextReturnUrls`
+- `Model.SmartTransactionsBaseProduct`
+- `Model.SmartTransactionsBasket`
+- `Model.SmartTransactionsBasketInfo`
+- `Model.SmartTransactionsBasketProduct`
+- `Model.SmartTransactionsBasketProductGroup`
+- `Model.SmartTransactionsBonusProducts`
+- `Model.SmartTransactionsCheckin`
+- `Model.SmartTransactionsCheckoutLinks`
+- `Model.SmartTransactionsCollectionModel`
+- `Model.SmartTransactionsCommunication`
+- `Model.SmartTransactionsContainer`
+- `Model.SmartTransactionsDTO`
+- `Model.SmartTransactionsIdent`
+- `Model.SmartTransactionsMerchant`
+- `Model.SmartTransactionsPaymentLinks`
+- `Model.SmartTransactionsPreTransactionModel`
+- `Model.SmartTransactionsPrepaidSalesDetails`
+- `Model.SmartTransactionsPrepare`
+- `Model.SmartTransactionsPrepareCallbackUrls`
+- `Model.SmartTransactionsProductModel`
+- `Model.SmartTransactionsReceipt`
+- `Model.SmartTransactionsReceiptValue`
+- `Model.SmartTransactionsShippingModel`
+- `Model.SmartTransactionsSubBasketProduct`
+- `Model.SmartTransactionsTimeSlot`
+- `Model.UploadMandateDTO`
+- `Model.UploadMandateProductModel`
+
+### Removed
+- `Model.AvailableCurrencies`
+- `Model.StringList`
+
+
 ## [2.37.0] - 2023-08-30
 [2.37.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.36.0...2.37.0
 

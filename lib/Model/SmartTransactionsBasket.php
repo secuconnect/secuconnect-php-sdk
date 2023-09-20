@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsBasket
  *
  * @category Class
- * @description SmartTransactionsBasket
+ * @description Basket items, several sub-baskets or subscription details
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -165,7 +165,7 @@ class SmartTransactionsBasket implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type Basket Type
+     * @param string $type Basket type
      * @return $this
      */
     public function setType($type)

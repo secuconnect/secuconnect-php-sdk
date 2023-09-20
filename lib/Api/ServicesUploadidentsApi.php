@@ -63,7 +63,7 @@ class ServicesUploadidentsApi
     /**
      * Operation addUploadidents
      *
-     * POST Services/Uploadidents
+     * Create UploadIdent
      *
      * @param \Secuconnect\Client\Model\UploadidentsProductDTO $body Upload idents input properties 
      * @throws ApiException on non-2xx response
@@ -78,7 +78,7 @@ class ServicesUploadidentsApi
     /**
      * Operation addUploadidentsWithHttpInfo
      *
-     * POST Services/Uploadidents
+     * Create UploadIdent
      *
      * @param \Secuconnect\Client\Model\UploadidentsProductDTO $body Upload idents input properties 
      * @throws ApiException on non-2xx response

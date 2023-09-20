@@ -180,7 +180,7 @@ class CreditCardDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMode
 
     /**
      * Sets owner
-     * @param string $owner Card holder
+     * @param string $owner Card holder name
      * @return $this
      */
     public function setOwner($owner)
@@ -222,7 +222,7 @@ class CreditCardDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMode
 
     /**
      * Sets expiration_date
-     * @param string $expiration_date Date and time when the card will expire; the system must pass 2023-07-01T00:00:00 if the card is valid thru 06/23
+     * @param string $expiration_date Card expiration date, ISO-8601 formatted; one must pass 2023-06 if the card is ”valid thru 06/23“
      * @return $this
      */
     public function setExpirationDate($expiration_date)
@@ -243,7 +243,7 @@ class CreditCardDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMode
 
     /**
      * Sets issuer
-     * @param string $issuer Card brand or scheme like VISA, or MasterCard
+     * @param string $issuer Card brand, like VISA or MasterCard
      * @return $this
      */
     public function setIssuer($issuer)

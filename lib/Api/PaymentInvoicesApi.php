@@ -63,7 +63,7 @@ class PaymentInvoicesApi
     /**
      * Operation getAll
      *
-     * GET Payment/Invoices
+     * Find Payment Invoices
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -88,7 +88,7 @@ class PaymentInvoicesApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * GET Payment/Invoices
+     * Find Payment Invoices
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -214,7 +214,7 @@ class PaymentInvoicesApi
     /**
      * Operation getOne
      *
-     * GET Payment/Invoices/{paymentInvoiceId}
+     * Read Payment Invoice
      *
      * @param string $payment_invoice_id Payment invoice id (required)
      * @throws ApiException on non-2xx response
@@ -229,7 +229,7 @@ class PaymentInvoicesApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * GET Payment/Invoices/{paymentInvoiceId}
+     * Read Payment Invoice
      *
      * @param string $payment_invoice_id Payment invoice id (required)
      * @throws ApiException on non-2xx response

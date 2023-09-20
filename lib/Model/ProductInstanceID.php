@@ -8,7 +8,7 @@ use \ArrayAccess;
  * ProductInstanceID
  *
  * @category Class
- * @description Product instance id
+ * @description Object ID
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

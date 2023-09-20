@@ -8,7 +8,7 @@ use \ArrayAccess;
  * PaymentCustomersDTO
  *
  * @category Class
- * @description PaymentCustomersDTO
+ * @description Customer details
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

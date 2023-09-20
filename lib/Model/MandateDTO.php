@@ -144,7 +144,7 @@ class MandateDTO implements ArrayAccess
 
     /**
      * Sets customer_id
-     * @param string $customer_id Customer id
+     * @param string $customer_id Payment Customer ID the SEPA mandate belongs to
      * @return $this
      */
     public function setCustomerId($customer_id)
@@ -165,7 +165,7 @@ class MandateDTO implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type Mandate type
+     * @param string $type SEPA mandate type (must be \"B2B\")
      * @return $this
      */
     public function setType($type)

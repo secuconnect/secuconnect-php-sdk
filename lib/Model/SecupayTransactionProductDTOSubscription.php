@@ -144,7 +144,7 @@ class SecupayTransactionProductDTOSubscription implements ArrayAccess
 
     /**
      * Sets purpose
-     * @param string $purpose The purpose of the subscription
+     * @param string $purpose Purpose of the recurring payment; needs to be present at the first time
      * @return $this
      */
     public function setPurpose($purpose)
@@ -165,7 +165,7 @@ class SecupayTransactionProductDTOSubscription implements ArrayAccess
 
     /**
      * Sets id
-     * @param int $id Id of subscription, if exists
+     * @param int $id Recurring payments ID; is generated at the first time, and needs to be passed with all subsequent payments
      * @return $this
      */
     public function setId($id)

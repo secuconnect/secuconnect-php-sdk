@@ -63,7 +63,7 @@ class LoyaltyCardgroupsApi
     /**
      * Operation addCardGroup
      *
-     * POST Loyalty/Cardgroups
+     * Create Loyalty Cardgroup
      *
      * @param \Secuconnect\Client\Model\LoyaltyCardgroupsDTO $body Loyalty card group properties 
      * @throws ApiException on non-2xx response
@@ -78,7 +78,7 @@ class LoyaltyCardgroupsApi
     /**
      * Operation addCardGroupWithHttpInfo
      *
-     * POST Loyalty/Cardgroups
+     * Create Loyalty Cardgroup
      *
      * @param \Secuconnect\Client\Model\LoyaltyCardgroupsDTO $body Loyalty card group properties 
      * @throws ApiException on non-2xx response
@@ -155,7 +155,7 @@ class LoyaltyCardgroupsApi
     /**
      * Operation checkPassCodeEnabled
      *
-     * POST Loyalty/Cardgroups/{loyaltyCardGroupId}/checkPasscodeEnabled
+     * Check for passcode check
      *
      * @param string $loyalty_card_group_id Loyalty card group id (required)
      * @param \Secuconnect\Client\Model\LoyaltyCardgroupsDTOCheckPasscodeEnabled $body Check passcode details 
@@ -171,7 +171,7 @@ class LoyaltyCardgroupsApi
     /**
      * Operation checkPassCodeEnabledWithHttpInfo
      *
-     * POST Loyalty/Cardgroups/{loyaltyCardGroupId}/checkPasscodeEnabled
+     * Check for passcode check
      *
      * @param string $loyalty_card_group_id Loyalty card group id (required)
      * @param \Secuconnect\Client\Model\LoyaltyCardgroupsDTOCheckPasscodeEnabled $body Check passcode details 
@@ -263,7 +263,7 @@ class LoyaltyCardgroupsApi
     /**
      * Operation getAll
      *
-     * GET Loyalty/Cardgroups
+     * Find Loyalty Cardgroups
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -288,7 +288,7 @@ class LoyaltyCardgroupsApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * GET Loyalty/Cardgroups
+     * Find Loyalty Cardgroups
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -414,7 +414,7 @@ class LoyaltyCardgroupsApi
     /**
      * Operation getCardgroupsByMerchantId
      *
-     * GET Loyalty/Sales/{generalMerchantId}/CardGroupsByMerchantID
+     * Find Loyalty Sales by General Merchant ID
      *
      * @param string $general_merchant_id Search by provided id (required)
      * @throws ApiException on non-2xx response
@@ -429,7 +429,7 @@ class LoyaltyCardgroupsApi
     /**
      * Operation getCardgroupsByMerchantIdWithHttpInfo
      *
-     * GET Loyalty/Sales/{generalMerchantId}/CardGroupsByMerchantID
+     * Find Loyalty Sales by General Merchant ID
      *
      * @param string $general_merchant_id Search by provided id (required)
      * @throws ApiException on non-2xx response
@@ -515,7 +515,7 @@ class LoyaltyCardgroupsApi
     /**
      * Operation getOne
      *
-     * GET Loyalty/Cardgroups/{loyaltyCardGroupId}
+     * Read Loyalty Cardgroup
      *
      * @param string $loyalty_card_group_id Search one by provided id (required)
      * @throws ApiException on non-2xx response
@@ -530,7 +530,7 @@ class LoyaltyCardgroupsApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * GET Loyalty/Cardgroups/{loyaltyCardGroupId}
+     * Read Loyalty Cardgroup
      *
      * @param string $loyalty_card_group_id Search one by provided id (required)
      * @throws ApiException on non-2xx response
@@ -616,7 +616,7 @@ class LoyaltyCardgroupsApi
     /**
      * Operation updateCardGroup
      *
-     * PUT Loyalty/Cardgroups/{loyaltyCardGroupId}
+     * Update Loyalty Cardgroup
      *
      * @param string $loyalty_card_group_id Loyalty card group id (required)
      * @param \Secuconnect\Client\Model\LoyaltyCardgroupsDTO $body Loyalty card group properties 
@@ -632,7 +632,7 @@ class LoyaltyCardgroupsApi
     /**
      * Operation updateCardGroupWithHttpInfo
      *
-     * PUT Loyalty/Cardgroups/{loyaltyCardGroupId}
+     * Update Loyalty Cardgroup
      *
      * @param string $loyalty_card_group_id Loyalty card group id (required)
      * @param \Secuconnect\Client\Model\LoyaltyCardgroupsDTO $body Loyalty card group properties 

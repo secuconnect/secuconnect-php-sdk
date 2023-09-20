@@ -183,7 +183,7 @@ class BankAccountDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMod
 
     /**
      * Sets bic
-     * @param string $bic Bank Identifier Code (BIC), or formerly SWIFT code
+     * @param string $bic Bank Identifier Code (BIC)
      * @return $this
      */
     public function setBic($bic)
@@ -204,7 +204,7 @@ class BankAccountDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMod
 
     /**
      * Sets owner
-     * @param string $owner Account owner name
+     * @param string $owner Account owner name (personal name or company name)
      * @return $this
      */
     public function setOwner($owner)
@@ -246,7 +246,7 @@ class BankAccountDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMod
 
     /**
      * Sets purpose
-     * @param string $purpose Purpose to use
+     * @param string $purpose Purpose for bank transfer
      * @return $this
      */
     public function setPurpose($purpose)

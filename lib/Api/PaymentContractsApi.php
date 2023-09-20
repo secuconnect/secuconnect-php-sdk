@@ -63,10 +63,10 @@ class PaymentContractsApi
     /**
      * Operation callClone
      *
-     * POST Payment/Contracts/{paymentContractId}/clone
+     * Clone contract
      *
-     * @param string $payment_contract_id Contract identifier (required)
-     * @param \Secuconnect\Client\Model\PaymentContractsDTOClone $body Payment contract clone properties 
+     * @param string $payment_contract_id Payment Contract ID (&#x60;PCR_...&#x60;) or General Contract ID (&#x60;GCR_...&#x60;) of master contract (required)
+     * @param \Secuconnect\Client\Model\PaymentContractsDTOClone $body New Payment Contract 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentContractsProductModel
      */
@@ -79,10 +79,10 @@ class PaymentContractsApi
     /**
      * Operation callCloneWithHttpInfo
      *
-     * POST Payment/Contracts/{paymentContractId}/clone
+     * Clone contract
      *
-     * @param string $payment_contract_id Contract identifier (required)
-     * @param \Secuconnect\Client\Model\PaymentContractsDTOClone $body Payment contract clone properties 
+     * @param string $payment_contract_id Payment Contract ID (&#x60;PCR_...&#x60;) or General Contract ID (&#x60;GCR_...&#x60;) of master contract (required)
+     * @param \Secuconnect\Client\Model\PaymentContractsDTOClone $body New Payment Contract 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentContractsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -171,7 +171,7 @@ class PaymentContractsApi
     /**
      * Operation paymentContractsGet
      *
-     * GET Payment/Contracts
+     * Find Payment Contracts
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -196,7 +196,7 @@ class PaymentContractsApi
     /**
      * Operation paymentContractsGetWithHttpInfo
      *
-     * GET Payment/Contracts
+     * Find Payment Contracts
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -322,9 +322,9 @@ class PaymentContractsApi
     /**
      * Operation paymentContractsGetById
      *
-     * GET Payment/Contracts/{paymentContractId}
+     * Read Payment Contract
      *
-     * @param string $payment_contract_id Search one by provided id (required)
+     * @param string $payment_contract_id Payment Contract ID (&#x60;PCR_...&#x60;) or General Contract ID (&#x60;GCR_...&#x60;) (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentContractsProductModel
      */
@@ -337,9 +337,9 @@ class PaymentContractsApi
     /**
      * Operation paymentContractsGetByIdWithHttpInfo
      *
-     * GET Payment/Contracts/{paymentContractId}
+     * Read Payment Contract
      *
-     * @param string $payment_contract_id Search one by provided id (required)
+     * @param string $payment_contract_id Payment Contract ID (&#x60;PCR_...&#x60;) or General Contract ID (&#x60;GCR_...&#x60;) (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentContractsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -423,11 +423,11 @@ class PaymentContractsApi
     /**
      * Operation paymentContractsIdPaymentMethodsGet
      *
-     * GET Payment/Contracts/{paymentContractId}/paymentMethods
+     * Get available payment methods
      *
      * @param string $payment_contract_id Contract identifier (required)
      * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\StringList
+     * @return string[]
      */
     public function paymentContractsIdPaymentMethodsGet($payment_contract_id)
     {
@@ -438,11 +438,11 @@ class PaymentContractsApi
     /**
      * Operation paymentContractsIdPaymentMethodsGetWithHttpInfo
      *
-     * GET Payment/Contracts/{paymentContractId}/paymentMethods
+     * Get available payment methods
      *
      * @param string $payment_contract_id Contract identifier (required)
      * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\StringList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string[], HTTP status code, HTTP response headers (array of strings)
      */
     public function paymentContractsIdPaymentMethodsGetWithHttpInfo($payment_contract_id)
     {
@@ -494,15 +494,15 @@ class PaymentContractsApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    '\Secuconnect\Client\Model\StringList',
+                    'string[]',
                     '/Payment/Contracts/{paymentContractId}/paymentMethods'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\StringList', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, 'string[]', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\StringList', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string[]', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:
@@ -524,9 +524,9 @@ class PaymentContractsApi
     /**
      * Operation requestId
      *
-     * POST Payment/Contracts/{paymentContractId}/requestId
+     * Clone contract and request identification
      *
-     * @param string $payment_contract_id Contract identifier of the parent (required)
+     * @param string $payment_contract_id Payment Contract ID (&#x60;PCR_...&#x60;) or General Contract ID (&#x60;GCR_...&#x60;) of master contract (required)
      * @param \Secuconnect\Client\Model\PaymentContractsDTORequestId $body Payment contract request id properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentContractsRequestIdResult
@@ -540,9 +540,9 @@ class PaymentContractsApi
     /**
      * Operation requestIdWithHttpInfo
      *
-     * POST Payment/Contracts/{paymentContractId}/requestId
+     * Clone contract and request identification
      *
-     * @param string $payment_contract_id Contract identifier of the parent (required)
+     * @param string $payment_contract_id Payment Contract ID (&#x60;PCR_...&#x60;) or General Contract ID (&#x60;GCR_...&#x60;) of master contract (required)
      * @param \Secuconnect\Client\Model\PaymentContractsDTORequestId $body Payment contract request id properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentContractsRequestIdResult, HTTP status code, HTTP response headers (array of strings)
@@ -632,7 +632,7 @@ class PaymentContractsApi
     /**
      * Operation revokeAccrual
      *
-     * POST Payment/Contracts/{paymentContractId}/revokeAccrual
+     * Revoke all accruals
      *
      * @param string $payment_contract_id Contract identifier (required)
      * @throws ApiException on non-2xx response
@@ -646,7 +646,7 @@ class PaymentContractsApi
     /**
      * Operation revokeAccrualWithHttpInfo
      *
-     * POST Payment/Contracts/{paymentContractId}/revokeAccrual
+     * Revoke all accruals
      *
      * @param string $payment_contract_id Contract identifier (required)
      * @throws ApiException on non-2xx response
@@ -728,7 +728,7 @@ class PaymentContractsApi
     /**
      * Operation updateBankAccount
      *
-     * POST Payment/Contracts/{paymentContractId}/updateBankAccount
+     * Change bank account
      *
      * @param string $payment_contract_id Contract identifier (required)
      * @param \Secuconnect\Client\Model\BankAccountDescriptor $body body 
@@ -744,7 +744,7 @@ class PaymentContractsApi
     /**
      * Operation updateBankAccountWithHttpInfo
      *
-     * POST Payment/Contracts/{paymentContractId}/updateBankAccount
+     * Change bank account
      *
      * @param string $payment_contract_id Contract identifier (required)
      * @param \Secuconnect\Client\Model\BankAccountDescriptor $body 

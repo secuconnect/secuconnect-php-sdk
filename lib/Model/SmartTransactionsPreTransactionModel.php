@@ -144,7 +144,7 @@ class SmartTransactionsPreTransactionModel implements ArrayAccess
 
     /**
      * Sets missing_sum
-     * @param int $missing_sum missing sum
+     * @param int $missing_sum Amount to pay after applying the secucard; in the smallest currency unit (e.g. Euro Cent)
      * @return $this
      */
     public function setMissingSum($missing_sum)

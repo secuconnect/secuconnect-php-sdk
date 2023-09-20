@@ -63,7 +63,7 @@ class PaymentSecupayPayoutApi
     /**
      * Operation getSecupaypayout
      *
-     * GET Payment/Secupaypayout/{paymentPayoutId}
+     * Read Payment Secupaypayout
      *
      * @param string $payment_payout_id Payment payout id (required)
      * @throws ApiException on non-2xx response
@@ -78,7 +78,7 @@ class PaymentSecupayPayoutApi
     /**
      * Operation getSecupaypayoutWithHttpInfo
      *
-     * GET Payment/Secupaypayout/{paymentPayoutId}
+     * Read Payment Secupaypayout
      *
      * @param string $payment_payout_id Payment payout id (required)
      * @throws ApiException on non-2xx response
@@ -164,7 +164,7 @@ class PaymentSecupayPayoutApi
     /**
      * Operation paymentSecupaypayoutPost
      *
-     * POST Payment/Secupaypayout
+     * Create Payment Secupaypayout
      *
      * @param \Secuconnect\Client\Model\SecupayPayoutDTO $body Payout payment transaction input properties 
      * @throws ApiException on non-2xx response
@@ -179,7 +179,7 @@ class PaymentSecupayPayoutApi
     /**
      * Operation paymentSecupaypayoutPostWithHttpInfo
      *
-     * POST Payment/Secupaypayout
+     * Create Payment Secupaypayout
      *
      * @param \Secuconnect\Client\Model\SecupayPayoutDTO $body Payout payment transaction input properties 
      * @throws ApiException on non-2xx response
@@ -256,7 +256,7 @@ class PaymentSecupayPayoutApi
     /**
      * Operation paymentSecupaypayoutWithoutCustomerPost
      *
-     * POST Payment/Secupaypayout
+     * Start a payout transaction
      *
      * @param \Secuconnect\Client\Model\SecupayPayoutWithoutCustomerDTO $body Payout payment transaction input properties 
      * @throws ApiException on non-2xx response
@@ -271,7 +271,7 @@ class PaymentSecupayPayoutApi
     /**
      * Operation paymentSecupaypayoutWithoutCustomerPostWithHttpInfo
      *
-     * POST Payment/Secupaypayout
+     * Start a payout transaction
      *
      * @param \Secuconnect\Client\Model\SecupayPayoutWithoutCustomerDTO $body Payout payment transaction input properties 
      * @throws ApiException on non-2xx response

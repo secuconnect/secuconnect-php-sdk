@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsReceiptValue
  *
  * @category Class
- * @description SmartTransactionsReceiptValue
+ * @description Line content and formatting
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -162,7 +162,7 @@ class SmartTransactionsReceiptValue implements ArrayAccess
 
     /**
      * Sets caption
-     * @param string $caption Caption
+     * @param string $caption Optional caption for line type `\"separator\"`. Shall be rendered like a centered headline.
      * @return $this
      */
     public function setCaption($caption)
@@ -183,7 +183,7 @@ class SmartTransactionsReceiptValue implements ArrayAccess
 
     /**
      * Sets text
-     * @param string $text Text
+     * @param string $text Literal text; for line type `\"textline\"`. Shall be aligned left, except decorations change it. Can have all decorations.
      * @return $this
      */
     public function setText($text)
@@ -204,7 +204,7 @@ class SmartTransactionsReceiptValue implements ArrayAccess
 
     /**
      * Sets decoration
-     * @param string[] $decoration Decoration
+     * @param string[] $decoration Decorations:  - `\"important\"` - `\"align-left\"` - `\"align-center\"` - `\"align-right\"`
      * @return $this
      */
     public function setDecoration($decoration)
@@ -225,7 +225,7 @@ class SmartTransactionsReceiptValue implements ArrayAccess
 
     /**
      * Sets name
-     * @param string $name Name
+     * @param string $name Left part for line-type `\"name-value\"`. Shall be displayed at the left side, and be aligned to the left. Can have decoration `\"important\"`.
      * @return $this
      */
     public function setName($name)
@@ -246,7 +246,7 @@ class SmartTransactionsReceiptValue implements ArrayAccess
 
     /**
      * Sets value
-     * @param string $value Value
+     * @param string $value Right part for line-type `\"name-value\"`. Shall be displayed at the right side, and be aligned to the right. Can have decoration `\"important\"`.
      * @return $this
      */
     public function setValue($value)
