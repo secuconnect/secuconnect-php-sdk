@@ -138,7 +138,7 @@ class UploadMandateDTO implements ArrayAccess
 
     /**
      * Sets document_id
-     * @param string $document_id Document id for assign
+     * @param string $document_id Document ID to assign
      * @return $this
      */
     public function setDocumentId($document_id)

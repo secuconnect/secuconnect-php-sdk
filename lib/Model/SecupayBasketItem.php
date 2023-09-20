@@ -6,7 +6,7 @@ namespace Secuconnect\Client\Model;
  * SecupayBasketItem
  *
  * @category Class
- * @description Item describing single position in basket in transaction
+ * @description Single position in the basket
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -132,7 +132,7 @@ class SecupayBasketItem extends SecupayBaseBasketItem
 
     /**
      * Sets sub_basket
-     * @param \Secuconnect\Client\Model\SecupayBasketItem[] $sub_basket Mixed-Basket: All basket items for one merchant.
+     * @param \Secuconnect\Client\Model\SecupayBasketItem[] $sub_basket Sub-basket for one merchant, if mixed basket; cannot be nested nor be mixed with other types
      * @return $this
      */
     public function setSubBasket($sub_basket)

@@ -63,7 +63,7 @@ class PrepaidItemsApi
     /**
      * Operation getAll
      *
-     * GET Prepaid/Items
+     * Find Prepaid Items
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -88,7 +88,7 @@ class PrepaidItemsApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * GET Prepaid/Items
+     * Find Prepaid Items
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -214,7 +214,7 @@ class PrepaidItemsApi
     /**
      * Operation getOne
      *
-     * GET Prepaid/Items/{prepaidItemId}
+     * Read Prepaid Item
      *
      * @param string $prepaid_item_id Prepaid item id (required)
      * @throws ApiException on non-2xx response
@@ -229,7 +229,7 @@ class PrepaidItemsApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * GET Prepaid/Items/{prepaidItemId}
+     * Read Prepaid Item
      *
      * @param string $prepaid_item_id Prepaid item id (required)
      * @throws ApiException on non-2xx response

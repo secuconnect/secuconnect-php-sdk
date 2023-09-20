@@ -174,7 +174,7 @@ class SmartTransactionsBaseProduct implements ArrayAccess
 
     /**
      * Sets id
-     * @param int $id Bonus Product ID
+     * @param int $id Item ID
      * @return $this
      */
     public function setId($id)
@@ -237,7 +237,7 @@ class SmartTransactionsBaseProduct implements ArrayAccess
 
     /**
      * Sets quantity
-     * @param int $quantity amount of bonus products
+     * @param int $quantity Quantity (always `1`)
      * @return $this
      */
     public function setQuantity($quantity)
@@ -258,7 +258,7 @@ class SmartTransactionsBaseProduct implements ArrayAccess
 
     /**
      * Sets desc
-     * @param string $desc description
+     * @param string $desc Description
      * @return $this
      */
     public function setDesc($desc)
@@ -279,7 +279,7 @@ class SmartTransactionsBaseProduct implements ArrayAccess
 
     /**
      * Sets article_number
-     * @param string $article_number article Number
+     * @param string $article_number Article number
      * @return $this
      */
     public function setArticleNumber($article_number)

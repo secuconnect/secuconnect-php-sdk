@@ -167,7 +167,7 @@ class PaymentTransactionsCheckStatus implements ArrayAccess
 
     /**
      * Sets status
-     * @param int $status Transaction status ID
+     * @param int $status Status ID
      * @return $this
      */
     public function setStatus($status)
@@ -188,7 +188,7 @@ class PaymentTransactionsCheckStatus implements ArrayAccess
 
     /**
      * Sets status_text
-     * @param string $status_text Transaction status description
+     * @param string $status_text Status text (translated)
      * @return $this
      */
     public function setStatusText($status_text)
@@ -209,7 +209,7 @@ class PaymentTransactionsCheckStatus implements ArrayAccess
 
     /**
      * Sets status_simple
-     * @param int $status_simple Transaction simple-status ID
+     * @param int $status_simple Simple-status ID
      * @return $this
      */
     public function setStatusSimple($status_simple)
@@ -230,7 +230,7 @@ class PaymentTransactionsCheckStatus implements ArrayAccess
 
     /**
      * Sets status_simple_text
-     * @param string $status_simple_text Transaction simple-status description
+     * @param string $status_simple_text Simple-status text (English)
      * @return $this
      */
     public function setStatusSimpleText($status_simple_text)

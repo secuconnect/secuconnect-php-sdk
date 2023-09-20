@@ -447,7 +447,7 @@ class PaymentContainersProductModel extends BaseProductModel
 
     /**
      * Sets type
-     * @param string $type Type of payment container
+     * @param string $type Container type
      * @return $this
      */
     public function setType($type)

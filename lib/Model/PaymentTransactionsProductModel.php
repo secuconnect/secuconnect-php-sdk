@@ -49,6 +49,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'amount' => 'int',
         'currency' => 'string',
         'completion_date' => 'string',
+        'description' => 'string',
+        'description_raw' => 'string',
         'status' => 'int',
         'status_text' => 'string',
         'incoming_payment_date' => 'string',
@@ -97,6 +99,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'amount' => null,
         'currency' => null,
         'completion_date' => null,
+        'description' => null,
+        'description_raw' => null,
         'status' => null,
         'status_text' => null,
         'incoming_payment_date' => null,
@@ -155,6 +159,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'amount' => 'amount',
         'currency' => 'currency',
         'completion_date' => 'completion_date',
+        'description' => 'description',
+        'description_raw' => 'description_raw',
         'status' => 'status',
         'status_text' => 'status_text',
         'incoming_payment_date' => 'incoming_payment_date',
@@ -203,6 +209,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'amount' => 'setAmount',
         'currency' => 'setCurrency',
         'completion_date' => 'setCompletionDate',
+        'description' => 'setDescription',
+        'description_raw' => 'setDescriptionRaw',
         'status' => 'setStatus',
         'status_text' => 'setStatusText',
         'incoming_payment_date' => 'setIncomingPaymentDate',
@@ -251,6 +259,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'amount' => 'getAmount',
         'currency' => 'getCurrency',
         'completion_date' => 'getCompletionDate',
+        'description' => 'getDescription',
+        'description_raw' => 'getDescriptionRaw',
         'status' => 'getStatus',
         'status_text' => 'getStatusText',
         'incoming_payment_date' => 'getIncomingPaymentDate',
@@ -317,6 +327,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['completion_date'] = isset($data['completion_date']) ? $data['completion_date'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['description_raw'] = isset($data['description_raw']) ? $data['description_raw'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['status_text'] = isset($data['status_text']) ? $data['status_text'] : null;
         $this->container['incoming_payment_date'] = isset($data['incoming_payment_date']) ? $data['incoming_payment_date'] : null;
@@ -840,6 +852,48 @@ class PaymentTransactionsProductModel extends BaseProductModel
     public function setCompletionDate($completion_date)
     {
         $this->container['completion_date'] = $completion_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     * @param string $description Transaction description
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets description_raw
+     * @return string
+     */
+    public function getDescriptionRaw()
+    {
+        return $this->container['description_raw'];
+    }
+
+    /**
+     * Sets description_raw
+     * @param string $description_raw Transaction description (plain text)
+     * @return $this
+     */
+    public function setDescriptionRaw($description_raw)
+    {
+        $this->container['description_raw'] = $description_raw;
 
         return $this;
     }

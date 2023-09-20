@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsCheckoutLinks
  *
  * @category Class
- * @description SmartTransactionsCheckoutLinks
+ * @description Checkout URLs
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -138,7 +138,7 @@ class SmartTransactionsCheckoutLinks implements ArrayAccess
 
     /**
      * Sets url_checkout
-     * @param string $url_checkout Smart Checkout URL
+     * @param string $url_checkout Checkout URL
      * @return $this
      */
     public function setUrlCheckout($url_checkout)

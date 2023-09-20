@@ -63,7 +63,7 @@ class LoyaltyCustomersApi
     /**
      * Operation addCustomer
      *
-     * POST Loyalty/Customers
+     * Create Loyalty Customer
      *
      * @param \Secuconnect\Client\Model\LoyaltyCustomersDTO $body loyalty Customer container properties 
      * @throws ApiException on non-2xx response
@@ -78,7 +78,7 @@ class LoyaltyCustomersApi
     /**
      * Operation addCustomerWithHttpInfo
      *
-     * POST Loyalty/Customers
+     * Create Loyalty Customer
      *
      * @param \Secuconnect\Client\Model\LoyaltyCustomersDTO $body loyalty Customer container properties 
      * @throws ApiException on non-2xx response
@@ -155,7 +155,7 @@ class LoyaltyCustomersApi
     /**
      * Operation assignPaymentContainer
      *
-     * POST Loyalty/Customers/{loyaltyCustomerId}/assignPaymentContainer/{loyaltyPaymentContainerId}
+     * Assign payment container to customer
      *
      * @param string $loyalty_customer_id Loyalty customer id (required)
      * @param string $loyalty_payment_container_id LoyaltyPaymentContainer id (required)
@@ -171,7 +171,7 @@ class LoyaltyCustomersApi
     /**
      * Operation assignPaymentContainerWithHttpInfo
      *
-     * POST Loyalty/Customers/{loyaltyCustomerId}/assignPaymentContainer/{loyaltyPaymentContainerId}
+     * Assign payment container to customer
      *
      * @param string $loyalty_customer_id Loyalty customer id (required)
      * @param string $loyalty_payment_container_id LoyaltyPaymentContainer id (required)
@@ -272,7 +272,7 @@ class LoyaltyCustomersApi
     /**
      * Operation getAll
      *
-     * GET Loyalty/Customers
+     * Find Loyalty Customers
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -297,7 +297,7 @@ class LoyaltyCustomersApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * GET Loyalty/Customers
+     * Find Loyalty Customers
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -423,7 +423,7 @@ class LoyaltyCustomersApi
     /**
      * Operation getOne
      *
-     * GET Loyalty/Customers/{loyaltyCustomerId}
+     * Read Loyalty Customer
      *
      * @param string $loyalty_customer_id Search one loyalty customer by provided id (required)
      * @throws ApiException on non-2xx response
@@ -438,7 +438,7 @@ class LoyaltyCustomersApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * GET Loyalty/Customers/{loyaltyCustomerId}
+     * Read Loyalty Customer
      *
      * @param string $loyalty_customer_id Search one loyalty customer by provided id (required)
      * @throws ApiException on non-2xx response
@@ -524,7 +524,7 @@ class LoyaltyCustomersApi
     /**
      * Operation removeAssignedPaymentContainer
      *
-     * DELETE Loyalty/Customers/{loyaltyCustomerId}/assignPaymentContainer/{loyaltyPaymentContainerId}
+     * Unassign payment container from customer
      *
      * @param string $loyalty_customer_id Loyalty customer id (required)
      * @param string $loyalty_payment_container_id LoyaltyPaymentContainer id (required)
@@ -540,7 +540,7 @@ class LoyaltyCustomersApi
     /**
      * Operation removeAssignedPaymentContainerWithHttpInfo
      *
-     * DELETE Loyalty/Customers/{loyaltyCustomerId}/assignPaymentContainer/{loyaltyPaymentContainerId}
+     * Unassign payment container from customer
      *
      * @param string $loyalty_customer_id Loyalty customer id (required)
      * @param string $loyalty_payment_container_id LoyaltyPaymentContainer id (required)
@@ -641,7 +641,7 @@ class LoyaltyCustomersApi
     /**
      * Operation updateCustomer
      *
-     * PUT Loyalty/Customers/{loyaltyCustomerId}
+     * Update Loyalty Customer
      *
      * @param string $loyalty_customer_id loyalty Customer Id CUS_XXX (required)
      * @param \Secuconnect\Client\Model\LoyaltyCustomersDTO $body loyalty Customer container properties 
@@ -657,7 +657,7 @@ class LoyaltyCustomersApi
     /**
      * Operation updateCustomerWithHttpInfo
      *
-     * PUT Loyalty/Customers/{loyaltyCustomerId}
+     * Update Loyalty Customer
      *
      * @param string $loyalty_customer_id loyalty Customer Id CUS_XXX (required)
      * @param \Secuconnect\Client\Model\LoyaltyCustomersDTO $body loyalty Customer container properties 

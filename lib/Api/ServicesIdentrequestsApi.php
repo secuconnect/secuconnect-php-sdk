@@ -63,7 +63,7 @@ class ServicesIdentrequestsApi
     /**
      * Operation addIdentrequests
      *
-     * POST Services/Identrequests
+     * Create Identrequest
      *
      * @param \Secuconnect\Client\Model\ServicesIdentrequestsProductDTO $body Create ident request input properties 
      * @throws ApiException on non-2xx response
@@ -78,7 +78,7 @@ class ServicesIdentrequestsApi
     /**
      * Operation addIdentrequestsWithHttpInfo
      *
-     * POST Services/Identrequests
+     * Create Identrequest
      *
      * @param \Secuconnect\Client\Model\ServicesIdentrequestsProductDTO $body Create ident request input properties 
      * @throws ApiException on non-2xx response
@@ -155,7 +155,7 @@ class ServicesIdentrequestsApi
     /**
      * Operation getAll
      *
-     * GET Services/Identrequests
+     * Find IdentRequests
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -180,7 +180,7 @@ class ServicesIdentrequestsApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * GET Services/Identrequests
+     * Find IdentRequests
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -306,7 +306,7 @@ class ServicesIdentrequestsApi
     /**
      * Operation getOne
      *
-     * GET Services/Identrequests/{identrequestId}
+     * Read IdentRequest
      *
      * @param string $identrequest_id Identrequest Id (required)
      * @throws ApiException on non-2xx response
@@ -321,7 +321,7 @@ class ServicesIdentrequestsApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * GET Services/Identrequests/{identrequestId}
+     * Read IdentRequest
      *
      * @param string $identrequest_id Identrequest Id (required)
      * @throws ApiException on non-2xx response

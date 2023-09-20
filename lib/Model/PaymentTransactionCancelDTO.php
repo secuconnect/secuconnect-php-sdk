@@ -40,7 +40,7 @@ class PaymentTransactionCancelDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'reason' => null,
+        'reason' => '[0-9a-zA-Z .,+\-:?()\/']+',
         'amount' => null,
         'reduce_amount_by' => null,
         'reduce_stakeholder_payment' => null,
@@ -183,7 +183,7 @@ class PaymentTransactionCancelDTO implements ArrayAccess
 
     /**
      * Sets amount
-     * @param int $amount Amount in minor currency unit (e. g. Euro Cent)
+     * @param int $amount Amount in smallest currency unit (e. g. Euro Cent)
      * @return $this
      */
     public function setAmount($amount)
@@ -225,7 +225,7 @@ class PaymentTransactionCancelDTO implements ArrayAccess
 
     /**
      * Sets reduce_stakeholder_payment
-     * @param bool $reduce_stakeholder_payment Mixed-Basket: (percentage) reduce the stakeholder amount too
+     * @param bool $reduce_stakeholder_payment Only for the mixed basket. Reduces stakeholder shares proportionately.
      * @return $this
      */
     public function setReduceStakeholderPayment($reduce_stakeholder_payment)

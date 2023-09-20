@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SecupayTransactionProductModelUsedPaymentInstrument
  *
  * @category Class
- * @description The payment data which has the payer used (like bank account, credit card, ...). This data is always masked.
+ * @description Payment data the payer has used (bank account, credit card, etc.). The data are always masked.
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -144,7 +144,7 @@ class SecupayTransactionProductModelUsedPaymentInstrument implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type The type of the payment instrument data, like: 'bank_account' or 'credit_card'
+     * @param string $type Type of payment instrument, like: `\"bank_account\"` or `\"credit_card\"`
      * @return $this
      */
     public function setType($type)

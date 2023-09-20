@@ -8,7 +8,7 @@ use \ArrayAccess;
  * PayPalDescriptor
  *
  * @category Class
- * @description PayPal details
+ * @description PayPal account details
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -144,7 +144,7 @@ class PayPalDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModelPri
 
     /**
      * Sets email
-     * @param string $email Account owner mail
+     * @param string $email Account owner email
      * @return $this
      */
     public function setEmail($email)
@@ -165,7 +165,7 @@ class PayPalDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModelPri
 
     /**
      * Sets payer_id
-     * @param string $payer_id Account owner ID
+     * @param string $payer_id Account ID
      * @return $this
      */
     public function setPayerId($payer_id)

@@ -246,7 +246,7 @@ class PaymentContractsDTOIFrameOpts implements ArrayAccess
 
     /**
      * Sets cession
-     * @param string $cession Cession ('formal', 'personal')
+     * @param string $cession Cession (`\"formal\"`, `\"personal\"`)
      * @return $this
      */
     public function setCession($cession)

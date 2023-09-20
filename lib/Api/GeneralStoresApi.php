@@ -63,7 +63,7 @@ class GeneralStoresApi
     /**
      * Operation addStore
      *
-     * POST General/Stores
+     * Create General Store
      *
      * @param \Secuconnect\Client\Model\GeneralStoresDTO $body General store properties 
      * @throws ApiException on non-2xx response
@@ -78,7 +78,7 @@ class GeneralStoresApi
     /**
      * Operation addStoreWithHttpInfo
      *
-     * POST General/Stores
+     * Create General Store
      *
      * @param \Secuconnect\Client\Model\GeneralStoresDTO $body General store properties 
      * @throws ApiException on non-2xx response
@@ -155,7 +155,7 @@ class GeneralStoresApi
     /**
      * Operation checkIn
      *
-     * POST General/Stores/{generalStoreId}/checkin
+     * Check in
      *
      * @param string $general_store_id General store id (required)
      * @param \Secuconnect\Client\Model\GeneralStoresDTOType $body General store properties 
@@ -171,7 +171,7 @@ class GeneralStoresApi
     /**
      * Operation checkInWithHttpInfo
      *
-     * POST General/Stores/{generalStoreId}/checkin
+     * Check in
      *
      * @param string $general_store_id General store id (required)
      * @param \Secuconnect\Client\Model\GeneralStoresDTOType $body General store properties 
@@ -263,7 +263,7 @@ class GeneralStoresApi
     /**
      * Operation getAll
      *
-     * GET General/Stores
+     * Find General Stores
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -288,7 +288,7 @@ class GeneralStoresApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * GET General/Stores
+     * Find General Stores
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -414,7 +414,7 @@ class GeneralStoresApi
     /**
      * Operation getOne
      *
-     * GET General/Stores/{generalStoreId}
+     * Read General Store
      *
      * @param string $general_store_id General store id (required)
      * @throws ApiException on non-2xx response
@@ -429,7 +429,7 @@ class GeneralStoresApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * GET General/Stores/{generalStoreId}
+     * Read General Store
      *
      * @param string $general_store_id General store id (required)
      * @throws ApiException on non-2xx response
@@ -515,7 +515,7 @@ class GeneralStoresApi
     /**
      * Operation setDefault
      *
-     * POST General/Stores/{generalStoreId}/setDefault
+     * Make default store
      *
      * @param string $general_store_id General store id (required)
      * @param \Secuconnect\Client\Model\GeneralStoresDTOReason $body Reason 
@@ -531,7 +531,7 @@ class GeneralStoresApi
     /**
      * Operation setDefaultWithHttpInfo
      *
-     * POST General/Stores/{generalStoreId}/setDefault
+     * Make default store
      *
      * @param string $general_store_id General store id (required)
      * @param \Secuconnect\Client\Model\GeneralStoresDTOReason $body Reason 
@@ -623,7 +623,7 @@ class GeneralStoresApi
     /**
      * Operation updateStore
      *
-     * PUT General/Stores/{generalStoreId}
+     * Update General Store
      *
      * @param string $general_store_id General store id (required)
      * @param \Secuconnect\Client\Model\GeneralStoresDTO $body General store properties 
@@ -639,7 +639,7 @@ class GeneralStoresApi
     /**
      * Operation updateStoreWithHttpInfo
      *
-     * PUT General/Stores/{generalStoreId}
+     * Update General Store
      *
      * @param string $general_store_id General store id (required)
      * @param \Secuconnect\Client\Model\GeneralStoresDTO $body General store properties 

@@ -63,7 +63,7 @@ class PaymentPlansApi
     /**
      * Operation paymentPlansGet
      *
-     * GET Payment/Plans
+     * Find Payment Plans
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -88,7 +88,7 @@ class PaymentPlansApi
     /**
      * Operation paymentPlansGetWithHttpInfo
      *
-     * GET Payment/Plans
+     * Find Payment Plans
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -214,7 +214,7 @@ class PaymentPlansApi
     /**
      * Operation paymentPlansGetById
      *
-     * GET Payment/Plans/{paymentPlanId}
+     * Read Payment Plan
      *
      * @param string $payment_plan_id Payment plan id (required)
      * @throws ApiException on non-2xx response
@@ -229,7 +229,7 @@ class PaymentPlansApi
     /**
      * Operation paymentPlansGetByIdWithHttpInfo
      *
-     * GET Payment/Plans/{paymentPlanId}
+     * Read Payment Plan
      *
      * @param string $payment_plan_id Payment plan id (required)
      * @throws ApiException on non-2xx response
@@ -315,7 +315,7 @@ class PaymentPlansApi
     /**
      * Operation paymentPlansPatch
      *
-     * PATCH Payment/Plans/{paymentPlanId}
+     * Update Payment Plan partially
      *
      * @param string $payment_plan_id Payment plan id (required)
      * @param \Secuconnect\Client\Model\PaymentPlansDTO $body Payment plans properties 
@@ -331,7 +331,7 @@ class PaymentPlansApi
     /**
      * Operation paymentPlansPatchWithHttpInfo
      *
-     * PATCH Payment/Plans/{paymentPlanId}
+     * Update Payment Plan partially
      *
      * @param string $payment_plan_id Payment plan id (required)
      * @param \Secuconnect\Client\Model\PaymentPlansDTO $body Payment plans properties 
@@ -423,7 +423,7 @@ class PaymentPlansApi
     /**
      * Operation paymentPlansPost
      *
-     * POST Payment/Plans
+     * Create Payment Plan
      *
      * @param \Secuconnect\Client\Model\PaymentPlansDTO $body Payment plan properties 
      * @throws ApiException on non-2xx response
@@ -438,7 +438,7 @@ class PaymentPlansApi
     /**
      * Operation paymentPlansPostWithHttpInfo
      *
-     * POST Payment/Plans
+     * Create Payment Plan
      *
      * @param \Secuconnect\Client\Model\PaymentPlansDTO $body Payment plan properties 
      * @throws ApiException on non-2xx response
@@ -515,7 +515,7 @@ class PaymentPlansApi
     /**
      * Operation paymentPlansPut
      *
-     * PUT Payment/Plans/{paymentPlanId}
+     * Update Payment Plan
      *
      * @param string $payment_plan_id Payment plan id (required)
      * @param \Secuconnect\Client\Model\PaymentPlansDTO $body Payment plans properties 
@@ -531,7 +531,7 @@ class PaymentPlansApi
     /**
      * Operation paymentPlansPutWithHttpInfo
      *
-     * PUT Payment/Plans/{paymentPlanId}
+     * Update Payment Plan
      *
      * @param string $payment_plan_id Payment plan id (required)
      * @param \Secuconnect\Client\Model\PaymentPlansDTO $body Payment plans properties 

@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsReceipt
  *
  * @category Class
- * @description SmartTransactionsReceipt
+ * @description Receipt line
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -144,7 +144,7 @@ class SmartTransactionsReceipt implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type Type
+     * @param string $type Line type:  - `\"separator\"` - `\"textline\"` - `\"name-value\"` - `\"space\"`
      * @return $this
      */
     public function setType($type)

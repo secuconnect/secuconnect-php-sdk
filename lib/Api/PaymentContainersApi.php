@@ -63,10 +63,10 @@ class PaymentContainersApi
     /**
      * Operation mandate
      *
-     * POST Payment/Containers/<id>/mandate
+     * Obtain SEPA Mandate Form
      *
-     * @param string $payment_container_id Payment container id (required)
-     * @param \Secuconnect\Client\Model\MandateDTO $body Get an B2B mandate form properties 
+     * @param string $payment_container_id Payment Container ID (required)
+     * @param \Secuconnect\Client\Model\MandateDTO $body B2B mandate form properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\MandateProductModel
      */
@@ -79,10 +79,10 @@ class PaymentContainersApi
     /**
      * Operation mandateWithHttpInfo
      *
-     * POST Payment/Containers/<id>/mandate
+     * Obtain SEPA Mandate Form
      *
-     * @param string $payment_container_id Payment container id (required)
-     * @param \Secuconnect\Client\Model\MandateDTO $body Get an B2B mandate form properties 
+     * @param string $payment_container_id Payment Container ID (required)
+     * @param \Secuconnect\Client\Model\MandateDTO $body B2B mandate form properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\MandateProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -171,7 +171,7 @@ class PaymentContainersApi
     /**
      * Operation paymentContainersGet
      *
-     * GET Payment/Containers
+     * Find Payment Containers
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -196,7 +196,7 @@ class PaymentContainersApi
     /**
      * Operation paymentContainersGetWithHttpInfo
      *
-     * GET Payment/Containers
+     * Find Payment Containers
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -322,9 +322,9 @@ class PaymentContainersApi
     /**
      * Operation paymentContainersGetById
      *
-     * GET Payment/Containers/{paymentContainerId}
+     * Read Payment Containers
      *
-     * @param string $payment_container_id Search one by provided id (required)
+     * @param string $payment_container_id Payment Container ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentContainersProductModel
      */
@@ -337,9 +337,9 @@ class PaymentContainersApi
     /**
      * Operation paymentContainersGetByIdWithHttpInfo
      *
-     * GET Payment/Containers/{paymentContainerId}
+     * Read Payment Containers
      *
-     * @param string $payment_container_id Search one by provided id (required)
+     * @param string $payment_container_id Payment Container ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentContainersProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -423,9 +423,9 @@ class PaymentContainersApi
     /**
      * Operation paymentContainersIdDelete
      *
-     * DELETE Payment/Containers/{paymentContainerId}
+     * Delete Payment Container
      *
-     * @param string $payment_container_id Payment container id (required)
+     * @param string $payment_container_id Payment Container ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentContainersProductModel[]
      */
@@ -438,9 +438,9 @@ class PaymentContainersApi
     /**
      * Operation paymentContainersIdDeleteWithHttpInfo
      *
-     * DELETE Payment/Containers/{paymentContainerId}
+     * Delete Payment Container
      *
-     * @param string $payment_container_id Payment container id (required)
+     * @param string $payment_container_id Payment Container ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentContainersProductModel[], HTTP status code, HTTP response headers (array of strings)
      */
@@ -524,10 +524,10 @@ class PaymentContainersApi
     /**
      * Operation paymentContainersIdPut
      *
-     * PUT Payment/Containers/{paymentContainerId}
+     * Update Payment Container
      *
-     * @param string $payment_container_id Payment container id (required)
-     * @param \Secuconnect\Client\Model\PaymentContainersDTO $body Payment container properties 
+     * @param string $payment_container_id Payment Container ID (required)
+     * @param \Secuconnect\Client\Model\PaymentContainersDTO $body Payment Container properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentContainersProductModel
      */
@@ -540,10 +540,10 @@ class PaymentContainersApi
     /**
      * Operation paymentContainersIdPutWithHttpInfo
      *
-     * PUT Payment/Containers/{paymentContainerId}
+     * Update Payment Container
      *
-     * @param string $payment_container_id Payment container id (required)
-     * @param \Secuconnect\Client\Model\PaymentContainersDTO $body Payment container properties 
+     * @param string $payment_container_id Payment Container ID (required)
+     * @param \Secuconnect\Client\Model\PaymentContainersDTO $body Payment Container properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentContainersProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -632,9 +632,9 @@ class PaymentContainersApi
     /**
      * Operation paymentContainersPost
      *
-     * POST Payment/Containers
+     * Create Payment Container
      *
-     * @param \Secuconnect\Client\Model\PaymentContainersDTO $body Payment container properties 
+     * @param \Secuconnect\Client\Model\PaymentContainersDTO $body Payment Container properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentContainersProductModel
      */
@@ -647,9 +647,9 @@ class PaymentContainersApi
     /**
      * Operation paymentContainersPostWithHttpInfo
      *
-     * POST Payment/Containers
+     * Create Payment Container
      *
-     * @param \Secuconnect\Client\Model\PaymentContainersDTO $body Payment container properties 
+     * @param \Secuconnect\Client\Model\PaymentContainersDTO $body Payment Container properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentContainersProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -724,9 +724,9 @@ class PaymentContainersApi
     /**
      * Operation uploadMandate
      *
-     * POST Payment/Containers/<id>/Uploadmandate
+     * Process Signed SEPA Mandate
      *
-     * @param string $payment_container_id Payment container id (required)
+     * @param string $payment_container_id Payment Container ID (required)
      * @param \Secuconnect\Client\Model\UploadMandateDTO $body Signed B2B mandate properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\UploadMandateProductModel
@@ -740,9 +740,9 @@ class PaymentContainersApi
     /**
      * Operation uploadMandateWithHttpInfo
      *
-     * POST Payment/Containers/<id>/Uploadmandate
+     * Process Signed SEPA Mandate
      *
-     * @param string $payment_container_id Payment container id (required)
+     * @param string $payment_container_id Payment Container ID (required)
      * @param \Secuconnect\Client\Model\UploadMandateDTO $body Signed B2B mandate properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\UploadMandateProductModel, HTTP status code, HTTP response headers (array of strings)

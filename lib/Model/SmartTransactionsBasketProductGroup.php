@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsBasketProductGroup
  *
  * @category Class
- * @description SmartTransactionsBasketProductGroup
+ * @description Article group
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -150,7 +150,7 @@ class SmartTransactionsBasketProductGroup implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Group id
+     * @param string $id Group ID
      * @return $this
      */
     public function setId($id)
@@ -171,7 +171,7 @@ class SmartTransactionsBasketProductGroup implements ArrayAccess
 
     /**
      * Sets desc
-     * @param string $desc Desc
+     * @param string $desc Descriptive name
      * @return $this
      */
     public function setDesc($desc)

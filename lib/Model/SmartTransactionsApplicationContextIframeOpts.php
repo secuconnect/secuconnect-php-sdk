@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsApplicationContextIframeOpts
  *
  * @category Class
- * @description SmartTransactionsApplicationContextIframeOpts
+ * @description Iframe options
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -186,7 +186,7 @@ class SmartTransactionsApplicationContextIframeOpts implements ArrayAccess
 
     /**
      * Sets payment_hint_title
-     * @param string $payment_hint_title payment hint title
+     * @param string $payment_hint_title Payment hint title
      * @return $this
      */
     public function setPaymentHintTitle($payment_hint_title)
@@ -207,7 +207,7 @@ class SmartTransactionsApplicationContextIframeOpts implements ArrayAccess
 
     /**
      * Sets payment_hint
-     * @param \Secuconnect\Client\Model\SmartTransactionsReceipt[] $payment_hint payment hint
+     * @param \Secuconnect\Client\Model\SmartTransactionsReceipt[] $payment_hint Payment hint
      * @return $this
      */
     public function setPaymentHint($payment_hint)
@@ -228,7 +228,7 @@ class SmartTransactionsApplicationContextIframeOpts implements ArrayAccess
 
     /**
      * Sets project_title
-     * @param string $project_title project name
+     * @param string $project_title Project name
      * @return $this
      */
     public function setProjectTitle($project_title)
@@ -249,7 +249,7 @@ class SmartTransactionsApplicationContextIframeOpts implements ArrayAccess
 
     /**
      * Sets submit_button_title
-     * @param string $submit_button_title title of the submit button
+     * @param string $submit_button_title Submit button text
      * @return $this
      */
     public function setSubmitButtonTitle($submit_button_title)
@@ -270,7 +270,7 @@ class SmartTransactionsApplicationContextIframeOpts implements ArrayAccess
 
     /**
      * Sets cancel_button_title
-     * @param string $cancel_button_title title of the cancel button
+     * @param string $cancel_button_title Cancel button text
      * @return $this
      */
     public function setCancelButtonTitle($cancel_button_title)
@@ -291,7 +291,7 @@ class SmartTransactionsApplicationContextIframeOpts implements ArrayAccess
 
     /**
      * Sets language
-     * @param string $language language
+     * @param string $language Language
      * @return $this
      */
     public function setLanguage($language)
@@ -312,7 +312,7 @@ class SmartTransactionsApplicationContextIframeOpts implements ArrayAccess
 
     /**
      * Sets basket_title
-     * @param string $basket_title basket title
+     * @param string $basket_title Basket title
      * @return $this
      */
     public function setBasketTitle($basket_title)
@@ -333,7 +333,7 @@ class SmartTransactionsApplicationContextIframeOpts implements ArrayAccess
 
     /**
      * Sets hide_disclaimer
-     * @param bool $hide_disclaimer hide disclaimer
+     * @param bool $hide_disclaimer Whether to hide the disclaimer  _Note: Needs `has_accepted_disclaimer` to be `true` to be effective._
      * @return $this
      */
     public function setHideDisclaimer($hide_disclaimer)
@@ -354,7 +354,7 @@ class SmartTransactionsApplicationContextIframeOpts implements ArrayAccess
 
     /**
      * Sets has_accepted_disclaimer
-     * @param bool $has_accepted_disclaimer has accepted disclaimer
+     * @param bool $has_accepted_disclaimer Whether the buyer has already accepted the disclaimer
      * @return $this
      */
     public function setHasAcceptedDisclaimer($has_accepted_disclaimer)

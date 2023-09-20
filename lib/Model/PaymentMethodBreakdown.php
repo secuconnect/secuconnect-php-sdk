@@ -144,7 +144,7 @@ class PaymentMethodBreakdown implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Count of the transactions
+     * @param int $count Total number of transactions for this payment method
      * @return $this
      */
     public function setCount($count)
@@ -165,7 +165,7 @@ class PaymentMethodBreakdown implements ArrayAccess
 
     /**
      * Sets amount
-     * @param int $amount Total transaction amount
+     * @param int $amount Total amount for this payment method; in the smallest currency unit (e. g. Euro Cent)
      * @return $this
      */
     public function setAmount($amount)

@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsBasketInfo
  *
  * @category Class
- * @description SmartTransactionsBasketInfo
+ * @description Basket information
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -150,7 +150,7 @@ class SmartTransactionsBasketInfo implements ArrayAccess
 
     /**
      * Sets sum
-     * @param int $sum Sum
+     * @param int $sum Amount in the smallest currency unit (e. g. Euro Cent)  If there is a basket, it must equal the basket total.
      * @return $this
      */
     public function setSum($sum)
@@ -171,7 +171,7 @@ class SmartTransactionsBasketInfo implements ArrayAccess
 
     /**
      * Sets gratuity
-     * @param int $gratuity Gratuity
+     * @param int $gratuity Tips included in the smallest currency unit (e.g. Euro Cent)
      * @return $this
      */
     public function setGratuity($gratuity)

@@ -162,7 +162,7 @@ class SmartTransactionsCollectionModel implements ArrayAccess, OneOfSmartTransac
 
     /**
      * Sets type
-     * @param string $type Type of delivery option
+     * @param string $type Delivery type:  - `\"shipping\"` - `\"collection\"`
      * @return $this
      */
     public function setType($type)
@@ -225,7 +225,7 @@ class SmartTransactionsCollectionModel implements ArrayAccess, OneOfSmartTransac
 
     /**
      * Sets delivered_at
-     * @param string $delivered_at Delivered at
+     * @param string $delivered_at Delivered at (ISO 8601 date and time)
      * @return $this
      */
     public function setDeliveredAt($delivered_at)
@@ -246,7 +246,7 @@ class SmartTransactionsCollectionModel implements ArrayAccess, OneOfSmartTransac
 
     /**
      * Sets code
-     * @param string $code confirmation code to pickup the collection
+     * @param string $code Confirmation code for pickup
      * @return $this
      */
     public function setCode($code)

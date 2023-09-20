@@ -137,7 +137,7 @@ class PaymentTransactionsIncreaseAmountDTO implements ArrayAccess
 
     /**
      * Sets amount
-     * @param int $amount The raised amount of the transaction
+     * @param int $amount New amount of the transaction, in the smallest currency unit (e. g. Euro Cent)
      * @return $this
      */
     public function setAmount($amount)

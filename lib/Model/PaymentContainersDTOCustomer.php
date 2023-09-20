@@ -8,7 +8,7 @@ use \ArrayAccess;
  * PaymentContainersDTOCustomer
  *
  * @category Class
- * @description The customer of this payment container
+ * @description The customer the Payment Container belongs to
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -138,7 +138,7 @@ class PaymentContainersDTOCustomer implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Customer identifier
+     * @param string $id Payment Customer ID
      * @return $this
      */
     public function setId($id)

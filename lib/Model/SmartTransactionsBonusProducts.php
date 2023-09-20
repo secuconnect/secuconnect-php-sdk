@@ -6,7 +6,7 @@ namespace Secuconnect\Client\Model;
  * SmartTransactionsBonusProducts
  *
  * @category Class
- * @description SmartTransactionsBonusProducts
+ * @description Basket item for bonus
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -132,7 +132,7 @@ class SmartTransactionsBonusProducts extends SmartTransactionsBaseProduct
 
     /**
      * Sets serial_number
-     * @param string $serial_number The serialnumber of the scanned posa card
+     * @param string $serial_number Serial number of the POS activation card (POSA)
      * @return $this
      */
     public function setSerialNumber($serial_number)

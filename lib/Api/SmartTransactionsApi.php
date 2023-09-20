@@ -63,9 +63,9 @@ class SmartTransactionsApi
     /**
      * Operation abortTransaction
      *
-     * POST Smart/Transactions/{smartTransactionId}/abort
+     * Abort Order
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
+     * @param string $smart_transaction_id Smart Transaction ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartTransactionsProductModel
      */
@@ -78,9 +78,9 @@ class SmartTransactionsApi
     /**
      * Operation abortTransactionWithHttpInfo
      *
-     * POST Smart/Transactions/{smartTransactionId}/abort
+     * Abort Order
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
+     * @param string $smart_transaction_id Smart Transaction ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -164,9 +164,9 @@ class SmartTransactionsApi
     /**
      * Operation addTransaction
      *
-     * POST Smart/Transactions
+     * Create Smart Transaction
      *
-     * @param \Secuconnect\Client\Model\SmartTransactionsDTO $body Smart transaction properties 
+     * @param \Secuconnect\Client\Model\SmartTransactionsDTO $body Transaction details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartTransactionsProductModel
      */
@@ -179,9 +179,9 @@ class SmartTransactionsApi
     /**
      * Operation addTransactionWithHttpInfo
      *
-     * POST Smart/Transactions
+     * Create Smart Transaction
      *
-     * @param \Secuconnect\Client\Model\SmartTransactionsDTO $body Smart transaction properties 
+     * @param \Secuconnect\Client\Model\SmartTransactionsDTO $body Transaction details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -256,9 +256,9 @@ class SmartTransactionsApi
     /**
      * Operation cancelTransaction
      *
-     * POST Smart/Transactions/{smartTransactionId}/cancel
+     * Cancel Payment
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
+     * @param string $smart_transaction_id Smart Transaction ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartTransactionsProductModel
      */
@@ -271,9 +271,9 @@ class SmartTransactionsApi
     /**
      * Operation cancelTransactionWithHttpInfo
      *
-     * POST Smart/Transactions/{smartTransactionId}/cancel
+     * Cancel Payment
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
+     * @param string $smart_transaction_id Smart Transaction ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -357,9 +357,9 @@ class SmartTransactionsApi
     /**
      * Operation cancelTrx
      *
-     * POST Smart/Transactions/{smartTransactionId}/canceltrx
+     * Cancel Cash Transaction
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
+     * @param string $smart_transaction_id Receipt number (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartTransactionsProductModel
      */
@@ -372,9 +372,9 @@ class SmartTransactionsApi
     /**
      * Operation cancelTrxWithHttpInfo
      *
-     * POST Smart/Transactions/{smartTransactionId}/canceltrx
+     * Cancel Cash Transaction
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
+     * @param string $smart_transaction_id Receipt number (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -458,9 +458,9 @@ class SmartTransactionsApi
     /**
      * Operation diagnose
      *
-     * POST Smart/Transactions/{smartDeviceId}/diagnosis
+     * Payment Terminal Diagnosis
      *
-     * @param string $smart_device_id Smart device id (required)
+     * @param string $smart_device_id Smart Device ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartTransactionsProductModel
      */
@@ -473,9 +473,9 @@ class SmartTransactionsApi
     /**
      * Operation diagnoseWithHttpInfo
      *
-     * POST Smart/Transactions/{smartDeviceId}/diagnosis
+     * Payment Terminal Diagnosis
      *
-     * @param string $smart_device_id Smart device id (required)
+     * @param string $smart_device_id Smart Device ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -559,7 +559,7 @@ class SmartTransactionsApi
     /**
      * Operation getAll
      *
-     * GET Smart/Transactions
+     * Find Smart Transactions
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -584,7 +584,7 @@ class SmartTransactionsApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * GET Smart/Transactions
+     * Find Smart Transactions
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -710,9 +710,9 @@ class SmartTransactionsApi
     /**
      * Operation getOne
      *
-     * GET Smart/Transactions/{smartTransactionId}
+     * Read Smart Transaction
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
+     * @param string $smart_transaction_id Smart Transaction ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartTransactionsProductModel
      */
@@ -725,9 +725,9 @@ class SmartTransactionsApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * GET Smart/Transactions/{smartTransactionId}
+     * Read Smart Transaction
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
+     * @param string $smart_transaction_id Smart Transaction ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -811,9 +811,9 @@ class SmartTransactionsApi
     /**
      * Operation preTransaction
      *
-     * POST Smart/Transactions/{smartTransactionId}/preTransaction
+     * Apply secucard (Voucher or Loyalty Card)
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
+     * @param string $smart_transaction_id Smart Transaction ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartTransactionsPreTransactionModel
      */
@@ -826,9 +826,9 @@ class SmartTransactionsApi
     /**
      * Operation preTransactionWithHttpInfo
      *
-     * POST Smart/Transactions/{smartTransactionId}/preTransaction
+     * Apply secucard (Voucher or Loyalty Card)
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
+     * @param string $smart_transaction_id Smart Transaction ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartTransactionsPreTransactionModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -912,11 +912,11 @@ class SmartTransactionsApi
     /**
      * Operation prepare
      *
-     * POST Smart/Transactions/stx_xxx/prepare/{paymentMethod}
+     * Prepare Smart Transaction (Authorize Payment)
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
-     * @param string $payment_method Payment method (required)
-     * @param \Secuconnect\Client\Model\SmartTransactionsPrepare $body Information which customer and container will be used to this operation 
+     * @param string $smart_transaction_id Smart Transaction ID (required)
+     * @param string $payment_method Payment method:  - &#x60;\&quot;creditcard&#x60;\&quot; (also Google Pay, Apple Pay) - &#x60;\&quot;debit&#x60;\&quot; - &#x60;\&quot;eps&#x60;\&quot; - &#x60;\&quot;easycredit\&quot;&#x60; - &#x60;\&quot;giropay&#x60;\&quot; - &#x60;\&quot;invoice&#x60;\&quot; - &#x60;\&quot;paypal&#x60;\&quot; - &#x60;\&quot;prepaid&#x60;\&quot; - &#x60;\&quot;sofort&#x60;\&quot; (required)
+     * @param \Secuconnect\Client\Model\SmartTransactionsPrepare $body Optional customer and/or payment details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartTransactionsProductModel
      */
@@ -929,11 +929,11 @@ class SmartTransactionsApi
     /**
      * Operation prepareWithHttpInfo
      *
-     * POST Smart/Transactions/stx_xxx/prepare/{paymentMethod}
+     * Prepare Smart Transaction (Authorize Payment)
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
-     * @param string $payment_method Payment method (required)
-     * @param \Secuconnect\Client\Model\SmartTransactionsPrepare $body Information which customer and container will be used to this operation 
+     * @param string $smart_transaction_id Smart Transaction ID (required)
+     * @param string $payment_method Payment method:  - &#x60;\&quot;creditcard&#x60;\&quot; (also Google Pay, Apple Pay) - &#x60;\&quot;debit&#x60;\&quot; - &#x60;\&quot;eps&#x60;\&quot; - &#x60;\&quot;easycredit\&quot;&#x60; - &#x60;\&quot;giropay&#x60;\&quot; - &#x60;\&quot;invoice&#x60;\&quot; - &#x60;\&quot;paypal&#x60;\&quot; - &#x60;\&quot;prepaid&#x60;\&quot; - &#x60;\&quot;sofort&#x60;\&quot; (required)
+     * @param \Secuconnect\Client\Model\SmartTransactionsPrepare $body Optional customer and/or payment details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1036,10 +1036,10 @@ class SmartTransactionsApi
     /**
      * Operation setDelivery
      *
-     * POST Smart/Transactions/stx_xxx/setDelivery
+     * Add Shipping Information
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
-     * @param \Secuconnect\Client\Model\SmartTransactionsSetDeliveryModel $body Information about the delivery status 
+     * @param string $smart_transaction_id Smart Transaction ID (required)
+     * @param \Secuconnect\Client\Model\SmartTransactionsSetDeliveryModel $body Shipping information 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartTransactionsProductModel
      */
@@ -1052,10 +1052,10 @@ class SmartTransactionsApi
     /**
      * Operation setDeliveryWithHttpInfo
      *
-     * POST Smart/Transactions/stx_xxx/setDelivery
+     * Add Shipping Information
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
-     * @param \Secuconnect\Client\Model\SmartTransactionsSetDeliveryModel $body Information about the delivery status 
+     * @param string $smart_transaction_id Smart Transaction ID (required)
+     * @param \Secuconnect\Client\Model\SmartTransactionsSetDeliveryModel $body Shipping information 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1144,9 +1144,9 @@ class SmartTransactionsApi
     /**
      * Operation startEndOfDayReport
      *
-     * POST Smart/Transactions/{smartDeviceId}/endOfDay
+     * Payment Terminal End-Of-Day Report
      *
-     * @param string $smart_device_id Smart device id (required)
+     * @param string $smart_device_id Smart Device ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartTransactionsProductModel
      */
@@ -1159,9 +1159,9 @@ class SmartTransactionsApi
     /**
      * Operation startEndOfDayReportWithHttpInfo
      *
-     * POST Smart/Transactions/{smartDeviceId}/endOfDay
+     * Payment Terminal End-Of-Day Report
      *
-     * @param string $smart_device_id Smart device id (required)
+     * @param string $smart_device_id Smart Device ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1245,11 +1245,11 @@ class SmartTransactionsApi
     /**
      * Operation startTransaction
      *
-     * POST Smart/Transactions/{smartTransactionId}/start/{paymentMethod}
+     * Start Smart Transaction (Execute Order)
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
-     * @param string $payment_method Payment method (required)
-     * @param \Secuconnect\Client\Model\SmartTransactionsPrepare $body Information which customer and container will be used to this operation 
+     * @param string $smart_transaction_id Smart Transaction ID (required)
+     * @param string $payment_method Payment method:  - &#x60;\&quot;cash\&quot;&#x60; - &#x60;\&quot;cashless\&quot;&#x60; - &#x60;\&quot;creditcard\&quot;&#x60; (also Google Pay, Apple Pay) - &#x60;\&quot;debit\&quot;&#x60; - &#x60;\&quot;eps\&quot;&#x60; - &#x60;\&quot;easycredit\&quot;&#x60; - &#x60;\&quot;giropay\&quot;&#x60; - &#x60;\&quot;invoice\&quot;&#x60; - &#x60;\&quot;loyalty\&quot;&#x60; - &#x60;\&quot;paypal\&quot;&#x60; - &#x60;\&quot;prepaid\&quot;&#x60; - &#x60;\&quot;sofort\&quot;&#x60; (required)
+     * @param \Secuconnect\Client\Model\SmartTransactionsPrepare $body Optional customer and/or payment details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartTransactionsProductModel
      */
@@ -1262,11 +1262,11 @@ class SmartTransactionsApi
     /**
      * Operation startTransactionWithHttpInfo
      *
-     * POST Smart/Transactions/{smartTransactionId}/start/{paymentMethod}
+     * Start Smart Transaction (Execute Order)
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
-     * @param string $payment_method Payment method (required)
-     * @param \Secuconnect\Client\Model\SmartTransactionsPrepare $body Information which customer and container will be used to this operation 
+     * @param string $smart_transaction_id Smart Transaction ID (required)
+     * @param string $payment_method Payment method:  - &#x60;\&quot;cash\&quot;&#x60; - &#x60;\&quot;cashless\&quot;&#x60; - &#x60;\&quot;creditcard\&quot;&#x60; (also Google Pay, Apple Pay) - &#x60;\&quot;debit\&quot;&#x60; - &#x60;\&quot;eps\&quot;&#x60; - &#x60;\&quot;easycredit\&quot;&#x60; - &#x60;\&quot;giropay\&quot;&#x60; - &#x60;\&quot;invoice\&quot;&#x60; - &#x60;\&quot;loyalty\&quot;&#x60; - &#x60;\&quot;paypal\&quot;&#x60; - &#x60;\&quot;prepaid\&quot;&#x60; - &#x60;\&quot;sofort\&quot;&#x60; (required)
+     * @param \Secuconnect\Client\Model\SmartTransactionsPrepare $body Optional customer and/or payment details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1369,9 +1369,9 @@ class SmartTransactionsApi
     /**
      * Operation updatePaymentContainer
      *
-     * POST Smart/Transactions/{smartTransactionId}/updatePaymentContainer
+     * Renew Authorization For Subscription
      *
-     * @param string $subscription_id Subscription id (required)
+     * @param string $subscription_id Subscription ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartTransactionsProductModel
      */
@@ -1384,9 +1384,9 @@ class SmartTransactionsApi
     /**
      * Operation updatePaymentContainerWithHttpInfo
      *
-     * POST Smart/Transactions/{smartTransactionId}/updatePaymentContainer
+     * Renew Authorization For Subscription
      *
-     * @param string $subscription_id Subscription id (required)
+     * @param string $subscription_id Subscription ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1470,10 +1470,10 @@ class SmartTransactionsApi
     /**
      * Operation updateTransaction
      *
-     * PUT Smart/Transactions/{smartTransactionId}
+     * Update Smart Transaction
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
-     * @param \Secuconnect\Client\Model\SmartTransactionsDTO $body Smart transaction properties 
+     * @param string $smart_transaction_id Smart Transaction ID (required)
+     * @param \Secuconnect\Client\Model\SmartTransactionsDTO $body Transaction details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartTransactionsProductModel
      */
@@ -1486,10 +1486,10 @@ class SmartTransactionsApi
     /**
      * Operation updateTransactionWithHttpInfo
      *
-     * PUT Smart/Transactions/{smartTransactionId}
+     * Update Smart Transaction
      *
-     * @param string $smart_transaction_id Smart transaction id (required)
-     * @param \Secuconnect\Client\Model\SmartTransactionsDTO $body Smart transaction properties 
+     * @param string $smart_transaction_id Smart Transaction ID (required)
+     * @param \Secuconnect\Client\Model\SmartTransactionsDTO $body Transaction details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */

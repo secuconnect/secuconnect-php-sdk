@@ -8,7 +8,7 @@ use \ArrayAccess;
  * PaymentContainersList
  *
  * @category Class
- * @description PaymentContainersList
+ * @description List of Payment Containers
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -180,7 +180,7 @@ class PaymentContainersList implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Number of existing payment containers
+     * @param int $count Total number of matching Payment Containers, regardless of the number of objects actually returned
      * @return $this
      */
     public function setCount($count)
@@ -201,7 +201,7 @@ class PaymentContainersList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\PaymentContainersProductModel[] $data List of PaymentContainers
+     * @param \Secuconnect\Client\Model\PaymentContainersProductModel[] $data Payment Container objects
      * @return $this
      */
     public function setData($data)

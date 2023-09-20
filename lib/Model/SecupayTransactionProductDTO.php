@@ -270,7 +270,7 @@ class SecupayTransactionProductDTO implements ArrayAccess
 
     /**
      * Sets purpose
-     * @param string $purpose The purpose of the payment. This is the later assignment of the payment is for example on the account statement of the buyer.
+     * @param string $purpose The purpose of the payment, for the account statement for example.
      * @return $this
      */
     public function setPurpose($purpose)
@@ -291,7 +291,7 @@ class SecupayTransactionProductDTO implements ArrayAccess
 
     /**
      * Sets payment_methods
-     * @param string[] $payment_methods payment methods
+     * @param string[] $payment_methods Payment methods.  - `\"twint\"`
      * @return $this
      */
     public function setPaymentMethods($payment_methods)
@@ -312,7 +312,7 @@ class SecupayTransactionProductDTO implements ArrayAccess
 
     /**
      * Sets order_id
-     * @param string $order_id Specifying an order number. Depending on the contract setting, this must be unique for each payment.
+     * @param string $order_id Your order number. If set for the contract, there must be a unique number for each payment.
      * @return $this
      */
     public function setOrderId($order_id)
@@ -333,7 +333,7 @@ class SecupayTransactionProductDTO implements ArrayAccess
 
     /**
      * Sets basket
-     * @param \Secuconnect\Client\Model\SecupayBasketItem[] $basket A list of items that are being purchased.
+     * @param \Secuconnect\Client\Model\SecupayBasketItem[] $basket Basket items, several sub-baskets or subscription details
      * @return $this
      */
     public function setBasket($basket)
@@ -354,7 +354,7 @@ class SecupayTransactionProductDTO implements ArrayAccess
 
     /**
      * Sets accrual
-     * @param bool $accrual Indicates whether the payment is locked for pay-out (TRUE) or not (FALSE). Standard value here is FALSE.
+     * @param bool $accrual Locks for payout, if set on `true`. Needed f.e. for crowd funding or crowd investment.
      * @return $this
      */
     public function setAccrual($accrual)
@@ -375,7 +375,7 @@ class SecupayTransactionProductDTO implements ArrayAccess
 
     /**
      * Sets payment_action
-     * @param string $payment_action Specifies whether a pre-authorization (\"authorization\") or instant payment (\"sale\") is to be performed. Standard value here is \"sale\". The collection of the pre-authorized payment is made with the \"capture\" command.
+     * @param string $payment_action Specifies whether to authorize only (`\"authorization\"`), or to pay immediately (`\"sale\"`). The capture of the pre-authorized payment is made with a call to `/capture`.
      * @return $this
      */
     public function setPaymentAction($payment_action)
@@ -438,7 +438,7 @@ class SecupayTransactionProductDTO implements ArrayAccess
 
     /**
      * Sets contract
-     * @param string $contract Contract id
+     * @param string $contract Contract ID
      * @return $this
      */
     public function setContract($contract)
@@ -459,7 +459,7 @@ class SecupayTransactionProductDTO implements ArrayAccess
 
     /**
      * Sets container
-     * @param string $container Container id
+     * @param string $container Container ID
      * @return $this
      */
     public function setContainer($container)
@@ -522,7 +522,7 @@ class SecupayTransactionProductDTO implements ArrayAccess
 
     /**
      * Sets demo
-     * @param bool $demo Demo
+     * @param bool $demo Demo mode
      * @return $this
      */
     public function setDemo($demo)

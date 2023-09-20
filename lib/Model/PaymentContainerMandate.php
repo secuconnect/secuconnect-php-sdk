@@ -174,7 +174,7 @@ class PaymentContainerMandate implements ArrayAccess
 
     /**
      * Sets sepa_mandate_id
-     * @param string $sepa_mandate_id Sepa mandate id
+     * @param string $sepa_mandate_id Internal mandate ID
      * @return $this
      */
     public function setSepaMandateId($sepa_mandate_id)
@@ -237,7 +237,7 @@ class PaymentContainerMandate implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type Type
+     * @param string $type SEPA mandate type (CORE or B2B)
      * @return $this
      */
     public function setType($type)
@@ -258,7 +258,7 @@ class PaymentContainerMandate implements ArrayAccess
 
     /**
      * Sets status
-     * @param string $status Status
+     * @param string $status SEPA mandate status
      * @return $this
      */
     public function setStatus($status)
@@ -279,7 +279,7 @@ class PaymentContainerMandate implements ArrayAccess
 
     /**
      * Sets identification
-     * @param string $identification Identification
+     * @param string $identification SEPA mandate reference
      * @return $this
      */
     public function setIdentification($identification)
@@ -300,7 +300,7 @@ class PaymentContainerMandate implements ArrayAccess
 
     /**
      * Sets creditor_id
-     * @param string $creditor_id Creditor ID
+     * @param string $creditor_id SEPA creditor ID
      * @return $this
      */
     public function setCreditorId($creditor_id)

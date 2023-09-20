@@ -63,7 +63,7 @@ class PublicWebsiteApi
     /**
      * Operation availableCountries
      *
-     * GET Public/Website/me/availableCountries
+     * Get available countries
      *
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\AvailableCountry[]
@@ -77,7 +77,7 @@ class PublicWebsiteApi
     /**
      * Operation availableCountriesWithHttpInfo
      *
-     * GET Public/Website/me/availableCountries
+     * Get available countries
      *
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\AvailableCountry[], HTTP status code, HTTP response headers (array of strings)

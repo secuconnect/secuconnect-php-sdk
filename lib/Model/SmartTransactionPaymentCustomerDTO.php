@@ -6,7 +6,7 @@ namespace Secuconnect\Client\Model;
  * SmartTransactionPaymentCustomerDTO
  *
  * @category Class
- * @description SmartTransactionPaymentCustomerDTO
+ * @description Customer details
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

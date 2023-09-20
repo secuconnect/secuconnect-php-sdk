@@ -63,7 +63,7 @@ class PrepaidSalesApi
     /**
      * Operation addSale
      *
-     * POST Prepaid/Sales
+     * Create Prepaid Sale
      *
      * @param \Secuconnect\Client\Model\PrepaidSalesProductDTO $body Prepaid transaction input properties 
      * @throws ApiException on non-2xx response
@@ -78,7 +78,7 @@ class PrepaidSalesApi
     /**
      * Operation addSaleWithHttpInfo
      *
-     * POST Prepaid/Sales
+     * Create Prepaid Sale
      *
      * @param \Secuconnect\Client\Model\PrepaidSalesProductDTO $body Prepaid transaction input properties 
      * @throws ApiException on non-2xx response
@@ -155,7 +155,7 @@ class PrepaidSalesApi
     /**
      * Operation confirm
      *
-     * GET Prepaid/Sales/{prepaidSaleId}/Confirm
+     * Confirm sale
      *
      * @param string $prepaid_sale_id Prepaid Sale ID (required)
      * @throws ApiException on non-2xx response
@@ -170,7 +170,7 @@ class PrepaidSalesApi
     /**
      * Operation confirmWithHttpInfo
      *
-     * GET Prepaid/Sales/{prepaidSaleId}/Confirm
+     * Confirm sale
      *
      * @param string $prepaid_sale_id Prepaid Sale ID (required)
      * @throws ApiException on non-2xx response
@@ -256,7 +256,7 @@ class PrepaidSalesApi
     /**
      * Operation getAll
      *
-     * GET Prepaid/Sales/
+     * Find Prepaid Sales
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -281,7 +281,7 @@ class PrepaidSalesApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * GET Prepaid/Sales/
+     * Find Prepaid Sales
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -407,7 +407,7 @@ class PrepaidSalesApi
     /**
      * Operation getOne
      *
-     * GET Prepaid/Sales/{prepaidSaleId}
+     * Read Prepaid Sale
      *
      * @param string $prepaid_sale_id Prepaid sale ID (required)
      * @throws ApiException on non-2xx response
@@ -422,7 +422,7 @@ class PrepaidSalesApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * GET Prepaid/Sales/{prepaidSaleId}
+     * Read Prepaid Sale
      *
      * @param string $prepaid_sale_id Prepaid sale ID (required)
      * @throws ApiException on non-2xx response

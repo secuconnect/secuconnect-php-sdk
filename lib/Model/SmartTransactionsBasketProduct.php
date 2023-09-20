@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsBasketProduct
  *
  * @category Class
- * @description SmartTransactionsBasketProduct
+ * @description Single item in basket
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -234,7 +234,7 @@ class SmartTransactionsBasketProduct implements ArrayAccess
 
     /**
      * Sets id
-     * @param int $id Product id
+     * @param int $id Item ID
      * @return $this
      */
     public function setId($id)
@@ -255,7 +255,7 @@ class SmartTransactionsBasketProduct implements ArrayAccess
 
     /**
      * Sets parent
-     * @param int $parent Parent
+     * @param int $parent Parent item ID
      * @return $this
      */
     public function setParent($parent)
@@ -276,7 +276,7 @@ class SmartTransactionsBasketProduct implements ArrayAccess
 
     /**
      * Sets item_type
-     * @param string $item_type Category of item
+     * @param string $item_type Item type:  - `\"article\"` - `\"coupon\"` - `\"sub_transaction\"` - `\"stakeholder_payment\"` - `\"shipping\"` - `\"subscription\"`
      * @return $this
      */
     public function setItemType($item_type)
@@ -297,7 +297,7 @@ class SmartTransactionsBasketProduct implements ArrayAccess
 
     /**
      * Sets desc
-     * @param string $desc Desc
+     * @param string $desc Descriptive article name
      * @return $this
      */
     public function setDesc($desc)
@@ -318,7 +318,7 @@ class SmartTransactionsBasketProduct implements ArrayAccess
 
     /**
      * Sets article_number
-     * @param string $article_number Article number
+     * @param string $article_number Article number (SKU)
      * @return $this
      */
     public function setArticleNumber($article_number)
@@ -339,7 +339,7 @@ class SmartTransactionsBasketProduct implements ArrayAccess
 
     /**
      * Sets serial_number
-     * @param string $serial_number The serialnumber of the scanned posa card
+     * @param string $serial_number Serial number of the POS activation card (POSA)
      * @return $this
      */
     public function setSerialNumber($serial_number)
@@ -423,7 +423,7 @@ class SmartTransactionsBasketProduct implements ArrayAccess
 
     /**
      * Sets sum
-     * @param int $sum it is the value of the sum of the product with all items in sub_basket
+     * @param int $sum Total amount of all items in a sub-basket; in the smallest currency unit (e. g. Euro Cent)
      * @return $this
      */
     public function setSum($sum)
@@ -465,7 +465,7 @@ class SmartTransactionsBasketProduct implements ArrayAccess
 
     /**
      * Sets reference_id
-     * @param string $reference_id The reference_id must be unique, it's a Reference for to the reference_id of SmartTransactionsSubBasketProduct [example: SmartTransactionsBasketProduct->reference_id is 1000 then all SmartTransactionsSubBasketProduct must have unique reference_id like 1000.1, 1000.2 etc.]
+     * @param string $reference_id Unique line identifier, used to update the basket before the transaction is executed
      * @return $this
      */
     public function setReferenceId($reference_id)
@@ -486,7 +486,7 @@ class SmartTransactionsBasketProduct implements ArrayAccess
 
     /**
      * Sets contract_id
-     * @param string $contract_id contract id
+     * @param string $contract_id General Contract ID of the merchant (sub-basket) or payee (stakeholder share)
      * @return $this
      */
     public function setContractId($contract_id)
@@ -528,7 +528,7 @@ class SmartTransactionsBasketProduct implements ArrayAccess
 
     /**
      * Sets sub_basket
-     * @param \Secuconnect\Client\Model\SmartTransactionsSubBasketProduct[] $sub_basket sub basket Product
+     * @param \Secuconnect\Client\Model\SmartTransactionsSubBasketProduct[] $sub_basket Sub-baskets  Nest items für sub-baskets here. (Only one level.)
      * @return $this
      */
     public function setSubBasket($sub_basket)
@@ -549,7 +549,7 @@ class SmartTransactionsBasketProduct implements ArrayAccess
 
     /**
      * Sets plan_id
-     * @param string $plan_id subscription item plan_id
+     * @param string $plan_id Subscription Plan ID
      * @return $this
      */
     public function setPlanId($plan_id)
@@ -570,7 +570,7 @@ class SmartTransactionsBasketProduct implements ArrayAccess
 
     /**
      * Sets start_at
-     * @param string $start_at timestamp when the subscription should start
+     * @param string $start_at Subscription start date (ISO 8601 date and time)
      * @return $this
      */
     public function setStartAt($start_at)

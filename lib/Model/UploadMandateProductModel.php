@@ -138,7 +138,7 @@ class UploadMandateProductModel implements ArrayAccess
 
     /**
      * Sets service_issue_id
-     * @param int $service_issue_id Newly created issue id
+     * @param int $service_issue_id Service Case number
      * @return $this
      */
     public function setServiceIssueId($service_issue_id)

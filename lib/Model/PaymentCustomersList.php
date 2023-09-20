@@ -179,7 +179,7 @@ class PaymentCustomersList implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Number of existing payment customers
+     * @param int $count Number of matching Payment Customers
      * @return $this
      */
     public function setCount($count)

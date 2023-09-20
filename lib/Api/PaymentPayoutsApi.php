@@ -63,7 +63,7 @@ class PaymentPayoutsApi
     /**
      * Operation getAll
      *
-     * GET Payment/Payouts
+     * Find Payment Payout
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -88,7 +88,7 @@ class PaymentPayoutsApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * GET Payment/Payouts
+     * Find Payment Payout
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -214,7 +214,7 @@ class PaymentPayoutsApi
     /**
      * Operation getOne
      *
-     * GET Payment/Payouts/{paymentPayoutId}
+     * Read Payment Payout
      *
      * @param string $payment_payout_id Payment payout id (required)
      * @throws ApiException on non-2xx response
@@ -229,7 +229,7 @@ class PaymentPayoutsApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * GET Payment/Payouts/{paymentPayoutId}
+     * Read Payment Payout
      *
      * @param string $payment_payout_id Payment payout id (required)
      * @throws ApiException on non-2xx response

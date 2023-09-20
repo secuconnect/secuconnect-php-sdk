@@ -8,7 +8,7 @@ use \ArrayAccess;
  * PaymentContext
  *
  * @category Class
- * @description PaymentContext
+ * @description Controls some payment details
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -162,7 +162,7 @@ class PaymentContext implements ArrayAccess
 
     /**
      * Sets auto_capture
-     * @param bool $auto_capture auto capture the smart transaction
+     * @param bool $auto_capture Whether the Smart Transation is executed automatically after successful authorisation; this can save the extra call to `/start`
      * @return $this
      */
     public function setAutoCapture($auto_capture)
@@ -183,7 +183,7 @@ class PaymentContext implements ArrayAccess
 
     /**
      * Sets payment_methods
-     * @param string[] $payment_methods payment_methods
+     * @param string[] $payment_methods Wanted payment methods:  - `\"creditcard\"` - `\"debit\"` - `\"easycredit\"` - `\"giropay\"` - `\"invoice\"` - `\"paypal\"` - `\"prepaid\"` - `\"sofort\"`
      * @return $this
      */
     public function setPaymentMethods($payment_methods)
@@ -204,7 +204,7 @@ class PaymentContext implements ArrayAccess
 
     /**
      * Sets merchant_initiated
-     * @param bool $merchant_initiated is this smart transaction created automatically by the merchant (process without customer interaction)
+     * @param bool $merchant_initiated Whether this is a merchant initiated transaction (MIT), created without customer interaction
      * @return $this
      */
     public function setMerchantInitiated($merchant_initiated)
@@ -225,7 +225,7 @@ class PaymentContext implements ArrayAccess
 
     /**
      * Sets creditcard_schemes
-     * @param string[] $creditcard_schemes The supported credit card schemes with given contract
+     * @param string[] $creditcard_schemes Supported credit card networks of the given contract
      * @return $this
      */
     public function setCreditcardSchemes($creditcard_schemes)
@@ -246,7 +246,7 @@ class PaymentContext implements ArrayAccess
 
     /**
      * Sets accrual
-     * @param bool $accrual sets accrual flag to payment transaction when created
+     * @param bool $accrual Whether to set the accrual flag, when the Payment Transaction is created. The payment will not be executed until the accrual flag of the Payment Transaction is removed.
      * @return $this
      */
     public function setAccrual($accrual)

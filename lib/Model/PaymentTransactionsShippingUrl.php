@@ -137,7 +137,7 @@ class PaymentTransactionsShippingUrl implements ArrayAccess
 
     /**
      * Sets url
-     * @param string $url The url of the shipping information form
+     * @param string $url URL of the shipping information form
      * @return $this
      */
     public function setUrl($url)

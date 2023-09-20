@@ -63,7 +63,7 @@ class CardprocessingInvoicesApi
     /**
      * Operation getAll
      *
-     * GET Cardprocessing/Invoices
+     * Find Cardprocessing Invoices
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -88,7 +88,7 @@ class CardprocessingInvoicesApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * GET Cardprocessing/Invoices
+     * Find Cardprocessing Invoices
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -214,7 +214,7 @@ class CardprocessingInvoicesApi
     /**
      * Operation getOne
      *
-     * GET Cardprocessing/Invoices/{cardprocessingInvoiceId}
+     * Read Cardprocessing Invoice
      *
      * @param string $cardprocessing_invoice_id Cardprocessing invoice id (required)
      * @throws ApiException on non-2xx response
@@ -229,7 +229,7 @@ class CardprocessingInvoicesApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * GET Cardprocessing/Invoices/{cardprocessingInvoiceId}
+     * Read Cardprocessing Invoice
      *
      * @param string $cardprocessing_invoice_id Cardprocessing invoice id (required)
      * @throws ApiException on non-2xx response

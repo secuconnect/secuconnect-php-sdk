@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsMerchant
  *
  * @category Class
- * @description SmartTransactionsMerchant
+ * @description Merchant
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -150,7 +150,7 @@ class SmartTransactionsMerchant implements ArrayAccess
 
     /**
      * Sets object
-     * @param string $object Object type of instance
+     * @param string $object Object type
      * @return $this
      */
     public function setObject($object)
@@ -171,7 +171,7 @@ class SmartTransactionsMerchant implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id ID of instance
+     * @param string $id General Merchant
      * @return $this
      */
     public function setId($id)

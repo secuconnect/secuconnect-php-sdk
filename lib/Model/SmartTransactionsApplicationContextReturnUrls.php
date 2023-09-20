@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsApplicationContextReturnUrls
  *
  * @category Class
- * @description SmartTransactionsApplicationContextReturnUrls
+ * @description Shop URLs to return from Smart Checkout
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -156,7 +156,7 @@ class SmartTransactionsApplicationContextReturnUrls implements ArrayAccess
 
     /**
      * Sets url_success
-     * @param string $url_success Success URL
+     * @param string $url_success Shop URL to be called after successful authorization or payment
      * @return $this
      */
     public function setUrlSuccess($url_success)
@@ -177,7 +177,7 @@ class SmartTransactionsApplicationContextReturnUrls implements ArrayAccess
 
     /**
      * Sets url_abort
-     * @param string $url_abort Abort URL
+     * @param string $url_abort Shop URL to be called when the customer abandoned the payment (when it is distinguished)
      * @return $this
      */
     public function setUrlAbort($url_abort)
@@ -198,7 +198,7 @@ class SmartTransactionsApplicationContextReturnUrls implements ArrayAccess
 
     /**
      * Sets url_error
-     * @param string $url_error Error URL
+     * @param string $url_error Shop URL to be called after successful authorization or payment, or when the customer abandoned the payment
      * @return $this
      */
     public function setUrlError($url_error)
@@ -219,7 +219,7 @@ class SmartTransactionsApplicationContextReturnUrls implements ArrayAccess
 
     /**
      * Sets url_push
-     * @param string $url_push Push URL
+     * @param string $url_push Shop URL for status pushes (server-to-server callback)
      * @return $this
      */
     public function setUrlPush($url_push)

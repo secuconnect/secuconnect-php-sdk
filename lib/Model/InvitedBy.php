@@ -192,7 +192,7 @@ class InvitedBy implements ArrayAccess
 
     /**
      * Sets invited
-     * @param string $invited Invited E-Mail address
+     * @param string $invited Email address of the inviting person
      * @return $this
      */
     public function setInvited($invited)

@@ -150,7 +150,7 @@ class PaymentCancelResultDetails implements ArrayAccess
 
     /**
      * Sets new_trans_id
-     * @param int $new_trans_id The transaction ID of the refund transaction
+     * @param int $new_trans_id Transaction ID of the Payment Transaction for the refund
      * @return $this
      */
     public function setNewTransId($new_trans_id)
@@ -171,7 +171,7 @@ class PaymentCancelResultDetails implements ArrayAccess
 
     /**
      * Sets remaining_amount
-     * @param int $remaining_amount The remaining amount in case of a partial refund/cancel
+     * @param int $remaining_amount Remaining amount in case of a partial cancellation or refund
      * @return $this
      */
     public function setRemainingAmount($remaining_amount)
@@ -192,7 +192,7 @@ class PaymentCancelResultDetails implements ArrayAccess
 
     /**
      * Sets refund_waiting_for_payment
-     * @param bool $refund_waiting_for_payment If the merchant needs to transfer money back, this will be true
+     * @param bool $refund_waiting_for_payment Whether the merchant needs to transfer money back, before we will pay out the refund
      * @return $this
      */
     public function setRefundWaitingForPayment($refund_waiting_for_payment)

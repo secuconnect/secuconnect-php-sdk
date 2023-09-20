@@ -63,7 +63,7 @@ class SmartDevicesApi
     /**
      * Operation addDevice
      *
-     * POST Smart/Devices
+     * Create Smart Device
      *
      * @param \Secuconnect\Client\Model\SmartDevicesDTO $body Smart device properties 
      * @throws ApiException on non-2xx response
@@ -78,7 +78,7 @@ class SmartDevicesApi
     /**
      * Operation addDeviceWithHttpInfo
      *
-     * POST Smart/Devices
+     * Create Smart Device
      *
      * @param \Secuconnect\Client\Model\SmartDevicesDTO $body Smart device properties 
      * @throws ApiException on non-2xx response
@@ -155,7 +155,7 @@ class SmartDevicesApi
     /**
      * Operation getAll
      *
-     * GET Smart/Devices
+     * Find Smart Devices
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -180,7 +180,7 @@ class SmartDevicesApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * GET Smart/Devices
+     * Find Smart Devices
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -306,7 +306,7 @@ class SmartDevicesApi
     /**
      * Operation getOne
      *
-     * GET Smart/Devices/{smartDeviceId}
+     * Read Smart Device
      *
      * @param string $smart_device_id Smart device id (required)
      * @throws ApiException on non-2xx response
@@ -321,7 +321,7 @@ class SmartDevicesApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * GET Smart/Devices/{smartDeviceId}
+     * Read Smart Device
      *
      * @param string $smart_device_id Smart device id (required)
      * @throws ApiException on non-2xx response
@@ -407,7 +407,7 @@ class SmartDevicesApi
     /**
      * Operation getRouting
      *
-     * GET Smart/Devices/{smartDeviceId}/routing/{type}
+     * Get with routing
      *
      * @param string $smart_device_id Smart device id (required)
      * @param string $type Smart Device Type (required)
@@ -423,7 +423,7 @@ class SmartDevicesApi
     /**
      * Operation getRoutingWithHttpInfo
      *
-     * GET Smart/Devices/{smartDeviceId}/routing/{type}
+     * Get with routing
      *
      * @param string $smart_device_id Smart device id (required)
      * @param string $type Smart Device Type (required)
@@ -524,7 +524,7 @@ class SmartDevicesApi
     /**
      * Operation updateDevice
      *
-     * PUT Smart/Devices/{smartDeviceId}
+     * Update Smart Device
      *
      * @param string $smart_device_id Smart device id (required)
      * @param \Secuconnect\Client\Model\SmartDevicesDTO $body Smart device properties 
@@ -540,7 +540,7 @@ class SmartDevicesApi
     /**
      * Operation updateDeviceWithHttpInfo
      *
-     * PUT Smart/Devices/{smartDeviceId}
+     * Update Smart Device
      *
      * @param string $smart_device_id Smart device id (required)
      * @param \Secuconnect\Client\Model\SmartDevicesDTO $body Smart device properties 
@@ -632,7 +632,7 @@ class SmartDevicesApi
     /**
      * Operation updatePin
      *
-     * PUT /Smart/Devices/{smartDeviceId}/pin
+     * Set device PIN
      *
      * @param string $smart_device_id Smart device id (required)
      * @param \Secuconnect\Client\Model\SmartDeviceUserPin $body Smart device properties 
@@ -648,7 +648,7 @@ class SmartDevicesApi
     /**
      * Operation updatePinWithHttpInfo
      *
-     * PUT /Smart/Devices/{smartDeviceId}/pin
+     * Set device PIN
      *
      * @param string $smart_device_id Smart device id (required)
      * @param \Secuconnect\Client\Model\SmartDeviceUserPin $body Smart device properties 

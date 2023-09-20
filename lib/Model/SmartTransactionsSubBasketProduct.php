@@ -216,7 +216,7 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
 
     /**
      * Sets id
-     * @param int $id Product id
+     * @param int $id Item ID
      * @return $this
      */
     public function setId($id)
@@ -237,7 +237,7 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
 
     /**
      * Sets parent
-     * @param int $parent Parent
+     * @param int $parent Parent item ID
      * @return $this
      */
     public function setParent($parent)
@@ -258,7 +258,7 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
 
     /**
      * Sets item_type
-     * @param string $item_type Category of item
+     * @param string $item_type Item type:  - `\"article\"` - `\"coupon\"` - `\"stakeholder_payment\"` - `\"shipping\"`
      * @return $this
      */
     public function setItemType($item_type)
@@ -279,7 +279,7 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
 
     /**
      * Sets desc
-     * @param string $desc Description of the sub-basket product
+     * @param string $desc Descriptive article name
      * @return $this
      */
     public function setDesc($desc)
@@ -300,7 +300,7 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
 
     /**
      * Sets article_number
-     * @param string $article_number Article number
+     * @param string $article_number Article number (SKU)
      * @return $this
      */
     public function setArticleNumber($article_number)
@@ -321,7 +321,7 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
 
     /**
      * Sets serial_number
-     * @param string $serial_number The serialnumber of the scanned posa card
+     * @param string $serial_number Serial number of the POS activation card (POSA)
      * @return $this
      */
     public function setSerialNumber($serial_number)
@@ -405,7 +405,7 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
 
     /**
      * Sets sum
-     * @param int $sum sum
+     * @param int $sum Total amount of all items in a sub-basket; in the smallest currency unit (e. g. Euro Cent)
      * @return $this
      */
     public function setSum($sum)
@@ -447,7 +447,7 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
 
     /**
      * Sets reference_id
-     * @param string $reference_id The reference_id must be unique, it's Referring to the reference_id of SmartTransactionsBasketProduct [example: SmartTransactionsBasketProduct->reference_id is 1000 then all SmartTransactionsSubBasketProduct must have unique reference_id like 1000.1, 1000.2 etc.]
+     * @param string $reference_id Unique line identifier, used to maintain the basket before the transaction is executed
      * @return $this
      */
     public function setReferenceId($reference_id)
@@ -468,7 +468,7 @@ class SmartTransactionsSubBasketProduct implements ArrayAccess
 
     /**
      * Sets contract_id
-     * @param string $contract_id contract id
+     * @param string $contract_id General Contract ID of the merchant (sub-basket) or payee (stakeholder share)
      * @return $this
      */
     public function setContractId($contract_id)

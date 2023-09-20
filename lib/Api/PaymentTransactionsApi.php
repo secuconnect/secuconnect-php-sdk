@@ -63,9 +63,9 @@ class PaymentTransactionsApi
     /**
      * Operation addTransaction
      *
-     * POST Payment/Transactions
+     * Create TWINT Payment
      *
-     * @param \Secuconnect\Client\Model\SecupayTransactionProductDTO $body Create payment transaction input properties 
+     * @param \Secuconnect\Client\Model\SecupayTransactionProductDTO $body Transaction details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SecupayTransactionProductModel
      */
@@ -78,9 +78,9 @@ class PaymentTransactionsApi
     /**
      * Operation addTransactionWithHttpInfo
      *
-     * POST Payment/Transactions
+     * Create TWINT Payment
      *
-     * @param \Secuconnect\Client\Model\SecupayTransactionProductDTO $body Create payment transaction input properties 
+     * @param \Secuconnect\Client\Model\SecupayTransactionProductDTO $body Transaction details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SecupayTransactionProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -155,9 +155,9 @@ class PaymentTransactionsApi
     /**
      * Operation assignTransferBalance
      *
-     * POST Payment/Transactions/{paymentTransactionId}/assignTransferBalance
+     * Assign transferred balance
      *
-     * @param string $payment_transaction_id Payment transaction ID (required)
+     * @param string $payment_transaction_id Payment Transaction ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentTransactionsProductModel
      */
@@ -170,9 +170,9 @@ class PaymentTransactionsApi
     /**
      * Operation assignTransferBalanceWithHttpInfo
      *
-     * POST Payment/Transactions/{paymentTransactionId}/assignTransferBalance
+     * Assign transferred balance
      *
-     * @param string $payment_transaction_id Payment transaction ID (required)
+     * @param string $payment_transaction_id Payment Transaction ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -256,10 +256,10 @@ class PaymentTransactionsApi
     /**
      * Operation cancel
      *
-     * POST Payment/Transactions/{paymentTransactionId}/cancel
+     * Cancel or refund
      *
-     * @param string $payment_transaction_id Payment transaction id (required)
-     * @param \Secuconnect\Client\Model\PaymentTransactionCancelDTO $body Cancel payment transaction input properties 
+     * @param string $payment_transaction_id Payment Transaction ID (required)
+     * @param \Secuconnect\Client\Model\PaymentTransactionCancelDTO $body Amount and reason 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentTransactionsProductModel[]
      */
@@ -272,10 +272,10 @@ class PaymentTransactionsApi
     /**
      * Operation cancelWithHttpInfo
      *
-     * POST Payment/Transactions/{paymentTransactionId}/cancel
+     * Cancel or refund
      *
-     * @param string $payment_transaction_id Payment transaction id (required)
-     * @param \Secuconnect\Client\Model\PaymentTransactionCancelDTO $body Cancel payment transaction input properties 
+     * @param string $payment_transaction_id Payment Transaction ID (required)
+     * @param \Secuconnect\Client\Model\PaymentTransactionCancelDTO $body Amount and reason 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentTransactionsProductModel[], HTTP status code, HTTP response headers (array of strings)
      */
@@ -364,9 +364,9 @@ class PaymentTransactionsApi
     /**
      * Operation checkStatus
      *
-     * GET Payment/Transactions/{paymentTransactionId}/checkStatus
+     * Check payment status
      *
-     * @param string $payment_transaction_id Payment transaction id (required)
+     * @param string $payment_transaction_id Payment Transaction ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentTransactionsCheckStatus
      */
@@ -379,9 +379,9 @@ class PaymentTransactionsApi
     /**
      * Operation checkStatusWithHttpInfo
      *
-     * GET Payment/Transactions/{paymentTransactionId}/checkStatus
+     * Check payment status
      *
-     * @param string $payment_transaction_id Payment transaction id (required)
+     * @param string $payment_transaction_id Payment Transaction ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentTransactionsCheckStatus, HTTP status code, HTTP response headers (array of strings)
      */
@@ -465,7 +465,7 @@ class PaymentTransactionsApi
     /**
      * Operation getAll
      *
-     * GET Payment/Transactions
+     * Find Payment Transactions
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -490,7 +490,7 @@ class PaymentTransactionsApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * GET Payment/Transactions
+     * Find Payment Transactions
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -616,9 +616,9 @@ class PaymentTransactionsApi
     /**
      * Operation getCrowdFundingData
      *
-     * GET Payment/Transactions/me/CrowdFundingData/{generalMerchantId}
+     * Crowd funding data
      *
-     * @param string $general_merchant_id Merchant ID (MRC_...) (required)
+     * @param string $general_merchant_id General Merchant ID (MRC_...) (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentCrowdFundingData
      */
@@ -631,9 +631,9 @@ class PaymentTransactionsApi
     /**
      * Operation getCrowdFundingDataWithHttpInfo
      *
-     * GET Payment/Transactions/me/CrowdFundingData/{generalMerchantId}
+     * Crowd funding data
      *
-     * @param string $general_merchant_id Merchant ID (MRC_...) (required)
+     * @param string $general_merchant_id General Merchant ID (MRC_...) (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentCrowdFundingData, HTTP status code, HTTP response headers (array of strings)
      */
@@ -717,9 +717,9 @@ class PaymentTransactionsApi
     /**
      * Operation getOne
      *
-     * GET Payment/Transactions/{paymentTransactionId}
+     * Read Payment Transaction
      *
-     * @param string $payment_transaction_id Payment transaction id (required)
+     * @param string $payment_transaction_id Payment Transaction ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentTransactionsProductModel
      */
@@ -732,9 +732,9 @@ class PaymentTransactionsApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * GET Payment/Transactions/{paymentTransactionId}
+     * Read Payment Transaction
      *
-     * @param string $payment_transaction_id Payment transaction id (required)
+     * @param string $payment_transaction_id Payment Transaction ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1020,9 +1020,9 @@ class PaymentTransactionsApi
     /**
      * Operation getPaymentTransactionsOldFormat
      *
-     * GET Payment/Transactions/{paymentTransactionId}/OldFormat
+     * Read in old format
      *
-     * @param string $payment_transaction_id Payment ID (PCI_...) or hash (required)
+     * @param string $payment_transaction_id Payment Transaction ID (PCI_...) or Flex.API transaction hash (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SecupayTransactionProductModel
      */
@@ -1035,9 +1035,9 @@ class PaymentTransactionsApi
     /**
      * Operation getPaymentTransactionsOldFormatWithHttpInfo
      *
-     * GET Payment/Transactions/{paymentTransactionId}/OldFormat
+     * Read in old format
      *
-     * @param string $payment_transaction_id Payment ID (PCI_...) or hash (required)
+     * @param string $payment_transaction_id Payment Transaction ID (PCI_...) or Flex.API transaction hash (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SecupayTransactionProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1121,9 +1121,9 @@ class PaymentTransactionsApi
     /**
      * Operation getShippingUrl
      *
-     * GET Payment/Transactions/{paymentTransactionId}/shippingUrl
+     * Shipping URL
      *
-     * @param string $payment_transaction_id Payment transaction id (required)
+     * @param string $payment_transaction_id Payment Transaction ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentTransactionsShippingUrl
      */
@@ -1136,9 +1136,9 @@ class PaymentTransactionsApi
     /**
      * Operation getShippingUrlWithHttpInfo
      *
-     * GET Payment/Transactions/{paymentTransactionId}/shippingUrl
+     * Shipping URL
      *
-     * @param string $payment_transaction_id Payment transaction id (required)
+     * @param string $payment_transaction_id Payment Transaction ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentTransactionsShippingUrl, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1222,9 +1222,9 @@ class PaymentTransactionsApi
     /**
      * Operation increaseAmount
      *
-     * POST Payment/Transactions/{paymentTransactionId}/IncreaseAmount
+     * Increase amount
      *
-     * @param string $payment_transaction_id Payment ID (PCI_...) (required)
+     * @param string $payment_transaction_id Payment Transaction ID (required)
      * @param \Secuconnect\Client\Model\PaymentTransactionsIncreaseAmountDTO $body increase amount input params 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentTransactionsProductModel
@@ -1238,9 +1238,9 @@ class PaymentTransactionsApi
     /**
      * Operation increaseAmountWithHttpInfo
      *
-     * POST Payment/Transactions/{paymentTransactionId}/IncreaseAmount
+     * Increase amount
      *
-     * @param string $payment_transaction_id Payment ID (PCI_...) (required)
+     * @param string $payment_transaction_id Payment Transaction ID (required)
      * @param \Secuconnect\Client\Model\PaymentTransactionsIncreaseAmountDTO $body increase amount input params 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
@@ -1330,9 +1330,9 @@ class PaymentTransactionsApi
     /**
      * Operation revokeAccrual
      *
-     * POST Payment/Transactions/{paymentTransactionId}/revokeAccrual
+     * Revoke accrual
      *
-     * @param string $payment_transaction_id Payment transaction id (required)
+     * @param string $payment_transaction_id Payment Transaction ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentTransactionsProductModel
      */
@@ -1345,9 +1345,9 @@ class PaymentTransactionsApi
     /**
      * Operation revokeAccrualWithHttpInfo
      *
-     * POST Payment/Transactions/{paymentTransactionId}/revokeAccrual
+     * Revoke accrual
      *
-     * @param string $payment_transaction_id Payment transaction id (required)
+     * @param string $payment_transaction_id Payment Transaction ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1431,10 +1431,10 @@ class PaymentTransactionsApi
     /**
      * Operation updateShippingInformation
      *
-     * PUT Payment/Transactions/{paymentTransactionId}/ShippingInformation
+     * Add shipping information
      *
-     * @param string $payment_transaction_id Payment ID (PCI_...) or hash (required)
-     * @param \Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO $body Update shipping information input properties 
+     * @param string $payment_transaction_id Payment Transaction ID (PCI_...) or Flex.API transaction hash (required)
+     * @param \Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO $body Shipping information 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ResultBoolean
      */
@@ -1447,10 +1447,10 @@ class PaymentTransactionsApi
     /**
      * Operation updateShippingInformationWithHttpInfo
      *
-     * PUT Payment/Transactions/{paymentTransactionId}/ShippingInformation
+     * Add shipping information
      *
-     * @param string $payment_transaction_id Payment ID (PCI_...) or hash (required)
-     * @param \Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO $body Update shipping information input properties 
+     * @param string $payment_transaction_id Payment Transaction ID (PCI_...) or Flex.API transaction hash (required)
+     * @param \Secuconnect\Client\Model\SecupayTransactionSetShippingInformationDTO $body Shipping information 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
      */

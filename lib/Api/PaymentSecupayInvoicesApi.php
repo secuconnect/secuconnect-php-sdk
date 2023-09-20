@@ -63,7 +63,7 @@ class PaymentSecupayInvoicesApi
     /**
      * Operation assignExternalInvoicePdf
      *
-     * POST Payment/{paymentMethod}/{paymentId}/assignExternalInvoicePdf/{documentId}
+     * Assign external invoice PDF
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
@@ -81,7 +81,7 @@ class PaymentSecupayInvoicesApi
     /**
      * Operation assignExternalInvoicePdfWithHttpInfo
      *
-     * POST Payment/{paymentMethod}/{paymentId}/assignExternalInvoicePdf/{documentId}
+     * Assign external invoice PDF
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
@@ -203,7 +203,7 @@ class PaymentSecupayInvoicesApi
     /**
      * Operation cancelPaymentTransactionById
      *
-     * POST Payment/{paymentMethod}/{paymentId}/cancel
+     * Cancel or refund payment
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
@@ -220,7 +220,7 @@ class PaymentSecupayInvoicesApi
     /**
      * Operation cancelPaymentTransactionByIdWithHttpInfo
      *
-     * POST Payment/{paymentMethod}/{paymentId}/cancel
+     * Cancel or refund payment
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
@@ -327,7 +327,7 @@ class PaymentSecupayInvoicesApi
     /**
      * Operation capturePaymentTransactionById
      *
-     * POST Payment/{paymentMethod}/{paymentId}/capture
+     * Capture payment
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
@@ -344,7 +344,7 @@ class PaymentSecupayInvoicesApi
     /**
      * Operation capturePaymentTransactionByIdWithHttpInfo
      *
-     * POST Payment/{paymentMethod}/{paymentId}/capture
+     * Capture payment
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
@@ -451,7 +451,7 @@ class PaymentSecupayInvoicesApi
     /**
      * Operation paymentSecupayInvoicesGetById
      *
-     * GET Payment/Secupayinvoices/{paymentInvoiceId}
+     * Read Payment Secupayinvoice
      *
      * @param string $payment_invoice_id Payment transaction ID (required)
      * @throws ApiException on non-2xx response
@@ -466,7 +466,7 @@ class PaymentSecupayInvoicesApi
     /**
      * Operation paymentSecupayInvoicesGetByIdWithHttpInfo
      *
-     * GET Payment/Secupayinvoices/{paymentInvoiceId}
+     * Read Payment Secupayinvoice
      *
      * @param string $payment_invoice_id Payment transaction ID (required)
      * @throws ApiException on non-2xx response
@@ -552,7 +552,7 @@ class PaymentSecupayInvoicesApi
     /**
      * Operation paymentSecupayinvoicesPost
      *
-     * POST Payment/Secupayinvoices
+     * Create Payment Secupayinvoices
      *
      * @param \Secuconnect\Client\Model\SecupayTransactionProductDTO $body Invoice payment transaction input properties 
      * @throws ApiException on non-2xx response
@@ -567,7 +567,7 @@ class PaymentSecupayInvoicesApi
     /**
      * Operation paymentSecupayinvoicesPostWithHttpInfo
      *
-     * POST Payment/Secupayinvoices
+     * Create Payment Secupayinvoices
      *
      * @param \Secuconnect\Client\Model\SecupayTransactionProductDTO $body Invoice payment transaction input properties 
      * @throws ApiException on non-2xx response
@@ -644,7 +644,7 @@ class PaymentSecupayInvoicesApi
     /**
      * Operation reverseAccrualByPaymentId
      *
-     * PUT Payment/{paymentMethod}/{paymentId}/accrual
+     * Change accrual flag
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
@@ -661,7 +661,7 @@ class PaymentSecupayInvoicesApi
     /**
      * Operation reverseAccrualByPaymentIdWithHttpInfo
      *
-     * PUT Payment/{paymentMethod}/{paymentId}/accrual
+     * Change accrual flag
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
@@ -768,7 +768,7 @@ class PaymentSecupayInvoicesApi
     /**
      * Operation setShippingInformationByPaymentId
      *
-     * PUT Payment/{paymentMethod}/{paymentId}/shippingInformation
+     * Set shipping information
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
@@ -785,7 +785,7 @@ class PaymentSecupayInvoicesApi
     /**
      * Operation setShippingInformationByPaymentIdWithHttpInfo
      *
-     * PUT Payment/{paymentMethod}/{paymentId}/shippingInformation
+     * Set shipping information
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
@@ -892,7 +892,7 @@ class PaymentSecupayInvoicesApi
     /**
      * Operation updateBasketByPaymentId
      *
-     * PUT Payment/{paymentMethod}/{paymentId}/basket
+     * Update basket
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)
@@ -909,7 +909,7 @@ class PaymentSecupayInvoicesApi
     /**
      * Operation updateBasketByPaymentIdWithHttpInfo
      *
-     * PUT Payment/{paymentMethod}/{paymentId}/basket
+     * Update basket
      *
      * @param string $payment_method Payment method (secupaydebits, secupayprepays, secupayinvoices, ...) (required)
      * @param string $payment_id Payment id (required)

@@ -8,7 +8,7 @@ use \ArrayAccess;
  * PaymentContainersDTO
  *
  * @category Class
- * @description PaymentContainersDTO
+ * @description Payment instrument
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -225,7 +225,7 @@ class PaymentContainersDTO implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type Type of Payment Containers
+     * @param string $type Container type
      * @return $this
      */
     public function setType($type)

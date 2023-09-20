@@ -63,7 +63,7 @@ class PaymentCustomersApi
     /**
      * Operation paymentCustomersGet
      *
-     * GET Payment/Customers
+     * Find Payment Customers
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -88,7 +88,7 @@ class PaymentCustomersApi
     /**
      * Operation paymentCustomersGetWithHttpInfo
      *
-     * GET Payment/Customers
+     * Find Payment Customers
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -214,9 +214,9 @@ class PaymentCustomersApi
     /**
      * Operation paymentCustomersGetById
      *
-     * GET Payment/Customers/{paymentCustomerId}
+     * Read Payment Customer
      *
-     * @param string $payment_customer_id Payment customer id (required)
+     * @param string $payment_customer_id Payment Customer ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentCustomersProductModel
      */
@@ -229,9 +229,9 @@ class PaymentCustomersApi
     /**
      * Operation paymentCustomersGetByIdWithHttpInfo
      *
-     * GET Payment/Customers/{paymentCustomerId}
+     * Read Payment Customer
      *
-     * @param string $payment_customer_id Payment customer id (required)
+     * @param string $payment_customer_id Payment Customer ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentCustomersProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -315,9 +315,9 @@ class PaymentCustomersApi
     /**
      * Operation paymentCustomersIdDelete
      *
-     * DELETE Payment/Customers/{paymentCustomerId}
+     * Delete Payment Customer
      *
-     * @param string $payment_customer_id Payment customer id (required)
+     * @param string $payment_customer_id Payment Customer ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentCustomersProductModel[]
      */
@@ -330,9 +330,9 @@ class PaymentCustomersApi
     /**
      * Operation paymentCustomersIdDeleteWithHttpInfo
      *
-     * DELETE Payment/Customers/{paymentCustomerId}
+     * Delete Payment Customer
      *
-     * @param string $payment_customer_id Payment customer id (required)
+     * @param string $payment_customer_id Payment Customer ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentCustomersProductModel[], HTTP status code, HTTP response headers (array of strings)
      */
@@ -416,9 +416,9 @@ class PaymentCustomersApi
     /**
      * Operation paymentCustomersIdPut
      *
-     * PUT Payment/Customers/{paymentCustomerId}
+     * Update Payment Customer
      *
-     * @param string $payment_customer_id Payment customer id (required)
+     * @param string $payment_customer_id Payment Customer ID (required)
      * @param \Secuconnect\Client\Model\PaymentCustomersDTO $body Payment customer properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentCustomersProductModel
@@ -432,9 +432,9 @@ class PaymentCustomersApi
     /**
      * Operation paymentCustomersIdPutWithHttpInfo
      *
-     * PUT Payment/Customers/{paymentCustomerId}
+     * Update Payment Customer
      *
-     * @param string $payment_customer_id Payment customer id (required)
+     * @param string $payment_customer_id Payment Customer ID (required)
      * @param \Secuconnect\Client\Model\PaymentCustomersDTO $body Payment customer properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentCustomersProductModel, HTTP status code, HTTP response headers (array of strings)
@@ -524,9 +524,9 @@ class PaymentCustomersApi
     /**
      * Operation paymentCustomersPost
      *
-     * POST Payment/Customers
+     * Create Payment Customer
      *
-     * @param \Secuconnect\Client\Model\PaymentCustomersDTO $body Payment customer properties 
+     * @param \Secuconnect\Client\Model\PaymentCustomersDTO $body Details of the new Payment Customer 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentCustomersProductModel
      */
@@ -539,9 +539,9 @@ class PaymentCustomersApi
     /**
      * Operation paymentCustomersPostWithHttpInfo
      *
-     * POST Payment/Customers
+     * Create Payment Customer
      *
-     * @param \Secuconnect\Client\Model\PaymentCustomersDTO $body Payment customer properties 
+     * @param \Secuconnect\Client\Model\PaymentCustomersDTO $body Details of the new Payment Customer 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentCustomersProductModel, HTTP status code, HTTP response headers (array of strings)
      */

@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SecupayBaseBasketItem
  *
  * @category Class
- * @description Item describing single position in basket in transaction
+ * @description Single position in basket
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -222,7 +222,7 @@ class SecupayBaseBasketItem implements ArrayAccess
 
     /**
      * Sets item_type
-     * @param string $item_type Line type {'article', 'sub_transaction', 'stakeholder_payment', 'shipping', 'subscription'}
+     * @param string $item_type Item type:  - `\"article\"` - `\"sub_transaction\"` - `\"stakeholder_payment\"` - `\"shipping\"` - `\"subscription\"`
      * @return $this
      */
     public function setItemType($item_type)
@@ -243,7 +243,7 @@ class SecupayBaseBasketItem implements ArrayAccess
 
     /**
      * Sets article_number
-     * @param string $article_number Your article number, storage key unit (SKU)
+     * @param string $article_number Your article number (SKU)
      * @return $this
      */
     public function setArticleNumber($article_number)
@@ -306,7 +306,7 @@ class SecupayBaseBasketItem implements ArrayAccess
 
     /**
      * Sets model
-     * @param string $model Model of item
+     * @param string $model Product variation
      * @return $this
      */
     public function setModel($model)
@@ -432,7 +432,7 @@ class SecupayBaseBasketItem implements ArrayAccess
 
     /**
      * Sets plan_id
-     * @param string $plan_id Subscription plan id
+     * @param string $plan_id Subscription plan ID
      * @return $this
      */
     public function setPlanId($plan_id)
@@ -453,7 +453,7 @@ class SecupayBaseBasketItem implements ArrayAccess
 
     /**
      * Sets start_at
-     * @param string $start_at Subscription start at date
+     * @param string $start_at Subscription start date
      * @return $this
      */
     public function setStartAt($start_at)
@@ -516,7 +516,7 @@ class SecupayBaseBasketItem implements ArrayAccess
 
     /**
      * Sets reference_id
-     * @param string $reference_id Unique line identifier, used to maintain the basket before the transaction is executed
+     * @param string $reference_id Unique line identifier, used to manage the basket before the transaction is executed
      * @return $this
      */
     public function setReferenceId($reference_id)

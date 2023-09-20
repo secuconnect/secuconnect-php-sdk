@@ -29,8 +29,6 @@ class CrowdFundingDataDetails implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'currency' => 'string',
-        'total_amount' => 'int',
-        'total_count' => 'int',
         'debit' => '\Secuconnect\Client\Model\PaymentMethodBreakdown',
         'credit_card' => '\Secuconnect\Client\Model\PaymentMethodBreakdown',
         'prepay' => '\Secuconnect\Client\Model\PaymentMethodBreakdown',
@@ -44,8 +42,6 @@ class CrowdFundingDataDetails implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'currency' => null,
-        'total_amount' => null,
-        'total_count' => null,
         'debit' => null,
         'credit_card' => null,
         'prepay' => null,
@@ -69,8 +65,6 @@ class CrowdFundingDataDetails implements ArrayAccess
      */
     protected static $attributeMap = [
         'currency' => 'currency',
-        'total_amount' => 'total_amount',
-        'total_count' => 'total_count',
         'debit' => 'debit',
         'credit_card' => 'credit_card',
         'prepay' => 'prepay',
@@ -84,8 +78,6 @@ class CrowdFundingDataDetails implements ArrayAccess
      */
     protected static $setters = [
         'currency' => 'setCurrency',
-        'total_amount' => 'setTotalAmount',
-        'total_count' => 'setTotalCount',
         'debit' => 'setDebit',
         'credit_card' => 'setCreditCard',
         'prepay' => 'setPrepay',
@@ -99,8 +91,6 @@ class CrowdFundingDataDetails implements ArrayAccess
      */
     protected static $getters = [
         'currency' => 'getCurrency',
-        'total_amount' => 'getTotalAmount',
-        'total_count' => 'getTotalCount',
         'debit' => 'getDebit',
         'credit_card' => 'getCreditCard',
         'prepay' => 'getPrepay',
@@ -135,9 +125,7 @@ class CrowdFundingDataDetails implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : 'EUR';
-        $this->container['total_amount'] = isset($data['total_amount']) ? $data['total_amount'] : null;
-        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['debit'] = isset($data['debit']) ? $data['debit'] : null;
         $this->container['credit_card'] = isset($data['credit_card']) ? $data['credit_card'] : null;
         $this->container['prepay'] = isset($data['prepay']) ? $data['prepay'] : null;
@@ -180,54 +168,12 @@ class CrowdFundingDataDetails implements ArrayAccess
 
     /**
      * Sets currency
-     * @param string $currency ISO code of the currency for this merchant
+     * @param string $currency currency
      * @return $this
      */
     public function setCurrency($currency)
     {
         $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_amount
-     * @return int
-     */
-    public function getTotalAmount()
-    {
-        return $this->container['total_amount'];
-    }
-
-    /**
-     * Sets total_amount
-     * @param int $total_amount Total transaction amount of all transactions for this merchant
-     * @return $this
-     */
-    public function setTotalAmount($total_amount)
-    {
-        $this->container['total_amount'] = $total_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_count
-     * @return int
-     */
-    public function getTotalCount()
-    {
-        return $this->container['total_count'];
-    }
-
-    /**
-     * Sets total_count
-     * @param int $total_count Count of the transactions
-     * @return $this
-     */
-    public function setTotalCount($total_count)
-    {
-        $this->container['total_count'] = $total_count;
 
         return $this;
     }

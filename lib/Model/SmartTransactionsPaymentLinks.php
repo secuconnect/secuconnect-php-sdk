@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsPaymentLinks
  *
  * @category Class
- * @description SmartTransactionsPaymentLinks
+ * @description Payment links
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -174,7 +174,7 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
 
     /**
      * Sets prepaid
-     * @param string $prepaid process with pay in advance
+     * @param string $prepaid URL for prepayment
      * @return $this
      */
     public function setPrepaid($prepaid)
@@ -195,7 +195,7 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
 
     /**
      * Sets debit
-     * @param string $debit process with SEPA direct debit
+     * @param string $debit URL for SEPA direct debit
      * @return $this
      */
     public function setDebit($debit)
@@ -216,7 +216,7 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
 
     /**
      * Sets creditcard
-     * @param string $creditcard process with credit card
+     * @param string $creditcard URL for credit card payment
      * @return $this
      */
     public function setCreditcard($creditcard)
@@ -237,7 +237,7 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
 
     /**
      * Sets invoice
-     * @param string $invoice process with pay on invoice
+     * @param string $invoice URL for invoice payment
      * @return $this
      */
     public function setInvoice($invoice)
@@ -258,7 +258,7 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
 
     /**
      * Sets paypal
-     * @param string $paypal process with PayPal
+     * @param string $paypal URL for PayPal payment
      * @return $this
      */
     public function setPaypal($paypal)
@@ -279,7 +279,7 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
 
     /**
      * Sets sofort
-     * @param string $sofort process with Sofort
+     * @param string $sofort URL for klarna Sofort payment
      * @return $this
      */
     public function setSofort($sofort)
@@ -300,7 +300,7 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
 
     /**
      * Sets general
-     * @param string $general process with selecting a payment method
+     * @param string $general URL for payment with any available payment method
      * @return $this
      */
     public function setGeneral($general)

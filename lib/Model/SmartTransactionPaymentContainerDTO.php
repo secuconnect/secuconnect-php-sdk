@@ -6,7 +6,7 @@ namespace Secuconnect\Client\Model;
  * SmartTransactionPaymentContainerDTO
  *
  * @category Class
- * @description SmartTransactionPaymentContainerDTO
+ * @description Payment instrument
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -219,7 +219,7 @@ class SmartTransactionPaymentContainerDTO extends ProductInstanceUID
 
     /**
      * Sets type
-     * @param string $type Type of Payment Containers
+     * @param string $type Container type
      * @return $this
      */
     public function setType($type)

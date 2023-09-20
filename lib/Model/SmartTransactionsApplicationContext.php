@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsApplicationContext
  *
  * @category Class
- * @description SmartTransactionsApplicationContext
+ * @description Controls the integration between Smart Checkout and the shop.
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -225,7 +225,7 @@ class SmartTransactionsApplicationContext implements ArrayAccess
 
     /**
      * Sets checkout_template
-     * @param string $checkout_template Smart Checkout Template ID
+     * @param string $checkout_template Smart Checkout Template ID  Default templates:  - `\"COT_WD0DE66HN2XWJHW8JM88003YG0NEA2\"` for checkout - `\"COT_QV85D3F542XWFFJYCSWG00W400YWAT\"` for subscriptions
      * @return $this
      */
     public function setCheckoutTemplate($checkout_template)
@@ -246,7 +246,7 @@ class SmartTransactionsApplicationContext implements ArrayAccess
 
     /**
      * Sets language
-     * @param string $language The language Smart Checkout is starting with
+     * @param string $language Language Smart Checkout is starting with:  - `\"de\"` - `\"en\"`
      * @return $this
      */
     public function setLanguage($language)

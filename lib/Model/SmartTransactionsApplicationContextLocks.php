@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsApplicationContextLocks
  *
  * @category Class
- * @description SmartTransactionsApplicationContextLocks
+ * @description Data restrictions for Smart Checkout
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -105,7 +105,7 @@ class SmartTransactionsApplicationContextLocks implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
+        $this->container['customer'] = isset($data['customer']) ? $data['customer'] : false;
         $this->container['shipping_address'] = isset($data['shipping_address']) ? $data['shipping_address'] : null;
     }
 
@@ -144,7 +144,7 @@ class SmartTransactionsApplicationContextLocks implements ArrayAccess
 
     /**
      * Sets customer
-     * @param bool $customer look customer data
+     * @param bool $customer Whether the customer data are locked; locked data must not be changed
      * @return $this
      */
     public function setCustomer($customer)
@@ -165,7 +165,7 @@ class SmartTransactionsApplicationContextLocks implements ArrayAccess
 
     /**
      * Sets shipping_address
-     * @param bool $shipping_address look shipping address data
+     * @param bool $shipping_address Whether the shipping address is locked; locked data must not be changed
      * @return $this
      */
     public function setShippingAddress($shipping_address)

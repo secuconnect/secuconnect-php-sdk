@@ -63,7 +63,7 @@ class SmartRoutingsApi
     /**
      * Operation addRouting
      *
-     * POST Smart/Routings
+     * Create Smart Routing
      *
      * @param \Secuconnect\Client\Model\SmartRoutingsDTO $body Smart routing properties 
      * @throws ApiException on non-2xx response
@@ -78,7 +78,7 @@ class SmartRoutingsApi
     /**
      * Operation addRoutingWithHttpInfo
      *
-     * POST Smart/Routings
+     * Create Smart Routing
      *
      * @param \Secuconnect\Client\Model\SmartRoutingsDTO $body Smart routing properties 
      * @throws ApiException on non-2xx response
@@ -155,7 +155,7 @@ class SmartRoutingsApi
     /**
      * Operation assignDeviceToRouting
      *
-     * POST Smart/Routings/{smartRoutingId}/assign/{smartDeviceId}
+     * Assign Smart Device
      *
      * @param string $smart_routing_id Smart routing id (required)
      * @param string $smart_device_id Smart device id (required)
@@ -172,7 +172,7 @@ class SmartRoutingsApi
     /**
      * Operation assignDeviceToRoutingWithHttpInfo
      *
-     * POST Smart/Routings/{smartRoutingId}/assign/{smartDeviceId}
+     * Assign Smart Device
      *
      * @param string $smart_routing_id Smart routing id (required)
      * @param string $smart_device_id Smart device id (required)
@@ -279,7 +279,7 @@ class SmartRoutingsApi
     /**
      * Operation getAll
      *
-     * GET Smart/Routings
+     * Find Smart Routings
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -304,7 +304,7 @@ class SmartRoutingsApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * GET Smart/Routings
+     * Find Smart Routings
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -430,7 +430,7 @@ class SmartRoutingsApi
     /**
      * Operation getOne
      *
-     * GET Smart/Routings/{smartRoutingId}
+     * Read Smart Routing
      *
      * @param string $smart_routing_id Smart routing id (required)
      * @throws ApiException on non-2xx response
@@ -445,7 +445,7 @@ class SmartRoutingsApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * GET Smart/Routings/{smartRoutingId}
+     * Read Smart Routing
      *
      * @param string $smart_routing_id Smart routing id (required)
      * @throws ApiException on non-2xx response
@@ -531,7 +531,7 @@ class SmartRoutingsApi
     /**
      * Operation removeRouting
      *
-     * DELETE Smart/Routings/{smartRoutingId}
+     * Delete Smart Routing
      *
      * @param string $smart_routing_id Smart routing id (required)
      * @throws ApiException on non-2xx response
@@ -546,7 +546,7 @@ class SmartRoutingsApi
     /**
      * Operation removeRoutingWithHttpInfo
      *
-     * DELETE Smart/Routings/{smartRoutingId}
+     * Delete Smart Routing
      *
      * @param string $smart_routing_id Smart routing id (required)
      * @throws ApiException on non-2xx response
@@ -632,7 +632,7 @@ class SmartRoutingsApi
     /**
      * Operation removeSmartRoutingAssignment
      *
-     * DELETE Smart/Routings/{smartRoutingId}/assign/{smartDeviceId}
+     * Unassign Smart Device
      *
      * @param string $smart_routing_id Smart routing id (required)
      * @param string $smart_device_id Smart device id (required)
@@ -648,7 +648,7 @@ class SmartRoutingsApi
     /**
      * Operation removeSmartRoutingAssignmentWithHttpInfo
      *
-     * DELETE Smart/Routings/{smartRoutingId}/assign/{smartDeviceId}
+     * Unassign Smart Device
      *
      * @param string $smart_routing_id Smart routing id (required)
      * @param string $smart_device_id Smart device id (required)
@@ -749,7 +749,7 @@ class SmartRoutingsApi
     /**
      * Operation updateRouting
      *
-     * PUT Smart/Routings/{smartRoutingId}
+     * Update Smart Routing
      *
      * @param string $smart_routing_id Smart routing id (required)
      * @param \Secuconnect\Client\Model\SmartRoutingsDTO $body Smart routing properties 
@@ -765,7 +765,7 @@ class SmartRoutingsApi
     /**
      * Operation updateRoutingWithHttpInfo
      *
-     * PUT Smart/Routings/{smartRoutingId}
+     * Update Smart Routing
      *
      * @param string $smart_routing_id Smart routing id (required)
      * @param \Secuconnect\Client\Model\SmartRoutingsDTO $body Smart routing properties 

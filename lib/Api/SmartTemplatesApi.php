@@ -63,7 +63,7 @@ class SmartTemplatesApi
     /**
      * Operation getAll
      *
-     * GET Smart/Templates
+     * Find Smart Templates
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -88,7 +88,7 @@ class SmartTemplatesApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * GET Smart/Templates
+     * Find Smart Templates
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -214,7 +214,7 @@ class SmartTemplatesApi
     /**
      * Operation getOne
      *
-     * GET Smart/Templates/{smartTemplateId}
+     * Read Smart Template
      *
      * @param string $smart_template_id Smart template id (required)
      * @throws ApiException on non-2xx response
@@ -229,7 +229,7 @@ class SmartTemplatesApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * GET Smart/Templates/{smartTemplateId}
+     * Read Smart Template
      *
      * @param string $smart_template_id Smart template id (required)
      * @throws ApiException on non-2xx response

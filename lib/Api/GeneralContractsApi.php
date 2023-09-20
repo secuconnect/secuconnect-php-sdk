@@ -63,7 +63,7 @@ class GeneralContractsApi
     /**
      * Operation addPaymentLinkConfiguration
      *
-     * POST General/Contracts/{generalContractId}/SavePaymentLinkConfiguration
+     * Set Payment Link configuration
      *
      * @param string $general_contract_id Contract identifier (required)
      * @param \Secuconnect\Client\Model\PaymentLinkOptions $body body 
@@ -79,7 +79,7 @@ class GeneralContractsApi
     /**
      * Operation addPaymentLinkConfigurationWithHttpInfo
      *
-     * POST General/Contracts/{generalContractId}/SavePaymentLinkConfiguration
+     * Set Payment Link configuration
      *
      * @param string $general_contract_id Contract identifier (required)
      * @param \Secuconnect\Client\Model\PaymentLinkOptions $body 
@@ -171,7 +171,7 @@ class GeneralContractsApi
     /**
      * Operation addThirdPartyConfiguration
      *
-     * POST General/Contracts/{generalContractId}/ThirdPartyConfiguration
+     * Set third party configuration
      *
      * @param string $general_contract_id General contract id (required)
      * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body body 
@@ -187,7 +187,7 @@ class GeneralContractsApi
     /**
      * Operation addThirdPartyConfigurationWithHttpInfo
      *
-     * POST General/Contracts/{generalContractId}/ThirdPartyConfiguration
+     * Set third party configuration
      *
      * @param string $general_contract_id General contract id (required)
      * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body 
@@ -279,7 +279,7 @@ class GeneralContractsApi
     /**
      * Operation getAll
      *
-     * GET General/Contracts
+     * Find General Contracts
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -304,7 +304,7 @@ class GeneralContractsApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * GET General/Contracts
+     * Find General Contracts
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -430,11 +430,11 @@ class GeneralContractsApi
     /**
      * Operation getAvailableCurrencies
      *
-     * GET General/Contracts/{generalContractId}/AvailableCurrencies
+     * Get currencies
      *
      * @param string $general_contract_id Contract identifier (required)
      * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\AvailableCurrencies
+     * @return string[]
      */
     public function getAvailableCurrencies($general_contract_id)
     {
@@ -445,11 +445,11 @@ class GeneralContractsApi
     /**
      * Operation getAvailableCurrenciesWithHttpInfo
      *
-     * GET General/Contracts/{generalContractId}/AvailableCurrencies
+     * Get currencies
      *
      * @param string $general_contract_id Contract identifier (required)
      * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\AvailableCurrencies, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getAvailableCurrenciesWithHttpInfo($general_contract_id)
     {
@@ -501,15 +501,15 @@ class GeneralContractsApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    '\Secuconnect\Client\Model\AvailableCurrencies',
+                    'string[]',
                     '/General/Contracts/{generalContractId}/AvailableCurrencies'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\AvailableCurrencies', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, 'string[]', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\AvailableCurrencies', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string[]', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:
@@ -531,7 +531,7 @@ class GeneralContractsApi
     /**
      * Operation getAvailablePaymentMethods
      *
-     * POST General/Contracts/{generalContractId}/getAvailablePaymentMethods
+     * Get payment methods
      *
      * @param string $general_contract_id Contract identifier (required)
      * @param \Secuconnect\Client\Model\GetAvailablePaymentMethodsDTO $body body 
@@ -547,7 +547,7 @@ class GeneralContractsApi
     /**
      * Operation getAvailablePaymentMethodsWithHttpInfo
      *
-     * POST General/Contracts/{generalContractId}/getAvailablePaymentMethods
+     * Get payment methods
      *
      * @param string $general_contract_id Contract identifier (required)
      * @param \Secuconnect\Client\Model\GetAvailablePaymentMethodsDTO $body 
@@ -639,7 +639,7 @@ class GeneralContractsApi
     /**
      * Operation getAvailablePaymentMethodsForTransaction
      *
-     * POST General/Contracts/{generalContractId}/getAvailablePaymentMethods/{smartTransactionId}
+     * Get available payment methods for Smart Transaction
      *
      * @param string $general_contract_id Contract identifier (required)
      * @param string $smart_transaction_id Smart Transaction identifier (required)
@@ -656,7 +656,7 @@ class GeneralContractsApi
     /**
      * Operation getAvailablePaymentMethodsForTransactionWithHttpInfo
      *
-     * POST General/Contracts/{generalContractId}/getAvailablePaymentMethods/{smartTransactionId}
+     * Get available payment methods for Smart Transaction
      *
      * @param string $general_contract_id Contract identifier (required)
      * @param string $smart_transaction_id Smart Transaction identifier (required)
@@ -763,7 +763,7 @@ class GeneralContractsApi
     /**
      * Operation getIframeOptions
      *
-     * GET General/Contracts/{generalContractId}/IframeOptions
+     * Get iframe options
      *
      * @param string $general_contract_id Contract identifier (required)
      * @throws ApiException on non-2xx response
@@ -778,7 +778,7 @@ class GeneralContractsApi
     /**
      * Operation getIframeOptionsWithHttpInfo
      *
-     * GET General/Contracts/{generalContractId}/IframeOptions
+     * Get iframe options
      *
      * @param string $general_contract_id Contract identifier (required)
      * @throws ApiException on non-2xx response
@@ -864,7 +864,7 @@ class GeneralContractsApi
     /**
      * Operation getOne
      *
-     * GET General/Contracts/{generalContractId}
+     * Read General Contract
      *
      * @param string $general_contract_id General contract id (required)
      * @throws ApiException on non-2xx response
@@ -879,7 +879,7 @@ class GeneralContractsApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * GET General/Contracts/{generalContractId}
+     * Read General Contract
      *
      * @param string $general_contract_id General contract id (required)
      * @throws ApiException on non-2xx response
@@ -965,7 +965,7 @@ class GeneralContractsApi
     /**
      * Operation getThirdPartyConfiguration
      *
-     * GET General/Contracts/{generalContractId}/ThirdPartyConfiguration
+     * Get third party configuration
      *
      * @param string $general_contract_id General contract id (required)
      * @throws ApiException on non-2xx response
@@ -980,7 +980,7 @@ class GeneralContractsApi
     /**
      * Operation getThirdPartyConfigurationWithHttpInfo
      *
-     * GET General/Contracts/{generalContractId}/ThirdPartyConfiguration
+     * Get third party configuration
      *
      * @param string $general_contract_id General contract id (required)
      * @throws ApiException on non-2xx response
@@ -1066,7 +1066,7 @@ class GeneralContractsApi
     /**
      * Operation getTransferBalance
      *
-     * GET General/Contracts/{generalContractId}/transferBalance
+     * Get balance from bank transfer
      *
      * @param \Secuconnect\Client\Model\ProductInstanceID $general_contract_id Contract identifier (required)
      * @throws ApiException on non-2xx response
@@ -1081,7 +1081,7 @@ class GeneralContractsApi
     /**
      * Operation getTransferBalanceWithHttpInfo
      *
-     * GET General/Contracts/{generalContractId}/transferBalance
+     * Get balance from bank transfer
      *
      * @param \Secuconnect\Client\Model\ProductInstanceID $general_contract_id Contract identifier (required)
      * @throws ApiException on non-2xx response
@@ -1167,7 +1167,7 @@ class GeneralContractsApi
     /**
      * Operation patchContract
      *
-     * PATCH General/Contracts/{generalContractId}
+     * Update General Contract partially
      *
      * @param string $general_contract_id General contract id (required)
      * @param \Secuconnect\Client\Model\GeneralContractsDTO $body body 
@@ -1183,7 +1183,7 @@ class GeneralContractsApi
     /**
      * Operation patchContractWithHttpInfo
      *
-     * PATCH General/Contracts/{generalContractId}
+     * Update General Contract partially
      *
      * @param string $general_contract_id General contract id (required)
      * @param \Secuconnect\Client\Model\GeneralContractsDTO $body 
@@ -1275,7 +1275,7 @@ class GeneralContractsApi
     /**
      * Operation patchThirdPartyConfiguration
      *
-     * PATCH General/Contracts/{generalContractId}/ThirdPartyConfiguration
+     * Update third party configuration partially
      *
      * @param string $general_contract_id General contract id (required)
      * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body body 
@@ -1291,7 +1291,7 @@ class GeneralContractsApi
     /**
      * Operation patchThirdPartyConfigurationWithHttpInfo
      *
-     * PATCH General/Contracts/{generalContractId}/ThirdPartyConfiguration
+     * Update third party configuration partially
      *
      * @param string $general_contract_id General contract id (required)
      * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body 
@@ -1383,7 +1383,7 @@ class GeneralContractsApi
     /**
      * Operation removeThirdPartyConfiguration
      *
-     * DELETE General/Contracts/{generalContractId}/ThirdPartyConfiguration
+     * Delete third party configuration
      *
      * @param string $general_contract_id General contract id (required)
      * @param string $third_party_name Third party name (required)
@@ -1399,7 +1399,7 @@ class GeneralContractsApi
     /**
      * Operation removeThirdPartyConfigurationWithHttpInfo
      *
-     * DELETE General/Contracts/{generalContractId}/ThirdPartyConfiguration
+     * Delete third party configuration
      *
      * @param string $general_contract_id General contract id (required)
      * @param string $third_party_name Third party name (required)
@@ -1500,7 +1500,7 @@ class GeneralContractsApi
     /**
      * Operation revokeAccrual
      *
-     * POST General/Contracts/{generalContractId}/revokeAccrual
+     * Revoke all accruals
      *
      * @param string $general_contract_id Contract identifier (required)
      * @throws ApiException on non-2xx response
@@ -1514,7 +1514,7 @@ class GeneralContractsApi
     /**
      * Operation revokeAccrualWithHttpInfo
      *
-     * POST General/Contracts/{generalContractId}/revokeAccrual
+     * Revoke all accruals
      *
      * @param string $general_contract_id Contract identifier (required)
      * @throws ApiException on non-2xx response
@@ -1596,7 +1596,7 @@ class GeneralContractsApi
     /**
      * Operation terminate
      *
-     * POST General/Contracts/{generalContractId}/terminate
+     * Terminate contract
      *
      * @param string $general_contract_id Contract identifier (required)
      * @throws ApiException on non-2xx response
@@ -1611,7 +1611,7 @@ class GeneralContractsApi
     /**
      * Operation terminateWithHttpInfo
      *
-     * POST General/Contracts/{generalContractId}/terminate
+     * Terminate contract
      *
      * @param string $general_contract_id Contract identifier (required)
      * @throws ApiException on non-2xx response
@@ -1697,7 +1697,7 @@ class GeneralContractsApi
     /**
      * Operation updateBankAccount
      *
-     * POST General/Contracts/{generalContractId}/updateBankAccount
+     * Update bank account
      *
      * @param string $general_contract_id Contract identifier (required)
      * @param \Secuconnect\Client\Model\BankAccountDescriptor $body body 
@@ -1713,7 +1713,7 @@ class GeneralContractsApi
     /**
      * Operation updateBankAccountWithHttpInfo
      *
-     * POST General/Contracts/{generalContractId}/updateBankAccount
+     * Update bank account
      *
      * @param string $general_contract_id Contract identifier (required)
      * @param \Secuconnect\Client\Model\BankAccountDescriptor $body 
@@ -1805,7 +1805,7 @@ class GeneralContractsApi
     /**
      * Operation updateContract
      *
-     * PUT General/Contracts/{generalContractId}
+     * Update General Contract
      *
      * @param string $general_contract_id General contract id (required)
      * @param \Secuconnect\Client\Model\GeneralContractsDTO $body body 
@@ -1821,7 +1821,7 @@ class GeneralContractsApi
     /**
      * Operation updateContractWithHttpInfo
      *
-     * PUT General/Contracts/{generalContractId}
+     * Update General Contract
      *
      * @param string $general_contract_id General contract id (required)
      * @param \Secuconnect\Client\Model\GeneralContractsDTO $body 
@@ -1913,7 +1913,7 @@ class GeneralContractsApi
     /**
      * Operation updateThirdPartyConfiguration
      *
-     * PUT General/Contracts/{generalContractId}/ThirdPartyConfiguration
+     * Update third party configuration
      *
      * @param string $general_contract_id General contract id (required)
      * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body body 
@@ -1929,7 +1929,7 @@ class GeneralContractsApi
     /**
      * Operation updateThirdPartyConfigurationWithHttpInfo
      *
-     * PUT General/Contracts/{generalContractId}/ThirdPartyConfiguration
+     * Update third party configuration
      *
      * @param string $general_contract_id General contract id (required)
      * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body 
