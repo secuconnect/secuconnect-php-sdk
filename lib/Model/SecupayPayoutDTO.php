@@ -207,7 +207,7 @@ class SecupayPayoutDTO implements ArrayAccess
 
     /**
      * Sets contract
-     * @param string $contract The contract ID
+     * @param string $contract General Contract ID
      * @return $this
      */
     public function setContract($contract)
@@ -312,7 +312,7 @@ class SecupayPayoutDTO implements ArrayAccess
 
     /**
      * Sets purpose
-     * @param string $purpose The purpose of the payment. This is the later assignment of the payment is for example on the account statement of the buyer.
+     * @param string $purpose The purpose of the payment. It appears at the bank statement of the payee.
      * @return $this
      */
     public function setPurpose($purpose)
@@ -333,7 +333,7 @@ class SecupayPayoutDTO implements ArrayAccess
 
     /**
      * Sets order_id
-     * @param string $order_id Specifying an order number. Depending on the contract setting, this must be unique for each payment.
+     * @param string $order_id Order number. Depending on the contract setting, it must be unique for each payment.
      * @return $this
      */
     public function setOrderId($order_id)
@@ -354,7 +354,7 @@ class SecupayPayoutDTO implements ArrayAccess
 
     /**
      * Sets transaction_list
-     * @param \Secuconnect\Client\Model\SecupayTransactionListItem[] $transaction_list A list of transaction items
+     * @param \Secuconnect\Client\Model\SecupayTransactionListItem[] $transaction_list Payout items
      * @return $this
      */
     public function setTransactionList($transaction_list)

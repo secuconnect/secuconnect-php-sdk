@@ -297,7 +297,7 @@ class SecupayPayoutProductModel extends BaseProductModel
 
     /**
      * Sets purpose
-     * @param string $purpose The purpose of the payment. This is the later assignment of the payment is for example on the account statement of the buyer.
+     * @param string $purpose The purpose of the payment. It appears at the bank statement of the payee.
      * @return $this
      */
     public function setPurpose($purpose)
@@ -318,7 +318,7 @@ class SecupayPayoutProductModel extends BaseProductModel
 
     /**
      * Sets order_id
-     * @param string $order_id Specifying an order number. Depending on the contract setting, this must be unique for each payment.
+     * @param string $order_id Order number. Depending on the contract setting, it must be unique for each payment.
      * @return $this
      */
     public function setOrderId($order_id)
@@ -360,7 +360,7 @@ class SecupayPayoutProductModel extends BaseProductModel
 
     /**
      * Sets transaction_list
-     * @param \Secuconnect\Client\Model\SecupayTransactionListItem[] $transaction_list A list of transaction items
+     * @param \Secuconnect\Client\Model\SecupayTransactionListItem[] $transaction_list Payout items
      * @return $this
      */
     public function setTransactionList($transaction_list)
@@ -381,7 +381,7 @@ class SecupayPayoutProductModel extends BaseProductModel
 
     /**
      * Sets transfer_purpose
-     * @param string $transfer_purpose The purpose the payer needs to use for his transfer
+     * @param string $transfer_purpose The purpose the payer needs to use for his transfer (pay in)
      * @return $this
      */
     public function setTransferPurpose($transfer_purpose)

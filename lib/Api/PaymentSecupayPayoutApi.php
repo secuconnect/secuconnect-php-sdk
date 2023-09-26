@@ -63,9 +63,9 @@ class PaymentSecupayPayoutApi
     /**
      * Operation getSecupaypayout
      *
-     * Read Payment Secupaypayout
+     * Read payout transaction
      *
-     * @param string $payment_payout_id Payment payout id (required)
+     * @param string $payment_payout_id Payment Transaction ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SecupayPayoutProductModel
      */
@@ -78,9 +78,9 @@ class PaymentSecupayPayoutApi
     /**
      * Operation getSecupaypayoutWithHttpInfo
      *
-     * Read Payment Secupaypayout
+     * Read payout transaction
      *
-     * @param string $payment_payout_id Payment payout id (required)
+     * @param string $payment_payout_id Payment Transaction ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SecupayPayoutProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -164,9 +164,9 @@ class PaymentSecupayPayoutApi
     /**
      * Operation paymentSecupaypayoutPost
      *
-     * Create Payment Secupaypayout
+     * Create payout transaction with Payment Customer
      *
-     * @param \Secuconnect\Client\Model\SecupayPayoutDTO $body Payout payment transaction input properties 
+     * @param \Secuconnect\Client\Model\SecupayPayoutDTO $body Payout transaction details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SecupayPayoutProductModel
      */
@@ -179,9 +179,9 @@ class PaymentSecupayPayoutApi
     /**
      * Operation paymentSecupaypayoutPostWithHttpInfo
      *
-     * Create Payment Secupaypayout
+     * Create payout transaction with Payment Customer
      *
-     * @param \Secuconnect\Client\Model\SecupayPayoutDTO $body Payout payment transaction input properties 
+     * @param \Secuconnect\Client\Model\SecupayPayoutDTO $body Payout transaction details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SecupayPayoutProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -256,9 +256,9 @@ class PaymentSecupayPayoutApi
     /**
      * Operation paymentSecupaypayoutWithoutCustomerPost
      *
-     * Start a payout transaction
+     * Create payout transaction without Payment Customer
      *
-     * @param \Secuconnect\Client\Model\SecupayPayoutWithoutCustomerDTO $body Payout payment transaction input properties 
+     * @param \Secuconnect\Client\Model\SecupayPayoutWithoutCustomerDTO $body Payout transaction details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SecupayPayoutWithoutCustomerResponse
      */
@@ -271,9 +271,9 @@ class PaymentSecupayPayoutApi
     /**
      * Operation paymentSecupaypayoutWithoutCustomerPostWithHttpInfo
      *
-     * Start a payout transaction
+     * Create payout transaction without Payment Customer
      *
-     * @param \Secuconnect\Client\Model\SecupayPayoutWithoutCustomerDTO $body Payout payment transaction input properties 
+     * @param \Secuconnect\Client\Model\SecupayPayoutWithoutCustomerDTO $body Payout transaction details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SecupayPayoutWithoutCustomerResponse, HTTP status code, HTTP response headers (array of strings)
      */

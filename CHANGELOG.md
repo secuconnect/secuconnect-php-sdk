@@ -18,6 +18,29 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.39.0] - 2023-09-26
+[2.39.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.38.0...2.39.0
+
+- *new element*: `currency` in `PaymentInvoicesProductModel`
+- *new element*: `contract` in `PaymentTransactionsProductModel`
+- *changed element*: `result` allows now boolean values too in `PaymentCrowdFundingData`
+
+### Changed
+- `Api.PaymentPayoutsApi`
+- `Api.PaymentSecupayPayoutApi`
+- `Model.DocumentLink`
+- `Model.PaymentCrowdFundingData`
+- `Model.PaymentInvoicesList`
+- `Model.PaymentInvoicesProductModel`
+- `Model.PaymentPayoutsProductModel`
+- `Model.PaymentTransactionsProductModel`
+- `Model.SecupayPayoutDTO`
+- `Model.SecupayPayoutListItem`
+- `Model.SecupayPayoutProductModel`
+- `Model.SecupayPayoutWithoutCustomerDTO`
+- `Model.SecupayTransactionListItem`
+
+
 ## [2.38.0] - 2023-09-20
 [2.38.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.37.0...2.38.0
 

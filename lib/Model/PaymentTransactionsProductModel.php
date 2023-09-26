@@ -37,6 +37,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'platform' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'merchant' => '\Secuconnect\Client\Model\GeneralMerchantsProductModel',
         'store' => '\Secuconnect\Client\Model\GeneralStoresProductModel',
+        'contract' => '\Secuconnect\Client\Model\GeneralContractsProductModel',
         'trans_id' => 'int',
         'parents' => '\Secuconnect\Client\Model\ParentObj[]',
         'related_transactions' => '\Secuconnect\Client\Model\ParentObj[]',
@@ -87,6 +88,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'platform' => null,
         'merchant' => null,
         'store' => null,
+        'contract' => null,
         'trans_id' => null,
         'parents' => null,
         'related_transactions' => null,
@@ -147,6 +149,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'platform' => 'platform',
         'merchant' => 'merchant',
         'store' => 'store',
+        'contract' => 'contract',
         'trans_id' => 'trans_id',
         'parents' => 'parents',
         'related_transactions' => 'related_transactions',
@@ -197,6 +200,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'platform' => 'setPlatform',
         'merchant' => 'setMerchant',
         'store' => 'setStore',
+        'contract' => 'setContract',
         'trans_id' => 'setTransId',
         'parents' => 'setParents',
         'related_transactions' => 'setRelatedTransactions',
@@ -247,6 +251,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'platform' => 'getPlatform',
         'merchant' => 'getMerchant',
         'store' => 'getStore',
+        'contract' => 'getContract',
         'trans_id' => 'getTransId',
         'parents' => 'getParents',
         'related_transactions' => 'getRelatedTransactions',
@@ -315,6 +320,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
         $this->container['platform'] = isset($data['platform']) ? $data['platform'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['store'] = isset($data['store']) ? $data['store'] : null;
+        $this->container['contract'] = isset($data['contract']) ? $data['contract'] : null;
         $this->container['trans_id'] = isset($data['trans_id']) ? $data['trans_id'] : null;
         $this->container['parents'] = isset($data['parents']) ? $data['parents'] : null;
         $this->container['related_transactions'] = isset($data['related_transactions']) ? $data['related_transactions'] : null;
@@ -600,6 +606,27 @@ class PaymentTransactionsProductModel extends BaseProductModel
     public function setStore($store)
     {
         $this->container['store'] = $store;
+
+        return $this;
+    }
+
+    /**
+     * Gets contract
+     * @return \Secuconnect\Client\Model\GeneralContractsProductModel
+     */
+    public function getContract()
+    {
+        return $this->container['contract'];
+    }
+
+    /**
+     * Sets contract
+     * @param \Secuconnect\Client\Model\GeneralContractsProductModel $contract contract
+     * @return $this
+     */
+    public function setContract($contract)
+    {
+        $this->container['contract'] = $contract;
 
         return $this;
     }

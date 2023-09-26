@@ -130,7 +130,7 @@ class SecupayTransactionListItem implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['item_type'] = isset($data['item_type']) ? $data['item_type'] : 'transaction_payout';
+        $this->container['item_type'] = isset($data['item_type']) ? $data['item_type'] : null;
         $this->container['reference_id'] = isset($data['reference_id']) ? $data['reference_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['transaction_hash'] = isset($data['transaction_hash']) ? $data['transaction_hash'] : null;
@@ -174,7 +174,7 @@ class SecupayTransactionListItem implements ArrayAccess
 
     /**
      * Sets item_type
-     * @param string $item_type Category of item
+     * @param string $item_type Item type; always `\"transaction_payout\"`
      * @return $this
      */
     public function setItemType($item_type)
@@ -195,7 +195,7 @@ class SecupayTransactionListItem implements ArrayAccess
 
     /**
      * Sets reference_id
-     * @param string $reference_id Reference id - must be unique for the entire basket
+     * @param string $reference_id Unique reference ID
      * @return $this
      */
     public function setReferenceId($reference_id)
@@ -237,7 +237,7 @@ class SecupayTransactionListItem implements ArrayAccess
 
     /**
      * Sets transaction_hash
-     * @param string $transaction_hash Id of transaction
+     * @param string $transaction_hash Transaction hash
      * @return $this
      */
     public function setTransactionHash($transaction_hash)
@@ -258,7 +258,7 @@ class SecupayTransactionListItem implements ArrayAccess
 
     /**
      * Sets transaction_id
-     * @param string $transaction_id Id of transaction
+     * @param string $transaction_id Transaction ID
      * @return $this
      */
     public function setTransactionId($transaction_id)

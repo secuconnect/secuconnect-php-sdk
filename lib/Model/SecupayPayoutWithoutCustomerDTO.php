@@ -210,7 +210,7 @@ class SecupayPayoutWithoutCustomerDTO implements ArrayAccess
 
     /**
      * Sets contract_id
-     * @param string $contract_id The contract ID
+     * @param string $contract_id General Contract ID
      * @return $this
      */
     public function setContractId($contract_id)
@@ -231,7 +231,7 @@ class SecupayPayoutWithoutCustomerDTO implements ArrayAccess
 
     /**
      * Sets payout_list
-     * @param \Secuconnect\Client\Model\SecupayPayoutListItem[] $payout_list A list of payout items
+     * @param \Secuconnect\Client\Model\SecupayPayoutListItem[] $payout_list Payout items
      * @return $this
      */
     public function setPayoutList($payout_list)
@@ -252,7 +252,7 @@ class SecupayPayoutWithoutCustomerDTO implements ArrayAccess
 
     /**
      * Sets purpose
-     * @param string $purpose The purpose of the payment. This is the later assignment of the payment is for example on the account statement of the buyer.
+     * @param string $purpose The purpose of the payment. It appears at the bank statement of the payee.
      * @return $this
      */
     public function setPurpose($purpose)
@@ -273,7 +273,7 @@ class SecupayPayoutWithoutCustomerDTO implements ArrayAccess
 
     /**
      * Sets execution_date
-     * @param string $execution_date Date when the payout should be started
+     * @param string $execution_date Date when the payout should be started (ISO 8601 date, or date and time)
      * @return $this
      */
     public function setExecutionDate($execution_date)
