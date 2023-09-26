@@ -6,7 +6,7 @@ namespace Secuconnect\Client\Model;
  * PaymentPayoutsProductModel
  *
  * @category Class
- * @description PaymentPayoutsProductModel
+ * @description Payment Payout
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -534,7 +534,7 @@ class PaymentPayoutsProductModel extends BaseProductModel
 
     /**
      * Sets simple_status_id
-     * @param int $simple_status_id Transaction simple-status ID
+     * @param int $simple_status_id Simple transaction status ID
      * @return $this
      */
     public function setSimpleStatusId($simple_status_id)
@@ -555,7 +555,7 @@ class PaymentPayoutsProductModel extends BaseProductModel
 
     /**
      * Sets simple_status_description
-     * @param string $simple_status_description Transaction simple-status description
+     * @param string $simple_status_description Simple transaction status text
      * @return $this
      */
     public function setSimpleStatusDescription($simple_status_description)
@@ -576,7 +576,7 @@ class PaymentPayoutsProductModel extends BaseProductModel
 
     /**
      * Sets receiver
-     * @param string $receiver Store name
+     * @param string $receiver Recipient name
      * @return $this
      */
     public function setReceiver($receiver)
@@ -597,7 +597,7 @@ class PaymentPayoutsProductModel extends BaseProductModel
 
     /**
      * Sets purpose
-     * @param string $purpose Store name
+     * @param string $purpose Purpose as it appears on the bank statement
      * @return $this
      */
     public function setPurpose($purpose)

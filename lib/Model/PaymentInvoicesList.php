@@ -179,7 +179,7 @@ class PaymentInvoicesList implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Number of existing payment invoices
+     * @param int $count Number of matching Payment Invoices
      * @return $this
      */
     public function setCount($count)
@@ -200,7 +200,7 @@ class PaymentInvoicesList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\PaymentInvoicesProductModel[] $data List of PaymentInvoices
+     * @param \Secuconnect\Client\Model\PaymentInvoicesProductModel[] $data Payment Invoices
      * @return $this
      */
     public function setData($data)

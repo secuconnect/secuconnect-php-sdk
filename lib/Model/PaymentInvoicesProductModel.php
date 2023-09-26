@@ -37,6 +37,7 @@ class PaymentInvoicesProductModel extends BaseProductModel
         'invoice_id' => 'string',
         'date' => 'string',
         'amount' => 'int',
+        'currency' => 'string',
         'tax_amount' => 'int',
         'total_amount' => 'int',
         'document_url' => 'string'
@@ -58,6 +59,7 @@ class PaymentInvoicesProductModel extends BaseProductModel
         'invoice_id' => null,
         'date' => null,
         'amount' => null,
+        'currency' => null,
         'tax_amount' => null,
         'total_amount' => null,
         'document_url' => null
@@ -89,6 +91,7 @@ class PaymentInvoicesProductModel extends BaseProductModel
         'invoice_id' => 'invoice_id',
         'date' => 'date',
         'amount' => 'amount',
+        'currency' => 'currency',
         'tax_amount' => 'tax_amount',
         'total_amount' => 'total_amount',
         'document_url' => 'document_url'
@@ -110,6 +113,7 @@ class PaymentInvoicesProductModel extends BaseProductModel
         'invoice_id' => 'setInvoiceId',
         'date' => 'setDate',
         'amount' => 'setAmount',
+        'currency' => 'setCurrency',
         'tax_amount' => 'setTaxAmount',
         'total_amount' => 'setTotalAmount',
         'document_url' => 'setDocumentUrl'
@@ -131,6 +135,7 @@ class PaymentInvoicesProductModel extends BaseProductModel
         'invoice_id' => 'getInvoiceId',
         'date' => 'getDate',
         'amount' => 'getAmount',
+        'currency' => 'getCurrency',
         'tax_amount' => 'getTaxAmount',
         'total_amount' => 'getTotalAmount',
         'document_url' => 'getDocumentUrl'
@@ -170,6 +175,7 @@ class PaymentInvoicesProductModel extends BaseProductModel
         $this->container['invoice_id'] = isset($data['invoice_id']) ? $data['invoice_id'] : null;
         $this->container['date'] = isset($data['date']) ? $data['date'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['tax_amount'] = isset($data['tax_amount']) ? $data['tax_amount'] : null;
         $this->container['total_amount'] = isset($data['total_amount']) ? $data['total_amount'] : null;
         $this->container['document_url'] = isset($data['document_url']) ? $data['document_url'] : null;
@@ -378,7 +384,7 @@ class PaymentInvoicesProductModel extends BaseProductModel
 
     /**
      * Sets invoice_id
-     * @param string $invoice_id Invoice Number
+     * @param string $invoice_id Invoice number
      * @return $this
      */
     public function setInvoiceId($invoice_id)
@@ -426,6 +432,27 @@ class PaymentInvoicesProductModel extends BaseProductModel
     public function setAmount($amount)
     {
         $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     * @param string $currency currency
+     * @return $this
+     */
+    public function setCurrency($currency)
+    {
+        $this->container['currency'] = $currency;
 
         return $this;
     }
@@ -483,7 +510,7 @@ class PaymentInvoicesProductModel extends BaseProductModel
 
     /**
      * Sets document_url
-     * @param string $document_url The url of the invoice document (PDF)
+     * @param string $document_url Download URL for PDF document
      * @return $this
      */
     public function setDocumentUrl($document_url)

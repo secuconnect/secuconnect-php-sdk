@@ -33,7 +33,7 @@ class PaymentCrowdFundingData implements ArrayAccess
         'paid_out' => 'int',
         'deducted_amount' => 'int',
         'open' => '\Secuconnect\Client\Model\CrowdFundingDataOpenAmount',
-        'result' => 'Null'
+        'result' => 'bool'
     ];
 
     /**
@@ -264,7 +264,7 @@ class PaymentCrowdFundingData implements ArrayAccess
 
     /**
      * Gets result
-     * @return Null
+     * @return bool
      */
     public function getResult()
     {
@@ -273,7 +273,7 @@ class PaymentCrowdFundingData implements ArrayAccess
 
     /**
      * Sets result
-     * @param Null $result This field is returned if the contract doesn't have crowdfunding contract condition
+     * @param bool $result This field is returned if the contract doesn't have crowdfunding contract condition
      * @return $this
      */
     public function setResult($result)

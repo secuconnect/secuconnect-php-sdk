@@ -8,7 +8,7 @@ use \ArrayAccess;
  * DocumentLink
  *
  * @category Class
- * @description Document link object
+ * @description Document link
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -144,7 +144,7 @@ class DocumentLink implements ArrayAccess
 
     /**
      * Sets url
-     * @param string $url URL to the document
+     * @param string $url Download URL
      * @return $this
      */
     public function setUrl($url)
@@ -165,7 +165,7 @@ class DocumentLink implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type Document type
+     * @param string $type Document type:  * `\"csv\"` * `\"pdf\"`
      * @return $this
      */
     public function setType($type)

@@ -216,7 +216,7 @@ class PaymentPayoutsApi
      *
      * Read Payment Payout
      *
-     * @param string $payment_payout_id Payment payout id (required)
+     * @param string $payment_payout_id Payment Payout ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentPayoutsProductModel
      */
@@ -231,7 +231,7 @@ class PaymentPayoutsApi
      *
      * Read Payment Payout
      *
-     * @param string $payment_payout_id Payment payout id (required)
+     * @param string $payment_payout_id Payment Payout ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentPayoutsProductModel, HTTP status code, HTTP response headers (array of strings)
      */

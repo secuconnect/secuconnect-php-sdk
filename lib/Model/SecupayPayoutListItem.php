@@ -195,7 +195,7 @@ class SecupayPayoutListItem implements ArrayAccess
 
     /**
      * Sets purpose
-     * @param string $purpose The purpose of the payment. This is the later assignment of the payment is for example on the account statement of the buyer.
+     * @param string $purpose The purpose of the payment. It appears at the bank statement of the payee.
      * @return $this
      */
     public function setPurpose($purpose)
@@ -216,7 +216,7 @@ class SecupayPayoutListItem implements ArrayAccess
 
     /**
      * Sets reference
-     * @param string $reference Reference ID - must be unique for the entire basket
+     * @param string $reference Unique reference ID
      * @return $this
      */
     public function setReference($reference)
@@ -237,7 +237,7 @@ class SecupayPayoutListItem implements ArrayAccess
 
     /**
      * Sets recipient
-     * @param string $recipient Merchant, store or user ID
+     * @param string $recipient General Merchant ID (`MRC_...`), General Store ID (`STO_...`) or user ID
      * @return $this
      */
     public function setRecipient($recipient)
