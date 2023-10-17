@@ -8,7 +8,7 @@ use \ArrayAccess;
  * GeneralMerchantsUserEmail
  *
  * @category Class
- * @description E-Mail object
+ * @description Typed email address
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -144,7 +144,7 @@ class GeneralMerchantsUserEmail implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type Kind of E-Mail address
+     * @param string $type Address type:
      * @return $this
      */
     public function setType($type)

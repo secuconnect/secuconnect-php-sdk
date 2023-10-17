@@ -18,6 +18,40 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.40.0] - 2023-10-17
+[2.40.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.39.0...2.40.0
+
+- *changed element type*: `legal_details` changed from `GeneralMerchantsLegalDetails` to `GeneralMerchantsLegalDetailsDTO` in `GeneralMerchantsPublicDataDTO`
+- *renamed element*: `merchant_urls` renamed to `urls` in `GeneralMerchantsPublicDataDTO`
+- *changed element type*: `cycle_executions` changed from `BillingCyclesItem` to `CycleExecutions` in `PaymentSubscriptionsProductModelBillingCycles`
+- *changed default value*: `status` changed from `"active"` to `null` in `PaymentPlansProductModel` and `PaymentPlansDTO`
+
+### Added
+- `Model.CycleExecutions`
+- `Model.GeneralMerchantsLegalDetailsDTO`
+
+### Changed
+- `Api.GeneralMerchantsApi`
+- `Api.PaymentPlansApi`
+- `Api.PaymentSubscriptionsApi`
+- `Model.AddressComponents`
+- `Model.BillingCyclesItem`
+- `Model.GeneralMerchantsLegalDetails`
+- `Model.GeneralMerchantsList`
+- `Model.GeneralMerchantsProductModel`
+- `Model.GeneralMerchantsPublicDataCompany`
+- `Model.GeneralMerchantsPublicDataDTO`
+- `Model.GeneralMerchantsUrls`
+- `Model.GeneralMerchantsUser`
+- `Model.GeneralMerchantsUserEmail`
+- `Model.MerchantCategoryDataModel`
+- `Model.PaymentPlanInterval`
+- `Model.PaymentPlansDTO`
+- `Model.PaymentPlansProductModel`
+- `Model.PaymentSubscriptionsProductModel`
+- `Model.PaymentSubscriptionsProductModelBillingCycles`
+
+
 ## [2.39.0] - 2023-09-26
 [2.39.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.38.0...2.39.0
 

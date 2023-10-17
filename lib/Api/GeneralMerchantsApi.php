@@ -214,7 +214,7 @@ class GeneralMerchantsApi
     /**
      * Operation getMerchantCategories
      *
-     * Get my merchant categories
+     * Get merchant categories
      *
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\MerchantCategoryDataModel[]
@@ -228,7 +228,7 @@ class GeneralMerchantsApi
     /**
      * Operation getMerchantCategoriesWithHttpInfo
      *
-     * Get my merchant categories
+     * Get merchant categories
      *
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\MerchantCategoryDataModel[], HTTP status code, HTTP response headers (array of strings)
@@ -301,7 +301,7 @@ class GeneralMerchantsApi
      *
      * Read General Merchant
      *
-     * @param string $general_merchant_id General Merchant id (required)
+     * @param string $general_merchant_id General Merchant ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\GeneralMerchantsProductModel
      */
@@ -316,7 +316,7 @@ class GeneralMerchantsApi
      *
      * Read General Merchant
      *
-     * @param string $general_merchant_id General Merchant id (required)
+     * @param string $general_merchant_id General Merchant ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\GeneralMerchantsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -402,8 +402,8 @@ class GeneralMerchantsApi
      *
      * Get public data
      *
-     * @param string $general_merchant_id Merchant identifier (required)
-     * @param string $general_contract_id Contract identifier (required)
+     * @param string $general_merchant_id General Merchant ID (required)
+     * @param string $general_contract_id General Contract ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\GeneralMerchantsPublicDataModel
      */
@@ -418,8 +418,8 @@ class GeneralMerchantsApi
      *
      * Get public data
      *
-     * @param string $general_merchant_id Merchant identifier (required)
-     * @param string $general_contract_id Contract identifier (required)
+     * @param string $general_merchant_id General Merchant ID (required)
+     * @param string $general_contract_id General Contract ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\GeneralMerchantsPublicDataModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -517,10 +517,10 @@ class GeneralMerchantsApi
     /**
      * Operation updatePublicData
      *
-     * Update public data
+     * Update General Merchant
      *
-     * @param string $general_merchant_id Merchant identifier (required)
-     * @param \Secuconnect\Client\Model\GeneralMerchantsPublicDataDTO $body body 
+     * @param string $general_merchant_id General Merchant ID (required)
+     * @param \Secuconnect\Client\Model\GeneralMerchantsPublicDataDTO $body Merchant details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\GeneralMerchantsProductModel
      */
@@ -533,10 +533,10 @@ class GeneralMerchantsApi
     /**
      * Operation updatePublicDataWithHttpInfo
      *
-     * Update public data
+     * Update General Merchant
      *
-     * @param string $general_merchant_id Merchant identifier (required)
-     * @param \Secuconnect\Client\Model\GeneralMerchantsPublicDataDTO $body 
+     * @param string $general_merchant_id General Merchant ID (required)
+     * @param \Secuconnect\Client\Model\GeneralMerchantsPublicDataDTO $body Merchant details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\GeneralMerchantsProductModel, HTTP status code, HTTP response headers (array of strings)
      */

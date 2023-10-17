@@ -201,7 +201,7 @@ class GeneralMerchantsList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\GeneralMerchantsProductModel[] $data List of GeneralMerchants
+     * @param \Secuconnect\Client\Model\GeneralMerchantsProductModel[] $data General Merchants
      * @return $this
      */
     public function setData($data)

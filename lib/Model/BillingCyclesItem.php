@@ -162,7 +162,7 @@ class BillingCyclesItem implements ArrayAccess
 
     /**
      * Sets sequence
-     * @param int $sequence sequence
+     * @param int $sequence Sequence number.  A setup fee always has the sequence number 0. Everything else is numbered starting from 1.
      * @return $this
      */
     public function setSequence($sequence)
@@ -204,7 +204,7 @@ class BillingCyclesItem implements ArrayAccess
 
     /**
      * Sets tenure_type
-     * @param string $tenure_type Tenure type
+     * @param string $tenure_type Tenure type:  * `\"setup\"` * `\"trial\"`* `\"regular\"`
      * @return $this
      */
     public function setTenureType($tenure_type)
@@ -225,7 +225,7 @@ class BillingCyclesItem implements ArrayAccess
 
     /**
      * Sets total_cycles
-     * @param int $total_cycles Total cycles
+     * @param int $total_cycles Total cycles in this sequence
      * @return $this
      */
     public function setTotalCycles($total_cycles)

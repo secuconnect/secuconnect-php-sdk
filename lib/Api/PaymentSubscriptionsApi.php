@@ -65,7 +65,7 @@ class PaymentSubscriptionsApi
      *
      * Read Payment Subscription
      *
-     * @param string $payment_subscription_id Payment subscription id (required)
+     * @param string $payment_subscription_id Payment Subscription ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentSubscriptionsProductModel
      */
@@ -80,7 +80,7 @@ class PaymentSubscriptionsApi
      *
      * Read Payment Subscription
      *
-     * @param string $payment_subscription_id Payment subscription id (required)
+     * @param string $payment_subscription_id Payment Subscription ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentSubscriptionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */

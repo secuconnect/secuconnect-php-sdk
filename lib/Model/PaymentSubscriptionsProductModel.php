@@ -534,7 +534,7 @@ class PaymentSubscriptionsProductModel extends BaseProductModel
 
     /**
      * Sets start_at
-     * @param string $start_at start at
+     * @param string $start_at Start date (ISO 8601 date and time)
      * @return $this
      */
     public function setStartAt($start_at)
@@ -555,7 +555,7 @@ class PaymentSubscriptionsProductModel extends BaseProductModel
 
     /**
      * Sets status
-     * @param string $status status
+     * @param string $status Status:  * `\"active\"` * `\"suspended\"` * `\"cancelled\"` * `\"completed\"`
      * @return $this
      */
     public function setStatus($status)
@@ -576,7 +576,7 @@ class PaymentSubscriptionsProductModel extends BaseProductModel
 
     /**
      * Sets paypal_subscription_id
-     * @param string $paypal_subscription_id paypal_subscription_id
+     * @param string $paypal_subscription_id PayPal Subscription ID, if paid with PayPal
      * @return $this
      */
     public function setPaypalSubscriptionId($paypal_subscription_id)

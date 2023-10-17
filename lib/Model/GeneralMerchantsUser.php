@@ -174,7 +174,7 @@ class GeneralMerchantsUser implements ArrayAccess
 
     /**
      * Sets name
-     * @param string $name Name
+     * @param string $name Full name
      * @return $this
      */
     public function setName($name)
@@ -195,7 +195,7 @@ class GeneralMerchantsUser implements ArrayAccess
 
     /**
      * Sets forename
-     * @param string $forename forename
+     * @param string $forename First name
      * @return $this
      */
     public function setForename($forename)
@@ -216,7 +216,7 @@ class GeneralMerchantsUser implements ArrayAccess
 
     /**
      * Sets surname
-     * @param string $surname surname
+     * @param string $surname Last name
      * @return $this
      */
     public function setSurname($surname)
@@ -300,7 +300,7 @@ class GeneralMerchantsUser implements ArrayAccess
 
     /**
      * Sets email
-     * @param \Secuconnect\Client\Model\GeneralMerchantsUserEmail[] $email E-Mail addresses
+     * @param \Secuconnect\Client\Model\GeneralMerchantsUserEmail[] $email Email addresses
      * @return $this
      */
     public function setEmail($email)

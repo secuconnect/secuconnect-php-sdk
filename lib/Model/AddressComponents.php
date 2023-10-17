@@ -8,7 +8,7 @@ use \ArrayAccess;
  * AddressComponents
  *
  * @category Class
- * @description Address component like street, postal code, or country
+ * @description Address component
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -192,7 +192,7 @@ class AddressComponents implements ArrayAccess
 
     /**
      * Sets types
-     * @param string[] $types Types
+     * @param string[] $types Address component type:  - `route` (street long / short) - `street_number` - `locality` (city) - `country` (full / ISO two-letter code) - `postal_code` - `political` (accompanies `locality` and `company`)
      * @return $this
      */
     public function setTypes($types)

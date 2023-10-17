@@ -375,7 +375,7 @@ class GeneralMerchantsProductModel extends BaseProductModel
 
     /**
      * Sets type
-     * @param string $type User type ID - unverified shop (1); internet shop (11); kaufmännischer Netzbetrieb (KNB, 45); secucard merchant (46); App Center user (63), checkout provider (64)
+     * @param string $type User type ID:  - unverified shop (1) - internet shop (11) - kaufmännischer Netzbetrieb (KNB, 45) - secucard merchant (46) - App Center user (63) - checkout provider (64)
      * @return $this
      */
     public function setType($type)
@@ -543,7 +543,7 @@ class GeneralMerchantsProductModel extends BaseProductModel
 
     /**
      * Sets acceptance_points
-     * @param \Secuconnect\Client\Model\BaseProductModel[] $acceptance_points Acceptance Points (partners)
+     * @param \Secuconnect\Client\Model\BaseProductModel[] $acceptance_points Acceptance Points (partner stores)
      * @return $this
      */
     public function setAcceptancePoints($acceptance_points)
@@ -564,7 +564,7 @@ class GeneralMerchantsProductModel extends BaseProductModel
 
     /**
      * Sets two_fa
-     * @param string $two_fa two-factor authentication type
+     * @param string $two_fa Two-factor authentication type
      * @return $this
      */
     public function setTwoFa($two_fa)

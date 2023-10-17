@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * MerchantCategoryDataModel
+ * GeneralMerchantsLegalDetailsDTO
  *
  * @category Class
- * @description MerchantCategoryDataModel
+ * @description Legal details for merchant
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class MerchantCategoryDataModel implements ArrayAccess
+class GeneralMerchantsLegalDetailsDTO implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,15 +21,16 @@ class MerchantCategoryDataModel implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'MerchantCategoryDataModel';
+    protected static $swaggerModelName = 'GeneralMerchantsLegalDetailsDTO';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'int',
-        'description' => 'string'
+        'content' => 'string',
+        'type' => 'string',
+        'language' => 'string'
     ];
 
     /**
@@ -37,8 +38,9 @@ class MerchantCategoryDataModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'description' => null
+        'content' => null,
+        'type' => null,
+        'language' => null
     ];
 
     public static function swaggerTypes()
@@ -56,8 +58,9 @@ class MerchantCategoryDataModel implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'description' => 'description'
+        'content' => 'content',
+        'type' => 'type',
+        'language' => 'language'
     ];
 
     /**
@@ -65,8 +68,9 @@ class MerchantCategoryDataModel implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'description' => 'setDescription'
+        'content' => 'setContent',
+        'type' => 'setType',
+        'language' => 'setLanguage'
     ];
 
     /**
@@ -74,8 +78,9 @@ class MerchantCategoryDataModel implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'description' => 'getDescription'
+        'content' => 'getContent',
+        'type' => 'getType',
+        'language' => 'getLanguage'
     ];
 
     public static function attributeMap()
@@ -105,8 +110,9 @@ class MerchantCategoryDataModel implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['content'] = isset($data['content']) ? $data['content'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
     }
 
     /**
@@ -134,43 +140,64 @@ class MerchantCategoryDataModel implements ArrayAccess
 
 
     /**
-     * Gets id
-     * @return int
+     * Gets content
+     * @return string
      */
-    public function getId()
+    public function getContent()
     {
-        return $this->container['id'];
+        return $this->container['content'];
     }
 
     /**
-     * Sets id
-     * @param int $id Category ID
+     * Sets content
+     * @param string $content HTML Content or DUP Id
      * @return $this
      */
-    public function setId($id)
+    public function setContent($content)
     {
-        $this->container['id'] = $id;
+        $this->container['content'] = $content;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets type
      * @return string
      */
-    public function getDescription()
+    public function getType()
     {
-        return $this->container['description'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets description
-     * @param string $description Category description
+     * Sets type
+     * @param string $type Document type: 'imprint', 'revocation' (cancellation policy), 'terms' (terms of use), 'policy' (privacy policy), or 'logo'
      * @return $this
      */
-    public function setDescription($description)
+    public function setType($type)
     {
-        $this->container['description'] = $description;
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets language
+     * @return string
+     */
+    public function getLanguage()
+    {
+        return $this->container['language'];
+    }
+
+    /**
+     * Sets language
+     * @param string $language Language code {'de', 'en'}
+     * @return $this
+     */
+    public function setLanguage($language)
+    {
+        $this->container['language'] = $language;
 
         return $this;
     }
