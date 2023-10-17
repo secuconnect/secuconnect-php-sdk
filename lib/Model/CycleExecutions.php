@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * MerchantCategoryDataModel
+ * CycleExecutions
  *
  * @category Class
- * @description MerchantCategoryDataModel
+ * @description CycleExecutions
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class MerchantCategoryDataModel implements ArrayAccess
+class CycleExecutions implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,15 +21,18 @@ class MerchantCategoryDataModel implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'MerchantCategoryDataModel';
+    protected static $swaggerModelName = 'CycleExecutions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'int',
-        'description' => 'string'
+        'sequence' => 'int',
+        'tenure_type' => 'string',
+        'total_cycles' => 'int',
+        'cycles_completed' => 'int',
+        'cycles_remaining' => 'int'
     ];
 
     /**
@@ -37,8 +40,11 @@ class MerchantCategoryDataModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'description' => null
+        'sequence' => null,
+        'tenure_type' => null,
+        'total_cycles' => null,
+        'cycles_completed' => null,
+        'cycles_remaining' => null
     ];
 
     public static function swaggerTypes()
@@ -56,8 +62,11 @@ class MerchantCategoryDataModel implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'description' => 'description'
+        'sequence' => 'sequence',
+        'tenure_type' => 'tenure_type',
+        'total_cycles' => 'total_cycles',
+        'cycles_completed' => 'cycles_completed',
+        'cycles_remaining' => 'cycles_remaining'
     ];
 
     /**
@@ -65,8 +74,11 @@ class MerchantCategoryDataModel implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'description' => 'setDescription'
+        'sequence' => 'setSequence',
+        'tenure_type' => 'setTenureType',
+        'total_cycles' => 'setTotalCycles',
+        'cycles_completed' => 'setCyclesCompleted',
+        'cycles_remaining' => 'setCyclesRemaining'
     ];
 
     /**
@@ -74,8 +86,11 @@ class MerchantCategoryDataModel implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'description' => 'getDescription'
+        'sequence' => 'getSequence',
+        'tenure_type' => 'getTenureType',
+        'total_cycles' => 'getTotalCycles',
+        'cycles_completed' => 'getCyclesCompleted',
+        'cycles_remaining' => 'getCyclesRemaining'
     ];
 
     public static function attributeMap()
@@ -105,8 +120,11 @@ class MerchantCategoryDataModel implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['sequence'] = isset($data['sequence']) ? $data['sequence'] : null;
+        $this->container['tenure_type'] = isset($data['tenure_type']) ? $data['tenure_type'] : null;
+        $this->container['total_cycles'] = isset($data['total_cycles']) ? $data['total_cycles'] : null;
+        $this->container['cycles_completed'] = isset($data['cycles_completed']) ? $data['cycles_completed'] : null;
+        $this->container['cycles_remaining'] = isset($data['cycles_remaining']) ? $data['cycles_remaining'] : null;
     }
 
     /**
@@ -134,43 +152,106 @@ class MerchantCategoryDataModel implements ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets sequence
      * @return int
      */
-    public function getId()
+    public function getSequence()
     {
-        return $this->container['id'];
+        return $this->container['sequence'];
     }
 
     /**
-     * Sets id
-     * @param int $id Category ID
+     * Sets sequence
+     * @param int $sequence sequence
      * @return $this
      */
-    public function setId($id)
+    public function setSequence($sequence)
     {
-        $this->container['id'] = $id;
+        $this->container['sequence'] = $sequence;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets tenure_type
      * @return string
      */
-    public function getDescription()
+    public function getTenureType()
     {
-        return $this->container['description'];
+        return $this->container['tenure_type'];
     }
 
     /**
-     * Sets description
-     * @param string $description Category description
+     * Sets tenure_type
+     * @param string $tenure_type Tenure type
      * @return $this
      */
-    public function setDescription($description)
+    public function setTenureType($tenure_type)
     {
-        $this->container['description'] = $description;
+        $this->container['tenure_type'] = $tenure_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_cycles
+     * @return int
+     */
+    public function getTotalCycles()
+    {
+        return $this->container['total_cycles'];
+    }
+
+    /**
+     * Sets total_cycles
+     * @param int $total_cycles Total cycles
+     * @return $this
+     */
+    public function setTotalCycles($total_cycles)
+    {
+        $this->container['total_cycles'] = $total_cycles;
+
+        return $this;
+    }
+
+    /**
+     * Gets cycles_completed
+     * @return int
+     */
+    public function getCyclesCompleted()
+    {
+        return $this->container['cycles_completed'];
+    }
+
+    /**
+     * Sets cycles_completed
+     * @param int $cycles_completed Completed cycles
+     * @return $this
+     */
+    public function setCyclesCompleted($cycles_completed)
+    {
+        $this->container['cycles_completed'] = $cycles_completed;
+
+        return $this;
+    }
+
+    /**
+     * Gets cycles_remaining
+     * @return int
+     */
+    public function getCyclesRemaining()
+    {
+        return $this->container['cycles_remaining'];
+    }
+
+    /**
+     * Sets cycles_remaining
+     * @param int $cycles_remaining Remaining cycles
+     * @return $this
+     */
+    public function setCyclesRemaining($cycles_remaining)
+    {
+        $this->container['cycles_remaining'] = $cycles_remaining;
 
         return $this;
     }

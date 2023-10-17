@@ -28,7 +28,7 @@ class PaymentSubscriptionsProductModelBillingCycles implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cycle_executions' => '\Secuconnect\Client\Model\BillingCyclesItem[]',
+        'cycle_executions' => '\Secuconnect\Client\Model\CycleExecutions[]',
         'next_billing_time' => 'string'
     ];
 
@@ -135,7 +135,7 @@ class PaymentSubscriptionsProductModelBillingCycles implements ArrayAccess
 
     /**
      * Gets cycle_executions
-     * @return \Secuconnect\Client\Model\BillingCyclesItem[]
+     * @return \Secuconnect\Client\Model\CycleExecutions[]
      */
     public function getCycleExecutions()
     {
@@ -144,7 +144,7 @@ class PaymentSubscriptionsProductModelBillingCycles implements ArrayAccess
 
     /**
      * Sets cycle_executions
-     * @param \Secuconnect\Client\Model\BillingCyclesItem[] $cycle_executions cycle executions
+     * @param \Secuconnect\Client\Model\CycleExecutions[] $cycle_executions cycle executions
      * @return $this
      */
     public function setCycleExecutions($cycle_executions)
@@ -165,7 +165,7 @@ class PaymentSubscriptionsProductModelBillingCycles implements ArrayAccess
 
     /**
      * Sets next_billing_time
-     * @param string $next_billing_time next billing time
+     * @param string $next_billing_time Next billing time (ISO 8601 date and time)
      * @return $this
      */
     public function setNextBillingTime($next_billing_time)

@@ -138,7 +138,7 @@ class PaymentPlansDTO implements ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['paypal_plan_id'] = isset($data['paypal_plan_id']) ? $data['paypal_plan_id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : 'active';
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['payment_methods'] = isset($data['payment_methods']) ? $data['payment_methods'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
@@ -180,7 +180,7 @@ class PaymentPlansDTO implements ArrayAccess
 
     /**
      * Sets description
-     * @param string $description Description of payment plan
+     * @param string $description Short description of the subscription plan
      * @return $this
      */
     public function setDescription($description)
@@ -222,7 +222,7 @@ class PaymentPlansDTO implements ArrayAccess
 
     /**
      * Sets paypal_plan_id
-     * @param string $paypal_plan_id Payment plan id
+     * @param string $paypal_plan_id PayPal Subscription Plan ID; needed for PayPal payment
      * @return $this
      */
     public function setPaypalPlanId($paypal_plan_id)
@@ -243,7 +243,7 @@ class PaymentPlansDTO implements ArrayAccess
 
     /**
      * Sets status
-     * @param string $status Payment plan status
+     * @param string $status Status:  * `\"created\"` * `\"active\"` * `\"inactive\"`
      * @return $this
      */
     public function setStatus($status)
@@ -264,7 +264,7 @@ class PaymentPlansDTO implements ArrayAccess
 
     /**
      * Sets payment_methods
-     * @param string[] $payment_methods Payment methods
+     * @param string[] $payment_methods Payment methods:  * `\"creditcard\"` * `\"debit\"` * `\"paypal\"`
      * @return $this
      */
     public function setPaymentMethods($payment_methods)

@@ -144,7 +144,7 @@ class GeneralMerchantsPublicDataCompany implements ArrayAccess
 
     /**
      * Sets companyname
-     * @param string $companyname Company name of General Merchant user
+     * @param string $companyname Company name
      * @return $this
      */
     public function setCompanyname($companyname)

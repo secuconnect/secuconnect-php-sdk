@@ -28,8 +28,8 @@ class GeneralMerchantsPublicDataDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'legal_details' => '\Secuconnect\Client\Model\GeneralMerchantsLegalDetails[]',
-        'merchant_urls' => '\Secuconnect\Client\Model\GeneralMerchantsUrls[]'
+        'legal_details' => '\Secuconnect\Client\Model\GeneralMerchantsLegalDetailsDTO[]',
+        'urls' => '\Secuconnect\Client\Model\GeneralMerchantsUrls[]'
     ];
 
     /**
@@ -38,7 +38,7 @@ class GeneralMerchantsPublicDataDTO implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'legal_details' => null,
-        'merchant_urls' => null
+        'urls' => null
     ];
 
     public static function swaggerTypes()
@@ -57,7 +57,7 @@ class GeneralMerchantsPublicDataDTO implements ArrayAccess
      */
     protected static $attributeMap = [
         'legal_details' => 'legal_details',
-        'merchant_urls' => 'merchant_urls'
+        'urls' => 'urls'
     ];
 
     /**
@@ -66,7 +66,7 @@ class GeneralMerchantsPublicDataDTO implements ArrayAccess
      */
     protected static $setters = [
         'legal_details' => 'setLegalDetails',
-        'merchant_urls' => 'setMerchantUrls'
+        'urls' => 'setUrls'
     ];
 
     /**
@@ -75,7 +75,7 @@ class GeneralMerchantsPublicDataDTO implements ArrayAccess
      */
     protected static $getters = [
         'legal_details' => 'getLegalDetails',
-        'merchant_urls' => 'getMerchantUrls'
+        'urls' => 'getUrls'
     ];
 
     public static function attributeMap()
@@ -106,7 +106,7 @@ class GeneralMerchantsPublicDataDTO implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['legal_details'] = isset($data['legal_details']) ? $data['legal_details'] : null;
-        $this->container['merchant_urls'] = isset($data['merchant_urls']) ? $data['merchant_urls'] : null;
+        $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
     }
 
     /**
@@ -135,7 +135,7 @@ class GeneralMerchantsPublicDataDTO implements ArrayAccess
 
     /**
      * Gets legal_details
-     * @return \Secuconnect\Client\Model\GeneralMerchantsLegalDetails[]
+     * @return \Secuconnect\Client\Model\GeneralMerchantsLegalDetailsDTO[]
      */
     public function getLegalDetails()
     {
@@ -144,7 +144,7 @@ class GeneralMerchantsPublicDataDTO implements ArrayAccess
 
     /**
      * Sets legal_details
-     * @param \Secuconnect\Client\Model\GeneralMerchantsLegalDetails[] $legal_details Legal details like terms of use, privacy policy, or imprint
+     * @param \Secuconnect\Client\Model\GeneralMerchantsLegalDetailsDTO[] $legal_details Legal details like terms of use, privacy policy, or imprint
      * @return $this
      */
     public function setLegalDetails($legal_details)
@@ -155,22 +155,22 @@ class GeneralMerchantsPublicDataDTO implements ArrayAccess
     }
 
     /**
-     * Gets merchant_urls
+     * Gets urls
      * @return \Secuconnect\Client\Model\GeneralMerchantsUrls[]
      */
-    public function getMerchantUrls()
+    public function getUrls()
     {
-        return $this->container['merchant_urls'];
+        return $this->container['urls'];
     }
 
     /**
-     * Sets merchant_urls
-     * @param \Secuconnect\Client\Model\GeneralMerchantsUrls[] $merchant_urls URLs
+     * Sets urls
+     * @param \Secuconnect\Client\Model\GeneralMerchantsUrls[] $urls Return URLs
      * @return $this
      */
-    public function setMerchantUrls($merchant_urls)
+    public function setUrls($urls)
     {
-        $this->container['merchant_urls'] = $merchant_urls;
+        $this->container['urls'] = $urls;
 
         return $this;
     }

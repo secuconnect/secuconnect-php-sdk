@@ -177,7 +177,7 @@ class GeneralMerchantsLegalDetails implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type Document type: 'imprint', 'revocation' (cancellation policy), 'terms' (terms of use), 'policy' (privacy policy), or 'logo'
+     * @param string $type Document type:  - 'imprint' - 'revocation' (cancellation policy) - 'terms' (terms of use) - 'policy' (privacy policy) - 'logo'
      * @return $this
      */
     public function setType($type)
@@ -219,7 +219,7 @@ class GeneralMerchantsLegalDetails implements ArrayAccess
 
     /**
      * Sets language
-     * @param string $language Language code {'de', 'en', ...}
+     * @param string $language Language code:  - 'de' - 'en'
      * @return $this
      */
     public function setLanguage($language)

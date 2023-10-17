@@ -216,7 +216,7 @@ class PaymentPlansApi
      *
      * Read Payment Plan
      *
-     * @param string $payment_plan_id Payment plan id (required)
+     * @param string $payment_plan_id Payment Plan ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentPlansProductModel
      */
@@ -231,7 +231,7 @@ class PaymentPlansApi
      *
      * Read Payment Plan
      *
-     * @param string $payment_plan_id Payment plan id (required)
+     * @param string $payment_plan_id Payment Plan ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentPlansProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -317,8 +317,8 @@ class PaymentPlansApi
      *
      * Update Payment Plan partially
      *
-     * @param string $payment_plan_id Payment plan id (required)
-     * @param \Secuconnect\Client\Model\PaymentPlansDTO $body Payment plans properties 
+     * @param string $payment_plan_id Payment Plan ID (required)
+     * @param \Secuconnect\Client\Model\PaymentPlansDTO $body Plans details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentPlansProductModel
      */
@@ -333,8 +333,8 @@ class PaymentPlansApi
      *
      * Update Payment Plan partially
      *
-     * @param string $payment_plan_id Payment plan id (required)
-     * @param \Secuconnect\Client\Model\PaymentPlansDTO $body Payment plans properties 
+     * @param string $payment_plan_id Payment Plan ID (required)
+     * @param \Secuconnect\Client\Model\PaymentPlansDTO $body Plans details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentPlansProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -425,7 +425,7 @@ class PaymentPlansApi
      *
      * Create Payment Plan
      *
-     * @param \Secuconnect\Client\Model\PaymentPlansDTO $body Payment plan properties 
+     * @param \Secuconnect\Client\Model\PaymentPlansDTO $body Plan details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentPlansProductModel
      */
@@ -440,7 +440,7 @@ class PaymentPlansApi
      *
      * Create Payment Plan
      *
-     * @param \Secuconnect\Client\Model\PaymentPlansDTO $body Payment plan properties 
+     * @param \Secuconnect\Client\Model\PaymentPlansDTO $body Plan details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentPlansProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -517,8 +517,8 @@ class PaymentPlansApi
      *
      * Update Payment Plan
      *
-     * @param string $payment_plan_id Payment plan id (required)
-     * @param \Secuconnect\Client\Model\PaymentPlansDTO $body Payment plans properties 
+     * @param string $payment_plan_id Payment Plan ID (required)
+     * @param \Secuconnect\Client\Model\PaymentPlansDTO $body Plans details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentPlansProductModel
      */
@@ -533,8 +533,8 @@ class PaymentPlansApi
      *
      * Update Payment Plan
      *
-     * @param string $payment_plan_id Payment plan id (required)
-     * @param \Secuconnect\Client\Model\PaymentPlansDTO $body Payment plans properties 
+     * @param string $payment_plan_id Payment Plan ID (required)
+     * @param \Secuconnect\Client\Model\PaymentPlansDTO $body Plans details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentPlansProductModel, HTTP status code, HTTP response headers (array of strings)
      */

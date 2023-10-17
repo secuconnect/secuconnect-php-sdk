@@ -144,7 +144,7 @@ class GeneralMerchantsUrls implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type Type of URL - {'url_success', 'url_failure', 'url_abort', 'url_error', 'url_checkout'}
+     * @param string $type Type of URL  - 'url_success' - 'url_failure' - 'url_abort' - 'url_error' - 'url_checkout'
      * @return $this
      */
     public function setType($type)

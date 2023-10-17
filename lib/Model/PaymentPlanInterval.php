@@ -144,7 +144,7 @@ class PaymentPlanInterval implements ArrayAccess
 
     /**
      * Sets unit
-     * @param string $unit Unit
+     * @param string $unit Unit:  * `\"day\"` * `\"week\"` * `\"month\"` * `\"year\"`
      * @return $this
      */
     public function setUnit($unit)
@@ -165,7 +165,7 @@ class PaymentPlanInterval implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Count
+     * @param int $count Count of days, weeks, months or years
      * @return $this
      */
     public function setCount($count)
