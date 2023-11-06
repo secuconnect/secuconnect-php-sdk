@@ -65,8 +65,8 @@ class GeneralContractsApi
      *
      * Set Payment Link configuration
      *
-     * @param string $general_contract_id Contract identifier (required)
-     * @param \Secuconnect\Client\Model\PaymentLinkOptions $body body 
+     * @param string $general_contract_id General Contract ID (required)
+     * @param \Secuconnect\Client\Model\PaymentLinkOptions $body Payment Link configuration 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\GeneralContractsProductModel
      */
@@ -81,8 +81,8 @@ class GeneralContractsApi
      *
      * Set Payment Link configuration
      *
-     * @param string $general_contract_id Contract identifier (required)
-     * @param \Secuconnect\Client\Model\PaymentLinkOptions $body 
+     * @param string $general_contract_id General Contract ID (required)
+     * @param \Secuconnect\Client\Model\PaymentLinkOptions $body Payment Link configuration 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\GeneralContractsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -173,8 +173,8 @@ class GeneralContractsApi
      *
      * Set third party configuration
      *
-     * @param string $general_contract_id General contract id (required)
-     * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body body 
+     * @param string $general_contract_id General Contract ID (required)
+     * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body Third party configuration 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ThirdPartyConfigurationProductModel
      */
@@ -189,8 +189,8 @@ class GeneralContractsApi
      *
      * Set third party configuration
      *
-     * @param string $general_contract_id General contract id (required)
-     * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body 
+     * @param string $general_contract_id General Contract ID (required)
+     * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body Third party configuration 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ThirdPartyConfigurationProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -432,7 +432,7 @@ class GeneralContractsApi
      *
      * Get currencies
      *
-     * @param string $general_contract_id Contract identifier (required)
+     * @param string $general_contract_id General Contract ID (required)
      * @throws ApiException on non-2xx response
      * @return string[]
      */
@@ -447,7 +447,7 @@ class GeneralContractsApi
      *
      * Get currencies
      *
-     * @param string $general_contract_id Contract identifier (required)
+     * @param string $general_contract_id General Contract ID (required)
      * @throws ApiException on non-2xx response
      * @return array of string[], HTTP status code, HTTP response headers (array of strings)
      */
@@ -533,8 +533,8 @@ class GeneralContractsApi
      *
      * Get payment methods
      *
-     * @param string $general_contract_id Contract identifier (required)
-     * @param \Secuconnect\Client\Model\GetAvailablePaymentMethodsDTO $body body 
+     * @param string $general_contract_id General Contract ID (required)
+     * @param \Secuconnect\Client\Model\GetAvailablePaymentMethodsDTO $body Request details 
      * @throws ApiException on non-2xx response
      * @return string[]
      */
@@ -549,8 +549,8 @@ class GeneralContractsApi
      *
      * Get payment methods
      *
-     * @param string $general_contract_id Contract identifier (required)
-     * @param \Secuconnect\Client\Model\GetAvailablePaymentMethodsDTO $body 
+     * @param string $general_contract_id General Contract ID (required)
+     * @param \Secuconnect\Client\Model\GetAvailablePaymentMethodsDTO $body Request details 
      * @throws ApiException on non-2xx response
      * @return array of string[], HTTP status code, HTTP response headers (array of strings)
      */
@@ -641,9 +641,9 @@ class GeneralContractsApi
      *
      * Get available payment methods for Smart Transaction
      *
-     * @param string $general_contract_id Contract identifier (required)
-     * @param string $smart_transaction_id Smart Transaction identifier (required)
-     * @param \Secuconnect\Client\Model\GetAvailablePaymentMethodsDTO $body body 
+     * @param string $general_contract_id General Contract ID (required)
+     * @param string $smart_transaction_id Smart Transaction ID (required)
+     * @param \Secuconnect\Client\Model\GetAvailablePaymentMethodsDTO $body Request details 
      * @throws ApiException on non-2xx response
      * @return string[]
      */
@@ -658,9 +658,9 @@ class GeneralContractsApi
      *
      * Get available payment methods for Smart Transaction
      *
-     * @param string $general_contract_id Contract identifier (required)
-     * @param string $smart_transaction_id Smart Transaction identifier (required)
-     * @param \Secuconnect\Client\Model\GetAvailablePaymentMethodsDTO $body 
+     * @param string $general_contract_id General Contract ID (required)
+     * @param string $smart_transaction_id Smart Transaction ID (required)
+     * @param \Secuconnect\Client\Model\GetAvailablePaymentMethodsDTO $body Request details 
      * @throws ApiException on non-2xx response
      * @return array of string[], HTTP status code, HTTP response headers (array of strings)
      */
@@ -765,7 +765,7 @@ class GeneralContractsApi
      *
      * Get iframe options
      *
-     * @param string $general_contract_id Contract identifier (required)
+     * @param string $general_contract_id General Contract ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\IframeOptions
      */
@@ -780,7 +780,7 @@ class GeneralContractsApi
      *
      * Get iframe options
      *
-     * @param string $general_contract_id Contract identifier (required)
+     * @param string $general_contract_id General Contract ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\IframeOptions, HTTP status code, HTTP response headers (array of strings)
      */
@@ -866,7 +866,7 @@ class GeneralContractsApi
      *
      * Read General Contract
      *
-     * @param string $general_contract_id General contract id (required)
+     * @param string $general_contract_id General Contract ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\GeneralContractsProductModel
      */
@@ -881,7 +881,7 @@ class GeneralContractsApi
      *
      * Read General Contract
      *
-     * @param string $general_contract_id General contract id (required)
+     * @param string $general_contract_id General Contract ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\GeneralContractsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -967,7 +967,7 @@ class GeneralContractsApi
      *
      * Get third party configuration
      *
-     * @param string $general_contract_id General contract id (required)
+     * @param string $general_contract_id General Contract ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ThirdPartyConfigurationProductModel
      */
@@ -982,7 +982,7 @@ class GeneralContractsApi
      *
      * Get third party configuration
      *
-     * @param string $general_contract_id General contract id (required)
+     * @param string $general_contract_id General Contract ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ThirdPartyConfigurationProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1068,7 +1068,7 @@ class GeneralContractsApi
      *
      * Get balance from bank transfer
      *
-     * @param \Secuconnect\Client\Model\ProductInstanceID $general_contract_id Contract identifier (required)
+     * @param \Secuconnect\Client\Model\ProductInstanceID $general_contract_id General Contract ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\GeneralContractsTransferBalanceModel
      */
@@ -1083,7 +1083,7 @@ class GeneralContractsApi
      *
      * Get balance from bank transfer
      *
-     * @param \Secuconnect\Client\Model\ProductInstanceID $general_contract_id Contract identifier (required)
+     * @param \Secuconnect\Client\Model\ProductInstanceID $general_contract_id General Contract ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\GeneralContractsTransferBalanceModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1169,8 +1169,8 @@ class GeneralContractsApi
      *
      * Update General Contract partially
      *
-     * @param string $general_contract_id General contract id (required)
-     * @param \Secuconnect\Client\Model\GeneralContractsDTO $body body 
+     * @param string $general_contract_id General Contract ID (required)
+     * @param \Secuconnect\Client\Model\GeneralContractsDTO $body Contract details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\GeneralContractsProductModel
      */
@@ -1185,8 +1185,8 @@ class GeneralContractsApi
      *
      * Update General Contract partially
      *
-     * @param string $general_contract_id General contract id (required)
-     * @param \Secuconnect\Client\Model\GeneralContractsDTO $body 
+     * @param string $general_contract_id General Contract ID (required)
+     * @param \Secuconnect\Client\Model\GeneralContractsDTO $body Contract details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\GeneralContractsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1277,8 +1277,8 @@ class GeneralContractsApi
      *
      * Update third party configuration partially
      *
-     * @param string $general_contract_id General contract id (required)
-     * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body body 
+     * @param string $general_contract_id General Contract ID (required)
+     * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body Third party configuration 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ThirdPartyConfigurationProductModel
      */
@@ -1293,8 +1293,8 @@ class GeneralContractsApi
      *
      * Update third party configuration partially
      *
-     * @param string $general_contract_id General contract id (required)
-     * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body 
+     * @param string $general_contract_id General Contract ID (required)
+     * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body Third party configuration 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ThirdPartyConfigurationProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1385,8 +1385,8 @@ class GeneralContractsApi
      *
      * Delete third party configuration
      *
-     * @param string $general_contract_id General contract id (required)
-     * @param string $third_party_name Third party name (required)
+     * @param string $general_contract_id General Contract ID (required)
+     * @param string $third_party_name Third party name:  - &#x60;\&quot;paypal\&quot;&#x60; - &#x60;\&quot;easycredit\&quot;&#x60; - &#x60;\&quot;saferpay\&quot;&#x60; (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ThirdPartyConfigurationProductModel
      */
@@ -1401,8 +1401,8 @@ class GeneralContractsApi
      *
      * Delete third party configuration
      *
-     * @param string $general_contract_id General contract id (required)
-     * @param string $third_party_name Third party name (required)
+     * @param string $general_contract_id General Contract ID (required)
+     * @param string $third_party_name Third party name:  - &#x60;\&quot;paypal\&quot;&#x60; - &#x60;\&quot;easycredit\&quot;&#x60; - &#x60;\&quot;saferpay\&quot;&#x60; (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ThirdPartyConfigurationProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1502,7 +1502,7 @@ class GeneralContractsApi
      *
      * Revoke all accruals
      *
-     * @param string $general_contract_id Contract identifier (required)
+     * @param string $general_contract_id General Contract ID (required)
      * @throws ApiException on non-2xx response
      * @return void
      */
@@ -1516,7 +1516,7 @@ class GeneralContractsApi
      *
      * Revoke all accruals
      *
-     * @param string $general_contract_id Contract identifier (required)
+     * @param string $general_contract_id General Contract ID (required)
      * @throws ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1598,7 +1598,7 @@ class GeneralContractsApi
      *
      * Terminate contract
      *
-     * @param string $general_contract_id Contract identifier (required)
+     * @param string $general_contract_id General Contract ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ResultBoolean
      */
@@ -1613,7 +1613,7 @@ class GeneralContractsApi
      *
      * Terminate contract
      *
-     * @param string $general_contract_id Contract identifier (required)
+     * @param string $general_contract_id General Contract ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1699,8 +1699,8 @@ class GeneralContractsApi
      *
      * Update bank account
      *
-     * @param string $general_contract_id Contract identifier (required)
-     * @param \Secuconnect\Client\Model\BankAccountDescriptor $body body 
+     * @param string $general_contract_id General Contract ID (required)
+     * @param \Secuconnect\Client\Model\BankAccountDescriptor $body Bank details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ResultBoolean
      */
@@ -1715,8 +1715,8 @@ class GeneralContractsApi
      *
      * Update bank account
      *
-     * @param string $general_contract_id Contract identifier (required)
-     * @param \Secuconnect\Client\Model\BankAccountDescriptor $body 
+     * @param string $general_contract_id General Contract ID (required)
+     * @param \Secuconnect\Client\Model\BankAccountDescriptor $body Bank details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1807,8 +1807,8 @@ class GeneralContractsApi
      *
      * Update General Contract
      *
-     * @param string $general_contract_id General contract id (required)
-     * @param \Secuconnect\Client\Model\GeneralContractsDTO $body body 
+     * @param string $general_contract_id General Contract ID (required)
+     * @param \Secuconnect\Client\Model\GeneralContractsDTO $body Contract details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\GeneralContractsProductModel
      */
@@ -1823,8 +1823,8 @@ class GeneralContractsApi
      *
      * Update General Contract
      *
-     * @param string $general_contract_id General contract id (required)
-     * @param \Secuconnect\Client\Model\GeneralContractsDTO $body 
+     * @param string $general_contract_id General Contract ID (required)
+     * @param \Secuconnect\Client\Model\GeneralContractsDTO $body Contract details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\GeneralContractsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1915,8 +1915,8 @@ class GeneralContractsApi
      *
      * Update third party configuration
      *
-     * @param string $general_contract_id General contract id (required)
-     * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body body 
+     * @param string $general_contract_id General Contract ID (required)
+     * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body Third party configuration 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ThirdPartyConfigurationProductModel
      */
@@ -1931,8 +1931,8 @@ class GeneralContractsApi
      *
      * Update third party configuration
      *
-     * @param string $general_contract_id General contract id (required)
-     * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body 
+     * @param string $general_contract_id General Contract ID (required)
+     * @param \Secuconnect\Client\Model\ThirdPartyConfigurationDTO $body Third party configuration 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ThirdPartyConfigurationProductModel, HTTP status code, HTTP response headers (array of strings)
      */

@@ -207,7 +207,7 @@ class GeneralStoresDTO implements ArrayAccess
 
     /**
      * Sets merchant
-     * @param string $merchant Merchant
+     * @param string $merchant General Merchant ID
      * @return $this
      */
     public function setMerchant($merchant)
