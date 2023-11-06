@@ -31,6 +31,7 @@ class SmartTransactionsApplicationContext implements ArrayAccess
         'locks' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContextLocks',
         'return_urls' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContextReturnUrls',
         'iframe_opts' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContextIframeOpts',
+        'shop_details' => '\Secuconnect\Client\Model\SmartTransactionsApplicationContextShopDetails',
         'checkout_template' => 'string',
         'language' => 'string'
     ];
@@ -43,6 +44,7 @@ class SmartTransactionsApplicationContext implements ArrayAccess
         'locks' => null,
         'return_urls' => null,
         'iframe_opts' => null,
+        'shop_details' => null,
         'checkout_template' => null,
         'language' => null
     ];
@@ -65,6 +67,7 @@ class SmartTransactionsApplicationContext implements ArrayAccess
         'locks' => 'locks',
         'return_urls' => 'return_urls',
         'iframe_opts' => 'iframe_opts',
+        'shop_details' => 'shop_details',
         'checkout_template' => 'checkout_template',
         'language' => 'language'
     ];
@@ -77,6 +80,7 @@ class SmartTransactionsApplicationContext implements ArrayAccess
         'locks' => 'setLocks',
         'return_urls' => 'setReturnUrls',
         'iframe_opts' => 'setIframeOpts',
+        'shop_details' => 'setShopDetails',
         'checkout_template' => 'setCheckoutTemplate',
         'language' => 'setLanguage'
     ];
@@ -89,6 +93,7 @@ class SmartTransactionsApplicationContext implements ArrayAccess
         'locks' => 'getLocks',
         'return_urls' => 'getReturnUrls',
         'iframe_opts' => 'getIframeOpts',
+        'shop_details' => 'getShopDetails',
         'checkout_template' => 'getCheckoutTemplate',
         'language' => 'getLanguage'
     ];
@@ -123,6 +128,7 @@ class SmartTransactionsApplicationContext implements ArrayAccess
         $this->container['locks'] = isset($data['locks']) ? $data['locks'] : null;
         $this->container['return_urls'] = isset($data['return_urls']) ? $data['return_urls'] : null;
         $this->container['iframe_opts'] = isset($data['iframe_opts']) ? $data['iframe_opts'] : null;
+        $this->container['shop_details'] = isset($data['shop_details']) ? $data['shop_details'] : null;
         $this->container['checkout_template'] = isset($data['checkout_template']) ? $data['checkout_template'] : null;
         $this->container['language'] = isset($data['language']) ? $data['language'] : null;
     }
@@ -210,6 +216,27 @@ class SmartTransactionsApplicationContext implements ArrayAccess
     public function setIframeOpts($iframe_opts)
     {
         $this->container['iframe_opts'] = $iframe_opts;
+
+        return $this;
+    }
+
+    /**
+     * Gets shop_details
+     * @return \Secuconnect\Client\Model\SmartTransactionsApplicationContextShopDetails
+     */
+    public function getShopDetails()
+    {
+        return $this->container['shop_details'];
+    }
+
+    /**
+     * Sets shop_details
+     * @param \Secuconnect\Client\Model\SmartTransactionsApplicationContextShopDetails $shop_details shop_details
+     * @return $this
+     */
+    public function setShopDetails($shop_details)
+    {
+        $this->container['shop_details'] = $shop_details;
 
         return $this;
     }

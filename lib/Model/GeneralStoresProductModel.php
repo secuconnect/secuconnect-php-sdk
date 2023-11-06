@@ -828,7 +828,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets url_website
-     * @param string $url_website Store website URL (e. g. a webpage of yours with the details of this store)
+     * @param string $url_website URL of a website with your store details
      * @return $this
      */
     public function setUrlWebsite($url_website)
@@ -870,7 +870,7 @@ class GeneralStoresProductModel extends BaseProductModel
 
     /**
      * Sets open_now
-     * @param bool $open_now Whether the store is just open
+     * @param bool $open_now Whether the store is currently open
      * @return $this
      */
     public function setOpenNow($open_now)

@@ -144,7 +144,7 @@ class DayTime implements ArrayAccess
 
     /**
      * Sets day
-     * @param int $day Day
+     * @param int $day Day; `0` .. `6` for Sunday .. Saturday
      * @return $this
      */
     public function setDay($day)
@@ -165,7 +165,7 @@ class DayTime implements ArrayAccess
 
     /**
      * Sets time
-     * @param string $time Time
+     * @param string $time Time; format HHMM, e. g. `\"0930\"` for 9:30
      * @return $this
      */
     public function setTime($time)

@@ -18,6 +18,36 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.41.0] - 2023-11-06
+[2.41.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.40.0...2.41.0
+
+- *new examples*: `GeneralContractsFindResponse`, `GeneralContractsResourceResponse`, `GeneralContractsGetTransferBalancesResponse`, `GeneralContractsGetAvailablePaymentMethodsRequest`, `GeneralContractsGetAvailablePaymentMethodsResponse`, `GeneralContractsGetIframeOptionsResponse`, `GeneralContractsSetPaymentLinkOptionsRequest` and `GeneralContractsGetCurrenciesResponse` in `GeneralContractsApi`
+- *new examples*: `GeneralStoresFindResponse`, `GeneralStoresCreateRequest`, `GeneralStoresResourceResponse` and `GeneralStoresUpdateRequest` in `GeneralStoresApi`
+- *removed endpoint*: `GeneralStoresApi->checkIn()`
+- *new element*: `application_context.shop_details` in `SmartTransactionsProductModel`
+- *new element*: `transmitted_to_bank` in `PaymentTransactionsProductModel`
+
+### Added
+- `Model.SmartTransactionsApplicationContextShopDetails`
+
+### Changed
+- `.gitattributes`
+- `.gitignore`
+- `LICENSE`
+- `Api.GeneralContractsApi`
+- `Api.GeneralStoresApi`
+- `Model.DayTime`
+- `Model.GeneralStoresDTO`
+- `Model.GeneralStoresList`
+- `Model.GeneralStoresProductModel`
+- `Model.PaymentTransactionsProductModel`
+- `Model.SmartTransactionsApplicationContext`
+- `phpunit.xml.dist`
+
+### Removed
+- `Model.GeneralStoresDTOType`
+
+
 ## [2.40.0] - 2023-10-17
 [2.40.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.39.0...2.40.0
 

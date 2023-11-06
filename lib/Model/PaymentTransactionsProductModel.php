@@ -69,7 +69,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'incoming_payment_bic' => 'string',
         'account_owner' => 'string',
         'accrual' => 'bool',
-        'order_id' => 'string'
+        'order_id' => 'string',
+        'transmitted_to_bank' => 'bool'
     ];
 
     /**
@@ -120,7 +121,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'incoming_payment_bic' => null,
         'account_owner' => null,
         'accrual' => null,
-        'order_id' => null
+        'order_id' => null,
+        'transmitted_to_bank' => null
     ];
 
     public static function swaggerTypes()
@@ -181,7 +183,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'incoming_payment_bic' => 'incoming_payment_bic',
         'account_owner' => 'account_owner',
         'accrual' => 'accrual',
-        'order_id' => 'order_id'
+        'order_id' => 'order_id',
+        'transmitted_to_bank' => 'transmitted_to_bank'
     ];
 
     /**
@@ -232,7 +235,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'incoming_payment_bic' => 'setIncomingPaymentBic',
         'account_owner' => 'setAccountOwner',
         'accrual' => 'setAccrual',
-        'order_id' => 'setOrderId'
+        'order_id' => 'setOrderId',
+        'transmitted_to_bank' => 'setTransmittedToBank'
     ];
 
     /**
@@ -283,7 +287,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'incoming_payment_bic' => 'getIncomingPaymentBic',
         'account_owner' => 'getAccountOwner',
         'accrual' => 'getAccrual',
-        'order_id' => 'getOrderId'
+        'order_id' => 'getOrderId',
+        'transmitted_to_bank' => 'getTransmittedToBank'
     ];
 
     public static function attributeMap()
@@ -353,6 +358,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
         $this->container['account_owner'] = isset($data['account_owner']) ? $data['account_owner'] : null;
         $this->container['accrual'] = isset($data['accrual']) ? $data['accrual'] : null;
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
+        $this->container['transmitted_to_bank'] = isset($data['transmitted_to_bank']) ? $data['transmitted_to_bank'] : null;
     }
 
     /**
@@ -1299,6 +1305,27 @@ class PaymentTransactionsProductModel extends BaseProductModel
     public function setOrderId($order_id)
     {
         $this->container['order_id'] = $order_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets transmitted_to_bank
+     * @return bool
+     */
+    public function getTransmittedToBank()
+    {
+        return $this->container['transmitted_to_bank'];
+    }
+
+    /**
+     * Sets transmitted_to_bank
+     * @param bool $transmitted_to_bank Shows if the payment transaction is transmitted to the bank.
+     * @return $this
+     */
+    public function setTransmittedToBank($transmitted_to_bank)
+    {
+        $this->container['transmitted_to_bank'] = $transmitted_to_bank;
 
         return $this;
     }
