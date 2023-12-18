@@ -276,7 +276,7 @@ class SmartTransactionsBasketProduct implements ArrayAccess
 
     /**
      * Sets item_type
-     * @param string $item_type Item type:  - `\"article\"` - `\"coupon\"` - `\"sub_transaction\"` - `\"stakeholder_payment\"` - `\"shipping\"` - `\"subscription\"`
+     * @param string $item_type Item type:  - `\"article\"` - `\"coupon\"` - `\"sub_transaction\"` - `\"stakeholder_payment\"` - `\"shipping\"` - `\"subscription\"`  _Note: \"coupon\" items have the effect of reducing the amount. They are for coupons managed by the merchant, but not for secucard._
      * @return $this
      */
     public function setItemType($item_type)

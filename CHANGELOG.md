@@ -18,6 +18,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.42.0] - 2023-12-18
+[2.42.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.41.0...2.42.0
+
+- *new endpoint*: `capture` in `PaymentTransactionsApi`
+- *new element*: `documents` in `PaymentTransactionsProductModel`
+
+### Added
+- `Model.PaymentTransactionsCaptureDTO`
+- `Model.PaymentTransactionsProductModelDocuments`
+
+### Changed
+- `Api.PaymentTransactionsApi`
+- `Model.PaymentTransactionsProductModel`
+- `Model.SmartTransactionsBasketProduct`
+
+
 ## [2.41.0] - 2023-11-06
 [2.41.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.40.0...2.41.0
 
