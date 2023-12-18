@@ -70,7 +70,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'account_owner' => 'string',
         'accrual' => 'bool',
         'order_id' => 'string',
-        'transmitted_to_bank' => 'bool'
+        'transmitted_to_bank' => 'bool',
+        'documents' => '\Secuconnect\Client\Model\PaymentTransactionsProductModelDocuments[]'
     ];
 
     /**
@@ -122,7 +123,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'account_owner' => null,
         'accrual' => null,
         'order_id' => null,
-        'transmitted_to_bank' => null
+        'transmitted_to_bank' => null,
+        'documents' => null
     ];
 
     public static function swaggerTypes()
@@ -184,7 +186,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'account_owner' => 'account_owner',
         'accrual' => 'accrual',
         'order_id' => 'order_id',
-        'transmitted_to_bank' => 'transmitted_to_bank'
+        'transmitted_to_bank' => 'transmitted_to_bank',
+        'documents' => 'documents'
     ];
 
     /**
@@ -236,7 +239,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'account_owner' => 'setAccountOwner',
         'accrual' => 'setAccrual',
         'order_id' => 'setOrderId',
-        'transmitted_to_bank' => 'setTransmittedToBank'
+        'transmitted_to_bank' => 'setTransmittedToBank',
+        'documents' => 'setDocuments'
     ];
 
     /**
@@ -288,7 +292,8 @@ class PaymentTransactionsProductModel extends BaseProductModel
         'account_owner' => 'getAccountOwner',
         'accrual' => 'getAccrual',
         'order_id' => 'getOrderId',
-        'transmitted_to_bank' => 'getTransmittedToBank'
+        'transmitted_to_bank' => 'getTransmittedToBank',
+        'documents' => 'getDocuments'
     ];
 
     public static function attributeMap()
@@ -359,6 +364,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
         $this->container['accrual'] = isset($data['accrual']) ? $data['accrual'] : null;
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
         $this->container['transmitted_to_bank'] = isset($data['transmitted_to_bank']) ? $data['transmitted_to_bank'] : null;
+        $this->container['documents'] = isset($data['documents']) ? $data['documents'] : null;
     }
 
     /**
@@ -1173,7 +1179,7 @@ class PaymentTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets reference_id
-     * @param string $reference_id Reference ID
+     * @param string $reference_id Reference ID of the sub-basket, if a sub-transaction (marketplace)
      * @return $this
      */
     public function setReferenceId($reference_id)
@@ -1326,6 +1332,27 @@ class PaymentTransactionsProductModel extends BaseProductModel
     public function setTransmittedToBank($transmitted_to_bank)
     {
         $this->container['transmitted_to_bank'] = $transmitted_to_bank;
+
+        return $this;
+    }
+
+    /**
+     * Gets documents
+     * @return \Secuconnect\Client\Model\PaymentTransactionsProductModelDocuments[]
+     */
+    public function getDocuments()
+    {
+        return $this->container['documents'];
+    }
+
+    /**
+     * Sets documents
+     * @param \Secuconnect\Client\Model\PaymentTransactionsProductModelDocuments[] $documents Related documents
+     * @return $this
+     */
+    public function setDocuments($documents)
+    {
+        $this->container['documents'] = $documents;
 
         return $this;
     }
