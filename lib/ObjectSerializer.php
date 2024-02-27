@@ -24,13 +24,13 @@ use Secuconnect\Client\Model\SmartTransactionsShippingModel;
 class ObjectSerializer
 {
     const INTERFACES = [
-        '\Secuconnect\Client\Model\ApplePayDescriptor' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate',
-        '\Secuconnect\Client\Model\BankAccountDescriptor' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate',
-        '\Secuconnect\Client\Model\CreditCardDescriptor' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate',
-        '\Secuconnect\Client\Model\GooglePayDescriptor' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate',
-        '\Secuconnect\Client\Model\PayPalDescriptor' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate',
-        '\Secuconnect\Client\Model\SmartTransactionsCollectionModel' => '\Secuconnect\Client\Model\OneOfSmartTransactionsDeliveryOptionsModel',
-        '\Secuconnect\Client\Model\SmartTransactionsShippingModel' => '\Secuconnect\Client\Model\OneOfSmartTransactionsDeliveryOptionsModel',
+        ['interface' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate', 'class' => '\Secuconnect\Client\Model\ApplePayDescriptor'],
+        ['interface' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate', 'class' => '\Secuconnect\Client\Model\BankAccountDescriptor'],
+        ['interface' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate', 'class' => '\Secuconnect\Client\Model\CreditCardDescriptor'],
+        ['interface' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate', 'class' => '\Secuconnect\Client\Model\GooglePayDescriptor'],
+        ['interface' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate', 'class' => '\Secuconnect\Client\Model\PayPalDescriptor'],
+        ['interface' => '\Secuconnect\Client\Model\OneOfSmartTransactionsDeliveryOptionsModel', 'class' => '\Secuconnect\Client\Model\SmartTransactionsCollectionModel'],
+        ['interface' => '\Secuconnect\Client\Model\OneOfSmartTransactionsDeliveryOptionsModel', 'class' => '\Secuconnect\Client\Model\SmartTransactionsShippingModel'],
     ];
 
     /**
@@ -225,6 +225,8 @@ class ObjectSerializer
     {
         if (null === $data) {
             return null;
+        } elseif ($class === '') {
+            return $data;
         } elseif (substr($class, 0, 4) === 'map[') { // for associative array e.g. map[string,int]
             $inner = substr($class, 4, -1);
             $deserialized = [];
@@ -329,29 +331,37 @@ class ObjectSerializer
                 }
             }
 
-            // handle "oneOf"
-            if (interface_exists($class) && in_array($class, self::INTERFACES)) {
-                $subclass = null;
-                $class_list = array_keys(array_intersect(self::INTERFACES, [$class]));
-                if (count($class_list) > 1) {
-                    $previous_matches = 0;
-                    foreach ($class_list as $current_subclass) {
-                        $current_matches = count(array_intersect(
-                            array_keys((array)$data),
-                            array_keys($current_subclass::attributeMap())
-                        ));
-
-                        if ($current_matches > $previous_matches) {
-                            $previous_matches = $current_matches;
-                            $subclass = $current_subclass;
-                        }
+            // handle "oneOf" or "anyOf"
+            if (interface_exists($class)) {
+                $class_list = [];
+                foreach (self::INTERFACES as $interface_item) {
+                    if ($class === $interface_item['interface']) {
+                        $class_list[] = $interface_item['class'];
                     }
-                } else {
-                    $subclass = reset($class_list);
                 }
 
-                if ($subclass !== null && is_subclass_of($subclass, $class)) {
-                    $class = $subclass;
+                if ($class_list) {
+                    $subclass = null;
+                    if (count($class_list) > 1) {
+                        $previous_matches = 0;
+                        foreach ($class_list as $current_subclass) {
+                            $current_matches = count(array_intersect(
+                                array_keys((array)$data),
+                                array_keys($current_subclass::attributeMap())
+                            ));
+
+                            if ($current_matches > $previous_matches) {
+                                $previous_matches = $current_matches;
+                                $subclass = $current_subclass;
+                            }
+                        }
+                    } else {
+                        $subclass = reset($class_list);
+                    }
+
+                    if ($subclass !== null && is_subclass_of($subclass, $class)) {
+                        $class = $subclass;
+                    }
                 }
             }
 

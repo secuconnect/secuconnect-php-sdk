@@ -40,7 +40,7 @@ class PaymentTransactionCancelDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'reason' => '[0-9a-zA-Z .,+\-:?()\/']+',
+        'reason' => '[0-9a-zA-Z .,+\-:?()\/\']+',
         'amount' => null,
         'reduce_amount_by' => null,
         'reduce_stakeholder_payment' => null,

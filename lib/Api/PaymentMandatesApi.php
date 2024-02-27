@@ -223,7 +223,7 @@ class PaymentMandatesApi
                 return [null, $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
-                                        case 401:
+                    case 401:
                         if ($retries < 1) {
                             Authenticator::reauthenticate();
                             continue 2;
