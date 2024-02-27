@@ -1070,10 +1070,6 @@ class LoyaltyMerchantcardsApi
                         $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\VirtualTerminalDataModel', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
-                    case 201:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ResultBoolean', $e->getResponseHeaders());
-                        $e->setResponseObject($data);
-                        break;
                     case 401:
                         if ($retries < 1) {
                             Authenticator::reauthenticate();

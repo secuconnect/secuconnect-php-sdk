@@ -18,6 +18,24 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.43.0] - 2024-02-27
+[2.43.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.42.0...2.43.0
+
+- *fixed bug*: invalid regex in `PaymentTransactionCancelDTO` [#45](https://github.com/secuconnect/secuconnect-php-sdk/issues/45)
+- *fixed bug*: added file check for avoid error on setting curl option on enabled debugging in `ApiClient`
+- *fixed bug*: reworked `ObjectSerializer->deserialize()` method a little bit to solve mapping issues in `LoyaltyTransactions`
+- *changed response type*: `PaymentTransactionsApi->capture()` changed from `PaymentTransactionsProductModel[] ` to `PaymentTransactionsProductModel`
+
+### Changed
+- `Api.GeneralContractsApi`
+- `Api.LoyaltyMerchantcardsApi`
+- `Api.PaymentContractsApi`
+- `Api.PaymentMandatesApi`
+- `Api.PaymentTransactionsApi`
+- `Model.PaymentTransactionCancelDTO`
+- `lib/ObjectSerializer.php`
+
+
 ## [2.42.0] - 2023-12-18
 [2.42.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.41.0...2.42.0
 
