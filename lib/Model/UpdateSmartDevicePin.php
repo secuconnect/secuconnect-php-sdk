@@ -5,15 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * LoyaltyCardsDTOAccount
+ * UpdateSmartDevicePin
  *
  * @category Class
- * @description General Account
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LoyaltyCardsDTOAccount implements ArrayAccess
+class UpdateSmartDevicePin implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,15 +20,16 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'LoyaltyCardsDTOAccount';
+    protected static $swaggerModelName = 'UpdateSmartDevicePin';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'object' => 'string',
-        'id' => 'string'
+        'store_id' => '\Secuconnect\Client\Model\STO_ID',
+        'merchant_id' => '\Secuconnect\Client\Model\MRC_ID',
+        'pin' => 'string'
     ];
 
     /**
@@ -37,8 +37,9 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'object' => null,
-        'id' => null
+        'store_id' => null,
+        'merchant_id' => null,
+        'pin' => null
     ];
 
     public static function swaggerTypes()
@@ -56,8 +57,9 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'object' => 'object',
-        'id' => 'id'
+        'store_id' => 'store_id',
+        'merchant_id' => 'merchant_id',
+        'pin' => 'pin'
     ];
 
     /**
@@ -65,8 +67,9 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'object' => 'setObject',
-        'id' => 'setId'
+        'store_id' => 'setStoreId',
+        'merchant_id' => 'setMerchantId',
+        'pin' => 'setPin'
     ];
 
     /**
@@ -74,8 +77,9 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'object' => 'getObject',
-        'id' => 'getId'
+        'store_id' => 'getStoreId',
+        'merchant_id' => 'getMerchantId',
+        'pin' => 'getPin'
     ];
 
     public static function attributeMap()
@@ -105,8 +109,9 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['object'] = isset($data['object']) ? $data['object'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['store_id'] = isset($data['store_id']) ? $data['store_id'] : null;
+        $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
+        $this->container['pin'] = isset($data['pin']) ? $data['pin'] : null;
     }
 
     /**
@@ -134,43 +139,64 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
 
 
     /**
-     * Gets object
-     * @return string
+     * Gets store_id
+     * @return \Secuconnect\Client\Model\STO_ID
      */
-    public function getObject()
+    public function getStoreId()
     {
-        return $this->container['object'];
+        return $this->container['store_id'];
     }
 
     /**
-     * Sets object
-     * @param string $object object
+     * Sets store_id
+     * @param \Secuconnect\Client\Model\STO_ID $store_id store_id
      * @return $this
      */
-    public function setObject($object)
+    public function setStoreId($store_id)
     {
-        $this->container['object'] = $object;
+        $this->container['store_id'] = $store_id;
 
         return $this;
     }
 
     /**
-     * Gets id
-     * @return string
+     * Gets merchant_id
+     * @return \Secuconnect\Client\Model\MRC_ID
      */
-    public function getId()
+    public function getMerchantId()
     {
-        return $this->container['id'];
+        return $this->container['merchant_id'];
     }
 
     /**
-     * Sets id
-     * @param string $id General Account ID
+     * Sets merchant_id
+     * @param \Secuconnect\Client\Model\MRC_ID $merchant_id merchant_id
      * @return $this
      */
-    public function setId($id)
+    public function setMerchantId($merchant_id)
     {
-        $this->container['id'] = $id;
+        $this->container['merchant_id'] = $merchant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets pin
+     * @return string
+     */
+    public function getPin()
+    {
+        return $this->container['pin'];
+    }
+
+    /**
+     * Sets pin
+     * @param string $pin The pin to store
+     * @return $this
+     */
+    public function setPin($pin)
+    {
+        $this->container['pin'] = $pin;
 
         return $this;
     }

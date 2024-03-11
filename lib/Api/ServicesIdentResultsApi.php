@@ -7,14 +7,14 @@ use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Authentication\Authenticator;
 
 /**
- * ServicesIdentresultsApi
+ * ServicesIdentResultsApi
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ServicesIdentresultsApi
+class ServicesIdentResultsApi
 {
     /**
      * API Client
@@ -52,7 +52,7 @@ class ServicesIdentresultsApi
      *
      * @param ApiClient $apiClient set the API client
      *
-     * @return ServicesIdentresultsApi
+     * @return ServicesIdentResultsApi
      */
     public function setApiClient(ApiClient $apiClient)
     {
@@ -63,7 +63,7 @@ class ServicesIdentresultsApi
     /**
      * Operation getAll
      *
-     * Find IdentResults
+     * Find Ident Results
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -88,7 +88,7 @@ class ServicesIdentresultsApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * Find IdentResults
+     * Find Ident Results
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -214,7 +214,7 @@ class ServicesIdentresultsApi
     /**
      * Operation getOne
      *
-     * Read IdentResult
+     * Read Ident Result
      *
      * @param string $identrequest_id Identresult Id (required)
      * @throws ApiException on non-2xx response
@@ -229,7 +229,7 @@ class ServicesIdentresultsApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * Read IdentResult
+     * Read Ident Result
      *
      * @param string $identrequest_id Identresult Id (required)
      * @throws ApiException on non-2xx response

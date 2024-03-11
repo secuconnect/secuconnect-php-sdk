@@ -8,7 +8,7 @@ use \ArrayAccess;
  * LoyaltyCustomersPaymentContainerModel
  *
  * @category Class
- * @description LoyaltyCustomersPaymentContainerModel
+ * @description Payment Container
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -246,7 +246,7 @@ class LoyaltyCustomersPaymentContainerModel implements ArrayAccess
 
     /**
      * Sets last_usage
-     * @param string $last_usage Last Usage date
+     * @param string $last_usage Last Usage date (ISO 8601 date and time including timezone, like  \"2023-02-28 T10:55:27+02:00\")
      * @return $this
      */
     public function setLastUsage($last_usage)

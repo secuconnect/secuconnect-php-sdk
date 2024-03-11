@@ -1746,7 +1746,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation updateCardGroupOfMerchantCard
      *
-     * Update loyalty card group
+     * Set card group
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param string $loyalty_card_group_id Loyalty card group id (required)
@@ -1762,7 +1762,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation updateCardGroupOfMerchantCardWithHttpInfo
      *
-     * Update loyalty card group
+     * Set card group
      *
      * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
      * @param string $loyalty_card_group_id Loyalty card group id (required)

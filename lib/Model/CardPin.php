@@ -27,7 +27,7 @@ class CardPin implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'pin' => 'int'
+        'pin' => 'string'
     ];
 
     /**
@@ -128,7 +128,7 @@ class CardPin implements ArrayAccess
 
     /**
      * Gets pin
-     * @return int
+     * @return string
      */
     public function getPin()
     {
@@ -137,7 +137,7 @@ class CardPin implements ArrayAccess
 
     /**
      * Sets pin
-     * @param int $pin Loyalty card pin consisting of four numbers
+     * @param string $pin Card PIN (four decimal digits)  The card PIN must not be mixed with the Card Security Code (CSC) on the card.
      * @return $this
      */
     public function setPin($pin)

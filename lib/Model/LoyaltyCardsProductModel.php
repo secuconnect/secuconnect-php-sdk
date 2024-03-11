@@ -6,7 +6,7 @@ namespace Secuconnect\Client\Model;
  * LoyaltyCardsProductModel
  *
  * @category Class
- * @description LoyaltyCardsProductModel
+ * @description Loyalty Card
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -348,7 +348,7 @@ class LoyaltyCardsProductModel extends BaseProductModel
 
     /**
      * Sets cardnumber
-     * @param string $cardnumber Loyalty card number
+     * @param string $cardnumber Card number
      * @return $this
      */
     public function setCardnumber($cardnumber)

@@ -8,7 +8,7 @@ use \ArrayAccess;
  * IdentDocument
  *
  * @category Class
- * @description IdentDocument
+ * @description Identification document
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -144,7 +144,7 @@ class IdentDocument implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type The type of the identification document
+     * @param string $type Type of the ID document
      * @return $this
      */
     public function setType($type)
@@ -165,7 +165,7 @@ class IdentDocument implements ArrayAccess
 
     /**
      * Sets url
-     * @param string $url The url to identification document
+     * @param string $url URL to ID document
      * @return $this
      */
     public function setUrl($url)

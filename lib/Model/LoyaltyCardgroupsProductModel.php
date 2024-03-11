@@ -32,11 +32,15 @@ class LoyaltyCardgroupsProductModel extends BaseProductModel
         'c' => 'int',
         's' => 'int',
         't' => '\Secuconnect\Client\Model\AggregationTimeResult',
-        'merchant' => '\Secuconnect\Client\Model\LoyaltyCardgroupsDTOMerchant',
+        'merchant' => '\Secuconnect\Client\Model\GeneralMerchantsProductModel',
         'display_name' => 'string',
         'display_name_raw' => 'string',
-        'stock_warn_limit' => 'string',
-        'picture' => 'string'
+        'stock_warn_limit' => 'int',
+        'picture' => 'string',
+        'balance_limit' => 'int',
+        'balance_expiry' => 'bool',
+        'cancel_selected' => 'bool',
+        'description' => 'string'
     ];
 
     /**
@@ -54,7 +58,11 @@ class LoyaltyCardgroupsProductModel extends BaseProductModel
         'display_name' => null,
         'display_name_raw' => null,
         'stock_warn_limit' => null,
-        'picture' => null
+        'picture' => null,
+        'balance_limit' => null,
+        'balance_expiry' => null,
+        'cancel_selected' => null,
+        'description' => null
     ];
 
     public static function swaggerTypes()
@@ -82,7 +90,11 @@ class LoyaltyCardgroupsProductModel extends BaseProductModel
         'display_name' => 'display_name',
         'display_name_raw' => 'display_name_raw',
         'stock_warn_limit' => 'stock_warn_limit',
-        'picture' => 'picture'
+        'picture' => 'picture',
+        'balance_limit' => 'balance_limit',
+        'balance_expiry' => 'balance_expiry',
+        'cancel_selected' => 'cancel_selected',
+        'description' => 'description'
     ];
 
     /**
@@ -100,7 +112,11 @@ class LoyaltyCardgroupsProductModel extends BaseProductModel
         'display_name' => 'setDisplayName',
         'display_name_raw' => 'setDisplayNameRaw',
         'stock_warn_limit' => 'setStockWarnLimit',
-        'picture' => 'setPicture'
+        'picture' => 'setPicture',
+        'balance_limit' => 'setBalanceLimit',
+        'balance_expiry' => 'setBalanceExpiry',
+        'cancel_selected' => 'setCancelSelected',
+        'description' => 'setDescription'
     ];
 
     /**
@@ -118,7 +134,11 @@ class LoyaltyCardgroupsProductModel extends BaseProductModel
         'display_name' => 'getDisplayName',
         'display_name_raw' => 'getDisplayNameRaw',
         'stock_warn_limit' => 'getStockWarnLimit',
-        'picture' => 'getPicture'
+        'picture' => 'getPicture',
+        'balance_limit' => 'getBalanceLimit',
+        'balance_expiry' => 'getBalanceExpiry',
+        'cancel_selected' => 'getCancelSelected',
+        'description' => 'getDescription'
     ];
 
     public static function attributeMap()
@@ -155,6 +175,10 @@ class LoyaltyCardgroupsProductModel extends BaseProductModel
         $this->container['display_name_raw'] = isset($data['display_name_raw']) ? $data['display_name_raw'] : null;
         $this->container['stock_warn_limit'] = isset($data['stock_warn_limit']) ? $data['stock_warn_limit'] : null;
         $this->container['picture'] = isset($data['picture']) ? $data['picture'] : null;
+        $this->container['balance_limit'] = isset($data['balance_limit']) ? $data['balance_limit'] : null;
+        $this->container['balance_expiry'] = isset($data['balance_expiry']) ? $data['balance_expiry'] : null;
+        $this->container['cancel_selected'] = isset($data['cancel_selected']) ? $data['cancel_selected'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
     }
 
     /**
@@ -309,7 +333,7 @@ class LoyaltyCardgroupsProductModel extends BaseProductModel
 
     /**
      * Gets merchant
-     * @return \Secuconnect\Client\Model\LoyaltyCardgroupsDTOMerchant
+     * @return \Secuconnect\Client\Model\GeneralMerchantsProductModel
      */
     public function getMerchant()
     {
@@ -318,7 +342,7 @@ class LoyaltyCardgroupsProductModel extends BaseProductModel
 
     /**
      * Sets merchant
-     * @param \Secuconnect\Client\Model\LoyaltyCardgroupsDTOMerchant $merchant merchant
+     * @param \Secuconnect\Client\Model\GeneralMerchantsProductModel $merchant merchant
      * @return $this
      */
     public function setMerchant($merchant)
@@ -372,7 +396,7 @@ class LoyaltyCardgroupsProductModel extends BaseProductModel
 
     /**
      * Gets stock_warn_limit
-     * @return string
+     * @return int
      */
     public function getStockWarnLimit()
     {
@@ -381,7 +405,7 @@ class LoyaltyCardgroupsProductModel extends BaseProductModel
 
     /**
      * Sets stock_warn_limit
-     * @param string $stock_warn_limit Loyalty card group stock warn limit
+     * @param int $stock_warn_limit Loyalty card group stock warn limit
      * @return $this
      */
     public function setStockWarnLimit($stock_warn_limit)
@@ -408,6 +432,90 @@ class LoyaltyCardgroupsProductModel extends BaseProductModel
     public function setPicture($picture)
     {
         $this->container['picture'] = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Gets balance_limit
+     * @return int
+     */
+    public function getBalanceLimit()
+    {
+        return $this->container['balance_limit'];
+    }
+
+    /**
+     * Sets balance_limit
+     * @param int $balance_limit Loyalty card group balance limit
+     * @return $this
+     */
+    public function setBalanceLimit($balance_limit)
+    {
+        $this->container['balance_limit'] = $balance_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets balance_expiry
+     * @return bool
+     */
+    public function getBalanceExpiry()
+    {
+        return $this->container['balance_expiry'];
+    }
+
+    /**
+     * Sets balance_expiry
+     * @param bool $balance_expiry The card group allows to set an expiry date for a card.
+     * @return $this
+     */
+    public function setBalanceExpiry($balance_expiry)
+    {
+        $this->container['balance_expiry'] = $balance_expiry;
+
+        return $this;
+    }
+
+    /**
+     * Gets cancel_selected
+     * @return bool
+     */
+    public function getCancelSelected()
+    {
+        return $this->container['cancel_selected'];
+    }
+
+    /**
+     * Sets cancel_selected
+     * @param bool $cancel_selected The card group allows to cancel specific transactions.
+     * @return $this
+     */
+    public function setCancelSelected($cancel_selected)
+    {
+        $this->container['cancel_selected'] = $cancel_selected;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     * @param string $description Loyalty card group description
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
 
         return $this;
     }

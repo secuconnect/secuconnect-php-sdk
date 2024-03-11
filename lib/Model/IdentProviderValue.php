@@ -8,7 +8,7 @@ use \ArrayAccess;
  * IdentProviderValue
  *
  * @category Class
- * @description Third party Identification provider: * &#x60;post_ident&#x60;, * &#x60;bank_ident&#x60;, * &#x60;webid&#x60;, * &#x60;idnow&#x60;, * &#x60;post_ident_extern&#x60;, * &#x60;3rdParty&#x60;
+ * @description Third party Identification provider:  * &#x60;\&quot;post_ident\&quot;&#x60;, * &#x60;\&quot;bank_ident\&quot;&#x60;, * &#x60;\&quot;webid\&quot;&#x60;, * &#x60;\&quot;idnow\&quot;&#x60;, * &#x60;\&quot;post_ident_extern\&quot;&#x60;, * &#x60;\&quot;3rdParty\&quot;&#x60;
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

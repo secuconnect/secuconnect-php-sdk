@@ -65,7 +65,7 @@ class LoyaltyCustomersApi
      *
      * Create Loyalty Customer
      *
-     * @param \Secuconnect\Client\Model\LoyaltyCustomersDTO $body loyalty Customer container properties 
+     * @param \Secuconnect\Client\Model\LoyaltyCustomersDTO $body Loyalty Customer details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyCustomersProductModel
      */
@@ -80,7 +80,7 @@ class LoyaltyCustomersApi
      *
      * Create Loyalty Customer
      *
-     * @param \Secuconnect\Client\Model\LoyaltyCustomersDTO $body loyalty Customer container properties 
+     * @param \Secuconnect\Client\Model\LoyaltyCustomersDTO $body Loyalty Customer details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyCustomersProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -157,8 +157,8 @@ class LoyaltyCustomersApi
      *
      * Assign payment container to customer
      *
-     * @param string $loyalty_customer_id Loyalty customer id (required)
-     * @param string $loyalty_payment_container_id LoyaltyPaymentContainer id (required)
+     * @param string $loyalty_customer_id Loyalty Customer ID (required)
+     * @param string $loyalty_payment_container_id Loyalty Payment Container ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyCustomersProductModel
      */
@@ -173,8 +173,8 @@ class LoyaltyCustomersApi
      *
      * Assign payment container to customer
      *
-     * @param string $loyalty_customer_id Loyalty customer id (required)
-     * @param string $loyalty_payment_container_id LoyaltyPaymentContainer id (required)
+     * @param string $loyalty_customer_id Loyalty Customer ID (required)
+     * @param string $loyalty_payment_container_id Loyalty Payment Container ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyCustomersProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -425,7 +425,7 @@ class LoyaltyCustomersApi
      *
      * Read Loyalty Customer
      *
-     * @param string $loyalty_customer_id Search one loyalty customer by provided id (required)
+     * @param string $loyalty_customer_id Loyalty Customer ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyCustomersProductModel
      */
@@ -440,7 +440,7 @@ class LoyaltyCustomersApi
      *
      * Read Loyalty Customer
      *
-     * @param string $loyalty_customer_id Search one loyalty customer by provided id (required)
+     * @param string $loyalty_customer_id Loyalty Customer ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyCustomersProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -524,10 +524,10 @@ class LoyaltyCustomersApi
     /**
      * Operation removeAssignedPaymentContainer
      *
-     * Unassign payment container from customer
+     * Detach payment container from customer
      *
-     * @param string $loyalty_customer_id Loyalty customer id (required)
-     * @param string $loyalty_payment_container_id LoyaltyPaymentContainer id (required)
+     * @param string $loyalty_customer_id Loyalty Customer ID (required)
+     * @param string $loyalty_payment_container_id Loyalty Payment Container ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyCustomersProductModel
      */
@@ -540,10 +540,10 @@ class LoyaltyCustomersApi
     /**
      * Operation removeAssignedPaymentContainerWithHttpInfo
      *
-     * Unassign payment container from customer
+     * Detach payment container from customer
      *
-     * @param string $loyalty_customer_id Loyalty customer id (required)
-     * @param string $loyalty_payment_container_id LoyaltyPaymentContainer id (required)
+     * @param string $loyalty_customer_id Loyalty Customer ID (required)
+     * @param string $loyalty_payment_container_id Loyalty Payment Container ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyCustomersProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -643,8 +643,8 @@ class LoyaltyCustomersApi
      *
      * Update Loyalty Customer
      *
-     * @param string $loyalty_customer_id loyalty Customer Id CUS_XXX (required)
-     * @param \Secuconnect\Client\Model\LoyaltyCustomersDTO $body loyalty Customer container properties 
+     * @param string $loyalty_customer_id Loyalty Customer ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyCustomersDTO $body Loyalty Customer details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyCustomersProductModel
      */
@@ -659,8 +659,8 @@ class LoyaltyCustomersApi
      *
      * Update Loyalty Customer
      *
-     * @param string $loyalty_customer_id loyalty Customer Id CUS_XXX (required)
-     * @param \Secuconnect\Client\Model\LoyaltyCustomersDTO $body loyalty Customer container properties 
+     * @param string $loyalty_customer_id Loyalty Customer ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyCustomersDTO $body Loyalty Customer details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyCustomersProductModel, HTTP status code, HTTP response headers (array of strings)
      */

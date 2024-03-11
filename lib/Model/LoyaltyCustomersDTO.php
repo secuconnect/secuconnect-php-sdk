@@ -8,7 +8,7 @@ use \ArrayAccess;
  * LoyaltyCustomersDTO
  *
  * @category Class
- * @description LoyaltyCustomersDTO
+ * @description Loyalty Customer
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -180,7 +180,7 @@ class LoyaltyCustomersDTO implements ArrayAccess
 
     /**
      * Sets merchant
-     * @param string $merchant merchant
+     * @param string $merchant Merchant ID
      * @return $this
      */
     public function setMerchant($merchant)
@@ -222,7 +222,7 @@ class LoyaltyCustomersDTO implements ArrayAccess
 
     /**
      * Sets age
-     * @param int $age Age
+     * @param int $age Age in full years
      * @return $this
      */
     public function setAge($age)
@@ -243,7 +243,7 @@ class LoyaltyCustomersDTO implements ArrayAccess
 
     /**
      * Sets days_until_birthday
-     * @param int $days_until_birthday Number of days until birthday
+     * @param int $days_until_birthday Days until the next birthday
      * @return $this
      */
     public function setDaysUntilBirthday($days_until_birthday)
@@ -264,7 +264,7 @@ class LoyaltyCustomersDTO implements ArrayAccess
 
     /**
      * Sets customernumber
-     * @param string $customernumber Customer number
+     * @param string $customernumber Customer number in the merchant's system
      * @return $this
      */
     public function setCustomernumber($customernumber)
@@ -285,7 +285,7 @@ class LoyaltyCustomersDTO implements ArrayAccess
 
     /**
      * Sets note
-     * @param string $note note
+     * @param string $note Note from the merchant
      * @return $this
      */
     public function setNote($note)
@@ -306,7 +306,7 @@ class LoyaltyCustomersDTO implements ArrayAccess
 
     /**
      * Sets consent_for_communication
-     * @param string $consent_for_communication Consent for communication setting
+     * @param string $consent_for_communication Whether the customer has given consent for communication or not:  * `\"accepted\"` * `\"declined\"` * `\"not_set\"`
      * @return $this
      */
     public function setConsentForCommunication($consent_for_communication)
@@ -327,7 +327,7 @@ class LoyaltyCustomersDTO implements ArrayAccess
 
     /**
      * Sets additional_data
-     * @param object $additional_data additional data properties
+     * @param object $additional_data Additional data properties
      * @return $this
      */
     public function setAdditionalData($additional_data)

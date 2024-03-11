@@ -18,6 +18,66 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.44.0] - 2024-03-11
+[2.44.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.43.0...2.44.0
+
+- *removed endpoint*: `LoyaltyCardgroupsApi.getCardgroupsByMerchantId()`
+- *changed param type*: The param `body` changed from `LoyaltyCardgroupsDTO` to `LoyaltyCardgroupsUpdateDTO` in `LoyaltyCardgroupsApi.updateCardGroup()`
+- *changed name*: renamed`ServicesIdentrequestsApi` to `ServicesIdentRequestsApi`
+- *changed name*: renamed`ServicesIdentresultsApi` to `ServicesIdentResultsApi`
+- *changed name*: renamed`ServicesUploadidentsApi` to `ServicesUploadIdentsApi`
+- *new endpoint*: `SmartDevicesApi.getDevicePin()`
+- *new endpoint*: `SmartDevicesApi.updateDevicePin()`
+- *changed element type*: `pin` changed from `int` to `string` in `CardPin`
+- *removed element*: `display_name_raw` and `stock_warn_limit` in `LoyaltyCardgroupsDTO`
+- *changed element type*: `merchant` changed from `LoyaltyCardgroupsDTOMerchant` to `string` in `LoyaltyCardgroupsDTO`
+- *changed element type*: `merchant` changed from `LoyaltyCardgroupsDTOMerchant` to `GeneralMerchantsProductModel` in `LoyaltyCardgroupsProductModel`
+- *changed element type*: `stock_warn_limit` changed from `string` to `int` in `LoyaltyCardgroupsProductModel`
+- *new element*: `balance_limit`, `balance_expiry`, `cancel_selected` and `description` in `LoyaltyCardgroupsProductModel`
+
+### Added
+- `Model.GetSmartDevicePin`
+- `Model.GetSmartDevicePinMerchant`
+- `Model.GetSmartDevicePinSmartDevice`
+- `Model.GetSmartDevicePinStore`
+- `Model.LoyaltyCardgroupsUpdateDTO`
+- `Model.UpdateSmartDevicePin`
+
+### Changed
+- `Api.LoyaltyCardgroupsApi`
+- `Api.LoyaltyCardsApi`
+- `Api.LoyaltyCustomersApi`
+- `Api.LoyaltyMerchantcardsApi`
+- `Api.ServicesIdentrequestsApi`
+- `Api.ServicesIdentresultsApi`
+- `Api.ServicesUploadidentsApi`
+- `Api.SmartDevicesApi`
+- `Model.CardPin`
+- `Model.IdentDocument`
+- `Model.IdentProviderValue`
+- `Model.IdentificationProcess`
+- `Model.IdentrequestPerson`
+- `Model.IdentrequestRedirectUrls`
+- `Model.IdentresultPerson`
+- `Model.LoyaltyCardgroupsDTO`
+- `Model.LoyaltyCardgroupsDTOCheckPasscodeEnabled`
+- `Model.LoyaltyCardgroupsProductModel`
+- `Model.LoyaltyCardsDTOAccount`
+- `Model.LoyaltyCardsList`
+- `Model.LoyaltyCardsProductModel`
+- `Model.LoyaltyCustomersDTO`
+- `Model.LoyaltyCustomersList`
+- `Model.LoyaltyCustomersPaymentContainerModel`
+- `Model.LoyaltyCustomersProductModel`
+- `Model.ProductExceptionPayload`
+- `Model.ResultBoolean`
+- `Model.ServicesIdentrequestsProductModel`
+- `Model.ServicesIdentresultsProductModel`
+
+### Removed
+- `Model.LoyaltyCardgroupsDTOMerchant`
+
+
 ## [2.43.0] - 2024-02-27
 [2.43.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.42.0...2.43.0
 

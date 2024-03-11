@@ -7,14 +7,14 @@ use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Authentication\Authenticator;
 
 /**
- * ServicesUploadidentsApi
+ * ServicesUploadIdentsApi
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ServicesUploadidentsApi
+class ServicesUploadIdentsApi
 {
     /**
      * API Client
@@ -52,7 +52,7 @@ class ServicesUploadidentsApi
      *
      * @param ApiClient $apiClient set the API client
      *
-     * @return ServicesUploadidentsApi
+     * @return ServicesUploadIdentsApi
      */
     public function setApiClient(ApiClient $apiClient)
     {
@@ -63,9 +63,9 @@ class ServicesUploadidentsApi
     /**
      * Operation addUploadidents
      *
-     * Create UploadIdent
+     * Create Upload Ident
      *
-     * @param \Secuconnect\Client\Model\UploadidentsProductDTO $body Upload idents input properties 
+     * @param \Secuconnect\Client\Model\UploadidentsProductDTO $body Upload Ident details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\UploadidentsProductModel
      */
@@ -78,9 +78,9 @@ class ServicesUploadidentsApi
     /**
      * Operation addUploadidentsWithHttpInfo
      *
-     * Create UploadIdent
+     * Create Upload Ident
      *
-     * @param \Secuconnect\Client\Model\UploadidentsProductDTO $body Upload idents input properties 
+     * @param \Secuconnect\Client\Model\UploadidentsProductDTO $body Upload Ident details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\UploadidentsProductModel, HTTP status code, HTTP response headers (array of strings)
      */

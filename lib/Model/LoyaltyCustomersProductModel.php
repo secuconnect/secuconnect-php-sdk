@@ -6,7 +6,7 @@ namespace Secuconnect\Client\Model;
  * LoyaltyCustomersProductModel
  *
  * @category Class
- * @description LoyaltyCustomersProductModel
+ * @description Loyalty Customer
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -441,7 +441,7 @@ class LoyaltyCustomersProductModel extends BaseProductModel
 
     /**
      * Sets payment_container
-     * @param \Secuconnect\Client\Model\LoyaltyCustomersPaymentContainerModel[] $payment_container payment container
+     * @param \Secuconnect\Client\Model\LoyaltyCustomersPaymentContainerModel[] $payment_container Loyalty Payment Container
      * @return $this
      */
     public function setPaymentContainer($payment_container)
@@ -462,7 +462,7 @@ class LoyaltyCustomersProductModel extends BaseProductModel
 
     /**
      * Sets customernumber
-     * @param string $customernumber Customer number
+     * @param string $customernumber Customer number in the merchant's system
      * @return $this
      */
     public function setCustomernumber($customernumber)
@@ -483,7 +483,7 @@ class LoyaltyCustomersProductModel extends BaseProductModel
 
     /**
      * Sets note
-     * @param string $note Customer number
+     * @param string $note Note from the merchant
      * @return $this
      */
     public function setNote($note)
