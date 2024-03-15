@@ -519,7 +519,7 @@ class ServicesIdentrequestsProductModel extends BaseProductModel
 
     /**
      * Sets status
-     * @param string $status The status of the identrequest
+     * @param string $status Ident Request status:  * `\"requested\"` * `\"error\"` * `\"ok_preliminary\"` * `\"failed_preliminary\"` * `\"ok\"` * `\"failed\"`
      * @return $this
      */
     public function setStatus($status)
@@ -561,7 +561,7 @@ class ServicesIdentrequestsProductModel extends BaseProductModel
 
     /**
      * Sets person
-     * @param \Secuconnect\Client\Model\IdentrequestPerson[] $person The person which should be identified by third party provider
+     * @param \Secuconnect\Client\Model\IdentrequestPerson[] $person Details of the person to be identified
      * @return $this
      */
     public function setPerson($person)
@@ -582,7 +582,7 @@ class ServicesIdentrequestsProductModel extends BaseProductModel
 
     /**
      * Sets owner_transaction_id
-     * @param string $owner_transaction_id Arbitrary ID to identify identrequest on merchant
+     * @param string $owner_transaction_id Arbitrary ID to identify the Ident Request on the merchant's site
      * @return $this
      */
     public function setOwnerTransactionId($owner_transaction_id)
@@ -645,7 +645,7 @@ class ServicesIdentrequestsProductModel extends BaseProductModel
 
     /**
      * Sets treated
-     * @param bool $treated Flag to identify if identrequest was internally processed by secupay
+     * @param bool $treated Flag to see if the Ident Request was processed by secupay
      * @return $this
      */
     public function setTreated($treated)

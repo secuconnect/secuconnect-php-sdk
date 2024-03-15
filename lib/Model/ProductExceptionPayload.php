@@ -168,7 +168,7 @@ class ProductExceptionPayload implements ArrayAccess
 
     /**
      * Sets status
-     * @param string $status Request status (always \"error\")
+     * @param string $status Request status (always `\"error\"`)
      * @return $this
      */
     public function setStatus($status)

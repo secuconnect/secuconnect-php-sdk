@@ -192,7 +192,7 @@ class IdentrequestPerson extends IdentrequestPersonDTO
 
     /**
      * Sets status
-     * @param string $status The status of the person identification request
+     * @param string $status Ident Request status:  * `\"requested\"` * `\"error\"` * `\"ok_preliminary\"` * `\"failed_preliminary\"` * `\"ok\"` * `\"failed\"`
      * @return $this
      */
     public function setStatus($status)

@@ -5,15 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * LoyaltyCardgroupsDTOMerchant
+ * GetSmartDevicePinConfigMerchant
  *
  * @category Class
- * @description LoyaltyCardgroupsDTOMerchant
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LoyaltyCardgroupsDTOMerchant implements ArrayAccess
+class GetSmartDevicePinConfigMerchant implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,14 +20,15 @@ class LoyaltyCardgroupsDTOMerchant implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'LoyaltyCardgroupsDTOMerchant';
+    protected static $swaggerModelName = 'GetSmartDevicePinConfig_merchant';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'id' => 'string',
+        'auth_password_set' => 'bool'
     ];
 
     /**
@@ -36,7 +36,8 @@ class LoyaltyCardgroupsDTOMerchant implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'id' => null,
+        'auth_password_set' => null
     ];
 
     public static function swaggerTypes()
@@ -54,7 +55,8 @@ class LoyaltyCardgroupsDTOMerchant implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id'
+        'id' => 'id',
+        'auth_password_set' => 'auth_password_set'
     ];
 
     /**
@@ -62,7 +64,8 @@ class LoyaltyCardgroupsDTOMerchant implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'id' => 'setId',
+        'auth_password_set' => 'setAuthPasswordSet'
     ];
 
     /**
@@ -70,7 +73,8 @@ class LoyaltyCardgroupsDTOMerchant implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'id' => 'getId',
+        'auth_password_set' => 'getAuthPasswordSet'
     ];
 
     public static function attributeMap()
@@ -101,6 +105,7 @@ class LoyaltyCardgroupsDTOMerchant implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['auth_password_set'] = isset($data['auth_password_set']) ? $data['auth_password_set'] : null;
     }
 
     /**
@@ -138,12 +143,33 @@ class LoyaltyCardgroupsDTOMerchant implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Merchant id
+     * @param string $id General Merchants ID
      * @return $this
      */
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets auth_password_set
+     * @return bool
+     */
+    public function getAuthPasswordSet()
+    {
+        return $this->container['auth_password_set'];
+    }
+
+    /**
+     * Sets auth_password_set
+     * @param bool $auth_password_set auth_password_set
+     * @return $this
+     */
+    public function setAuthPasswordSet($auth_password_set)
+    {
+        $this->container['auth_password_set'] = $auth_password_set;
 
         return $this;
     }

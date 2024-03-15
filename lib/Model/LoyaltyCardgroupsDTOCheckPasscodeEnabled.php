@@ -165,7 +165,7 @@ class LoyaltyCardgroupsDTOCheckPasscodeEnabled implements ArrayAccess
 
     /**
      * Sets cardnumber
-     * @param string $cardnumber Secucard number
+     * @param string $cardnumber Loyalty card number
      * @return $this
      */
     public function setCardnumber($cardnumber)

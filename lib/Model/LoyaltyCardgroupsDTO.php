@@ -29,10 +29,8 @@ class LoyaltyCardgroupsDTO implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'display_name' => 'string',
-        'display_name_raw' => 'string',
-        'stock_warn_limit' => 'string',
         'picture' => 'string',
-        'merchant' => '\Secuconnect\Client\Model\LoyaltyCardgroupsDTOMerchant'
+        'merchant' => 'string'
     ];
 
     /**
@@ -41,8 +39,6 @@ class LoyaltyCardgroupsDTO implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'display_name' => null,
-        'display_name_raw' => null,
-        'stock_warn_limit' => null,
         'picture' => null,
         'merchant' => null
     ];
@@ -63,8 +59,6 @@ class LoyaltyCardgroupsDTO implements ArrayAccess
      */
     protected static $attributeMap = [
         'display_name' => 'display_name',
-        'display_name_raw' => 'display_name_raw',
-        'stock_warn_limit' => 'stock_warn_limit',
         'picture' => 'picture',
         'merchant' => 'merchant'
     ];
@@ -75,8 +69,6 @@ class LoyaltyCardgroupsDTO implements ArrayAccess
      */
     protected static $setters = [
         'display_name' => 'setDisplayName',
-        'display_name_raw' => 'setDisplayNameRaw',
-        'stock_warn_limit' => 'setStockWarnLimit',
         'picture' => 'setPicture',
         'merchant' => 'setMerchant'
     ];
@@ -87,8 +79,6 @@ class LoyaltyCardgroupsDTO implements ArrayAccess
      */
     protected static $getters = [
         'display_name' => 'getDisplayName',
-        'display_name_raw' => 'getDisplayNameRaw',
-        'stock_warn_limit' => 'getStockWarnLimit',
         'picture' => 'getPicture',
         'merchant' => 'getMerchant'
     ];
@@ -121,8 +111,6 @@ class LoyaltyCardgroupsDTO implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
-        $this->container['display_name_raw'] = isset($data['display_name_raw']) ? $data['display_name_raw'] : null;
-        $this->container['stock_warn_limit'] = isset($data['stock_warn_limit']) ? $data['stock_warn_limit'] : null;
         $this->container['picture'] = isset($data['picture']) ? $data['picture'] : null;
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
     }
@@ -136,6 +124,12 @@ class LoyaltyCardgroupsDTO implements ArrayAccess
     {
         $invalid_properties = [];
 
+        if ($this->container['display_name'] === null) {
+            $invalid_properties[] = "'display_name' can't be null";
+        }
+        if ($this->container['merchant'] === null) {
+            $invalid_properties[] = "'merchant' can't be null";
+        }
         return $invalid_properties;
     }
 
@@ -173,48 +167,6 @@ class LoyaltyCardgroupsDTO implements ArrayAccess
     }
 
     /**
-     * Gets display_name_raw
-     * @return string
-     */
-    public function getDisplayNameRaw()
-    {
-        return $this->container['display_name_raw'];
-    }
-
-    /**
-     * Sets display_name_raw
-     * @param string $display_name_raw Display name raw
-     * @return $this
-     */
-    public function setDisplayNameRaw($display_name_raw)
-    {
-        $this->container['display_name_raw'] = $display_name_raw;
-
-        return $this;
-    }
-
-    /**
-     * Gets stock_warn_limit
-     * @return string
-     */
-    public function getStockWarnLimit()
-    {
-        return $this->container['stock_warn_limit'];
-    }
-
-    /**
-     * Sets stock_warn_limit
-     * @param string $stock_warn_limit Stock warn limit
-     * @return $this
-     */
-    public function setStockWarnLimit($stock_warn_limit)
-    {
-        $this->container['stock_warn_limit'] = $stock_warn_limit;
-
-        return $this;
-    }
-
-    /**
      * Gets picture
      * @return string
      */
@@ -225,7 +177,7 @@ class LoyaltyCardgroupsDTO implements ArrayAccess
 
     /**
      * Sets picture
-     * @param string $picture Picture
+     * @param string $picture The document ID of an card group picture
      * @return $this
      */
     public function setPicture($picture)
@@ -237,7 +189,7 @@ class LoyaltyCardgroupsDTO implements ArrayAccess
 
     /**
      * Gets merchant
-     * @return \Secuconnect\Client\Model\LoyaltyCardgroupsDTOMerchant
+     * @return string
      */
     public function getMerchant()
     {
@@ -246,7 +198,7 @@ class LoyaltyCardgroupsDTO implements ArrayAccess
 
     /**
      * Sets merchant
-     * @param \Secuconnect\Client\Model\LoyaltyCardgroupsDTOMerchant $merchant merchant
+     * @param string $merchant Merchant id
      * @return $this
      */
     public function setMerchant($merchant)

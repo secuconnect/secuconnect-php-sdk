@@ -8,7 +8,7 @@ use \ArrayAccess;
  * IdentrequestRedirectUrls
  *
  * @category Class
- * @description IdentrequestRedirectUrls
+ * @description Ident Request redirect URLs
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -144,7 +144,7 @@ class IdentrequestRedirectUrls implements ArrayAccess
 
     /**
      * Sets url_success
-     * @param string $url_success After successfully identification of the person is returned to this page.
+     * @param string $url_success URL to forward the person to on success identification
      * @return $this
      */
     public function setUrlSuccess($url_success)
@@ -165,7 +165,7 @@ class IdentrequestRedirectUrls implements ArrayAccess
 
     /**
      * Sets url_failure
-     * @param string $url_failure After canceling or on errors the person to be identified will be redirected to this page.
+     * @param string $url_failure URL to forward the person to on abandoned or failed identification
      * @return $this
      */
     public function setUrlFailure($url_failure)
