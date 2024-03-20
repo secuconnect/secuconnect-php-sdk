@@ -150,7 +150,7 @@ class IdentificationProcess implements ArrayAccess
 
     /**
      * Sets status
-     * @param string $status The status from identification provider
+     * @param string $status Status as transmitted from the identification provider
      * @return $this
      */
     public function setStatus($status)
@@ -192,7 +192,7 @@ class IdentificationProcess implements ArrayAccess
 
     /**
      * Sets transactionnumber
-     * @param string $transactionnumber The person transaction_id from identrequest
+     * @param string $transactionnumber Ident Request transaction_id
      * @return $this
      */
     public function setTransactionnumber($transactionnumber)

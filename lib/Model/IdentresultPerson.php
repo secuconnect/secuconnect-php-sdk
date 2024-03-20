@@ -8,7 +8,7 @@ use \ArrayAccess;
  * IdentresultPerson
  *
  * @category Class
- * @description IdentresultPerson
+ * @description The identified person&#x27;s details
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -258,7 +258,7 @@ class IdentresultPerson implements ArrayAccess
 
     /**
      * Sets attachments
-     * @param \Secuconnect\Client\Model\IdentDocument[] $attachments User Data submitted by provider
+     * @param \Secuconnect\Client\Model\IdentDocument[] $attachments Identification details attached by the provider
      * @return $this
      */
     public function setAttachments($attachments)
@@ -300,7 +300,7 @@ class IdentresultPerson implements ArrayAccess
 
     /**
      * Sets video
-     * @param string $video The url to download the identification video
+     * @param string $video URL to download the video evidence of the identification
      * @return $this
      */
     public function setVideo($video)

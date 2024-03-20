@@ -304,6 +304,107 @@ class SmartDevicesApi
     }
 
     /**
+     * Operation getDevicePinConfig
+     *
+     * Get device PIN settings
+     *
+     * @param string $smart_device_id Smart device id (required)
+     * @throws ApiException on non-2xx response
+     * @return \Secuconnect\Client\Model\GetSmartDevicePinConfig
+     */
+    public function getDevicePinConfig($smart_device_id)
+    {
+        list($response) = $this->getDevicePinConfigWithHttpInfo($smart_device_id);
+        return $response;
+    }
+
+    /**
+     * Operation getDevicePinConfigWithHttpInfo
+     *
+     * Get device PIN settings
+     *
+     * @param string $smart_device_id Smart device id (required)
+     * @throws ApiException on non-2xx response
+     * @return array of \Secuconnect\Client\Model\GetSmartDevicePinConfig, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDevicePinConfigWithHttpInfo($smart_device_id)
+    {
+        // verify the required parameter 'smart_device_id' is set
+        if ($smart_device_id === null || (is_array($smart_device_id) && count($smart_device_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $smart_device_id when calling getDevicePinConfig'
+            );
+        }
+        // parse inputs
+        $resourcePath = "/Smart/Devices/{smartDeviceId}/devicePinConfig";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($smart_device_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "smartDeviceId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($smart_device_id),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        for ($retries = 0; ; $retries++) {
+
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+            }
+
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'GET',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\GetSmartDevicePinConfig',
+                    '/Smart/Devices/{smartDeviceId}/devicePinConfig'
+                );
+
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\GetSmartDevicePinConfig', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\GetSmartDevicePinConfig', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue 2;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
+        }
+    }
+
+    /**
      * Operation getOne
      *
      * Read Smart Device
@@ -611,6 +712,114 @@ class SmartDevicesApi
                 switch ($e->getCode()) {
                     case 200:
                         $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\SmartDevicesProductModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue 2;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
+        }
+    }
+
+    /**
+     * Operation updateDevicePin
+     *
+     * Update device PIN
+     *
+     * @param string $smart_device_id Smart device id (or any other value if the PIN should be set on store or merchant level) (required)
+     * @param \Secuconnect\Client\Model\UpdateSmartDevicePin $body Smart device Pin properties 
+     * @throws ApiException on non-2xx response
+     * @return \Secuconnect\Client\Model\ResultBoolean
+     */
+    public function updateDevicePin($smart_device_id, $body)
+    {
+        list($response) = $this->updateDevicePinWithHttpInfo($smart_device_id, $body);
+        return $response;
+    }
+
+    /**
+     * Operation updateDevicePinWithHttpInfo
+     *
+     * Update device PIN
+     *
+     * @param string $smart_device_id Smart device id (or any other value if the PIN should be set on store or merchant level) (required)
+     * @param \Secuconnect\Client\Model\UpdateSmartDevicePin $body Smart device Pin properties 
+     * @throws ApiException on non-2xx response
+     * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateDevicePinWithHttpInfo($smart_device_id, $body)
+    {
+        // verify the required parameter 'smart_device_id' is set
+        if ($smart_device_id === null || (is_array($smart_device_id) && count($smart_device_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $smart_device_id when calling updateDevicePin'
+            );
+        }
+        // parse inputs
+        $resourcePath = "/Smart/Devices/{smartDeviceId}/devicePin";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // path params
+        if ($smart_device_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "smartDeviceId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($smart_device_id),
+                $resourcePath
+            );
+        }
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        for ($retries = 0; ; $retries++) {
+
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+            }
+
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'PUT',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\ResultBoolean',
+                    '/Smart/Devices/{smartDeviceId}/devicePin'
+                );
+
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\ResultBoolean', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ResultBoolean', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:

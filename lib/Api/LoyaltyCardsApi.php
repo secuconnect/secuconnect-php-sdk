@@ -65,9 +65,9 @@ class LoyaltyCardsApi
      *
      * Assign card to user
      *
-     * @param string $loyalty_card_id Loyalty card id (required)
-     * @param string $general_account_id General account id (required)
-     * @param \Secuconnect\Client\Model\CardPin $body Loyalty card pin for the specific card 
+     * @param string $loyalty_card_id Loyalty Card ID (required)
+     * @param string $general_account_id General Account ID (required)
+     * @param \Secuconnect\Client\Model\CardPin $body Card PIN of the specific Loyalty Card 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ResultBoolean
      */
@@ -82,9 +82,9 @@ class LoyaltyCardsApi
      *
      * Assign card to user
      *
-     * @param string $loyalty_card_id Loyalty card id (required)
-     * @param string $general_account_id General account id (required)
-     * @param \Secuconnect\Client\Model\CardPin $body Loyalty card pin for the specific card 
+     * @param string $loyalty_card_id Loyalty Card ID (required)
+     * @param string $general_account_id General Account ID (required)
+     * @param \Secuconnect\Client\Model\CardPin $body Card PIN of the specific Loyalty Card 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
      */
@@ -441,8 +441,8 @@ class LoyaltyCardsApi
      *
      * Unassign card from user
      *
-     * @param string $loyalty_card_id Loyalty card id (required)
-     * @param string $general_account_id General account id (required)
+     * @param string $loyalty_card_id Loyalty Card ID (required)
+     * @param string $general_account_id General Account ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ResultBoolean
      */
@@ -457,8 +457,8 @@ class LoyaltyCardsApi
      *
      * Unassign card from user
      *
-     * @param string $loyalty_card_id Loyalty card id (required)
-     * @param string $general_account_id General account id (required)
+     * @param string $loyalty_card_id Loyalty Card ID (required)
+     * @param string $general_account_id General Account ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
      */

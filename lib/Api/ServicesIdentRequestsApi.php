@@ -7,14 +7,14 @@ use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Authentication\Authenticator;
 
 /**
- * ServicesIdentrequestsApi
+ * ServicesIdentRequestsApi
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ServicesIdentrequestsApi
+class ServicesIdentRequestsApi
 {
     /**
      * API Client
@@ -52,7 +52,7 @@ class ServicesIdentrequestsApi
      *
      * @param ApiClient $apiClient set the API client
      *
-     * @return ServicesIdentrequestsApi
+     * @return ServicesIdentRequestsApi
      */
     public function setApiClient(ApiClient $apiClient)
     {
@@ -63,9 +63,9 @@ class ServicesIdentrequestsApi
     /**
      * Operation addIdentrequests
      *
-     * Create Identrequest
+     * Create new Ident Request
      *
-     * @param \Secuconnect\Client\Model\ServicesIdentrequestsProductDTO $body Create ident request input properties 
+     * @param \Secuconnect\Client\Model\ServicesIdentrequestsProductDTO $body Ident Request details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ServicesIdentrequestsProductModel
      */
@@ -78,9 +78,9 @@ class ServicesIdentrequestsApi
     /**
      * Operation addIdentrequestsWithHttpInfo
      *
-     * Create Identrequest
+     * Create new Ident Request
      *
-     * @param \Secuconnect\Client\Model\ServicesIdentrequestsProductDTO $body Create ident request input properties 
+     * @param \Secuconnect\Client\Model\ServicesIdentrequestsProductDTO $body Ident Request details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ServicesIdentrequestsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -155,7 +155,7 @@ class ServicesIdentrequestsApi
     /**
      * Operation getAll
      *
-     * Find IdentRequests
+     * Find Ident Requests
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -180,7 +180,7 @@ class ServicesIdentrequestsApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * Find IdentRequests
+     * Find Ident Requests
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -306,9 +306,9 @@ class ServicesIdentrequestsApi
     /**
      * Operation getOne
      *
-     * Read IdentRequest
+     * Read Ident Request
      *
-     * @param string $identrequest_id Identrequest Id (required)
+     * @param string $identrequest_id Ident Request ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ServicesIdentrequestsProductModel
      */
@@ -321,9 +321,9 @@ class ServicesIdentrequestsApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * Read IdentRequest
+     * Read Ident Request
      *
-     * @param string $identrequest_id Identrequest Id (required)
+     * @param string $identrequest_id Ident Request ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ServicesIdentrequestsProductModel, HTTP status code, HTTP response headers (array of strings)
      */

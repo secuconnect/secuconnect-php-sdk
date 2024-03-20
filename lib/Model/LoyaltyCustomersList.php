@@ -8,7 +8,7 @@ use \ArrayAccess;
  * LoyaltyCustomersList
  *
  * @category Class
- * @description LoyaltyCustomersList
+ * @description Loyalty Customers
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -180,7 +180,7 @@ class LoyaltyCustomersList implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Number of existing loyalty customers
+     * @param int $count Number of matching Loyalty Customers (total number)
      * @return $this
      */
     public function setCount($count)
@@ -201,7 +201,7 @@ class LoyaltyCustomersList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\LoyaltyCustomersProductModel[] $data List of LoyaltyCustomers
+     * @param \Secuconnect\Client\Model\LoyaltyCustomersProductModel[] $data Loyalty Customers (limited number)
      * @return $this
      */
     public function setData($data)

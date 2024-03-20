@@ -137,7 +137,7 @@ class ResultBoolean implements ArrayAccess
 
     /**
      * Sets result
-     * @param bool $result Result has true or false value
+     * @param bool $result `true` if successful, `false` if not
      * @return $this
      */
     public function setResult($result)

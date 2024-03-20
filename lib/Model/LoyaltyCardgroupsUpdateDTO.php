@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * LoyaltyCardsDTOAccount
+ * LoyaltyCardgroupsUpdateDTO
  *
  * @category Class
- * @description General Account
+ * @description LoyaltyCardgroupsUpdateDTO
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LoyaltyCardsDTOAccount implements ArrayAccess
+class LoyaltyCardgroupsUpdateDTO implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,15 +21,15 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'LoyaltyCardsDTOAccount';
+    protected static $swaggerModelName = 'LoyaltyCardgroupsUpdateDTO';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'object' => 'string',
-        'id' => 'string'
+        'display_name' => 'string',
+        'picture' => 'string'
     ];
 
     /**
@@ -37,8 +37,8 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'object' => null,
-        'id' => null
+        'display_name' => null,
+        'picture' => null
     ];
 
     public static function swaggerTypes()
@@ -56,8 +56,8 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'object' => 'object',
-        'id' => 'id'
+        'display_name' => 'display_name',
+        'picture' => 'picture'
     ];
 
     /**
@@ -65,8 +65,8 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'object' => 'setObject',
-        'id' => 'setId'
+        'display_name' => 'setDisplayName',
+        'picture' => 'setPicture'
     ];
 
     /**
@@ -74,8 +74,8 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'object' => 'getObject',
-        'id' => 'getId'
+        'display_name' => 'getDisplayName',
+        'picture' => 'getPicture'
     ];
 
     public static function attributeMap()
@@ -105,8 +105,8 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['object'] = isset($data['object']) ? $data['object'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
+        $this->container['picture'] = isset($data['picture']) ? $data['picture'] : null;
     }
 
     /**
@@ -118,6 +118,9 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
     {
         $invalid_properties = [];
 
+        if ($this->container['display_name'] === null) {
+            $invalid_properties[] = "'display_name' can't be null";
+        }
         return $invalid_properties;
     }
 
@@ -134,43 +137,43 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
 
 
     /**
-     * Gets object
+     * Gets display_name
      * @return string
      */
-    public function getObject()
+    public function getDisplayName()
     {
-        return $this->container['object'];
+        return $this->container['display_name'];
     }
 
     /**
-     * Sets object
-     * @param string $object object
+     * Sets display_name
+     * @param string $display_name Display name
      * @return $this
      */
-    public function setObject($object)
+    public function setDisplayName($display_name)
     {
-        $this->container['object'] = $object;
+        $this->container['display_name'] = $display_name;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets picture
      * @return string
      */
-    public function getId()
+    public function getPicture()
     {
-        return $this->container['id'];
+        return $this->container['picture'];
     }
 
     /**
-     * Sets id
-     * @param string $id General Account ID
+     * Sets picture
+     * @param string $picture The document ID of an card group picture
      * @return $this
      */
-    public function setId($id)
+    public function setPicture($picture)
     {
-        $this->container['id'] = $id;
+        $this->container['picture'] = $picture;
 
         return $this;
     }

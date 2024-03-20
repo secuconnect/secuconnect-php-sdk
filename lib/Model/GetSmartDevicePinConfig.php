@@ -5,15 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * LoyaltyCardsDTOAccount
+ * GetSmartDevicePinConfig
  *
  * @category Class
- * @description General Account
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LoyaltyCardsDTOAccount implements ArrayAccess
+class GetSmartDevicePinConfig implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,15 +20,16 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'LoyaltyCardsDTOAccount';
+    protected static $swaggerModelName = 'GetSmartDevicePinConfig';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'object' => 'string',
-        'id' => 'string'
+        'merchant' => '\Secuconnect\Client\Model\GetSmartDevicePinConfigMerchant',
+        'store' => '\Secuconnect\Client\Model\GetSmartDevicePinConfigStore',
+        'smart_device' => '\Secuconnect\Client\Model\GetSmartDevicePinConfigSmartDevice'
     ];
 
     /**
@@ -37,8 +37,9 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'object' => null,
-        'id' => null
+        'merchant' => null,
+        'store' => null,
+        'smart_device' => null
     ];
 
     public static function swaggerTypes()
@@ -56,8 +57,9 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'object' => 'object',
-        'id' => 'id'
+        'merchant' => 'merchant',
+        'store' => 'store',
+        'smart_device' => 'smart_device'
     ];
 
     /**
@@ -65,8 +67,9 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'object' => 'setObject',
-        'id' => 'setId'
+        'merchant' => 'setMerchant',
+        'store' => 'setStore',
+        'smart_device' => 'setSmartDevice'
     ];
 
     /**
@@ -74,8 +77,9 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'object' => 'getObject',
-        'id' => 'getId'
+        'merchant' => 'getMerchant',
+        'store' => 'getStore',
+        'smart_device' => 'getSmartDevice'
     ];
 
     public static function attributeMap()
@@ -105,8 +109,9 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['object'] = isset($data['object']) ? $data['object'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
+        $this->container['store'] = isset($data['store']) ? $data['store'] : null;
+        $this->container['smart_device'] = isset($data['smart_device']) ? $data['smart_device'] : null;
     }
 
     /**
@@ -134,43 +139,64 @@ class LoyaltyCardsDTOAccount implements ArrayAccess
 
 
     /**
-     * Gets object
-     * @return string
+     * Gets merchant
+     * @return \Secuconnect\Client\Model\GetSmartDevicePinConfigMerchant
      */
-    public function getObject()
+    public function getMerchant()
     {
-        return $this->container['object'];
+        return $this->container['merchant'];
     }
 
     /**
-     * Sets object
-     * @param string $object object
+     * Sets merchant
+     * @param \Secuconnect\Client\Model\GetSmartDevicePinConfigMerchant $merchant merchant
      * @return $this
      */
-    public function setObject($object)
+    public function setMerchant($merchant)
     {
-        $this->container['object'] = $object;
+        $this->container['merchant'] = $merchant;
 
         return $this;
     }
 
     /**
-     * Gets id
-     * @return string
+     * Gets store
+     * @return \Secuconnect\Client\Model\GetSmartDevicePinConfigStore
      */
-    public function getId()
+    public function getStore()
     {
-        return $this->container['id'];
+        return $this->container['store'];
     }
 
     /**
-     * Sets id
-     * @param string $id General Account ID
+     * Sets store
+     * @param \Secuconnect\Client\Model\GetSmartDevicePinConfigStore $store store
      * @return $this
      */
-    public function setId($id)
+    public function setStore($store)
     {
-        $this->container['id'] = $id;
+        $this->container['store'] = $store;
+
+        return $this;
+    }
+
+    /**
+     * Gets smart_device
+     * @return \Secuconnect\Client\Model\GetSmartDevicePinConfigSmartDevice
+     */
+    public function getSmartDevice()
+    {
+        return $this->container['smart_device'];
+    }
+
+    /**
+     * Sets smart_device
+     * @param \Secuconnect\Client\Model\GetSmartDevicePinConfigSmartDevice $smart_device smart_device
+     * @return $this
+     */
+    public function setSmartDevice($smart_device)
+    {
+        $this->container['smart_device'] = $smart_device;
 
         return $this;
     }

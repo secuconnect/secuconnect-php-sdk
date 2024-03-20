@@ -387,7 +387,7 @@ class ServicesIdentresultsProductModel extends BaseProductModel
 
     /**
      * Sets status
-     * @param string $status The status of the identrequest
+     * @param string $status Ident Request status
      * @return $this
      */
     public function setStatus($status)
@@ -408,7 +408,7 @@ class ServicesIdentresultsProductModel extends BaseProductModel
 
     /**
      * Sets demo
-     * @param bool $demo Demo Flag
+     * @param bool $demo Ident Request demo flag
      * @return $this
      */
     public function setDemo($demo)
@@ -429,7 +429,7 @@ class ServicesIdentresultsProductModel extends BaseProductModel
 
     /**
      * Sets person
-     * @param \Secuconnect\Client\Model\IdentresultPerson[] $person The details from identification process about identified person
+     * @param \Secuconnect\Client\Model\IdentresultPerson[] $person The identified person's details
      * @return $this
      */
     public function setPerson($person)
