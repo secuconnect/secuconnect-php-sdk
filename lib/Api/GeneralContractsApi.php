@@ -1068,7 +1068,7 @@ class GeneralContractsApi
      *
      * Get balance from bank transfer
      *
-     * @param \Secuconnect\Client\Model\ProductInstanceID $general_contract_id General Contract ID (required)
+     * @param string $general_contract_id General Contract ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\GeneralContractsTransferBalanceModel
      */
@@ -1083,7 +1083,7 @@ class GeneralContractsApi
      *
      * Get balance from bank transfer
      *
-     * @param \Secuconnect\Client\Model\ProductInstanceID $general_contract_id General Contract ID (required)
+     * @param string $general_contract_id General Contract ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\GeneralContractsTransferBalanceModel, HTTP status code, HTTP response headers (array of strings)
      */

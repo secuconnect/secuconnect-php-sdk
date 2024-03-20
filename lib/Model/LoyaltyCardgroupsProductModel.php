@@ -363,7 +363,7 @@ class LoyaltyCardgroupsProductModel extends BaseProductModel
 
     /**
      * Sets display_name
-     * @param string $display_name Loyalty card group display name
+     * @param string $display_name Display name (programme name)
      * @return $this
      */
     public function setDisplayName($display_name)
@@ -384,7 +384,7 @@ class LoyaltyCardgroupsProductModel extends BaseProductModel
 
     /**
      * Sets display_name_raw
-     * @param string $display_name_raw Loyalty card group display name raw
+     * @param string $display_name_raw Display name raw
      * @return $this
      */
     public function setDisplayNameRaw($display_name_raw)
@@ -405,7 +405,7 @@ class LoyaltyCardgroupsProductModel extends BaseProductModel
 
     /**
      * Sets stock_warn_limit
-     * @param int $stock_warn_limit Loyalty card group stock warn limit
+     * @param int $stock_warn_limit Stock warn limit
      * @return $this
      */
     public function setStockWarnLimit($stock_warn_limit)
@@ -426,7 +426,7 @@ class LoyaltyCardgroupsProductModel extends BaseProductModel
 
     /**
      * Sets picture
-     * @param string $picture Loyalty card group picture
+     * @param string $picture Symbol image URL
      * @return $this
      */
     public function setPicture($picture)
@@ -447,7 +447,7 @@ class LoyaltyCardgroupsProductModel extends BaseProductModel
 
     /**
      * Sets balance_limit
-     * @param int $balance_limit Loyalty card group balance limit
+     * @param int $balance_limit Balance limit
      * @return $this
      */
     public function setBalanceLimit($balance_limit)
@@ -468,7 +468,7 @@ class LoyaltyCardgroupsProductModel extends BaseProductModel
 
     /**
      * Sets balance_expiry
-     * @param bool $balance_expiry The card group allows to set an expiry date for a card.
+     * @param bool $balance_expiry Whether the balance expiry date must be set for the cards
      * @return $this
      */
     public function setBalanceExpiry($balance_expiry)
@@ -489,7 +489,7 @@ class LoyaltyCardgroupsProductModel extends BaseProductModel
 
     /**
      * Sets cancel_selected
-     * @param bool $cancel_selected The card group allows to cancel specific transactions.
+     * @param bool $cancel_selected Whether the it is allowed to cancel arbitrary transactions (in contrast to only the last ones)
      * @return $this
      */
     public function setCancelSelected($cancel_selected)
@@ -510,7 +510,7 @@ class LoyaltyCardgroupsProductModel extends BaseProductModel
 
     /**
      * Sets description
-     * @param string $description Loyalty card group description
+     * @param string $description Detailed programme description
      * @return $this
      */
     public function setDescription($description)

@@ -138,7 +138,7 @@ class LoyaltyTransactionsDTOMerchant implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Merchant id
+     * @param string $id General Merchant ID
      * @return $this
      */
     public function setId($id)
