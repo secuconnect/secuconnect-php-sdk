@@ -144,7 +144,7 @@ class LoyaltyTransactionsDTOCard implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Loyalty Card id
+     * @param string $id Loyalty Card ID
      * @return $this
      */
     public function setId($id)
@@ -165,7 +165,7 @@ class LoyaltyTransactionsDTOCard implements ArrayAccess
 
     /**
      * Sets cardnumber
-     * @param string $cardnumber Loyalty Card Cardnumber
+     * @param string $cardnumber Card number
      * @return $this
      */
     public function setCardnumber($cardnumber)

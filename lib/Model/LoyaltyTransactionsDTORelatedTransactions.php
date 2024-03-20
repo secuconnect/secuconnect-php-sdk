@@ -150,7 +150,7 @@ class LoyaltyTransactionsDTORelatedTransactions implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Loyalty Transaction id
+     * @param string $id Loyalty Transaction ID
      * @return $this
      */
     public function setId($id)
@@ -192,7 +192,7 @@ class LoyaltyTransactionsDTORelatedTransactions implements ArrayAccess
 
     /**
      * Sets ref_type_id
-     * @param int $ref_type_id Indicator for relation type of Loyalty Transactions
+     * @param int $ref_type_id Relation type
      * @return $this
      */
     public function setRefTypeId($ref_type_id)

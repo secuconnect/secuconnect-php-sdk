@@ -558,7 +558,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets tid
-     * @param string $tid The TID of the processed Smart Device
+     * @param string $tid Terminal ID of the Smart Device that processed this transaction
      * @return $this
      */
     public function setTid($tid)
@@ -579,7 +579,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets status
-     * @param string $status The status text of the Loyalty Transaction
+     * @param string $status Status of the Loyalty Transaction
      * @return $this
      */
     public function setStatus($status)
@@ -642,7 +642,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets balance
-     * @param int $balance The balance of the merchantcard after this Loyalty Transaction
+     * @param int $balance New card balance of the Merchant Card after this transaction
      * @return $this
      */
     public function setBalance($balance)
@@ -663,7 +663,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets description
-     * @param string $description Loyalty Transaction type
+     * @param string $description Loyalty Transaction type, e. g. `\"Aufladung\"`
      * @return $this
      */
     public function setDescription($description)
@@ -684,7 +684,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets last_change
-     * @param string $last_change Last change oif this transaction, most like a status change
+     * @param string $last_change Last change of this transaction (most likely a status change)
      * @return $this
      */
     public function setLastChange($last_change)
@@ -726,7 +726,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets is_cancelling
-     * @param int $is_cancelling Indicator for a cancelling transaction (1 = full-cancel, 3 = partial-cancel)
+     * @param int $is_cancelling Indicates when the transaction is just about to be cancelled:  - `0` = no - `1` = full cancellation - `3` = partial cancellation
      * @return $this
      */
     public function setIsCancelling($is_cancelling)

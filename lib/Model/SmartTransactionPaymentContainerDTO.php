@@ -219,7 +219,7 @@ class SmartTransactionPaymentContainerDTO extends ProductInstanceUID
 
     /**
      * Sets type
-     * @param string $type Container type
+     * @param string $type Container type:  - `\"bank_account\"` - `\"credit_card\"` (read-only) - `\"googlepay\"` - `\"applepay\"` - `\"paypal\"` (read-only)
      * @return $this
      */
     public function setType($type)

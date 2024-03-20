@@ -156,7 +156,7 @@ class LoyaltyCardgroupsDTO implements ArrayAccess
 
     /**
      * Sets display_name
-     * @param string $display_name Display name
+     * @param string $display_name Display name (programme name)
      * @return $this
      */
     public function setDisplayName($display_name)
@@ -177,7 +177,7 @@ class LoyaltyCardgroupsDTO implements ArrayAccess
 
     /**
      * Sets picture
-     * @param string $picture The document ID of an card group picture
+     * @param string $picture Document Upload ID of symbol image
      * @return $this
      */
     public function setPicture($picture)
@@ -198,7 +198,7 @@ class LoyaltyCardgroupsDTO implements ArrayAccess
 
     /**
      * Sets merchant
-     * @param string $merchant Merchant id
+     * @param string $merchant General Merchant ID
      * @return $this
      */
     public function setMerchant($merchant)

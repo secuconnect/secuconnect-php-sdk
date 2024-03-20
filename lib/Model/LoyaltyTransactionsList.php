@@ -179,7 +179,7 @@ class LoyaltyTransactionsList implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Number of existing loyalty transactions
+     * @param int $count Number of existing Loyalty Transactions matching the search criteria
      * @return $this
      */
     public function setCount($count)
@@ -200,7 +200,7 @@ class LoyaltyTransactionsList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\LoyaltyTransactionsProductModel[] $data List of LoyaltyTransactions
+     * @param \Secuconnect\Client\Model\LoyaltyTransactionsProductModel[] $data Loyalty Transactions
      * @return $this
      */
     public function setData($data)

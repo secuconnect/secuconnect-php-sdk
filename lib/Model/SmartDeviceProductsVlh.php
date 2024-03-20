@@ -2,18 +2,16 @@
 
 namespace Secuconnect\Client\Model;
 
-use \ArrayAccess;
-
 /**
- * LoyaltyCardgroupsUpdateDTO
+ * SmartDeviceProductsVlh
  *
  * @category Class
- * @description LoyaltyCardgroupsUpdateDTO
+ * @description SmartDeviceProductsVlh
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LoyaltyCardgroupsUpdateDTO implements ArrayAccess
+class SmartDeviceProductsVlh extends SmartDeviceProductsEnabled
 {
     const DISCRIMINATOR = null;
 
@@ -21,15 +19,14 @@ class LoyaltyCardgroupsUpdateDTO implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'LoyaltyCardgroupsUpdateDTO';
+    protected static $swaggerModelName = 'SmartDeviceProductsVlh';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'display_name' => 'string',
-        'picture' => 'string'
+        'contract_id' => 'string'
     ];
 
     /**
@@ -37,18 +34,17 @@ class LoyaltyCardgroupsUpdateDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'display_name' => null,
-        'picture' => null
+        'contract_id' => null
     ];
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -56,8 +52,7 @@ class LoyaltyCardgroupsUpdateDTO implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'display_name' => 'display_name',
-        'picture' => 'picture'
+        'contract_id' => 'contract_id'
     ];
 
     /**
@@ -65,8 +60,7 @@ class LoyaltyCardgroupsUpdateDTO implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'display_name' => 'setDisplayName',
-        'picture' => 'setPicture'
+        'contract_id' => 'setContractId'
     ];
 
     /**
@@ -74,30 +68,23 @@ class LoyaltyCardgroupsUpdateDTO implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'display_name' => 'getDisplayName',
-        'picture' => 'getPicture'
+        'contract_id' => 'getContractId'
     ];
 
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
-
-    /**
-     * Associative array for storing property values
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -105,8 +92,9 @@ class LoyaltyCardgroupsUpdateDTO implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
-        $this->container['picture'] = isset($data['picture']) ? $data['picture'] : null;
+        parent::__construct($data);
+
+        $this->container['contract_id'] = isset($data['contract_id']) ? $data['contract_id'] : null;
     }
 
     /**
@@ -116,11 +104,8 @@ class LoyaltyCardgroupsUpdateDTO implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalid_properties = parent::listInvalidProperties();
 
-        if ($this->container['display_name'] === null) {
-            $invalid_properties[] = "'display_name' can't be null";
-        }
         return $invalid_properties;
     }
 
@@ -137,43 +122,22 @@ class LoyaltyCardgroupsUpdateDTO implements ArrayAccess
 
 
     /**
-     * Gets display_name
+     * Gets contract_id
      * @return string
      */
-    public function getDisplayName()
+    public function getContractId()
     {
-        return $this->container['display_name'];
+        return $this->container['contract_id'];
     }
 
     /**
-     * Sets display_name
-     * @param string $display_name Display name (programme name)
+     * Sets contract_id
+     * @param string $contract_id General Contract ID
      * @return $this
      */
-    public function setDisplayName($display_name)
+    public function setContractId($contract_id)
     {
-        $this->container['display_name'] = $display_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets picture
-     * @return string
-     */
-    public function getPicture()
-    {
-        return $this->container['picture'];
-    }
-
-    /**
-     * Sets picture
-     * @param string $picture Document Upload ID of symbol image
-     * @return $this
-     */
-    public function setPicture($picture)
-    {
-        $this->container['picture'] = $picture;
+        $this->container['contract_id'] = $contract_id;
 
         return $this;
     }

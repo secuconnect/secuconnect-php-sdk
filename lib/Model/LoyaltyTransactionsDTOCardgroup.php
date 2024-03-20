@@ -150,7 +150,7 @@ class LoyaltyTransactionsDTOCardgroup implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Cardgroup id
+     * @param string $id Card Group ID
      * @return $this
      */
     public function setId($id)
@@ -171,7 +171,7 @@ class LoyaltyTransactionsDTOCardgroup implements ArrayAccess
 
     /**
      * Sets display_name
-     * @param string $display_name Cardgroup Name
+     * @param string $display_name Card Group name
      * @return $this
      */
     public function setDisplayName($display_name)
@@ -192,7 +192,7 @@ class LoyaltyTransactionsDTOCardgroup implements ArrayAccess
 
     /**
      * Sets stock_warn_limit
-     * @param int $stock_warn_limit Warn limit for Cardgroup stock
+     * @param int $stock_warn_limit Reorder point
      * @return $this
      */
     public function setStockWarnLimit($stock_warn_limit)

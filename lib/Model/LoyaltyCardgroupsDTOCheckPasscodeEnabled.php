@@ -144,7 +144,7 @@ class LoyaltyCardgroupsDTOCheckPasscodeEnabled implements ArrayAccess
 
     /**
      * Sets action
-     * @param string $action Action type
+     * @param string $action Action type:  - `\"charge\"` - `\"discharge\"` - `\"sale_revenue\"` - `\"charge_points\"` - `\"discharge_points\"` - `\"cashreport\"`
      * @return $this
      */
     public function setAction($action)

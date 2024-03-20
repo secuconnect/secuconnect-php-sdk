@@ -7,14 +7,14 @@ use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Authentication\Authenticator;
 
 /**
- * LoyaltyCardgroupsApi
+ * LoyaltyCardGroupsApi
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LoyaltyCardgroupsApi
+class LoyaltyCardGroupsApi
 {
     /**
      * API Client
@@ -52,7 +52,7 @@ class LoyaltyCardgroupsApi
      *
      * @param ApiClient $apiClient set the API client
      *
-     * @return LoyaltyCardgroupsApi
+     * @return LoyaltyCardGroupsApi
      */
     public function setApiClient(ApiClient $apiClient)
     {
@@ -63,9 +63,9 @@ class LoyaltyCardgroupsApi
     /**
      * Operation addCardGroup
      *
-     * Create Loyalty Cardgroup
+     * Create Loyalty Card Group
      *
-     * @param \Secuconnect\Client\Model\LoyaltyCardgroupsDTO $body Loyalty card group properties 
+     * @param \Secuconnect\Client\Model\LoyaltyCardgroupsDTO $body Loyalty Card Group details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyCardgroupsProductModel
      */
@@ -78,9 +78,9 @@ class LoyaltyCardgroupsApi
     /**
      * Operation addCardGroupWithHttpInfo
      *
-     * Create Loyalty Cardgroup
+     * Create Loyalty Card Group
      *
-     * @param \Secuconnect\Client\Model\LoyaltyCardgroupsDTO $body Loyalty card group properties 
+     * @param \Secuconnect\Client\Model\LoyaltyCardgroupsDTO $body Loyalty Card Group details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyCardgroupsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -155,9 +155,9 @@ class LoyaltyCardgroupsApi
     /**
      * Operation checkPassCodeEnabled
      *
-     * Check for passcode check
+     * Check need for passcode check
      *
-     * @param string $loyalty_card_group_id Loyalty card group id (required)
+     * @param string $loyalty_card_group_id Loyalty Card Group ID (required)
      * @param \Secuconnect\Client\Model\LoyaltyCardgroupsDTOCheckPasscodeEnabled $body Check passcode details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ResultBoolean
@@ -171,9 +171,9 @@ class LoyaltyCardgroupsApi
     /**
      * Operation checkPassCodeEnabledWithHttpInfo
      *
-     * Check for passcode check
+     * Check need for passcode check
      *
-     * @param string $loyalty_card_group_id Loyalty card group id (required)
+     * @param string $loyalty_card_group_id Loyalty Card Group ID (required)
      * @param \Secuconnect\Client\Model\LoyaltyCardgroupsDTOCheckPasscodeEnabled $body Check passcode details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
@@ -414,9 +414,9 @@ class LoyaltyCardgroupsApi
     /**
      * Operation getOne
      *
-     * Read Loyalty Cardgroup
+     * Read Loyalty Card Group
      *
-     * @param string $loyalty_card_group_id Search one by provided id (required)
+     * @param string $loyalty_card_group_id Loyalty Card Group ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyCardgroupsProductModel
      */
@@ -429,9 +429,9 @@ class LoyaltyCardgroupsApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * Read Loyalty Cardgroup
+     * Read Loyalty Card Group
      *
-     * @param string $loyalty_card_group_id Search one by provided id (required)
+     * @param string $loyalty_card_group_id Loyalty Card Group ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyCardgroupsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -515,10 +515,10 @@ class LoyaltyCardgroupsApi
     /**
      * Operation updateCardGroup
      *
-     * Update Loyalty Cardgroup
+     * Update Loyalty Card Group
      *
-     * @param string $loyalty_card_group_id Loyalty card group id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyCardgroupsUpdateDTO $body Loyalty card group properties 
+     * @param string $loyalty_card_group_id Loyalty Card Group ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyCardgroupsUpdateDTO $body Loyalty Card Group details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyCardgroupsProductModel
      */
@@ -531,10 +531,10 @@ class LoyaltyCardgroupsApi
     /**
      * Operation updateCardGroupWithHttpInfo
      *
-     * Update Loyalty Cardgroup
+     * Update Loyalty Card Group
      *
-     * @param string $loyalty_card_group_id Loyalty card group id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyCardgroupsUpdateDTO $body Loyalty card group properties 
+     * @param string $loyalty_card_group_id Loyalty Card Group ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyCardgroupsUpdateDTO $body Loyalty Card Group details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyCardgroupsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
