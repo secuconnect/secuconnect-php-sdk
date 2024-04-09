@@ -2,17 +2,16 @@
 
 namespace Secuconnect\Client\Model;
 
-use \ArrayAccess;
-
 /**
- * GeneralContractsTransferBalanceModelBalances
+ * SmartDeviceProductsVlh
  *
  * @category Class
+ * @description SmartDeviceProductsVlh
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GeneralContractsTransferBalanceModelBalances implements ArrayAccess
+class SmartDeviceProductsVlh extends SmartDeviceProductsEnabled
 {
     const DISCRIMINATOR = null;
 
@@ -20,15 +19,14 @@ class GeneralContractsTransferBalanceModelBalances implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'GeneralContractsTransferBalanceModelBalances';
+    protected static $swaggerModelName = 'SmartDeviceProductsVlh';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'balance' => 'int',
-        'currency' => 'string'
+        'contract_id' => 'string'
     ];
 
     /**
@@ -36,18 +34,17 @@ class GeneralContractsTransferBalanceModelBalances implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'balance' => null,
-        'currency' => null
+        'contract_id' => null
     ];
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -55,8 +52,7 @@ class GeneralContractsTransferBalanceModelBalances implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'balance' => 'balance',
-        'currency' => 'currency'
+        'contract_id' => 'contract_id'
     ];
 
     /**
@@ -64,8 +60,7 @@ class GeneralContractsTransferBalanceModelBalances implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'balance' => 'setBalance',
-        'currency' => 'setCurrency'
+        'contract_id' => 'setContractId'
     ];
 
     /**
@@ -73,30 +68,23 @@ class GeneralContractsTransferBalanceModelBalances implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'balance' => 'getBalance',
-        'currency' => 'getCurrency'
+        'contract_id' => 'getContractId'
     ];
 
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
-
-    /**
-     * Associative array for storing property values
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -104,8 +92,9 @@ class GeneralContractsTransferBalanceModelBalances implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['balance'] = isset($data['balance']) ? $data['balance'] : null;
-        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        parent::__construct($data);
+
+        $this->container['contract_id'] = isset($data['contract_id']) ? $data['contract_id'] : null;
     }
 
     /**
@@ -115,7 +104,7 @@ class GeneralContractsTransferBalanceModelBalances implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalid_properties = parent::listInvalidProperties();
 
         return $invalid_properties;
     }
@@ -133,43 +122,22 @@ class GeneralContractsTransferBalanceModelBalances implements ArrayAccess
 
 
     /**
-     * Gets balance
-     * @return int
-     */
-    public function getBalance()
-    {
-        return $this->container['balance'];
-    }
-
-    /**
-     * Sets balance
-     * @param int $balance balance
-     * @return $this
-     */
-    public function setBalance($balance)
-    {
-        $this->container['balance'] = $balance;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency
+     * Gets contract_id
      * @return string
      */
-    public function getCurrency()
+    public function getContractId()
     {
-        return $this->container['currency'];
+        return $this->container['contract_id'];
     }
 
     /**
-     * Sets currency
-     * @param string $currency currency
+     * Sets contract_id
+     * @param string $contract_id General Contract ID
      * @return $this
      */
-    public function setCurrency($currency)
+    public function setContractId($contract_id)
     {
-        $this->container['currency'] = $currency;
+        $this->container['contract_id'] = $contract_id;
 
         return $this;
     }

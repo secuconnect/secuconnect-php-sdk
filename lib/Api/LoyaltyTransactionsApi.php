@@ -216,7 +216,7 @@ class LoyaltyTransactionsApi
      *
      * Read Loyalty Transaction
      *
-     * @param string $loyalty_transaction_id Search one by provided id (required)
+     * @param string $loyalty_transaction_id Loyalty Transaction ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyTransactionsProductModel
      */
@@ -231,7 +231,7 @@ class LoyaltyTransactionsApi
      *
      * Read Loyalty Transaction
      *
-     * @param string $loyalty_transaction_id Search one by provided id (required)
+     * @param string $loyalty_transaction_id Loyalty Transaction ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */

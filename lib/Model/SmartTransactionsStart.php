@@ -2,18 +2,16 @@
 
 namespace Secuconnect\Client\Model;
 
-use \ArrayAccess;
-
 /**
- * PaymentContainersDTO
+ * SmartTransactionsStart
  *
  * @category Class
- * @description Payment instrument
+ * @description SmartTransactionsStart
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PaymentContainersDTO implements ArrayAccess
+class SmartTransactionsStart extends SmartTransactionsPrepare
 {
     const DISCRIMINATOR = null;
 
@@ -21,18 +19,16 @@ class PaymentContainersDTO implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'PaymentContainersDTO';
+    protected static $swaggerModelName = 'SmartTransactionsStart';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'merchant_id' => 'string',
-        'customer' => '\Secuconnect\Client\Model\PaymentContainersDTOCustomer',
-        'customer_id' => 'string',
-        'type' => 'string',
-        'private' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate'
+        'tid' => 'string',
+        'trace' => 'int',
+        'cardtype' => 'string'
     ];
 
     /**
@@ -40,21 +36,19 @@ class PaymentContainersDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'merchant_id' => null,
-        'customer' => null,
-        'customer_id' => null,
-        'type' => null,
-        'private' => null
+        'tid' => null,
+        'trace' => null,
+        'cardtype' => null
     ];
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -62,11 +56,9 @@ class PaymentContainersDTO implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'merchant_id' => 'merchant_id',
-        'customer' => 'customer',
-        'customer_id' => 'customer_id',
-        'type' => 'type',
-        'private' => 'private'
+        'tid' => 'tid',
+        'trace' => 'trace',
+        'cardtype' => 'cardtype'
     ];
 
     /**
@@ -74,11 +66,9 @@ class PaymentContainersDTO implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'merchant_id' => 'setMerchantId',
-        'customer' => 'setCustomer',
-        'customer_id' => 'setCustomerId',
-        'type' => 'setType',
-        'private' => 'setPrivate'
+        'tid' => 'setTid',
+        'trace' => 'setTrace',
+        'cardtype' => 'setCardtype'
     ];
 
     /**
@@ -86,33 +76,25 @@ class PaymentContainersDTO implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'merchant_id' => 'getMerchantId',
-        'customer' => 'getCustomer',
-        'customer_id' => 'getCustomerId',
-        'type' => 'getType',
-        'private' => 'getPrivate'
+        'tid' => 'getTid',
+        'trace' => 'getTrace',
+        'cardtype' => 'getCardtype'
     ];
 
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
-
-    /**
-     * Associative array for storing property values
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -120,11 +102,11 @@ class PaymentContainersDTO implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
-        $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
-        $this->container['customer_id'] = isset($data['customer_id']) ? $data['customer_id'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['private'] = isset($data['private']) ? $data['private'] : null;
+        parent::__construct($data);
+
+        $this->container['tid'] = isset($data['tid']) ? $data['tid'] : null;
+        $this->container['trace'] = isset($data['trace']) ? $data['trace'] : null;
+        $this->container['cardtype'] = isset($data['cardtype']) ? $data['cardtype'] : null;
     }
 
     /**
@@ -134,7 +116,7 @@ class PaymentContainersDTO implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalid_properties = parent::listInvalidProperties();
 
         return $invalid_properties;
     }
@@ -152,106 +134,64 @@ class PaymentContainersDTO implements ArrayAccess
 
 
     /**
-     * Gets merchant_id
+     * Gets tid
      * @return string
      */
-    public function getMerchantId()
+    public function getTid()
     {
-        return $this->container['merchant_id'];
+        return $this->container['tid'];
     }
 
     /**
-     * Sets merchant_id
-     * @param string $merchant_id General Merchant ID
+     * Sets tid
+     * @param string $tid Terminal ID Number (TID), required for 'cashless_direct' method
      * @return $this
      */
-    public function setMerchantId($merchant_id)
+    public function setTid($tid)
     {
-        $this->container['merchant_id'] = $merchant_id;
+        $this->container['tid'] = $tid;
 
         return $this;
     }
 
     /**
-     * Gets customer
-     * @return \Secuconnect\Client\Model\PaymentContainersDTOCustomer
+     * Gets trace
+     * @return int
      */
-    public function getCustomer()
+    public function getTrace()
     {
-        return $this->container['customer'];
+        return $this->container['trace'];
     }
 
     /**
-     * Sets customer
-     * @param \Secuconnect\Client\Model\PaymentContainersDTOCustomer $customer customer
+     * Sets trace
+     * @param int $trace Trace number from the card processing response, required for 'cashless_direct' method
      * @return $this
      */
-    public function setCustomer($customer)
+    public function setTrace($trace)
     {
-        $this->container['customer'] = $customer;
+        $this->container['trace'] = $trace;
 
         return $this;
     }
 
     /**
-     * Gets customer_id
+     * Gets cardtype
      * @return string
      */
-    public function getCustomerId()
+    public function getCardtype()
     {
-        return $this->container['customer_id'];
+        return $this->container['cardtype'];
     }
 
     /**
-     * Sets customer_id
-     * @param string $customer_id Payment Customer ID
+     * Sets cardtype
+     * @param string $cardtype Card Type ('visa', 'mastercard', 'mastercard_debit', 'maestro', 'vpay' or 'girocard'), required for 'cashless_direct' method
      * @return $this
      */
-    public function setCustomerId($customer_id)
+    public function setCardtype($cardtype)
     {
-        $this->container['customer_id'] = $customer_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     * @param string $type Container type:  - `\"bank_account\"` - `\"credit_card\"` (read-only) - `\"googlepay\"` - `\"applepay\"` - `\"paypal\"` (read-only)
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets private
-     * @return \Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate
-     */
-    public function getPrivate()
-    {
-        return $this->container['private'];
-    }
-
-    /**
-     * Sets private
-     * @param \Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate $private private
-     * @return $this
-     */
-    public function setPrivate($private)
-    {
-        $this->container['private'] = $private;
+        $this->container['cardtype'] = $cardtype;
 
         return $this;
     }
