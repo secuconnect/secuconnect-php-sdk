@@ -29,7 +29,7 @@ class LoyaltyMerchantcardsDTOLock implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'lock_status' => 'string',
-        'reason' => 'string',
+        'reason' => 'int',
         'note' => 'string'
     ];
 
@@ -150,7 +150,7 @@ class LoyaltyMerchantcardsDTOLock implements ArrayAccess
 
     /**
      * Sets lock_status
-     * @param string $lock_status Lock status
+     * @param string $lock_status Lock status:  - `\"locked\"` - `\"unlocked\"`
      * @return $this
      */
     public function setLockStatus($lock_status)
@@ -162,7 +162,7 @@ class LoyaltyMerchantcardsDTOLock implements ArrayAccess
 
     /**
      * Gets reason
-     * @return string
+     * @return int
      */
     public function getReason()
     {
@@ -171,7 +171,7 @@ class LoyaltyMerchantcardsDTOLock implements ArrayAccess
 
     /**
      * Sets reason
-     * @param string $reason Lock reason
+     * @param int $reason Lock reason:  - `1` = Lost - `2` = Defect - `3` = Claims, - `6` = Expired - `8` = Not activated
      * @return $this
      */
     public function setReason($reason)
@@ -192,7 +192,7 @@ class LoyaltyMerchantcardsDTOLock implements ArrayAccess
 
     /**
      * Sets note
-     * @param string $note Lock note
+     * @param string $note Human readable note
      * @return $this
      */
     public function setNote($note)

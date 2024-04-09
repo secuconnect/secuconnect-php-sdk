@@ -192,7 +192,7 @@ class LoyaltyMerchantcardsProductWithReceiptModel extends LoyaltyMerchantcardsPr
 
     /**
      * Sets trans_id
-     * @param int $trans_id Created TransactionId
+     * @param int $trans_id Transaction ID (TA code)
      * @return $this
      */
     public function setTransId($trans_id)

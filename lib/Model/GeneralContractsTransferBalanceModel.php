@@ -26,7 +26,7 @@ class GeneralContractsTransferBalanceModel extends ProductInstanceID
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'balances' => '\Secuconnect\Client\Model\GeneralContractsTransferBalanceModelBalances[]'
+        'balances' => 'map[string,int]'
     ];
 
     /**
@@ -123,7 +123,7 @@ class GeneralContractsTransferBalanceModel extends ProductInstanceID
 
     /**
      * Gets balances
-     * @return \Secuconnect\Client\Model\GeneralContractsTransferBalanceModelBalances[]
+     * @return map[string,int]
      */
     public function getBalances()
     {
@@ -132,7 +132,7 @@ class GeneralContractsTransferBalanceModel extends ProductInstanceID
 
     /**
      * Sets balances
-     * @param \Secuconnect\Client\Model\GeneralContractsTransferBalanceModelBalances[] $balances balances
+     * @param map[string,int] $balances balances
      * @return $this
      */
     public function setBalances($balances)

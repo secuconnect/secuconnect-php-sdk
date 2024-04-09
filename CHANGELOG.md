@@ -18,6 +18,38 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.45.0] - 2024-04-09
+[2.45.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.44.0...2.45.0
+
+- *removed element*: `age` and `days_until_birthday` were removed from `LoyaltyCustomersDTO` as they are ignored by the API.
+
+### Changed
+- `Api.LoyaltyMerchantcardsApi`
+- `Model.GeneralContractsTransferBalanceModel`
+- `Model.LoyaltyCustomersDTO`
+- `Model.LoyaltyMerchantcardsCardBalanceReceipt`
+- `Model.LoyaltyMerchantcardsDTO`
+- `Model.LoyaltyMerchantcardsDTOCardBalanceReceipt`
+- `Model.LoyaltyMerchantcardsDTOCheckPasscode`
+- `Model.LoyaltyMerchantcardsDTOCreateMerchantcards`
+- `Model.LoyaltyMerchantcardsDTOCsc`
+- `Model.LoyaltyMerchantcardsDTOCustomer`
+- `Model.LoyaltyMerchantcardsDTOLock`
+- `Model.LoyaltyMerchantcardsDTONewPasscode`
+- `Model.LoyaltyMerchantcardsDTOPaymentContainer`
+- `Model.LoyaltyMerchantcardsDTOResetPasscode`
+- `Model.LoyaltyMerchantcardsDTOTransaction`
+- `Model.LoyaltyMerchantcardsDTOValidateMerchantCard`
+- `Model.LoyaltyMerchantcardsList`
+- `Model.LoyaltyMerchantcardsProductModel`
+- `Model.LoyaltyMerchantcardsProductWithReceiptModel`
+- `Model.LoyaltyMerchantcardsValidateMerchantCard`
+- `Model.VirtualTerminalDataModel`
+
+### Removed
+- `Model.GeneralContractsTransferBalanceModelBalances`
+
+
 ## [2.45.0] - 2024-03-20
 [2.45.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.44.0...2.45.0
 

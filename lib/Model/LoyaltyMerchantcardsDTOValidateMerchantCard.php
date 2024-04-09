@@ -144,7 +144,7 @@ class LoyaltyMerchantcardsDTOValidateMerchantCard implements ArrayAccess
 
     /**
      * Sets merchant
-     * @param string $merchant General Merchant id
+     * @param string $merchant General Merchant ID
      * @return $this
      */
     public function setMerchant($merchant)
@@ -165,7 +165,7 @@ class LoyaltyMerchantcardsDTOValidateMerchantCard implements ArrayAccess
 
     /**
      * Sets cardnumber
-     * @param int $cardnumber Loyalty Card number
+     * @param int $cardnumber Number on card
      * @return $this
      */
     public function setCardnumber($cardnumber)

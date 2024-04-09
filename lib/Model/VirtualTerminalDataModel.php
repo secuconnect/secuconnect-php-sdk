@@ -168,7 +168,7 @@ class VirtualTerminalDataModel implements ArrayAccess
 
     /**
      * Sets store
-     * @param object $store Store
+     * @param object $store Store to which the terminal belongs
      * @return $this
      */
     public function setStore($store)
@@ -189,7 +189,7 @@ class VirtualTerminalDataModel implements ArrayAccess
 
     /**
      * Sets tid
-     * @param string $tid Terminal id
+     * @param string $tid Terminal ID
      * @return $this
      */
     public function setTid($tid)
@@ -210,7 +210,7 @@ class VirtualTerminalDataModel implements ArrayAccess
 
     /**
      * Sets actions
-     * @param string[] $actions Actions
+     * @param string[] $actions Allowed actions:  - `\"charge\"` - `\"discharge\"` - `\"sale_revenue\"` - `\"charge_points\"` - `\"discharge_points\"` - `\"cancel_last\"` - `\"immediate_bonus\"`
      * @return $this
      */
     public function setActions($actions)
@@ -231,7 +231,7 @@ class VirtualTerminalDataModel implements ArrayAccess
 
     /**
      * Sets gift_terminal
-     * @param int $gift_terminal Gift terminal
+     * @param int $gift_terminal Whether the loyalty terminal is a gift terminal (bonus program active)
      * @return $this
      */
     public function setGiftTerminal($gift_terminal)
@@ -252,7 +252,7 @@ class VirtualTerminalDataModel implements ArrayAccess
 
     /**
      * Sets amount_split_enabled
-     * @param int $amount_split_enabled Amount split enabled
+     * @param int $amount_split_enabled Whether amount split is enabled
      * @return $this
      */
     public function setAmountSplitEnabled($amount_split_enabled)
@@ -273,7 +273,7 @@ class VirtualTerminalDataModel implements ArrayAccess
 
     /**
      * Sets disabled
-     * @param int $disabled Disabled
+     * @param int $disabled Whether the terminal is disabled (`1`) or not (`0`)
      * @return $this
      */
     public function setDisabled($disabled)
