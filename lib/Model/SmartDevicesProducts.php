@@ -37,7 +37,8 @@ class SmartDevicesProducts implements ArrayAccess
         'support' => '\Secuconnect\Client\Model\SmartDeviceProductsEnabled',
         'bonroll' => '\Secuconnect\Client\Model\SmartDeviceProductsEnabledWithTid',
         'bvb' => '\Secuconnect\Client\Model\SmartDeviceProductsEnabled',
-        'easycredit' => '\Secuconnect\Client\Model\SmartDeviceProductsEasycredit'
+        'easycredit' => '\Secuconnect\Client\Model\SmartDeviceProductsEasycredit',
+        'vlh' => '\Secuconnect\Client\Model\SmartDeviceProductsVlh'
     ];
 
     /**
@@ -54,7 +55,8 @@ class SmartDevicesProducts implements ArrayAccess
         'support' => null,
         'bonroll' => null,
         'bvb' => null,
-        'easycredit' => null
+        'easycredit' => null,
+        'vlh' => null
     ];
 
     public static function swaggerTypes()
@@ -81,7 +83,8 @@ class SmartDevicesProducts implements ArrayAccess
         'support' => 'support',
         'bonroll' => 'bonroll',
         'bvb' => 'bvb',
-        'easycredit' => 'easycredit'
+        'easycredit' => 'easycredit',
+        'vlh' => 'vlh'
     ];
 
     /**
@@ -98,7 +101,8 @@ class SmartDevicesProducts implements ArrayAccess
         'support' => 'setSupport',
         'bonroll' => 'setBonroll',
         'bvb' => 'setBvb',
-        'easycredit' => 'setEasycredit'
+        'easycredit' => 'setEasycredit',
+        'vlh' => 'setVlh'
     ];
 
     /**
@@ -115,7 +119,8 @@ class SmartDevicesProducts implements ArrayAccess
         'support' => 'getSupport',
         'bonroll' => 'getBonroll',
         'bvb' => 'getBvb',
-        'easycredit' => 'getEasycredit'
+        'easycredit' => 'getEasycredit',
+        'vlh' => 'getVlh'
     ];
 
     public static function attributeMap()
@@ -155,6 +160,7 @@ class SmartDevicesProducts implements ArrayAccess
         $this->container['bonroll'] = isset($data['bonroll']) ? $data['bonroll'] : null;
         $this->container['bvb'] = isset($data['bvb']) ? $data['bvb'] : null;
         $this->container['easycredit'] = isset($data['easycredit']) ? $data['easycredit'] : null;
+        $this->container['vlh'] = isset($data['vlh']) ? $data['vlh'] : null;
     }
 
     /**
@@ -387,6 +393,27 @@ class SmartDevicesProducts implements ArrayAccess
     public function setEasycredit($easycredit)
     {
         $this->container['easycredit'] = $easycredit;
+
+        return $this;
+    }
+
+    /**
+     * Gets vlh
+     * @return \Secuconnect\Client\Model\SmartDeviceProductsVlh
+     */
+    public function getVlh()
+    {
+        return $this->container['vlh'];
+    }
+
+    /**
+     * Sets vlh
+     * @param \Secuconnect\Client\Model\SmartDeviceProductsVlh $vlh vlh
+     * @return $this
+     */
+    public function setVlh($vlh)
+    {
+        $this->container['vlh'] = $vlh;
 
         return $this;
     }

@@ -63,7 +63,7 @@ class SmartTransactionsApi
     /**
      * Operation abortTransaction
      *
-     * Abort Order
+     * Abort order
      *
      * @param string $smart_transaction_id Smart Transaction ID (required)
      * @throws ApiException on non-2xx response
@@ -78,7 +78,7 @@ class SmartTransactionsApi
     /**
      * Operation abortTransactionWithHttpInfo
      *
-     * Abort Order
+     * Abort order
      *
      * @param string $smart_transaction_id Smart Transaction ID (required)
      * @throws ApiException on non-2xx response
@@ -256,7 +256,7 @@ class SmartTransactionsApi
     /**
      * Operation cancelTransaction
      *
-     * Cancel Payment
+     * Cancel payment
      *
      * @param string $smart_transaction_id Smart Transaction ID (required)
      * @throws ApiException on non-2xx response
@@ -271,7 +271,7 @@ class SmartTransactionsApi
     /**
      * Operation cancelTransactionWithHttpInfo
      *
-     * Cancel Payment
+     * Cancel payment
      *
      * @param string $smart_transaction_id Smart Transaction ID (required)
      * @throws ApiException on non-2xx response
@@ -357,7 +357,7 @@ class SmartTransactionsApi
     /**
      * Operation cancelTrx
      *
-     * Cancel Cash Transaction
+     * Cancel cash transaction
      *
      * @param string $smart_transaction_id Receipt number (required)
      * @throws ApiException on non-2xx response
@@ -372,7 +372,7 @@ class SmartTransactionsApi
     /**
      * Operation cancelTrxWithHttpInfo
      *
-     * Cancel Cash Transaction
+     * Cancel cash transaction
      *
      * @param string $smart_transaction_id Receipt number (required)
      * @throws ApiException on non-2xx response
@@ -458,7 +458,7 @@ class SmartTransactionsApi
     /**
      * Operation diagnose
      *
-     * Payment Terminal Diagnosis
+     * Terminal diagnosis
      *
      * @param string $smart_device_id Smart Device ID (required)
      * @throws ApiException on non-2xx response
@@ -473,7 +473,7 @@ class SmartTransactionsApi
     /**
      * Operation diagnoseWithHttpInfo
      *
-     * Payment Terminal Diagnosis
+     * Terminal diagnosis
      *
      * @param string $smart_device_id Smart Device ID (required)
      * @throws ApiException on non-2xx response
@@ -811,7 +811,7 @@ class SmartTransactionsApi
     /**
      * Operation preTransaction
      *
-     * Apply secucard (Voucher or Loyalty Card)
+     * Apply secucard (“pre-transaction”)
      *
      * @param string $smart_transaction_id Smart Transaction ID (required)
      * @throws ApiException on non-2xx response
@@ -826,7 +826,7 @@ class SmartTransactionsApi
     /**
      * Operation preTransactionWithHttpInfo
      *
-     * Apply secucard (Voucher or Loyalty Card)
+     * Apply secucard (“pre-transaction”)
      *
      * @param string $smart_transaction_id Smart Transaction ID (required)
      * @throws ApiException on non-2xx response
@@ -912,10 +912,10 @@ class SmartTransactionsApi
     /**
      * Operation prepare
      *
-     * Prepare Smart Transaction (Authorize Payment)
+     * Authorize payment (”prepare”)
      *
      * @param string $smart_transaction_id Smart Transaction ID (required)
-     * @param string $payment_method Payment method:  - &#x60;\&quot;creditcard&#x60;\&quot; (also Google Pay, Apple Pay) - &#x60;\&quot;debit&#x60;\&quot; - &#x60;\&quot;eps&#x60;\&quot; - &#x60;\&quot;easycredit\&quot;&#x60; - &#x60;\&quot;giropay&#x60;\&quot; - &#x60;\&quot;invoice&#x60;\&quot; - &#x60;\&quot;paypal&#x60;\&quot; - &#x60;\&quot;prepaid&#x60;\&quot; - &#x60;\&quot;sofort&#x60;\&quot; (required)
+     * @param string $payment_method Payment method:  - &#x60;\&quot;creditcard\&quot;&#x60; (also for Google Pay and Apple Pay) - &#x60;\&quot;debit\&quot;&#x60; - &#x60;\&quot;eps\&quot;&#x60; (deprecated) - &#x60;\&quot;easycredit\&quot;&#x60; - &#x60;\&quot;giropay\&quot;&#x60; (deprecated) - &#x60;\&quot;invoice\&quot;&#x60; - &#x60;\&quot;paypal\&quot;&#x60; - &#x60;\&quot;prepaid\&quot;&#x60; - &#x60;\&quot;sofort\&quot;&#x60; (deprecated) (required)
      * @param \Secuconnect\Client\Model\SmartTransactionsPrepare $body Optional customer and/or payment details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartTransactionsProductModel
@@ -929,10 +929,10 @@ class SmartTransactionsApi
     /**
      * Operation prepareWithHttpInfo
      *
-     * Prepare Smart Transaction (Authorize Payment)
+     * Authorize payment (”prepare”)
      *
      * @param string $smart_transaction_id Smart Transaction ID (required)
-     * @param string $payment_method Payment method:  - &#x60;\&quot;creditcard&#x60;\&quot; (also Google Pay, Apple Pay) - &#x60;\&quot;debit&#x60;\&quot; - &#x60;\&quot;eps&#x60;\&quot; - &#x60;\&quot;easycredit\&quot;&#x60; - &#x60;\&quot;giropay&#x60;\&quot; - &#x60;\&quot;invoice&#x60;\&quot; - &#x60;\&quot;paypal&#x60;\&quot; - &#x60;\&quot;prepaid&#x60;\&quot; - &#x60;\&quot;sofort&#x60;\&quot; (required)
+     * @param string $payment_method Payment method:  - &#x60;\&quot;creditcard\&quot;&#x60; (also for Google Pay and Apple Pay) - &#x60;\&quot;debit\&quot;&#x60; - &#x60;\&quot;eps\&quot;&#x60; (deprecated) - &#x60;\&quot;easycredit\&quot;&#x60; - &#x60;\&quot;giropay\&quot;&#x60; (deprecated) - &#x60;\&quot;invoice\&quot;&#x60; - &#x60;\&quot;paypal\&quot;&#x60; - &#x60;\&quot;prepaid\&quot;&#x60; - &#x60;\&quot;sofort\&quot;&#x60; (deprecated) (required)
      * @param \Secuconnect\Client\Model\SmartTransactionsPrepare $body Optional customer and/or payment details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
@@ -1036,7 +1036,7 @@ class SmartTransactionsApi
     /**
      * Operation setDelivery
      *
-     * Add Shipping Information
+     * Set delivery
      *
      * @param string $smart_transaction_id Smart Transaction ID (required)
      * @param \Secuconnect\Client\Model\SmartTransactionsSetDeliveryModel $body Shipping information 
@@ -1052,7 +1052,7 @@ class SmartTransactionsApi
     /**
      * Operation setDeliveryWithHttpInfo
      *
-     * Add Shipping Information
+     * Set delivery
      *
      * @param string $smart_transaction_id Smart Transaction ID (required)
      * @param \Secuconnect\Client\Model\SmartTransactionsSetDeliveryModel $body Shipping information 
@@ -1144,7 +1144,7 @@ class SmartTransactionsApi
     /**
      * Operation startEndOfDayReport
      *
-     * Payment Terminal End-Of-Day Report
+     * Terminal end-of-day report
      *
      * @param string $smart_device_id Smart Device ID (required)
      * @throws ApiException on non-2xx response
@@ -1159,7 +1159,7 @@ class SmartTransactionsApi
     /**
      * Operation startEndOfDayReportWithHttpInfo
      *
-     * Payment Terminal End-Of-Day Report
+     * Terminal end-of-day report
      *
      * @param string $smart_device_id Smart Device ID (required)
      * @throws ApiException on non-2xx response
@@ -1245,11 +1245,11 @@ class SmartTransactionsApi
     /**
      * Operation startTransaction
      *
-     * Start Smart Transaction (Execute Order)
+     * Capture payment (“start”)
      *
      * @param string $smart_transaction_id Smart Transaction ID (required)
-     * @param string $payment_method Payment method:  - &#x60;\&quot;cash\&quot;&#x60; - &#x60;\&quot;cashless\&quot;&#x60; - &#x60;\&quot;creditcard\&quot;&#x60; (also Google Pay, Apple Pay) - &#x60;\&quot;debit\&quot;&#x60; - &#x60;\&quot;eps\&quot;&#x60; - &#x60;\&quot;easycredit\&quot;&#x60; - &#x60;\&quot;giropay\&quot;&#x60; - &#x60;\&quot;invoice\&quot;&#x60; - &#x60;\&quot;loyalty\&quot;&#x60; - &#x60;\&quot;paypal\&quot;&#x60; - &#x60;\&quot;prepaid\&quot;&#x60; - &#x60;\&quot;sofort\&quot;&#x60; (required)
-     * @param \Secuconnect\Client\Model\SmartTransactionsPrepare $body Optional customer and/or payment details 
+     * @param string $payment_method Payment method, if not in succession to &#x60;/prepare&#x60;:  - &#x60;\&quot;cash\&quot;&#x60; - &#x60;\&quot;cashless\&quot;&#x60; - &#x60;\&quot;debit\&quot;&#x60; - &#x60;\&quot;invoice\&quot;&#x60; - &#x60;\&quot;loyalty\&quot;&#x60; - &#x60;\&quot;prepaid\&quot;&#x60; - &#x60;\&quot;cashless_direct\&quot;&#x60; - &#x60;\&quot;ccload\&quot;&#x60; (required)
+     * @param \Secuconnect\Client\Model\SmartTransactionsStart $body Optional customer and/or payment details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartTransactionsProductModel
      */
@@ -1262,11 +1262,11 @@ class SmartTransactionsApi
     /**
      * Operation startTransactionWithHttpInfo
      *
-     * Start Smart Transaction (Execute Order)
+     * Capture payment (“start”)
      *
      * @param string $smart_transaction_id Smart Transaction ID (required)
-     * @param string $payment_method Payment method:  - &#x60;\&quot;cash\&quot;&#x60; - &#x60;\&quot;cashless\&quot;&#x60; - &#x60;\&quot;creditcard\&quot;&#x60; (also Google Pay, Apple Pay) - &#x60;\&quot;debit\&quot;&#x60; - &#x60;\&quot;eps\&quot;&#x60; - &#x60;\&quot;easycredit\&quot;&#x60; - &#x60;\&quot;giropay\&quot;&#x60; - &#x60;\&quot;invoice\&quot;&#x60; - &#x60;\&quot;loyalty\&quot;&#x60; - &#x60;\&quot;paypal\&quot;&#x60; - &#x60;\&quot;prepaid\&quot;&#x60; - &#x60;\&quot;sofort\&quot;&#x60; (required)
-     * @param \Secuconnect\Client\Model\SmartTransactionsPrepare $body Optional customer and/or payment details 
+     * @param string $payment_method Payment method, if not in succession to &#x60;/prepare&#x60;:  - &#x60;\&quot;cash\&quot;&#x60; - &#x60;\&quot;cashless\&quot;&#x60; - &#x60;\&quot;debit\&quot;&#x60; - &#x60;\&quot;invoice\&quot;&#x60; - &#x60;\&quot;loyalty\&quot;&#x60; - &#x60;\&quot;prepaid\&quot;&#x60; - &#x60;\&quot;cashless_direct\&quot;&#x60; - &#x60;\&quot;ccload\&quot;&#x60; (required)
+     * @param \Secuconnect\Client\Model\SmartTransactionsStart $body Optional customer and/or payment details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1369,7 +1369,7 @@ class SmartTransactionsApi
     /**
      * Operation updatePaymentContainer
      *
-     * Renew Authorization For Subscription
+     * Update payment container for subscription
      *
      * @param string $subscription_id Subscription ID (required)
      * @throws ApiException on non-2xx response
@@ -1384,7 +1384,7 @@ class SmartTransactionsApi
     /**
      * Operation updatePaymentContainerWithHttpInfo
      *
-     * Renew Authorization For Subscription
+     * Update payment container for subscription
      *
      * @param string $subscription_id Subscription ID (required)
      * @throws ApiException on non-2xx response

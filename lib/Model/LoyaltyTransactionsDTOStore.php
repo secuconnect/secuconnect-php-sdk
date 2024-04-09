@@ -144,7 +144,7 @@ class LoyaltyTransactionsDTOStore implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id General Store id
+     * @param string $id General Store ID
      * @return $this
      */
     public function setId($id)
@@ -165,7 +165,7 @@ class LoyaltyTransactionsDTOStore implements ArrayAccess
 
     /**
      * Sets name
-     * @param string $name General Store Name
+     * @param string $name General Store name
      * @return $this
      */
     public function setName($name)
