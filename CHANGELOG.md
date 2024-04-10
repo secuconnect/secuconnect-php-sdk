@@ -18,6 +18,37 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.46.0] - 2024-04-10
+[2.46.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.45.0...2.46.0
+
+- *removed element*: `age` and `days_until_birthday` were removed from `LoyaltyCustomersDTO` as they are ignored by the API.
+- *renamed endpoint* `LoyaltyMerchantcardsApi` was renamed to `LoyaltyMerchantCardsApi`
+- *removed request param*: the param `body` was removed for `LoyaltyMerchantCardsApi.unlock()`
+- *changed type*: the type of the element `balances` was changed from `GeneralContractsTransferBalanceModelBalances[]` to `map[string,int]` in `GeneralContractsTransferBalanceModel`
+
+### Changed
+- `Api.LoyaltyMerchantcardsApi`
+- `Model.LoyaltyCustomersDTO`
+- `Model.LoyaltyMerchantcardsCardBalanceReceipt`
+- `Model.LoyaltyMerchantcardsDTO`
+- `Model.LoyaltyMerchantcardsDTOCardBalanceReceipt`
+- `Model.LoyaltyMerchantcardsDTOCheckPasscode`
+- `Model.LoyaltyMerchantcardsDTOCreateMerchantcards`
+- `Model.LoyaltyMerchantcardsDTOCsc`
+- `Model.LoyaltyMerchantcardsDTOCustomer`
+- `Model.LoyaltyMerchantcardsDTOLock`
+- `Model.LoyaltyMerchantcardsDTONewPasscode`
+- `Model.LoyaltyMerchantcardsDTOPaymentContainer`
+- `Model.LoyaltyMerchantcardsDTOResetPasscode`
+- `Model.LoyaltyMerchantcardsDTOTransaction`
+- `Model.LoyaltyMerchantcardsDTOValidateMerchantCard`
+- `Model.LoyaltyMerchantcardsList`
+- `Model.LoyaltyMerchantcardsProductModel`
+- `Model.LoyaltyMerchantcardsProductWithReceiptModel`
+- `Model.LoyaltyMerchantcardsValidateMerchantCard`
+- `Model.VirtualTerminalDataModel`
+
+
 ## [2.45.0] - 2024-04-09
 [2.45.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.44.0...2.45.0
 

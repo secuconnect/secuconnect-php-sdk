@@ -144,7 +144,7 @@ class LoyaltyMerchantcardsDTOCardBalanceReceipt implements ArrayAccess
 
     /**
      * Sets cardnumber
-     * @param int $cardnumber Loyalty Card number
+     * @param int $cardnumber Number on card
      * @return $this
      */
     public function setCardnumber($cardnumber)
@@ -165,7 +165,7 @@ class LoyaltyMerchantcardsDTOCardBalanceReceipt implements ArrayAccess
 
     /**
      * Sets terminal_id
-     * @param string $terminal_id Terminal id
+     * @param string $terminal_id Terminal ID
      * @return $this
      */
     public function setTerminalId($terminal_id)

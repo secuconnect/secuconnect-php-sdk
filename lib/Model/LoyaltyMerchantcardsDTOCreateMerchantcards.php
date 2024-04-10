@@ -144,7 +144,7 @@ class LoyaltyMerchantcardsDTOCreateMerchantcards implements ArrayAccess
 
     /**
      * Sets cards_amount
-     * @param int $cards_amount Cards amount
+     * @param int $cards_amount Number of cards to create
      * @return $this
      */
     public function setCardsAmount($cards_amount)

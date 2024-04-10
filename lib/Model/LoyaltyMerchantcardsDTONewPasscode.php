@@ -132,7 +132,7 @@ class LoyaltyMerchantcardsDTONewPasscode extends LoyaltyMerchantcardsDTOValidate
 
     /**
      * Sets passcode
-     * @param int $passcode Loyalty Card passcode
+     * @param int $passcode Passcode
      * @return $this
      */
     public function setPasscode($passcode)

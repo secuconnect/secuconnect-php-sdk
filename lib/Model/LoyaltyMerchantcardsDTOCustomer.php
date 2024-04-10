@@ -183,7 +183,7 @@ class LoyaltyMerchantcardsDTOCustomer implements ArrayAccess
 
     /**
      * Sets customernumber
-     * @param string $customernumber Customer number
+     * @param string $customernumber Customer number at the merchant's site
      * @return $this
      */
     public function setCustomernumber($customernumber)
@@ -225,7 +225,7 @@ class LoyaltyMerchantcardsDTOCustomer implements ArrayAccess
 
     /**
      * Sets consent_for_communication
-     * @param string $consent_for_communication Consent for communication setting
+     * @param string $consent_for_communication Whether the customer has given consent for communication or not:  - `\"accepted\"` - `\"declined\"` - `\"not_set\"`
      * @return $this
      */
     public function setConsentForCommunication($consent_for_communication)
@@ -246,7 +246,7 @@ class LoyaltyMerchantcardsDTOCustomer implements ArrayAccess
 
     /**
      * Sets additional_data
-     * @param object $additional_data additional data properties
+     * @param object $additional_data Custom additional data
      * @return $this
      */
     public function setAdditionalData($additional_data)

@@ -30,8 +30,6 @@ class LoyaltyCustomersDTO implements ArrayAccess
     protected static $swaggerTypes = [
         'merchant' => 'string',
         'merchant_contact' => '\Secuconnect\Client\Model\Contact',
-        'age' => 'int',
-        'days_until_birthday' => 'int',
         'customernumber' => 'string',
         'note' => 'string',
         'consent_for_communication' => 'string',
@@ -45,8 +43,6 @@ class LoyaltyCustomersDTO implements ArrayAccess
     protected static $swaggerFormats = [
         'merchant' => null,
         'merchant_contact' => null,
-        'age' => null,
-        'days_until_birthday' => null,
         'customernumber' => null,
         'note' => null,
         'consent_for_communication' => null,
@@ -70,8 +66,6 @@ class LoyaltyCustomersDTO implements ArrayAccess
     protected static $attributeMap = [
         'merchant' => 'merchant',
         'merchant_contact' => 'merchant_contact',
-        'age' => 'age',
-        'days_until_birthday' => 'days_until_birthday',
         'customernumber' => 'customernumber',
         'note' => 'note',
         'consent_for_communication' => 'consent_for_communication',
@@ -85,8 +79,6 @@ class LoyaltyCustomersDTO implements ArrayAccess
     protected static $setters = [
         'merchant' => 'setMerchant',
         'merchant_contact' => 'setMerchantContact',
-        'age' => 'setAge',
-        'days_until_birthday' => 'setDaysUntilBirthday',
         'customernumber' => 'setCustomernumber',
         'note' => 'setNote',
         'consent_for_communication' => 'setConsentForCommunication',
@@ -100,8 +92,6 @@ class LoyaltyCustomersDTO implements ArrayAccess
     protected static $getters = [
         'merchant' => 'getMerchant',
         'merchant_contact' => 'getMerchantContact',
-        'age' => 'getAge',
-        'days_until_birthday' => 'getDaysUntilBirthday',
         'customernumber' => 'getCustomernumber',
         'note' => 'getNote',
         'consent_for_communication' => 'getConsentForCommunication',
@@ -137,8 +127,6 @@ class LoyaltyCustomersDTO implements ArrayAccess
     {
         $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
         $this->container['merchant_contact'] = isset($data['merchant_contact']) ? $data['merchant_contact'] : null;
-        $this->container['age'] = isset($data['age']) ? $data['age'] : null;
-        $this->container['days_until_birthday'] = isset($data['days_until_birthday']) ? $data['days_until_birthday'] : null;
         $this->container['customernumber'] = isset($data['customernumber']) ? $data['customernumber'] : null;
         $this->container['note'] = isset($data['note']) ? $data['note'] : null;
         $this->container['consent_for_communication'] = isset($data['consent_for_communication']) ? $data['consent_for_communication'] : null;
@@ -207,48 +195,6 @@ class LoyaltyCustomersDTO implements ArrayAccess
     public function setMerchantContact($merchant_contact)
     {
         $this->container['merchant_contact'] = $merchant_contact;
-
-        return $this;
-    }
-
-    /**
-     * Gets age
-     * @return int
-     */
-    public function getAge()
-    {
-        return $this->container['age'];
-    }
-
-    /**
-     * Sets age
-     * @param int $age Age in full years
-     * @return $this
-     */
-    public function setAge($age)
-    {
-        $this->container['age'] = $age;
-
-        return $this;
-    }
-
-    /**
-     * Gets days_until_birthday
-     * @return int
-     */
-    public function getDaysUntilBirthday()
-    {
-        return $this->container['days_until_birthday'];
-    }
-
-    /**
-     * Sets days_until_birthday
-     * @param int $days_until_birthday Days until the next birthday
-     * @return $this
-     */
-    public function setDaysUntilBirthday($days_until_birthday)
-    {
-        $this->container['days_until_birthday'] = $days_until_birthday;
 
         return $this;
     }
