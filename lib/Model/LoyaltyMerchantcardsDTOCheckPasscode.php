@@ -144,7 +144,7 @@ class LoyaltyMerchantcardsDTOCheckPasscode implements ArrayAccess
 
     /**
      * Sets cardnumber
-     * @param int $cardnumber Loyalty Card number
+     * @param int $cardnumber Number on card
      * @return $this
      */
     public function setCardnumber($cardnumber)
@@ -165,7 +165,7 @@ class LoyaltyMerchantcardsDTOCheckPasscode implements ArrayAccess
 
     /**
      * Sets pin
-     * @param int $pin Loyalty Card pin
+     * @param int $pin Entered passcode
      * @return $this
      */
     public function setPin($pin)

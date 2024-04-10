@@ -6,7 +6,7 @@ namespace Secuconnect\Client\Model;
  * LoyaltyMerchantcardsProductModel
  *
  * @category Class
- * @description A secucard customer card or voucher in relation to a merchant.  The credit balances are always managed separately for each merchant. Thus one secucard Loyalty Card can have several Merchant Cards. This means that the same card can be used for different merchants at the same time.  In the case of acceptance points, the credit balance is managed for the very merchant the card was issued for. An example for this is a voucher purchased for a shopping center and accepted by its merchants. The balances are accounted in relation to the shopping center.
+ * @description Merchant Card
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -558,7 +558,7 @@ class LoyaltyMerchantcardsProductModel extends BaseProductModel
 
     /**
      * Sets points
-     * @param int $points Loyalty merchant card points
+     * @param int $points Points balance
      * @return $this
      */
     public function setPoints($points)
@@ -621,7 +621,7 @@ class LoyaltyMerchantcardsProductModel extends BaseProductModel
 
     /**
      * Sets stock_status
-     * @param string $stock_status Stock status
+     * @param string $stock_status Stock status:  - `\"active\"` - `\"inactive\"` - `\"stored\"`
      * @return $this
      */
     public function setStockStatus($stock_status)
@@ -642,7 +642,7 @@ class LoyaltyMerchantcardsProductModel extends BaseProductModel
 
     /**
      * Sets lock_status
-     * @param string $lock_status Lock status
+     * @param string $lock_status Lock status:  - `\"locked\"` - `\"unlocked\"`
      * @return $this
      */
     public function setLockStatus($lock_status)
@@ -705,7 +705,7 @@ class LoyaltyMerchantcardsProductModel extends BaseProductModel
 
     /**
      * Sets is_base_card
-     * @param bool $is_base_card Whether the card is base card
+     * @param bool $is_base_card Whether the card is a base card (`true`) or not (`false`)
      * @return $this
      */
     public function setIsBaseCard($is_base_card)
@@ -726,7 +726,7 @@ class LoyaltyMerchantcardsProductModel extends BaseProductModel
 
     /**
      * Sets passcode
-     * @param int $passcode Whether the card has a passcode set (1) or not (0)
+     * @param int $passcode Whether the card has a passcode set (`1`) or not (`0`)
      * @return $this
      */
     public function setPasscode($passcode)

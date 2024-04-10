@@ -144,7 +144,7 @@ class LoyaltyMerchantcardsDTOCsc implements ArrayAccess
 
     /**
      * Sets cardnumber
-     * @param int $cardnumber Card number
+     * @param int $cardnumber Number on card
      * @return $this
      */
     public function setCardnumber($cardnumber)
@@ -165,7 +165,7 @@ class LoyaltyMerchantcardsDTOCsc implements ArrayAccess
 
     /**
      * Sets csc
-     * @param int $csc Card security code
+     * @param int $csc Entered Card Security Code
      * @return $this
      */
     public function setCsc($csc)

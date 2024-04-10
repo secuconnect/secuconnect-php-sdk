@@ -179,7 +179,7 @@ class LoyaltyMerchantcardsList implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Number of existing loyalty merchant cards
+     * @param int $count Number of matching Loyalty Merchant Cards
      * @return $this
      */
     public function setCount($count)
@@ -200,7 +200,7 @@ class LoyaltyMerchantcardsList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel[] $data List of LoyaltyMerchantcards
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel[] $data Loyalty Merchant Cards (limited number)
      * @return $this
      */
     public function setData($data)

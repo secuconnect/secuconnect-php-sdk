@@ -156,7 +156,7 @@ class LoyaltyMerchantcardsDTOPaymentContainer implements ArrayAccess
 
     /**
      * Sets object
-     * @param string $object Object of payment container
+     * @param string $object Object type, always `loyalty.paymentcontainers`
      * @return $this
      */
     public function setObject($object)
@@ -177,7 +177,7 @@ class LoyaltyMerchantcardsDTOPaymentContainer implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Id of payment container
+     * @param string $id Loyalty Payment Container ID
      * @return $this
      */
     public function setId($id)
@@ -198,7 +198,7 @@ class LoyaltyMerchantcardsDTOPaymentContainer implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type Type of payment container
+     * @param string $type Payment container type
      * @return $this
      */
     public function setType($type)
