@@ -150,7 +150,7 @@ class LoyaltyMerchantcardsValidateMerchantCard implements ArrayAccess
 
     /**
      * Sets is_valid
-     * @param bool $is_valid Result has true or false value
+     * @param bool $is_valid Whether the card is valid
      * @return $this
      */
     public function setIsValid($is_valid)
@@ -171,7 +171,7 @@ class LoyaltyMerchantcardsValidateMerchantCard implements ArrayAccess
 
     /**
      * Sets has_passcode
-     * @param bool $has_passcode Result has true or false value
+     * @param bool $has_passcode Whether the card has a passcode, that should be checked
      * @return $this
      */
     public function setHasPasscode($has_passcode)
@@ -192,7 +192,7 @@ class LoyaltyMerchantcardsValidateMerchantCard implements ArrayAccess
 
     /**
      * Sets is_locked
-     * @param bool $is_locked Result has true or false value
+     * @param bool $is_locked Whether the card is currently locked
      * @return $this
      */
     public function setIsLocked($is_locked)

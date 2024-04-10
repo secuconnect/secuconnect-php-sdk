@@ -192,7 +192,7 @@ class LoyaltyMerchantcardsCardBalanceReceipt implements ArrayAccess
 
     /**
      * Sets valid
-     * @param bool $valid Result has true or false value
+     * @param bool $valid Whether the card is valid
      * @return $this
      */
     public function setValid($valid)
@@ -213,7 +213,7 @@ class LoyaltyMerchantcardsCardBalanceReceipt implements ArrayAccess
 
     /**
      * Sets balance
-     * @param int $balance The total cash balance of the card
+     * @param int $balance Total money balance; in the smallest currency unit (e. g. Euro Cent)
      * @return $this
      */
     public function setBalance($balance)
@@ -234,7 +234,7 @@ class LoyaltyMerchantcardsCardBalanceReceipt implements ArrayAccess
 
     /**
      * Sets points
-     * @param int $points The total points balance of the card
+     * @param int $points Points balance
      * @return $this
      */
     public function setPoints($points)
@@ -255,7 +255,7 @@ class LoyaltyMerchantcardsCardBalanceReceipt implements ArrayAccess
 
     /**
      * Sets new_passcode
-     * @param bool $new_passcode Result has true or false value
+     * @param bool $new_passcode Whether a new passcode has been set
      * @return $this
      */
     public function setNewPasscode($new_passcode)
@@ -339,7 +339,7 @@ class LoyaltyMerchantcardsCardBalanceReceipt implements ArrayAccess
 
     /**
      * Sets limit_allowed
-     * @param bool $limit_allowed Result has true or false value
+     * @param bool $limit_allowed Whether the card can be overdrawn (`true`) or not (`false`)
      * @return $this
      */
     public function setLimitAllowed($limit_allowed)
@@ -360,7 +360,7 @@ class LoyaltyMerchantcardsCardBalanceReceipt implements ArrayAccess
 
     /**
      * Sets limit_str
-     * @param string $limit_str A formatted string of the limit in euro with currency code
+     * @param string $limit_str Formatted overdraft limit (amount and currency unit)
      * @return $this
      */
     public function setLimitStr($limit_str)
@@ -381,7 +381,7 @@ class LoyaltyMerchantcardsCardBalanceReceipt implements ArrayAccess
 
     /**
      * Sets limit
-     * @param int $limit How much the card balance can be negative, zero means unlimited in case limit_allowed is true
+     * @param int $limit Overdraft limit in the smallest currency unit (e. g. Euro Cent)
      * @return $this
      */
     public function setLimit($limit)

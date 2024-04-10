@@ -183,7 +183,7 @@ class LoyaltyMerchantcardsDTO implements ArrayAccess
 
     /**
      * Sets card
-     * @param string $card Loyalty card id
+     * @param string $card Loyalty Card ID
      * @return $this
      */
     public function setCard($card)
@@ -204,7 +204,7 @@ class LoyaltyMerchantcardsDTO implements ArrayAccess
 
     /**
      * Sets payment_container
-     * @param string $payment_container Loyalty payment container id
+     * @param string $payment_container Loyalty Payment Container ID
      * @return $this
      */
     public function setPaymentContainer($payment_container)
@@ -225,7 +225,7 @@ class LoyaltyMerchantcardsDTO implements ArrayAccess
 
     /**
      * Sets created_by_merchant
-     * @param bool $created_by_merchant Created by general merchant or not
+     * @param bool $created_by_merchant Whether the card was created by the merchant
      * @return $this
      */
     public function setCreatedByMerchant($created_by_merchant)
@@ -246,7 +246,7 @@ class LoyaltyMerchantcardsDTO implements ArrayAccess
 
     /**
      * Sets used_by_merchant
-     * @param bool $used_by_merchant Used by general merchant or not
+     * @param bool $used_by_merchant Whether the card was used by the merchant
      * @return $this
      */
     public function setUsedByMerchant($used_by_merchant)

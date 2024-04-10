@@ -186,7 +186,7 @@ class LoyaltyMerchantcardsDTOTransaction implements ArrayAccess
 
     /**
      * Sets action
-     * @param string $action Action
+     * @param string $action Action:  - `\"charge\"` - `\"discharge\"` - `\"sale_revenue\"` - `\"charge_points\"` - `\"discharge_points\"` - `\"cancel_last\"` - `\"immediate_bonus\"`
      * @return $this
      */
     public function setAction($action)
@@ -207,7 +207,7 @@ class LoyaltyMerchantcardsDTOTransaction implements ArrayAccess
 
     /**
      * Sets terminal_id
-     * @param string $terminal_id Terminal id
+     * @param string $terminal_id Terminal ID
      * @return $this
      */
     public function setTerminalId($terminal_id)
@@ -249,7 +249,7 @@ class LoyaltyMerchantcardsDTOTransaction implements ArrayAccess
 
     /**
      * Sets tid
-     * @param string $tid Tid
+     * @param string $tid Terminal TID
      * @return $this
      */
     public function setTid($tid)
@@ -270,7 +270,7 @@ class LoyaltyMerchantcardsDTOTransaction implements ArrayAccess
 
     /**
      * Sets store
-     * @param string $store Store id
+     * @param string $store General Store ID
      * @return $this
      */
     public function setStore($store)
@@ -291,7 +291,7 @@ class LoyaltyMerchantcardsDTOTransaction implements ArrayAccess
 
     /**
      * Sets cardnumber
-     * @param int $cardnumber Card number
+     * @param int $cardnumber Number on card
      * @return $this
      */
     public function setCardnumber($cardnumber)
@@ -333,7 +333,7 @@ class LoyaltyMerchantcardsDTOTransaction implements ArrayAccess
 
     /**
      * Sets amount_split_allowed
-     * @param string $amount_split_allowed Amount split allowed
+     * @param string $amount_split_allowed Whether amount split is allowed
      * @return $this
      */
     public function setAmountSplitAllowed($amount_split_allowed)
@@ -354,7 +354,7 @@ class LoyaltyMerchantcardsDTOTransaction implements ArrayAccess
 
     /**
      * Sets merchant_id
-     * @param string $merchant_id Merchant id
+     * @param string $merchant_id General Merchant ID
      * @return $this
      */
     public function setMerchantId($merchant_id)

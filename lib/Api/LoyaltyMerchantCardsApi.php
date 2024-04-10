@@ -7,14 +7,14 @@ use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Authentication\Authenticator;
 
 /**
- * LoyaltyMerchantcardsApi
+ * LoyaltyMerchantCardsApi
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LoyaltyMerchantcardsApi
+class LoyaltyMerchantCardsApi
 {
     /**
      * API Client
@@ -52,7 +52,7 @@ class LoyaltyMerchantcardsApi
      *
      * @param ApiClient $apiClient set the API client
      *
-     * @return LoyaltyMerchantcardsApi
+     * @return LoyaltyMerchantCardsApi
      */
     public function setApiClient(ApiClient $apiClient)
     {
@@ -63,10 +63,10 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation cardBalanceReceipt
      *
-     * Get card balance receipt
+     * Get balance receipt
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCardBalanceReceipt $body Information about card &amp; current terminal 
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCardBalanceReceipt $body Card number and terminal ID 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyMerchantcardsCardBalanceReceipt
      */
@@ -79,10 +79,10 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation cardBalanceReceiptWithHttpInfo
      *
-     * Get card balance receipt
+     * Get balance receipt
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCardBalanceReceipt $body Information about card &amp; current terminal 
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCardBalanceReceipt $body Card number and terminal ID 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyMerchantcardsCardBalanceReceipt, HTTP status code, HTTP response headers (array of strings)
      */
@@ -171,10 +171,10 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation checkCsc
      *
-     * Check CSC
+     * Check security code
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCsc $body Information about card 
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCsc $body Card number and security code 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ResultBoolean
      */
@@ -187,10 +187,10 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation checkCscWithHttpInfo
      *
-     * Check CSC
+     * Check security code
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCsc $body Information about card 
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCsc $body Card number and security code 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
      */
@@ -281,7 +281,7 @@ class LoyaltyMerchantcardsApi
      *
      * Check passcode
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCheckPasscode $body Information about card 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ResultBoolean
@@ -297,7 +297,7 @@ class LoyaltyMerchantcardsApi
      *
      * Check passcode
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCheckPasscode $body Information about card 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
@@ -387,11 +387,11 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation createMerchantcards
      *
-     * Create multiple merchant cards
+     * Create multiple cards
      *
-     * @param string $general_merchant_id General merchant id (required)
-     * @param string $loyalty_cardgroup_id Loyalty card group id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCreateMerchantcards $body Cards amount and customer properties 
+     * @param string $general_merchant_id General Merchant ID (required)
+     * @param string $loyalty_cardgroup_id Loyalty Card Group ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCreateMerchantcards $body Number of cards and customer details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel[]
      */
@@ -404,11 +404,11 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation createMerchantcardsWithHttpInfo
      *
-     * Create multiple merchant cards
+     * Create multiple cards
      *
-     * @param string $general_merchant_id General merchant id (required)
-     * @param string $loyalty_cardgroup_id Loyalty card group id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCreateMerchantcards $body Cards amount and customer properties 
+     * @param string $general_merchant_id General Merchant ID (required)
+     * @param string $loyalty_cardgroup_id Loyalty Card Group ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCreateMerchantcards $body Number of cards and customer details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel[], HTTP status code, HTTP response headers (array of strings)
      */
@@ -511,10 +511,10 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation executeTransaction
      *
-     * Execute transaction from SDK
+     * Execute transaction
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOTransaction $body Transaction properties 
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOTransaction $body Transaction details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyMerchantcardsProductWithReceiptModel
      */
@@ -527,10 +527,10 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation executeTransactionWithHttpInfo
      *
-     * Execute transaction from SDK
+     * Execute transaction
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOTransaction $body Transaction properties 
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOTransaction $body Transaction details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyMerchantcardsProductWithReceiptModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -619,7 +619,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation getAll
      *
-     * Find Loyalty MerchantCard
+     * Find Loyalty Merchant Cards
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -644,7 +644,7 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * Find Loyalty MerchantCard
+     * Find Loyalty Merchant Cards
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -772,7 +772,7 @@ class LoyaltyMerchantcardsApi
      *
      * Read lock details
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOLock
      */
@@ -787,7 +787,7 @@ class LoyaltyMerchantcardsApi
      *
      * Read lock details
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOLock, HTTP status code, HTTP response headers (array of strings)
      */
@@ -871,9 +871,9 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation getOne
      *
-     * Read Loyalty MerchantCard
+     * Read Loyalty Merchant Card
      *
-     * @param string $loyalty_merchant_card_id Search one by provided id (required)
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel
      */
@@ -886,9 +886,9 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * Read Loyalty MerchantCard
+     * Read Loyalty Merchant Card
      *
-     * @param string $loyalty_merchant_card_id Search one by provided id (required)
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -974,8 +974,8 @@ class LoyaltyMerchantcardsApi
      *
      * Get virtual terminal data
      *
-     * @param string $loyalty_merchant_card_id Merchant card id (required)
-     * @param string $loyalty_merchant_id Merchant id (required)
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param string $loyalty_merchant_id Loyalty Merchant ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\VirtualTerminalDataModel
      */
@@ -990,8 +990,8 @@ class LoyaltyMerchantcardsApi
      *
      * Get virtual terminal data
      *
-     * @param string $loyalty_merchant_card_id Merchant card id (required)
-     * @param string $loyalty_merchant_id Merchant id (required)
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param string $loyalty_merchant_id Loyalty Merchant ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\VirtualTerminalDataModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1091,8 +1091,8 @@ class LoyaltyMerchantcardsApi
      *
      * Lock card
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOLock $body Information about lock 
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOLock $body Lock details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel
      */
@@ -1107,8 +1107,8 @@ class LoyaltyMerchantcardsApi
      *
      * Lock card
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOLock $body Information about lock 
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOLock $body Lock details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1199,8 +1199,8 @@ class LoyaltyMerchantcardsApi
      *
      * Set new passcode
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTONewPasscode $body Information about card 
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTONewPasscode $body Card number and new passcode 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ResultBoolean
      */
@@ -1215,8 +1215,8 @@ class LoyaltyMerchantcardsApi
      *
      * Set new passcode
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTONewPasscode $body Information about card 
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTONewPasscode $body Card number and new passcode 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1307,8 +1307,8 @@ class LoyaltyMerchantcardsApi
      *
      * Register customer
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyCustomersDTO $body Loyalty customer properties 
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyCustomersDTO $body Loyalty Customer details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel
      */
@@ -1323,8 +1323,8 @@ class LoyaltyMerchantcardsApi
      *
      * Register customer
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyCustomersDTO $body Loyalty customer properties 
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyCustomersDTO $body Loyalty Customer details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1415,8 +1415,8 @@ class LoyaltyMerchantcardsApi
      *
      * Reset passcode
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOResetPasscode $body Information about card 
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOResetPasscode $body Card number and current passcode 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ResultBoolean
      */
@@ -1431,8 +1431,8 @@ class LoyaltyMerchantcardsApi
      *
      * Reset passcode
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOResetPasscode $body Information about card 
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOResetPasscode $body Card number and current passcode 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1523,8 +1523,8 @@ class LoyaltyMerchantcardsApi
      *
      * Set customer
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param string $loyalty_customer_id Loyalty customer id (required)
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param string $loyalty_customer_id Loyalty Customer ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel
      */
@@ -1539,8 +1539,8 @@ class LoyaltyMerchantcardsApi
      *
      * Set customer
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param string $loyalty_customer_id Loyalty customer id (required)
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param string $loyalty_customer_id Loyalty Customer ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1640,14 +1640,13 @@ class LoyaltyMerchantcardsApi
      *
      * Unlock card
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOLock $body Information about unlock 
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel
      */
-    public function unlock($loyalty_merchant_card_id, $body)
+    public function unlock($loyalty_merchant_card_id)
     {
-        list($response) = $this->unlockWithHttpInfo($loyalty_merchant_card_id, $body);
+        list($response) = $this->unlockWithHttpInfo($loyalty_merchant_card_id);
         return $response;
     }
 
@@ -1656,12 +1655,11 @@ class LoyaltyMerchantcardsApi
      *
      * Unlock card
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOLock $body Information about unlock 
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function unlockWithHttpInfo($loyalty_merchant_card_id, $body)
+    public function unlockWithHttpInfo($loyalty_merchant_card_id)
     {
         // verify the required parameter 'loyalty_merchant_card_id' is set
         if ($loyalty_merchant_card_id === null || (is_array($loyalty_merchant_card_id) && count($loyalty_merchant_card_id) === 0)) {
@@ -1679,7 +1677,7 @@ class LoyaltyMerchantcardsApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
         // path params
         if ($loyalty_merchant_card_id !== null) {
@@ -1688,11 +1686,6 @@ class LoyaltyMerchantcardsApi
                 $this->apiClient->getSerializer()->toPathValue($loyalty_merchant_card_id),
                 $resourcePath
             );
-        }
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
         }
 
         // for model (json/xml)
@@ -1748,8 +1741,8 @@ class LoyaltyMerchantcardsApi
      *
      * Set card group
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param string $loyalty_card_group_id Loyalty card group id (required)
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param string $loyalty_card_group_id Loyalty Card Group ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel
      */
@@ -1764,8 +1757,8 @@ class LoyaltyMerchantcardsApi
      *
      * Set card group
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param string $loyalty_card_group_id Loyalty card group id (required)
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param string $loyalty_card_group_id Loyalty Card Group ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1863,10 +1856,10 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation updateMerchantCard
      *
-     * Update Loyalty MerchantCard
+     * Update Loyalty Merchant Card
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTO $body Loyalty merchant card properties 
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTO $body Merchant Card details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel
      */
@@ -1879,10 +1872,10 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation updateMerchantCardWithHttpInfo
      *
-     * Update Loyalty MerchantCard
+     * Update Loyalty Merchant Card
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTO $body Loyalty merchant card properties 
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTO $body Merchant Card details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1971,10 +1964,10 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation validateMerchantCard
      *
-     * Check the merchant card
+     * Validate merchant card
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOValidateMerchantCard $body Information about card 
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOValidateMerchantCard $body Merchant ID and card number 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyMerchantcardsValidateMerchantCard
      */
@@ -1987,10 +1980,10 @@ class LoyaltyMerchantcardsApi
     /**
      * Operation validateMerchantCardWithHttpInfo
      *
-     * Check the merchant card
+     * Validate merchant card
      *
-     * @param string $loyalty_merchant_card_id Loyalty merchant card id (required)
-     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOValidateMerchantCard $body Information about card 
+     * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOValidateMerchantCard $body Merchant ID and card number 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyMerchantcardsValidateMerchantCard, HTTP status code, HTTP response headers (array of strings)
      */
