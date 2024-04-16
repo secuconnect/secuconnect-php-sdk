@@ -24,8 +24,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - *changed response type*: `PrepaidContractsApi.mappingZvt()` changed from `PrepaidMappingZvt` to `PrepaidMappingZvtResponse`, which inherit from the `PrepaidMappingZvt` (like before) or returns the `ResultBoolean` object
 - *changed element type*: `product_id` changed from `int` to `string` in `PrepaidZvtDTO`
 - *new request element*: `expand` was added to all `getAll()` endpoints
-- *change element type*: `parent` was changed from `ParentModel` to `GeneralMerchantsProductModel` in `GeneralMerchantsProductModel`
-- *change element type*: `acceptance_points` was changed from `BaseProductModel[]` to `GeneralMerchantsProductModel[]` in `GeneralMerchantsProductModel`
+- *changed element type*: `parent` was changed from `ParentModel` to `GeneralMerchantsProductModel` in `GeneralMerchantsProductModel`
+- *changed element type*: `acceptance_points` was changed from `BaseProductModel[]` to `GeneralMerchantsProductModel[]` in `GeneralMerchantsProductModel`
 
 ### Added
 - `Model.PrepaidMappingZvtResponse`
