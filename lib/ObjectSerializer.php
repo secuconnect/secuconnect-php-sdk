@@ -29,6 +29,8 @@ class ObjectSerializer
         ['interface' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate', 'class' => '\Secuconnect\Client\Model\CreditCardDescriptor'],
         ['interface' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate', 'class' => '\Secuconnect\Client\Model\GooglePayDescriptor'],
         ['interface' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate', 'class' => '\Secuconnect\Client\Model\PayPalDescriptor'],
+        ['interface' => '\Secuconnect\Client\Model\PrepaidMappingZvtResponse', 'class' => '\Secuconnect\Client\Model\PrepaidMappingZvt'],
+        ['interface' => '\Secuconnect\Client\Model\PrepaidMappingZvtResponse', 'class' => '\Secuconnect\Client\Model\ResultBoolean'],
         ['interface' => '\Secuconnect\Client\Model\OneOfSmartTransactionsDeliveryOptionsModel', 'class' => '\Secuconnect\Client\Model\SmartTransactionsCollectionModel'],
         ['interface' => '\Secuconnect\Client\Model\OneOfSmartTransactionsDeliveryOptionsModel', 'class' => '\Secuconnect\Client\Model\SmartTransactionsShippingModel'],
     ];

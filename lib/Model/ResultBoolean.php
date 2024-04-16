@@ -12,7 +12,7 @@ use \ArrayAccess;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ResultBoolean implements ArrayAccess
+class ResultBoolean implements ArrayAccess, PrepaidMappingZvtResponse
 {
     const DISCRIMINATOR = null;
 

@@ -13,7 +13,7 @@ use \ArrayAccess;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PrepaidMappingZvt implements ArrayAccess
+class PrepaidMappingZvt implements ArrayAccess, PrepaidMappingZvtResponse
 {
     const DISCRIMINATOR = null;
 
@@ -165,7 +165,7 @@ class PrepaidMappingZvt implements ArrayAccess
 
     /**
      * Sets vtc_id
-     * @param string $vtc_id Vtc id
+     * @param string $vtc_id VTC ID
      * @return $this
      */
     public function setVtcId($vtc_id)

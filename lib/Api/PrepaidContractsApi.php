@@ -66,9 +66,9 @@ class PrepaidContractsApi
      * Get Prepaid Item ID
      *
      * @param string $prepaid_contract_id Prepaid contract id (required)
-     * @param \Secuconnect\Client\Model\PrepaidZvtDTO $body Prepaid transaction input properties 
+     * @param \Secuconnect\Client\Model\PrepaidZvtDTO $body Product ID and amount 
      * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\PrepaidMappingZvt
+     * @return \Secuconnect\Client\Model\PrepaidMappingZvtResponse
      */
     public function mappingZvt($prepaid_contract_id, $body)
     {
@@ -82,9 +82,9 @@ class PrepaidContractsApi
      * Get Prepaid Item ID
      *
      * @param string $prepaid_contract_id Prepaid contract id (required)
-     * @param \Secuconnect\Client\Model\PrepaidZvtDTO $body Prepaid transaction input properties 
+     * @param \Secuconnect\Client\Model\PrepaidZvtDTO $body Product ID and amount 
      * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\PrepaidMappingZvt, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Secuconnect\Client\Model\PrepaidMappingZvtResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function mappingZvtWithHttpInfo($prepaid_contract_id, $body)
     {
@@ -141,15 +141,15 @@ class PrepaidContractsApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    '\Secuconnect\Client\Model\PrepaidMappingZvt',
+                    '\Secuconnect\Client\Model\PrepaidMappingZvtResponse',
                     '/Prepaid/Contracts/{prepaidContractId}/mappingZvt'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PrepaidMappingZvt', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PrepaidMappingZvtResponse', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PrepaidMappingZvt', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PrepaidMappingZvtResponse', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:

@@ -29,7 +29,7 @@ class PrepaidZvtDTO implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'amount' => 'int',
-        'product_id' => 'int'
+        'product_id' => 'string'
     ];
 
     /**
@@ -156,7 +156,7 @@ class PrepaidZvtDTO implements ArrayAccess
 
     /**
      * Gets product_id
-     * @return int
+     * @return string
      */
     public function getProductId()
     {
@@ -165,7 +165,7 @@ class PrepaidZvtDTO implements ArrayAccess
 
     /**
      * Sets product_id
-     * @param int $product_id Product identifier
+     * @param string $product_id Product ID of the cash register (ECR); can be padded with leading zeros
      * @return $this
      */
     public function setProductId($product_id)

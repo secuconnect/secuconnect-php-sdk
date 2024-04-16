@@ -138,7 +138,7 @@ class PrepaidMappingZvtItem implements ArrayAccess
 
     /**
      * Sets id
-     * @param int $id prepaid item id
+     * @param int $id Prepaid Item ID
      * @return $this
      */
     public function setId($id)
