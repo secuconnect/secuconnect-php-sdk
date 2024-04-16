@@ -184,12 +184,13 @@ class PaymentContractsApi
      * @param string $scroll_expire How long it should keep the “search context” alive? 
      * @param string $scroll_id Identifier of a previous search context. 
      * @param string $preset Query presets 
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentContractsList
      */
-    public function paymentContractsGet($count = null, $offset = null, $fields = null, $q = null, $sort = null, $aggregate = null, $meta = null, $validate = null, $scroll_expire = null, $scroll_id = null, $preset = null)
+    public function paymentContractsGet($count = null, $offset = null, $fields = null, $q = null, $sort = null, $aggregate = null, $meta = null, $validate = null, $scroll_expire = null, $scroll_id = null, $preset = null, $expand = null)
     {
-        list($response) = $this->paymentContractsGetWithHttpInfo($count, $offset, $fields, $q, $sort, $aggregate, $meta, $validate, $scroll_expire, $scroll_id, $preset);
+        list($response) = $this->paymentContractsGetWithHttpInfo($count, $offset, $fields, $q, $sort, $aggregate, $meta, $validate, $scroll_expire, $scroll_id, $preset, $expand);
         return $response;
     }
 
@@ -209,10 +210,11 @@ class PaymentContractsApi
      * @param string $scroll_expire How long it should keep the “search context” alive? 
      * @param string $scroll_id Identifier of a previous search context. 
      * @param string $preset Query presets 
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentContractsList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function paymentContractsGetWithHttpInfo($count = null, $offset = null, $fields = null, $q = null, $sort = null, $aggregate = null, $meta = null, $validate = null, $scroll_expire = null, $scroll_id = null, $preset = null)
+    public function paymentContractsGetWithHttpInfo($count = null, $offset = null, $fields = null, $q = null, $sort = null, $aggregate = null, $meta = null, $validate = null, $scroll_expire = null, $scroll_id = null, $preset = null, $expand = null)
     {
         // parse inputs
         $resourcePath = "/Payment/Contracts";
@@ -269,6 +271,10 @@ class PaymentContractsApi
         // query params
         if ($preset !== null) {
             $queryParams['preset'] = $this->apiClient->getSerializer()->toQueryValue($preset);
+        }
+        // query params
+        if ($expand !== null) {
+            $queryParams['expand'] = $this->apiClient->getSerializer()->toQueryValue($expand);
         }
 
         // for model (json/xml)

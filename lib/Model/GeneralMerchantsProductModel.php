@@ -35,13 +35,13 @@ class GeneralMerchantsProductModel extends BaseProductModel
         'id_old' => 'int',
         'type' => 'string',
         'user' => '\Secuconnect\Client\Model\GeneralMerchantsUser',
-        'parent' => '\Secuconnect\Client\Model\ParentModel',
+        'parent' => '\Secuconnect\Client\Model\GeneralMerchantsProductModel',
         'assigned_by' => '\Secuconnect\Client\Model\AssignedBy[]',
         'invited_by' => '\Secuconnect\Client\Model\InvitedBy[]',
         'legal_details' => '\Secuconnect\Client\Model\GeneralMerchantsLegalDetails[]',
         'urls' => '\Secuconnect\Client\Model\GeneralMerchantsUrls[]',
         'store_name' => 'string',
-        'acceptance_points' => '\Secuconnect\Client\Model\BaseProductModel[]',
+        'acceptance_points' => '\Secuconnect\Client\Model\GeneralMerchantsProductModel[]',
         'two_fa' => 'string'
     ];
 
@@ -408,7 +408,7 @@ class GeneralMerchantsProductModel extends BaseProductModel
 
     /**
      * Gets parent
-     * @return \Secuconnect\Client\Model\ParentModel
+     * @return \Secuconnect\Client\Model\GeneralMerchantsProductModel
      */
     public function getParent()
     {
@@ -417,7 +417,7 @@ class GeneralMerchantsProductModel extends BaseProductModel
 
     /**
      * Sets parent
-     * @param \Secuconnect\Client\Model\ParentModel $parent parent
+     * @param \Secuconnect\Client\Model\GeneralMerchantsProductModel $parent parent
      * @return $this
      */
     public function setParent($parent)
@@ -534,7 +534,7 @@ class GeneralMerchantsProductModel extends BaseProductModel
 
     /**
      * Gets acceptance_points
-     * @return \Secuconnect\Client\Model\BaseProductModel[]
+     * @return \Secuconnect\Client\Model\GeneralMerchantsProductModel[]
      */
     public function getAcceptancePoints()
     {
@@ -543,7 +543,7 @@ class GeneralMerchantsProductModel extends BaseProductModel
 
     /**
      * Sets acceptance_points
-     * @param \Secuconnect\Client\Model\BaseProductModel[] $acceptance_points Acceptance Points (partner stores)
+     * @param \Secuconnect\Client\Model\GeneralMerchantsProductModel[] $acceptance_points Acceptance Points (partner stores)
      * @return $this
      */
     public function setAcceptancePoints($acceptance_points)
