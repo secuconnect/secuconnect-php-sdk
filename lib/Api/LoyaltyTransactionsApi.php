@@ -223,12 +223,13 @@ class LoyaltyTransactionsApi
      * Read Loyalty Transaction
      *
      * @param string $loyalty_transaction_id Loyalty Transaction ID (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyTransactionsProductModel
      */
-    public function getOne($loyalty_transaction_id)
+    public function getOne($loyalty_transaction_id, $expand = null)
     {
-        list($response) = $this->getOneWithHttpInfo($loyalty_transaction_id);
+        list($response) = $this->getOneWithHttpInfo($loyalty_transaction_id, $expand);
         return $response;
     }
 
@@ -238,10 +239,11 @@ class LoyaltyTransactionsApi
      * Read Loyalty Transaction
      *
      * @param string $loyalty_transaction_id Loyalty Transaction ID (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOneWithHttpInfo($loyalty_transaction_id)
+    public function getOneWithHttpInfo($loyalty_transaction_id, $expand = null)
     {
         // verify the required parameter 'loyalty_transaction_id' is set
         if ($loyalty_transaction_id === null || (is_array($loyalty_transaction_id) && count($loyalty_transaction_id) === 0)) {
@@ -261,6 +263,10 @@ class LoyaltyTransactionsApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
+        // query params
+        if ($expand !== null) {
+            $queryParams['expand'] = $this->apiClient->getSerializer()->toQueryValue($expand);
+        }
         // path params
         if ($loyalty_transaction_id !== null) {
             $resourcePath = str_replace(

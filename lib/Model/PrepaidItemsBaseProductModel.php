@@ -174,7 +174,7 @@ class PrepaidItemsBaseProductModel extends BaseProductModel
 
     /**
      * Sets retail_price
-     * @param int $retail_price Retail price
+     * @param int $retail_price Retail price in the smallest currency unit (e. g. Euro Cent)
      * @return $this
      */
     public function setRetailPrice($retail_price)
@@ -216,7 +216,7 @@ class PrepaidItemsBaseProductModel extends BaseProductModel
 
     /**
      * Sets description
-     * @param string $description Description
+     * @param string $description Short item name, usually trade mark with amount
      * @return $this
      */
     public function setDescription($description)
@@ -237,7 +237,7 @@ class PrepaidItemsBaseProductModel extends BaseProductModel
 
     /**
      * Sets displaytext
-     * @param string $displaytext Short text
+     * @param string $displaytext Display text to within the Item Group, usually the amount. At the POS terminal you will firstly select the group by its name, then the exact item by this very text.
      * @return $this
      */
     public function setDisplaytext($displaytext)
@@ -258,7 +258,7 @@ class PrepaidItemsBaseProductModel extends BaseProductModel
 
     /**
      * Sets logo
-     * @param string $logo Logo
+     * @param string $logo Logo URL
      * @return $this
      */
     public function setLogo($logo)
@@ -279,7 +279,7 @@ class PrepaidItemsBaseProductModel extends BaseProductModel
 
     /**
      * Sets vtc_config
-     * @param string[] $vtc_config List of article numbers for adding it to a smart transaction
+     * @param string[] $vtc_config Article numbers for adding this item to a Smart Transaction; needed to recognise the item as e-goods article.
      * @return $this
      */
     public function setVtcConfig($vtc_config)
@@ -300,7 +300,7 @@ class PrepaidItemsBaseProductModel extends BaseProductModel
 
     /**
      * Sets vtc_id
-     * @param string $vtc_id Vtc id
+     * @param string $vtc_id VTC ID
      * @return $this
      */
     public function setVtcId($vtc_id)
@@ -321,7 +321,7 @@ class PrepaidItemsBaseProductModel extends BaseProductModel
 
     /**
      * Sets type
-     * @param string $type Type
+     * @param string $type Type:  - `POSA` for point of sale activation cars - `PP` for pin-printing
      * @return $this
      */
     public function setType($type)

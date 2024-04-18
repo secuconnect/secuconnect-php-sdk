@@ -179,7 +179,7 @@ class PrepaidItemsList implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Number of existing prepaid items
+     * @param int $count Number of matching Prepaid Items
      * @return $this
      */
     public function setCount($count)
@@ -200,7 +200,7 @@ class PrepaidItemsList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\PrepaidItemsProductModel[] $data List of PrepaidItems
+     * @param \Secuconnect\Client\Model\PrepaidItemsProductModel[] $data Prepaid Items (limited number)
      * @return $this
      */
     public function setData($data)

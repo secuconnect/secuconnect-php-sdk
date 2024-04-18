@@ -223,12 +223,13 @@ class CardprocessingInvoicesApi
      * Read Cardprocessing Invoice
      *
      * @param string $cardprocessing_invoice_id Cardprocessing invoice id (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\CardprocessingInvoicesProductModel
      */
-    public function getOne($cardprocessing_invoice_id)
+    public function getOne($cardprocessing_invoice_id, $expand = null)
     {
-        list($response) = $this->getOneWithHttpInfo($cardprocessing_invoice_id);
+        list($response) = $this->getOneWithHttpInfo($cardprocessing_invoice_id, $expand);
         return $response;
     }
 
@@ -238,10 +239,11 @@ class CardprocessingInvoicesApi
      * Read Cardprocessing Invoice
      *
      * @param string $cardprocessing_invoice_id Cardprocessing invoice id (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\CardprocessingInvoicesProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOneWithHttpInfo($cardprocessing_invoice_id)
+    public function getOneWithHttpInfo($cardprocessing_invoice_id, $expand = null)
     {
         // verify the required parameter 'cardprocessing_invoice_id' is set
         if ($cardprocessing_invoice_id === null || (is_array($cardprocessing_invoice_id) && count($cardprocessing_invoice_id) === 0)) {
@@ -261,6 +263,10 @@ class CardprocessingInvoicesApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
+        // query params
+        if ($expand !== null) {
+            $queryParams['expand'] = $this->apiClient->getSerializer()->toQueryValue($expand);
+        }
         // path params
         if ($cardprocessing_invoice_id !== null) {
             $resourcePath = str_replace(

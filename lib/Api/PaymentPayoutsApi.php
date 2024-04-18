@@ -223,12 +223,13 @@ class PaymentPayoutsApi
      * Read Payment Payout
      *
      * @param string $payment_payout_id Payment Payout ID (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentPayoutsProductModel
      */
-    public function getOne($payment_payout_id)
+    public function getOne($payment_payout_id, $expand = null)
     {
-        list($response) = $this->getOneWithHttpInfo($payment_payout_id);
+        list($response) = $this->getOneWithHttpInfo($payment_payout_id, $expand);
         return $response;
     }
 
@@ -238,10 +239,11 @@ class PaymentPayoutsApi
      * Read Payment Payout
      *
      * @param string $payment_payout_id Payment Payout ID (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentPayoutsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOneWithHttpInfo($payment_payout_id)
+    public function getOneWithHttpInfo($payment_payout_id, $expand = null)
     {
         // verify the required parameter 'payment_payout_id' is set
         if ($payment_payout_id === null || (is_array($payment_payout_id) && count($payment_payout_id) === 0)) {
@@ -261,6 +263,10 @@ class PaymentPayoutsApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
+        // query params
+        if ($expand !== null) {
+            $queryParams['expand'] = $this->apiClient->getSerializer()->toQueryValue($expand);
+        }
         // path params
         if ($payment_payout_id !== null) {
             $resourcePath = str_replace(

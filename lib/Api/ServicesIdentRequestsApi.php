@@ -315,12 +315,13 @@ class ServicesIdentRequestsApi
      * Read Ident Request
      *
      * @param string $identrequest_id Ident Request ID (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ServicesIdentrequestsProductModel
      */
-    public function getOne($identrequest_id)
+    public function getOne($identrequest_id, $expand = null)
     {
-        list($response) = $this->getOneWithHttpInfo($identrequest_id);
+        list($response) = $this->getOneWithHttpInfo($identrequest_id, $expand);
         return $response;
     }
 
@@ -330,10 +331,11 @@ class ServicesIdentRequestsApi
      * Read Ident Request
      *
      * @param string $identrequest_id Ident Request ID (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ServicesIdentrequestsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOneWithHttpInfo($identrequest_id)
+    public function getOneWithHttpInfo($identrequest_id, $expand = null)
     {
         // verify the required parameter 'identrequest_id' is set
         if ($identrequest_id === null || (is_array($identrequest_id) && count($identrequest_id) === 0)) {
@@ -353,6 +355,10 @@ class ServicesIdentRequestsApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
+        // query params
+        if ($expand !== null) {
+            $queryParams['expand'] = $this->apiClient->getSerializer()->toQueryValue($expand);
+        }
         // path params
         if ($identrequest_id !== null) {
             $resourcePath = str_replace(
