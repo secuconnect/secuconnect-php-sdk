@@ -873,12 +873,13 @@ class GeneralContractsApi
      * Read General Contract
      *
      * @param string $general_contract_id General Contract ID (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\GeneralContractsProductModel
      */
-    public function getOne($general_contract_id)
+    public function getOne($general_contract_id, $expand = null)
     {
-        list($response) = $this->getOneWithHttpInfo($general_contract_id);
+        list($response) = $this->getOneWithHttpInfo($general_contract_id, $expand);
         return $response;
     }
 
@@ -888,10 +889,11 @@ class GeneralContractsApi
      * Read General Contract
      *
      * @param string $general_contract_id General Contract ID (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\GeneralContractsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOneWithHttpInfo($general_contract_id)
+    public function getOneWithHttpInfo($general_contract_id, $expand = null)
     {
         // verify the required parameter 'general_contract_id' is set
         if ($general_contract_id === null || (is_array($general_contract_id) && count($general_contract_id) === 0)) {
@@ -911,6 +913,10 @@ class GeneralContractsApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
+        // query params
+        if ($expand !== null) {
+            $queryParams['expand'] = $this->apiClient->getSerializer()->toQueryValue($expand);
+        }
         // path params
         if ($general_contract_id !== null) {
             $resourcePath = str_replace(

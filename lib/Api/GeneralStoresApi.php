@@ -315,12 +315,13 @@ class GeneralStoresApi
      * Read General Store
      *
      * @param string $general_store_id General Store ID (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\GeneralStoresProductModel
      */
-    public function getOne($general_store_id)
+    public function getOne($general_store_id, $expand = null)
     {
-        list($response) = $this->getOneWithHttpInfo($general_store_id);
+        list($response) = $this->getOneWithHttpInfo($general_store_id, $expand);
         return $response;
     }
 
@@ -330,10 +331,11 @@ class GeneralStoresApi
      * Read General Store
      *
      * @param string $general_store_id General Store ID (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\GeneralStoresProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOneWithHttpInfo($general_store_id)
+    public function getOneWithHttpInfo($general_store_id, $expand = null)
     {
         // verify the required parameter 'general_store_id' is set
         if ($general_store_id === null || (is_array($general_store_id) && count($general_store_id) === 0)) {
@@ -353,6 +355,10 @@ class GeneralStoresApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
+        // query params
+        if ($expand !== null) {
+            $queryParams['expand'] = $this->apiClient->getSerializer()->toQueryValue($expand);
+        }
         // path params
         if ($general_store_id !== null) {
             $resourcePath = str_replace(

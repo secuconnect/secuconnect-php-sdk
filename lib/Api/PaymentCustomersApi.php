@@ -223,12 +223,13 @@ class PaymentCustomersApi
      * Read Payment Customer
      *
      * @param string $payment_customer_id Payment Customer ID (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentCustomersProductModel
      */
-    public function paymentCustomersGetById($payment_customer_id)
+    public function paymentCustomersGetById($payment_customer_id, $expand = null)
     {
-        list($response) = $this->paymentCustomersGetByIdWithHttpInfo($payment_customer_id);
+        list($response) = $this->paymentCustomersGetByIdWithHttpInfo($payment_customer_id, $expand);
         return $response;
     }
 
@@ -238,10 +239,11 @@ class PaymentCustomersApi
      * Read Payment Customer
      *
      * @param string $payment_customer_id Payment Customer ID (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentCustomersProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function paymentCustomersGetByIdWithHttpInfo($payment_customer_id)
+    public function paymentCustomersGetByIdWithHttpInfo($payment_customer_id, $expand = null)
     {
         // verify the required parameter 'payment_customer_id' is set
         if ($payment_customer_id === null || (is_array($payment_customer_id) && count($payment_customer_id) === 0)) {
@@ -261,6 +263,10 @@ class PaymentCustomersApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
+        // query params
+        if ($expand !== null) {
+            $queryParams['expand'] = $this->apiClient->getSerializer()->toQueryValue($expand);
+        }
         // path params
         if ($payment_customer_id !== null) {
             $resourcePath = str_replace(

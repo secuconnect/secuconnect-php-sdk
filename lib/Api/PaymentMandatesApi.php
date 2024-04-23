@@ -402,12 +402,13 @@ class PaymentMandatesApi
      * Read Payment Mandate
      *
      * @param string $payment_mandates_id Search one payment mandate by provided id (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentMandatesProductModel
      */
-    public function getOne($payment_mandates_id)
+    public function getOne($payment_mandates_id, $expand = null)
     {
-        list($response) = $this->getOneWithHttpInfo($payment_mandates_id);
+        list($response) = $this->getOneWithHttpInfo($payment_mandates_id, $expand);
         return $response;
     }
 
@@ -417,10 +418,11 @@ class PaymentMandatesApi
      * Read Payment Mandate
      *
      * @param string $payment_mandates_id Search one payment mandate by provided id (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentMandatesProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOneWithHttpInfo($payment_mandates_id)
+    public function getOneWithHttpInfo($payment_mandates_id, $expand = null)
     {
         // verify the required parameter 'payment_mandates_id' is set
         if ($payment_mandates_id === null || (is_array($payment_mandates_id) && count($payment_mandates_id) === 0)) {
@@ -440,6 +442,10 @@ class PaymentMandatesApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
+        // query params
+        if ($expand !== null) {
+            $queryParams['expand'] = $this->apiClient->getSerializer()->toQueryValue($expand);
+        }
         // path params
         if ($payment_mandates_id !== null) {
             $resourcePath = str_replace(

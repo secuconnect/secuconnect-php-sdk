@@ -66,12 +66,13 @@ class PaymentSubscriptionsApi
      * Read Payment Subscription
      *
      * @param string $payment_subscription_id Payment Subscription ID (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentSubscriptionsProductModel
      */
-    public function paymentSubscriptionGetById($payment_subscription_id)
+    public function paymentSubscriptionGetById($payment_subscription_id, $expand = null)
     {
-        list($response) = $this->paymentSubscriptionGetByIdWithHttpInfo($payment_subscription_id);
+        list($response) = $this->paymentSubscriptionGetByIdWithHttpInfo($payment_subscription_id, $expand);
         return $response;
     }
 
@@ -81,10 +82,11 @@ class PaymentSubscriptionsApi
      * Read Payment Subscription
      *
      * @param string $payment_subscription_id Payment Subscription ID (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentSubscriptionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function paymentSubscriptionGetByIdWithHttpInfo($payment_subscription_id)
+    public function paymentSubscriptionGetByIdWithHttpInfo($payment_subscription_id, $expand = null)
     {
         // verify the required parameter 'payment_subscription_id' is set
         if ($payment_subscription_id === null || (is_array($payment_subscription_id) && count($payment_subscription_id) === 0)) {
@@ -104,6 +106,10 @@ class PaymentSubscriptionsApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
+        // query params
+        if ($expand !== null) {
+            $queryParams['expand'] = $this->apiClient->getSerializer()->toQueryValue($expand);
+        }
         // path params
         if ($payment_subscription_id !== null) {
             $resourcePath = str_replace(

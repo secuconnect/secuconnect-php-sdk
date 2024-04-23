@@ -223,12 +223,13 @@ class CardprocessingTransactionsApi
      * Read Cardprocessing Transaction
      *
      * @param string $cardprocessing_transaction_id Cardprocessing transaction id (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\CardprocessingTransactionsProductModel
      */
-    public function getOne($cardprocessing_transaction_id)
+    public function getOne($cardprocessing_transaction_id, $expand = null)
     {
-        list($response) = $this->getOneWithHttpInfo($cardprocessing_transaction_id);
+        list($response) = $this->getOneWithHttpInfo($cardprocessing_transaction_id, $expand);
         return $response;
     }
 
@@ -238,10 +239,11 @@ class CardprocessingTransactionsApi
      * Read Cardprocessing Transaction
      *
      * @param string $cardprocessing_transaction_id Cardprocessing transaction id (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\CardprocessingTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOneWithHttpInfo($cardprocessing_transaction_id)
+    public function getOneWithHttpInfo($cardprocessing_transaction_id, $expand = null)
     {
         // verify the required parameter 'cardprocessing_transaction_id' is set
         if ($cardprocessing_transaction_id === null || (is_array($cardprocessing_transaction_id) && count($cardprocessing_transaction_id) === 0)) {
@@ -261,6 +263,10 @@ class CardprocessingTransactionsApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
+        // query params
+        if ($expand !== null) {
+            $queryParams['expand'] = $this->apiClient->getSerializer()->toQueryValue($expand);
+        }
         // path params
         if ($cardprocessing_transaction_id !== null) {
             $resourcePath = str_replace(

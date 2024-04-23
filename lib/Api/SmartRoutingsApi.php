@@ -439,12 +439,13 @@ class SmartRoutingsApi
      * Read Smart Routing
      *
      * @param string $smart_routing_id Smart routing id (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartRoutingsProductModel
      */
-    public function getOne($smart_routing_id)
+    public function getOne($smart_routing_id, $expand = null)
     {
-        list($response) = $this->getOneWithHttpInfo($smart_routing_id);
+        list($response) = $this->getOneWithHttpInfo($smart_routing_id, $expand);
         return $response;
     }
 
@@ -454,10 +455,11 @@ class SmartRoutingsApi
      * Read Smart Routing
      *
      * @param string $smart_routing_id Smart routing id (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartRoutingsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOneWithHttpInfo($smart_routing_id)
+    public function getOneWithHttpInfo($smart_routing_id, $expand = null)
     {
         // verify the required parameter 'smart_routing_id' is set
         if ($smart_routing_id === null || (is_array($smart_routing_id) && count($smart_routing_id) === 0)) {
@@ -477,6 +479,10 @@ class SmartRoutingsApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
+        // query params
+        if ($expand !== null) {
+            $queryParams['expand'] = $this->apiClient->getSerializer()->toQueryValue($expand);
+        }
         // path params
         if ($smart_routing_id !== null) {
             $resourcePath = str_replace(

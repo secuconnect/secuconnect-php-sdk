@@ -315,12 +315,13 @@ class PrepaidReportsApi
      * Read Prepaid Report
      *
      * @param \Secuconnect\Client\Model\ProductInstanceUID $prepaid_reports_id Prepaid Reports id (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PrepaidReportsProductModel
      */
-    public function getOne($prepaid_reports_id)
+    public function getOne($prepaid_reports_id, $expand = null)
     {
-        list($response) = $this->getOneWithHttpInfo($prepaid_reports_id);
+        list($response) = $this->getOneWithHttpInfo($prepaid_reports_id, $expand);
         return $response;
     }
 
@@ -330,10 +331,11 @@ class PrepaidReportsApi
      * Read Prepaid Report
      *
      * @param \Secuconnect\Client\Model\ProductInstanceUID $prepaid_reports_id Prepaid Reports id (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PrepaidReportsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOneWithHttpInfo($prepaid_reports_id)
+    public function getOneWithHttpInfo($prepaid_reports_id, $expand = null)
     {
         // verify the required parameter 'prepaid_reports_id' is set
         if ($prepaid_reports_id === null || (is_array($prepaid_reports_id) && count($prepaid_reports_id) === 0)) {
@@ -353,6 +355,10 @@ class PrepaidReportsApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
+        // query params
+        if ($expand !== null) {
+            $queryParams['expand'] = $this->apiClient->getSerializer()->toQueryValue($expand);
+        }
         // path params
         if ($prepaid_reports_id !== null) {
             $resourcePath = str_replace(

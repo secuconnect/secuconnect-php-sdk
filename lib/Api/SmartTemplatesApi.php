@@ -223,12 +223,13 @@ class SmartTemplatesApi
      * Read Smart Template
      *
      * @param string $smart_template_id Smart template id (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartTemplatesProductModel
      */
-    public function getOne($smart_template_id)
+    public function getOne($smart_template_id, $expand = null)
     {
-        list($response) = $this->getOneWithHttpInfo($smart_template_id);
+        list($response) = $this->getOneWithHttpInfo($smart_template_id, $expand);
         return $response;
     }
 
@@ -238,10 +239,11 @@ class SmartTemplatesApi
      * Read Smart Template
      *
      * @param string $smart_template_id Smart template id (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartTemplatesProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOneWithHttpInfo($smart_template_id)
+    public function getOneWithHttpInfo($smart_template_id, $expand = null)
     {
         // verify the required parameter 'smart_template_id' is set
         if ($smart_template_id === null || (is_array($smart_template_id) && count($smart_template_id) === 0)) {
@@ -261,6 +263,10 @@ class SmartTemplatesApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
+        // query params
+        if ($expand !== null) {
+            $queryParams['expand'] = $this->apiClient->getSerializer()->toQueryValue($expand);
+        }
         // path params
         if ($smart_template_id !== null) {
             $resourcePath = str_replace(

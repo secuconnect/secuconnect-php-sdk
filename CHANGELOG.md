@@ -18,6 +18,46 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.48.0] - 2024-04-18
+[2.48.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.47.0...2.48.0
+
+- *new request element*: `expand` was added to all `getOne()` endpoints
+
+### Changed
+- `Api.CardprocessingInvoicesApi`
+- `Api.CardprocessingTransactionsApi`
+- `Api.GeneralContractsApi`
+- `Api.GeneralMerchantsApi`
+- `Api.GeneralStoresApi`
+- `Api.LoyaltyCardGroupsApi`
+- `Api.LoyaltyCardsApi`
+- `Api.LoyaltyCustomersApi`
+- `Api.LoyaltyMerchantCardsApi`
+- `Api.LoyaltyTransactionsApi`
+- `Api.PaymentContainersApi`
+- `Api.PaymentContractsApi`
+- `Api.PaymentCustomersApi`
+- `Api.PaymentInvoicesApi`
+- `Api.PaymentMandatesApi`
+- `Api.PaymentPayoutsApi`
+- `Api.PaymentPlansApi`
+- `Api.PaymentSubscriptionsApi`
+- `Api.PaymentTransactionsApi`
+- `Api.PrepaidItemsApi`
+- `Api.PrepaidReportsApi`
+- `Api.PrepaidSalesApi`
+- `Api.ServicesIdentRequestsApi`
+- `Api.ServicesIdentResultsApi`
+- `Api.SmartDevicesApi`
+- `Api.SmartRoutingsApi`
+- `Api.SmartTemplatesApi`
+- `Api.SmartTransactionsApi`
+- `Model.ItemGroup`
+- `Model.PrepaidItemsBaseProductModel`
+- `Model.PrepaidItemsList`
+- `Model.PrepaidItemsProductModel`
+
+
 ## [2.47.0] - 2024-04-16
 [2.47.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.46.0...2.47.0
 

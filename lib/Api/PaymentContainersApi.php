@@ -331,12 +331,13 @@ class PaymentContainersApi
      * Read Payment Containers
      *
      * @param string $payment_container_id Payment Container ID (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentContainersProductModel
      */
-    public function paymentContainersGetById($payment_container_id)
+    public function paymentContainersGetById($payment_container_id, $expand = null)
     {
-        list($response) = $this->paymentContainersGetByIdWithHttpInfo($payment_container_id);
+        list($response) = $this->paymentContainersGetByIdWithHttpInfo($payment_container_id, $expand);
         return $response;
     }
 
@@ -346,10 +347,11 @@ class PaymentContainersApi
      * Read Payment Containers
      *
      * @param string $payment_container_id Payment Container ID (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentContainersProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function paymentContainersGetByIdWithHttpInfo($payment_container_id)
+    public function paymentContainersGetByIdWithHttpInfo($payment_container_id, $expand = null)
     {
         // verify the required parameter 'payment_container_id' is set
         if ($payment_container_id === null || (is_array($payment_container_id) && count($payment_container_id) === 0)) {
@@ -369,6 +371,10 @@ class PaymentContainersApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
+        // query params
+        if ($expand !== null) {
+            $queryParams['expand'] = $this->apiClient->getSerializer()->toQueryValue($expand);
+        }
         // path params
         if ($payment_container_id !== null) {
             $resourcePath = str_replace(

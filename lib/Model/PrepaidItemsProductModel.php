@@ -324,7 +324,7 @@ class PrepaidItemsProductModel extends PrepaidItemsBaseProductModel
 
     /**
      * Sets commission
-     * @param int $commission Commission
+     * @param int $commission commission
      * @return $this
      */
     public function setCommission($commission)
@@ -366,7 +366,7 @@ class PrepaidItemsProductModel extends PrepaidItemsBaseProductModel
 
     /**
      * Sets stock_limit_max
-     * @param int $stock_limit_max Stock limit max
+     * @param int $stock_limit_max stock_limit_max
      * @return $this
      */
     public function setStockLimitMax($stock_limit_max)
@@ -387,7 +387,7 @@ class PrepaidItemsProductModel extends PrepaidItemsBaseProductModel
 
     /**
      * Sets stock_limit_min
-     * @param int $stock_limit_min Stock limit min
+     * @param int $stock_limit_min stock_limit_min
      * @return $this
      */
     public function setStockLimitMin($stock_limit_min)
@@ -408,7 +408,7 @@ class PrepaidItemsProductModel extends PrepaidItemsBaseProductModel
 
     /**
      * Sets taxable
-     * @param bool $taxable Taxable
+     * @param bool $taxable taxable
      * @return $this
      */
     public function setTaxable($taxable)

@@ -416,12 +416,13 @@ class SmartDevicesApi
      * Read Smart Device
      *
      * @param string $smart_device_id Smart device id (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartDevicesProductModel
      */
-    public function getOne($smart_device_id)
+    public function getOne($smart_device_id, $expand = null)
     {
-        list($response) = $this->getOneWithHttpInfo($smart_device_id);
+        list($response) = $this->getOneWithHttpInfo($smart_device_id, $expand);
         return $response;
     }
 
@@ -431,10 +432,11 @@ class SmartDevicesApi
      * Read Smart Device
      *
      * @param string $smart_device_id Smart device id (required)
+     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartDevicesProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOneWithHttpInfo($smart_device_id)
+    public function getOneWithHttpInfo($smart_device_id, $expand = null)
     {
         // verify the required parameter 'smart_device_id' is set
         if ($smart_device_id === null || (is_array($smart_device_id) && count($smart_device_id) === 0)) {
@@ -454,6 +456,10 @@ class SmartDevicesApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
+        // query params
+        if ($expand !== null) {
+            $queryParams['expand'] = $this->apiClient->getSerializer()->toQueryValue($expand);
+        }
         // path params
         if ($smart_device_id !== null) {
             $resourcePath = str_replace(
