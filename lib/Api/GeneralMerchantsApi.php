@@ -533,13 +533,12 @@ class GeneralMerchantsApi
      *
      * @param string $general_merchant_id General Merchant ID (required)
      * @param \Secuconnect\Client\Model\GeneralMerchantsPublicDataDTO $body Merchant details 
-     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\GeneralMerchantsProductModel
      */
-    public function updatePublicData($general_merchant_id, $body, $expand = null)
+    public function updatePublicData($general_merchant_id, $body)
     {
-        list($response) = $this->updatePublicDataWithHttpInfo($general_merchant_id, $body, $expand);
+        list($response) = $this->updatePublicDataWithHttpInfo($general_merchant_id, $body);
         return $response;
     }
 
@@ -550,11 +549,10 @@ class GeneralMerchantsApi
      *
      * @param string $general_merchant_id General Merchant ID (required)
      * @param \Secuconnect\Client\Model\GeneralMerchantsPublicDataDTO $body Merchant details 
-     * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\GeneralMerchantsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePublicDataWithHttpInfo($general_merchant_id, $body, $expand = null)
+    public function updatePublicDataWithHttpInfo($general_merchant_id, $body)
     {
         // verify the required parameter 'general_merchant_id' is set
         if ($general_merchant_id === null || (is_array($general_merchant_id) && count($general_merchant_id) === 0)) {
@@ -574,10 +572,6 @@ class GeneralMerchantsApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
-        // query params
-        if ($expand !== null) {
-            $queryParams['expand'] = $this->apiClient->getSerializer()->toQueryValue($expand);
-        }
         // path params
         if ($general_merchant_id !== null) {
             $resourcePath = str_replace(
