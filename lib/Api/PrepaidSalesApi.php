@@ -65,7 +65,7 @@ class PrepaidSalesApi
      *
      * Create Prepaid Sale
      *
-     * @param \Secuconnect\Client\Model\PrepaidSalesProductDTO $body Prepaid transaction input properties 
+     * @param \Secuconnect\Client\Model\PrepaidSalesProductDTO $body Sale details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PrepaidSalesProductModel
      */
@@ -80,7 +80,7 @@ class PrepaidSalesApi
      *
      * Create Prepaid Sale
      *
-     * @param \Secuconnect\Client\Model\PrepaidSalesProductDTO $body Prepaid transaction input properties 
+     * @param \Secuconnect\Client\Model\PrepaidSalesProductDTO $body Sale details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PrepaidSalesProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -415,7 +415,7 @@ class PrepaidSalesApi
      *
      * Read Prepaid Sale
      *
-     * @param string $prepaid_sale_id Prepaid sale ID (required)
+     * @param string $prepaid_sale_id Prepaid Sale ID (required)
      * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PrepaidSalesProductModel
@@ -431,7 +431,7 @@ class PrepaidSalesApi
      *
      * Read Prepaid Sale
      *
-     * @param string $prepaid_sale_id Prepaid sale ID (required)
+     * @param string $prepaid_sale_id Prepaid Sale ID (required)
      * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PrepaidSalesProductModel, HTTP status code, HTTP response headers (array of strings)

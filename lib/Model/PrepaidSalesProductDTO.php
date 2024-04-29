@@ -138,7 +138,7 @@ class PrepaidSalesProductDTO implements ArrayAccess
 
     /**
      * Sets item
-     * @param string $item prepaid sales transaction id
+     * @param string $item Prepaid Sales Transaction ID
      * @return $this
      */
     public function setItem($item)

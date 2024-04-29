@@ -156,7 +156,7 @@ class PrepaidSalesSmartDevice implements ArrayAccess
 
     /**
      * Sets object
-     * @param string $object Object of smart device
+     * @param string $object Object type
      * @return $this
      */
     public function setObject($object)
@@ -177,7 +177,7 @@ class PrepaidSalesSmartDevice implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Id of smart device
+     * @param string $id Smart Device ID
      * @return $this
      */
     public function setId($id)
@@ -198,7 +198,7 @@ class PrepaidSalesSmartDevice implements ArrayAccess
 
     /**
      * Sets description
-     * @param string $description Smart device description
+     * @param string $description Short description
      * @return $this
      */
     public function setDescription($description)
@@ -219,7 +219,7 @@ class PrepaidSalesSmartDevice implements ArrayAccess
 
     /**
      * Sets vendor_uid
-     * @param string $vendor_uid Smart device vendor uid
+     * @param string $vendor_uid Smart Device vendor UID
      * @return $this
      */
     public function setVendorUid($vendor_uid)
