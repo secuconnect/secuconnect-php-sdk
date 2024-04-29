@@ -8,7 +8,6 @@ use \ArrayAccess;
  * AvailableCountry
  *
  * @category Class
- * @description AvailableCountry
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -150,7 +149,7 @@ class AvailableCountry implements ArrayAccess
 
     /**
      * Sets en
-     * @param string $en English Translation for Country
+     * @param string $en Country name in English
      * @return $this
      */
     public function setEn($en)
@@ -171,7 +170,7 @@ class AvailableCountry implements ArrayAccess
 
     /**
      * Sets iso_code
-     * @param string $iso_code The Iso Code for Country
+     * @param string $iso_code ISO region code
      * @return $this
      */
     public function setIsoCode($iso_code)
@@ -192,7 +191,7 @@ class AvailableCountry implements ArrayAccess
 
     /**
      * Sets de
-     * @param string $de German Translation for Country
+     * @param string $de Country name in German
      * @return $this
      */
     public function setDe($de)

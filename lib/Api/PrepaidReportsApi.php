@@ -65,7 +65,7 @@ class PrepaidReportsApi
      *
      * Create Prepaid Report
      *
-     * @param \Secuconnect\Client\Model\PrepaidReportsDTO $body body 
+     * @param \Secuconnect\Client\Model\PrepaidReportsDTO $body Reporting details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PrepaidReportsProductModel
      */
@@ -80,7 +80,7 @@ class PrepaidReportsApi
      *
      * Create Prepaid Report
      *
-     * @param \Secuconnect\Client\Model\PrepaidReportsDTO $body 
+     * @param \Secuconnect\Client\Model\PrepaidReportsDTO $body Reporting details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PrepaidReportsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -314,7 +314,7 @@ class PrepaidReportsApi
      *
      * Read Prepaid Report
      *
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $prepaid_reports_id Prepaid Reports id (required)
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $prepaid_reports_id Prepaid Reports ID (required)
      * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PrepaidReportsProductModel
@@ -330,7 +330,7 @@ class PrepaidReportsApi
      *
      * Read Prepaid Report
      *
-     * @param \Secuconnect\Client\Model\ProductInstanceUID $prepaid_reports_id Prepaid Reports id (required)
+     * @param \Secuconnect\Client\Model\ProductInstanceUID $prepaid_reports_id Prepaid Reports ID (required)
      * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PrepaidReportsProductModel, HTTP status code, HTTP response headers (array of strings)

@@ -1,6 +1,6 @@
 {
     "name": "secuconnect/secuconnect-php-sdk",
-    "version": "2.48.0",
+    "version": "2.49.0",
     "homepage": "https://github.com/secuconnect/secuconnect-php-sdk",
     "license": "Apache-2.0",
     "authors": [

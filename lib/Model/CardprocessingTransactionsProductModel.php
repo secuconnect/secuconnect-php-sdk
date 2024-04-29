@@ -363,7 +363,7 @@ class CardprocessingTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets store_name
-     * @param string $store_name Store name
+     * @param string $store_name store_name
      * @return $this
      */
     public function setStoreName($store_name)
@@ -384,7 +384,7 @@ class CardprocessingTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets trans_id
-     * @param int $trans_id Transaction Number
+     * @param int $trans_id Transaction (TA code / trans_id)
      * @return $this
      */
     public function setTransId($trans_id)
@@ -405,7 +405,7 @@ class CardprocessingTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets tid
-     * @param string $tid TID
+     * @param string $tid Terminal TID
      * @return $this
      */
     public function setTid($tid)
@@ -447,7 +447,7 @@ class CardprocessingTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets end_of_day_id
-     * @param string $end_of_day_id End of day ID
+     * @param string $end_of_day_id end_of_day_id
      * @return $this
      */
     public function setEndOfDayId($end_of_day_id)
@@ -489,7 +489,7 @@ class CardprocessingTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets trace
-     * @param int $trace Trace
+     * @param int $trace Trace number
      * @return $this
      */
     public function setTrace($trace)
@@ -573,7 +573,7 @@ class CardprocessingTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets ref_report_type
-     * @param int $ref_report_type Report Type
+     * @param int $ref_report_type Report type
      * @return $this
      */
     public function setRefReportType($ref_report_type)

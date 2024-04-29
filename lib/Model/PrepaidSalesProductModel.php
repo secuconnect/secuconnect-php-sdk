@@ -315,7 +315,7 @@ class PrepaidSalesProductModel extends BaseProductModel
 
     /**
      * Sets status
-     * @param string $status Status
+     * @param string $status Status:  - `request` - `denied` - `failed` - `delivered` - `confirmed`
      * @return $this
      */
     public function setStatus($status)
@@ -336,7 +336,7 @@ class PrepaidSalesProductModel extends BaseProductModel
 
     /**
      * Sets type
-     * @param string $type Type
+     * @param string $type Type:  - `sale_item` - `sale_report`
      * @return $this
      */
     public function setType($type)
@@ -504,7 +504,7 @@ class PrepaidSalesProductModel extends BaseProductModel
 
     /**
      * Sets demo
-     * @param bool $demo Demo
+     * @param bool $demo Whether this is a demo transaction or a productive one
      * @return $this
      */
     public function setDemo($demo)
@@ -525,7 +525,7 @@ class PrepaidSalesProductModel extends BaseProductModel
 
     /**
      * Sets description
-     * @param string $description Description
+     * @param string $description Short descriptive text
      * @return $this
      */
     public function setDescription($description)
@@ -588,7 +588,7 @@ class PrepaidSalesProductModel extends BaseProductModel
 
     /**
      * Sets commission
-     * @param int $commission Commission
+     * @param int $commission Commission in the smallest currency unit (e. g. Euro Cent)
      * @return $this
      */
     public function setCommission($commission)
@@ -609,7 +609,7 @@ class PrepaidSalesProductModel extends BaseProductModel
 
     /**
      * Sets commission_currency
-     * @param string $commission_currency Commission currency
+     * @param string $commission_currency Commission currency as ISO 4217 currency code like \"EUR\"
      * @return $this
      */
     public function setCommissionCurrency($commission_currency)
@@ -777,7 +777,7 @@ class PrepaidSalesProductModel extends BaseProductModel
 
     /**
      * Sets receipt_zvt
-     * @param string $receipt_zvt Receipt zvt
+     * @param string $receipt_zvt Receipt ZVT
      * @return $this
      */
     public function setReceiptZvt($receipt_zvt)
@@ -819,7 +819,7 @@ class PrepaidSalesProductModel extends BaseProductModel
 
     /**
      * Sets vtc_tid
-     * @param string $vtc_tid Vtc tid
+     * @param string $vtc_tid Terminal ID for VTC Virtual Terminal Client
      * @return $this
      */
     public function setVtcTid($vtc_tid)
@@ -840,7 +840,7 @@ class PrepaidSalesProductModel extends BaseProductModel
 
     /**
      * Sets vtc_id
-     * @param string $vtc_id Vtc id
+     * @param string $vtc_id Product ID for VTC Virtual Terminal Client
      * @return $this
      */
     public function setVtcId($vtc_id)
@@ -861,7 +861,7 @@ class PrepaidSalesProductModel extends BaseProductModel
 
     /**
      * Sets password
-     * @param string $password Password
+     * @param string $password password
      * @return $this
      */
     public function setPassword($password)

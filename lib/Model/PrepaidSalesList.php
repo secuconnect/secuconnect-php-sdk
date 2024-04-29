@@ -179,7 +179,7 @@ class PrepaidSalesList implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Number of existing prepaid contracts
+     * @param int $count Total number of matching Prepaid Sales
      * @return $this
      */
     public function setCount($count)
@@ -200,7 +200,7 @@ class PrepaidSalesList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\PrepaidSalesProductModel[] $data List of Prepaid Sales
+     * @param \Secuconnect\Client\Model\PrepaidSalesProductModel[] $data Prepaid Sales (limited number)
      * @return $this
      */
     public function setData($data)

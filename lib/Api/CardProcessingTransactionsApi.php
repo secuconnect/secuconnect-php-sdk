@@ -7,14 +7,14 @@ use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Authentication\Authenticator;
 
 /**
- * CardprocessingTransactionsApi
+ * CardProcessingTransactionsApi
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CardprocessingTransactionsApi
+class CardProcessingTransactionsApi
 {
     /**
      * API Client
@@ -52,7 +52,7 @@ class CardprocessingTransactionsApi
      *
      * @param ApiClient $apiClient set the API client
      *
-     * @return CardprocessingTransactionsApi
+     * @return CardProcessingTransactionsApi
      */
     public function setApiClient(ApiClient $apiClient)
     {
@@ -63,7 +63,7 @@ class CardprocessingTransactionsApi
     /**
      * Operation getAll
      *
-     * Find Cardprocessing Transactions
+     * Find Card Processing Transactions
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -89,7 +89,7 @@ class CardprocessingTransactionsApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * Find Cardprocessing Transactions
+     * Find Card Processing Transactions
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -220,9 +220,9 @@ class CardprocessingTransactionsApi
     /**
      * Operation getOne
      *
-     * Read Cardprocessing Transaction
+     * Read Card Processing Transaction
      *
-     * @param string $cardprocessing_transaction_id Cardprocessing transaction id (required)
+     * @param string $cardprocessing_transaction_id Card Processing Transaction ID (required)
      * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\CardprocessingTransactionsProductModel
@@ -236,9 +236,9 @@ class CardprocessingTransactionsApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * Read Cardprocessing Transaction
+     * Read Card Processing Transaction
      *
-     * @param string $cardprocessing_transaction_id Cardprocessing transaction id (required)
+     * @param string $cardprocessing_transaction_id Card Processing Transaction ID (required)
      * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\CardprocessingTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)

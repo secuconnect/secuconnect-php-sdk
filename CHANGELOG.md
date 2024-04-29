@@ -18,6 +18,29 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.49.0] - 2024-04-29
+[2.49.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.48.0...2.49.0
+
+- *renamed endpoint* `CardprocessingTransactionsApi` was renamed to `CardProcessingTransactionsApi`
+
+### Changed
+- `Api.CardprocessingTransactionsApi`
+- `Api.PrepaidReportsApi`
+- `Api.PrepaidSalesApi`
+- `Model.AvailableCountry`
+- `Model.CardprocessingTransactionsList`
+- `Model.CardprocessingTransactionsProductModel`
+- `Model.PrepaidReportsDTO`
+- `Model.PrepaidReportsList`
+- `Model.PrepaidReportsProductModel`
+- `Model.PrepaidSalesItem`
+- `Model.PrepaidSalesList`
+- `Model.PrepaidSalesProductDTO`
+- `Model.PrepaidSalesProductModel`
+- `Model.PrepaidSalesSmartDevice`
+- `Model.ReceiptType`
+
+
 ## [2.48.0] - 2024-04-18
 [2.48.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.47.0...2.48.0
 

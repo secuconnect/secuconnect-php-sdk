@@ -179,7 +179,7 @@ class CardprocessingTransactionsList implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Number of existing cardprocessing transactions
+     * @param int $count Total number of matching Card Processing Transactions
      * @return $this
      */
     public function setCount($count)
@@ -200,7 +200,7 @@ class CardprocessingTransactionsList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\CardprocessingTransactionsProductModel[] $data List of CardprocessingTransactions
+     * @param \Secuconnect\Client\Model\CardprocessingTransactionsProductModel[] $data Card Processing Transactions (limited number)
      * @return $this
      */
     public function setData($data)

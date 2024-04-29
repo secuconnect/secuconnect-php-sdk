@@ -479,7 +479,7 @@ class PrepaidReportsProductModel extends ProductInstanceUID
 
     /**
      * Sets vtc_tid
-     * @param int $vtc_tid vtc_tid
+     * @param int $vtc_tid Terminal ID for VTC Virtual Terminal Client (received during onboarding)
      * @return $this
      */
     public function setVtcTid($vtc_tid)
@@ -500,7 +500,7 @@ class PrepaidReportsProductModel extends ProductInstanceUID
 
     /**
      * Sets report_from
-     * @param string $report_from Report start date
+     * @param string $report_from Report start date as ISO 8601 date and time including timezone
      * @return $this
      */
     public function setReportFrom($report_from)
@@ -521,7 +521,7 @@ class PrepaidReportsProductModel extends ProductInstanceUID
 
     /**
      * Sets report_to
-     * @param string $report_to Report end date
+     * @param string $report_to Report end date as ISO 8601 date and time including timezone
      * @return $this
      */
     public function setReportTo($report_to)
@@ -542,7 +542,7 @@ class PrepaidReportsProductModel extends ProductInstanceUID
 
     /**
      * Sets receipt
-     * @param \Secuconnect\Client\Model\ReceiptTypeValue[] $receipt Receipt header
+     * @param \Secuconnect\Client\Model\ReceiptTypeValue[] $receipt Receipt body lines
      * @return $this
      */
     public function setReceipt($receipt)
@@ -563,7 +563,7 @@ class PrepaidReportsProductModel extends ProductInstanceUID
 
     /**
      * Sets receipt_header
-     * @param \Secuconnect\Client\Model\ReceiptTypeValue[] $receipt_header Receipt
+     * @param \Secuconnect\Client\Model\ReceiptTypeValue[] $receipt_header Receipt header lines (may be omitted)
      * @return $this
      */
     public function setReceiptHeader($receipt_header)

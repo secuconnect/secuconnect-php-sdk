@@ -162,7 +162,7 @@ class PrepaidSalesItem implements ArrayAccess
 
     /**
      * Sets object
-     * @param string $object Object of item
+     * @param string $object Object type
      * @return $this
      */
     public function setObject($object)
@@ -183,7 +183,7 @@ class PrepaidSalesItem implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Id of item
+     * @param string $id Item ID
      * @return $this
      */
     public function setId($id)
@@ -204,7 +204,7 @@ class PrepaidSalesItem implements ArrayAccess
 
     /**
      * Sets description
-     * @param string $description Item description
+     * @param string $description Short description
      * @return $this
      */
     public function setDescription($description)
@@ -225,7 +225,7 @@ class PrepaidSalesItem implements ArrayAccess
 
     /**
      * Sets logo
-     * @param string $logo Item logo
+     * @param string $logo Logo URL
      * @return $this
      */
     public function setLogo($logo)
@@ -246,7 +246,7 @@ class PrepaidSalesItem implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type Item type
+     * @param string $type Item type:  - `POS` - `PP`
      * @return $this
      */
     public function setType($type)

@@ -179,7 +179,7 @@ class PrepaidReportsDTO implements ArrayAccess
 
     /**
      * Sets merchant
-     * @param string $merchant General Merchants ID
+     * @param string $merchant General Merchant ID
      * @return $this
      */
     public function setMerchant($merchant)
@@ -200,7 +200,7 @@ class PrepaidReportsDTO implements ArrayAccess
 
     /**
      * Sets store
-     * @param string $store General Stores ID
+     * @param string $store General Store ID
      * @return $this
      */
     public function setStore($store)
@@ -221,7 +221,7 @@ class PrepaidReportsDTO implements ArrayAccess
 
     /**
      * Sets smart_device
-     * @param string $smart_device Smart Devices ID
+     * @param string $smart_device Smart Device ID
      * @return $this
      */
     public function setSmartDevice($smart_device)
@@ -242,7 +242,7 @@ class PrepaidReportsDTO implements ArrayAccess
 
     /**
      * Sets vtc_tid
-     * @param int $vtc_tid VTC TID
+     * @param int $vtc_tid Terminal ID for VTC Virtual Terminal Client (received during onboarding)
      * @return $this
      */
     public function setVtcTid($vtc_tid)
