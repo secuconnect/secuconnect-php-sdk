@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * LoyaltyMerchantcardsDTOLock
+ * LoyaltyMerchantcardsLockStatus
  *
  * @category Class
- * @description LoyaltyMerchantcardsDTOLock
+ * @description LoyaltyMerchantcardsGetLock
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LoyaltyMerchantcardsDTOLock implements ArrayAccess
+class LoyaltyMerchantcardsLockStatus implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,16 +21,16 @@ class LoyaltyMerchantcardsDTOLock implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'LoyaltyMerchantcardsDTOLock';
+    protected static $swaggerModelName = 'LoyaltyMerchantcardsLockStatus';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'lock_status' => 'string',
         'reason' => 'int',
-        'note' => 'string',
-        'csc' => 'string'
+        'note' => 'string'
     ];
 
     /**
@@ -38,9 +38,9 @@ class LoyaltyMerchantcardsDTOLock implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'lock_status' => null,
         'reason' => null,
-        'note' => null,
-        'csc' => null
+        'note' => null
     ];
 
     public static function swaggerTypes()
@@ -58,9 +58,9 @@ class LoyaltyMerchantcardsDTOLock implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'lock_status' => 'lock_status',
         'reason' => 'reason',
-        'note' => 'note',
-        'csc' => 'csc'
+        'note' => 'note'
     ];
 
     /**
@@ -68,9 +68,9 @@ class LoyaltyMerchantcardsDTOLock implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'lock_status' => 'setLockStatus',
         'reason' => 'setReason',
-        'note' => 'setNote',
-        'csc' => 'setCsc'
+        'note' => 'setNote'
     ];
 
     /**
@@ -78,9 +78,9 @@ class LoyaltyMerchantcardsDTOLock implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'lock_status' => 'getLockStatus',
         'reason' => 'getReason',
-        'note' => 'getNote',
-        'csc' => 'getCsc'
+        'note' => 'getNote'
     ];
 
     public static function attributeMap()
@@ -110,9 +110,9 @@ class LoyaltyMerchantcardsDTOLock implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['lock_status'] = isset($data['lock_status']) ? $data['lock_status'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
         $this->container['note'] = isset($data['note']) ? $data['note'] : null;
-        $this->container['csc'] = isset($data['csc']) ? $data['csc'] : null;
     }
 
     /**
@@ -138,6 +138,27 @@ class LoyaltyMerchantcardsDTOLock implements ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets lock_status
+     * @return string
+     */
+    public function getLockStatus()
+    {
+        return $this->container['lock_status'];
+    }
+
+    /**
+     * Sets lock_status
+     * @param string $lock_status Lock status:  - `\"locked\"` - `\"unlocked\"`
+     * @return $this
+     */
+    public function setLockStatus($lock_status)
+    {
+        $this->container['lock_status'] = $lock_status;
+
+        return $this;
+    }
 
     /**
      * Gets reason
@@ -177,27 +198,6 @@ class LoyaltyMerchantcardsDTOLock implements ArrayAccess
     public function setNote($note)
     {
         $this->container['note'] = $note;
-
-        return $this;
-    }
-
-    /**
-     * Gets csc
-     * @return string
-     */
-    public function getCsc()
-    {
-        return $this->container['csc'];
-    }
-
-    /**
-     * Sets csc
-     * @param string $csc Card Security Code (optional in the most cases)
-     * @return $this
-     */
-    public function setCsc($csc)
-    {
-        $this->container['csc'] = $csc;
 
         return $this;
     }

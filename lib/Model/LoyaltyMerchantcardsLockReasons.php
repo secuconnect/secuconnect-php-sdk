@@ -5,15 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * LoyaltyMerchantcardsDTOLock
+ * LoyaltyMerchantcardsLockReasons
  *
  * @category Class
- * @description LoyaltyMerchantcardsDTOLock
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LoyaltyMerchantcardsDTOLock implements ArrayAccess
+class LoyaltyMerchantcardsLockReasons implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,16 +20,15 @@ class LoyaltyMerchantcardsDTOLock implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'LoyaltyMerchantcardsDTOLock';
+    protected static $swaggerModelName = 'LoyaltyMerchantcardsLockReasons';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'reason' => 'int',
-        'note' => 'string',
-        'csc' => 'string'
+        'id' => 'int',
+        'desc' => 'string'
     ];
 
     /**
@@ -38,9 +36,8 @@ class LoyaltyMerchantcardsDTOLock implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'reason' => null,
-        'note' => null,
-        'csc' => null
+        'id' => null,
+        'desc' => null
     ];
 
     public static function swaggerTypes()
@@ -58,9 +55,8 @@ class LoyaltyMerchantcardsDTOLock implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'reason' => 'reason',
-        'note' => 'note',
-        'csc' => 'csc'
+        'id' => 'id',
+        'desc' => 'desc'
     ];
 
     /**
@@ -68,9 +64,8 @@ class LoyaltyMerchantcardsDTOLock implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'reason' => 'setReason',
-        'note' => 'setNote',
-        'csc' => 'setCsc'
+        'id' => 'setId',
+        'desc' => 'setDesc'
     ];
 
     /**
@@ -78,9 +73,8 @@ class LoyaltyMerchantcardsDTOLock implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'reason' => 'getReason',
-        'note' => 'getNote',
-        'csc' => 'getCsc'
+        'id' => 'getId',
+        'desc' => 'getDesc'
     ];
 
     public static function attributeMap()
@@ -110,9 +104,8 @@ class LoyaltyMerchantcardsDTOLock implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
-        $this->container['note'] = isset($data['note']) ? $data['note'] : null;
-        $this->container['csc'] = isset($data['csc']) ? $data['csc'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['desc'] = isset($data['desc']) ? $data['desc'] : null;
     }
 
     /**
@@ -140,64 +133,43 @@ class LoyaltyMerchantcardsDTOLock implements ArrayAccess
 
 
     /**
-     * Gets reason
+     * Gets id
      * @return int
      */
-    public function getReason()
+    public function getId()
     {
-        return $this->container['reason'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets reason
-     * @param int $reason Lock reason:  - `1` = Lost - `2` = Defect - `3` = Claims, - `6` = Expired - `8` = Not activated
+     * Sets id
+     * @param int $id id
      * @return $this
      */
-    public function setReason($reason)
+    public function setId($id)
     {
-        $this->container['reason'] = $reason;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets note
+     * Gets desc
      * @return string
      */
-    public function getNote()
+    public function getDesc()
     {
-        return $this->container['note'];
+        return $this->container['desc'];
     }
 
     /**
-     * Sets note
-     * @param string $note Human readable note
+     * Sets desc
+     * @param string $desc Lock reason (in German)
      * @return $this
      */
-    public function setNote($note)
+    public function setDesc($desc)
     {
-        $this->container['note'] = $note;
-
-        return $this;
-    }
-
-    /**
-     * Gets csc
-     * @return string
-     */
-    public function getCsc()
-    {
-        return $this->container['csc'];
-    }
-
-    /**
-     * Sets csc
-     * @param string $csc Card Security Code (optional in the most cases)
-     * @return $this
-     */
-    public function setCsc($csc)
-    {
-        $this->container['csc'] = $csc;
+        $this->container['desc'] = $desc;
 
         return $this;
     }

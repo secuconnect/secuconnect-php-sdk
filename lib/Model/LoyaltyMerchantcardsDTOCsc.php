@@ -29,7 +29,7 @@ class LoyaltyMerchantcardsDTOCsc implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'cardnumber' => 'int',
-        'csc' => 'int'
+        'csc' => 'string'
     ];
 
     /**
@@ -156,7 +156,7 @@ class LoyaltyMerchantcardsDTOCsc implements ArrayAccess
 
     /**
      * Gets csc
-     * @return int
+     * @return string
      */
     public function getCsc()
     {
@@ -165,7 +165,7 @@ class LoyaltyMerchantcardsDTOCsc implements ArrayAccess
 
     /**
      * Sets csc
-     * @param int $csc Entered Card Security Code
+     * @param string $csc Entered Card Security Code
      * @return $this
      */
     public function setCsc($csc)

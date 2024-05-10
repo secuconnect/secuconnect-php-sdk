@@ -18,6 +18,23 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.49.0] - 2024-05-10
+[2.49.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.48.0...2.49.0
+
+### Added
+- `Model.LoyaltyMerchantcardsLockReasons`
+- `Model.LoyaltyMerchantcardsLockStatus`
+
+### Changed
+- `.gitattributes`
+- `.gitignore`
+- `LICENSE`
+- `Api.LoyaltyMerchantCardsApi`
+- `Model.LoyaltyMerchantcardsDTOCsc`
+- `Model.LoyaltyMerchantcardsDTOLock`
+- `phpunit.xml.dist`
+
+
 ## [2.49.0] - 2024-04-29
 [2.49.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.48.0...2.49.0
 
