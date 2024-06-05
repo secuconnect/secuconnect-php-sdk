@@ -33,10 +33,11 @@ class LoyaltyMerchantcardsDTOTransaction implements ArrayAccess
         'amount' => 'int',
         'tid' => 'string',
         'store' => 'string',
-        'cardnumber' => 'int',
+        'cardnumber' => 'string',
         'bonus_amount' => 'int',
         'amount_split_allowed' => 'string',
-        'merchant_id' => 'string'
+        'merchant_id' => 'string',
+        'additional_data' => 'object'
     ];
 
     /**
@@ -52,7 +53,8 @@ class LoyaltyMerchantcardsDTOTransaction implements ArrayAccess
         'cardnumber' => null,
         'bonus_amount' => null,
         'amount_split_allowed' => null,
-        'merchant_id' => null
+        'merchant_id' => null,
+        'additional_data' => null
     ];
 
     public static function swaggerTypes()
@@ -78,7 +80,8 @@ class LoyaltyMerchantcardsDTOTransaction implements ArrayAccess
         'cardnumber' => 'cardnumber',
         'bonus_amount' => 'bonus_amount',
         'amount_split_allowed' => 'amount_split_allowed',
-        'merchant_id' => 'merchant_id'
+        'merchant_id' => 'merchant_id',
+        'additional_data' => 'additional_data'
     ];
 
     /**
@@ -94,7 +97,8 @@ class LoyaltyMerchantcardsDTOTransaction implements ArrayAccess
         'cardnumber' => 'setCardnumber',
         'bonus_amount' => 'setBonusAmount',
         'amount_split_allowed' => 'setAmountSplitAllowed',
-        'merchant_id' => 'setMerchantId'
+        'merchant_id' => 'setMerchantId',
+        'additional_data' => 'setAdditionalData'
     ];
 
     /**
@@ -110,7 +114,8 @@ class LoyaltyMerchantcardsDTOTransaction implements ArrayAccess
         'cardnumber' => 'getCardnumber',
         'bonus_amount' => 'getBonusAmount',
         'amount_split_allowed' => 'getAmountSplitAllowed',
-        'merchant_id' => 'getMerchantId'
+        'merchant_id' => 'getMerchantId',
+        'additional_data' => 'getAdditionalData'
     ];
 
     public static function attributeMap()
@@ -149,6 +154,7 @@ class LoyaltyMerchantcardsDTOTransaction implements ArrayAccess
         $this->container['bonus_amount'] = isset($data['bonus_amount']) ? $data['bonus_amount'] : null;
         $this->container['amount_split_allowed'] = isset($data['amount_split_allowed']) ? $data['amount_split_allowed'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
+        $this->container['additional_data'] = isset($data['additional_data']) ? $data['additional_data'] : null;
     }
 
     /**
@@ -282,7 +288,7 @@ class LoyaltyMerchantcardsDTOTransaction implements ArrayAccess
 
     /**
      * Gets cardnumber
-     * @return int
+     * @return string
      */
     public function getCardnumber()
     {
@@ -291,7 +297,7 @@ class LoyaltyMerchantcardsDTOTransaction implements ArrayAccess
 
     /**
      * Sets cardnumber
-     * @param int $cardnumber Number on card
+     * @param string $cardnumber Number on card
      * @return $this
      */
     public function setCardnumber($cardnumber)
@@ -360,6 +366,27 @@ class LoyaltyMerchantcardsDTOTransaction implements ArrayAccess
     public function setMerchantId($merchant_id)
     {
         $this->container['merchant_id'] = $merchant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_data
+     * @return object
+     */
+    public function getAdditionalData()
+    {
+        return $this->container['additional_data'];
+    }
+
+    /**
+     * Sets additional_data
+     * @param object $additional_data additional_data
+     * @return $this
+     */
+    public function setAdditionalData($additional_data)
+    {
+        $this->container['additional_data'] = $additional_data;
 
         return $this;
     }

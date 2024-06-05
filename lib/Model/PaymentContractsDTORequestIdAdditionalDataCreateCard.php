@@ -28,7 +28,7 @@ class PaymentContractsDTORequestIdAdditionalDataCreateCard implements ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'card_scheme' => 'CARD_SCHEME',
+        'card_scheme' => 'string',
         'app_language' => 'string',
         'passport_id' => 'string'
     ];
@@ -97,19 +97,6 @@ class PaymentContractsDTORequestIdAdditionalDataCreateCard implements ArrayAcces
     {
         return self::$getters;
     }
-    const CARD_SCHEME_VI = 'VI';    const CARD_SCHEME_MC = 'MC';
-
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getCardSchemeAllowableValues()
-    {
-        return [
-            self::CARD_SCHEME_VI,
-            self::CARD_SCHEME_MC,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -136,14 +123,6 @@ class PaymentContractsDTORequestIdAdditionalDataCreateCard implements ArrayAcces
     public function listInvalidProperties()
     {
         $invalid_properties = [];
-
-        $allowed_values = $this->getCardSchemeAllowableValues();
-        if (!is_null($this->container['card_scheme']) && !in_array($this->container['card_scheme'], $allowed_values, true)) {
-            $invalid_properties[] = sprintf(
-                "invalid value for 'card_scheme', must be one of '%s'",
-                implode("', '", $allowed_values)
-            );
-        }
 
         return $invalid_properties;
     }
@@ -176,15 +155,6 @@ class PaymentContractsDTORequestIdAdditionalDataCreateCard implements ArrayAcces
      */
     public function setCardScheme($card_scheme)
     {
-        $allowed_values = $this->getCardSchemeAllowableValues();
-        if (!is_null($card_scheme) && !in_array($card_scheme, $allowed_values, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'card_scheme', must be one of '%s'",
-                    implode("', '", $allowed_values)
-                )
-            );
-        }
         $this->container['card_scheme'] = $card_scheme;
 
         return $this;

@@ -30,7 +30,7 @@ class LoyaltyTransactionsDTORelatedTransactions implements ArrayAccess
     protected static $swaggerTypes = [
         'id' => 'string',
         'trans_id' => 'int',
-        'ref_type_id' => 'int'
+        'ref_type_id' => 'string'
     ];
 
     /**
@@ -183,7 +183,7 @@ class LoyaltyTransactionsDTORelatedTransactions implements ArrayAccess
 
     /**
      * Gets ref_type_id
-     * @return int
+     * @return string
      */
     public function getRefTypeId()
     {
@@ -192,7 +192,7 @@ class LoyaltyTransactionsDTORelatedTransactions implements ArrayAccess
 
     /**
      * Sets ref_type_id
-     * @param int $ref_type_id Relation type
+     * @param string $ref_type_id Relation type
      * @return $this
      */
     public function setRefTypeId($ref_type_id)

@@ -450,7 +450,7 @@ class CardprocessingInvoicesProductModel extends BaseProductModel
 
     /**
      * Sets store_name
-     * @param string $store_name Store name
+     * @param string $store_name store_name
      * @return $this
      */
     public function setStoreName($store_name)
@@ -492,7 +492,7 @@ class CardprocessingInvoicesProductModel extends BaseProductModel
 
     /**
      * Sets tid
-     * @param string $tid TID
+     * @param string $tid Terminal TID
      * @return $this
      */
     public function setTid($tid)
@@ -513,7 +513,7 @@ class CardprocessingInvoicesProductModel extends BaseProductModel
 
     /**
      * Sets invoice_number
-     * @param string $invoice_number Invoice Number
+     * @param string $invoice_number invoice_number
      * @return $this
      */
     public function setInvoiceNumber($invoice_number)
@@ -597,7 +597,7 @@ class CardprocessingInvoicesProductModel extends BaseProductModel
 
     /**
      * Sets document_url
-     * @param string $document_url The url of the invoice document (PDF)
+     * @param string $document_url URL to download the invoice PDF
      * @return $this
      */
     public function setDocumentUrl($document_url)
@@ -618,7 +618,7 @@ class CardprocessingInvoicesProductModel extends BaseProductModel
 
     /**
      * Sets type
-     * @param string $type Type
+     * @param string $type Type:  - `avis` (payment advice note)` - `invoice` - `refund` (credit note)
      * @return $this
      */
     public function setType($type)
