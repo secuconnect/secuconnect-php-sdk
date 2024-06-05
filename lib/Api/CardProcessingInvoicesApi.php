@@ -7,14 +7,14 @@ use Secuconnect\Client\ApiException;
 use Secuconnect\Client\Authentication\Authenticator;
 
 /**
- * CardprocessingInvoicesApi
+ * CardProcessingInvoicesApi
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CardprocessingInvoicesApi
+class CardProcessingInvoicesApi
 {
     /**
      * API Client
@@ -52,7 +52,7 @@ class CardprocessingInvoicesApi
      *
      * @param ApiClient $apiClient set the API client
      *
-     * @return CardprocessingInvoicesApi
+     * @return CardProcessingInvoicesApi
      */
     public function setApiClient(ApiClient $apiClient)
     {
@@ -63,7 +63,7 @@ class CardprocessingInvoicesApi
     /**
      * Operation getAll
      *
-     * Find Cardprocessing Invoices
+     * Find Card Processing Invoices
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -89,7 +89,7 @@ class CardprocessingInvoicesApi
     /**
      * Operation getAllWithHttpInfo
      *
-     * Find Cardprocessing Invoices
+     * Find Card Processing Invoices
      *
      * @param int $count The maximum number of items to return 
      * @param int $offset The position within the whole result set to start returning items (zero-based) 
@@ -220,9 +220,9 @@ class CardprocessingInvoicesApi
     /**
      * Operation getOne
      *
-     * Read Cardprocessing Invoice
+     * Read Card Processing Invoice
      *
-     * @param string $cardprocessing_invoice_id Cardprocessing invoice id (required)
+     * @param string $cardprocessing_invoice_id Card Processing Invoice ID (required)
      * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\CardprocessingInvoicesProductModel
@@ -236,9 +236,9 @@ class CardprocessingInvoicesApi
     /**
      * Operation getOneWithHttpInfo
      *
-     * Read Cardprocessing Invoice
+     * Read Card Processing Invoice
      *
-     * @param string $cardprocessing_invoice_id Cardprocessing invoice id (required)
+     * @param string $cardprocessing_invoice_id Card Processing Invoice ID (required)
      * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\CardprocessingInvoicesProductModel, HTTP status code, HTTP response headers (array of strings)

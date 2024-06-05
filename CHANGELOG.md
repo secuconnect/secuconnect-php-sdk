@@ -18,6 +18,29 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.50.0] - 2024-06-05
+[2.50.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.49.0...2.50.0
+
+- *removed endpoint*: `PaymentTransactions.getShippingUrl()`
+- *renamed endpoint*: `CardprocessingInvoicesApi` was renamed to `CardProcessingInvoicesApi`
+- *new element*: `additional_data` in `LoyaltyMerchantcardsDTOTransaction`
+- *changed element type*: `cardnumber` changed from `integer` to `string` in `LoyaltyMerchantcardsDTOTransaction`
+- *changed element type*: `ref_type_id` changed from `integer` to `string` in `LoyaltyTransactionsDTORelatedTransactions`
+- *changed element type*: `card_scheme` from enum to `string` in `PaymentContractsDTORequestIdAdditionalDataCreateCard`
+
+### Changed
+- `Api.CardprocessingInvoicesApi`
+- `Api.PaymentTransactionsApi`
+- `Model.CardprocessingInvoicesList`
+- `Model.CardprocessingInvoicesProductModel`
+- `Model.LoyaltyMerchantcardsDTOTransaction`
+- `Model.LoyaltyTransactionsDTORelatedTransactions`
+- `Model.PaymentContractsDTORequestIdAdditionalDataCreateCard`
+
+### Removed
+- `Model.PaymentTransactionsShippingUrl`
+
+
 ## [2.49.0] - 2024-05-10
 [2.49.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.48.0...2.49.0
 
