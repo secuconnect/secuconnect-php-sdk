@@ -18,6 +18,43 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.51.0] - 2024-06-24
+[2.51.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.50.0...2.51.0
+
+- *new element*: `cash_balance`, `bonus_balance` and `zvt_cardgroup` in `LoyaltyMerchantcardsCardBalanceReceipt`
+- *new element*: `cleared`, `clearing_information`, `trans_id`, `purpose` and `additional_data` in `LoyaltyTransactionsProductModel`
+- *new element*: `anoymize` in `LoyaltyCustomersDTO`
+- *new element*: `expiry_date` and  `additional_data` in `LoyaltyMerchantcardsDTO`
+- *changed element type*: `merchant` changed from `LoyaltyTransactionsDTOMerchant` to `GeneralMerchantsProductModel` in `LoyaltyTransactionsProductModel`
+- *changed element type*: `cardgroup` changed from `LoyaltyTransactionsDTOCardgroup` to `LoyaltyCardgroupsProductModel` in `LoyaltyTransactionsProductModel`
+- *changed element type*: `store` changed from `LoyaltyTransactionsDTOStore` to `GeneralStoresProductModel` in `LoyaltyTransactionsProductModel`
+- *changed element type*: `merchantcard` changed from `LoyaltyTransactionsDTOMerchantcard` to `LoyaltyMerchantcardsProductModel` in `LoyaltyTransactionsProductModel`
+- *changed element type*: `card` changed from `LoyaltyTransactionsDTOCard` to `LoyaltyCardsProductModel` in `LoyaltyTransactionsProductModel`
+- *changed element type*: `parents` and `children` changed from `LoyaltyTransactionsDTORelatedTransactions` to `LoyaltyTransactionsRelatedTransactions` in `LoyaltyTransactionsProductModel`
+- *removed param*: `merchant`, `card`, `created_by_merchant` and `used_by_merchant` in `LoyaltyMerchantcardsDTO`
+
+### Added
+- `Model.LoyaltyTransactionsRelatedTransactions`
+
+### Changed
+- `.gitattributes`
+- `.gitignore`
+- `LICENSE`
+- `Model.LoyaltyCustomersDTO`
+- `Model.LoyaltyMerchantcardsCardBalanceReceipt`
+- `Model.LoyaltyMerchantcardsDTO`
+- `Model.LoyaltyTransactionsProductModel`
+- `phpunit.xml.dist`
+
+### Removed
+- `Model.LoyaltyTransactionsDTOCard`
+- `Model.LoyaltyTransactionsDTOCardgroup`
+- `Model.LoyaltyTransactionsDTOMerchant`
+- `Model.LoyaltyTransactionsDTOMerchantcard`
+- `Model.LoyaltyTransactionsDTORelatedTransactions`
+- `Model.LoyaltyTransactionsDTOStore`
+
+
 ## [2.50.0] - 2024-06-05
 [2.50.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.49.0...2.50.0
 

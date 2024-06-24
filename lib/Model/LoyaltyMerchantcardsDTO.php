@@ -28,11 +28,9 @@ class LoyaltyMerchantcardsDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'merchant' => 'string',
-        'card' => 'string',
+        'expiry_date' => 'string',
         'payment_container' => 'string',
-        'created_by_merchant' => 'bool',
-        'used_by_merchant' => 'bool'
+        'additional_data' => 'object'
     ];
 
     /**
@@ -40,11 +38,9 @@ class LoyaltyMerchantcardsDTO implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'merchant' => null,
-        'card' => null,
+        'expiry_date' => null,
         'payment_container' => null,
-        'created_by_merchant' => null,
-        'used_by_merchant' => null
+        'additional_data' => null
     ];
 
     public static function swaggerTypes()
@@ -62,11 +58,9 @@ class LoyaltyMerchantcardsDTO implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'merchant' => 'merchant',
-        'card' => 'card',
+        'expiry_date' => 'expiry_date',
         'payment_container' => 'payment_container',
-        'created_by_merchant' => 'created_by_merchant',
-        'used_by_merchant' => 'used_by_merchant'
+        'additional_data' => 'additional_data'
     ];
 
     /**
@@ -74,11 +68,9 @@ class LoyaltyMerchantcardsDTO implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'merchant' => 'setMerchant',
-        'card' => 'setCard',
+        'expiry_date' => 'setExpiryDate',
         'payment_container' => 'setPaymentContainer',
-        'created_by_merchant' => 'setCreatedByMerchant',
-        'used_by_merchant' => 'setUsedByMerchant'
+        'additional_data' => 'setAdditionalData'
     ];
 
     /**
@@ -86,11 +78,9 @@ class LoyaltyMerchantcardsDTO implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'merchant' => 'getMerchant',
-        'card' => 'getCard',
+        'expiry_date' => 'getExpiryDate',
         'payment_container' => 'getPaymentContainer',
-        'created_by_merchant' => 'getCreatedByMerchant',
-        'used_by_merchant' => 'getUsedByMerchant'
+        'additional_data' => 'getAdditionalData'
     ];
 
     public static function attributeMap()
@@ -120,11 +110,9 @@ class LoyaltyMerchantcardsDTO implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
-        $this->container['card'] = isset($data['card']) ? $data['card'] : null;
+        $this->container['expiry_date'] = isset($data['expiry_date']) ? $data['expiry_date'] : null;
         $this->container['payment_container'] = isset($data['payment_container']) ? $data['payment_container'] : null;
-        $this->container['created_by_merchant'] = isset($data['created_by_merchant']) ? $data['created_by_merchant'] : null;
-        $this->container['used_by_merchant'] = isset($data['used_by_merchant']) ? $data['used_by_merchant'] : null;
+        $this->container['additional_data'] = isset($data['additional_data']) ? $data['additional_data'] : null;
     }
 
     /**
@@ -152,43 +140,22 @@ class LoyaltyMerchantcardsDTO implements ArrayAccess
 
 
     /**
-     * Gets merchant
+     * Gets expiry_date
      * @return string
      */
-    public function getMerchant()
+    public function getExpiryDate()
     {
-        return $this->container['merchant'];
+        return $this->container['expiry_date'];
     }
 
     /**
-     * Sets merchant
-     * @param string $merchant General merchant id
+     * Sets expiry_date
+     * @param string $expiry_date Expiry date in RFC3339 format
      * @return $this
      */
-    public function setMerchant($merchant)
+    public function setExpiryDate($expiry_date)
     {
-        $this->container['merchant'] = $merchant;
-
-        return $this;
-    }
-
-    /**
-     * Gets card
-     * @return string
-     */
-    public function getCard()
-    {
-        return $this->container['card'];
-    }
-
-    /**
-     * Sets card
-     * @param string $card Loyalty Card ID
-     * @return $this
-     */
-    public function setCard($card)
-    {
-        $this->container['card'] = $card;
+        $this->container['expiry_date'] = $expiry_date;
 
         return $this;
     }
@@ -215,43 +182,22 @@ class LoyaltyMerchantcardsDTO implements ArrayAccess
     }
 
     /**
-     * Gets created_by_merchant
-     * @return bool
+     * Gets additional_data
+     * @return object
      */
-    public function getCreatedByMerchant()
+    public function getAdditionalData()
     {
-        return $this->container['created_by_merchant'];
+        return $this->container['additional_data'];
     }
 
     /**
-     * Sets created_by_merchant
-     * @param bool $created_by_merchant Whether the card was created by the merchant
+     * Sets additional_data
+     * @param object $additional_data Custom additional data
      * @return $this
      */
-    public function setCreatedByMerchant($created_by_merchant)
+    public function setAdditionalData($additional_data)
     {
-        $this->container['created_by_merchant'] = $created_by_merchant;
-
-        return $this;
-    }
-
-    /**
-     * Gets used_by_merchant
-     * @return bool
-     */
-    public function getUsedByMerchant()
-    {
-        return $this->container['used_by_merchant'];
-    }
-
-    /**
-     * Sets used_by_merchant
-     * @param bool $used_by_merchant Whether the card was used by the merchant
-     * @return $this
-     */
-    public function setUsedByMerchant($used_by_merchant)
-    {
-        $this->container['used_by_merchant'] = $used_by_merchant;
+        $this->container['additional_data'] = $additional_data;
 
         return $this;
     }

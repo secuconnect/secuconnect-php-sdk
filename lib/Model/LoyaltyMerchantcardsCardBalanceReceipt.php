@@ -30,6 +30,9 @@ class LoyaltyMerchantcardsCardBalanceReceipt implements ArrayAccess
     protected static $swaggerTypes = [
         'valid' => 'bool',
         'balance' => 'int',
+        'cash_balance' => 'int',
+        'bonus_balance' => 'int',
+        'zvt_cardgroup' => 'string',
         'points' => 'int',
         'new_passcode' => 'bool',
         'receipt_header' => '\Secuconnect\Client\Model\ReceiptType[]',
@@ -47,6 +50,9 @@ class LoyaltyMerchantcardsCardBalanceReceipt implements ArrayAccess
     protected static $swaggerFormats = [
         'valid' => null,
         'balance' => null,
+        'cash_balance' => null,
+        'bonus_balance' => null,
+        'zvt_cardgroup' => null,
         'points' => null,
         'new_passcode' => null,
         'receipt_header' => null,
@@ -74,6 +80,9 @@ class LoyaltyMerchantcardsCardBalanceReceipt implements ArrayAccess
     protected static $attributeMap = [
         'valid' => 'valid',
         'balance' => 'balance',
+        'cash_balance' => 'cash_balance',
+        'bonus_balance' => 'bonus_balance',
+        'zvt_cardgroup' => 'zvt_cardgroup',
         'points' => 'points',
         'new_passcode' => 'new_passcode',
         'receipt_header' => 'receipt_header',
@@ -91,6 +100,9 @@ class LoyaltyMerchantcardsCardBalanceReceipt implements ArrayAccess
     protected static $setters = [
         'valid' => 'setValid',
         'balance' => 'setBalance',
+        'cash_balance' => 'setCashBalance',
+        'bonus_balance' => 'setBonusBalance',
+        'zvt_cardgroup' => 'setZvtCardgroup',
         'points' => 'setPoints',
         'new_passcode' => 'setNewPasscode',
         'receipt_header' => 'setReceiptHeader',
@@ -108,6 +120,9 @@ class LoyaltyMerchantcardsCardBalanceReceipt implements ArrayAccess
     protected static $getters = [
         'valid' => 'getValid',
         'balance' => 'getBalance',
+        'cash_balance' => 'getCashBalance',
+        'bonus_balance' => 'getBonusBalance',
+        'zvt_cardgroup' => 'getZvtCardgroup',
         'points' => 'getPoints',
         'new_passcode' => 'getNewPasscode',
         'receipt_header' => 'getReceiptHeader',
@@ -147,6 +162,9 @@ class LoyaltyMerchantcardsCardBalanceReceipt implements ArrayAccess
     {
         $this->container['valid'] = isset($data['valid']) ? $data['valid'] : null;
         $this->container['balance'] = isset($data['balance']) ? $data['balance'] : null;
+        $this->container['cash_balance'] = isset($data['cash_balance']) ? $data['cash_balance'] : null;
+        $this->container['bonus_balance'] = isset($data['bonus_balance']) ? $data['bonus_balance'] : null;
+        $this->container['zvt_cardgroup'] = isset($data['zvt_cardgroup']) ? $data['zvt_cardgroup'] : null;
         $this->container['points'] = isset($data['points']) ? $data['points'] : null;
         $this->container['new_passcode'] = isset($data['new_passcode']) ? $data['new_passcode'] : null;
         $this->container['receipt_header'] = isset($data['receipt_header']) ? $data['receipt_header'] : null;
@@ -219,6 +237,69 @@ class LoyaltyMerchantcardsCardBalanceReceipt implements ArrayAccess
     public function setBalance($balance)
     {
         $this->container['balance'] = $balance;
+
+        return $this;
+    }
+
+    /**
+     * Gets cash_balance
+     * @return int
+     */
+    public function getCashBalance()
+    {
+        return $this->container['cash_balance'];
+    }
+
+    /**
+     * Sets cash_balance
+     * @param int $cash_balance Money balance loaded with money; in the smallest currency unit (e. g. Euro Cent)
+     * @return $this
+     */
+    public function setCashBalance($cash_balance)
+    {
+        $this->container['cash_balance'] = $cash_balance;
+
+        return $this;
+    }
+
+    /**
+     * Gets bonus_balance
+     * @return int
+     */
+    public function getBonusBalance()
+    {
+        return $this->container['bonus_balance'];
+    }
+
+    /**
+     * Sets bonus_balance
+     * @param int $bonus_balance Money balance collected as bonus for former transactions; in the smallest currency unit (e. g. Euro Cent)
+     * @return $this
+     */
+    public function setBonusBalance($bonus_balance)
+    {
+        $this->container['bonus_balance'] = $bonus_balance;
+
+        return $this;
+    }
+
+    /**
+     * Gets zvt_cardgroup
+     * @return string
+     */
+    public function getZvtCardgroup()
+    {
+        return $this->container['zvt_cardgroup'];
+    }
+
+    /**
+     * Sets zvt_cardgroup
+     * @param string $zvt_cardgroup ZVT Cardgroup
+     * @return $this
+     */
+    public function setZvtCardgroup($zvt_cardgroup)
+    {
+        $this->container['zvt_cardgroup'] = $zvt_cardgroup;
 
         return $this;
     }

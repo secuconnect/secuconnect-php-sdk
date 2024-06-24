@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * LoyaltyTransactionsDTORelatedTransactions
+ * LoyaltyTransactionsRelatedTransactions
  *
  * @category Class
- * @description LoyaltyTransactionsDTORelatedTransactions
+ * @description LoyaltyTransactionsRelatedTransactions
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LoyaltyTransactionsDTORelatedTransactions implements ArrayAccess
+class LoyaltyTransactionsRelatedTransactions implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,16 +21,18 @@ class LoyaltyTransactionsDTORelatedTransactions implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'LoyaltyTransactionsDTORelatedTransactions';
+    protected static $swaggerModelName = 'LoyaltyTransactionsRelatedTransactions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'object' => 'string',
         'id' => 'string',
         'trans_id' => 'int',
-        'ref_type_id' => 'string'
+        'ref_type_id' => 'int',
+        'relation_type' => 'string'
     ];
 
     /**
@@ -38,9 +40,11 @@ class LoyaltyTransactionsDTORelatedTransactions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'object' => null,
         'id' => null,
         'trans_id' => null,
-        'ref_type_id' => null
+        'ref_type_id' => null,
+        'relation_type' => null
     ];
 
     public static function swaggerTypes()
@@ -58,9 +62,11 @@ class LoyaltyTransactionsDTORelatedTransactions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'object' => 'object',
         'id' => 'id',
         'trans_id' => 'trans_id',
-        'ref_type_id' => 'ref_type_id'
+        'ref_type_id' => 'ref_type_id',
+        'relation_type' => 'relation_type'
     ];
 
     /**
@@ -68,9 +74,11 @@ class LoyaltyTransactionsDTORelatedTransactions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'object' => 'setObject',
         'id' => 'setId',
         'trans_id' => 'setTransId',
-        'ref_type_id' => 'setRefTypeId'
+        'ref_type_id' => 'setRefTypeId',
+        'relation_type' => 'setRelationType'
     ];
 
     /**
@@ -78,9 +86,11 @@ class LoyaltyTransactionsDTORelatedTransactions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'object' => 'getObject',
         'id' => 'getId',
         'trans_id' => 'getTransId',
-        'ref_type_id' => 'getRefTypeId'
+        'ref_type_id' => 'getRefTypeId',
+        'relation_type' => 'getRelationType'
     ];
 
     public static function attributeMap()
@@ -110,9 +120,11 @@ class LoyaltyTransactionsDTORelatedTransactions implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['object'] = isset($data['object']) ? $data['object'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['trans_id'] = isset($data['trans_id']) ? $data['trans_id'] : null;
         $this->container['ref_type_id'] = isset($data['ref_type_id']) ? $data['ref_type_id'] : null;
+        $this->container['relation_type'] = isset($data['relation_type']) ? $data['relation_type'] : null;
     }
 
     /**
@@ -138,6 +150,27 @@ class LoyaltyTransactionsDTORelatedTransactions implements ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets object
+     * @return string
+     */
+    public function getObject()
+    {
+        return $this->container['object'];
+    }
+
+    /**
+     * Sets object
+     * @param string $object Object type
+     * @return $this
+     */
+    public function setObject($object)
+    {
+        $this->container['object'] = $object;
+
+        return $this;
+    }
 
     /**
      * Gets id
@@ -183,7 +216,7 @@ class LoyaltyTransactionsDTORelatedTransactions implements ArrayAccess
 
     /**
      * Gets ref_type_id
-     * @return string
+     * @return int
      */
     public function getRefTypeId()
     {
@@ -192,12 +225,33 @@ class LoyaltyTransactionsDTORelatedTransactions implements ArrayAccess
 
     /**
      * Sets ref_type_id
-     * @param string $ref_type_id Relation type
+     * @param int $ref_type_id Reference type id
      * @return $this
      */
     public function setRefTypeId($ref_type_id)
     {
         $this->container['ref_type_id'] = $ref_type_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets relation_type
+     * @return string
+     */
+    public function getRelationType()
+    {
+        return $this->container['relation_type'];
+    }
+
+    /**
+     * Sets relation_type
+     * @param string $relation_type Relation type
+     * @return $this
+     */
+    public function setRelationType($relation_type)
+    {
+        $this->container['relation_type'] = $relation_type;
 
         return $this;
     }

@@ -33,7 +33,8 @@ class LoyaltyCustomersDTO implements ArrayAccess
         'customernumber' => 'string',
         'note' => 'string',
         'consent_for_communication' => 'string',
-        'additional_data' => 'object'
+        'additional_data' => 'object',
+        'anonymize' => 'bool'
     ];
 
     /**
@@ -46,7 +47,8 @@ class LoyaltyCustomersDTO implements ArrayAccess
         'customernumber' => null,
         'note' => null,
         'consent_for_communication' => null,
-        'additional_data' => null
+        'additional_data' => null,
+        'anonymize' => null
     ];
 
     public static function swaggerTypes()
@@ -69,7 +71,8 @@ class LoyaltyCustomersDTO implements ArrayAccess
         'customernumber' => 'customernumber',
         'note' => 'note',
         'consent_for_communication' => 'consent_for_communication',
-        'additional_data' => 'additional_data'
+        'additional_data' => 'additional_data',
+        'anonymize' => 'anonymize'
     ];
 
     /**
@@ -82,7 +85,8 @@ class LoyaltyCustomersDTO implements ArrayAccess
         'customernumber' => 'setCustomernumber',
         'note' => 'setNote',
         'consent_for_communication' => 'setConsentForCommunication',
-        'additional_data' => 'setAdditionalData'
+        'additional_data' => 'setAdditionalData',
+        'anonymize' => 'setAnonymize'
     ];
 
     /**
@@ -95,7 +99,8 @@ class LoyaltyCustomersDTO implements ArrayAccess
         'customernumber' => 'getCustomernumber',
         'note' => 'getNote',
         'consent_for_communication' => 'getConsentForCommunication',
-        'additional_data' => 'getAdditionalData'
+        'additional_data' => 'getAdditionalData',
+        'anonymize' => 'getAnonymize'
     ];
 
     public static function attributeMap()
@@ -131,6 +136,7 @@ class LoyaltyCustomersDTO implements ArrayAccess
         $this->container['note'] = isset($data['note']) ? $data['note'] : null;
         $this->container['consent_for_communication'] = isset($data['consent_for_communication']) ? $data['consent_for_communication'] : null;
         $this->container['additional_data'] = isset($data['additional_data']) ? $data['additional_data'] : null;
+        $this->container['anonymize'] = isset($data['anonymize']) ? $data['anonymize'] : null;
     }
 
     /**
@@ -279,6 +285,27 @@ class LoyaltyCustomersDTO implements ArrayAccess
     public function setAdditionalData($additional_data)
     {
         $this->container['additional_data'] = $additional_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets anonymize
+     * @return bool
+     */
+    public function getAnonymize()
+    {
+        return $this->container['anonymize'];
+    }
+
+    /**
+     * Sets anonymize
+     * @param bool $anonymize Anonymize customer data (only valid on update requests)
+     * @return $this
+     */
+    public function setAnonymize($anonymize)
+    {
+        $this->container['anonymize'] = $anonymize;
 
         return $this;
     }
