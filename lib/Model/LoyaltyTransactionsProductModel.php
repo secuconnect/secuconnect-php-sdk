@@ -33,19 +33,24 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
         's' => 'int',
         't' => '\Secuconnect\Client\Model\AggregationTimeResult',
         'created' => 'string',
-        'merchant' => '\Secuconnect\Client\Model\LoyaltyTransactionsDTOMerchant',
-        'cardgroup' => '\Secuconnect\Client\Model\LoyaltyTransactionsDTOCardgroup',
-        'store' => '\Secuconnect\Client\Model\LoyaltyTransactionsDTOStore',
-        'merchantcard' => '\Secuconnect\Client\Model\LoyaltyTransactionsDTOMerchantcard',
-        'card' => '\Secuconnect\Client\Model\LoyaltyTransactionsDTOCard',
-        'parents' => '\Secuconnect\Client\Model\LoyaltyTransactionsDTORelatedTransactions[]',
-        'children' => '\Secuconnect\Client\Model\LoyaltyTransactionsDTORelatedTransactions[]',
+        'merchant' => '\Secuconnect\Client\Model\GeneralMerchantsProductModel',
+        'cardgroup' => '\Secuconnect\Client\Model\LoyaltyCardgroupsProductModel',
+        'store' => '\Secuconnect\Client\Model\GeneralStoresProductModel',
+        'merchantcard' => '\Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel',
+        'card' => '\Secuconnect\Client\Model\LoyaltyCardsProductModel',
+        'parents' => '\Secuconnect\Client\Model\LoyaltyTransactionsRelatedTransactions[]',
+        'children' => '\Secuconnect\Client\Model\LoyaltyTransactionsRelatedTransactions[]',
+        'cleared' => 'bool',
+        'clearing_information' => 'null[]',
+        'trans_id' => 'int',
         'tid' => 'string',
         'status' => 'string',
         'amount' => 'int',
         'currency' => 'string',
         'balance' => 'int',
         'description' => 'string',
+        'purpose' => 'string',
+        'additional_data' => 'object',
         'last_change' => 'string',
         'receipt' => '\Secuconnect\Client\Model\ReceiptTypeValue[]',
         'is_cancelling' => 'int'
@@ -70,12 +75,17 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
         'card' => null,
         'parents' => null,
         'children' => null,
+        'cleared' => null,
+        'clearing_information' => null,
+        'trans_id' => null,
         'tid' => null,
         'status' => null,
         'amount' => null,
         'currency' => null,
         'balance' => null,
         'description' => null,
+        'purpose' => null,
+        'additional_data' => null,
         'last_change' => null,
         'receipt' => null,
         'is_cancelling' => null
@@ -110,12 +120,17 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
         'card' => 'card',
         'parents' => 'parents',
         'children' => 'children',
+        'cleared' => 'cleared',
+        'clearing_information' => 'clearing_information',
+        'trans_id' => 'trans_id',
         'tid' => 'tid',
         'status' => 'status',
         'amount' => 'amount',
         'currency' => 'currency',
         'balance' => 'balance',
         'description' => 'description',
+        'purpose' => 'purpose',
+        'additional_data' => 'additional_data',
         'last_change' => 'last_change',
         'receipt' => 'receipt',
         'is_cancelling' => 'is_cancelling'
@@ -140,12 +155,17 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
         'card' => 'setCard',
         'parents' => 'setParents',
         'children' => 'setChildren',
+        'cleared' => 'setCleared',
+        'clearing_information' => 'setClearingInformation',
+        'trans_id' => 'setTransId',
         'tid' => 'setTid',
         'status' => 'setStatus',
         'amount' => 'setAmount',
         'currency' => 'setCurrency',
         'balance' => 'setBalance',
         'description' => 'setDescription',
+        'purpose' => 'setPurpose',
+        'additional_data' => 'setAdditionalData',
         'last_change' => 'setLastChange',
         'receipt' => 'setReceipt',
         'is_cancelling' => 'setIsCancelling'
@@ -170,12 +190,17 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
         'card' => 'getCard',
         'parents' => 'getParents',
         'children' => 'getChildren',
+        'cleared' => 'getCleared',
+        'clearing_information' => 'getClearingInformation',
+        'trans_id' => 'getTransId',
         'tid' => 'getTid',
         'status' => 'getStatus',
         'amount' => 'getAmount',
         'currency' => 'getCurrency',
         'balance' => 'getBalance',
         'description' => 'getDescription',
+        'purpose' => 'getPurpose',
+        'additional_data' => 'getAdditionalData',
         'last_change' => 'getLastChange',
         'receipt' => 'getReceipt',
         'is_cancelling' => 'getIsCancelling'
@@ -218,12 +243,17 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
         $this->container['card'] = isset($data['card']) ? $data['card'] : null;
         $this->container['parents'] = isset($data['parents']) ? $data['parents'] : null;
         $this->container['children'] = isset($data['children']) ? $data['children'] : null;
+        $this->container['cleared'] = isset($data['cleared']) ? $data['cleared'] : null;
+        $this->container['clearing_information'] = isset($data['clearing_information']) ? $data['clearing_information'] : null;
+        $this->container['trans_id'] = isset($data['trans_id']) ? $data['trans_id'] : null;
         $this->container['tid'] = isset($data['tid']) ? $data['tid'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['balance'] = isset($data['balance']) ? $data['balance'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['purpose'] = isset($data['purpose']) ? $data['purpose'] : null;
+        $this->container['additional_data'] = isset($data['additional_data']) ? $data['additional_data'] : null;
         $this->container['last_change'] = isset($data['last_change']) ? $data['last_change'] : null;
         $this->container['receipt'] = isset($data['receipt']) ? $data['receipt'] : null;
         $this->container['is_cancelling'] = isset($data['is_cancelling']) ? $data['is_cancelling'] : null;
@@ -402,7 +432,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Gets merchant
-     * @return \Secuconnect\Client\Model\LoyaltyTransactionsDTOMerchant
+     * @return \Secuconnect\Client\Model\GeneralMerchantsProductModel
      */
     public function getMerchant()
     {
@@ -411,7 +441,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets merchant
-     * @param \Secuconnect\Client\Model\LoyaltyTransactionsDTOMerchant $merchant merchant
+     * @param \Secuconnect\Client\Model\GeneralMerchantsProductModel $merchant merchant
      * @return $this
      */
     public function setMerchant($merchant)
@@ -423,7 +453,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Gets cardgroup
-     * @return \Secuconnect\Client\Model\LoyaltyTransactionsDTOCardgroup
+     * @return \Secuconnect\Client\Model\LoyaltyCardgroupsProductModel
      */
     public function getCardgroup()
     {
@@ -432,7 +462,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets cardgroup
-     * @param \Secuconnect\Client\Model\LoyaltyTransactionsDTOCardgroup $cardgroup cardgroup
+     * @param \Secuconnect\Client\Model\LoyaltyCardgroupsProductModel $cardgroup cardgroup
      * @return $this
      */
     public function setCardgroup($cardgroup)
@@ -444,7 +474,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Gets store
-     * @return \Secuconnect\Client\Model\LoyaltyTransactionsDTOStore
+     * @return \Secuconnect\Client\Model\GeneralStoresProductModel
      */
     public function getStore()
     {
@@ -453,7 +483,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets store
-     * @param \Secuconnect\Client\Model\LoyaltyTransactionsDTOStore $store store
+     * @param \Secuconnect\Client\Model\GeneralStoresProductModel $store store
      * @return $this
      */
     public function setStore($store)
@@ -465,7 +495,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Gets merchantcard
-     * @return \Secuconnect\Client\Model\LoyaltyTransactionsDTOMerchantcard
+     * @return \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel
      */
     public function getMerchantcard()
     {
@@ -474,7 +504,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets merchantcard
-     * @param \Secuconnect\Client\Model\LoyaltyTransactionsDTOMerchantcard $merchantcard merchantcard
+     * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel $merchantcard merchantcard
      * @return $this
      */
     public function setMerchantcard($merchantcard)
@@ -486,7 +516,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Gets card
-     * @return \Secuconnect\Client\Model\LoyaltyTransactionsDTOCard
+     * @return \Secuconnect\Client\Model\LoyaltyCardsProductModel
      */
     public function getCard()
     {
@@ -495,7 +525,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets card
-     * @param \Secuconnect\Client\Model\LoyaltyTransactionsDTOCard $card card
+     * @param \Secuconnect\Client\Model\LoyaltyCardsProductModel $card card
      * @return $this
      */
     public function setCard($card)
@@ -507,7 +537,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Gets parents
-     * @return \Secuconnect\Client\Model\LoyaltyTransactionsDTORelatedTransactions[]
+     * @return \Secuconnect\Client\Model\LoyaltyTransactionsRelatedTransactions[]
      */
     public function getParents()
     {
@@ -516,7 +546,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets parents
-     * @param \Secuconnect\Client\Model\LoyaltyTransactionsDTORelatedTransactions[] $parents parents
+     * @param \Secuconnect\Client\Model\LoyaltyTransactionsRelatedTransactions[] $parents parents
      * @return $this
      */
     public function setParents($parents)
@@ -528,7 +558,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Gets children
-     * @return \Secuconnect\Client\Model\LoyaltyTransactionsDTORelatedTransactions[]
+     * @return \Secuconnect\Client\Model\LoyaltyTransactionsRelatedTransactions[]
      */
     public function getChildren()
     {
@@ -537,12 +567,75 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets children
-     * @param \Secuconnect\Client\Model\LoyaltyTransactionsDTORelatedTransactions[] $children children
+     * @param \Secuconnect\Client\Model\LoyaltyTransactionsRelatedTransactions[] $children children
      * @return $this
      */
     public function setChildren($children)
     {
         $this->container['children'] = $children;
+
+        return $this;
+    }
+
+    /**
+     * Gets cleared
+     * @return bool
+     */
+    public function getCleared()
+    {
+        return $this->container['cleared'];
+    }
+
+    /**
+     * Sets cleared
+     * @param bool $cleared Boolean if Transaction is cleared or not
+     * @return $this
+     */
+    public function setCleared($cleared)
+    {
+        $this->container['cleared'] = $cleared;
+
+        return $this;
+    }
+
+    /**
+     * Gets clearing_information
+     * @return null[]
+     */
+    public function getClearingInformation()
+    {
+        return $this->container['clearing_information'];
+    }
+
+    /**
+     * Sets clearing_information
+     * @param null[] $clearing_information Clearing Information
+     * @return $this
+     */
+    public function setClearingInformation($clearing_information)
+    {
+        $this->container['clearing_information'] = $clearing_information;
+
+        return $this;
+    }
+
+    /**
+     * Gets trans_id
+     * @return int
+     */
+    public function getTransId()
+    {
+        return $this->container['trans_id'];
+    }
+
+    /**
+     * Sets trans_id
+     * @param int $trans_id Transaction ID
+     * @return $this
+     */
+    public function setTransId($trans_id)
+    {
+        $this->container['trans_id'] = $trans_id;
 
         return $this;
     }
@@ -669,6 +762,48 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets purpose
+     * @return string
+     */
+    public function getPurpose()
+    {
+        return $this->container['purpose'];
+    }
+
+    /**
+     * Sets purpose
+     * @param string $purpose The purpose of the transaction.
+     * @return $this
+     */
+    public function setPurpose($purpose)
+    {
+        $this->container['purpose'] = $purpose;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_data
+     * @return object
+     */
+    public function getAdditionalData()
+    {
+        return $this->container['additional_data'];
+    }
+
+    /**
+     * Sets additional_data
+     * @param object $additional_data Custom additional data
+     * @return $this
+     */
+    public function setAdditionalData($additional_data)
+    {
+        $this->container['additional_data'] = $additional_data;
 
         return $this;
     }
