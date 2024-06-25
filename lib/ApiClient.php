@@ -118,6 +118,7 @@ class ApiClient
 
         // return the result on success, rather than just true
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
 
         curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 
