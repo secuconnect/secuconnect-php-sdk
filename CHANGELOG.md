@@ -18,6 +18,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.52.0] - 2024-07-15
+[2.52.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.51.0...2.52.0
+
+- *new element*: `expiry_date` and `customer_assignment_date` in `LoyaltyMerchantcardsProductModel`
+
+### Added
+- `Model.PaymentTransactionStatus`
+
+### Changed
+- `.gitattributes`
+- `.gitignore`
+- `LICENSE`
+- `Model.LoyaltyMerchantcardsProductModel`
+- `phpunit.xml.dist`
+
+
 ## [2.51.0] - 2024-06-24
 [2.51.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.50.0...2.51.0
 

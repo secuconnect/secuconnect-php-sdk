@@ -48,7 +48,9 @@ class LoyaltyMerchantcardsProductModel extends BaseProductModel
         'last_usage' => 'string',
         'last_charge' => 'string',
         'is_base_card' => 'bool',
-        'passcode' => 'int'
+        'passcode' => 'int',
+        'expiry_date' => 'string',
+        'customer_assignment_date' => 'string'
     ];
 
     /**
@@ -78,7 +80,9 @@ class LoyaltyMerchantcardsProductModel extends BaseProductModel
         'last_usage' => null,
         'last_charge' => null,
         'is_base_card' => null,
-        'passcode' => null
+        'passcode' => null,
+        'expiry_date' => null,
+        'customer_assignment_date' => null
     ];
 
     public static function swaggerTypes()
@@ -118,7 +122,9 @@ class LoyaltyMerchantcardsProductModel extends BaseProductModel
         'last_usage' => 'last_usage',
         'last_charge' => 'last_charge',
         'is_base_card' => 'is_base_card',
-        'passcode' => 'passcode'
+        'passcode' => 'passcode',
+        'expiry_date' => 'expiry_date',
+        'customer_assignment_date' => 'customer_assignment_date'
     ];
 
     /**
@@ -148,7 +154,9 @@ class LoyaltyMerchantcardsProductModel extends BaseProductModel
         'last_usage' => 'setLastUsage',
         'last_charge' => 'setLastCharge',
         'is_base_card' => 'setIsBaseCard',
-        'passcode' => 'setPasscode'
+        'passcode' => 'setPasscode',
+        'expiry_date' => 'setExpiryDate',
+        'customer_assignment_date' => 'setCustomerAssignmentDate'
     ];
 
     /**
@@ -178,7 +186,9 @@ class LoyaltyMerchantcardsProductModel extends BaseProductModel
         'last_usage' => 'getLastUsage',
         'last_charge' => 'getLastCharge',
         'is_base_card' => 'getIsBaseCard',
-        'passcode' => 'getPasscode'
+        'passcode' => 'getPasscode',
+        'expiry_date' => 'getExpiryDate',
+        'customer_assignment_date' => 'getCustomerAssignmentDate'
     ];
 
     public static function attributeMap()
@@ -227,6 +237,8 @@ class LoyaltyMerchantcardsProductModel extends BaseProductModel
         $this->container['last_charge'] = isset($data['last_charge']) ? $data['last_charge'] : null;
         $this->container['is_base_card'] = isset($data['is_base_card']) ? $data['is_base_card'] : null;
         $this->container['passcode'] = isset($data['passcode']) ? $data['passcode'] : null;
+        $this->container['expiry_date'] = isset($data['expiry_date']) ? $data['expiry_date'] : null;
+        $this->container['customer_assignment_date'] = isset($data['customer_assignment_date']) ? $data['customer_assignment_date'] : null;
     }
 
     /**
@@ -732,6 +744,48 @@ class LoyaltyMerchantcardsProductModel extends BaseProductModel
     public function setPasscode($passcode)
     {
         $this->container['passcode'] = $passcode;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiry_date
+     * @return string
+     */
+    public function getExpiryDate()
+    {
+        return $this->container['expiry_date'];
+    }
+
+    /**
+     * Sets expiry_date
+     * @param string $expiry_date expiry_date
+     * @return $this
+     */
+    public function setExpiryDate($expiry_date)
+    {
+        $this->container['expiry_date'] = $expiry_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_assignment_date
+     * @return string
+     */
+    public function getCustomerAssignmentDate()
+    {
+        return $this->container['customer_assignment_date'];
+    }
+
+    /**
+     * Sets customer_assignment_date
+     * @param string $customer_assignment_date customer_assignment_date
+     * @return $this
+     */
+    public function setCustomerAssignmentDate($customer_assignment_date)
+    {
+        $this->container['customer_assignment_date'] = $customer_assignment_date;
 
         return $this;
     }
