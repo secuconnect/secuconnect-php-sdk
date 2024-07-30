@@ -18,6 +18,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.53.0] - 2024-07-30
+[2.53.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.52.0...2.53.0
+
+- *new element*: `aiia` in `CrowdFundingDataOpenAmountInsideCancelPeriod` and `CrowdFundingDataDetails`
+
+### Changed
+- `Model.CrowdFundingDataDetails`
+- `Model.CrowdFundingDataOpenAmountInsideCancelPeriod`
+
+
 ## [2.52.0] - 2024-07-15
 [2.52.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.51.0...2.52.0
 

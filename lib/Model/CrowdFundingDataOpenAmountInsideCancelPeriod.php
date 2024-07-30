@@ -33,7 +33,8 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
         'credit_card' => 'int',
         'prepay' => 'int',
         'sofort' => 'int',
-        'twint' => 'int'
+        'twint' => 'int',
+        'aiia' => 'int'
     ];
 
     /**
@@ -46,7 +47,8 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
         'credit_card' => null,
         'prepay' => null,
         'sofort' => null,
-        'twint' => null
+        'twint' => null,
+        'aiia' => null
     ];
 
     public static function swaggerTypes()
@@ -69,7 +71,8 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
         'credit_card' => 'credit_card',
         'prepay' => 'prepay',
         'sofort' => 'sofort',
-        'twint' => 'twint'
+        'twint' => 'twint',
+        'aiia' => 'aiia'
     ];
 
     /**
@@ -82,7 +85,8 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
         'credit_card' => 'setCreditCard',
         'prepay' => 'setPrepay',
         'sofort' => 'setSofort',
-        'twint' => 'setTwint'
+        'twint' => 'setTwint',
+        'aiia' => 'setAiia'
     ];
 
     /**
@@ -95,7 +99,8 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
         'credit_card' => 'getCreditCard',
         'prepay' => 'getPrepay',
         'sofort' => 'getSofort',
-        'twint' => 'getTwint'
+        'twint' => 'getTwint',
+        'aiia' => 'getAiia'
     ];
 
     public static function attributeMap()
@@ -131,6 +136,7 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
         $this->container['prepay'] = isset($data['prepay']) ? $data['prepay'] : null;
         $this->container['sofort'] = isset($data['sofort']) ? $data['sofort'] : null;
         $this->container['twint'] = isset($data['twint']) ? $data['twint'] : null;
+        $this->container['aiia'] = isset($data['aiia']) ? $data['aiia'] : null;
     }
 
     /**
@@ -279,6 +285,27 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
     public function setTwint($twint)
     {
         $this->container['twint'] = $twint;
+
+        return $this;
+    }
+
+    /**
+     * Gets aiia
+     * @return int
+     */
+    public function getAiia()
+    {
+        return $this->container['aiia'];
+    }
+
+    /**
+     * Sets aiia
+     * @param int $aiia Total amount for Aiia transactions, in the smallest currency unit (e. g. Euro Cent)
+     * @return $this
+     */
+    public function setAiia($aiia)
+    {
+        $this->container['aiia'] = $aiia;
 
         return $this;
     }
