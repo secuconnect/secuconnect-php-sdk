@@ -5,15 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * LoyaltyMerchantcardsDTOValidateMerchantCard
+ * SmartDevicesSecubaseConfigApp
  *
  * @category Class
- * @description LoyaltyMerchantcardsDTOValidateMerchantCard
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LoyaltyMerchantcardsDTOValidateMerchantCard implements ArrayAccess
+class SmartDevicesSecubaseConfigApp implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,15 +20,19 @@ class LoyaltyMerchantcardsDTOValidateMerchantCard implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'LoyaltyMerchantcardsDTOValidateMerchantCard';
+    protected static $swaggerModelName = 'SmartDevicesSecubaseConfigApp';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'merchant' => 'string',
-        'cardnumber' => 'string'
+        'app_id' => 'string',
+        'app_name' => 'string',
+        'version' => 'string',
+        'url' => 'string',
+        'etag' => 'string',
+        'prio' => 'int'
     ];
 
     /**
@@ -37,8 +40,12 @@ class LoyaltyMerchantcardsDTOValidateMerchantCard implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'merchant' => null,
-        'cardnumber' => null
+        'app_id' => null,
+        'app_name' => null,
+        'version' => null,
+        'url' => null,
+        'etag' => null,
+        'prio' => null
     ];
 
     public static function swaggerTypes()
@@ -56,8 +63,12 @@ class LoyaltyMerchantcardsDTOValidateMerchantCard implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'merchant' => 'merchant',
-        'cardnumber' => 'cardnumber'
+        'app_id' => 'app_id',
+        'app_name' => 'app_name',
+        'version' => 'version',
+        'url' => 'url',
+        'etag' => 'etag',
+        'prio' => 'prio'
     ];
 
     /**
@@ -65,8 +76,12 @@ class LoyaltyMerchantcardsDTOValidateMerchantCard implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'merchant' => 'setMerchant',
-        'cardnumber' => 'setCardnumber'
+        'app_id' => 'setAppId',
+        'app_name' => 'setAppName',
+        'version' => 'setVersion',
+        'url' => 'setUrl',
+        'etag' => 'setEtag',
+        'prio' => 'setPrio'
     ];
 
     /**
@@ -74,8 +89,12 @@ class LoyaltyMerchantcardsDTOValidateMerchantCard implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'merchant' => 'getMerchant',
-        'cardnumber' => 'getCardnumber'
+        'app_id' => 'getAppId',
+        'app_name' => 'getAppName',
+        'version' => 'getVersion',
+        'url' => 'getUrl',
+        'etag' => 'getEtag',
+        'prio' => 'getPrio'
     ];
 
     public static function attributeMap()
@@ -105,8 +124,12 @@ class LoyaltyMerchantcardsDTOValidateMerchantCard implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
-        $this->container['cardnumber'] = isset($data['cardnumber']) ? $data['cardnumber'] : null;
+        $this->container['app_id'] = isset($data['app_id']) ? $data['app_id'] : null;
+        $this->container['app_name'] = isset($data['app_name']) ? $data['app_name'] : null;
+        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['etag'] = isset($data['etag']) ? $data['etag'] : null;
+        $this->container['prio'] = isset($data['prio']) ? $data['prio'] : null;
     }
 
     /**
@@ -134,43 +157,127 @@ class LoyaltyMerchantcardsDTOValidateMerchantCard implements ArrayAccess
 
 
     /**
-     * Gets merchant
+     * Gets app_id
      * @return string
      */
-    public function getMerchant()
+    public function getAppId()
     {
-        return $this->container['merchant'];
+        return $this->container['app_id'];
     }
 
     /**
-     * Sets merchant
-     * @param string $merchant General Merchant ID
+     * Sets app_id
+     * @param string $app_id General Apps ID
      * @return $this
      */
-    public function setMerchant($merchant)
+    public function setAppId($app_id)
     {
-        $this->container['merchant'] = $merchant;
+        $this->container['app_id'] = $app_id;
 
         return $this;
     }
 
     /**
-     * Gets cardnumber
+     * Gets app_name
      * @return string
      */
-    public function getCardnumber()
+    public function getAppName()
     {
-        return $this->container['cardnumber'];
+        return $this->container['app_name'];
     }
 
     /**
-     * Sets cardnumber
-     * @param string $cardnumber Number on card
+     * Sets app_name
+     * @param string $app_name Name of the app
      * @return $this
      */
-    public function setCardnumber($cardnumber)
+    public function setAppName($app_name)
     {
-        $this->container['cardnumber'] = $cardnumber;
+        $this->container['app_name'] = $app_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets version
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->container['version'];
+    }
+
+    /**
+     * Sets version
+     * @param string $version the app version code as 'major.minor.patch'
+     * @return $this
+     */
+    public function setVersion($version)
+    {
+        $this->container['version'] = $version;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     * @param string $url url
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets etag
+     * @return string
+     */
+    public function getEtag()
+    {
+        return $this->container['etag'];
+    }
+
+    /**
+     * Sets etag
+     * @param string $etag etag of the app package
+     * @return $this
+     */
+    public function setEtag($etag)
+    {
+        $this->container['etag'] = $etag;
+
+        return $this;
+    }
+
+    /**
+     * Gets prio
+     * @return int
+     */
+    public function getPrio()
+    {
+        return $this->container['prio'];
+    }
+
+    /**
+     * Sets prio
+     * @param int $prio the app priority
+     * @return $this
+     */
+    public function setPrio($prio)
+    {
+        $this->container['prio'] = $prio;
 
         return $this;
     }

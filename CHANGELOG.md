@@ -18,6 +18,37 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.53.0] - 2024-08-23
+[2.53.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.52.0...2.53.0
+
+- *new element*: `aiia` in `CrowdFundingDataOpenAmountInsideCancelPeriod` and `CrowdFundingDataDetails`
+- *new element*: `status` in `SmartDevicesDTO` and `SmartDevicesProductModel`
+- *new endpoint*: `SmartDevicesApi->GetSecubaseConfig()`
+- *changed element type*: `cardnumber` changed from `integer` to `string` in `LoyaltyMerchantcardsDTOCsc`, `LoyaltyMerchantcardsDTOValidateMerchantCard`, `LoyaltyMerchantcardsDTOCheckPasscode`, `LoyaltyMerchantcardsDTOResetPasscode` and `LoyaltyMerchantcardsDTOCardBalanceReceipt`
+- *new param*: `targetMerchantCardId` in `LoyaltyMerchantCardsApi->executeTransaction()`
+
+### Added
+- `Model.DeviceStatus`
+- `Model.SmartDevicesGetSecubaseConfigDTO`
+- `Model.SmartDevicesSecubaseConfig`
+- `Model.SmartDevicesSecubaseConfigApp`
+
+### Changed
+- `.gitattributes`
+- `.gitignore`
+- `LICENSE`
+- `Api.LoyaltyMerchantCardsApi`
+- `Api.SmartDevicesApi`
+- `Model.LoyaltyMerchantcardsDTOCardBalanceReceipt`
+- `Model.LoyaltyMerchantcardsDTOCheckPasscode`
+- `Model.LoyaltyMerchantcardsDTOCsc`
+- `Model.LoyaltyMerchantcardsDTOResetPasscode`
+- `Model.LoyaltyMerchantcardsDTOValidateMerchantCard`
+- `Model.SmartDevicesDTO`
+- `Model.SmartDevicesProductModel`
+- `phpunit.xml.dist`
+
+
 ## [2.53.0] - 2024-07-30
 [2.53.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.52.0...2.53.0
 

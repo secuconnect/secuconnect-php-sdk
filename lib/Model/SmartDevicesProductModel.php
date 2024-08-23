@@ -52,7 +52,8 @@ class SmartDevicesProductModel extends BaseProductModel
         'refresh' => 'int',
         'connection_type' => 'string',
         'terminal_type' => 'string',
-        'base_version' => 'string'
+        'base_version' => 'string',
+        'status' => '\Secuconnect\Client\Model\DeviceStatus'
     ];
 
     /**
@@ -86,7 +87,8 @@ class SmartDevicesProductModel extends BaseProductModel
         'refresh' => null,
         'connection_type' => null,
         'terminal_type' => null,
-        'base_version' => null
+        'base_version' => null,
+        'status' => null
     ];
 
     public static function swaggerTypes()
@@ -130,7 +132,8 @@ class SmartDevicesProductModel extends BaseProductModel
         'refresh' => 'refresh',
         'connection_type' => 'connection_type',
         'terminal_type' => 'terminal_type',
-        'base_version' => 'base_version'
+        'base_version' => 'base_version',
+        'status' => 'status'
     ];
 
     /**
@@ -164,7 +167,8 @@ class SmartDevicesProductModel extends BaseProductModel
         'refresh' => 'setRefresh',
         'connection_type' => 'setConnectionType',
         'terminal_type' => 'setTerminalType',
-        'base_version' => 'setBaseVersion'
+        'base_version' => 'setBaseVersion',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -198,7 +202,8 @@ class SmartDevicesProductModel extends BaseProductModel
         'refresh' => 'getRefresh',
         'connection_type' => 'getConnectionType',
         'terminal_type' => 'getTerminalType',
-        'base_version' => 'getBaseVersion'
+        'base_version' => 'getBaseVersion',
+        'status' => 'getStatus'
     ];
 
     public static function attributeMap()
@@ -251,6 +256,7 @@ class SmartDevicesProductModel extends BaseProductModel
         $this->container['connection_type'] = isset($data['connection_type']) ? $data['connection_type'] : null;
         $this->container['terminal_type'] = isset($data['terminal_type']) ? $data['terminal_type'] : null;
         $this->container['base_version'] = isset($data['base_version']) ? $data['base_version'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -840,6 +846,27 @@ class SmartDevicesProductModel extends BaseProductModel
     public function setBaseVersion($base_version)
     {
         $this->container['base_version'] = $base_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     * @return \Secuconnect\Client\Model\DeviceStatus
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     * @param \Secuconnect\Client\Model\DeviceStatus $status status
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }

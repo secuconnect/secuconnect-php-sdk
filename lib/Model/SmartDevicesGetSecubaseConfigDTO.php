@@ -5,15 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * LoyaltyMerchantcardsDTOCardBalanceReceipt
+ * SmartDevicesGetSecubaseConfigDTO
  *
  * @category Class
- * @description LoyaltyMerchantcardsDTOCardBalanceReceipt
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LoyaltyMerchantcardsDTOCardBalanceReceipt implements ArrayAccess
+class SmartDevicesGetSecubaseConfigDTO implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,15 +20,19 @@ class LoyaltyMerchantcardsDTOCardBalanceReceipt implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'LoyaltyMerchantcardsDTOCardBalanceReceipt';
+    protected static $swaggerModelName = 'SmartDevicesGetSecubaseConfigDTO';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cardnumber' => 'string',
-        'terminal_id' => 'string'
+        'secubase_version' => 'string',
+        'secudroid_version' => 'string',
+        'base_version' => 'string',
+        'terminal_type' => 'string',
+        'terminal_id' => 'string',
+        'smart_device' => '\Secuconnect\Client\Model\SmartDevicesProductModel'
     ];
 
     /**
@@ -37,8 +40,12 @@ class LoyaltyMerchantcardsDTOCardBalanceReceipt implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cardnumber' => null,
-        'terminal_id' => null
+        'secubase_version' => null,
+        'secudroid_version' => null,
+        'base_version' => null,
+        'terminal_type' => null,
+        'terminal_id' => null,
+        'smart_device' => null
     ];
 
     public static function swaggerTypes()
@@ -56,8 +63,12 @@ class LoyaltyMerchantcardsDTOCardBalanceReceipt implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cardnumber' => 'cardnumber',
-        'terminal_id' => 'terminal_id'
+        'secubase_version' => 'secubase_version',
+        'secudroid_version' => 'secudroid_version',
+        'base_version' => 'base_version',
+        'terminal_type' => 'terminal_type',
+        'terminal_id' => 'terminal_id',
+        'smart_device' => 'smart_device'
     ];
 
     /**
@@ -65,8 +76,12 @@ class LoyaltyMerchantcardsDTOCardBalanceReceipt implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cardnumber' => 'setCardnumber',
-        'terminal_id' => 'setTerminalId'
+        'secubase_version' => 'setSecubaseVersion',
+        'secudroid_version' => 'setSecudroidVersion',
+        'base_version' => 'setBaseVersion',
+        'terminal_type' => 'setTerminalType',
+        'terminal_id' => 'setTerminalId',
+        'smart_device' => 'setSmartDevice'
     ];
 
     /**
@@ -74,8 +89,12 @@ class LoyaltyMerchantcardsDTOCardBalanceReceipt implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cardnumber' => 'getCardnumber',
-        'terminal_id' => 'getTerminalId'
+        'secubase_version' => 'getSecubaseVersion',
+        'secudroid_version' => 'getSecudroidVersion',
+        'base_version' => 'getBaseVersion',
+        'terminal_type' => 'getTerminalType',
+        'terminal_id' => 'getTerminalId',
+        'smart_device' => 'getSmartDevice'
     ];
 
     public static function attributeMap()
@@ -105,8 +124,12 @@ class LoyaltyMerchantcardsDTOCardBalanceReceipt implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['cardnumber'] = isset($data['cardnumber']) ? $data['cardnumber'] : null;
+        $this->container['secubase_version'] = isset($data['secubase_version']) ? $data['secubase_version'] : null;
+        $this->container['secudroid_version'] = isset($data['secudroid_version']) ? $data['secudroid_version'] : null;
+        $this->container['base_version'] = isset($data['base_version']) ? $data['base_version'] : null;
+        $this->container['terminal_type'] = isset($data['terminal_type']) ? $data['terminal_type'] : null;
         $this->container['terminal_id'] = isset($data['terminal_id']) ? $data['terminal_id'] : null;
+        $this->container['smart_device'] = isset($data['smart_device']) ? $data['smart_device'] : null;
     }
 
     /**
@@ -134,22 +157,85 @@ class LoyaltyMerchantcardsDTOCardBalanceReceipt implements ArrayAccess
 
 
     /**
-     * Gets cardnumber
+     * Gets secubase_version
      * @return string
      */
-    public function getCardnumber()
+    public function getSecubaseVersion()
     {
-        return $this->container['cardnumber'];
+        return $this->container['secubase_version'];
     }
 
     /**
-     * Sets cardnumber
-     * @param string $cardnumber Number on card
+     * Sets secubase_version
+     * @param string $secubase_version secubase version for ingenico (c part)
      * @return $this
      */
-    public function setCardnumber($cardnumber)
+    public function setSecubaseVersion($secubase_version)
     {
-        $this->container['cardnumber'] = $cardnumber;
+        $this->container['secubase_version'] = $secubase_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets secudroid_version
+     * @return string
+     */
+    public function getSecudroidVersion()
+    {
+        return $this->container['secudroid_version'];
+    }
+
+    /**
+     * Sets secudroid_version
+     * @param string $secudroid_version version of the android app (java part)
+     * @return $this
+     */
+    public function setSecudroidVersion($secudroid_version)
+    {
+        $this->container['secudroid_version'] = $secudroid_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets base_version
+     * @return string
+     */
+    public function getBaseVersion()
+    {
+        return $this->container['base_version'];
+    }
+
+    /**
+     * Sets base_version
+     * @param string $base_version lua base-app version
+     * @return $this
+     */
+    public function setBaseVersion($base_version)
+    {
+        $this->container['base_version'] = $base_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets terminal_type
+     * @return string
+     */
+    public function getTerminalType()
+    {
+        return $this->container['terminal_type'];
+    }
+
+    /**
+     * Sets terminal_type
+     * @param string $terminal_type type of the terminal
+     * @return $this
+     */
+    public function setTerminalType($terminal_type)
+    {
+        $this->container['terminal_type'] = $terminal_type;
 
         return $this;
     }
@@ -165,12 +251,33 @@ class LoyaltyMerchantcardsDTOCardBalanceReceipt implements ArrayAccess
 
     /**
      * Sets terminal_id
-     * @param string $terminal_id Terminal ID
+     * @param string $terminal_id terminal id to represent the local device configuration
      * @return $this
      */
     public function setTerminalId($terminal_id)
     {
         $this->container['terminal_id'] = $terminal_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets smart_device
+     * @return \Secuconnect\Client\Model\SmartDevicesProductModel
+     */
+    public function getSmartDevice()
+    {
+        return $this->container['smart_device'];
+    }
+
+    /**
+     * Sets smart_device
+     * @param \Secuconnect\Client\Model\SmartDevicesProductModel $smart_device smart_device
+     * @return $this
+     */
+    public function setSmartDevice($smart_device)
+    {
+        $this->container['smart_device'] = $smart_device;
 
         return $this;
     }

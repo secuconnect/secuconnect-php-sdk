@@ -511,30 +511,32 @@ class LoyaltyMerchantCardsApi
     /**
      * Operation executeTransaction
      *
-     * Execute transaction
+     * Execute Transaction
      *
      * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param string $target_merchant_card_id Loyalty Merchant Card ID (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOTransaction $body Transaction details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\LoyaltyMerchantcardsProductWithReceiptModel
      */
-    public function executeTransaction($loyalty_merchant_card_id, $body)
+    public function executeTransaction($loyalty_merchant_card_id, $target_merchant_card_id, $body)
     {
-        list($response) = $this->executeTransactionWithHttpInfo($loyalty_merchant_card_id, $body);
+        list($response) = $this->executeTransactionWithHttpInfo($loyalty_merchant_card_id, $target_merchant_card_id, $body);
         return $response;
     }
 
     /**
      * Operation executeTransactionWithHttpInfo
      *
-     * Execute transaction
+     * Execute Transaction
      *
      * @param string $loyalty_merchant_card_id Loyalty Merchant Card ID (required)
+     * @param string $target_merchant_card_id Loyalty Merchant Card ID (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOTransaction $body Transaction details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\LoyaltyMerchantcardsProductWithReceiptModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function executeTransactionWithHttpInfo($loyalty_merchant_card_id, $body)
+    public function executeTransactionWithHttpInfo($loyalty_merchant_card_id, $target_merchant_card_id, $body)
     {
         // verify the required parameter 'loyalty_merchant_card_id' is set
         if ($loyalty_merchant_card_id === null || (is_array($loyalty_merchant_card_id) && count($loyalty_merchant_card_id) === 0)) {
@@ -542,8 +544,14 @@ class LoyaltyMerchantCardsApi
                 'Missing the required parameter $loyalty_merchant_card_id when calling executeTransaction'
             );
         }
+        // verify the required parameter 'target_merchant_card_id' is set
+        if ($target_merchant_card_id === null || (is_array($target_merchant_card_id) && count($target_merchant_card_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $target_merchant_card_id when calling executeTransaction'
+            );
+        }
         // parse inputs
-        $resourcePath = "/Loyalty/MerchantCards/{loyaltyMerchantCardId}/transaction";
+        $resourcePath = "/Loyalty/MerchantCards/{loyaltyMerchantCardId}/transaction/{targetMerchantCardId}";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -559,6 +567,14 @@ class LoyaltyMerchantCardsApi
             $resourcePath = str_replace(
                 "{" . "loyaltyMerchantCardId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($loyalty_merchant_card_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($target_merchant_card_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "targetMerchantCardId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($target_merchant_card_id),
                 $resourcePath
             );
         }
@@ -590,7 +606,7 @@ class LoyaltyMerchantCardsApi
                     $httpBody,
                     $headerParams,
                     '\Secuconnect\Client\Model\LoyaltyMerchantcardsProductWithReceiptModel',
-                    '/Loyalty/MerchantCards/{loyaltyMerchantCardId}/transaction'
+                    '/Loyalty/MerchantCards/{loyaltyMerchantCardId}/transaction/{targetMerchantCardId}'
                 );
 
                 return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\LoyaltyMerchantcardsProductWithReceiptModel', $httpHeader), $statusCode, $httpHeader];

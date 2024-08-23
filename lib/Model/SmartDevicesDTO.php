@@ -39,7 +39,8 @@ class SmartDevicesDTO implements ArrayAccess
         'tid' => 'string',
         'products' => '\Secuconnect\Client\Model\SmartDevicesProducts',
         'terminal_type' => 'string',
-        'base_version' => 'string'
+        'base_version' => 'string',
+        'status' => '\Secuconnect\Client\Model\DeviceStatus'
     ];
 
     /**
@@ -58,7 +59,8 @@ class SmartDevicesDTO implements ArrayAccess
         'tid' => null,
         'products' => null,
         'terminal_type' => null,
-        'base_version' => null
+        'base_version' => null,
+        'status' => null
     ];
 
     public static function swaggerTypes()
@@ -87,7 +89,8 @@ class SmartDevicesDTO implements ArrayAccess
         'tid' => 'tid',
         'products' => 'products',
         'terminal_type' => 'terminal_type',
-        'base_version' => 'base_version'
+        'base_version' => 'base_version',
+        'status' => 'status'
     ];
 
     /**
@@ -106,7 +109,8 @@ class SmartDevicesDTO implements ArrayAccess
         'tid' => 'setTid',
         'products' => 'setProducts',
         'terminal_type' => 'setTerminalType',
-        'base_version' => 'setBaseVersion'
+        'base_version' => 'setBaseVersion',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -125,7 +129,8 @@ class SmartDevicesDTO implements ArrayAccess
         'tid' => 'getTid',
         'products' => 'getProducts',
         'terminal_type' => 'getTerminalType',
-        'base_version' => 'getBaseVersion'
+        'base_version' => 'getBaseVersion',
+        'status' => 'getStatus'
     ];
 
     public static function attributeMap()
@@ -167,6 +172,7 @@ class SmartDevicesDTO implements ArrayAccess
         $this->container['products'] = isset($data['products']) ? $data['products'] : null;
         $this->container['terminal_type'] = isset($data['terminal_type']) ? $data['terminal_type'] : null;
         $this->container['base_version'] = isset($data['base_version']) ? $data['base_version'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -441,6 +447,27 @@ class SmartDevicesDTO implements ArrayAccess
     public function setBaseVersion($base_version)
     {
         $this->container['base_version'] = $base_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     * @return \Secuconnect\Client\Model\DeviceStatus
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     * @param \Secuconnect\Client\Model\DeviceStatus $status status
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }
