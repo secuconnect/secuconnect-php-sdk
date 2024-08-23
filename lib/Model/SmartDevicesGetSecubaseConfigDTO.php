@@ -5,15 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * CrowdFundingDataOpenAmountInsideCancelPeriod
+ * SmartDevicesGetSecubaseConfigDTO
  *
  * @category Class
- * @description Total amount within the cancellation period, in the smallest currency unit (e. g. Euro Cent)
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
+class SmartDevicesGetSecubaseConfigDTO implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,20 +20,19 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'CrowdFundingDataOpenAmountInsideCancelPeriod';
+    protected static $swaggerModelName = 'SmartDevicesGetSecubaseConfigDTO';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'total' => 'int',
-        'debit' => 'int',
-        'credit_card' => 'int',
-        'prepay' => 'int',
-        'sofort' => 'int',
-        'twint' => 'int',
-        'aiia' => 'int'
+        'secubase_version' => 'string',
+        'secudroid_version' => 'string',
+        'base_version' => 'string',
+        'terminal_type' => 'string',
+        'terminal_id' => 'string',
+        'smart_device' => '\Secuconnect\Client\Model\SmartDevicesProductModel'
     ];
 
     /**
@@ -42,13 +40,12 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'total' => null,
-        'debit' => null,
-        'credit_card' => null,
-        'prepay' => null,
-        'sofort' => null,
-        'twint' => null,
-        'aiia' => null
+        'secubase_version' => null,
+        'secudroid_version' => null,
+        'base_version' => null,
+        'terminal_type' => null,
+        'terminal_id' => null,
+        'smart_device' => null
     ];
 
     public static function swaggerTypes()
@@ -66,13 +63,12 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'total' => 'total',
-        'debit' => 'debit',
-        'credit_card' => 'credit_card',
-        'prepay' => 'prepay',
-        'sofort' => 'sofort',
-        'twint' => 'twint',
-        'aiia' => 'aiia'
+        'secubase_version' => 'secubase_version',
+        'secudroid_version' => 'secudroid_version',
+        'base_version' => 'base_version',
+        'terminal_type' => 'terminal_type',
+        'terminal_id' => 'terminal_id',
+        'smart_device' => 'smart_device'
     ];
 
     /**
@@ -80,13 +76,12 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'total' => 'setTotal',
-        'debit' => 'setDebit',
-        'credit_card' => 'setCreditCard',
-        'prepay' => 'setPrepay',
-        'sofort' => 'setSofort',
-        'twint' => 'setTwint',
-        'aiia' => 'setAiia'
+        'secubase_version' => 'setSecubaseVersion',
+        'secudroid_version' => 'setSecudroidVersion',
+        'base_version' => 'setBaseVersion',
+        'terminal_type' => 'setTerminalType',
+        'terminal_id' => 'setTerminalId',
+        'smart_device' => 'setSmartDevice'
     ];
 
     /**
@@ -94,13 +89,12 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'total' => 'getTotal',
-        'debit' => 'getDebit',
-        'credit_card' => 'getCreditCard',
-        'prepay' => 'getPrepay',
-        'sofort' => 'getSofort',
-        'twint' => 'getTwint',
-        'aiia' => 'getAiia'
+        'secubase_version' => 'getSecubaseVersion',
+        'secudroid_version' => 'getSecudroidVersion',
+        'base_version' => 'getBaseVersion',
+        'terminal_type' => 'getTerminalType',
+        'terminal_id' => 'getTerminalId',
+        'smart_device' => 'getSmartDevice'
     ];
 
     public static function attributeMap()
@@ -130,13 +124,12 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
-        $this->container['debit'] = isset($data['debit']) ? $data['debit'] : null;
-        $this->container['credit_card'] = isset($data['credit_card']) ? $data['credit_card'] : null;
-        $this->container['prepay'] = isset($data['prepay']) ? $data['prepay'] : null;
-        $this->container['sofort'] = isset($data['sofort']) ? $data['sofort'] : null;
-        $this->container['twint'] = isset($data['twint']) ? $data['twint'] : null;
-        $this->container['aiia'] = isset($data['aiia']) ? $data['aiia'] : null;
+        $this->container['secubase_version'] = isset($data['secubase_version']) ? $data['secubase_version'] : null;
+        $this->container['secudroid_version'] = isset($data['secudroid_version']) ? $data['secudroid_version'] : null;
+        $this->container['base_version'] = isset($data['base_version']) ? $data['base_version'] : null;
+        $this->container['terminal_type'] = isset($data['terminal_type']) ? $data['terminal_type'] : null;
+        $this->container['terminal_id'] = isset($data['terminal_id']) ? $data['terminal_id'] : null;
+        $this->container['smart_device'] = isset($data['smart_device']) ? $data['smart_device'] : null;
     }
 
     /**
@@ -164,148 +157,127 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
 
 
     /**
-     * Gets total
-     * @return int
+     * Gets secubase_version
+     * @return string
      */
-    public function getTotal()
+    public function getSecubaseVersion()
     {
-        return $this->container['total'];
+        return $this->container['secubase_version'];
     }
 
     /**
-     * Sets total
-     * @param int $total Total amount in the smallest currency unit (e. g. Euro Cent)
+     * Sets secubase_version
+     * @param string $secubase_version secubase version for ingenico (c part)
      * @return $this
      */
-    public function setTotal($total)
+    public function setSecubaseVersion($secubase_version)
     {
-        $this->container['total'] = $total;
+        $this->container['secubase_version'] = $secubase_version;
 
         return $this;
     }
 
     /**
-     * Gets debit
-     * @return int
+     * Gets secudroid_version
+     * @return string
      */
-    public function getDebit()
+    public function getSecudroidVersion()
     {
-        return $this->container['debit'];
+        return $this->container['secudroid_version'];
     }
 
     /**
-     * Sets debit
-     * @param int $debit Total amount for debit transactions, in the smallest currency unit (e. g. Euro Cent)
+     * Sets secudroid_version
+     * @param string $secudroid_version version of the android app (java part)
      * @return $this
      */
-    public function setDebit($debit)
+    public function setSecudroidVersion($secudroid_version)
     {
-        $this->container['debit'] = $debit;
+        $this->container['secudroid_version'] = $secudroid_version;
 
         return $this;
     }
 
     /**
-     * Gets credit_card
-     * @return int
+     * Gets base_version
+     * @return string
      */
-    public function getCreditCard()
+    public function getBaseVersion()
     {
-        return $this->container['credit_card'];
+        return $this->container['base_version'];
     }
 
     /**
-     * Sets credit_card
-     * @param int $credit_card Total amount for credit card transactions, in the smallest currency unit (e. g. Euro Cent)
+     * Sets base_version
+     * @param string $base_version lua base-app version
      * @return $this
      */
-    public function setCreditCard($credit_card)
+    public function setBaseVersion($base_version)
     {
-        $this->container['credit_card'] = $credit_card;
+        $this->container['base_version'] = $base_version;
 
         return $this;
     }
 
     /**
-     * Gets prepay
-     * @return int
+     * Gets terminal_type
+     * @return string
      */
-    public function getPrepay()
+    public function getTerminalType()
     {
-        return $this->container['prepay'];
+        return $this->container['terminal_type'];
     }
 
     /**
-     * Sets prepay
-     * @param int $prepay Total amount for prepayment transactions, in the smallest currency unit (e. g. Euro Cent)
+     * Sets terminal_type
+     * @param string $terminal_type type of the terminal
      * @return $this
      */
-    public function setPrepay($prepay)
+    public function setTerminalType($terminal_type)
     {
-        $this->container['prepay'] = $prepay;
+        $this->container['terminal_type'] = $terminal_type;
 
         return $this;
     }
 
     /**
-     * Gets sofort
-     * @return int
+     * Gets terminal_id
+     * @return string
      */
-    public function getSofort()
+    public function getTerminalId()
     {
-        return $this->container['sofort'];
+        return $this->container['terminal_id'];
     }
 
     /**
-     * Sets sofort
-     * @param int $sofort Total amount for klarna Sofort transactions, in the smallest currency unit (e. g. Euro Cent)
+     * Sets terminal_id
+     * @param string $terminal_id terminal id to represent the local device configuration
      * @return $this
      */
-    public function setSofort($sofort)
+    public function setTerminalId($terminal_id)
     {
-        $this->container['sofort'] = $sofort;
+        $this->container['terminal_id'] = $terminal_id;
 
         return $this;
     }
 
     /**
-     * Gets twint
-     * @return int
+     * Gets smart_device
+     * @return \Secuconnect\Client\Model\SmartDevicesProductModel
      */
-    public function getTwint()
+    public function getSmartDevice()
     {
-        return $this->container['twint'];
+        return $this->container['smart_device'];
     }
 
     /**
-     * Sets twint
-     * @param int $twint Total amount for Twint transactions, in the smallest currency unit (e. g. Euro Cent)
+     * Sets smart_device
+     * @param \Secuconnect\Client\Model\SmartDevicesProductModel $smart_device smart_device
      * @return $this
      */
-    public function setTwint($twint)
+    public function setSmartDevice($smart_device)
     {
-        $this->container['twint'] = $twint;
-
-        return $this;
-    }
-
-    /**
-     * Gets aiia
-     * @return int
-     */
-    public function getAiia()
-    {
-        return $this->container['aiia'];
-    }
-
-    /**
-     * Sets aiia
-     * @param int $aiia Total amount for Aiia transactions, in the smallest currency unit (e. g. Euro Cent)
-     * @return $this
-     */
-    public function setAiia($aiia)
-    {
-        $this->container['aiia'] = $aiia;
+        $this->container['smart_device'] = $smart_device;
 
         return $this;
     }

@@ -2,18 +2,16 @@
 
 namespace Secuconnect\Client\Model;
 
-use \ArrayAccess;
-
 /**
- * LoyaltyMerchantcardsDTOValidateMerchantCard
+ * DeviceStatus
  *
  * @category Class
- * @description LoyaltyMerchantcardsDTOValidateMerchantCard
+ * @description Status for the device
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LoyaltyMerchantcardsDTOValidateMerchantCard implements ArrayAccess
+class DeviceStatus implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,15 +19,13 @@ class LoyaltyMerchantcardsDTOValidateMerchantCard implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'LoyaltyMerchantcardsDTOValidateMerchantCard';
+    protected static $swaggerModelName = 'DeviceStatus';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'merchant' => 'string',
-        'cardnumber' => 'string'
     ];
 
     /**
@@ -37,8 +33,6 @@ class LoyaltyMerchantcardsDTOValidateMerchantCard implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'merchant' => null,
-        'cardnumber' => null
     ];
 
     public static function swaggerTypes()
@@ -56,8 +50,6 @@ class LoyaltyMerchantcardsDTOValidateMerchantCard implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'merchant' => 'merchant',
-        'cardnumber' => 'cardnumber'
     ];
 
     /**
@@ -65,8 +57,6 @@ class LoyaltyMerchantcardsDTOValidateMerchantCard implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'merchant' => 'setMerchant',
-        'cardnumber' => 'setCardnumber'
     ];
 
     /**
@@ -74,8 +64,6 @@ class LoyaltyMerchantcardsDTOValidateMerchantCard implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'merchant' => 'getMerchant',
-        'cardnumber' => 'getCardnumber'
     ];
 
     public static function attributeMap()
@@ -105,8 +93,6 @@ class LoyaltyMerchantcardsDTOValidateMerchantCard implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
-        $this->container['cardnumber'] = isset($data['cardnumber']) ? $data['cardnumber'] : null;
     }
 
     /**
@@ -132,48 +118,6 @@ class LoyaltyMerchantcardsDTOValidateMerchantCard implements ArrayAccess
         return true;
     }
 
-
-    /**
-     * Gets merchant
-     * @return string
-     */
-    public function getMerchant()
-    {
-        return $this->container['merchant'];
-    }
-
-    /**
-     * Sets merchant
-     * @param string $merchant General Merchant ID
-     * @return $this
-     */
-    public function setMerchant($merchant)
-    {
-        $this->container['merchant'] = $merchant;
-
-        return $this;
-    }
-
-    /**
-     * Gets cardnumber
-     * @return string
-     */
-    public function getCardnumber()
-    {
-        return $this->container['cardnumber'];
-    }
-
-    /**
-     * Sets cardnumber
-     * @param string $cardnumber Number on card
-     * @return $this
-     */
-    public function setCardnumber($cardnumber)
-    {
-        $this->container['cardnumber'] = $cardnumber;
-
-        return $this;
-    }
 
     /**
      * Returns true if offset exists. False otherwise.

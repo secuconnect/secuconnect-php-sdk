@@ -28,7 +28,7 @@ class LoyaltyMerchantcardsDTOResetPasscode implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cardnumber' => 'int',
+        'cardnumber' => 'string',
         'passcode' => 'int'
     ];
 
@@ -135,7 +135,7 @@ class LoyaltyMerchantcardsDTOResetPasscode implements ArrayAccess
 
     /**
      * Gets cardnumber
-     * @return int
+     * @return string
      */
     public function getCardnumber()
     {
@@ -144,7 +144,7 @@ class LoyaltyMerchantcardsDTOResetPasscode implements ArrayAccess
 
     /**
      * Sets cardnumber
-     * @param int $cardnumber Number on card
+     * @param string $cardnumber Number on card
      * @return $this
      */
     public function setCardnumber($cardnumber)

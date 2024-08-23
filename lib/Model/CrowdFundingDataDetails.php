@@ -33,7 +33,8 @@ class CrowdFundingDataDetails implements ArrayAccess
         'credit_card' => '\Secuconnect\Client\Model\PaymentMethodBreakdown',
         'prepay' => '\Secuconnect\Client\Model\PaymentMethodBreakdown',
         'sofort' => '\Secuconnect\Client\Model\PaymentMethodBreakdown',
-        'twint' => '\Secuconnect\Client\Model\PaymentMethodBreakdown'
+        'twint' => '\Secuconnect\Client\Model\PaymentMethodBreakdown',
+        'aiia' => '\Secuconnect\Client\Model\PaymentMethodBreakdown'
     ];
 
     /**
@@ -46,7 +47,8 @@ class CrowdFundingDataDetails implements ArrayAccess
         'credit_card' => null,
         'prepay' => null,
         'sofort' => null,
-        'twint' => null
+        'twint' => null,
+        'aiia' => null
     ];
 
     public static function swaggerTypes()
@@ -69,7 +71,8 @@ class CrowdFundingDataDetails implements ArrayAccess
         'credit_card' => 'credit_card',
         'prepay' => 'prepay',
         'sofort' => 'sofort',
-        'twint' => 'twint'
+        'twint' => 'twint',
+        'aiia' => 'aiia'
     ];
 
     /**
@@ -82,7 +85,8 @@ class CrowdFundingDataDetails implements ArrayAccess
         'credit_card' => 'setCreditCard',
         'prepay' => 'setPrepay',
         'sofort' => 'setSofort',
-        'twint' => 'setTwint'
+        'twint' => 'setTwint',
+        'aiia' => 'setAiia'
     ];
 
     /**
@@ -95,7 +99,8 @@ class CrowdFundingDataDetails implements ArrayAccess
         'credit_card' => 'getCreditCard',
         'prepay' => 'getPrepay',
         'sofort' => 'getSofort',
-        'twint' => 'getTwint'
+        'twint' => 'getTwint',
+        'aiia' => 'getAiia'
     ];
 
     public static function attributeMap()
@@ -131,6 +136,7 @@ class CrowdFundingDataDetails implements ArrayAccess
         $this->container['prepay'] = isset($data['prepay']) ? $data['prepay'] : null;
         $this->container['sofort'] = isset($data['sofort']) ? $data['sofort'] : null;
         $this->container['twint'] = isset($data['twint']) ? $data['twint'] : null;
+        $this->container['aiia'] = isset($data['aiia']) ? $data['aiia'] : null;
     }
 
     /**
@@ -279,6 +285,27 @@ class CrowdFundingDataDetails implements ArrayAccess
     public function setTwint($twint)
     {
         $this->container['twint'] = $twint;
+
+        return $this;
+    }
+
+    /**
+     * Gets aiia
+     * @return \Secuconnect\Client\Model\PaymentMethodBreakdown
+     */
+    public function getAiia()
+    {
+        return $this->container['aiia'];
+    }
+
+    /**
+     * Sets aiia
+     * @param \Secuconnect\Client\Model\PaymentMethodBreakdown $aiia aiia
+     * @return $this
+     */
+    public function setAiia($aiia)
+    {
+        $this->container['aiia'] = $aiia;
 
         return $this;
     }

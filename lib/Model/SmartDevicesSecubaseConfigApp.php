@@ -5,15 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * CrowdFundingDataOpenAmountInsideCancelPeriod
+ * SmartDevicesSecubaseConfigApp
  *
  * @category Class
- * @description Total amount within the cancellation period, in the smallest currency unit (e. g. Euro Cent)
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
+class SmartDevicesSecubaseConfigApp implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,20 +20,19 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'CrowdFundingDataOpenAmountInsideCancelPeriod';
+    protected static $swaggerModelName = 'SmartDevicesSecubaseConfigApp';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'total' => 'int',
-        'debit' => 'int',
-        'credit_card' => 'int',
-        'prepay' => 'int',
-        'sofort' => 'int',
-        'twint' => 'int',
-        'aiia' => 'int'
+        'app_id' => 'string',
+        'app_name' => 'string',
+        'version' => 'string',
+        'url' => 'string',
+        'etag' => 'string',
+        'prio' => 'int'
     ];
 
     /**
@@ -42,13 +40,12 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'total' => null,
-        'debit' => null,
-        'credit_card' => null,
-        'prepay' => null,
-        'sofort' => null,
-        'twint' => null,
-        'aiia' => null
+        'app_id' => null,
+        'app_name' => null,
+        'version' => null,
+        'url' => null,
+        'etag' => null,
+        'prio' => null
     ];
 
     public static function swaggerTypes()
@@ -66,13 +63,12 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'total' => 'total',
-        'debit' => 'debit',
-        'credit_card' => 'credit_card',
-        'prepay' => 'prepay',
-        'sofort' => 'sofort',
-        'twint' => 'twint',
-        'aiia' => 'aiia'
+        'app_id' => 'app_id',
+        'app_name' => 'app_name',
+        'version' => 'version',
+        'url' => 'url',
+        'etag' => 'etag',
+        'prio' => 'prio'
     ];
 
     /**
@@ -80,13 +76,12 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'total' => 'setTotal',
-        'debit' => 'setDebit',
-        'credit_card' => 'setCreditCard',
-        'prepay' => 'setPrepay',
-        'sofort' => 'setSofort',
-        'twint' => 'setTwint',
-        'aiia' => 'setAiia'
+        'app_id' => 'setAppId',
+        'app_name' => 'setAppName',
+        'version' => 'setVersion',
+        'url' => 'setUrl',
+        'etag' => 'setEtag',
+        'prio' => 'setPrio'
     ];
 
     /**
@@ -94,13 +89,12 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'total' => 'getTotal',
-        'debit' => 'getDebit',
-        'credit_card' => 'getCreditCard',
-        'prepay' => 'getPrepay',
-        'sofort' => 'getSofort',
-        'twint' => 'getTwint',
-        'aiia' => 'getAiia'
+        'app_id' => 'getAppId',
+        'app_name' => 'getAppName',
+        'version' => 'getVersion',
+        'url' => 'getUrl',
+        'etag' => 'getEtag',
+        'prio' => 'getPrio'
     ];
 
     public static function attributeMap()
@@ -130,13 +124,12 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
-        $this->container['debit'] = isset($data['debit']) ? $data['debit'] : null;
-        $this->container['credit_card'] = isset($data['credit_card']) ? $data['credit_card'] : null;
-        $this->container['prepay'] = isset($data['prepay']) ? $data['prepay'] : null;
-        $this->container['sofort'] = isset($data['sofort']) ? $data['sofort'] : null;
-        $this->container['twint'] = isset($data['twint']) ? $data['twint'] : null;
-        $this->container['aiia'] = isset($data['aiia']) ? $data['aiia'] : null;
+        $this->container['app_id'] = isset($data['app_id']) ? $data['app_id'] : null;
+        $this->container['app_name'] = isset($data['app_name']) ? $data['app_name'] : null;
+        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['etag'] = isset($data['etag']) ? $data['etag'] : null;
+        $this->container['prio'] = isset($data['prio']) ? $data['prio'] : null;
     }
 
     /**
@@ -164,148 +157,127 @@ class CrowdFundingDataOpenAmountInsideCancelPeriod implements ArrayAccess
 
 
     /**
-     * Gets total
-     * @return int
+     * Gets app_id
+     * @return string
      */
-    public function getTotal()
+    public function getAppId()
     {
-        return $this->container['total'];
+        return $this->container['app_id'];
     }
 
     /**
-     * Sets total
-     * @param int $total Total amount in the smallest currency unit (e. g. Euro Cent)
+     * Sets app_id
+     * @param string $app_id General Apps ID
      * @return $this
      */
-    public function setTotal($total)
+    public function setAppId($app_id)
     {
-        $this->container['total'] = $total;
+        $this->container['app_id'] = $app_id;
 
         return $this;
     }
 
     /**
-     * Gets debit
-     * @return int
+     * Gets app_name
+     * @return string
      */
-    public function getDebit()
+    public function getAppName()
     {
-        return $this->container['debit'];
+        return $this->container['app_name'];
     }
 
     /**
-     * Sets debit
-     * @param int $debit Total amount for debit transactions, in the smallest currency unit (e. g. Euro Cent)
+     * Sets app_name
+     * @param string $app_name Name of the app
      * @return $this
      */
-    public function setDebit($debit)
+    public function setAppName($app_name)
     {
-        $this->container['debit'] = $debit;
+        $this->container['app_name'] = $app_name;
 
         return $this;
     }
 
     /**
-     * Gets credit_card
-     * @return int
+     * Gets version
+     * @return string
      */
-    public function getCreditCard()
+    public function getVersion()
     {
-        return $this->container['credit_card'];
+        return $this->container['version'];
     }
 
     /**
-     * Sets credit_card
-     * @param int $credit_card Total amount for credit card transactions, in the smallest currency unit (e. g. Euro Cent)
+     * Sets version
+     * @param string $version the app version code as 'major.minor.patch'
      * @return $this
      */
-    public function setCreditCard($credit_card)
+    public function setVersion($version)
     {
-        $this->container['credit_card'] = $credit_card;
+        $this->container['version'] = $version;
 
         return $this;
     }
 
     /**
-     * Gets prepay
-     * @return int
+     * Gets url
+     * @return string
      */
-    public function getPrepay()
+    public function getUrl()
     {
-        return $this->container['prepay'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets prepay
-     * @param int $prepay Total amount for prepayment transactions, in the smallest currency unit (e. g. Euro Cent)
+     * Sets url
+     * @param string $url url
      * @return $this
      */
-    public function setPrepay($prepay)
+    public function setUrl($url)
     {
-        $this->container['prepay'] = $prepay;
+        $this->container['url'] = $url;
 
         return $this;
     }
 
     /**
-     * Gets sofort
-     * @return int
+     * Gets etag
+     * @return string
      */
-    public function getSofort()
+    public function getEtag()
     {
-        return $this->container['sofort'];
+        return $this->container['etag'];
     }
 
     /**
-     * Sets sofort
-     * @param int $sofort Total amount for klarna Sofort transactions, in the smallest currency unit (e. g. Euro Cent)
+     * Sets etag
+     * @param string $etag etag of the app package
      * @return $this
      */
-    public function setSofort($sofort)
+    public function setEtag($etag)
     {
-        $this->container['sofort'] = $sofort;
+        $this->container['etag'] = $etag;
 
         return $this;
     }
 
     /**
-     * Gets twint
+     * Gets prio
      * @return int
      */
-    public function getTwint()
+    public function getPrio()
     {
-        return $this->container['twint'];
+        return $this->container['prio'];
     }
 
     /**
-     * Sets twint
-     * @param int $twint Total amount for Twint transactions, in the smallest currency unit (e. g. Euro Cent)
+     * Sets prio
+     * @param int $prio the app priority
      * @return $this
      */
-    public function setTwint($twint)
+    public function setPrio($prio)
     {
-        $this->container['twint'] = $twint;
-
-        return $this;
-    }
-
-    /**
-     * Gets aiia
-     * @return int
-     */
-    public function getAiia()
-    {
-        return $this->container['aiia'];
-    }
-
-    /**
-     * Sets aiia
-     * @param int $aiia Total amount for Aiia transactions, in the smallest currency unit (e. g. Euro Cent)
-     * @return $this
-     */
-    public function setAiia($aiia)
-    {
-        $this->container['aiia'] = $aiia;
+        $this->container['prio'] = $prio;
 
         return $this;
     }
