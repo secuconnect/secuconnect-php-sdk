@@ -39,7 +39,9 @@ class LoyaltyCustomersProductModel extends BaseProductModel
         'account_contact' => '\Secuconnect\Client\Model\Contact',
         'payment_container' => '\Secuconnect\Client\Model\LoyaltyCustomersPaymentContainerModel[]',
         'customernumber' => 'string',
-        'note' => 'string'
+        'note' => 'string',
+        'consent_for_communication' => 'string',
+        'additional_data' => 'object'
     ];
 
     /**
@@ -60,7 +62,9 @@ class LoyaltyCustomersProductModel extends BaseProductModel
         'account_contact' => null,
         'payment_container' => null,
         'customernumber' => null,
-        'note' => null
+        'note' => null,
+        'consent_for_communication' => null,
+        'additional_data' => null
     ];
 
     public static function swaggerTypes()
@@ -91,7 +95,9 @@ class LoyaltyCustomersProductModel extends BaseProductModel
         'account_contact' => 'account_contact',
         'payment_container' => 'payment_container',
         'customernumber' => 'customernumber',
-        'note' => 'note'
+        'note' => 'note',
+        'consent_for_communication' => 'consent_for_communication',
+        'additional_data' => 'additional_data'
     ];
 
     /**
@@ -112,7 +118,9 @@ class LoyaltyCustomersProductModel extends BaseProductModel
         'account_contact' => 'setAccountContact',
         'payment_container' => 'setPaymentContainer',
         'customernumber' => 'setCustomernumber',
-        'note' => 'setNote'
+        'note' => 'setNote',
+        'consent_for_communication' => 'setConsentForCommunication',
+        'additional_data' => 'setAdditionalData'
     ];
 
     /**
@@ -133,7 +141,9 @@ class LoyaltyCustomersProductModel extends BaseProductModel
         'account_contact' => 'getAccountContact',
         'payment_container' => 'getPaymentContainer',
         'customernumber' => 'getCustomernumber',
-        'note' => 'getNote'
+        'note' => 'getNote',
+        'consent_for_communication' => 'getConsentForCommunication',
+        'additional_data' => 'getAdditionalData'
     ];
 
     public static function attributeMap()
@@ -173,6 +183,8 @@ class LoyaltyCustomersProductModel extends BaseProductModel
         $this->container['payment_container'] = isset($data['payment_container']) ? $data['payment_container'] : null;
         $this->container['customernumber'] = isset($data['customernumber']) ? $data['customernumber'] : null;
         $this->container['note'] = isset($data['note']) ? $data['note'] : null;
+        $this->container['consent_for_communication'] = isset($data['consent_for_communication']) ? $data['consent_for_communication'] : null;
+        $this->container['additional_data'] = isset($data['additional_data']) ? $data['additional_data'] : null;
     }
 
     /**
@@ -489,6 +501,48 @@ class LoyaltyCustomersProductModel extends BaseProductModel
     public function setNote($note)
     {
         $this->container['note'] = $note;
+
+        return $this;
+    }
+
+    /**
+     * Gets consent_for_communication
+     * @return string
+     */
+    public function getConsentForCommunication()
+    {
+        return $this->container['consent_for_communication'];
+    }
+
+    /**
+     * Sets consent_for_communication
+     * @param string $consent_for_communication Whether the customer has given consent for communication or not:  * `\"accepted\"` * `\"declined\"` * `\"not_set\"`
+     * @return $this
+     */
+    public function setConsentForCommunication($consent_for_communication)
+    {
+        $this->container['consent_for_communication'] = $consent_for_communication;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_data
+     * @return object
+     */
+    public function getAdditionalData()
+    {
+        return $this->container['additional_data'];
+    }
+
+    /**
+     * Sets additional_data
+     * @param object $additional_data Additional data properties
+     * @return $this
+     */
+    public function setAdditionalData($additional_data)
+    {
+        $this->container['additional_data'] = $additional_data;
 
         return $this;
     }

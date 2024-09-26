@@ -18,6 +18,23 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.54.0] - 2024-09-26
+[2.54.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.53.0...2.54.0
+
+- *new element*: `consent_for_communication` and `additional_data` in `LoyaltyCustomersProductModel`
+
+### Added
+- `Model.LoyaltyTransactionsProductModelClearingInformation`
+
+### Changed
+- `.gitattributes`
+- `.gitignore`
+- `LICENSE`
+- `Model.LoyaltyCustomersProductModel`
+- `Model.LoyaltyTransactionsProductModel`
+- `phpunit.xml.dist`
+
+
 ## [2.53.0] - 2024-08-23
 [2.53.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.52.0...2.53.0
 

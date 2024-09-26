@@ -41,7 +41,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
         'parents' => '\Secuconnect\Client\Model\LoyaltyTransactionsRelatedTransactions[]',
         'children' => '\Secuconnect\Client\Model\LoyaltyTransactionsRelatedTransactions[]',
         'cleared' => 'bool',
-        'clearing_information' => 'null[]',
+        'clearing_information' => '\Secuconnect\Client\Model\LoyaltyTransactionsProductModelClearingInformation[]',
         'trans_id' => 'int',
         'tid' => 'string',
         'status' => 'string',
@@ -600,7 +600,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Gets clearing_information
-     * @return null[]
+     * @return \Secuconnect\Client\Model\LoyaltyTransactionsProductModelClearingInformation[]
      */
     public function getClearingInformation()
     {
@@ -609,7 +609,7 @@ class LoyaltyTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets clearing_information
-     * @param null[] $clearing_information Clearing Information
+     * @param \Secuconnect\Client\Model\LoyaltyTransactionsProductModelClearingInformation[] $clearing_information Clearing Information
      * @return $this
      */
     public function setClearingInformation($clearing_information)
