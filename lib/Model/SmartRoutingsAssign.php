@@ -30,7 +30,6 @@ class SmartRoutingsAssign implements ArrayAccess
     protected static $swaggerTypes = [
         'object' => 'string',
         'id' => 'string',
-        'priority' => 'int',
         'type' => 'string',
         'description' => 'string'
     ];
@@ -42,7 +41,6 @@ class SmartRoutingsAssign implements ArrayAccess
     protected static $swaggerFormats = [
         'object' => null,
         'id' => 'id',
-        'priority' => null,
         'type' => null,
         'description' => null
     ];
@@ -64,7 +62,6 @@ class SmartRoutingsAssign implements ArrayAccess
     protected static $attributeMap = [
         'object' => 'object',
         'id' => 'id',
-        'priority' => 'priority',
         'type' => 'type',
         'description' => 'description'
     ];
@@ -76,7 +73,6 @@ class SmartRoutingsAssign implements ArrayAccess
     protected static $setters = [
         'object' => 'setObject',
         'id' => 'setId',
-        'priority' => 'setPriority',
         'type' => 'setType',
         'description' => 'setDescription'
     ];
@@ -88,7 +84,6 @@ class SmartRoutingsAssign implements ArrayAccess
     protected static $getters = [
         'object' => 'getObject',
         'id' => 'getId',
-        'priority' => 'getPriority',
         'type' => 'getType',
         'description' => 'getDescription'
     ];
@@ -122,7 +117,6 @@ class SmartRoutingsAssign implements ArrayAccess
     {
         $this->container['object'] = isset($data['object']) ? $data['object'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
     }
@@ -189,27 +183,6 @@ class SmartRoutingsAssign implements ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets priority
-     * @return int
-     */
-    public function getPriority()
-    {
-        return $this->container['priority'];
-    }
-
-    /**
-     * Sets priority
-     * @param int $priority Priority
-     * @return $this
-     */
-    public function setPriority($priority)
-    {
-        $this->container['priority'] = $priority;
 
         return $this;
     }

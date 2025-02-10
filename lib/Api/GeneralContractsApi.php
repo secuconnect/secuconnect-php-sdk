@@ -1712,7 +1712,7 @@ class GeneralContractsApi
      * Update bank account
      *
      * @param string $general_contract_id General Contract ID (required)
-     * @param \Secuconnect\Client\Model\BankAccountDescriptor $body Bank details 
+     * @param \Secuconnect\Client\Model\GeneralContractsUpdateBankAccountRequest $body Bank details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ResultBoolean
      */
@@ -1728,7 +1728,7 @@ class GeneralContractsApi
      * Update bank account
      *
      * @param string $general_contract_id General Contract ID (required)
-     * @param \Secuconnect\Client\Model\BankAccountDescriptor $body Bank details 
+     * @param \Secuconnect\Client\Model\GeneralContractsUpdateBankAccountRequest $body Bank details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
      */

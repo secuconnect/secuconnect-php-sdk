@@ -159,13 +159,12 @@ class SmartRoutingsApi
      *
      * @param string $smart_routing_id Smart routing id (required)
      * @param string $smart_device_id Smart device id (required)
-     * @param \Secuconnect\Client\Model\SmartRoutingPriority $body Smart routing assignment properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartRoutingsProductModel
      */
-    public function assignDeviceToRouting($smart_routing_id, $smart_device_id, $body)
+    public function assignDeviceToRouting($smart_routing_id, $smart_device_id)
     {
-        list($response) = $this->assignDeviceToRoutingWithHttpInfo($smart_routing_id, $smart_device_id, $body);
+        list($response) = $this->assignDeviceToRoutingWithHttpInfo($smart_routing_id, $smart_device_id);
         return $response;
     }
 
@@ -176,11 +175,10 @@ class SmartRoutingsApi
      *
      * @param string $smart_routing_id Smart routing id (required)
      * @param string $smart_device_id Smart device id (required)
-     * @param \Secuconnect\Client\Model\SmartRoutingPriority $body Smart routing assignment properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartRoutingsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function assignDeviceToRoutingWithHttpInfo($smart_routing_id, $smart_device_id, $body)
+    public function assignDeviceToRoutingWithHttpInfo($smart_routing_id, $smart_device_id)
     {
         // verify the required parameter 'smart_routing_id' is set
         if ($smart_routing_id === null || (is_array($smart_routing_id) && count($smart_routing_id) === 0)) {
@@ -204,7 +202,7 @@ class SmartRoutingsApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
 
         // path params
         if ($smart_routing_id !== null) {
@@ -221,11 +219,6 @@ class SmartRoutingsApi
                 $this->apiClient->getSerializer()->toPathValue($smart_device_id),
                 $resourcePath
             );
-        }
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
         }
 
         // for model (json/xml)
