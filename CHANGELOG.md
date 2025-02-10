@@ -18,6 +18,30 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.55.0] - 2025-02-10
+[2.55.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.54.0...2.55.0
+
+- *removed param*: `purpose` in `GeneralContractsUpdateBankAccountRequest`
+- *new element*: `verification_document` in `GeneralContractsUpdateBankAccountRequest`
+- *removed param*: `priority` in `SmartRoutingsProductModel.assign`
+
+### Added
+- `Model.GeneralContractsUpdateBankAccountRequest`
+
+### Changed
+- `.gitattributes`
+- `.gitignore`
+- `LICENSE`
+- `Api.GeneralContractsApi`
+- `Api.SmartRoutingsApi`
+- `Model.SecupayTransactionSetShippingInformationDTO`
+- `Model.SmartRoutingsAssign`
+- `phpunit.xml.dist`
+
+### Removed
+- `Model.SmartRoutingPriority`
+
+
 ## [2.54.0] - 2024-09-26
 [2.54.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.53.0...2.54.0
 

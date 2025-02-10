@@ -5,14 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SmartRoutingPriority
+ * GeneralContractsUpdateBankAccountRequest
  *
  * @category Class
+ * @description Bank details
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartRoutingPriority implements ArrayAccess
+class GeneralContractsUpdateBankAccountRequest implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,14 +21,18 @@ class SmartRoutingPriority implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartRoutingPriority';
+    protected static $swaggerModelName = 'GeneralContractsUpdateBankAccountRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'priority' => 'int'
+        'iban' => 'string',
+        'bic' => 'string',
+        'owner' => 'string',
+        'bankname' => 'string',
+        'verification_document' => 'string'
     ];
 
     /**
@@ -35,7 +40,11 @@ class SmartRoutingPriority implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'priority' => null
+        'iban' => null,
+        'bic' => null,
+        'owner' => null,
+        'bankname' => null,
+        'verification_document' => null
     ];
 
     public static function swaggerTypes()
@@ -53,7 +62,11 @@ class SmartRoutingPriority implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'priority' => 'priority'
+        'iban' => 'iban',
+        'bic' => 'bic',
+        'owner' => 'owner',
+        'bankname' => 'bankname',
+        'verification_document' => 'verification_document'
     ];
 
     /**
@@ -61,7 +74,11 @@ class SmartRoutingPriority implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'priority' => 'setPriority'
+        'iban' => 'setIban',
+        'bic' => 'setBic',
+        'owner' => 'setOwner',
+        'bankname' => 'setBankname',
+        'verification_document' => 'setVerificationDocument'
     ];
 
     /**
@@ -69,7 +86,11 @@ class SmartRoutingPriority implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'priority' => 'getPriority'
+        'iban' => 'getIban',
+        'bic' => 'getBic',
+        'owner' => 'getOwner',
+        'bankname' => 'getBankname',
+        'verification_document' => 'getVerificationDocument'
     ];
 
     public static function attributeMap()
@@ -99,7 +120,11 @@ class SmartRoutingPriority implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
+        $this->container['iban'] = isset($data['iban']) ? $data['iban'] : null;
+        $this->container['bic'] = isset($data['bic']) ? $data['bic'] : null;
+        $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
+        $this->container['bankname'] = isset($data['bankname']) ? $data['bankname'] : null;
+        $this->container['verification_document'] = isset($data['verification_document']) ? $data['verification_document'] : null;
     }
 
     /**
@@ -127,22 +152,106 @@ class SmartRoutingPriority implements ArrayAccess
 
 
     /**
-     * Gets priority
-     * @return int
+     * Gets iban
+     * @return string
      */
-    public function getPriority()
+    public function getIban()
     {
-        return $this->container['priority'];
+        return $this->container['iban'];
     }
 
     /**
-     * Sets priority
-     * @param int $priority Priority
+     * Sets iban
+     * @param string $iban International Bank Account Number (IBAN)
      * @return $this
      */
-    public function setPriority($priority)
+    public function setIban($iban)
     {
-        $this->container['priority'] = $priority;
+        $this->container['iban'] = $iban;
+
+        return $this;
+    }
+
+    /**
+     * Gets bic
+     * @return string
+     */
+    public function getBic()
+    {
+        return $this->container['bic'];
+    }
+
+    /**
+     * Sets bic
+     * @param string $bic Bank Identifier Code (BIC)
+     * @return $this
+     */
+    public function setBic($bic)
+    {
+        $this->container['bic'] = $bic;
+
+        return $this;
+    }
+
+    /**
+     * Gets owner
+     * @return string
+     */
+    public function getOwner()
+    {
+        return $this->container['owner'];
+    }
+
+    /**
+     * Sets owner
+     * @param string $owner Account owner name (personal name or company name)
+     * @return $this
+     */
+    public function setOwner($owner)
+    {
+        $this->container['owner'] = $owner;
+
+        return $this;
+    }
+
+    /**
+     * Gets bankname
+     * @return string
+     */
+    public function getBankname()
+    {
+        return $this->container['bankname'];
+    }
+
+    /**
+     * Sets bankname
+     * @param string $bankname Bank name
+     * @return $this
+     */
+    public function setBankname($bankname)
+    {
+        $this->container['bankname'] = $bankname;
+
+        return $this;
+    }
+
+    /**
+     * Gets verification_document
+     * @return string
+     */
+    public function getVerificationDocument()
+    {
+        return $this->container['verification_document'];
+    }
+
+    /**
+     * Sets verification_document
+     * @param string $verification_document Document Uploads ID of verification document
+     * @return $this
+     */
+    public function setVerificationDocument($verification_document)
+    {
+        $this->container['verification_document'] = $verification_document;
 
         return $this;
     }
