@@ -2,6 +2,8 @@
 
 namespace Secuconnect\Client\Model;
 
+use \ArrayAccess;
+
 /**
  * LoyaltyMerchantcardsProductWithReceiptModel
  *
@@ -34,7 +36,7 @@ class LoyaltyMerchantcardsProductWithReceiptModel extends LoyaltyMerchantcardsPr
 
     /**
       * Array of property to format mappings. Used for (de)serialization
-      * @var string[]
+      * @var array
       */
     protected static $swaggerFormats = [
         'receipt_header' => null,
@@ -247,7 +249,7 @@ class LoyaltyMerchantcardsProductWithReceiptModel extends LoyaltyMerchantcardsPr
 
     /**
      * Sets value based on offset.
-     * @param integer $offset Offset
+     * @param int|null $offset Offset
      * @param mixed   $value  Value to be set
      * @return void
      */

@@ -2,6 +2,8 @@
 
 namespace Secuconnect\Client\Model;
 
+use \ArrayAccess;
+
 /**
  * DocumentUploadsProductModel
  *
@@ -33,7 +35,7 @@ class DocumentUploadsProductModel extends DocumentUploadsBaseProductModel
 
     /**
       * Array of property to format mappings. Used for (de)serialization
-      * @var string[]
+      * @var array
       */
     protected static $swaggerFormats = [
         'type' => null,
@@ -220,7 +222,7 @@ class DocumentUploadsProductModel extends DocumentUploadsBaseProductModel
 
     /**
      * Sets value based on offset.
-     * @param integer $offset Offset
+     * @param int|null $offset Offset
      * @param mixed   $value  Value to be set
      * @return void
      */

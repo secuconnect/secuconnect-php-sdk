@@ -2,6 +2,8 @@
 
 namespace Secuconnect\Client\Model;
 
+use \ArrayAccess;
+
 /**
  * ServicesIdentresultsProductModel
  *
@@ -42,7 +44,7 @@ class ServicesIdentresultsProductModel extends BaseProductModel
 
     /**
       * Array of property to format mappings. Used for (de)serialization
-      * @var string[]
+      * @var array
       */
     protected static $swaggerFormats = [
         'l' => null,
@@ -463,7 +465,7 @@ class ServicesIdentresultsProductModel extends BaseProductModel
 
     /**
      * Sets value based on offset.
-     * @param integer $offset Offset
+     * @param int|null $offset Offset
      * @param mixed   $value  Value to be set
      * @return void
      */

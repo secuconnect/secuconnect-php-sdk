@@ -2,6 +2,8 @@
 
 namespace Secuconnect\Client\Model;
 
+use \ArrayAccess;
+
 /**
  * SecupayBasketItem
  *
@@ -31,7 +33,7 @@ class SecupayBasketItem extends SecupayBaseBasketItem
 
     /**
       * Array of property to format mappings. Used for (de)serialization
-      * @var string[]
+      * @var array
       */
     protected static $swaggerFormats = [
         'sub_basket' => null
@@ -166,7 +168,7 @@ class SecupayBasketItem extends SecupayBaseBasketItem
 
     /**
      * Sets value based on offset.
-     * @param integer $offset Offset
+     * @param int|null $offset Offset
      * @param mixed   $value  Value to be set
      * @return void
      */

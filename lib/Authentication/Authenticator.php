@@ -17,7 +17,7 @@ class Authenticator
 {
     /**
      * Some buffer for the expiration time
-     * @var string
+     * @var int
      */
     const EXPECTED_LENGTH_OF_REQUEST = 10;
     const REFRESH_TOKEN_EXPIRE_TIME = 15768000;

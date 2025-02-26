@@ -31,7 +31,7 @@ class SmartDevicesSecubaseConfig implements ArrayAccess
 
     /**
       * Array of property to format mappings. Used for (de)serialization
-      * @var string[]
+      * @var array
       */
     protected static $swaggerFormats = [
     ];
@@ -88,13 +88,6 @@ class SmartDevicesSecubaseConfig implements ArrayAccess
      */
     protected $container = [];
 
-    /**
-     * Constructor
-     * @param mixed[] $data Associated array of property values initializing the model
-     */
-    public function __construct(array $data = null)
-    {
-    }
 
     /**
      * show all the invalid properties with reasons.
@@ -144,7 +137,7 @@ class SmartDevicesSecubaseConfig implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param integer $offset Offset
+     * @param int|null $offset Offset
      * @param mixed   $value  Value to be set
      * @return void
      */

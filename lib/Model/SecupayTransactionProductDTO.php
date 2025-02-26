@@ -48,7 +48,7 @@ class SecupayTransactionProductDTO implements ArrayAccess
 
     /**
       * Array of property to format mappings. Used for (de)serialization
-      * @var string[]
+      * @var array
       */
     protected static $swaggerFormats = [
         'amount' => null,
@@ -577,7 +577,7 @@ class SecupayTransactionProductDTO implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param integer $offset Offset
+     * @param int|null $offset Offset
      * @param mixed   $value  Value to be set
      * @return void
      */

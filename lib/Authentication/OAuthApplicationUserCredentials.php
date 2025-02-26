@@ -29,7 +29,7 @@ class OAuthApplicationUserCredentials extends AuthenticationCredentials
             throw new ApiException('Incomplete credentials data', 401);
         }
 
-        $credentials = new static();
+        $credentials = new OAuthApplicationUserCredentials();
         $credentials->credentials = [
             'grant_type' => self::GRANT_TYPE,
             'client_id' => $clientId,

@@ -34,7 +34,7 @@ class PayPalDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModelPri
 
     /**
       * Array of property to format mappings. Used for (de)serialization
-      * @var string[]
+      * @var array
       */
     protected static $swaggerFormats = [
         'email' => null,
@@ -199,7 +199,7 @@ class PayPalDescriptor implements ArrayAccess, OneOfPaymentContainersDTOModelPri
 
     /**
      * Sets value based on offset.
-     * @param integer $offset Offset
+     * @param int|null $offset Offset
      * @param mixed   $value  Value to be set
      * @return void
      */

@@ -2,6 +2,8 @@
 
 namespace Secuconnect\Client\Model;
 
+use \ArrayAccess;
+
 /**
  * SecupayPayoutProductModel
  *
@@ -41,7 +43,7 @@ class SecupayPayoutProductModel extends BaseProductModel
 
     /**
       * Array of property to format mappings. Used for (de)serialization
-      * @var string[]
+      * @var array
       */
     protected static $swaggerFormats = [
         'trans_id' => null,
@@ -436,7 +438,7 @@ class SecupayPayoutProductModel extends BaseProductModel
 
     /**
      * Sets value based on offset.
-     * @param integer $offset Offset
+     * @param int|null $offset Offset
      * @param mixed   $value  Value to be set
      * @return void
      */

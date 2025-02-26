@@ -98,18 +98,12 @@ class PaymentTransactionsApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+
         for ($retries = 0; ; $retries++) {
 
             // this endpoint requires OAuth (access token)
@@ -206,11 +200,10 @@ class PaymentTransactionsApi
         }
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+
         for ($retries = 0; ; $retries++) {
 
             // this endpoint requires OAuth (access token)
@@ -307,18 +300,12 @@ class PaymentTransactionsApi
                 $resourcePath
             );
         }
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+
         for ($retries = 0; ; $retries++) {
 
             // this endpoint requires OAuth (access token)
@@ -415,18 +402,12 @@ class PaymentTransactionsApi
                 $resourcePath
             );
         }
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+
         for ($retries = 0; ; $retries++) {
 
             // this endpoint requires OAuth (access token)
@@ -523,11 +504,10 @@ class PaymentTransactionsApi
         }
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+
         for ($retries = 0; ; $retries++) {
 
             // this endpoint requires OAuth (access token)
@@ -680,11 +660,10 @@ class PaymentTransactionsApi
         }
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+
         for ($retries = 0; ; $retries++) {
 
             // this endpoint requires OAuth (access token)
@@ -781,11 +760,10 @@ class PaymentTransactionsApi
         }
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+
         for ($retries = 0; ; $retries++) {
 
             // this endpoint requires OAuth (access token)
@@ -888,11 +866,10 @@ class PaymentTransactionsApi
         }
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+
         for ($retries = 0; ; $retries++) {
 
             // this endpoint requires OAuth (access token)
@@ -989,11 +966,10 @@ class PaymentTransactionsApi
         }
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+
         for ($retries = 0; ; $retries++) {
 
             // this endpoint requires OAuth (access token)
@@ -1090,11 +1066,10 @@ class PaymentTransactionsApi
         }
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+
         for ($retries = 0; ; $retries++) {
 
             // this endpoint requires OAuth (access token)
@@ -1191,11 +1166,10 @@ class PaymentTransactionsApi
         }
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+
         for ($retries = 0; ; $retries++) {
 
             // this endpoint requires OAuth (access token)
@@ -1292,18 +1266,12 @@ class PaymentTransactionsApi
                 $resourcePath
             );
         }
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+
         for ($retries = 0; ; $retries++) {
 
             // this endpoint requires OAuth (access token)
@@ -1400,11 +1368,10 @@ class PaymentTransactionsApi
         }
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+
         for ($retries = 0; ; $retries++) {
 
             // this endpoint requires OAuth (access token)
@@ -1501,18 +1468,12 @@ class PaymentTransactionsApi
                 $resourcePath
             );
         }
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
 
         // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+
         for ($retries = 0; ; $retries++) {
 
             // this endpoint requires OAuth (access token)

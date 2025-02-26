@@ -2,6 +2,8 @@
 
 namespace Secuconnect\Client\Model;
 
+use \ArrayAccess;
+
 /**
  * GeneralContractsTransferBalanceModel
  *
@@ -31,7 +33,7 @@ class GeneralContractsTransferBalanceModel extends ProductInstanceID
 
     /**
       * Array of property to format mappings. Used for (de)serialization
-      * @var string[]
+      * @var array
       */
     protected static $swaggerFormats = [
         'balances' => null
@@ -166,7 +168,7 @@ class GeneralContractsTransferBalanceModel extends ProductInstanceID
 
     /**
      * Sets value based on offset.
-     * @param integer $offset Offset
+     * @param int|null $offset Offset
      * @param mixed   $value  Value to be set
      * @return void
      */

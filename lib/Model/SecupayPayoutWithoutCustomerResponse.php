@@ -2,6 +2,8 @@
 
 namespace Secuconnect\Client\Model;
 
+use \ArrayAccess;
+
 /**
  * SecupayPayoutWithoutCustomerResponse
  *
@@ -31,7 +33,7 @@ class SecupayPayoutWithoutCustomerResponse extends SecupayPayoutWithoutCustomerD
 
     /**
       * Array of property to format mappings. Used for (de)serialization
-      * @var string[]
+      * @var array
       */
     protected static $swaggerFormats = [
         'trans_id' => null,
@@ -192,7 +194,7 @@ class SecupayPayoutWithoutCustomerResponse extends SecupayPayoutWithoutCustomerD
 
     /**
      * Sets value based on offset.
-     * @param integer $offset Offset
+     * @param int|null $offset Offset
      * @param mixed   $value  Value to be set
      * @return void
      */

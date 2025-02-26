@@ -12,8 +12,8 @@ use Secuconnect\Client\Printer\Printer;
  */
 class Configuration
 {
-    const DEFAULT_HOST = 'connect-testing.secupay-ag.de'; // For live use: connect.secucard.com
-    const SDK_VERSION = '2.55.0';
+    const DEFAULT_HOST = 'connect-testing.secuconnect.com'; // For live use: connect.secucard.com
+    const SDK_VERSION = '2.56.0';
 
     const BASE_URL = 'https://' . self::DEFAULT_HOST . '/';
     const API_URL = self::BASE_URL . 'api/v2';

@@ -2,6 +2,8 @@
 
 namespace Secuconnect\Client\Model;
 
+use \ArrayAccess;
+
 /**
  * PaymentInvoicesProductModel
  *
@@ -40,12 +42,13 @@ class PaymentInvoicesProductModel extends BaseProductModel
         'currency' => 'string',
         'tax_amount' => 'int',
         'total_amount' => 'int',
-        'document_url' => 'string'
+        'document_url' => 'string',
+        'document_url_xml' => 'string'
     ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
-      * @var string[]
+      * @var array
       */
     protected static $swaggerFormats = [
         'l' => null,
@@ -62,7 +65,8 @@ class PaymentInvoicesProductModel extends BaseProductModel
         'currency' => null,
         'tax_amount' => null,
         'total_amount' => null,
-        'document_url' => null
+        'document_url' => null,
+        'document_url_xml' => null
     ];
 
     public static function swaggerTypes()
@@ -94,7 +98,8 @@ class PaymentInvoicesProductModel extends BaseProductModel
         'currency' => 'currency',
         'tax_amount' => 'tax_amount',
         'total_amount' => 'total_amount',
-        'document_url' => 'document_url'
+        'document_url' => 'document_url',
+        'document_url_xml' => 'document_url_xml'
     ];
 
     /**
@@ -116,7 +121,8 @@ class PaymentInvoicesProductModel extends BaseProductModel
         'currency' => 'setCurrency',
         'tax_amount' => 'setTaxAmount',
         'total_amount' => 'setTotalAmount',
-        'document_url' => 'setDocumentUrl'
+        'document_url' => 'setDocumentUrl',
+        'document_url_xml' => 'setDocumentUrlXml'
     ];
 
     /**
@@ -138,7 +144,8 @@ class PaymentInvoicesProductModel extends BaseProductModel
         'currency' => 'getCurrency',
         'tax_amount' => 'getTaxAmount',
         'total_amount' => 'getTotalAmount',
-        'document_url' => 'getDocumentUrl'
+        'document_url' => 'getDocumentUrl',
+        'document_url_xml' => 'getDocumentUrlXml'
     ];
 
     public static function attributeMap()
@@ -179,6 +186,7 @@ class PaymentInvoicesProductModel extends BaseProductModel
         $this->container['tax_amount'] = isset($data['tax_amount']) ? $data['tax_amount'] : null;
         $this->container['total_amount'] = isset($data['total_amount']) ? $data['total_amount'] : null;
         $this->container['document_url'] = isset($data['document_url']) ? $data['document_url'] : null;
+        $this->container['document_url_xml'] = isset($data['document_url_xml']) ? $data['document_url_xml'] : null;
     }
 
     /**
@@ -521,6 +529,27 @@ class PaymentInvoicesProductModel extends BaseProductModel
     }
 
     /**
+     * Gets document_url_xml
+     * @return string
+     */
+    public function getDocumentUrlXml()
+    {
+        return $this->container['document_url_xml'];
+    }
+
+    /**
+     * Sets document_url_xml
+     * @param string $document_url_xml Download URL for XML document
+     * @return $this
+     */
+    public function setDocumentUrlXml($document_url_xml)
+    {
+        $this->container['document_url_xml'] = $document_url_xml;
+
+        return $this;
+    }
+
+    /**
      * Returns true if offset exists. False otherwise.
      * @param integer $offset Offset
      * @return boolean
@@ -544,7 +573,7 @@ class PaymentInvoicesProductModel extends BaseProductModel
 
     /**
      * Sets value based on offset.
-     * @param integer $offset Offset
+     * @param int|null $offset Offset
      * @param mixed   $value  Value to be set
      * @return void
      */

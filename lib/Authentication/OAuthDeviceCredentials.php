@@ -79,7 +79,7 @@ class OAuthDeviceCredentials extends AuthenticationCredentials
      */
     private static function createBasicCredentials($clientId, $clientSecret)
     {
-        $credentials = new static();
+        $credentials = new OAuthDeviceCredentials();
         $credentials->credentials = [
             'grant_type' => self::GRANT_TYPE,
             'client_id' => $clientId,

@@ -2,6 +2,8 @@
 
 namespace Secuconnect\Client\Model;
 
+use \ArrayAccess;
+
 /**
  * GeneralMerchantsPublicDataModel
  *
@@ -33,7 +35,7 @@ class GeneralMerchantsPublicDataModel extends BaseProductModel
 
     /**
       * Array of property to format mappings. Used for (de)serialization
-      * @var string[]
+      * @var array
       */
     protected static $swaggerFormats = [
         'legal_details' => null,
@@ -220,7 +222,7 @@ class GeneralMerchantsPublicDataModel extends BaseProductModel
 
     /**
      * Sets value based on offset.
-     * @param integer $offset Offset
+     * @param int|null $offset Offset
      * @param mixed   $value  Value to be set
      * @return void
      */

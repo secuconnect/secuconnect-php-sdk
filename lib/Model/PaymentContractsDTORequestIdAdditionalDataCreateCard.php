@@ -35,7 +35,7 @@ class PaymentContractsDTORequestIdAdditionalDataCreateCard implements ArrayAcces
 
     /**
       * Array of property to format mappings. Used for (de)serialization
-      * @var string[]
+      * @var array
       */
     protected static $swaggerFormats = [
         'card_scheme' => null,
@@ -226,7 +226,7 @@ class PaymentContractsDTORequestIdAdditionalDataCreateCard implements ArrayAcces
 
     /**
      * Sets value based on offset.
-     * @param integer $offset Offset
+     * @param int|null $offset Offset
      * @param mixed   $value  Value to be set
      * @return void
      */

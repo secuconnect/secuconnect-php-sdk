@@ -2,6 +2,8 @@
 
 namespace Secuconnect\Client\Model;
 
+use \ArrayAccess;
+
 /**
  * SmartTransactionPaymentContainerDTO
  *
@@ -35,7 +37,7 @@ class SmartTransactionPaymentContainerDTO extends ProductInstanceUID
 
     /**
       * Array of property to format mappings. Used for (de)serialization
-      * @var string[]
+      * @var array
       */
     protected static $swaggerFormats = [
         'merchant_id' => null,
@@ -274,7 +276,7 @@ class SmartTransactionPaymentContainerDTO extends ProductInstanceUID
 
     /**
      * Sets value based on offset.
-     * @param integer $offset Offset
+     * @param int|null $offset Offset
      * @param mixed   $value  Value to be set
      * @return void
      */

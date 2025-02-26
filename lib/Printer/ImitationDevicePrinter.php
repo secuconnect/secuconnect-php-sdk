@@ -14,7 +14,7 @@ class ImitationDevicePrinter implements Printer
      */
     public function printUserCode($token)
     {
-        if (!empty($token) && isset($token->user_code)) {
+        if (isset($token->user_code)) {
             echo 'Your user code is: ' . $token->user_code . PHP_EOL .
                  'Please enter this code on: ' . $token->verification_url .
                  ' or call +49(0)35955/7550825 to verify your device.' . PHP_EOL;

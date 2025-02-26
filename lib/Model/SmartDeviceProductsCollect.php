@@ -2,6 +2,8 @@
 
 namespace Secuconnect\Client\Model;
 
+use \ArrayAccess;
+
 /**
  * SmartDeviceProductsCollect
  *
@@ -31,7 +33,7 @@ class SmartDeviceProductsCollect extends SmartDeviceProductsEnabled
 
     /**
       * Array of property to format mappings. Used for (de)serialization
-      * @var string[]
+      * @var array
       */
     protected static $swaggerFormats = [
         'print_collection_receipt' => null
@@ -166,7 +168,7 @@ class SmartDeviceProductsCollect extends SmartDeviceProductsEnabled
 
     /**
      * Sets value based on offset.
-     * @param integer $offset Offset
+     * @param int|null $offset Offset
      * @param mixed   $value  Value to be set
      * @return void
      */
