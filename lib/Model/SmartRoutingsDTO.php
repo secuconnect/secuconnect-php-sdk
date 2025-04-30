@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SmartRoutingsDTO
  *
  * @category Class
- * @description SmartRoutingsDTO
+ * @description Smart Routing details
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -144,7 +144,7 @@ class SmartRoutingsDTO implements ArrayAccess
 
     /**
      * Sets store
-     * @param string $store General store ID
+     * @param string $store General Store ID
      * @return $this
      */
     public function setStore($store)
@@ -165,7 +165,7 @@ class SmartRoutingsDTO implements ArrayAccess
 
     /**
      * Sets description
-     * @param string $description Description
+     * @param string $description Route description
      * @return $this
      */
     public function setDescription($description)

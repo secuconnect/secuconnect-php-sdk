@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SmartRoutingsAssign
  *
  * @category Class
- * @description SmartRoutingsAssign
+ * @description Smart Routing Assignment
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -156,7 +156,7 @@ class SmartRoutingsAssign implements ArrayAccess
 
     /**
      * Sets object
-     * @param string $object Object of smart routing assign
+     * @param string $object Object type
      * @return $this
      */
     public function setObject($object)
@@ -177,7 +177,7 @@ class SmartRoutingsAssign implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Id of smart routing assign
+     * @param string $id Smart Device ID
      * @return $this
      */
     public function setId($id)
@@ -198,7 +198,7 @@ class SmartRoutingsAssign implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type Type
+     * @param string $type Smart Device type
      * @return $this
      */
     public function setType($type)
@@ -219,7 +219,7 @@ class SmartRoutingsAssign implements ArrayAccess
 
     /**
      * Sets description
-     * @param string $description Description
+     * @param string $description Smart Device description
      * @return $this
      */
     public function setDescription($description)

@@ -6,7 +6,7 @@ namespace Secuconnect\Client\Model;
  * SmartRoutingsProductModel
  *
  * @category Class
- * @description SmartRoutingsProductModel
+ * @description Smart Routing
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -408,7 +408,7 @@ class SmartRoutingsProductModel extends BaseProductModel
 
     /**
      * Sets description
-     * @param string $description Description
+     * @param string $description Route description
      * @return $this
      */
     public function setDescription($description)
@@ -429,7 +429,7 @@ class SmartRoutingsProductModel extends BaseProductModel
 
     /**
      * Sets assign
-     * @param \Secuconnect\Client\Model\SmartRoutingsAssign[] $assign Assign
+     * @param \Secuconnect\Client\Model\SmartRoutingsAssign[] $assign Assigned devices
      * @return $this
      */
     public function setAssign($assign)

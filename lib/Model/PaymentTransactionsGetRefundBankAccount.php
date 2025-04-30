@@ -5,15 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SmartTemplatesComponentModel
+ * PaymentTransactionsGetRefundBankAccount
  *
  * @category Class
- * @description SmartTemplatesComponentModel
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTemplatesComponentModel implements ArrayAccess
+class PaymentTransactionsGetRefundBankAccount implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,18 +20,15 @@ class SmartTemplatesComponentModel implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTemplatesComponentModel';
+    protected static $swaggerModelName = 'PaymentTransactionsGetRefundBankAccount';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'order' => 'int',
-        'name' => 'string',
-        'config' => 'object',
-        'condition' => 'object',
-        'elements' => '\Secuconnect\Client\Model\SmartTemplatesElementModel[]'
+        'trans_id' => 'int',
+        'bank_account' => '\Secuconnect\Client\Model\PaymentInformation[]'
     ];
 
     /**
@@ -40,11 +36,8 @@ class SmartTemplatesComponentModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'order' => null,
-        'name' => null,
-        'config' => null,
-        'condition' => null,
-        'elements' => null
+        'trans_id' => null,
+        'bank_account' => null
     ];
 
     public static function swaggerTypes()
@@ -62,11 +55,8 @@ class SmartTemplatesComponentModel implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'order' => 'order',
-        'name' => 'name',
-        'config' => 'config',
-        'condition' => 'condition',
-        'elements' => 'elements'
+        'trans_id' => 'trans_id',
+        'bank_account' => 'bank_account'
     ];
 
     /**
@@ -74,11 +64,8 @@ class SmartTemplatesComponentModel implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'order' => 'setOrder',
-        'name' => 'setName',
-        'config' => 'setConfig',
-        'condition' => 'setCondition',
-        'elements' => 'setElements'
+        'trans_id' => 'setTransId',
+        'bank_account' => 'setBankAccount'
     ];
 
     /**
@@ -86,11 +73,8 @@ class SmartTemplatesComponentModel implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'order' => 'getOrder',
-        'name' => 'getName',
-        'config' => 'getConfig',
-        'condition' => 'getCondition',
-        'elements' => 'getElements'
+        'trans_id' => 'getTransId',
+        'bank_account' => 'getBankAccount'
     ];
 
     public static function attributeMap()
@@ -120,11 +104,8 @@ class SmartTemplatesComponentModel implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['order'] = isset($data['order']) ? $data['order'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['config'] = isset($data['config']) ? $data['config'] : null;
-        $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
-        $this->container['elements'] = isset($data['elements']) ? $data['elements'] : null;
+        $this->container['trans_id'] = isset($data['trans_id']) ? $data['trans_id'] : null;
+        $this->container['bank_account'] = isset($data['bank_account']) ? $data['bank_account'] : null;
     }
 
     /**
@@ -152,106 +133,43 @@ class SmartTemplatesComponentModel implements ArrayAccess
 
 
     /**
-     * Gets order
+     * Gets trans_id
      * @return int
      */
-    public function getOrder()
+    public function getTransId()
     {
-        return $this->container['order'];
+        return $this->container['trans_id'];
     }
 
     /**
-     * Sets order
-     * @param int $order The order in which the pages are getting parsed for matching conditions, the first matching will be taken
+     * Sets trans_id
+     * @param int $trans_id Transaction ID
      * @return $this
      */
-    public function setOrder($order)
+    public function setTransId($trans_id)
     {
-        $this->container['order'] = $order;
+        $this->container['trans_id'] = $trans_id;
 
         return $this;
     }
 
     /**
-     * Gets name
-     * @return string
+     * Gets bank_account
+     * @return \Secuconnect\Client\Model\PaymentInformation[]
      */
-    public function getName()
+    public function getBankAccount()
     {
-        return $this->container['name'];
+        return $this->container['bank_account'];
     }
 
     /**
-     * Sets name
-     * @param string $name The name of component item
+     * Sets bank_account
+     * @param \Secuconnect\Client\Model\PaymentInformation[] $bank_account Payment Information
      * @return $this
      */
-    public function setName($name)
+    public function setBankAccount($bank_account)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets config
-     * @return object
-     */
-    public function getConfig()
-    {
-        return $this->container['config'];
-    }
-
-    /**
-     * Sets config
-     * @param object $config The component configuration
-     * @return $this
-     */
-    public function setConfig($config)
-    {
-        $this->container['config'] = $config;
-
-        return $this;
-    }
-
-    /**
-     * Gets condition
-     * @return object
-     */
-    public function getCondition()
-    {
-        return $this->container['condition'];
-    }
-
-    /**
-     * Sets condition
-     * @param object $condition The component conditions to determine when this component should be shown
-     * @return $this
-     */
-    public function setCondition($condition)
-    {
-        $this->container['condition'] = $condition;
-
-        return $this;
-    }
-
-    /**
-     * Gets elements
-     * @return \Secuconnect\Client\Model\SmartTemplatesElementModel[]
-     */
-    public function getElements()
-    {
-        return $this->container['elements'];
-    }
-
-    /**
-     * Sets elements
-     * @param \Secuconnect\Client\Model\SmartTemplatesElementModel[] $elements The elements inside the page component
-     * @return $this
-     */
-    public function setElements($elements)
-    {
-        $this->container['elements'] = $elements;
+        $this->container['bank_account'] = $bank_account;
 
         return $this;
     }

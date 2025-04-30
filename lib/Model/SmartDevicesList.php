@@ -180,7 +180,7 @@ class SmartDevicesList implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Number of existing smart devices
+     * @param int $count Number of matching Smart Devices
      * @return $this
      */
     public function setCount($count)
@@ -201,7 +201,7 @@ class SmartDevicesList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\SmartDevicesProductModel[] $data List of SmartDevices
+     * @param \Secuconnect\Client\Model\SmartDevicesProductModel[] $data Smart Devices (limited number)
      * @return $this
      */
     public function setData($data)

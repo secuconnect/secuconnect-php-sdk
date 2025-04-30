@@ -5,14 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SmartDeviceUserPin
+ * PaymentTransactionsGetRefundBankAccountDTO
  *
  * @category Class
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartDeviceUserPin implements ArrayAccess
+class PaymentTransactionsGetRefundBankAccountDTO implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,14 +20,14 @@ class SmartDeviceUserPin implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartDeviceUserPin';
+    protected static $swaggerModelName = 'PaymentTransactionsGetRefundBankAccountDTO';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'user_pin' => 'string'
+        'trans_id' => 'int'
     ];
 
     /**
@@ -35,7 +35,7 @@ class SmartDeviceUserPin implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'user_pin' => null
+        'trans_id' => null
     ];
 
     public static function swaggerTypes()
@@ -53,7 +53,7 @@ class SmartDeviceUserPin implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'user_pin' => 'user_pin'
+        'trans_id' => 'trans_id'
     ];
 
     /**
@@ -61,7 +61,7 @@ class SmartDeviceUserPin implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'user_pin' => 'setUserPin'
+        'trans_id' => 'setTransId'
     ];
 
     /**
@@ -69,7 +69,7 @@ class SmartDeviceUserPin implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'user_pin' => 'getUserPin'
+        'trans_id' => 'getTransId'
     ];
 
     public static function attributeMap()
@@ -99,7 +99,7 @@ class SmartDeviceUserPin implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['user_pin'] = isset($data['user_pin']) ? $data['user_pin'] : null;
+        $this->container['trans_id'] = isset($data['trans_id']) ? $data['trans_id'] : null;
     }
 
     /**
@@ -127,22 +127,22 @@ class SmartDeviceUserPin implements ArrayAccess
 
 
     /**
-     * Gets user_pin
-     * @return string
+     * Gets trans_id
+     * @return int
      */
-    public function getUserPin()
+    public function getTransId()
     {
-        return $this->container['user_pin'];
+        return $this->container['trans_id'];
     }
 
     /**
-     * Sets user_pin
-     * @param string $user_pin PIN / user code from authentication response
+     * Sets trans_id
+     * @param int $trans_id Transaction ID
      * @return $this
      */
-    public function setUserPin($user_pin)
+    public function setTransId($trans_id)
     {
-        $this->container['user_pin'] = $user_pin;
+        $this->container['trans_id'] = $trans_id;
 
         return $this;
     }

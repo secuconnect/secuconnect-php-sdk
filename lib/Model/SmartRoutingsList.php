@@ -8,6 +8,7 @@ use \ArrayAccess;
  * SmartRoutingsList
  *
  * @category Class
+ * @description List of Smart Routings
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -179,7 +180,7 @@ class SmartRoutingsList implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count Number of existing smart routings
+     * @param int $count Total number of matching Smart Routings
      * @return $this
      */
     public function setCount($count)
@@ -200,7 +201,7 @@ class SmartRoutingsList implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Secuconnect\Client\Model\SmartRoutingsProductModel[] $data List of SmartRoutings
+     * @param \Secuconnect\Client\Model\SmartRoutingsProductModel[] $data Smart Routings (limited number)
      * @return $this
      */
     public function setData($data)

@@ -294,7 +294,7 @@ class SmartDevicesDTO implements ArrayAccess
 
     /**
      * Sets vendor
-     * @param string $vendor Vendor
+     * @param string $vendor Vendor, examples:  - `ingenico` - `nodis` - `ccv` - `3pos` - `flour` - `pios` - `shopware` - `loyalty_webterminal` - `android`
      * @return $this
      */
     public function setVendor($vendor)
@@ -336,7 +336,7 @@ class SmartDevicesDTO implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type Type
+     * @param string $type Type:  - `cashier` - `zvt` - `shopmodule` - `webterminal`
      * @return $this
      */
     public function setType($type)
@@ -357,7 +357,7 @@ class SmartDevicesDTO implements ArrayAccess
 
     /**
      * Sets description
-     * @param string $description Description
+     * @param string $description Device description
      * @return $this
      */
     public function setDescription($description)

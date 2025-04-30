@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SmartTemplatesElementModel
+ * PaymentContractsDTORequestIdPricing
  *
  * @category Class
- * @description SmartTemplatesElementModel
+ * @description Pricing Input
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTemplatesElementModel implements ArrayAccess
+class PaymentContractsDTORequestIdPricing implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,20 +21,17 @@ class SmartTemplatesElementModel implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTemplatesElementModel';
+    protected static $swaggerModelName = 'PaymentContractsDTORequestIdPricing';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'order' => 'int',
-        'type' => 'string',
-        'config' => 'object',
-        'condition' => 'object',
-        'name' => 'string',
-        'property' => 'string',
-        'elements' => '\Secuconnect\Client\Model\SmartTemplatesElementModel[]'
+        'product_id' => 'int',
+        'disagio' => 'string',
+        'disagio_min' => 'string',
+        'fix' => 'string'
     ];
 
     /**
@@ -42,13 +39,10 @@ class SmartTemplatesElementModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'order' => null,
-        'type' => null,
-        'config' => null,
-        'condition' => null,
-        'name' => null,
-        'property' => null,
-        'elements' => null
+        'product_id' => null,
+        'disagio' => null,
+        'disagio_min' => null,
+        'fix' => null
     ];
 
     public static function swaggerTypes()
@@ -66,13 +60,10 @@ class SmartTemplatesElementModel implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'order' => 'order',
-        'type' => 'type',
-        'config' => 'config',
-        'condition' => 'condition',
-        'name' => 'name',
-        'property' => 'property',
-        'elements' => 'elements'
+        'product_id' => 'product_id',
+        'disagio' => 'disagio',
+        'disagio_min' => 'disagio_min',
+        'fix' => 'fix'
     ];
 
     /**
@@ -80,13 +71,10 @@ class SmartTemplatesElementModel implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'order' => 'setOrder',
-        'type' => 'setType',
-        'config' => 'setConfig',
-        'condition' => 'setCondition',
-        'name' => 'setName',
-        'property' => 'setProperty',
-        'elements' => 'setElements'
+        'product_id' => 'setProductId',
+        'disagio' => 'setDisagio',
+        'disagio_min' => 'setDisagioMin',
+        'fix' => 'setFix'
     ];
 
     /**
@@ -94,13 +82,10 @@ class SmartTemplatesElementModel implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'order' => 'getOrder',
-        'type' => 'getType',
-        'config' => 'getConfig',
-        'condition' => 'getCondition',
-        'name' => 'getName',
-        'property' => 'getProperty',
-        'elements' => 'getElements'
+        'product_id' => 'getProductId',
+        'disagio' => 'getDisagio',
+        'disagio_min' => 'getDisagioMin',
+        'fix' => 'getFix'
     ];
 
     public static function attributeMap()
@@ -130,13 +115,10 @@ class SmartTemplatesElementModel implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['order'] = isset($data['order']) ? $data['order'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['config'] = isset($data['config']) ? $data['config'] : null;
-        $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['property'] = isset($data['property']) ? $data['property'] : null;
-        $this->container['elements'] = isset($data['elements']) ? $data['elements'] : null;
+        $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
+        $this->container['disagio'] = isset($data['disagio']) ? $data['disagio'] : null;
+        $this->container['disagio_min'] = isset($data['disagio_min']) ? $data['disagio_min'] : null;
+        $this->container['fix'] = isset($data['fix']) ? $data['fix'] : null;
     }
 
     /**
@@ -164,148 +146,85 @@ class SmartTemplatesElementModel implements ArrayAccess
 
 
     /**
-     * Gets order
+     * Gets product_id
      * @return int
      */
-    public function getOrder()
+    public function getProductId()
     {
-        return $this->container['order'];
+        return $this->container['product_id'];
     }
 
     /**
-     * Sets order
-     * @param int $order The order in which the elements are getting parsed for matching conditions, the first matching will be taken
+     * Sets product_id
+     * @param int $product_id Product Id
      * @return $this
      */
-    public function setOrder($order)
+    public function setProductId($product_id)
     {
-        $this->container['order'] = $order;
+        $this->container['product_id'] = $product_id;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets disagio
      * @return string
      */
-    public function getType()
+    public function getDisagio()
     {
-        return $this->container['type'];
+        return $this->container['disagio'];
     }
 
     /**
-     * Sets type
-     * @param string $type The element type
+     * Sets disagio
+     * @param string $disagio Disagio - Format 1.25
      * @return $this
      */
-    public function setType($type)
+    public function setDisagio($disagio)
     {
-        $this->container['type'] = $type;
+        $this->container['disagio'] = $disagio;
 
         return $this;
     }
 
     /**
-     * Gets config
-     * @return object
-     */
-    public function getConfig()
-    {
-        return $this->container['config'];
-    }
-
-    /**
-     * Sets config
-     * @param object $config The element configuration
-     * @return $this
-     */
-    public function setConfig($config)
-    {
-        $this->container['config'] = $config;
-
-        return $this;
-    }
-
-    /**
-     * Gets condition
-     * @return object
-     */
-    public function getCondition()
-    {
-        return $this->container['condition'];
-    }
-
-    /**
-     * Sets condition
-     * @param object $condition The element conditions to determine when this element should be shown
-     * @return $this
-     */
-    public function setCondition($condition)
-    {
-        $this->container['condition'] = $condition;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
+     * Gets disagio_min
      * @return string
      */
-    public function getName()
+    public function getDisagioMin()
     {
-        return $this->container['name'];
+        return $this->container['disagio_min'];
     }
 
     /**
-     * Sets name
-     * @param string $name Name of the element
+     * Sets disagio_min
+     * @param string $disagio_min Disagio Min - Format 0.25
      * @return $this
      */
-    public function setName($name)
+    public function setDisagioMin($disagio_min)
     {
-        $this->container['name'] = $name;
+        $this->container['disagio_min'] = $disagio_min;
 
         return $this;
     }
 
     /**
-     * Gets property
+     * Gets fix
      * @return string
      */
-    public function getProperty()
+    public function getFix()
     {
-        return $this->container['property'];
+        return $this->container['fix'];
     }
 
     /**
-     * Sets property
-     * @param string $property Special property for 'loop' elements to configure on which data to loop on
+     * Sets fix
+     * @param string $fix Fix - Format 0.05
      * @return $this
      */
-    public function setProperty($property)
+    public function setFix($fix)
     {
-        $this->container['property'] = $property;
-
-        return $this;
-    }
-
-    /**
-     * Gets elements
-     * @return \Secuconnect\Client\Model\SmartTemplatesElementModel[]
-     */
-    public function getElements()
-    {
-        return $this->container['elements'];
-    }
-
-    /**
-     * Sets elements
-     * @param \Secuconnect\Client\Model\SmartTemplatesElementModel[] $elements The child elements to be shown inside an the current element
-     * @return $this
-     */
-    public function setElements($elements)
-    {
-        $this->container['elements'] = $elements;
+        $this->container['fix'] = $fix;
 
         return $this;
     }

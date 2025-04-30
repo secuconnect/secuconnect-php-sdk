@@ -6,7 +6,7 @@ namespace Secuconnect\Client\Model;
  * SmartDevicesProductModel
  *
  * @category Class
- * @description SmartDevicesProductModel
+ * @description Smart Device
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -525,7 +525,7 @@ class SmartDevicesProductModel extends BaseProductModel
 
     /**
      * Sets vendor
-     * @param string $vendor Vendor
+     * @param string $vendor Vendor, examples:  - `ingenico` - `nodis` - `ccv` - `3pos` - `flour` - `pios` - `shopware` - `loyalty_webterminal` - `android`
      * @return $this
      */
     public function setVendor($vendor)
@@ -546,7 +546,7 @@ class SmartDevicesProductModel extends BaseProductModel
 
     /**
      * Sets vendor_uid
-     * @param string $vendor_uid Vendor uid
+     * @param string $vendor_uid Vendor UID
      * @return $this
      */
     public function setVendorUid($vendor_uid)
@@ -567,7 +567,7 @@ class SmartDevicesProductModel extends BaseProductModel
 
     /**
      * Sets type
-     * @param string $type Type
+     * @param string $type Type:  - `cashier` - `zvt` - `shopmodule` - `webterminal`
      * @return $this
      */
     public function setType($type)
@@ -630,7 +630,7 @@ class SmartDevicesProductModel extends BaseProductModel
 
     /**
      * Sets user_pin
-     * @param string $user_pin User pin
+     * @param string $user_pin PIN / user code
      * @return $this
      */
     public function setUserPin($user_pin)
@@ -672,7 +672,7 @@ class SmartDevicesProductModel extends BaseProductModel
 
     /**
      * Sets description
-     * @param string $description Description
+     * @param string $description Device description
      * @return $this
      */
     public function setDescription($description)
@@ -756,7 +756,7 @@ class SmartDevicesProductModel extends BaseProductModel
 
     /**
      * Sets online
-     * @param bool $online Online
+     * @param bool $online Whether the device is online
      * @return $this
      */
     public function setOnline($online)
@@ -798,7 +798,7 @@ class SmartDevicesProductModel extends BaseProductModel
 
     /**
      * Sets connection_type
-     * @param string $connection_type Connection type
+     * @param string $connection_type Connection type:  - `https` - `stomp`
      * @return $this
      */
     public function setConnectionType($connection_type)

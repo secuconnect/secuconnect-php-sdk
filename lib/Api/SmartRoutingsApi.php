@@ -65,7 +65,7 @@ class SmartRoutingsApi
      *
      * Create Smart Routing
      *
-     * @param \Secuconnect\Client\Model\SmartRoutingsDTO $body Smart routing properties 
+     * @param \Secuconnect\Client\Model\SmartRoutingsDTO $body Smart Routing details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartRoutingsProductModel
      */
@@ -80,7 +80,7 @@ class SmartRoutingsApi
      *
      * Create Smart Routing
      *
-     * @param \Secuconnect\Client\Model\SmartRoutingsDTO $body Smart routing properties 
+     * @param \Secuconnect\Client\Model\SmartRoutingsDTO $body Smart Routing details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartRoutingsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -157,8 +157,8 @@ class SmartRoutingsApi
      *
      * Assign Smart Device
      *
-     * @param string $smart_routing_id Smart routing id (required)
-     * @param string $smart_device_id Smart device id (required)
+     * @param string $smart_routing_id Smart Routing ID (required)
+     * @param string $smart_device_id Smart Device ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartRoutingsProductModel
      */
@@ -173,8 +173,8 @@ class SmartRoutingsApi
      *
      * Assign Smart Device
      *
-     * @param string $smart_routing_id Smart routing id (required)
-     * @param string $smart_device_id Smart device id (required)
+     * @param string $smart_routing_id Smart Routing ID (required)
+     * @param string $smart_device_id Smart Device ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartRoutingsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -431,7 +431,7 @@ class SmartRoutingsApi
      *
      * Read Smart Routing
      *
-     * @param string $smart_routing_id Smart routing id (required)
+     * @param string $smart_routing_id Smart Routing ID (required)
      * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartRoutingsProductModel
@@ -447,7 +447,7 @@ class SmartRoutingsApi
      *
      * Read Smart Routing
      *
-     * @param string $smart_routing_id Smart routing id (required)
+     * @param string $smart_routing_id Smart Routing ID (required)
      * @param string $expand Expand fields (all or a specific one) 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartRoutingsProductModel, HTTP status code, HTTP response headers (array of strings)
@@ -538,7 +538,7 @@ class SmartRoutingsApi
      *
      * Delete Smart Routing
      *
-     * @param string $smart_routing_id Smart routing id (required)
+     * @param string $smart_routing_id Smart Routing ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartRoutingsProductModel
      */
@@ -553,7 +553,7 @@ class SmartRoutingsApi
      *
      * Delete Smart Routing
      *
-     * @param string $smart_routing_id Smart routing id (required)
+     * @param string $smart_routing_id Smart Routing ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartRoutingsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -639,8 +639,8 @@ class SmartRoutingsApi
      *
      * Unassign Smart Device
      *
-     * @param string $smart_routing_id Smart routing id (required)
-     * @param string $smart_device_id Smart device id (required)
+     * @param string $smart_routing_id Smart Routing ID (required)
+     * @param string $smart_device_id Smart Device ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartRoutingsProductModel
      */
@@ -655,8 +655,8 @@ class SmartRoutingsApi
      *
      * Unassign Smart Device
      *
-     * @param string $smart_routing_id Smart routing id (required)
-     * @param string $smart_device_id Smart device id (required)
+     * @param string $smart_routing_id Smart Routing ID (required)
+     * @param string $smart_device_id Smart Device ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartRoutingsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -756,8 +756,8 @@ class SmartRoutingsApi
      *
      * Update Smart Routing
      *
-     * @param string $smart_routing_id Smart routing id (required)
-     * @param \Secuconnect\Client\Model\SmartRoutingsDTO $body Smart routing properties 
+     * @param string $smart_routing_id Smart Routing ID (required)
+     * @param \Secuconnect\Client\Model\SmartRoutingsDTO $body Smart Routing details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartRoutingsProductModel
      */
@@ -772,8 +772,8 @@ class SmartRoutingsApi
      *
      * Update Smart Routing
      *
-     * @param string $smart_routing_id Smart routing id (required)
-     * @param \Secuconnect\Client\Model\SmartRoutingsDTO $body Smart routing properties 
+     * @param string $smart_routing_id Smart Routing ID (required)
+     * @param \Secuconnect\Client\Model\SmartRoutingsDTO $body Smart Routing details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartRoutingsProductModel, HTTP status code, HTTP response headers (array of strings)
      */
