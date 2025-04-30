@@ -28,9 +28,9 @@ class PaymentContractsDTORequestIdAdditionalDataCreateCard implements ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'card_scheme' => 'string',
         'app_language' => 'string',
-        'passport_id' => 'string'
+        'card_type' => 'string',
+        'identifier' => 'string'
     ];
 
     /**
@@ -38,9 +38,9 @@ class PaymentContractsDTORequestIdAdditionalDataCreateCard implements ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'card_scheme' => null,
         'app_language' => null,
-        'passport_id' => null
+        'card_type' => null,
+        'identifier' => null
     ];
 
     public static function swaggerTypes()
@@ -58,9 +58,9 @@ class PaymentContractsDTORequestIdAdditionalDataCreateCard implements ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'card_scheme' => 'card_scheme',
         'app_language' => 'app_language',
-        'passport_id' => 'passport_id'
+        'card_type' => 'card_type',
+        'identifier' => 'identifier'
     ];
 
     /**
@@ -68,9 +68,9 @@ class PaymentContractsDTORequestIdAdditionalDataCreateCard implements ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'card_scheme' => 'setCardScheme',
         'app_language' => 'setAppLanguage',
-        'passport_id' => 'setPassportId'
+        'card_type' => 'setCardType',
+        'identifier' => 'setIdentifier'
     ];
 
     /**
@@ -78,9 +78,9 @@ class PaymentContractsDTORequestIdAdditionalDataCreateCard implements ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'card_scheme' => 'getCardScheme',
         'app_language' => 'getAppLanguage',
-        'passport_id' => 'getPassportId'
+        'card_type' => 'getCardType',
+        'identifier' => 'getIdentifier'
     ];
 
     public static function attributeMap()
@@ -110,9 +110,9 @@ class PaymentContractsDTORequestIdAdditionalDataCreateCard implements ArrayAcces
      */
     public function __construct(array $data = null)
     {
-        $this->container['card_scheme'] = isset($data['card_scheme']) ? $data['card_scheme'] : null;
         $this->container['app_language'] = isset($data['app_language']) ? $data['app_language'] : null;
-        $this->container['passport_id'] = isset($data['passport_id']) ? $data['passport_id'] : null;
+        $this->container['card_type'] = isset($data['card_type']) ? $data['card_type'] : null;
+        $this->container['identifier'] = isset($data['identifier']) ? $data['identifier'] : null;
     }
 
     /**
@@ -124,6 +124,12 @@ class PaymentContractsDTORequestIdAdditionalDataCreateCard implements ArrayAcces
     {
         $invalid_properties = [];
 
+        if ($this->container['app_language'] === null) {
+            $invalid_properties[] = "'app_language' can't be null";
+        }
+        if ($this->container['card_type'] === null) {
+            $invalid_properties[] = "'card_type' can't be null";
+        }
         return $invalid_properties;
     }
 
@@ -138,27 +144,6 @@ class PaymentContractsDTORequestIdAdditionalDataCreateCard implements ArrayAcces
         return true;
     }
 
-
-    /**
-     * Gets card_scheme
-     * @return string
-     */
-    public function getCardScheme()
-    {
-        return $this->container['card_scheme'];
-    }
-
-    /**
-     * Sets card_scheme
-     * @param string $card_scheme Credit card schema
-     * @return $this
-     */
-    public function setCardScheme($card_scheme)
-    {
-        $this->container['card_scheme'] = $card_scheme;
-
-        return $this;
-    }
 
     /**
      * Gets app_language
@@ -182,22 +167,43 @@ class PaymentContractsDTORequestIdAdditionalDataCreateCard implements ArrayAcces
     }
 
     /**
-     * Gets passport_id
+     * Gets card_type
      * @return string
      */
-    public function getPassportId()
+    public function getCardType()
     {
-        return $this->container['passport_id'];
+        return $this->container['card_type'];
     }
 
     /**
-     * Sets passport_id
-     * @param string $passport_id Passport ID
+     * Sets card_type
+     * @param string $card_type Card Type
      * @return $this
      */
-    public function setPassportId($passport_id)
+    public function setCardType($card_type)
     {
-        $this->container['passport_id'] = $passport_id;
+        $this->container['card_type'] = $card_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets identifier
+     * @return string
+     */
+    public function getIdentifier()
+    {
+        return $this->container['identifier'];
+    }
+
+    /**
+     * Sets identifier
+     * @param string $identifier Identifier - required if card_type is 'plastic'
+     * @return $this
+     */
+    public function setIdentifier($identifier)
+    {
+        $this->container['identifier'] = $identifier;
 
         return $this;
     }

@@ -150,7 +150,7 @@ class SmartDevicesDevice implements ArrayAccess
 
     /**
      * Sets object
-     * @param string $object Object of device
+     * @param string $object Object type
      * @return $this
      */
     public function setObject($object)
@@ -171,7 +171,7 @@ class SmartDevicesDevice implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id Id of device
+     * @param string $id Smart Device ID
      * @return $this
      */
     public function setId($id)

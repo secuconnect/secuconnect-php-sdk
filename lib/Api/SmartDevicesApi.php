@@ -65,7 +65,7 @@ class SmartDevicesApi
      *
      * Create Smart Device
      *
-     * @param \Secuconnect\Client\Model\SmartDevicesDTO $body Smart device properties 
+     * @param \Secuconnect\Client\Model\SmartDevicesDTO $body Smart Device details 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartDevicesProductModel
      */
@@ -80,7 +80,7 @@ class SmartDevicesApi
      *
      * Create Smart Device
      *
-     * @param \Secuconnect\Client\Model\SmartDevicesDTO $body Smart device properties 
+     * @param \Secuconnect\Client\Model\SmartDevicesDTO $body Smart Device details 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartDevicesProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -314,7 +314,7 @@ class SmartDevicesApi
      *
      * Get device PIN settings
      *
-     * @param string $smart_device_id Smart device id (required)
+     * @param string $smart_device_id Smart Device ID (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\GetSmartDevicePinConfig
      */
@@ -329,7 +329,7 @@ class SmartDevicesApi
      *
      * Get device PIN settings
      *
-     * @param string $smart_device_id Smart device id (required)
+     * @param string $smart_device_id Smart Device ID (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\GetSmartDevicePinConfig, HTTP status code, HTTP response headers (array of strings)
      */
@@ -522,8 +522,8 @@ class SmartDevicesApi
      *
      * Get with routing
      *
-     * @param string $smart_device_id Smart device id (required)
-     * @param string $type Smart Device Type (required)
+     * @param string $smart_device_id Smart Device ID (required)
+     * @param string $type Smart Device type:  - &#x60;cashier&#x60; - &#x60;zvt&#x60; - &#x60;shopmodule&#x60; - &#x60;webterminal&#x60; (required)
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartDevicesProductModel
      */
@@ -538,8 +538,8 @@ class SmartDevicesApi
      *
      * Get with routing
      *
-     * @param string $smart_device_id Smart device id (required)
-     * @param string $type Smart Device Type (required)
+     * @param string $smart_device_id Smart Device ID (required)
+     * @param string $type Smart Device type:  - &#x60;cashier&#x60; - &#x60;zvt&#x60; - &#x60;shopmodule&#x60; - &#x60;webterminal&#x60; (required)
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartDevicesProductModel, HTTP status code, HTTP response headers (array of strings)
      */
@@ -639,8 +639,8 @@ class SmartDevicesApi
      *
      * Get Smart Device Secubase Config
      *
-     * @param string $smart_device_id Smart device id (required)
-     * @param \Secuconnect\Client\Model\SmartDevicesGetSecubaseConfigDTO $body Smart device properties 
+     * @param string $smart_device_id Smart Device ID (required)
+     * @param \Secuconnect\Client\Model\SmartDevicesGetSecubaseConfigDTO $body Smart Device properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartDevicesSecubaseConfig
      */
@@ -655,8 +655,8 @@ class SmartDevicesApi
      *
      * Get Smart Device Secubase Config
      *
-     * @param string $smart_device_id Smart device id (required)
-     * @param \Secuconnect\Client\Model\SmartDevicesGetSecubaseConfigDTO $body Smart device properties 
+     * @param string $smart_device_id Smart Device ID (required)
+     * @param \Secuconnect\Client\Model\SmartDevicesGetSecubaseConfigDTO $body Smart Device properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartDevicesSecubaseConfig, HTTP status code, HTTP response headers (array of strings)
      */
@@ -747,7 +747,7 @@ class SmartDevicesApi
      *
      * Update Smart Device
      *
-     * @param string $smart_device_id Smart device id (required)
+     * @param string $smart_device_id Smart Device ID (required)
      * @param \Secuconnect\Client\Model\SmartDevicesDTO $body Smart device properties 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartDevicesProductModel
@@ -763,7 +763,7 @@ class SmartDevicesApi
      *
      * Update Smart Device
      *
-     * @param string $smart_device_id Smart device id (required)
+     * @param string $smart_device_id Smart Device ID (required)
      * @param \Secuconnect\Client\Model\SmartDevicesDTO $body Smart device properties 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartDevicesProductModel, HTTP status code, HTTP response headers (array of strings)
@@ -855,8 +855,8 @@ class SmartDevicesApi
      *
      * Update device PIN
      *
-     * @param string $smart_device_id Smart device id (or any other value if the PIN should be set on store or merchant level) (required)
-     * @param \Secuconnect\Client\Model\UpdateSmartDevicePin $body Smart device Pin properties 
+     * @param string $smart_device_id Smart Device ID, or any other value when the PIN is set at store or merchant level (required)
+     * @param \Secuconnect\Client\Model\UpdateSmartDevicePin $body body 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\ResultBoolean
      */
@@ -871,8 +871,8 @@ class SmartDevicesApi
      *
      * Update device PIN
      *
-     * @param string $smart_device_id Smart device id (or any other value if the PIN should be set on store or merchant level) (required)
-     * @param \Secuconnect\Client\Model\UpdateSmartDevicePin $body Smart device Pin properties 
+     * @param string $smart_device_id Smart Device ID, or any other value when the PIN is set at store or merchant level (required)
+     * @param \Secuconnect\Client\Model\UpdateSmartDevicePin $body 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
      */
@@ -963,8 +963,8 @@ class SmartDevicesApi
      *
      * Set device PIN
      *
-     * @param string $smart_device_id Smart device id (required)
-     * @param \Secuconnect\Client\Model\SmartDeviceUserPin $body Smart device properties 
+     * @param string $smart_device_id Smart Device ID (required)
+     * @param \Secuconnect\Client\Model\SmartDeviceUserPin $body body 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\SmartDevicesProductModel
      */
@@ -979,8 +979,8 @@ class SmartDevicesApi
      *
      * Set device PIN
      *
-     * @param string $smart_device_id Smart device id (required)
-     * @param \Secuconnect\Client\Model\SmartDeviceUserPin $body Smart device properties 
+     * @param string $smart_device_id Smart Device ID (required)
+     * @param \Secuconnect\Client\Model\SmartDeviceUserPin $body 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\SmartDevicesProductModel, HTTP status code, HTTP response headers (array of strings)
      */

@@ -342,7 +342,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets transaction_ref
-     * @param string $transaction_ref Transaction reference, e.g. merchant order ID
+     * @param string $transaction_ref Purpose for bank statement; would usually contain shop name and order number or date
      * @return $this
      */
     public function setTransactionRef($transaction_ref)
@@ -363,7 +363,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets merchant_ref
-     * @param string $merchant_ref Merchant reference, e.g. merchant customer ID
+     * @param string $merchant_ref Merchant reference for secuOffice; usually shop order number or ID
      * @return $this
      */
     public function setMerchantRef($merchant_ref)

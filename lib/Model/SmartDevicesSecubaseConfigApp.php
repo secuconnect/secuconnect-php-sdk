@@ -8,6 +8,7 @@ use \ArrayAccess;
  * SmartDevicesSecubaseConfigApp
  *
  * @category Class
+ * @description Terminal app
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -209,7 +210,7 @@ class SmartDevicesSecubaseConfigApp implements ArrayAccess
 
     /**
      * Sets version
-     * @param string $version the app version code as 'major.minor.patch'
+     * @param string $version App version (\"major.minor.patch\")
      * @return $this
      */
     public function setVersion($version)
@@ -230,7 +231,7 @@ class SmartDevicesSecubaseConfigApp implements ArrayAccess
 
     /**
      * Sets url
-     * @param string $url url
+     * @param string $url App download URL
      * @return $this
      */
     public function setUrl($url)
@@ -251,7 +252,7 @@ class SmartDevicesSecubaseConfigApp implements ArrayAccess
 
     /**
      * Sets etag
-     * @param string $etag etag of the app package
+     * @param string $etag App download ETag for caching
      * @return $this
      */
     public function setEtag($etag)
@@ -272,7 +273,7 @@ class SmartDevicesSecubaseConfigApp implements ArrayAccess
 
     /**
      * Sets prio
-     * @param int $prio the app priority
+     * @param int $prio App priority
      * @return $this
      */
     public function setPrio($prio)

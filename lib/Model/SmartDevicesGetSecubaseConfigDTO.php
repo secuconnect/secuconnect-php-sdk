@@ -167,7 +167,7 @@ class SmartDevicesGetSecubaseConfigDTO implements ArrayAccess
 
     /**
      * Sets secubase_version
-     * @param string $secubase_version secubase version for ingenico (c part)
+     * @param string $secubase_version Secubase version of the Ingenico terminal (C part)
      * @return $this
      */
     public function setSecubaseVersion($secubase_version)
@@ -188,7 +188,7 @@ class SmartDevicesGetSecubaseConfigDTO implements ArrayAccess
 
     /**
      * Sets secudroid_version
-     * @param string $secudroid_version version of the android app (java part)
+     * @param string $secudroid_version Version of the Android app (Java part)
      * @return $this
      */
     public function setSecudroidVersion($secudroid_version)
@@ -209,7 +209,7 @@ class SmartDevicesGetSecubaseConfigDTO implements ArrayAccess
 
     /**
      * Sets base_version
-     * @param string $base_version lua base-app version
+     * @param string $base_version Lua base app version
      * @return $this
      */
     public function setBaseVersion($base_version)
@@ -230,7 +230,7 @@ class SmartDevicesGetSecubaseConfigDTO implements ArrayAccess
 
     /**
      * Sets terminal_type
-     * @param string $terminal_type type of the terminal
+     * @param string $terminal_type Terminal model
      * @return $this
      */
     public function setTerminalType($terminal_type)
@@ -251,7 +251,7 @@ class SmartDevicesGetSecubaseConfigDTO implements ArrayAccess
 
     /**
      * Sets terminal_id
-     * @param string $terminal_id terminal id to represent the local device configuration
+     * @param string $terminal_id Terminal ID
      * @return $this
      */
     public function setTerminalId($terminal_id)

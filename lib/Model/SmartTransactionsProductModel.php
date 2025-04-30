@@ -42,8 +42,8 @@ class SmartTransactionsProductModel extends BaseProductModel
         'shipping_address' => '\Secuconnect\Client\Model\PaymentCustomersProductModel',
         'container' => '\Secuconnect\Client\Model\SmartTransactionsContainer',
         'checkin' => '\Secuconnect\Client\Model\SmartTransactionsCheckin',
-        'merchant_ref' => 'string',
         'transaction_ref' => 'string',
+        'merchant_ref' => 'string',
         'store' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'device_source' => '\Secuconnect\Client\Model\ProductInstanceUID',
         'device_destination' => '\Secuconnect\Client\Model\ProductInstanceUID',
@@ -98,8 +98,8 @@ class SmartTransactionsProductModel extends BaseProductModel
         'shipping_address' => null,
         'container' => null,
         'checkin' => null,
-        'merchant_ref' => null,
         'transaction_ref' => null,
+        'merchant_ref' => null,
         'store' => null,
         'device_source' => null,
         'device_destination' => null,
@@ -164,8 +164,8 @@ class SmartTransactionsProductModel extends BaseProductModel
         'shipping_address' => 'shipping_address',
         'container' => 'container',
         'checkin' => 'checkin',
-        'merchant_ref' => 'merchantRef',
         'transaction_ref' => 'transactionRef',
+        'merchant_ref' => 'merchantRef',
         'store' => 'store',
         'device_source' => 'device_source',
         'device_destination' => 'device_destination',
@@ -220,8 +220,8 @@ class SmartTransactionsProductModel extends BaseProductModel
         'shipping_address' => 'setShippingAddress',
         'container' => 'setContainer',
         'checkin' => 'setCheckin',
-        'merchant_ref' => 'setMerchantRef',
         'transaction_ref' => 'setTransactionRef',
+        'merchant_ref' => 'setMerchantRef',
         'store' => 'setStore',
         'device_source' => 'setDeviceSource',
         'device_destination' => 'setDeviceDestination',
@@ -276,8 +276,8 @@ class SmartTransactionsProductModel extends BaseProductModel
         'shipping_address' => 'getShippingAddress',
         'container' => 'getContainer',
         'checkin' => 'getCheckin',
-        'merchant_ref' => 'getMerchantRef',
         'transaction_ref' => 'getTransactionRef',
+        'merchant_ref' => 'getMerchantRef',
         'store' => 'getStore',
         'device_source' => 'getDeviceSource',
         'device_destination' => 'getDeviceDestination',
@@ -350,8 +350,8 @@ class SmartTransactionsProductModel extends BaseProductModel
         $this->container['shipping_address'] = isset($data['shipping_address']) ? $data['shipping_address'] : null;
         $this->container['container'] = isset($data['container']) ? $data['container'] : null;
         $this->container['checkin'] = isset($data['checkin']) ? $data['checkin'] : null;
-        $this->container['merchant_ref'] = isset($data['merchant_ref']) ? $data['merchant_ref'] : null;
         $this->container['transaction_ref'] = isset($data['transaction_ref']) ? $data['transaction_ref'] : null;
+        $this->container['merchant_ref'] = isset($data['merchant_ref']) ? $data['merchant_ref'] : null;
         $this->container['store'] = isset($data['store']) ? $data['store'] : null;
         $this->container['device_source'] = isset($data['device_source']) ? $data['device_source'] : null;
         $this->container['device_destination'] = isset($data['device_destination']) ? $data['device_destination'] : null;
@@ -746,27 +746,6 @@ class SmartTransactionsProductModel extends BaseProductModel
     }
 
     /**
-     * Gets merchant_ref
-     * @return string
-     */
-    public function getMerchantRef()
-    {
-        return $this->container['merchant_ref'];
-    }
-
-    /**
-     * Sets merchant_ref
-     * @param string $merchant_ref Merchant reference, e.g. merchant customer ID
-     * @return $this
-     */
-    public function setMerchantRef($merchant_ref)
-    {
-        $this->container['merchant_ref'] = $merchant_ref;
-
-        return $this;
-    }
-
-    /**
      * Gets transaction_ref
      * @return string
      */
@@ -777,12 +756,33 @@ class SmartTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets transaction_ref
-     * @param string $transaction_ref Merchant reference, e.g. merchant customer ID
+     * @param string $transaction_ref Purpose for bank statement; would usually contain shop name and order number or date
      * @return $this
      */
     public function setTransactionRef($transaction_ref)
     {
         $this->container['transaction_ref'] = $transaction_ref;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant_ref
+     * @return string
+     */
+    public function getMerchantRef()
+    {
+        return $this->container['merchant_ref'];
+    }
+
+    /**
+     * Sets merchant_ref
+     * @param string $merchant_ref Merchant reference for secuOffice; usually shop order number or ID
+     * @return $this
+     */
+    public function setMerchantRef($merchant_ref)
+    {
+        $this->container['merchant_ref'] = $merchant_ref;
 
         return $this;
     }

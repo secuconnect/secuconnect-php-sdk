@@ -18,6 +18,48 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.56.0] - 2025-04-30
+[2.56.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.55.0...2.56.0
+
+- *new endpoint*: `PaymentTransactionsApi->GetRefundBankaccount()`
+- *changed*: new URL for testing environment
+
+### Added
+- `Model.PaymentContractsDTORequestIdPricing`
+- `Model.PaymentTransactionsGetRefundBankAccount`
+- `Model.PaymentTransactionsGetRefundBankAccountDTO`
+
+### Changed
+- `Api.PaymentTransactionsApi`
+- `Api.SmartDevicesApi`
+- `Api.SmartRoutingsApi`
+- `Model.DeviceStatus`
+- `Model.PaymentContractsDTORequestId`
+- `Model.PaymentContractsDTORequestIdAdditionalDataCreateCard`
+- `Model.PaymentInvoicesProductModel`
+- `Model.PaymentTransactionStatus`
+- `Model.SmartDeviceUserPin`
+- `Model.SmartDevicesDTO`
+- `Model.SmartDevicesDevice`
+- `Model.SmartDevicesGetSecubaseConfigDTO`
+- `Model.SmartDevicesList`
+- `Model.SmartDevicesProductModel`
+- `Model.SmartDevicesSecubaseConfigApp`
+- `Model.SmartRoutingsAssign`
+- `Model.SmartRoutingsDTO`
+- `Model.SmartRoutingsList`
+- `Model.SmartRoutingsProductModel`
+- `Model.SmartTransactionsDTO`
+- `Model.SmartTransactionsProductModel`
+
+### Removed
+- `Api.SmartTemplatesApi`
+- `Model.SmartTemplatesComponentModel`
+- `Model.SmartTemplatesElementModel`
+- `Model.SmartTemplatesList`
+- `Model.SmartTemplatesProductModel`
+
+
 ## [2.55.0] - 2025-02-10
 [2.55.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.54.0...2.55.0
 
