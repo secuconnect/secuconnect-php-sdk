@@ -2,16 +2,18 @@
 
 namespace Secuconnect\Client\Model;
 
+use \ArrayAccess;
+
 /**
- * SmartTransactionsContainer
+ * PaymentContainerTokenStatus
  *
  * @category Class
- * @description Payment instrument
+ * @description PaymentContainerTokenStatus
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsContainer extends ProductInstanceUID
+class PaymentContainerTokenStatus implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -19,15 +21,17 @@ class SmartTransactionsContainer extends ProductInstanceUID
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTransactionsContainer';
+    protected static $swaggerModelName = 'PaymentContainerTokenStatus';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string',
-        'token_status' => '\Secuconnect\Client\Model\PaymentContainerTokenStatus'
+        'status' => 'string',
+        'created' => 'string',
+        'last_modified' => 'string',
+        'version' => 'string'
     ];
 
     /**
@@ -35,18 +39,20 @@ class SmartTransactionsContainer extends ProductInstanceUID
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null,
-        'token_status' => null
+        'status' => null,
+        'created' => null,
+        'last_modified' => null,
+        'version' => null
     ];
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /**
@@ -54,8 +60,10 @@ class SmartTransactionsContainer extends ProductInstanceUID
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'token_status' => 'token_status'
+        'status' => 'status',
+        'created' => 'created',
+        'last_modified' => 'last_modified',
+        'version' => 'version'
     ];
 
     /**
@@ -63,8 +71,10 @@ class SmartTransactionsContainer extends ProductInstanceUID
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'token_status' => 'setTokenStatus'
+        'status' => 'setStatus',
+        'created' => 'setCreated',
+        'last_modified' => 'setLastModified',
+        'version' => 'setVersion'
     ];
 
     /**
@@ -72,24 +82,32 @@ class SmartTransactionsContainer extends ProductInstanceUID
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'token_status' => 'getTokenStatus'
+        'status' => 'getStatus',
+        'created' => 'getCreated',
+        'last_modified' => 'getLastModified',
+        'version' => 'getVersion'
     ];
 
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
+
+    /**
+     * Associative array for storing property values
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -97,10 +115,10 @@ class SmartTransactionsContainer extends ProductInstanceUID
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['token_status'] = isset($data['token_status']) ? $data['token_status'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['last_modified'] = isset($data['last_modified']) ? $data['last_modified'] : null;
+        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
     }
 
     /**
@@ -110,7 +128,7 @@ class SmartTransactionsContainer extends ProductInstanceUID
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = parent::listInvalidProperties();
+        $invalid_properties = [];
 
         return $invalid_properties;
     }
@@ -128,43 +146,85 @@ class SmartTransactionsContainer extends ProductInstanceUID
 
 
     /**
-     * Gets type
+     * Gets status
      * @return string
      */
-    public function getType()
+    public function getStatus()
     {
-        return $this->container['type'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets type
-     * @param string $type The container type
+     * Sets status
+     * @param string $status Status of the Token
      * @return $this
      */
-    public function setType($type)
+    public function setStatus($status)
     {
-        $this->container['type'] = $type;
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets token_status
-     * @return \Secuconnect\Client\Model\PaymentContainerTokenStatus
+     * Gets created
+     * @return string
      */
-    public function getTokenStatus()
+    public function getCreated()
     {
-        return $this->container['token_status'];
+        return $this->container['created'];
     }
 
     /**
-     * Sets token_status
-     * @param \Secuconnect\Client\Model\PaymentContainerTokenStatus $token_status token_status
+     * Sets created
+     * @param string $created Date when the Token was created
      * @return $this
      */
-    public function setTokenStatus($token_status)
+    public function setCreated($created)
     {
-        $this->container['token_status'] = $token_status;
+        $this->container['created'] = $created;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_modified
+     * @return string
+     */
+    public function getLastModified()
+    {
+        return $this->container['last_modified'];
+    }
+
+    /**
+     * Sets last_modified
+     * @param string $last_modified Date when the Token was modified last
+     * @return $this
+     */
+    public function setLastModified($last_modified)
+    {
+        $this->container['last_modified'] = $last_modified;
+
+        return $this;
+    }
+
+    /**
+     * Gets version
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->container['version'];
+    }
+
+    /**
+     * Sets version
+     * @param string $version Version
+     * @return $this
+     */
+    public function setVersion($version)
+    {
+        $this->container['version'] = $version;
 
         return $this;
     }

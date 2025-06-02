@@ -61,6 +61,107 @@ class PaymentContainersApi
     }
 
     /**
+     * Operation archiveContainer
+     *
+     * Archive Payment Container
+     *
+     * @param string $payment_container_id Payment Container ID (required)
+     * @throws ApiException on non-2xx response
+     * @return \Secuconnect\Client\Model\ResultBoolean
+     */
+    public function archiveContainer($payment_container_id)
+    {
+        list($response) = $this->archiveContainerWithHttpInfo($payment_container_id);
+        return $response;
+    }
+
+    /**
+     * Operation archiveContainerWithHttpInfo
+     *
+     * Archive Payment Container
+     *
+     * @param string $payment_container_id Payment Container ID (required)
+     * @throws ApiException on non-2xx response
+     * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function archiveContainerWithHttpInfo($payment_container_id)
+    {
+        // verify the required parameter 'payment_container_id' is set
+        if ($payment_container_id === null || (is_array($payment_container_id) && count($payment_container_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $payment_container_id when calling archiveContainer'
+            );
+        }
+        // parse inputs
+        $resourcePath = "/Payment/Containers/{paymentContainerId}/archive";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($payment_container_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "paymentContainerId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($payment_container_id),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        for ($retries = 0; ; $retries++) {
+
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+            }
+
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'PUT',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\ResultBoolean',
+                    '/Payment/Containers/{paymentContainerId}/archive'
+                );
+
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\ResultBoolean', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ResultBoolean', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue 2;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
+        }
+    }
+
+    /**
      * Operation mandate
      *
      * Obtain SEPA Mandate Form
@@ -823,6 +924,98 @@ class PaymentContainersApi
                 switch ($e->getCode()) {
                     case 200:
                         $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\UploadMandateProductModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue 2;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
+        }
+    }
+
+    /**
+     * Operation validateSingleIban
+     *
+     * Process Single IBAN Validation
+     *
+     * @param \Secuconnect\Client\Model\PaymentContainersValidateSingleIbanDTO $body Id and IBAN to validate the input 
+     * @throws ApiException on non-2xx response
+     * @return \Secuconnect\Client\Model\PaymentContainersValidateSingleIban
+     */
+    public function validateSingleIban($body)
+    {
+        list($response) = $this->validateSingleIbanWithHttpInfo($body);
+        return $response;
+    }
+
+    /**
+     * Operation validateSingleIbanWithHttpInfo
+     *
+     * Process Single IBAN Validation
+     *
+     * @param \Secuconnect\Client\Model\PaymentContainersValidateSingleIbanDTO $body Id and IBAN to validate the input 
+     * @throws ApiException on non-2xx response
+     * @return array of \Secuconnect\Client\Model\PaymentContainersValidateSingleIban, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function validateSingleIbanWithHttpInfo($body)
+    {
+        // parse inputs
+        $resourcePath = "/Payment/Containers/me/validateSingleIban";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        for ($retries = 0; ; $retries++) {
+
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+            }
+
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'POST',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\PaymentContainersValidateSingleIban',
+                    '/Payment/Containers/me/validateSingleIban'
+                );
+
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentContainersValidateSingleIban', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentContainersValidateSingleIban', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:

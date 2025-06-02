@@ -18,6 +18,34 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.57.0] - 2025-06-02
+[2.57.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.56.0...2.57.0
+
+- *new endpoint*: `PaymentContainersApi->Archive()`
+- *new endpoint*: `PaymentContainersApi->ValidateSingleIban()`
+- *new endpoint*: `PaymentTransactionsApi->AssignPayment()`
+- *new element*: `token_status` in `SmartTransactionsContainer`
+- *new element*: `token_status` in `PaymentContainersProductModel`
+- *new element*: `request_token` and `notification_url` in `PaymentContainersDTO`
+- *changed element type*: `bank_account` changed from `array` to `object` in `PaymentTransactionsGetRefundBankAccount`
+
+### Added
+- `Model.PaymentContainerTokenStatus`
+- `Model.PaymentContainersValidateSingleIban`
+- `Model.PaymentContainersValidateSingleIbanDTO`
+- `Model.SmartTransactionsPrepareDynamicDescriptor`
+
+### Changed
+- `Api.PaymentContainersApi`
+- `Api.PaymentTransactionsApi`
+- `Model.PaymentContainersDTO`
+- `Model.PaymentContainersProductModel`
+- `Model.PaymentTransactionsGetRefundBankAccount`
+- `Model.SmartTransactionPaymentContainerDTO`
+- `Model.SmartTransactionsContainer`
+- `Model.SmartTransactionsPrepare`
+
+
 ## [2.56.0] - 2025-04-30
 [2.56.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.55.0...2.56.0
 

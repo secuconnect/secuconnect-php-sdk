@@ -2,16 +2,18 @@
 
 namespace Secuconnect\Client\Model;
 
+use \ArrayAccess;
+
 /**
- * SmartTransactionsContainer
+ * PaymentContainersValidateSingleIban
  *
  * @category Class
- * @description Payment instrument
+ * @description ValidateSingleIban
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsContainer extends ProductInstanceUID
+class PaymentContainersValidateSingleIban implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -19,15 +21,18 @@ class SmartTransactionsContainer extends ProductInstanceUID
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTransactionsContainer';
+    protected static $swaggerModelName = 'PaymentContainersValidateSingleIban';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string',
-        'token_status' => '\Secuconnect\Client\Model\PaymentContainerTokenStatus'
+        'id' => 'int',
+        'valid' => 'bool',
+        'iban' => 'string',
+        'bic' => 'string',
+        'bankname' => 'string'
     ];
 
     /**
@@ -35,18 +40,21 @@ class SmartTransactionsContainer extends ProductInstanceUID
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null,
-        'token_status' => null
+        'id' => null,
+        'valid' => null,
+        'iban' => null,
+        'bic' => null,
+        'bankname' => null
     ];
 
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /**
@@ -54,8 +62,11 @@ class SmartTransactionsContainer extends ProductInstanceUID
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'token_status' => 'token_status'
+        'id' => 'id',
+        'valid' => 'valid',
+        'iban' => 'iban',
+        'bic' => 'bic',
+        'bankname' => 'bankname'
     ];
 
     /**
@@ -63,8 +74,11 @@ class SmartTransactionsContainer extends ProductInstanceUID
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'token_status' => 'setTokenStatus'
+        'id' => 'setId',
+        'valid' => 'setValid',
+        'iban' => 'setIban',
+        'bic' => 'setBic',
+        'bankname' => 'setBankname'
     ];
 
     /**
@@ -72,24 +86,33 @@ class SmartTransactionsContainer extends ProductInstanceUID
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'token_status' => 'getTokenStatus'
+        'id' => 'getId',
+        'valid' => 'getValid',
+        'iban' => 'getIban',
+        'bic' => 'getBic',
+        'bankname' => 'getBankname'
     ];
 
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
+
+    /**
+     * Associative array for storing property values
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -97,10 +120,11 @@ class SmartTransactionsContainer extends ProductInstanceUID
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['token_status'] = isset($data['token_status']) ? $data['token_status'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['valid'] = isset($data['valid']) ? $data['valid'] : null;
+        $this->container['iban'] = isset($data['iban']) ? $data['iban'] : null;
+        $this->container['bic'] = isset($data['bic']) ? $data['bic'] : null;
+        $this->container['bankname'] = isset($data['bankname']) ? $data['bankname'] : null;
     }
 
     /**
@@ -110,7 +134,7 @@ class SmartTransactionsContainer extends ProductInstanceUID
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = parent::listInvalidProperties();
+        $invalid_properties = [];
 
         return $invalid_properties;
     }
@@ -128,43 +152,106 @@ class SmartTransactionsContainer extends ProductInstanceUID
 
 
     /**
-     * Gets type
-     * @return string
+     * Gets id
+     * @return int
      */
-    public function getType()
+    public function getId()
     {
-        return $this->container['type'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets type
-     * @param string $type The container type
+     * Sets id
+     * @param int $id Batch reference ID from request
      * @return $this
      */
-    public function setType($type)
+    public function setId($id)
     {
-        $this->container['type'] = $type;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets token_status
-     * @return \Secuconnect\Client\Model\PaymentContainerTokenStatus
+     * Gets valid
+     * @return bool
      */
-    public function getTokenStatus()
+    public function getValid()
     {
-        return $this->container['token_status'];
+        return $this->container['valid'];
     }
 
     /**
-     * Sets token_status
-     * @param \Secuconnect\Client\Model\PaymentContainerTokenStatus $token_status token_status
+     * Sets valid
+     * @param bool $valid If checked IBAN is valid or not
      * @return $this
      */
-    public function setTokenStatus($token_status)
+    public function setValid($valid)
     {
-        $this->container['token_status'] = $token_status;
+        $this->container['valid'] = $valid;
+
+        return $this;
+    }
+
+    /**
+     * Gets iban
+     * @return string
+     */
+    public function getIban()
+    {
+        return $this->container['iban'];
+    }
+
+    /**
+     * Sets iban
+     * @param string $iban International Bank Account Number (IBAN)
+     * @return $this
+     */
+    public function setIban($iban)
+    {
+        $this->container['iban'] = $iban;
+
+        return $this;
+    }
+
+    /**
+     * Gets bic
+     * @return string
+     */
+    public function getBic()
+    {
+        return $this->container['bic'];
+    }
+
+    /**
+     * Sets bic
+     * @param string $bic Bank Identifier Code (BIC)
+     * @return $this
+     */
+    public function setBic($bic)
+    {
+        $this->container['bic'] = $bic;
+
+        return $this;
+    }
+
+    /**
+     * Gets bankname
+     * @return string
+     */
+    public function getBankname()
+    {
+        return $this->container['bankname'];
+    }
+
+    /**
+     * Sets bankname
+     * @param string $bankname Bank name
+     * @return $this
+     */
+    public function setBankname($bankname)
+    {
+        $this->container['bankname'] = $bankname;
 
         return $this;
     }
