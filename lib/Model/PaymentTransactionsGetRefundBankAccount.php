@@ -28,7 +28,7 @@ class PaymentTransactionsGetRefundBankAccount implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'trans_id' => 'int',
-        'bank_account' => '\Secuconnect\Client\Model\PaymentInformation[]'
+        'bank_account' => '\Secuconnect\Client\Model\PaymentInformation'
     ];
 
     /**
@@ -155,7 +155,7 @@ class PaymentTransactionsGetRefundBankAccount implements ArrayAccess
 
     /**
      * Gets bank_account
-     * @return \Secuconnect\Client\Model\PaymentInformation[]
+     * @return \Secuconnect\Client\Model\PaymentInformation
      */
     public function getBankAccount()
     {
@@ -164,7 +164,7 @@ class PaymentTransactionsGetRefundBankAccount implements ArrayAccess
 
     /**
      * Sets bank_account
-     * @param \Secuconnect\Client\Model\PaymentInformation[] $bank_account Payment Information
+     * @param \Secuconnect\Client\Model\PaymentInformation $bank_account bank_account
      * @return $this
      */
     public function setBankAccount($bank_account)

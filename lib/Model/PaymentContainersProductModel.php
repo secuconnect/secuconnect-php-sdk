@@ -40,7 +40,8 @@ class PaymentContainersProductModel extends BaseProductModel
         'type' => 'string',
         'public' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate',
         'private' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate',
-        'mandate' => '\Secuconnect\Client\Model\PaymentContainerMandate'
+        'mandate' => '\Secuconnect\Client\Model\PaymentContainerMandate',
+        'token_status' => '\Secuconnect\Client\Model\PaymentContainerTokenStatus'
     ];
 
     /**
@@ -62,7 +63,8 @@ class PaymentContainersProductModel extends BaseProductModel
         'type' => null,
         'public' => null,
         'private' => null,
-        'mandate' => null
+        'mandate' => null,
+        'token_status' => null
     ];
 
     public static function swaggerTypes()
@@ -94,7 +96,8 @@ class PaymentContainersProductModel extends BaseProductModel
         'type' => 'type',
         'public' => 'public',
         'private' => 'private',
-        'mandate' => 'mandate'
+        'mandate' => 'mandate',
+        'token_status' => 'token_status'
     ];
 
     /**
@@ -116,7 +119,8 @@ class PaymentContainersProductModel extends BaseProductModel
         'type' => 'setType',
         'public' => 'setPublic',
         'private' => 'setPrivate',
-        'mandate' => 'setMandate'
+        'mandate' => 'setMandate',
+        'token_status' => 'setTokenStatus'
     ];
 
     /**
@@ -138,7 +142,8 @@ class PaymentContainersProductModel extends BaseProductModel
         'type' => 'getType',
         'public' => 'getPublic',
         'private' => 'getPrivate',
-        'mandate' => 'getMandate'
+        'mandate' => 'getMandate',
+        'token_status' => 'getTokenStatus'
     ];
 
     public static function attributeMap()
@@ -179,6 +184,7 @@ class PaymentContainersProductModel extends BaseProductModel
         $this->container['public'] = isset($data['public']) ? $data['public'] : null;
         $this->container['private'] = isset($data['private']) ? $data['private'] : null;
         $this->container['mandate'] = isset($data['mandate']) ? $data['mandate'] : null;
+        $this->container['token_status'] = isset($data['token_status']) ? $data['token_status'] : null;
     }
 
     /**
@@ -516,6 +522,27 @@ class PaymentContainersProductModel extends BaseProductModel
     public function setMandate($mandate)
     {
         $this->container['mandate'] = $mandate;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_status
+     * @return \Secuconnect\Client\Model\PaymentContainerTokenStatus
+     */
+    public function getTokenStatus()
+    {
+        return $this->container['token_status'];
+    }
+
+    /**
+     * Sets token_status
+     * @param \Secuconnect\Client\Model\PaymentContainerTokenStatus $token_status token_status
+     * @return $this
+     */
+    public function setTokenStatus($token_status)
+    {
+        $this->container['token_status'] = $token_status;
 
         return $this;
     }

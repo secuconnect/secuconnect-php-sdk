@@ -30,6 +30,8 @@ class SmartTransactionPaymentContainerDTO extends ProductInstanceUID
         'customer' => '\Secuconnect\Client\Model\PaymentContainersDTOCustomer',
         'customer_id' => 'string',
         'type' => 'string',
+        'request_token' => 'bool',
+        'notification_url' => 'string',
         'private' => '\Secuconnect\Client\Model\OneOfPaymentContainersDTOModelPrivate'
     ];
 
@@ -42,6 +44,8 @@ class SmartTransactionPaymentContainerDTO extends ProductInstanceUID
         'customer' => null,
         'customer_id' => null,
         'type' => null,
+        'request_token' => null,
+        'notification_url' => null,
         'private' => null
     ];
 
@@ -64,6 +68,8 @@ class SmartTransactionPaymentContainerDTO extends ProductInstanceUID
         'customer' => 'customer',
         'customer_id' => 'customer_id',
         'type' => 'type',
+        'request_token' => 'request_token',
+        'notification_url' => 'notification_url',
         'private' => 'private'
     ];
 
@@ -76,6 +82,8 @@ class SmartTransactionPaymentContainerDTO extends ProductInstanceUID
         'customer' => 'setCustomer',
         'customer_id' => 'setCustomerId',
         'type' => 'setType',
+        'request_token' => 'setRequestToken',
+        'notification_url' => 'setNotificationUrl',
         'private' => 'setPrivate'
     ];
 
@@ -88,6 +96,8 @@ class SmartTransactionPaymentContainerDTO extends ProductInstanceUID
         'customer' => 'getCustomer',
         'customer_id' => 'getCustomerId',
         'type' => 'getType',
+        'request_token' => 'getRequestToken',
+        'notification_url' => 'getNotificationUrl',
         'private' => 'getPrivate'
     ];
 
@@ -118,6 +128,8 @@ class SmartTransactionPaymentContainerDTO extends ProductInstanceUID
         $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
         $this->container['customer_id'] = isset($data['customer_id']) ? $data['customer_id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['request_token'] = isset($data['request_token']) ? $data['request_token'] : false;
+        $this->container['notification_url'] = isset($data['notification_url']) ? $data['notification_url'] : null;
         $this->container['private'] = isset($data['private']) ? $data['private'] : null;
     }
 
@@ -225,6 +237,48 @@ class SmartTransactionPaymentContainerDTO extends ProductInstanceUID
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets request_token
+     * @return bool
+     */
+    public function getRequestToken()
+    {
+        return $this->container['request_token'];
+    }
+
+    /**
+     * Sets request_token
+     * @param bool $request_token Request Token
+     * @return $this
+     */
+    public function setRequestToken($request_token)
+    {
+        $this->container['request_token'] = $request_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets notification_url
+     * @return string
+     */
+    public function getNotificationUrl()
+    {
+        return $this->container['notification_url'];
+    }
+
+    /**
+     * Sets notification_url
+     * @param string $notification_url Shop URL for failed external authorization or payment
+     * @return $this
+     */
+    public function setNotificationUrl($notification_url)
+    {
+        $this->container['notification_url'] = $notification_url;
 
         return $this;
     }

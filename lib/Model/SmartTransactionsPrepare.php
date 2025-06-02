@@ -31,6 +31,7 @@ class SmartTransactionsPrepare implements ArrayAccess
         'customer' => '\Secuconnect\Client\Model\SmartTransactionPaymentCustomerDTO',
         'container' => '\Secuconnect\Client\Model\SmartTransactionPaymentContainerDTO',
         'callback_urls' => '\Secuconnect\Client\Model\SmartTransactionsPrepareCallbackUrls',
+        'dynamic_descriptor' => '\Secuconnect\Client\Model\SmartTransactionsPrepareDynamicDescriptor',
         'email' => 'string'
     ];
 
@@ -42,6 +43,7 @@ class SmartTransactionsPrepare implements ArrayAccess
         'customer' => null,
         'container' => null,
         'callback_urls' => null,
+        'dynamic_descriptor' => null,
         'email' => null
     ];
 
@@ -63,6 +65,7 @@ class SmartTransactionsPrepare implements ArrayAccess
         'customer' => 'customer',
         'container' => 'container',
         'callback_urls' => 'callback_urls',
+        'dynamic_descriptor' => 'dynamic_descriptor',
         'email' => 'email'
     ];
 
@@ -74,6 +77,7 @@ class SmartTransactionsPrepare implements ArrayAccess
         'customer' => 'setCustomer',
         'container' => 'setContainer',
         'callback_urls' => 'setCallbackUrls',
+        'dynamic_descriptor' => 'setDynamicDescriptor',
         'email' => 'setEmail'
     ];
 
@@ -85,6 +89,7 @@ class SmartTransactionsPrepare implements ArrayAccess
         'customer' => 'getCustomer',
         'container' => 'getContainer',
         'callback_urls' => 'getCallbackUrls',
+        'dynamic_descriptor' => 'getDynamicDescriptor',
         'email' => 'getEmail'
     ];
 
@@ -118,6 +123,7 @@ class SmartTransactionsPrepare implements ArrayAccess
         $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
         $this->container['container'] = isset($data['container']) ? $data['container'] : null;
         $this->container['callback_urls'] = isset($data['callback_urls']) ? $data['callback_urls'] : null;
+        $this->container['dynamic_descriptor'] = isset($data['dynamic_descriptor']) ? $data['dynamic_descriptor'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
     }
 
@@ -204,6 +210,27 @@ class SmartTransactionsPrepare implements ArrayAccess
     public function setCallbackUrls($callback_urls)
     {
         $this->container['callback_urls'] = $callback_urls;
+
+        return $this;
+    }
+
+    /**
+     * Gets dynamic_descriptor
+     * @return \Secuconnect\Client\Model\SmartTransactionsPrepareDynamicDescriptor
+     */
+    public function getDynamicDescriptor()
+    {
+        return $this->container['dynamic_descriptor'];
+    }
+
+    /**
+     * Sets dynamic_descriptor
+     * @param \Secuconnect\Client\Model\SmartTransactionsPrepareDynamicDescriptor $dynamic_descriptor dynamic_descriptor
+     * @return $this
+     */
+    public function setDynamicDescriptor($dynamic_descriptor)
+    {
+        $this->container['dynamic_descriptor'] = $dynamic_descriptor;
 
         return $this;
     }

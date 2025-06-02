@@ -153,6 +153,123 @@ class PaymentTransactionsApi
     }
 
     /**
+     * Operation assignPayment
+     *
+     * Assign Payment
+     *
+     * @param string $payment_transaction_id Payment Transaction ID (required)
+     * @param int $accounting_id Accounting ID (required)
+     * @throws ApiException on non-2xx response
+     * @return \Secuconnect\Client\Model\PaymentTransactionsProductModel
+     */
+    public function assignPayment($payment_transaction_id, $accounting_id)
+    {
+        list($response) = $this->assignPaymentWithHttpInfo($payment_transaction_id, $accounting_id);
+        return $response;
+    }
+
+    /**
+     * Operation assignPaymentWithHttpInfo
+     *
+     * Assign Payment
+     *
+     * @param string $payment_transaction_id Payment Transaction ID (required)
+     * @param int $accounting_id Accounting ID (required)
+     * @throws ApiException on non-2xx response
+     * @return array of \Secuconnect\Client\Model\PaymentTransactionsProductModel, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function assignPaymentWithHttpInfo($payment_transaction_id, $accounting_id)
+    {
+        // verify the required parameter 'payment_transaction_id' is set
+        if ($payment_transaction_id === null || (is_array($payment_transaction_id) && count($payment_transaction_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $payment_transaction_id when calling assignPayment'
+            );
+        }
+        // verify the required parameter 'accounting_id' is set
+        if ($accounting_id === null || (is_array($accounting_id) && count($accounting_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $accounting_id when calling assignPayment'
+            );
+        }
+        // parse inputs
+        $resourcePath = "/Payment/Transactions/{paymentTransactionId}/assignPayment/{accountingId}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+
+        // path params
+        if ($payment_transaction_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "paymentTransactionId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($payment_transaction_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($accounting_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "accountingId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($accounting_id),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        for ($retries = 0; ; $retries++) {
+
+            // this endpoint requires OAuth (access token)
+            if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+                $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+            }
+
+            // make the API Call
+            try {
+                list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                    $resourcePath,
+                    'POST',
+                    $queryParams,
+                    $httpBody,
+                    $headerParams,
+                    '\Secuconnect\Client\Model\PaymentTransactionsProductModel',
+                    '/Payment/Transactions/{paymentTransactionId}/assignPayment/{accountingId}'
+                );
+
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentTransactionsProductModel', $httpHeader), $statusCode, $httpHeader];
+            } catch (ApiException $e) {
+                switch ($e->getCode()) {
+                    case 200:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentTransactionsProductModel', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                    case 401:
+                        if ($retries < 1) {
+                            Authenticator::reauthenticate();
+                            continue 2;
+                        }
+                    default:
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ProductExceptionPayload', $e->getResponseHeaders());
+                        $e->setResponseObject($data);
+                        break;
+                }
+
+                throw $e;
+            }
+        }
+    }
+
+    /**
      * Operation assignTransferBalance
      *
      * Assign transferred balance
