@@ -945,9 +945,9 @@ class PaymentContainersApi
     /**
      * Operation validateSingleIban
      *
-     * Process Single IBAN Validation
+     * Validate IBAN
      *
-     * @param \Secuconnect\Client\Model\PaymentContainersValidateSingleIbanDTO $body Id and IBAN to validate the input 
+     * @param \Secuconnect\Client\Model\PaymentContainersValidateSingleIbanDTO $body IBAN(s) to validate 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentContainersValidateSingleIban
      */
@@ -960,9 +960,9 @@ class PaymentContainersApi
     /**
      * Operation validateSingleIbanWithHttpInfo
      *
-     * Process Single IBAN Validation
+     * Validate IBAN
      *
-     * @param \Secuconnect\Client\Model\PaymentContainersValidateSingleIbanDTO $body Id and IBAN to validate the input 
+     * @param \Secuconnect\Client\Model\PaymentContainersValidateSingleIbanDTO $body IBAN(s) to validate 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentContainersValidateSingleIban, HTTP status code, HTTP response headers (array of strings)
      */

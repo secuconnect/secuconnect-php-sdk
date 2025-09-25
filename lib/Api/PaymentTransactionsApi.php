@@ -155,7 +155,7 @@ class PaymentTransactionsApi
     /**
      * Operation assignPayment
      *
-     * Assign Payment
+     * Assign payment
      *
      * @param string $payment_transaction_id Payment Transaction ID (required)
      * @param int $accounting_id Accounting ID (required)
@@ -171,7 +171,7 @@ class PaymentTransactionsApi
     /**
      * Operation assignPaymentWithHttpInfo
      *
-     * Assign Payment
+     * Assign payment
      *
      * @param string $payment_transaction_id Payment Transaction ID (required)
      * @param int $accounting_id Accounting ID (required)
@@ -1358,9 +1358,9 @@ class PaymentTransactionsApi
     /**
      * Operation getRefundBankAccount
      *
-     * Get Refund Bank Account
+     * Refund bank account
      *
-     * @param \Secuconnect\Client\Model\PaymentTransactionsGetRefundBankAccountDTO $body Get Refund Bank Account 
+     * @param \Secuconnect\Client\Model\PaymentTransactionsGetRefundBankAccountDTO $body Transaction ID 
      * @throws ApiException on non-2xx response
      * @return \Secuconnect\Client\Model\PaymentTransactionsGetRefundBankAccount
      */
@@ -1373,9 +1373,9 @@ class PaymentTransactionsApi
     /**
      * Operation getRefundBankAccountWithHttpInfo
      *
-     * Get Refund Bank Account
+     * Refund bank account
      *
-     * @param \Secuconnect\Client\Model\PaymentTransactionsGetRefundBankAccountDTO $body Get Refund Bank Account 
+     * @param \Secuconnect\Client\Model\PaymentTransactionsGetRefundBankAccountDTO $body Transaction ID 
      * @throws ApiException on non-2xx response
      * @return array of \Secuconnect\Client\Model\PaymentTransactionsGetRefundBankAccount, HTTP status code, HTTP response headers (array of strings)
      */

@@ -144,7 +144,7 @@ class PaymentContainersValidateSingleIbanDTO implements ArrayAccess
 
     /**
      * Sets id
-     * @param int $id Batch reference ID
+     * @param int $id Reference ID to match the response values
      * @return $this
      */
     public function setId($id)

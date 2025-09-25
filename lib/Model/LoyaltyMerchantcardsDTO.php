@@ -150,7 +150,7 @@ class LoyaltyMerchantcardsDTO implements ArrayAccess
 
     /**
      * Sets expiry_date
-     * @param string $expiry_date Expiry date in RFC3339 format
+     * @param string $expiry_date Card expiry date in ISO 8601 format
      * @return $this
      */
     public function setExpiryDate($expiry_date)

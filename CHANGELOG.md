@@ -18,6 +18,25 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.58.0] - 2025-09-25
+[2.58.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.57.0...2.58.0
+
+### Changed
+- `Api.PaymentContainersApi`
+- `Api.PaymentTransactionsApi`
+- `Model.DeviceStatus`
+- `Model.LoyaltyMerchantcardsDTO`
+- `Model.LoyaltyMerchantcardsProductModel`
+- `Model.PaymentContainersDTO`
+- `Model.PaymentContainersValidateSingleIban`
+- `Model.PaymentContainersValidateSingleIbanDTO`
+- `Model.PaymentContractsDTORequestId`
+- `Model.PaymentContractsDTORequestIdAdditionalDataCreateCard`
+- `Model.PaymentContractsDTORequestIdPricing`
+- `Model.PaymentTransactionStatus`
+- `Model.SmartTransactionPaymentContainerDTO`
+
+
 ## [2.57.0] - 2025-06-02
 [2.57.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.56.0...2.57.0
 

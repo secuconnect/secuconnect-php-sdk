@@ -8,7 +8,7 @@ use \ArrayAccess;
  * PaymentTransactionStatus
  *
  * @category Class
- * @description status value
+ * @description Payment Transaction status
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

@@ -177,7 +177,7 @@ class PaymentContractsDTORequestIdAdditionalDataCreateCard implements ArrayAcces
 
     /**
      * Sets card_type
-     * @param string $card_type Card Type
+     * @param string $card_type Card type
      * @return $this
      */
     public function setCardType($card_type)
@@ -198,7 +198,7 @@ class PaymentContractsDTORequestIdAdditionalDataCreateCard implements ArrayAcces
 
     /**
      * Sets identifier
-     * @param string $identifier Identifier - required if card_type is 'plastic'
+     * @param string $identifier Identifier; required if `card_type` is \"plastic\"
      * @return $this
      */
     public function setIdentifier($identifier)
