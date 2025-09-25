@@ -8,7 +8,7 @@ use \ArrayAccess;
  * PaymentContractsDTORequestIdPricing
  *
  * @category Class
- * @description Pricing Input
+ * @description Pricing
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -156,7 +156,7 @@ class PaymentContractsDTORequestIdPricing implements ArrayAccess
 
     /**
      * Sets product_id
-     * @param int $product_id Product Id
+     * @param int $product_id Product ID
      * @return $this
      */
     public function setProductId($product_id)
@@ -177,7 +177,7 @@ class PaymentContractsDTORequestIdPricing implements ArrayAccess
 
     /**
      * Sets disagio
-     * @param string $disagio Disagio - Format 1.25
+     * @param string $disagio Disagio in percent; \"1.45\" means 1.45%
      * @return $this
      */
     public function setDisagio($disagio)
@@ -198,7 +198,7 @@ class PaymentContractsDTORequestIdPricing implements ArrayAccess
 
     /**
      * Sets disagio_min
-     * @param string $disagio_min Disagio Min - Format 0.25
+     * @param string $disagio_min Minimum disagio for small amounts in Euro; \"0.05\" means €0.05
      * @return $this
      */
     public function setDisagioMin($disagio_min)
@@ -219,7 +219,7 @@ class PaymentContractsDTORequestIdPricing implements ArrayAccess
 
     /**
      * Sets fix
-     * @param string $fix Fix - Format 0.05
+     * @param string $fix Fixed fee in Euro; \"0.25\" means €0.25
      * @return $this
      */
     public function setFix($fix)

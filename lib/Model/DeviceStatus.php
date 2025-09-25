@@ -8,7 +8,7 @@ use \ArrayAccess;
  * DeviceStatus
  *
  * @category Class
- * @description Status for the device
+ * @description Device status
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

@@ -738,7 +738,7 @@ class LoyaltyMerchantcardsProductModel extends BaseProductModel
 
     /**
      * Sets passcode
-     * @param int $passcode Whether the card has a passcode set (`1`) or not (`0`)
+     * @param int $passcode Whether the passcode must be checked before an operation:  - `0` — no check needed - `1` — check before any operation - `2` — check before currency discharge - `3` — check before currency charge - `4` — check before sale revenue recording - `5` — check before point discharge - `6` — check before point charge
      * @return $this
      */
     public function setPasscode($passcode)

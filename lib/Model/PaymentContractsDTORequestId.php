@@ -621,7 +621,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets invoice_reference
-     * @param string $invoice_reference Reference-Text from Inputfield
+     * @param string $invoice_reference Reference text from user input
      * @return $this
      */
     public function setInvoiceReference($invoice_reference)
@@ -726,7 +726,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets funding_threshold
-     * @param int $funding_threshold Funding Threshold
+     * @param int $funding_threshold Funding threshold
      * @return $this
      */
     public function setFundingThreshold($funding_threshold)
@@ -747,7 +747,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets funding_end
-     * @param string $funding_end Funding End
+     * @param string $funding_end Funding end as ISO 8601 date
      * @return $this
      */
     public function setFundingEnd($funding_end)
@@ -789,7 +789,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets project_brochure
-     * @param string $project_brochure Project Brochure
+     * @param string $project_brochure Ephemeral Document Upload ID (DUP_xyz) of project brochure
      * @return $this
      */
     public function setProjectBrochure($project_brochure)
@@ -810,7 +810,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets project_factsheet
-     * @param string $project_factsheet Project Factsheet
+     * @param string $project_factsheet Ephemeral Document Upload ID (DUP_xyz) of project factsheet
      * @return $this
      */
     public function setProjectFactsheet($project_factsheet)
@@ -831,7 +831,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets project_duration
-     * @param int $project_duration Project Duration
+     * @param int $project_duration Project duration
      * @return $this
      */
     public function setProjectDuration($project_duration)
@@ -852,7 +852,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets account_verification
-     * @param string $account_verification Account Verification
+     * @param string $account_verification Ephemeral Document Upload ID (DUP_xyz) of account verification document
      * @return $this
      */
     public function setAccountVerification($account_verification)
@@ -873,7 +873,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets interest_payment_interval
-     * @param string $interest_payment_interval Interest Payment Interval
+     * @param string $interest_payment_interval Interest payment interval
      * @return $this
      */
     public function setInterestPaymentInterval($interest_payment_interval)

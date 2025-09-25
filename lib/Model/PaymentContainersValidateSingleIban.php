@@ -162,7 +162,7 @@ class PaymentContainersValidateSingleIban implements ArrayAccess
 
     /**
      * Sets id
-     * @param int $id Batch reference ID from request
+     * @param int $id Reference ID, as specified in the request
      * @return $this
      */
     public function setId($id)
