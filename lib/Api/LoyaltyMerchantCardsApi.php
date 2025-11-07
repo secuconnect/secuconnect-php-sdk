@@ -393,7 +393,7 @@ class LoyaltyMerchantCardsApi
      * @param string $loyalty_cardgroup_id Loyalty Card Group ID (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCreateMerchantcards $body Number of cards and customer details 
      * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel[]
+     * @return \Secuconnect\Client\Model\CreateLoyaltyMerchantcardsProductModel[]
      */
     public function createMerchantcards($general_merchant_id, $loyalty_cardgroup_id, $body)
     {
@@ -410,7 +410,7 @@ class LoyaltyMerchantCardsApi
      * @param string $loyalty_cardgroup_id Loyalty Card Group ID (required)
      * @param \Secuconnect\Client\Model\LoyaltyMerchantcardsDTOCreateMerchantcards $body Number of cards and customer details 
      * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Secuconnect\Client\Model\CreateLoyaltyMerchantcardsProductModel[], HTTP status code, HTTP response headers (array of strings)
      */
     public function createMerchantcardsWithHttpInfo($general_merchant_id, $loyalty_cardgroup_id, $body)
     {
@@ -481,15 +481,15 @@ class LoyaltyMerchantCardsApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    '\Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel[]',
+                    '\Secuconnect\Client\Model\CreateLoyaltyMerchantcardsProductModel[]',
                     '/Loyalty/MerchantCards/{generalMerchantId}/createMerchantcards/{loyaltyCardgroupId}'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel[]', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\CreateLoyaltyMerchantcardsProductModel[]', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\LoyaltyMerchantcardsProductModel[]', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\CreateLoyaltyMerchantcardsProductModel[]', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:
