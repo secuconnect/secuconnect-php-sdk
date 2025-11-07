@@ -32,7 +32,10 @@ class PaymentContext implements ArrayAccess
         'payment_methods' => 'string[]',
         'merchant_initiated' => 'bool',
         'creditcard_schemes' => 'string[]',
-        'accrual' => 'bool'
+        'accrual' => 'bool',
+        'dynamic_descriptor' => '\Secuconnect\Client\Model\DynamicDescriptor',
+        'container_instructions' => '\Secuconnect\Client\Model\ContainerInstructions',
+        'mit_instructions' => '\Secuconnect\Client\Model\MITInstructions'
     ];
 
     /**
@@ -44,7 +47,10 @@ class PaymentContext implements ArrayAccess
         'payment_methods' => null,
         'merchant_initiated' => null,
         'creditcard_schemes' => null,
-        'accrual' => null
+        'accrual' => null,
+        'dynamic_descriptor' => null,
+        'container_instructions' => null,
+        'mit_instructions' => null
     ];
 
     public static function swaggerTypes()
@@ -66,7 +72,10 @@ class PaymentContext implements ArrayAccess
         'payment_methods' => 'payment_methods',
         'merchant_initiated' => 'merchant_initiated',
         'creditcard_schemes' => 'creditcard_schemes',
-        'accrual' => 'accrual'
+        'accrual' => 'accrual',
+        'dynamic_descriptor' => 'dynamic_descriptor',
+        'container_instructions' => 'container_instructions',
+        'mit_instructions' => 'mit_instructions'
     ];
 
     /**
@@ -78,7 +87,10 @@ class PaymentContext implements ArrayAccess
         'payment_methods' => 'setPaymentMethods',
         'merchant_initiated' => 'setMerchantInitiated',
         'creditcard_schemes' => 'setCreditcardSchemes',
-        'accrual' => 'setAccrual'
+        'accrual' => 'setAccrual',
+        'dynamic_descriptor' => 'setDynamicDescriptor',
+        'container_instructions' => 'setContainerInstructions',
+        'mit_instructions' => 'setMitInstructions'
     ];
 
     /**
@@ -90,7 +102,10 @@ class PaymentContext implements ArrayAccess
         'payment_methods' => 'getPaymentMethods',
         'merchant_initiated' => 'getMerchantInitiated',
         'creditcard_schemes' => 'getCreditcardSchemes',
-        'accrual' => 'getAccrual'
+        'accrual' => 'getAccrual',
+        'dynamic_descriptor' => 'getDynamicDescriptor',
+        'container_instructions' => 'getContainerInstructions',
+        'mit_instructions' => 'getMitInstructions'
     ];
 
     public static function attributeMap()
@@ -125,6 +140,9 @@ class PaymentContext implements ArrayAccess
         $this->container['merchant_initiated'] = isset($data['merchant_initiated']) ? $data['merchant_initiated'] : false;
         $this->container['creditcard_schemes'] = isset($data['creditcard_schemes']) ? $data['creditcard_schemes'] : null;
         $this->container['accrual'] = isset($data['accrual']) ? $data['accrual'] : false;
+        $this->container['dynamic_descriptor'] = isset($data['dynamic_descriptor']) ? $data['dynamic_descriptor'] : null;
+        $this->container['container_instructions'] = isset($data['container_instructions']) ? $data['container_instructions'] : null;
+        $this->container['mit_instructions'] = isset($data['mit_instructions']) ? $data['mit_instructions'] : null;
     }
 
     /**
@@ -252,6 +270,69 @@ class PaymentContext implements ArrayAccess
     public function setAccrual($accrual)
     {
         $this->container['accrual'] = $accrual;
+
+        return $this;
+    }
+
+    /**
+     * Gets dynamic_descriptor
+     * @return \Secuconnect\Client\Model\DynamicDescriptor
+     */
+    public function getDynamicDescriptor()
+    {
+        return $this->container['dynamic_descriptor'];
+    }
+
+    /**
+     * Sets dynamic_descriptor
+     * @param \Secuconnect\Client\Model\DynamicDescriptor $dynamic_descriptor dynamic_descriptor
+     * @return $this
+     */
+    public function setDynamicDescriptor($dynamic_descriptor)
+    {
+        $this->container['dynamic_descriptor'] = $dynamic_descriptor;
+
+        return $this;
+    }
+
+    /**
+     * Gets container_instructions
+     * @return \Secuconnect\Client\Model\ContainerInstructions
+     */
+    public function getContainerInstructions()
+    {
+        return $this->container['container_instructions'];
+    }
+
+    /**
+     * Sets container_instructions
+     * @param \Secuconnect\Client\Model\ContainerInstructions $container_instructions container_instructions
+     * @return $this
+     */
+    public function setContainerInstructions($container_instructions)
+    {
+        $this->container['container_instructions'] = $container_instructions;
+
+        return $this;
+    }
+
+    /**
+     * Gets mit_instructions
+     * @return \Secuconnect\Client\Model\MITInstructions
+     */
+    public function getMitInstructions()
+    {
+        return $this->container['mit_instructions'];
+    }
+
+    /**
+     * Sets mit_instructions
+     * @param \Secuconnect\Client\Model\MITInstructions $mit_instructions mit_instructions
+     * @return $this
+     */
+    public function setMitInstructions($mit_instructions)
+    {
+        $this->container['mit_instructions'] = $mit_instructions;
 
         return $this;
     }
