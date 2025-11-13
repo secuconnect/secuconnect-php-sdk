@@ -29,7 +29,7 @@ class MITInstructions implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'type' => 'string',
-        'standing_instructions' => 'string',
+        'standing_instruction' => 'string',
         'recurring_expiry' => 'string',
         'recurring_frequency' => 'int',
         'cit_reference' => 'string'
@@ -41,7 +41,7 @@ class MITInstructions implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'type' => null,
-        'standing_instructions' => null,
+        'standing_instruction' => null,
         'recurring_expiry' => null,
         'recurring_frequency' => null,
         'cit_reference' => null
@@ -63,7 +63,7 @@ class MITInstructions implements ArrayAccess
      */
     protected static $attributeMap = [
         'type' => 'type',
-        'standing_instructions' => 'standing_instructions',
+        'standing_instruction' => 'standing_instruction',
         'recurring_expiry' => 'recurring_expiry',
         'recurring_frequency' => 'recurring_frequency',
         'cit_reference' => 'cit_reference'
@@ -75,7 +75,7 @@ class MITInstructions implements ArrayAccess
      */
     protected static $setters = [
         'type' => 'setType',
-        'standing_instructions' => 'setStandingInstructions',
+        'standing_instruction' => 'setStandingInstruction',
         'recurring_expiry' => 'setRecurringExpiry',
         'recurring_frequency' => 'setRecurringFrequency',
         'cit_reference' => 'setCitReference'
@@ -87,7 +87,7 @@ class MITInstructions implements ArrayAccess
      */
     protected static $getters = [
         'type' => 'getType',
-        'standing_instructions' => 'getStandingInstructions',
+        'standing_instruction' => 'getStandingInstruction',
         'recurring_expiry' => 'getRecurringExpiry',
         'recurring_frequency' => 'getRecurringFrequency',
         'cit_reference' => 'getCitReference'
@@ -121,7 +121,7 @@ class MITInstructions implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['standing_instructions'] = isset($data['standing_instructions']) ? $data['standing_instructions'] : null;
+        $this->container['standing_instruction'] = isset($data['standing_instruction']) ? $data['standing_instruction'] : null;
         $this->container['recurring_expiry'] = isset($data['recurring_expiry']) ? $data['recurring_expiry'] : null;
         $this->container['recurring_frequency'] = isset($data['recurring_frequency']) ? $data['recurring_frequency'] : null;
         $this->container['cit_reference'] = isset($data['cit_reference']) ? $data['cit_reference'] : null;
@@ -173,22 +173,22 @@ class MITInstructions implements ArrayAccess
     }
 
     /**
-     * Gets standing_instructions
+     * Gets standing_instruction
      * @return string
      */
-    public function getStandingInstructions()
+    public function getStandingInstruction()
     {
-        return $this->container['standing_instructions'];
+        return $this->container['standing_instruction'];
     }
 
     /**
-     * Sets standing_instructions
-     * @param string $standing_instructions Standing Instructions:  - `\"ucof\"` - `\"recurring\"`
+     * Sets standing_instruction
+     * @param string $standing_instruction Standing Instruction:  - `\"ucof\"` - `\"recurring\"`
      * @return $this
      */
-    public function setStandingInstructions($standing_instructions)
+    public function setStandingInstruction($standing_instruction)
     {
-        $this->container['standing_instructions'] = $standing_instructions;
+        $this->container['standing_instruction'] = $standing_instruction;
 
         return $this;
     }
