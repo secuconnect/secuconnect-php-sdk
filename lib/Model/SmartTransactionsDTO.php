@@ -741,7 +741,7 @@ class SmartTransactionsDTO implements ArrayAccess
 
     /**
      * Sets is_demo
-     * @param bool $is_demo Whether the transaction is in demo mode (payment not executed)
+     * @param bool $is_demo Whether the transaction is in demo mode (payment not executed)  Please use the sandbox environment for testing.
      * @return $this
      */
     public function setIsDemo($is_demo)

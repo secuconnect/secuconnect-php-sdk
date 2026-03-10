@@ -8,7 +8,7 @@ use \ArrayAccess;
  * MITInstructions
  *
  * @category Class
- * @description Settings for merchant initiated transaction (MIT)
+ * @description Settings for recurring payments / merchant-initiated transactions (MIT)
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -162,7 +162,7 @@ class MITInstructions implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type Instructions type:  - `\"cit\"` - `\"mit\"`
+     * @param string $type Instructions type:  - `\"cit\"` (customer-initiated transaction/CIT for initial payment) - `\"mit\"` (merchant-initiated transaction/MIT for subsequent payment; requires `cit_reference`)
      * @return $this
      */
     public function setType($type)
@@ -183,7 +183,7 @@ class MITInstructions implements ArrayAccess
 
     /**
      * Sets standing_instruction
-     * @param string $standing_instruction Standing Instruction:  - `\"ucof\"` - `\"recurring\"`
+     * @param string $standing_instruction Standing instruction type:  - `\"ucof\"` (unscheduled card-on-file) - `\"recurring\"` (fix amount and frequency; requires `recurring_frequency`)
      * @return $this
      */
     public function setStandingInstruction($standing_instruction)
@@ -204,7 +204,7 @@ class MITInstructions implements ArrayAccess
 
     /**
      * Sets recurring_expiry
-     * @param string $recurring_expiry The date until a recurring payment should be possible
+     * @param string $recurring_expiry Last date the network token shall be usable for merchant-initiated transactions (MIT)
      * @return $this
      */
     public function setRecurringExpiry($recurring_expiry)
@@ -225,7 +225,7 @@ class MITInstructions implements ArrayAccess
 
     /**
      * Sets recurring_frequency
-     * @param int $recurring_frequency How often a recurring payment should be possible in given period
+     * @param int $recurring_frequency Frequency of recurring payments in days  Required for standing instruction type `\"recurring\"`
      * @return $this
      */
     public function setRecurringFrequency($recurring_frequency)
@@ -246,7 +246,7 @@ class MITInstructions implements ArrayAccess
 
     /**
      * Sets cit_reference
-     * @param string $cit_reference The Payment Transactions ID from initial transaction to process a recurring payment
+     * @param string $cit_reference Payment Transactions ID from the initial customer-initiated transaction (CIT)  Required for all merchant-initiated transactions (MIT)
      * @return $this
      */
     public function setCitReference($cit_reference)

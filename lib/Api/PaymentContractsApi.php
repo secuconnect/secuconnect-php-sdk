@@ -536,7 +536,7 @@ class PaymentContractsApi
     /**
      * Operation requestId
      *
-     * Clone contract and request identification
+     * Request identification
      *
      * @param string $payment_contract_id Payment Contract ID (&#x60;PCR_...&#x60;) or General Contract ID (&#x60;GCR_...&#x60;) of master contract (required)
      * @param \Secuconnect\Client\Model\PaymentContractsDTORequestId $body Payment contract request id properties 
@@ -552,7 +552,7 @@ class PaymentContractsApi
     /**
      * Operation requestIdWithHttpInfo
      *
-     * Clone contract and request identification
+     * Request identification
      *
      * @param string $payment_contract_id Payment Contract ID (&#x60;PCR_...&#x60;) or General Contract ID (&#x60;GCR_...&#x60;) of master contract (required)
      * @param \Secuconnect\Client\Model\PaymentContractsDTORequestId $body Payment contract request id properties 

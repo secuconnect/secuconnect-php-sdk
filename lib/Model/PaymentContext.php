@@ -8,7 +8,7 @@ use \ArrayAccess;
  * PaymentContext
  *
  * @category Class
- * @description Controls some payment details
+ * @description Controls payment details
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
