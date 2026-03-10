@@ -51,11 +51,14 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'funding_threshold' => 'int',
         'funding_end' => 'string',
         'project_url' => 'string',
+        'url_website' => 'string',
         'project_brochure' => 'string',
         'project_factsheet' => 'string',
         'project_duration' => 'int',
         'account_verification' => 'string',
-        'interest_payment_interval' => 'string'
+        'interest_payment_interval' => 'string',
+        'merchant_id' => 'string',
+        'event_details' => '\Secuconnect\Client\Model\GeneralContractsEventDetails'
     ];
 
     /**
@@ -86,11 +89,14 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'funding_threshold' => null,
         'funding_end' => null,
         'project_url' => null,
+        'url_website' => null,
         'project_brochure' => null,
         'project_factsheet' => null,
         'project_duration' => null,
         'account_verification' => null,
-        'interest_payment_interval' => null
+        'interest_payment_interval' => null,
+        'merchant_id' => null,
+        'event_details' => null
     ];
 
     public static function swaggerTypes()
@@ -131,11 +137,14 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'funding_threshold' => 'funding_threshold',
         'funding_end' => 'funding_end',
         'project_url' => 'project_url',
+        'url_website' => 'url_website',
         'project_brochure' => 'project_brochure',
         'project_factsheet' => 'project_factsheet',
         'project_duration' => 'project_duration',
         'account_verification' => 'account_verification',
-        'interest_payment_interval' => 'interest_payment_interval'
+        'interest_payment_interval' => 'interest_payment_interval',
+        'merchant_id' => 'merchant_id',
+        'event_details' => 'event_details'
     ];
 
     /**
@@ -166,11 +175,14 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'funding_threshold' => 'setFundingThreshold',
         'funding_end' => 'setFundingEnd',
         'project_url' => 'setProjectUrl',
+        'url_website' => 'setUrlWebsite',
         'project_brochure' => 'setProjectBrochure',
         'project_factsheet' => 'setProjectFactsheet',
         'project_duration' => 'setProjectDuration',
         'account_verification' => 'setAccountVerification',
-        'interest_payment_interval' => 'setInterestPaymentInterval'
+        'interest_payment_interval' => 'setInterestPaymentInterval',
+        'merchant_id' => 'setMerchantId',
+        'event_details' => 'setEventDetails'
     ];
 
     /**
@@ -201,11 +213,14 @@ class PaymentContractsDTORequestId implements ArrayAccess
         'funding_threshold' => 'getFundingThreshold',
         'funding_end' => 'getFundingEnd',
         'project_url' => 'getProjectUrl',
+        'url_website' => 'getUrlWebsite',
         'project_brochure' => 'getProjectBrochure',
         'project_factsheet' => 'getProjectFactsheet',
         'project_duration' => 'getProjectDuration',
         'account_verification' => 'getAccountVerification',
-        'interest_payment_interval' => 'getInterestPaymentInterval'
+        'interest_payment_interval' => 'getInterestPaymentInterval',
+        'merchant_id' => 'getMerchantId',
+        'event_details' => 'getEventDetails'
     ];
 
     public static function attributeMap()
@@ -258,11 +273,14 @@ class PaymentContractsDTORequestId implements ArrayAccess
         $this->container['funding_threshold'] = isset($data['funding_threshold']) ? $data['funding_threshold'] : null;
         $this->container['funding_end'] = isset($data['funding_end']) ? $data['funding_end'] : null;
         $this->container['project_url'] = isset($data['project_url']) ? $data['project_url'] : null;
+        $this->container['url_website'] = isset($data['url_website']) ? $data['url_website'] : null;
         $this->container['project_brochure'] = isset($data['project_brochure']) ? $data['project_brochure'] : null;
         $this->container['project_factsheet'] = isset($data['project_factsheet']) ? $data['project_factsheet'] : null;
         $this->container['project_duration'] = isset($data['project_duration']) ? $data['project_duration'] : null;
         $this->container['account_verification'] = isset($data['account_verification']) ? $data['account_verification'] : null;
         $this->container['interest_payment_interval'] = isset($data['interest_payment_interval']) ? $data['interest_payment_interval'] : null;
+        $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
+        $this->container['event_details'] = isset($data['event_details']) ? $data['event_details'] : null;
     }
 
     /**
@@ -274,12 +292,6 @@ class PaymentContractsDTORequestId implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['contact'] === null) {
-            $invalid_properties[] = "'contact' can't be null";
-        }
-        if ($this->container['project'] === null) {
-            $invalid_properties[] = "'project' can't be null";
-        }
         return $invalid_properties;
     }
 
@@ -348,7 +360,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets project
-     * @param string $project Project name (must be unique)
+     * @param string $project Project name (must be unique per platform or marketplace)
      * @return $this
      */
     public function setProject($project)
@@ -453,7 +465,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets payin_account
-     * @param bool $payin_account Pay-in account
+     * @param bool $payin_account Whether to assign an account for incoming payments; please pass `true` if you intent to use invoice payment or prepayment
      * @return $this
      */
     public function setPayinAccount($payin_account)
@@ -663,7 +675,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets merchant_category
-     * @param int $merchant_category Merchant category  This is _not_ the ISO Merchant Category Code (MCC). The list can be obtained at `GET /pai/v2/General/Merchants/me/MerchantCategories.
+     * @param int $merchant_category Merchant category  This is _not_ the ISO Merchant Category Code (MCC). The list can be obtained at `GET /api/v2/General/Merchants/me/MerchantCategories.
      * @return $this
      */
     public function setMerchantCategory($merchant_category)
@@ -726,7 +738,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets funding_threshold
-     * @param int $funding_threshold Funding threshold
+     * @param int $funding_threshold Funding threshold in the minor currency unit, e. g. Euro Cents
      * @return $this
      */
     public function setFundingThreshold($funding_threshold)
@@ -768,12 +780,33 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets project_url
-     * @param string $project_url Project URL
+     * @param string $project_url Project URL at the platform or marketplace
      * @return $this
      */
     public function setProjectUrl($project_url)
     {
         $this->container['project_url'] = $project_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets url_website
+     * @return string
+     */
+    public function getUrlWebsite()
+    {
+        return $this->container['url_website'];
+    }
+
+    /**
+     * Sets url_website
+     * @param string $url_website Optional website URL of the project or merchant
+     * @return $this
+     */
+    public function setUrlWebsite($url_website)
+    {
+        $this->container['url_website'] = $url_website;
 
         return $this;
     }
@@ -831,7 +864,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets project_duration
-     * @param int $project_duration Project duration
+     * @param int $project_duration Project duration in months
      * @return $this
      */
     public function setProjectDuration($project_duration)
@@ -852,7 +885,7 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets account_verification
-     * @param string $account_verification Ephemeral Document Upload ID (DUP_xyz) of account verification document
+     * @param string $account_verification Ephemeral Document Upload ID (DUP_xyz) of account verification document by the bank institute of the merchant or project
      * @return $this
      */
     public function setAccountVerification($account_verification)
@@ -873,12 +906,54 @@ class PaymentContractsDTORequestId implements ArrayAccess
 
     /**
      * Sets interest_payment_interval
-     * @param string $interest_payment_interval Interest payment interval
+     * @param string $interest_payment_interval Interest payment interval:  - `\"monthly\"` - `\"quarterly\"` - `\"half-yearly\"` - `\"yearly\"` - `\"different\"`
      * @return $this
      */
     public function setInterestPaymentInterval($interest_payment_interval)
     {
         $this->container['interest_payment_interval'] = $interest_payment_interval;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant_id
+     * @return string
+     */
+    public function getMerchantId()
+    {
+        return $this->container['merchant_id'];
+    }
+
+    /**
+     * Sets merchant_id
+     * @param string $merchant_id General Merchant ID where the contract should be created (can be only used with 'event_details').
+     * @return $this
+     */
+    public function setMerchantId($merchant_id)
+    {
+        $this->container['merchant_id'] = $merchant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_details
+     * @return \Secuconnect\Client\Model\GeneralContractsEventDetails
+     */
+    public function getEventDetails()
+    {
+        return $this->container['event_details'];
+    }
+
+    /**
+     * Sets event_details
+     * @param \Secuconnect\Client\Model\GeneralContractsEventDetails $event_details event_details
+     * @return $this
+     */
+    public function setEventDetails($event_details)
+    {
+        $this->container['event_details'] = $event_details;
 
         return $this;
     }

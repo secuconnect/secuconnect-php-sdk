@@ -8,7 +8,7 @@ use \ArrayAccess;
  * SmartTransactionsPrepareDynamicDescriptor
  *
  * @category Class
- * @description Dynamic Descriptor to allow the cardholder to recognize the business name and city on their card or bank statement.
+ * @description The dynamic descriptor appears on the bank statement of the card holder. This shall either be:  - Legal name and registered Address - DBA (trading name) and business location  The country is taken from the merchant&#x27;s master data. The dynamic descriptor is only useful when used together with credit card payment with secupay acquiring.
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -144,7 +144,7 @@ class SmartTransactionsPrepareDynamicDescriptor implements ArrayAccess
 
     /**
      * Sets merchant_name
-     * @param string $merchant_name Merchant Name to recognition on card or bank statement.  _Note: [1 - 22] characters_
+     * @param string $merchant_name Company name (legal) or DBA (trading name)  _Note: Restricted to 1 .. 22 characters A-Z, a-z, 0-9, - . ! * = _ or space._
      * @return $this
      */
     public function setMerchantName($merchant_name)
@@ -165,7 +165,7 @@ class SmartTransactionsPrepareDynamicDescriptor implements ArrayAccess
 
     /**
      * Sets merchant_city
-     * @param string $merchant_city Merchant City to recognition on card or bank statement.  _Note: [1 - 13] characters_
+     * @param string $merchant_city City of registered address or business address  _Note: Restricted to 1 .. 13 characters A-Z, a-z, 0-9, - . ! * = _ or space._
      * @return $this
      */
     public function setMerchantCity($merchant_city)

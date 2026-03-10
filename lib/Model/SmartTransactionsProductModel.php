@@ -1218,7 +1218,7 @@ class SmartTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets is_demo
-     * @param bool $is_demo Demo payment
+     * @param bool $is_demo Demo payment  Please use the sandbox environment for testing.
      * @return $this
      */
     public function setIsDemo($is_demo)

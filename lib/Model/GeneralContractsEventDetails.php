@@ -5,15 +5,15 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * DynamicDescriptor
+ * GeneralContractsEventDetails
  *
  * @category Class
- * @description DBA (“doing business as”) name and local address instead of the legal name and registration address  A DBA can be a trademark or store name that is better understandable by the card holders when checking their card or bank statements, and can lead to fewer chargebacks. This works only with credit card payment together with the new acquiring by secupay.  _Please note that you must only use DBA names and addresses to which you have a legitimate claim._
+ * @description Event Details
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class DynamicDescriptor implements ArrayAccess
+class GeneralContractsEventDetails implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,15 +21,15 @@ class DynamicDescriptor implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'DynamicDescriptor';
+    protected static $swaggerModelName = 'GeneralContractsEventDetails';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'merchant_name' => 'string',
-        'merchant_city' => 'string'
+        'event_date' => 'string',
+        'event_description' => 'string'
     ];
 
     /**
@@ -37,8 +37,8 @@ class DynamicDescriptor implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'merchant_name' => null,
-        'merchant_city' => null
+        'event_date' => null,
+        'event_description' => null
     ];
 
     public static function swaggerTypes()
@@ -56,8 +56,8 @@ class DynamicDescriptor implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'merchant_name' => 'merchant_name',
-        'merchant_city' => 'merchant_city'
+        'event_date' => 'event_date',
+        'event_description' => 'event_description'
     ];
 
     /**
@@ -65,8 +65,8 @@ class DynamicDescriptor implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'merchant_name' => 'setMerchantName',
-        'merchant_city' => 'setMerchantCity'
+        'event_date' => 'setEventDate',
+        'event_description' => 'setEventDescription'
     ];
 
     /**
@@ -74,8 +74,8 @@ class DynamicDescriptor implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'merchant_name' => 'getMerchantName',
-        'merchant_city' => 'getMerchantCity'
+        'event_date' => 'getEventDate',
+        'event_description' => 'getEventDescription'
     ];
 
     public static function attributeMap()
@@ -105,8 +105,8 @@ class DynamicDescriptor implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['merchant_name'] = isset($data['merchant_name']) ? $data['merchant_name'] : null;
-        $this->container['merchant_city'] = isset($data['merchant_city']) ? $data['merchant_city'] : null;
+        $this->container['event_date'] = isset($data['event_date']) ? $data['event_date'] : null;
+        $this->container['event_description'] = isset($data['event_description']) ? $data['event_description'] : null;
     }
 
     /**
@@ -134,43 +134,43 @@ class DynamicDescriptor implements ArrayAccess
 
 
     /**
-     * Gets merchant_name
+     * Gets event_date
      * @return string
      */
-    public function getMerchantName()
+    public function getEventDate()
     {
-        return $this->container['merchant_name'];
+        return $this->container['event_date'];
     }
 
     /**
-     * Sets merchant_name
-     * @param string $merchant_name DBA (“doing business as”)
+     * Sets event_date
+     * @param string $event_date Date of the Event (format: YYYY-MM-DD)
      * @return $this
      */
-    public function setMerchantName($merchant_name)
+    public function setEventDate($event_date)
     {
-        $this->container['merchant_name'] = $merchant_name;
+        $this->container['event_date'] = $event_date;
 
         return $this;
     }
 
     /**
-     * Gets merchant_city
+     * Gets event_description
      * @return string
      */
-    public function getMerchantCity()
+    public function getEventDescription()
     {
-        return $this->container['merchant_city'];
+        return $this->container['event_description'];
     }
 
     /**
-     * Sets merchant_city
-     * @param string $merchant_city merchant_city
+     * Sets event_description
+     * @param string $event_description Name of the Event
      * @return $this
      */
-    public function setMerchantCity($merchant_city)
+    public function setEventDescription($event_description)
     {
-        $this->container['merchant_city'] = $merchant_city;
+        $this->container['event_description'] = $event_description;
 
         return $this;
     }

@@ -18,6 +18,31 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.61.0] - 2026-03-10
+[2.61.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.60.0...2.61.0
+
+- *new element*: `GeneralContractsProductModel->event_details`
+- *new element*: `PaymentContractsDTORequestId->url_website`
+- *new element*: `PaymentContractsDTORequestId->merchant_id`
+- *new element*: `PaymentContractsDTORequestId->event_details`
+
+### Added
+- `Model.GeneralContractsEventDetails`
+
+### Changed
+- `Api.PaymentContractsApi`
+- `Model.ContainerInstructions`
+- `Model.DynamicDescriptor`
+- `Model.GeneralContractsProductModel`
+- `Model.MITInstructions`
+- `Model.PaymentContainerTokenStatus`
+- `Model.PaymentContext`
+- `Model.PaymentContractsDTORequestId`
+- `Model.SmartTransactionsDTO`
+- `Model.SmartTransactionsPrepareDynamicDescriptor`
+- `Model.SmartTransactionsProductModel`
+
+
 ## [2.60.0] - 2025-11-13
 [2.60.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.59.0...2.60.0
 

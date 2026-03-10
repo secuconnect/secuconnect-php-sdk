@@ -41,7 +41,8 @@ class GeneralContractsProductModel extends BaseProductModel
         'easycredit_configuration' => '\Secuconnect\Client\Model\ThirdPartyEnvironment',
         'checkout_configuration' => '\Secuconnect\Client\Model\CheckoutConfiguration',
         'payment_link_options' => '\Secuconnect\Client\Model\PaymentLinkOptions',
-        'approved' => 'bool'
+        'approved' => 'bool',
+        'event_details' => '\Secuconnect\Client\Model\GeneralContractsEventDetails'
     ];
 
     /**
@@ -64,7 +65,8 @@ class GeneralContractsProductModel extends BaseProductModel
         'easycredit_configuration' => null,
         'checkout_configuration' => null,
         'payment_link_options' => null,
-        'approved' => null
+        'approved' => null,
+        'event_details' => null
     ];
 
     public static function swaggerTypes()
@@ -97,7 +99,8 @@ class GeneralContractsProductModel extends BaseProductModel
         'easycredit_configuration' => 'easycredit_configuration',
         'checkout_configuration' => 'checkout_configuration',
         'payment_link_options' => 'payment_link_options',
-        'approved' => 'approved'
+        'approved' => 'approved',
+        'event_details' => 'event_details'
     ];
 
     /**
@@ -120,7 +123,8 @@ class GeneralContractsProductModel extends BaseProductModel
         'easycredit_configuration' => 'setEasycreditConfiguration',
         'checkout_configuration' => 'setCheckoutConfiguration',
         'payment_link_options' => 'setPaymentLinkOptions',
-        'approved' => 'setApproved'
+        'approved' => 'setApproved',
+        'event_details' => 'setEventDetails'
     ];
 
     /**
@@ -143,7 +147,8 @@ class GeneralContractsProductModel extends BaseProductModel
         'easycredit_configuration' => 'getEasycreditConfiguration',
         'checkout_configuration' => 'getCheckoutConfiguration',
         'payment_link_options' => 'getPaymentLinkOptions',
-        'approved' => 'getApproved'
+        'approved' => 'getApproved',
+        'event_details' => 'getEventDetails'
     ];
 
     public static function attributeMap()
@@ -185,6 +190,7 @@ class GeneralContractsProductModel extends BaseProductModel
         $this->container['checkout_configuration'] = isset($data['checkout_configuration']) ? $data['checkout_configuration'] : null;
         $this->container['payment_link_options'] = isset($data['payment_link_options']) ? $data['payment_link_options'] : null;
         $this->container['approved'] = isset($data['approved']) ? $data['approved'] : null;
+        $this->container['event_details'] = isset($data['event_details']) ? $data['event_details'] : null;
     }
 
     /**
@@ -543,6 +549,27 @@ class GeneralContractsProductModel extends BaseProductModel
     public function setApproved($approved)
     {
         $this->container['approved'] = $approved;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_details
+     * @return \Secuconnect\Client\Model\GeneralContractsEventDetails
+     */
+    public function getEventDetails()
+    {
+        return $this->container['event_details'];
+    }
+
+    /**
+     * Sets event_details
+     * @param \Secuconnect\Client\Model\GeneralContractsEventDetails $event_details event_details
+     * @return $this
+     */
+    public function setEventDetails($event_details)
+    {
+        $this->container['event_details'] = $event_details;
 
         return $this;
     }

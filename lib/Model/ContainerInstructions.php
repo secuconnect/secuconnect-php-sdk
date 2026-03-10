@@ -8,7 +8,7 @@ use \ArrayAccess;
  * ContainerInstructions
  *
  * @category Class
- * @description Instructions for additional actions of creditcard payment container
+ * @description Additional instructions for credit card payment containers
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -144,7 +144,7 @@ class ContainerInstructions implements ArrayAccess
 
     /**
      * Sets request_token
-     * @param bool $request_token Whether to create a network token for container or not
+     * @param bool $request_token Whether to create a network token for container or not  Network tokens can be used for merchant-initiated transactions (MIT) in context of recurring payments, or for one-click payments.
      * @return $this
      */
     public function setRequestToken($request_token)
@@ -165,7 +165,7 @@ class ContainerInstructions implements ArrayAccess
 
     /**
      * Sets notification_url
-     * @param string $notification_url Shop URL for status pushes of updated payment container with network token (server-to-server callback)
+     * @param string $notification_url Shop URL to receice status pushes (server-to-server callback) for updates of the network token status
      * @return $this
      */
     public function setNotificationUrl($notification_url)
