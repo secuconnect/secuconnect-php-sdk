@@ -18,6 +18,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.61.1] - 2026-03-10
+[2.61.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.61.0...2.61.1
+
+- Update phpunit versions to solve vulnerability warning
+
+### Changed
+- `composer.json`
+
+
 ## [2.61.0] - 2026-03-10
 [2.61.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.60.0...2.61.0
 
