@@ -18,6 +18,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.61.2] - 2026-03-17
+[2.61.2]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.61.1...2.61.2
+
+*fix empty objects*: in response definition of Smart/Devices/GetSecubaseConfig
+
+### Changed
+- `Api.SmartDevicesApi`
+
+### Removed
+- `Model.SmartDevicesSecubaseConfig`
+
+
 ## [2.61.1] - 2026-03-10
 [2.61.1]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.61.0...2.61.1
 

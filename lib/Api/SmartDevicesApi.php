@@ -642,7 +642,7 @@ class SmartDevicesApi
      * @param string $smart_device_id Smart Device ID (required)
      * @param \Secuconnect\Client\Model\SmartDevicesGetSecubaseConfigDTO $body Smart Device properties 
      * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\SmartDevicesSecubaseConfig
+     * @return \Secuconnect\Client\Model\SmartDevicesSecubaseConfigApp[]
      */
     public function getSecubaseConfig($smart_device_id, $body)
     {
@@ -658,7 +658,7 @@ class SmartDevicesApi
      * @param string $smart_device_id Smart Device ID (required)
      * @param \Secuconnect\Client\Model\SmartDevicesGetSecubaseConfigDTO $body Smart Device properties 
      * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\SmartDevicesSecubaseConfig, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Secuconnect\Client\Model\SmartDevicesSecubaseConfigApp[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getSecubaseConfigWithHttpInfo($smart_device_id, $body)
     {
@@ -715,15 +715,15 @@ class SmartDevicesApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    '\Secuconnect\Client\Model\SmartDevicesSecubaseConfig',
+                    '\Secuconnect\Client\Model\SmartDevicesSecubaseConfigApp[]',
                     '/Smart/Devices/{smartDeviceId}/GetSecubaseConfig'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\SmartDevicesSecubaseConfig', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\SmartDevicesSecubaseConfigApp[]', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\SmartDevicesSecubaseConfig', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\SmartDevicesSecubaseConfigApp[]', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:
