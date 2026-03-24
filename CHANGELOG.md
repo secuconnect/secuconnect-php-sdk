@@ -18,6 +18,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.62.0] - 2026-03-23
+[2.62.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.61.2...2.62.0
+
+- *new element*: `load_date` and `basket` in `PaymentTransactionsProductModel`
+
+### Added
+- `Model.PaymentTransactionsProductModelBasket`
+- `Model.PaymentTransactionsProductModelSubBasket`
+
+### Changed
+- `Model.PaymentTransactionsProductModel`
+
+
 ## [2.61.2] - 2026-03-17
 [2.61.2]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.61.1...2.61.2
 
