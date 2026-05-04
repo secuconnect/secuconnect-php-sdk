@@ -180,7 +180,7 @@ class CreditCardDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMode
 
     /**
      * Sets owner
-     * @param string $owner Card holder name
+     * @param string $owner Card holder name  `/encryptedData/masked/card_owner` as returnd by credit card iframe
      * @return $this
      */
     public function setOwner($owner)
@@ -201,7 +201,7 @@ class CreditCardDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMode
 
     /**
      * Sets pan
-     * @param string $pan Truncated Primary Account Number (PAN)
+     * @param string $pan Masked card number (PAN)  `/encryptedData/masked/card_number` as returnd by credit card iframe
      * @return $this
      */
     public function setPan($pan)
@@ -222,7 +222,7 @@ class CreditCardDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMode
 
     /**
      * Sets expiration_date
-     * @param string $expiration_date Card expiration date, ISO-8601 formatted; one must pass 2023-06 if the card is ”valid thru 06/23“
+     * @param string $expiration_date Card expiration date, ISO-8601 formatted; one must pass \"2023-06\" if the card is ”valid thru 06/23“  `/yearExp/value` and `/monthExp/value` as returnd by credit card iframe
      * @return $this
      */
     public function setExpirationDate($expiration_date)
@@ -243,7 +243,7 @@ class CreditCardDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMode
 
     /**
      * Sets issuer
-     * @param string $issuer Card brand, like VISA or MasterCard
+     * @param string $issuer Card brand, like VISA or MasterCard  `/cardNumber/company` as returnd by credit card iframe
      * @return $this
      */
     public function setIssuer($issuer)
@@ -264,7 +264,7 @@ class CreditCardDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMode
 
     /**
      * Sets transact_container
-     * @param string $transact_container transact container
+     * @param string $transact_container `/encryptedData/crypted_container` as returnd by credit card iframe
      * @return $this
      */
     public function setTransactContainer($transact_container)
@@ -285,7 +285,7 @@ class CreditCardDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMode
 
     /**
      * Sets transact_skey_pubkey
-     * @param string $transact_skey_pubkey transact public key
+     * @param string $transact_skey_pubkey `/encryptedData/crypted_skey` as returnd by credit card iframe
      * @return $this
      */
     public function setTransactSkeyPubkey($transact_skey_pubkey)
@@ -306,7 +306,7 @@ class CreditCardDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMode
 
     /**
      * Sets transact_skey_keyname
-     * @param string $transact_skey_keyname transact key name
+     * @param string $transact_skey_keyname `/encryptedData/key_filename` as returnd by credit card iframe
      * @return $this
      */
     public function setTransactSkeyKeyname($transact_skey_keyname)
@@ -327,7 +327,7 @@ class CreditCardDescriptor implements ArrayAccess, OneOfPaymentContainersDTOMode
 
     /**
      * Sets transact_hash
-     * @param string $transact_hash transact hash
+     * @param string $transact_hash `/encryptedData/container_hash` as returnd by credit card iframe
      * @return $this
      */
     public function setTransactHash($transact_hash)

@@ -201,7 +201,7 @@ class PaymentContext implements ArrayAccess
 
     /**
      * Sets payment_methods
-     * @param string[] $payment_methods Wanted payment methods:  - `\"creditcard\"` - `\"debit\"` - `\"easycredit\"` - `\"giropay\"` - `\"invoice\"` - `\"paypal\"` - `\"prepaid\"` - `\"sofort\"`
+     * @param string[] $payment_methods Restricts the payment methods available in Smart Checkout to the specified methods:  - `\"creditcard\"` - `\"debit\"` - `\"easycredit\"` - `\"giropay\"` - `\"invoice\"` - `\"paypal\"` - `\"prepaid\"` - `\"sofort\"`  If no value is provided, the available payment methods are restricted only by those contractually agreed for the given currency.
      * @return $this
      */
     public function setPaymentMethods($payment_methods)
