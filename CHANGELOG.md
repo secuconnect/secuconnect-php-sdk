@@ -18,6 +18,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.63.0] - 2026-05-04
+[2.63.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.62.0...2.63.0
+
+### Changed
+- `Model.CreditCardDescriptor`
+- `Model.PaymentContext`
+
+
 ## [2.62.0] - 2026-03-23
 [2.62.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.61.2...2.62.0
 
