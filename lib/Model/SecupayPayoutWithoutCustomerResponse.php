@@ -26,7 +26,9 @@ class SecupayPayoutWithoutCustomerResponse extends SecupayPayoutWithoutCustomerD
       */
     protected static $swaggerTypes = [
         'trans_id' => 'int',
-        'transfer_account' => '\Secuconnect\Client\Model\PaymentInformation'
+        'transfer_account' => '\Secuconnect\Client\Model\PaymentInformation',
+        'documents' => '\Secuconnect\Client\Model\SecupayPayoutDocuments',
+        'id' => '\Secuconnect\Client\Model\PCI_ID'
     ];
 
     /**
@@ -35,7 +37,9 @@ class SecupayPayoutWithoutCustomerResponse extends SecupayPayoutWithoutCustomerD
       */
     protected static $swaggerFormats = [
         'trans_id' => null,
-        'transfer_account' => null
+        'transfer_account' => null,
+        'documents' => null,
+        'id' => null
     ];
 
     public static function swaggerTypes()
@@ -54,7 +58,9 @@ class SecupayPayoutWithoutCustomerResponse extends SecupayPayoutWithoutCustomerD
      */
     protected static $attributeMap = [
         'trans_id' => 'trans_id',
-        'transfer_account' => 'transfer_account'
+        'transfer_account' => 'transfer_account',
+        'documents' => 'documents',
+        'id' => 'id'
     ];
 
     /**
@@ -63,7 +69,9 @@ class SecupayPayoutWithoutCustomerResponse extends SecupayPayoutWithoutCustomerD
      */
     protected static $setters = [
         'trans_id' => 'setTransId',
-        'transfer_account' => 'setTransferAccount'
+        'transfer_account' => 'setTransferAccount',
+        'documents' => 'setDocuments',
+        'id' => 'setId'
     ];
 
     /**
@@ -72,7 +80,9 @@ class SecupayPayoutWithoutCustomerResponse extends SecupayPayoutWithoutCustomerD
      */
     protected static $getters = [
         'trans_id' => 'getTransId',
-        'transfer_account' => 'getTransferAccount'
+        'transfer_account' => 'getTransferAccount',
+        'documents' => 'getDocuments',
+        'id' => 'getId'
     ];
 
     public static function attributeMap()
@@ -100,6 +110,8 @@ class SecupayPayoutWithoutCustomerResponse extends SecupayPayoutWithoutCustomerD
 
         $this->container['trans_id'] = isset($data['trans_id']) ? $data['trans_id'] : null;
         $this->container['transfer_account'] = isset($data['transfer_account']) ? $data['transfer_account'] : null;
+        $this->container['documents'] = isset($data['documents']) ? $data['documents'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
     /**
@@ -164,6 +176,48 @@ class SecupayPayoutWithoutCustomerResponse extends SecupayPayoutWithoutCustomerD
     public function setTransferAccount($transfer_account)
     {
         $this->container['transfer_account'] = $transfer_account;
+
+        return $this;
+    }
+
+    /**
+     * Gets documents
+     * @return \Secuconnect\Client\Model\SecupayPayoutDocuments
+     */
+    public function getDocuments()
+    {
+        return $this->container['documents'];
+    }
+
+    /**
+     * Sets documents
+     * @param \Secuconnect\Client\Model\SecupayPayoutDocuments $documents documents
+     * @return $this
+     */
+    public function setDocuments($documents)
+    {
+        $this->container['documents'] = $documents;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     * @return \Secuconnect\Client\Model\PCI_ID
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     * @param \Secuconnect\Client\Model\PCI_ID $id id
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
 
         return $this;
     }
