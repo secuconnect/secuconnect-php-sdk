@@ -5,15 +5,14 @@ namespace Secuconnect\Client\Model;
 use \ArrayAccess;
 
 /**
- * SmartTransactionsPrepareCallbackUrls
+ * SecupayPayoutDocuments
  *
  * @category Class
- * @description Return URLs for external payment authorization.  _Note: Please don&#x27;t mix them up with the return URLs for Smart Checkout. These here are intended for custom checkout implementations to catch the user when he returns from 3-D Secure, PayPal, Pay by Bank, and the like._
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartTransactionsPrepareCallbackUrls implements ArrayAccess
+class SecupayPayoutDocuments implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -21,15 +20,16 @@ class SmartTransactionsPrepareCallbackUrls implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'SmartTransactionsPrepareCallbackUrls';
+    protected static $swaggerModelName = 'SecupayPayoutDocuments';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'success_url' => 'string',
-        'failure_url' => 'string'
+        'url' => 'string',
+        'type' => 'string',
+        'document_type' => 'string'
     ];
 
     /**
@@ -37,8 +37,9 @@ class SmartTransactionsPrepareCallbackUrls implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'success_url' => null,
-        'failure_url' => null
+        'url' => null,
+        'type' => null,
+        'document_type' => null
     ];
 
     public static function swaggerTypes()
@@ -56,8 +57,9 @@ class SmartTransactionsPrepareCallbackUrls implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'success_url' => 'success_url',
-        'failure_url' => 'failure_url'
+        'url' => 'url',
+        'type' => 'type',
+        'document_type' => 'document_type'
     ];
 
     /**
@@ -65,8 +67,9 @@ class SmartTransactionsPrepareCallbackUrls implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'success_url' => 'setSuccessUrl',
-        'failure_url' => 'setFailureUrl'
+        'url' => 'setUrl',
+        'type' => 'setType',
+        'document_type' => 'setDocumentType'
     ];
 
     /**
@@ -74,8 +77,9 @@ class SmartTransactionsPrepareCallbackUrls implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'success_url' => 'getSuccessUrl',
-        'failure_url' => 'getFailureUrl'
+        'url' => 'getUrl',
+        'type' => 'getType',
+        'document_type' => 'getDocumentType'
     ];
 
     public static function attributeMap()
@@ -105,8 +109,9 @@ class SmartTransactionsPrepareCallbackUrls implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['success_url'] = isset($data['success_url']) ? $data['success_url'] : null;
-        $this->container['failure_url'] = isset($data['failure_url']) ? $data['failure_url'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['document_type'] = isset($data['document_type']) ? $data['document_type'] : null;
     }
 
     /**
@@ -134,43 +139,64 @@ class SmartTransactionsPrepareCallbackUrls implements ArrayAccess
 
 
     /**
-     * Gets success_url
+     * Gets url
      * @return string
      */
-    public function getSuccessUrl()
+    public function getUrl()
     {
-        return $this->container['success_url'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets success_url
-     * @param string $success_url Shop URL for successful external authorization or payment
+     * Sets url
+     * @param string $url URL of the document
      * @return $this
      */
-    public function setSuccessUrl($success_url)
+    public function setUrl($url)
     {
-        $this->container['success_url'] = $success_url;
+        $this->container['url'] = $url;
 
         return $this;
     }
 
     /**
-     * Gets failure_url
+     * Gets type
      * @return string
      */
-    public function getFailureUrl()
+    public function getType()
     {
-        return $this->container['failure_url'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets failure_url
-     * @param string $failure_url Shop URL for failed external authorization or payment
+     * Sets type
+     * @param string $type Datatype of the document, f.e. pdf
      * @return $this
      */
-    public function setFailureUrl($failure_url)
+    public function setType($type)
     {
-        $this->container['failure_url'] = $failure_url;
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets document_type
+     * @return string
+     */
+    public function getDocumentType()
+    {
+        return $this->container['document_type'];
+    }
+
+    /**
+     * Sets document_type
+     * @param string $document_type Description of the document type
+     * @return $this
+     */
+    public function setDocumentType($document_type)
+    {
+        $this->container['document_type'] = $document_type;
 
         return $this;
     }

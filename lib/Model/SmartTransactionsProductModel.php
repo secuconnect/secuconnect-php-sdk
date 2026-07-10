@@ -1281,7 +1281,7 @@ class SmartTransactionsProductModel extends BaseProductModel
 
     /**
      * Sets iframe_url
-     * @param string $iframe_url URL for external authorization (credit with card 3-D Secure, PayPal, Sofort, etc.)
+     * @param string $iframe_url URL for external authorization (credit with card 3-D Secure, PayPal, Pay by Bank, etc.)
      * @return $this
      */
     public function setIframeUrl($iframe_url)

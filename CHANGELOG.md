@@ -18,6 +18,23 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.63.0] - 2026-07-10
+[2.63.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.62.0...2.63.0
+
+- *new element*: `documents` and `id` in `SecupayPayoutWithoutCustomerResponse`
+
+### Added
+- `Model.SecupayPayoutDocuments`
+
+### Changed
+- `Api.SmartTransactionsApi`
+- `Model.PaymentContext`
+- `Model.SecupayPayoutWithoutCustomerResponse`
+- `Model.SmartTransactionsPaymentLinks`
+- `Model.SmartTransactionsPrepareCallbackUrls`
+- `Model.SmartTransactionsProductModel`
+
+
 ## [2.63.0] - 2026-05-04
 [2.63.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.62.0...2.63.0
 

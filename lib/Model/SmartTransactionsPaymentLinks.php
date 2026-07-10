@@ -32,6 +32,7 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
         'debit' => 'string',
         'creditcard' => 'string',
         'invoice' => 'string',
+        'mc_pay_by_bank' => 'string',
         'paypal' => 'string',
         'sofort' => 'string',
         'general' => 'string'
@@ -46,6 +47,7 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
         'debit' => null,
         'creditcard' => null,
         'invoice' => null,
+        'mc_pay_by_bank' => null,
         'paypal' => null,
         'sofort' => null,
         'general' => null
@@ -70,6 +72,7 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
         'debit' => 'debit',
         'creditcard' => 'creditcard',
         'invoice' => 'invoice',
+        'mc_pay_by_bank' => 'mc_pay_by_bank',
         'paypal' => 'paypal',
         'sofort' => 'sofort',
         'general' => 'general'
@@ -84,6 +87,7 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
         'debit' => 'setDebit',
         'creditcard' => 'setCreditcard',
         'invoice' => 'setInvoice',
+        'mc_pay_by_bank' => 'setMcPayByBank',
         'paypal' => 'setPaypal',
         'sofort' => 'setSofort',
         'general' => 'setGeneral'
@@ -98,6 +102,7 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
         'debit' => 'getDebit',
         'creditcard' => 'getCreditcard',
         'invoice' => 'getInvoice',
+        'mc_pay_by_bank' => 'getMcPayByBank',
         'paypal' => 'getPaypal',
         'sofort' => 'getSofort',
         'general' => 'getGeneral'
@@ -134,6 +139,7 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
         $this->container['debit'] = isset($data['debit']) ? $data['debit'] : null;
         $this->container['creditcard'] = isset($data['creditcard']) ? $data['creditcard'] : null;
         $this->container['invoice'] = isset($data['invoice']) ? $data['invoice'] : null;
+        $this->container['mc_pay_by_bank'] = isset($data['mc_pay_by_bank']) ? $data['mc_pay_by_bank'] : null;
         $this->container['paypal'] = isset($data['paypal']) ? $data['paypal'] : null;
         $this->container['sofort'] = isset($data['sofort']) ? $data['sofort'] : null;
         $this->container['general'] = isset($data['general']) ? $data['general'] : null;
@@ -243,6 +249,27 @@ class SmartTransactionsPaymentLinks implements ArrayAccess
     public function setInvoice($invoice)
     {
         $this->container['invoice'] = $invoice;
+
+        return $this;
+    }
+
+    /**
+     * Gets mc_pay_by_bank
+     * @return string
+     */
+    public function getMcPayByBank()
+    {
+        return $this->container['mc_pay_by_bank'];
+    }
+
+    /**
+     * Sets mc_pay_by_bank
+     * @param string $mc_pay_by_bank URL for Pay by Bank (Mastercard)
+     * @return $this
+     */
+    public function setMcPayByBank($mc_pay_by_bank)
+    {
+        $this->container['mc_pay_by_bank'] = $mc_pay_by_bank;
 
         return $this;
     }
