@@ -27,7 +27,7 @@ class SecupayPayoutWithoutCustomerResponse extends SecupayPayoutWithoutCustomerD
     protected static $swaggerTypes = [
         'trans_id' => 'int',
         'transfer_account' => '\Secuconnect\Client\Model\PaymentInformation',
-        'documents' => '\Secuconnect\Client\Model\SecupayPayoutDocuments',
+        'documents' => '\Secuconnect\Client\Model\SecupayPayoutDocuments[]',
         'id' => '\Secuconnect\Client\Model\PCI_ID'
     ];
 
@@ -182,7 +182,7 @@ class SecupayPayoutWithoutCustomerResponse extends SecupayPayoutWithoutCustomerD
 
     /**
      * Gets documents
-     * @return \Secuconnect\Client\Model\SecupayPayoutDocuments
+     * @return \Secuconnect\Client\Model\SecupayPayoutDocuments[]
      */
     public function getDocuments()
     {
@@ -191,7 +191,7 @@ class SecupayPayoutWithoutCustomerResponse extends SecupayPayoutWithoutCustomerD
 
     /**
      * Sets documents
-     * @param \Secuconnect\Client\Model\SecupayPayoutDocuments $documents documents
+     * @param \Secuconnect\Client\Model\SecupayPayoutDocuments[] $documents documents
      * @return $this
      */
     public function setDocuments($documents)

@@ -8,7 +8,7 @@ use \ArrayAccess;
  * PaymentTransactionsProductModelSubBasket
  *
  * @category Class
- * @description Transaction Basket Items
+ * @description Basket items
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
