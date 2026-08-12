@@ -6,7 +6,7 @@ namespace Secuconnect\Client\Model;
  * PaymentTransactionsProductModelBasket
  *
  * @category Class
- * @description Transaction Basket Items
+ * @description Basket items or sub-baskets
  * @package  Secuconnect\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
