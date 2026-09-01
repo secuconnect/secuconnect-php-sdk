@@ -67,7 +67,7 @@ class PaymentContainersApi
      *
      * @param string $payment_container_id Payment Container ID (required)
      * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\ResultBoolean
+     * @return \Secuconnect\Client\Model\PaymentContainersProductModel
      */
     public function archiveContainer($payment_container_id)
     {
@@ -82,7 +82,7 @@ class PaymentContainersApi
      *
      * @param string $payment_container_id Payment Container ID (required)
      * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\ResultBoolean, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Secuconnect\Client\Model\PaymentContainersProductModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function archiveContainerWithHttpInfo($payment_container_id)
     {
@@ -134,15 +134,15 @@ class PaymentContainersApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    '\Secuconnect\Client\Model\ResultBoolean',
+                    '\Secuconnect\Client\Model\PaymentContainersProductModel',
                     '/Payment/Containers/{paymentContainerId}/archive'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\ResultBoolean', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentContainersProductModel', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\ResultBoolean', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentContainersProductModel', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:
@@ -540,7 +540,7 @@ class PaymentContainersApi
      *
      * @param string $payment_container_id Payment Container ID (required)
      * @throws ApiException on non-2xx response
-     * @return \Secuconnect\Client\Model\PaymentContainersProductModel[]
+     * @return \Secuconnect\Client\Model\PaymentContainersProductModel
      */
     public function paymentContainersIdDelete($payment_container_id)
     {
@@ -555,7 +555,7 @@ class PaymentContainersApi
      *
      * @param string $payment_container_id Payment Container ID (required)
      * @throws ApiException on non-2xx response
-     * @return array of \Secuconnect\Client\Model\PaymentContainersProductModel[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Secuconnect\Client\Model\PaymentContainersProductModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function paymentContainersIdDeleteWithHttpInfo($payment_container_id)
     {
@@ -607,15 +607,15 @@ class PaymentContainersApi
                     $queryParams,
                     $httpBody,
                     $headerParams,
-                    '\Secuconnect\Client\Model\PaymentContainersProductModel[]',
+                    '\Secuconnect\Client\Model\PaymentContainersProductModel',
                     '/Payment/Containers/{paymentContainerId}'
                 );
 
-                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentContainersProductModel[]', $httpHeader), $statusCode, $httpHeader];
+                return [$this->apiClient->getSerializer()->deserialize($response, '\Secuconnect\Client\Model\PaymentContainersProductModel', $httpHeader), $statusCode, $httpHeader];
             } catch (ApiException $e) {
                 switch ($e->getCode()) {
                     case 200:
-                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentContainersProductModel[]', $e->getResponseHeaders());
+                        $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Secuconnect\Client\Model\PaymentContainersProductModel', $e->getResponseHeaders());
                         $e->setResponseObject($data);
                         break;
                     case 401:

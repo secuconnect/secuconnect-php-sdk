@@ -18,6 +18,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [2.65.0] - 2026-09-01
+[2.65.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.64.0...2.65.0
+
+- *changed response*: from `array` to `PaymentCustomersProductModel` in `Payment/Customers/paymentCustomersIdDelete`
+- *changed response*: from `array` to `PaymentContainersProductModel` in `Payment/Containers/paymentContainersIdDelete`
+- *changed response*: from `resultBoolean` to `PaymentContainersProductModel` in `Payment/Containers/archiveContainer`
+- *changed element requirement*: from `required` to `optional` in `GetAvailablePaymentMethodsDTO`
+- *changed element type*: `id` changed from `PCI_ID` to `ObjectId` in `SecupayPayoutWithoutCustomerResponse`
+
+### Changed
+- `Api.PaymentContainersApi`
+- `Api.PaymentCustomersApi`
+- `Model.GetAvailablePaymentMethodsDTO`
+- `Model.SecupayPayoutWithoutCustomerResponse`
+
+
 ## [2.64.0] - 2026-08-12
 [2.64.0]:https://github.com/secuconnect/secuconnect-php-sdk/compare/2.63.0...2.64.0
 

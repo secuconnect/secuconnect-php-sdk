@@ -111,7 +111,7 @@ class GetAvailablePaymentMethodsDTO implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['is_demo'] = isset($data['is_demo']) ? $data['is_demo'] : null;
+        $this->container['is_demo'] = isset($data['is_demo']) ? $data['is_demo'] : false;
         $this->container['apiv2_products'] = isset($data['apiv2_products']) ? $data['apiv2_products'] : null;
     }
 
@@ -126,9 +126,6 @@ class GetAvailablePaymentMethodsDTO implements ArrayAccess
 
         if ($this->container['currency'] === null) {
             $invalid_properties[] = "'currency' can't be null";
-        }
-        if ($this->container['is_demo'] === null) {
-            $invalid_properties[] = "'is_demo' can't be null";
         }
         return $invalid_properties;
     }
@@ -177,7 +174,7 @@ class GetAvailablePaymentMethodsDTO implements ArrayAccess
 
     /**
      * Sets is_demo
-     * @param bool $is_demo Demo mode. Such transactions are not actually processed.
+     * @param bool $is_demo Demo mode. If TRUE, such transactions are not actually processed.
      * @return $this
      */
     public function setIsDemo($is_demo)
