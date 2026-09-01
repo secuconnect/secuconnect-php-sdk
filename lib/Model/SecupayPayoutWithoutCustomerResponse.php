@@ -28,7 +28,7 @@ class SecupayPayoutWithoutCustomerResponse extends SecupayPayoutWithoutCustomerD
         'trans_id' => 'int',
         'transfer_account' => '\Secuconnect\Client\Model\PaymentInformation',
         'documents' => '\Secuconnect\Client\Model\SecupayPayoutDocuments[]',
-        'id' => '\Secuconnect\Client\Model\PCI_ID'
+        'id' => 'string'
     ];
 
     /**
@@ -203,7 +203,7 @@ class SecupayPayoutWithoutCustomerResponse extends SecupayPayoutWithoutCustomerD
 
     /**
      * Gets id
-     * @return \Secuconnect\Client\Model\PCI_ID
+     * @return string
      */
     public function getId()
     {
@@ -212,7 +212,7 @@ class SecupayPayoutWithoutCustomerResponse extends SecupayPayoutWithoutCustomerD
 
     /**
      * Sets id
-     * @param \Secuconnect\Client\Model\PCI_ID $id id
+     * @param string $id id
      * @return $this
      */
     public function setId($id)
